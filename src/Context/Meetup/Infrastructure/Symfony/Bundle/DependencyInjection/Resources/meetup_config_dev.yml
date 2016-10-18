@@ -1,0 +1,6 @@
+imports:
+  - { resource: meetup_config.yml }
+
+
+parameters:
+  codely.meetup.infrastructure.database.on_demand: true

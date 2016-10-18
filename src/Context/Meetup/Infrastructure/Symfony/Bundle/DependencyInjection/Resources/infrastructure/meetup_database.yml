@@ -1,0 +1,17 @@
+services:
+
+  codely.meetup.infrastructure.database:
+    class: Doctrine\ORM\EntityManager
+    factory: [CodelyTv\Context\Meetup\Infrastructure\Doctrine\ProductEntityManagerFactory, create]
+    arguments:
+      -
+        driver:   '%meetup_database_driver%'
+        host:     '%meetup_database_host%'
+        port:     '%meetup_database_port%'
+        dbname:   '%meetup_database_name%'
+        user:     '%meetup_database_user%'
+        password: '%meetup_database_password%'
+      - '%codely.meetup.root_path%'
+      - '%codely.meetup.infrastructure.database.on_demand%'
+      - '%codely.meetup.infrastructure.database.schema_file%'
+

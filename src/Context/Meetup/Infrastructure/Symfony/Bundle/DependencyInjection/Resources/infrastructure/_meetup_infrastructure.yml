@@ -1,0 +1,3 @@
+imports:
+  - { resource: meetup_arranger.yml }
+  - { resource: meetup_database.yml }

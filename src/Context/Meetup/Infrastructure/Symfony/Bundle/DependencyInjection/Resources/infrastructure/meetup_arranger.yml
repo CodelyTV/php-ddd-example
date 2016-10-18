@@ -1,0 +1,6 @@
+services:
+
+  codely.meetup.infrastructure.arranger:
+    class: CodelyTv\Context\Meetup\Test\Arranger\MeetupEnvironmentArranger
+    arguments:
+      - '@codely.meetup.infrastructure.database'

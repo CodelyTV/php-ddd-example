@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        beStrictAboutOutputDuringTests="true"
+        beStrictAboutChangesToGlobalState="true"
+        beStrictAboutTestsThatDoNotTestAnything="false"
+        beStrictAboutTodoAnnotatedTests="true"
+        bootstrap="./vendor/autoload.php"
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        processIsolation="false"
+        stopOnError="false"
+        stopOnFailure="false"
+        stopOnIncomplete="false"
+        stopOnSkipped="false"
+        stopOnRisky="false"
+        verbose="false">
+
+    <testsuites>
+        <testsuite name="Infrastructure">
+            <directory>./src/Tests</directory>
+        </testsuite>
+        <testsuite name="Modules">
+            <directory>./src/*/Module/*/Tests</directory>
+            <directory>./src/Context/*/Module/*/Tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>./src/*</directory>
+            <directory>./applications/*/src</directory>
+            <exclude>
+                <directory>./applications/*/src/Test</directory>
+                <directory>./applications/*/src/Tests</directory>
+
+                <directory>./src/Tests</directory>
+                <directory>./src/Context/*/Module/*/Tests</directory>
+                <directory>./src/Context/*/Module/*/Test</directory>
+
+                <directory>./src/Shared/Test</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+
+    <listeners>
+        <listener class="\Mockery\Adapter\Phpunit\TestListener"></listener>
+    </listeners>
+</phpunit>

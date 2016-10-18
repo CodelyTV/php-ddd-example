@@ -1,0 +1,20 @@
+imports:
+
+  - { resource: infrastructure_domain_event.yml }
+  - { resource: infrastructure_shared.yml }
+
+
+services:
+
+  codely.infrastructure.command_bus:
+    class: CodelyTv\Infrastructure\Bus\Command\CommandBusSync
+    public: false
+    lazy: true
+
+  codely.infrastructure.domain_event_publisher:
+    alias: codely.infrastructure.domain_event_publisher_sync
+
+  codely.infrastructure.oracle:
+    class: CodelyTv\Infrastructure\Bus\Query\OracleSync
+    public: false
+    lazy: true

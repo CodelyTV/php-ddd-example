@@ -1,0 +1,3 @@
+imports:
+
+  - { resource: ../../../../../../Module/Member/Infrastructure/DependencyInjection/_member_module.yml }

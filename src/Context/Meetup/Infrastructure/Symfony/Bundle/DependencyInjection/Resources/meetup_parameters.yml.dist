@@ -1,0 +1,8 @@
+parameters:
+
+  meetup_database_driver: pdo_mysql
+  meetup_database_host: 127.0.0.1
+  meetup_database_port: null
+  meetup_database_name: codely_meetup
+  meetup_database_user: root
+  meetup_database_password: null

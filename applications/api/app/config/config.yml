@@ -1,0 +1,8 @@
+imports:
+  - { resource: ../../../../global/config/config.yml }
+
+  - { resource: services/commands.yml }
+  - { resource: services/logs.yml }
+
+framework:
+  secret: '%secret%'

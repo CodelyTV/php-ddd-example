@@ -1,0 +1,10 @@
+services:
+
+  codely.meetup.command_bus:
+    alias: codely.infrastructure.command_bus
+
+  codely.meetup.oracle:
+    alias: codely.infrastructure.oracle
+
+  codely.meetup.domain_event_publisher:
+    alias: codely.infrastructure.domain_event_publisher

@@ -1,0 +1,16 @@
+applications/*/var/cache/*
+!applications/*/var/cache/.gitkeep
+
+applications/*/var/logs/*
+!applications/*/var/logs/.gitkeep
+
+applications/*/app/config/parameters.yml
+
+global/config/parameters.yml
+
+src/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/infrastructure_parameters.yml
+src/Context/*/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/*_parameters.yml
+
+phpunit.xml
+
+vendor/

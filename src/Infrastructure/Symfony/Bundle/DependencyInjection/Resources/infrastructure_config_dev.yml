@@ -1,0 +1,2 @@
+imports:
+  - { resource: infrastructure_config.yml }
