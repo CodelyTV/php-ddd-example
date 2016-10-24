@@ -25,7 +25,7 @@ final class CommandBusSync implements CommandBus
         $this->router->route($commandClass)->to($handler);
     }
 
-    /** @todo Raise own exception is there is no handler */
+    /** @todo Raise own exception if there is no handler */
     public function dispatch(Command $command)
     {
         $this->attachRouter();

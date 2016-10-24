@@ -2,6 +2,7 @@
 
 namespace CodelyTv\Test\PhpUnit\TestCase\Module;
 
+use CodelyTv\Infrastructure\Bus\Command\Command;
 use CodelyTv\Infrastructure\Bus\Command\CommandBus;
 use CodelyTv\Infrastructure\Bus\Event\DomainEvent;
 use CodelyTv\Infrastructure\Bus\Event\DomainEventPublisher;
@@ -89,6 +90,11 @@ abstract class ModuleUnitTestCase extends UnitTestCase
         $this->expectException($exceptionClass);
 
         $this->notify($event, $subscriber);
+    }
+
+    protected function dispatch(Command $command, callable $handler)
+    {
+        $handler($command);
     }
 
     /** @param DomainEvent[] $events */

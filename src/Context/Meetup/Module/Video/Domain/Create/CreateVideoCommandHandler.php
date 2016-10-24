@@ -5,10 +5,9 @@ namespace CodelyTv\Context\Meetup\Module\Video\Domain\Create;
 use CodelyTv\Context\Meetup\Module\Video\Domain\VideoId;
 use CodelyTv\Context\Meetup\Module\Video\Domain\VideoTitle;
 use CodelyTv\Context\Meetup\Module\Video\Domain\VideoUrl;
-use CodelyTv\Infrastructure\Bus\Command\Command;
 use CodelyTv\Shared\Domain\CourseId;
 
-final class CreateVideoCommandHandler implements Command
+final class CreateVideoCommandHandler
 {
     private $creator;
 
