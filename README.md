@@ -1,4 +1,4 @@
-<img src="https://codely-logo.jpg" align="left" width="192px" height="192px"/>
+<img src="http://codely.tv/wp-content/uploads/2016/05/cropped-logo-codelyTV.png" align="left" width="192px" height="192px"/>
 <img align="left" width="0" height="192px" hspace="10"/>
 
 > Keep it simple :)
@@ -10,3 +10,23 @@
 Trust in **Codely**, trust in **you**.
 
 ## Quick Start
+This is a simple demo of a CQRS project.
+
+### 1. Clone this repo
+Execute: `git clone https://github.com/codelytv/cqrs-project`
+
+### 2. Install all the dependencies
+Composer is used to handle the dependencies. You can download it executing:
+`curl -sS https://getcomposer.org/installer | php`
+
+And then you can install all the dependencies executing:
+`php composer.phar install`
+
+### 3. Run the tests!
+Once you have all the dependencies, in order to execute the tests, run this command:
+`vendor/bin/phpunit`
+
+
+## Contributing
+There are some things missing (all api related stuff, documentation...), feel free to add this if you want! If you want 
+some guidelines feel free to contact us :)
