@@ -13,7 +13,7 @@ Trust in **Codely**, trust in **you**.
 This is a simple demo of a CQRS project.
 
 ### 1. Clone this repo
-Execute: `git clone https://github.com/codelytv/cqrs-project`
+Execute: `git clone https://github.com/CodelyTV/cqrs-ddd-example`
 
 ### 2. Install all the dependencies
 Composer is used to handle the dependencies. You can download it executing:
@@ -30,3 +30,6 @@ Once you have all the dependencies, in order to execute the tests, run this comm
 ## Contributing
 There are some things missing (all api related stuff, documentation...), feel free to add this if you want! If you want 
 some guidelines feel free to contact us :)
+
+## Extra
+This code was show in the [From framework coupled code to #microservices through #DDD](http://codely.tv/screencasts/codigo-acoplado-framework-microservicios-ddd) talk.
