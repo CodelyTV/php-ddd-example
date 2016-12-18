@@ -1,0 +1,3 @@
+imports:
+  - behat/api.yml
+  - behat/applications.yml
