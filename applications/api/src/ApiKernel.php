@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Api;
 
-use CodelyTv\Context\Meetup\Infrastructure\Symfony\Bundle\CodelyTvMeetupBundle;
+use CodelyTv\Context\Video\Infrastructure\Symfony\Bundle\CodelyTvVideoBundle;
 use CodelyTv\Infrastructure\Symfony\Bundle\CodelyTvInfrastructureBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\MonologBundle\MonologBundle;
@@ -15,7 +15,7 @@ class ApiKernel extends Kernel
     {
         return [
             new CodelyTvInfrastructureBundle(),
-            new CodelyTvMeetupBundle(),
+            new CodelyTvVideoBundle(),
 
             new FrameworkBundle(),
 

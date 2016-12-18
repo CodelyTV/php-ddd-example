@@ -1,0 +1,4 @@
+imports:
+
+  - { resource: video_infrastructure.yml }
+  - { resource: video_services.yml }

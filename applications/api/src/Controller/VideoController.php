@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Api\Controller;
 
-use CodelyTv\Context\Meetup\Module\Video\Domain\Create\CreateVideoCommand;
+use CodelyTv\Context\Video\Module\Video\Domain\Create\CreateVideoCommand;
 use CodelyTv\Infrastructure\Bus\Command\CommandBus;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;

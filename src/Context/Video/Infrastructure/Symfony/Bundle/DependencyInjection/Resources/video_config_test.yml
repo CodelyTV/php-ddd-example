@@ -1,0 +1,6 @@
+imports:
+  - { resource: video_config_dev.yml }
+
+
+parameters:
+  video_database_name: codely_video_tests_%kernel.name%

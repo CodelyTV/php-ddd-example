@@ -1,6 +1,0 @@
-parameters:
-
-  codely.meetup.root_path: '%kernel.root_dir%/../../src/Context/Product/'
-
-  codely.meetup.infrastructure.database.on_demand: false
-  codely.meetup.infrastructure.database.schema_file: '%kernel.root_dir%/../../databases/meetup.sql'

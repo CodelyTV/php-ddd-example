@@ -1,0 +1,8 @@
+parameters:
+
+  video_database_driver: pdo_mysql
+  video_database_host: 127.0.0.1
+  video_database_port: null
+  video_database_name: codely_video
+  video_database_user: root
+  video_database_password: null

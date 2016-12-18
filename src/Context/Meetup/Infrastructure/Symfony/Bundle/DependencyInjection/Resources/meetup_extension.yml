@@ -1,5 +1,0 @@
-imports:
-  - { resource: infrastructure/_meetup_infrastructure.yml }
-  - { resource: modules/_meetup_modules.yml }
-  - { resource: services/_meetup_services.yml }
-  - { resource: meetup_parameters.yml }

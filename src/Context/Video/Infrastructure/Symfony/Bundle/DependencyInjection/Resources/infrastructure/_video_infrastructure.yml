@@ -1,0 +1,3 @@
+imports:
+  - { resource: video_arranger.yml }
+  - { resource: video_database.yml }

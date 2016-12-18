@@ -1,0 +1,10 @@
+services:
+
+  codely.video.command_bus:
+    alias: codely.infrastructure.command_bus
+
+  codely.video.oracle:
+    alias: codely.infrastructure.oracle
+
+  codely.video.domain_event_publisher:
+    alias: codely.infrastructure.domain_event_publisher

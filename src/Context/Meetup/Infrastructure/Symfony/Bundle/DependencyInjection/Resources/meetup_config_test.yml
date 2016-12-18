@@ -1,6 +1,0 @@
-imports:
-  - { resource: meetup_config_dev.yml }
-
-
-parameters:
-  meetup_database_name: codely_meetup_tests_%kernel.name%
