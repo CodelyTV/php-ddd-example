@@ -2,7 +2,7 @@ services:
 
   codely.video.infrastructure.database:
     class: Doctrine\ORM\EntityManager
-    factory: [CodelyTv\Context\Video\Infrastructure\Doctrine\ProductEntityManagerFactory, create]
+    factory: [CodelyTv\Context\Video\Infrastructure\Doctrine\VideoEntityManagerFactory, create]
     arguments:
       -
         driver:   '%video_database_driver%'

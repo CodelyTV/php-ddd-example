@@ -3,6 +3,7 @@
 namespace CodelyTv\Test\PhpUnit\TestCase;
 
 use CodelyTv\Api\ApiKernel;
+use CodelyTv\CodelyKernel;
 
 abstract class FunctionalTestCase extends UnitTestCase
 {
@@ -28,7 +29,7 @@ abstract class FunctionalTestCase extends UnitTestCase
 
     private function kernel()
     {
-        return $this->kernel = $this->kernel ?: new ApiKernel('test', true);
+        return $this->kernel = $this->kernel ?: new CodelyKernel('test', true);
     }
 
     private function container()

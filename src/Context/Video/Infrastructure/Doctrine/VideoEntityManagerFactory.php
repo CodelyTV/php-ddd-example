@@ -5,10 +5,11 @@ namespace CodelyTv\Context\Video\Infrastructure\Doctrine;
 use CodelyTv\Infrastructure\Doctrine\DoctrineEntityManagerFactory;
 use function Lambdish\Phunctional\apply;
 
-final class ProductEntityManagerFactory
+final class VideoEntityManagerFactory
 {
     private static $namespace = 'CodelyTv\Context\Video\Module';
     private static $prefixes  = [
+        'Video\Domain' => 'Module/Video/Infrastructure/Persistence',
     ];
 
     public static function create(array $parameters, $rootPath, $onDemand, $schemaFile)

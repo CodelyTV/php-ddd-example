@@ -2,6 +2,8 @@
 
 namespace CodelyTv\Infrastructure\Doctrine\DBAL;
 
+use CodelyTv\Context\Video\Module\Video\Infrastructure\Persistence\VideoIdType;
+use CodelyTv\Shared\Infrastructure\Persistence\Course\CourseIdType;
 use Doctrine\DBAL\Types\Type;
 use function Lambdish\Phunctional\each;
 
@@ -10,6 +12,8 @@ final class DbalTypesRegistrar
     private static $initialized = false;
     private static $types       = [
         DateTimeImmutableType::NAME => DateTimeImmutableType::class,
+        VideoIdType::NAME           => VideoIdType::class,
+        CourseIdType::NAME          => CourseIdType::class,
     ];
 
     public static function register()

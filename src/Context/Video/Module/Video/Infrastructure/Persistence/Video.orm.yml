@@ -1,0 +1,22 @@
+CodelyTv\Context\Video\Module\Video\Domain\Video:
+  type:  entity
+  table: video
+
+  id:
+    id:
+      type: video_id
+      column: id
+      length: 36
+
+  fields:
+    courseId:
+      type: course_id
+      column: course_id
+
+  embedded:
+    title:
+      class: CodelyTv\Context\Video\Module\Video\Domain\VideoTitle
+      columnPrefix: false
+    url:
+      class: CodelyTv\Context\Video\Module\Video\Domain\VideoUrl
+      columnPrefix: false

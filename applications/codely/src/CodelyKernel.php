@@ -2,7 +2,10 @@
 
 namespace CodelyTv;
 
+use CodelyTv\Context\Video\Infrastructure\Symfony\Bundle\CodelyTvVideoBundle;
+use CodelyTv\Infrastructure\Symfony\Bundle\CodelyTvInfrastructureBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
+use Symfony\Bundle\MonologBundle\MonologBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 
@@ -12,6 +15,11 @@ class CodelyKernel extends Kernel
     {
         return [
             new FrameworkBundle(),
+
+            new MonologBundle(),
+
+            new CodelyTvInfrastructureBundle(),
+            new CodelyTvVideoBundle(),
         ];
     }
 

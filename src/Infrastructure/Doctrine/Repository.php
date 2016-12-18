@@ -2,9 +2,9 @@
 
 namespace CodelyTv\Infrastructure\Doctrine;
 
+use CodelyTv\Types\Aggregate\AggregateRoot;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
-use CodelyTv\Types\Aggregate\AggregateRoot;
 
 abstract class Repository
 {
@@ -15,7 +15,7 @@ abstract class Repository
         $this->entityManager = $entityManager;
     }
 
-    protected function entityManager() : EntityManager
+    protected function entityManager(): EntityManager
     {
         return $this->entityManager;
     }
@@ -46,7 +46,7 @@ abstract class Repository
         };
     }
 
-    protected function repository($entityClass) : EntityRepository
+    protected function repository($entityClass): EntityRepository
     {
         return $this->entityManager->getRepository($entityClass);
     }
