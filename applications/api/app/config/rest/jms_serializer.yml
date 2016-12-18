@@ -1,0 +1,20 @@
+jms_serializer:
+
+  visitors:
+    json:
+      options: JSON_PRETTY_PRINT
+
+
+services:
+
+  codely.api.serializer.metadata.php_driver:
+    class: CodelyTv\Api\Infrastructure\Serializer\ApiSerializerDriver
+
+  jms_serializer.metadata_driver:
+    alias: codely.api.serializer.metadata.php_driver
+
+
+parameters:
+
+  jms_serializer.infer_types_from_doctrine_metadata: false
+  jms_serializer.datetime_handler.class: CodelyTv\Api\Infrastructure\Serializer\DateTimeHandler

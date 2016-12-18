@@ -1,0 +1,15 @@
+fos_rest:
+
+  format_listener:
+    rules:
+      -
+        path:             ~
+        host:             ~
+        prefer_extension: false
+        fallback_format:  json
+
+  view:
+    view_response_listener: force
+
+  serializer:
+    serialize_null: true

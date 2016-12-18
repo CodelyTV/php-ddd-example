@@ -1,0 +1,6 @@
+imports:
+  - { resource: event_subscribers.yml }
+  - { resource: fos_rest.yml }
+  - { resource: jms_serializer.yml }
+  - { resource: controllers.yml }
+  - { resource: twig.yml }

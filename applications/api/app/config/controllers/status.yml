@@ -1,0 +1,4 @@
+services:
+
+  codely.api.controller.status.get:
+    class: CodelyTv\Api\Controller\Status\StatusGetController

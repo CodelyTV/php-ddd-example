@@ -1,0 +1,25 @@
+services:
+
+  codely.api.subscriber.exception_response:
+    class: CodelyTv\Api\Infrastructure\EventSubscriber\ApiExceptionSubscriber
+    arguments:
+      - '@fos_rest.view_handler.default'
+      - '@codely.api.exception_handler'
+    tags:
+      - { name: kernel.event_subscriber }
+
+  codely.api.subscriber.exception_logger:
+    class: CodelyTv\Api\Infrastructure\EventSubscriber\ApiExceptionLoggerSubscriber
+    arguments:
+      - '@monolog.logger.api'
+      - '@codely.api.exception_handler'
+    tags:
+      - { name: kernel.event_subscriber }
+
+  codely.api.subscriber.response_view:
+    class: CodelyTv\Api\Infrastructure\EventSubscriber\ApiResponseViewSubscriber
+    tags:
+      - { name: kernel.event_subscriber }
+
+  codely.api.exception_handler:
+    class: CodelyTv\Api\Infrastructure\Exception\ApiExceptionsHttpStatusCodeMapping
