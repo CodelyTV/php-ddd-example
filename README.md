@@ -3,7 +3,7 @@
 
 > Keep it simple :)
 
-[![CodelyTV](https://img.shields.io/badge/code-codely-green.svg?style=flat-square)](codely.tv)
+[![CodelyTV](https://img.shields.io/badge/code-codely-green.svg?style=flat-square)](codely.tv) [![CircleCI](https://circleci.com/gh/CodelyTV/cqrs-ddd-example/tree/master.svg?style=svg&circle-token=ce12d04556fa79b78bb2beefa0356a6f6934b26b)](https://circleci.com/gh/CodelyTV/cqrs-ddd-example/tree/master)
 
 **CodelyTv** is the way to rediscover the programming ;) Trusted by more than 1000 youtube subscribers.
 
