@@ -11,12 +11,13 @@ final class VideoPostController extends ApiController
 {
     protected function exceptions(): array
     {
+        return [];
     }
 
-    public function __invoke(string $id, Request $request)
+    public function __invoke(Request $request)
     {
         $command = new CreateVideoCommand(
-            $id,
+            $request->get('id'),
             $request->get('title'),
             $request->get('url'),
             $request->get('course_id')

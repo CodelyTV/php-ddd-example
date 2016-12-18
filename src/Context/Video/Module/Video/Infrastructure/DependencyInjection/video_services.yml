@@ -2,18 +2,18 @@ services:
 
   # Command Handlers
 
-  letgo.video.video.command_handler.create_video:
+  codely.video.video.command_handler.create_video:
     class: CodelyTv\Context\Video\Module\Video\Domain\Create\CreateVideoCommandHandler
     arguments:
-      - '@letgo.video.video.video_creator'
+      - '@codely.video.video.video_creator'
     tags:
-      - { name: 'letgo.video.command' }
+      - { name: 'codely.video.command' }
     public: false
 
 
   # Services
 
-  letgo.video.video.video_creator:
+  codely.video.video.video_creator:
     class: CodelyTv\Context\Video\Module\Video\Domain\Create\VideoCreator
     arguments:
      - '@codely.video.video.repository'

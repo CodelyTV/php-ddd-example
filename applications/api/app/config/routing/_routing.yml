@@ -1,2 +1,5 @@
 status:
   resource: status.yml
+
+video:
+  resource: video.yml

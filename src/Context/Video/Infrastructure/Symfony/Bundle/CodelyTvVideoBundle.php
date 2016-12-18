@@ -20,6 +20,6 @@ class CodelyTvVideoBundle extends Bundle
         $container->addCompilerPass(new OracleCompilerPass('codely.video.query'));
         $container->addCompilerPass(new DomainEventPublisherCompilerPass('codely.video.subscriber'));
         $container->addCompilerPass(new DomainEventSubscribersConfigurationCompilerPass('codely.video.subscriber'));
-        $container->addCompilerPass(new DatabasesConnectionCompilerPass('letgo.video.database'));
+        $container->addCompilerPass(new DatabasesConnectionCompilerPass('codely.video.database'));
     }
 }

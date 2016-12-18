@@ -15,4 +15,4 @@ services:
       - '%codely.video.infrastructure.database.on_demand%'
       - '%codely.video.infrastructure.database.schema_file%'
     tags:
-      - { name: letgo.video.database }
+      - { name: codely.video.database }

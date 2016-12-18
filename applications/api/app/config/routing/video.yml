@@ -1,0 +1,4 @@
+video_post:
+  path:     /video
+  defaults: { _controller: codely.api.controller.video.post }
+  methods:  [POST]

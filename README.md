@@ -25,11 +25,13 @@ And then you can install all the dependencies executing:
 ### 3. Run the tests!
 Once you have all the dependencies, in order to execute the tests, run this command:
 `vendor/bin/phpunit`
-
+`vendor/bin/behat -p applications`
+`vendor/bin/behat -p api`
 
 ## Contributing
-There are some things missing (all api related stuff, documentation...), feel free to add this if you want! If you want 
+There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want 
 some guidelines feel free to contact us :)
 
 ## Extra
-This code was show in the [From framework coupled code to #microservices through #DDD](http://codely.tv/screencasts/codigo-acoplado-framework-microservicios-ddd) talk.
+This code was show in the [From framework coupled code to #microservices through #DDD](http://codely.tv/screencasts/codigo-acoplado-framework-microservicios-ddd) talk
+and doubts where answered in [DDD y CQRS: Preguntas Frecuentes](http://codely.tv/screencasts/ddd-cqrs-preguntas-frecuentes/) video.

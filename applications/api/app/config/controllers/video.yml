@@ -1,0 +1,5 @@
+services:
+
+  codely.api.controller.video.post:
+    class: CodelyTv\Api\Controller\Video\VideoPostController
+    parent: codely.api.controller
