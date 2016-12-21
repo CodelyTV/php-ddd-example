@@ -1,0 +1,12 @@
+services:
+
+  codely.video.notification.repository:
+    class: CodelyTv\Context\Video\Module\Notification\Infrastructure\Persistence\MySqlNotificationRepository
+    arguments:
+     - '@codely.video.infrastructure.database'
+
+  codely.video.notification.notifier:
+    class: CodelyTv\Context\Video\Module\Notification\Infrastructure\Notifier\EmailNotifier
+    arguments:
+     - '%video_notification_email_username%'
+     - '%video_notification_email_password%'

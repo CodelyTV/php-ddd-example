@@ -6,3 +6,6 @@ parameters:
   video_database_name: codely_video
   video_database_user: root
   video_database_password: null
+
+  video_notification_email_username: 'your@email.com'
+  video_notification_email_password: 'yourSecretPassword'

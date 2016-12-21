@@ -1,0 +1,35 @@
+services:
+
+  # Subscriber
+
+  codely.video.notification.subscriber.create_notification_on_video_created:
+    class: CodelyTv\Context\Video\Module\Notification\Domain\Create\CreateNotificationOnVideoCreated
+    arguments:
+      - '@codely.video.notification.notification_creator'
+    tags:
+      - { name: 'codely.video.subscriber' }
+    public: false
+
+  codely.video.notification.subscriber.send_notification_on_notification_created:
+    class: CodelyTv\Context\Video\Module\Notification\Domain\Send\SendStaffNotificationOnNotificationCreated
+    arguments:
+      - '@codely.video.notification.notification_sender'
+    tags:
+      - { name: 'codely.video.subscriber' }
+    public: false
+
+
+  # Services
+
+  codely.video.notification.notification_creator:
+    class: CodelyTv\Context\Video\Module\Notification\Domain\Create\NotificationCreator
+    arguments:
+     - '@codely.infrastructure.uuid_generator'
+     - '@codely.video.domain_event_publisher'
+    public: false
+
+  codely.video.notification.notification_sender:
+    class: CodelyTv\Context\Video\Module\Notification\Domain\Send\NotificationSender
+    arguments:
+     - '@codely.video.notification.notifier'
+    public: false

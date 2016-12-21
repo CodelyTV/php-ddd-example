@@ -11,7 +11,12 @@ use CodelyTv\Infrastructure\Bus\Event\DomainEvent;
  */
 final class VideoCreatedDomainEvent extends DomainEvent
 {
-    protected function rules() : array
+    public static function eventName(): string
+    {
+        return 'video_created';
+    }
+
+    protected function rules(): array
     {
         return [
             'title'    => ['string'],
