@@ -3,6 +3,7 @@
 namespace CodelyTv\Context\Video\Module\Video\Test\PhpUnit;
 
 use CodelyTv\Context\Video\Module\Video\Domain\Video;
+use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoRepository;
 use CodelyTv\Context\Video\Test\PhpUnit\VideoContextUnitTestCase;
 use Mockery\MockInterface;
@@ -23,6 +24,15 @@ abstract class VideoModuleUnitTestCase extends VideoContextUnitTestCase
         $this->repository()
             ->shouldReceive('save')
             ->with(similarTo($video))
+            ->once()
+            ->andReturnNull();
+    }
+
+    protected function shouldSearchVideo(VideoId $id, Video $video = null)
+    {
+        $this->repository()
+            ->shouldReceive('search')
+            ->with(equalTo($id))
             ->once()
             ->andReturn($video);
     }

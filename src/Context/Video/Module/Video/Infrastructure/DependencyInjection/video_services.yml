@@ -11,6 +11,17 @@ services:
     public: false
 
 
+  # Query Handlers
+
+  codely.video.video.query_handler.find:
+    class: CodelyTv\Context\Video\Module\Video\Domain\Find\FindVideoQueryHandler
+    arguments:
+      - '@codely.video.video.video_finder'
+    tags:
+      - { name: 'codely.video.command' }
+    public: false
+
+
   # Services
 
   codely.video.video.video_creator:
@@ -18,4 +29,10 @@ services:
     arguments:
      - '@codely.video.video.repository'
      - '@codely.video.domain_event_publisher'
+    public: false
+
+  codely.video.video.video_finder:
+    class: CodelyTv\Context\Video\Module\Video\Domain\Find\VideoFinder
+    arguments:
+     - '@codely.video.video.repository'
     public: false
