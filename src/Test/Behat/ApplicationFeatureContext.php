@@ -17,6 +17,7 @@ abstract class ApplicationFeatureContext implements Context
     /** @BeforeScenario */
     public function cleanEnvironment()
     {
-        $this->connections->clearAll();
+        $this->connections->clear();
+        $this->connections->truncate();
     }
 }

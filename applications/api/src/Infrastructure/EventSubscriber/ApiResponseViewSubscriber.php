@@ -3,7 +3,7 @@
 namespace CodelyTv\Api\Infrastructure\EventSubscriber;
 
 use CodelyTv\Api\Infrastructure\Response\ApiHttpResponse;
-use FOS\RestBundle\Controller\Annotations\View;
+use FOS\RestBundle\View\View;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
@@ -20,11 +20,7 @@ final class ApiResponseViewSubscriber implements EventSubscriberInterface
         $result = $event->getControllerResult();
 
         if ($result instanceof ApiHttpResponse) {
-            $viewAnnotation = new View(['statusCode' => $result->statusCode()]);
-
-            $event->getRequest()->attributes->set('_view', $viewAnnotation);
-
-            $event->setControllerResult($result->data());
+            $event->setControllerResult(new View($result->data(), $result->statusCode(), $result->headers()));
         }
     }
 }

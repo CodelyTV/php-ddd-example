@@ -3,6 +3,7 @@
 namespace CodelyTv\Infrastructure\Doctrine;
 
 use Doctrine\ORM\EntityManager;
+use function Lambdish\Phunctional\apply;
 use function Lambdish\Phunctional\each;
 
 final class DatabaseConnections
@@ -14,15 +15,32 @@ final class DatabaseConnections
         $this->connections[$name] = $entityManager;
     }
 
-    public function clearAll()
+    public function clear()
     {
-        each($this->clear(), $this->connections);
+        each($this->clearer(), $this->connections);
     }
 
-    private function clear()
+    public function truncate()
+    {
+        apply(new DatabaseCleaner(), array_values($this->connections));
+    }
+
+    public function testConnections()
+    {
+        each($this->connectionTester(), $this->connections);
+    }
+
+    private function clearer(): callable
     {
         return function (EntityManager $entityManager) {
             $entityManager->clear();
+        };
+    }
+
+    private function connectionTester(): callable
+    {
+        return function (EntityManager $entityManager) {
+            $entityManager->getConnection()->connect();
         };
     }
 }

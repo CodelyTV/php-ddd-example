@@ -18,7 +18,7 @@ services:
     arguments:
       - '@codely.video.video.video_finder'
     tags:
-      - { name: 'codely.video.command' }
+      - { name: 'codely.video.query' }
     public: false
 
 

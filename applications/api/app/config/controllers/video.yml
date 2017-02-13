@@ -3,3 +3,7 @@ services:
   codely.api.controller.video.post:
     class: CodelyTv\Api\Controller\Video\VideoPostController
     parent: codely.api.controller
+
+  codely.api.controller.video.get:
+    class: CodelyTv\Api\Controller\Video\VideoGetController
+    parent: codely.api.controller

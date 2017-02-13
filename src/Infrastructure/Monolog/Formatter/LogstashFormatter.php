@@ -54,7 +54,7 @@ class LogstashFormatter extends NormalizerFormatter
             'class'   => get_class($exception),
             'file'    => $exception->getFile(),
             'line'    => $exception->getLine(),
-            'code'    => method_exists($exception, 'errorCode') ? $exception::errorCode() : $exception->getCode(),
+            'code'    => method_exists($exception, 'errorCode') ? $exception->errorCode() : $exception->getCode(),
             'trace'   => $exception->getTraceAsString(),
             'message' => $exception->getMessage(),
         ];

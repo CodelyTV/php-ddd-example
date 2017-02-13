@@ -38,13 +38,11 @@ final class DoctrineEntityManagerFactory
         $connection                    = DriverManager::getConnection($parametersWithoutDatabaseName);
         $schemaManager                 = new MySqlSchemaManager($connection);
 
-        if (self::databaseExists($databaseName, $schemaManager)) {
-            $connection->exec(sprintf('DROP DATABASE %s', $databaseName));
+        if (!self::databaseExists($databaseName, $schemaManager)) {
+            $schemaManager->createDatabase($databaseName);
+            $connection->exec(sprintf('USE %s', $databaseName));
+            $connection->exec(file_get_contents(realpath($schemaFile)));
         }
-
-        $schemaManager->createDatabase($databaseName);
-        $connection->exec(sprintf('USE %s', $databaseName));
-        $connection->exec(file_get_contents(realpath($schemaFile)));
 
         $connection->close();
     }
