@@ -15,3 +15,7 @@ parameters:
 framework:
 
   test: ~
+
+services:
+  codely.video.notification.notifier:
+    class: CodelyTv\Context\Video\Module\Notification\Infrastructure\Notifier\FakeNotifier
