@@ -9,3 +9,7 @@ parameters:
 
   video_notification_email_username: 'your@email.com'
   video_notification_email_password: 'yourSecretPassword'
+
+  slack_video_notification_hook_url: 'https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX'
+  slack_video_notification_username: 'YourUsername'
+  slack_video_notification_channel: '#your_cannel'
