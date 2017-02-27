@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Tests\Infrastructure\Bus\Oracle;
+namespace CodelyTv\Tests\Infrastructure\Bus\Query;
 
 use CodelyTv\Infrastructure\Bus\Query\Response;
 

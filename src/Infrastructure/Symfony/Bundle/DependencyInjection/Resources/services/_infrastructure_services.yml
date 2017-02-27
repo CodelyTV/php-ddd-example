@@ -14,8 +14,8 @@ services:
   codely.infrastructure.domain_event_publisher:
     alias: codely.infrastructure.domain_event_publisher_sync
 
-  codely.infrastructure.oracle:
-    class: CodelyTv\Infrastructure\Bus\Query\OracleSync
+  codely.infrastructure.query_bus:
+    class: CodelyTv\Infrastructure\Bus\Query\QueryBusSync
     public: false
     lazy: true
 

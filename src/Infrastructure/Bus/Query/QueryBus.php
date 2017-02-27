@@ -4,7 +4,7 @@ namespace CodelyTv\Infrastructure\Bus\Query;
 
 use RuntimeException;
 
-interface Oracle
+interface QueryBus
 {
     /**
      * @throws RuntimeException

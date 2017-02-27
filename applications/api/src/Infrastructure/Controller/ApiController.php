@@ -5,29 +5,29 @@ namespace CodelyTv\Api\Infrastructure\Controller;
 use CodelyTv\Api\Infrastructure\Exception\ApiExceptionsHttpStatusCodeMapping;
 use CodelyTv\Infrastructure\Bus\Command\Command;
 use CodelyTv\Infrastructure\Bus\Command\CommandBus;
-use CodelyTv\Infrastructure\Bus\Query\Oracle;
 use CodelyTv\Infrastructure\Bus\Query\Query;
+use CodelyTv\Infrastructure\Bus\Query\QueryBus;
 use function Lambdish\Phunctional\each;
 
 abstract class ApiController
 {
-    private $oracle;
+    private $queryBus;
     private $commandBus;
     private $exceptionHandler;
 
     public function __construct(
-        Oracle $oracle,
+        QueryBus $queryBus,
         CommandBus $commandBus,
         ApiExceptionsHttpStatusCodeMapping $exceptionHandler
     ) {
-        $this->oracle           = $oracle;
+        $this->queryBus         = $queryBus;
         $this->commandBus       = $commandBus;
         $this->exceptionHandler = $exceptionHandler;
 
         each($this->exceptionRegistrar(), $this->exceptions());
     }
 
-    abstract protected function exceptions() : array;
+    abstract protected function exceptions(): array;
 
     protected function dispatch(Command $command)
     {
@@ -36,7 +36,7 @@ abstract class ApiController
 
     protected function ask(Query $query)
     {
-        return $this->oracle->ask($query);
+        return $this->queryBus->ask($query);
     }
 
     private function exceptionRegistrar()

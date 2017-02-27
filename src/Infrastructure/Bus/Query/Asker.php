@@ -4,16 +4,16 @@ namespace CodelyTv\Infrastructure\Bus\Query;
 
 final class Asker
 {
-    private $oracle;
+    private $queryBus;
 
-    public function __construct(Oracle $oracle)
+    public function __construct(QueryBus $queryBus)
     {
-        $this->oracle = $oracle;
+        $this->queryBus = $queryBus;
     }
 
     /** @return Response|null */
     public function __invoke(Query $query)
     {
-        return $this->oracle->ask($query);
+        return $this->queryBus->ask($query);
     }
 }

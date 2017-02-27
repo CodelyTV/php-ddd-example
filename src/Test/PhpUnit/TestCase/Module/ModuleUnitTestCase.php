@@ -6,7 +6,7 @@ use CodelyTv\Infrastructure\Bus\Command\Command;
 use CodelyTv\Infrastructure\Bus\Command\CommandBus;
 use CodelyTv\Infrastructure\Bus\Event\DomainEvent;
 use CodelyTv\Infrastructure\Bus\Event\DomainEventPublisher;
-use CodelyTv\Infrastructure\Bus\Query\Oracle;
+use CodelyTv\Infrastructure\Bus\Query\QueryBus;
 use CodelyTv\Infrastructure\Bus\Query\Query;
 use CodelyTv\Infrastructure\Bus\Query\Response;
 use CodelyTv\Test\PhpUnit\TestCase\UnitTestCase;
@@ -17,14 +17,14 @@ use function CodelyTv\Test\similarTo;
 abstract class ModuleUnitTestCase extends UnitTestCase
 {
     private $domainEventPublisher;
-    private $oracle;
+    private $queryBus;
     private $commandBus;
     private $logger;
 
-    /** @return Oracle|MockInterface */
-    protected function oracle()
+    /** @return QueryBus|MockInterface */
+    protected function queryBus()
     {
-        return $this->oracle = $this->oracle ?: $this->mock(Oracle::class);
+        return $this->queryBus = $this->queryBus ?: $this->mock(QueryBus::class);
     }
 
     /** @return DomainEventPublisher|MockInterface */
@@ -47,12 +47,12 @@ abstract class ModuleUnitTestCase extends UnitTestCase
 
     protected function assertAskResponse(Query $query, Response $response, callable $handler)
     {
-        $this->assertEquals($response, $this->ask($query, $handler), 'Oracle did not returned the expected response');
+        $this->assertEquals($response, $this->ask($query, $handler), 'QueryBus did not returned the expected response');
     }
 
     protected function assertAskNullResponse(Query $query, callable $handler)
     {
-        $this->assertNull($this->ask($query, $handler), 'Oracle did not returned the expected response');
+        $this->assertNull($this->ask($query, $handler), 'QueryBus did not returned the expected response');
     }
 
     protected function assertAskThrowsException($exceptionClass, Query $query, callable $handler)
@@ -62,18 +62,18 @@ abstract class ModuleUnitTestCase extends UnitTestCase
         $this->ask($query, $handler);
     }
 
-    protected function shouldAskOracle(Query $query, Response $response = null)
+    protected function shouldAsk(Query $query, Response $response = null)
     {
-        $this->oracle()
+        $this->queryBus()
             ->shouldReceive('ask')
             ->once()
             ->with(similarTo($query))
             ->andReturn($response);
     }
 
-    protected function shouldAskOracleThrowingException(Query $query, $exception)
+    protected function shouldAskThrowingException(Query $query, $exception)
     {
-        $this->oracle()
+        $this->queryBus()
             ->shouldReceive('ask')
             ->once()
             ->with(equalTo($query))

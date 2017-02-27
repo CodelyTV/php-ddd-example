@@ -5,7 +5,7 @@ namespace CodelyTv\Infrastructure\Bus\Query;
 use CodelyTv\Infrastructure\Bus\HandleLocator;
 use RuntimeException;
 
-final class OracleSync implements Oracle
+final class QueryBusSync implements QueryBus
 {
     private $locator;
     private $askHasBeenCalled = false;

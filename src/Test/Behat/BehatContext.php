@@ -5,7 +5,7 @@ namespace CodelyTv\Test\Behat;
 use Behat\Behat\Context\Context;
 use CodelyTv\Infrastructure\Bus\Command\Command;
 use CodelyTv\Infrastructure\Bus\Command\CommandBus;
-use CodelyTv\Infrastructure\Bus\Query\Oracle;
+use CodelyTv\Infrastructure\Bus\Query\QueryBus;
 use CodelyTv\Infrastructure\Bus\Query\Query;
 use function Lambdish\Phunctional\pipe;
 
@@ -13,17 +13,17 @@ abstract class BehatContext implements Context
 {
     /** @var CommandBus */
     private $commandBus;
-    /** @var Oracle */
-    private $oracle;
+    /** @var QueryBus */
+    private $queryBus;
 
     protected function setCommandBus(CommandBus $commandBus)
     {
         $this->commandBus = $commandBus;
     }
 
-    protected function setOracle(Oracle $oracle)
+    protected function setQueryBus(QueryBus $queryBus)
     {
-        $this->oracle = $oracle;
+        $this->queryBus = $queryBus;
     }
 
     /** @return callable */
@@ -50,7 +50,7 @@ abstract class BehatContext implements Context
     protected function asker()
     {
         return function (Query $query) {
-            return $this->oracle->ask($query);
+            return $this->queryBus->ask($query);
         };
     }
 

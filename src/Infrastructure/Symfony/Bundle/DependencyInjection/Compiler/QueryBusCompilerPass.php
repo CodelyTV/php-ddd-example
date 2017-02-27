@@ -7,10 +7,9 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 
-class OracleCompilerPass implements CompilerPassInterface
+class QueryBusCompilerPass implements CompilerPassInterface
 {
-    const SERVICE_ID_WHERE_REGISTER_HANDLERS = 'codely.infrastructure.oracle';
-
+    const SERVICE_ID_WHERE_REGISTER_HANDLERS = 'codely.infrastructure.query_bus';
     private $tag;
     private $methodMapper;
 
@@ -22,19 +21,19 @@ class OracleCompilerPass implements CompilerPassInterface
 
     public function process(ContainerBuilder $container)
     {
-        $oracle            = $container->findDefinition(self::SERVICE_ID_WHERE_REGISTER_HANDLERS);
+        $queryBus          = $container->findDefinition(self::SERVICE_ID_WHERE_REGISTER_HANDLERS);
         $handlerServiceIds = array_keys($container->findTaggedServiceIds($this->tag));
 
         foreach ($handlerServiceIds as $id) {
             $queryHandler = $container->findDefinition($id);
-            $this->registerHandler($queryHandler, $id, $oracle);
+            $this->registerHandler($queryHandler, $id, $queryBus);
         }
     }
 
-    private function registerHandler(Definition $queryHandler, $handlerServiceId, Definition $oracle)
+    private function registerHandler(Definition $queryHandler, $handlerServiceId, Definition $queryBus)
     {
         $queryClass = $this->methodMapper->extract($queryHandler->getClass());
 
-        $oracle->addMethodCall('register', [$queryClass, new Reference($handlerServiceId)]);
+        $queryBus->addMethodCall('register', [$queryClass, new Reference($handlerServiceId)]);
     }
 }
