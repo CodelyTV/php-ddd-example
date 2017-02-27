@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Infrastructure\Bus\Query;
+namespace CodelyTv\Shared\Domain\Bus\Query;
 
 use RuntimeException;
 

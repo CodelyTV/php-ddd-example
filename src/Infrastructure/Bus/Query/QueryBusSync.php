@@ -3,6 +3,8 @@
 namespace CodelyTv\Infrastructure\Bus\Query;
 
 use CodelyTv\Infrastructure\Bus\HandleLocator;
+use CodelyTv\Shared\Domain\Bus\Query\Query;
+use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use RuntimeException;
 
 final class QueryBusSync implements QueryBus

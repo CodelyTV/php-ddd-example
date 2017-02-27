@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Types\Aggregate;
 
-use CodelyTv\Infrastructure\Bus\Event\DomainEvent;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Types\Collection;
 use function Lambdish\Phunctional\reduce;
 

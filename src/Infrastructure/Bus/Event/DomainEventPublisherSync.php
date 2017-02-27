@@ -2,6 +2,8 @@
 
 namespace CodelyTv\Infrastructure\Bus\Event;
 
+use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
 use Prooph\ServiceBus\EventBus;
 use Prooph\ServiceBus\Plugin\Router\EventRouter;
 use RuntimeException;

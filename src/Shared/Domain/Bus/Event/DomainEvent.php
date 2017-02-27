@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Infrastructure\Bus\Event;
+namespace CodelyTv\Shared\Domain\Bus\Event;
 
 use CodelyTv\Infrastructure\Bus\Event\Guard\DomainEventGuard;
 use DateTimeImmutable;

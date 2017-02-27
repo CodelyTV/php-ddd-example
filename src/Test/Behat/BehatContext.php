@@ -3,17 +3,17 @@
 namespace CodelyTv\Test\Behat;
 
 use Behat\Behat\Context\Context;
-use CodelyTv\Infrastructure\Bus\Command\Command;
-use CodelyTv\Infrastructure\Bus\Command\CommandBus;
-use CodelyTv\Infrastructure\Bus\Query\QueryBus;
-use CodelyTv\Infrastructure\Bus\Query\Query;
+use CodelyTv\Shared\Domain\Bus\Command\Command;
+use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
+use CodelyTv\Shared\Domain\Bus\Query\Query;
+use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use function Lambdish\Phunctional\pipe;
 
 abstract class BehatContext implements Context
 {
-    /** @var CommandBus */
+    /** @var \CodelyTv\Shared\Domain\Bus\Command\CommandBus */
     private $commandBus;
-    /** @var QueryBus */
+    /** @var \CodelyTv\Shared\Domain\Bus\Query\QueryBus */
     private $queryBus;
 
     protected function setCommandBus(CommandBus $commandBus)

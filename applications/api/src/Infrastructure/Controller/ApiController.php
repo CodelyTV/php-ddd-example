@@ -3,10 +3,10 @@
 namespace CodelyTv\Api\Infrastructure\Controller;
 
 use CodelyTv\Api\Infrastructure\Exception\ApiExceptionsHttpStatusCodeMapping;
-use CodelyTv\Infrastructure\Bus\Command\Command;
-use CodelyTv\Infrastructure\Bus\Command\CommandBus;
-use CodelyTv\Infrastructure\Bus\Query\Query;
-use CodelyTv\Infrastructure\Bus\Query\QueryBus;
+use CodelyTv\Shared\Domain\Bus\Command\Command;
+use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
+use CodelyTv\Shared\Domain\Bus\Query\Query;
+use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use function Lambdish\Phunctional\each;
 
 abstract class ApiController

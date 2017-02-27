@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Tests\Infrastructure\Bus\Query;
 
-use CodelyTv\Infrastructure\Bus\Query\Response;
+use CodelyTv\Shared\Domain\Bus\Query\Response;
 
 final class FakeResponse implements Response
 {

@@ -2,13 +2,13 @@
 
 namespace CodelyTv\Test\PhpUnit\TestCase\Module;
 
-use CodelyTv\Infrastructure\Bus\Command\Command;
-use CodelyTv\Infrastructure\Bus\Command\CommandBus;
-use CodelyTv\Infrastructure\Bus\Event\DomainEvent;
-use CodelyTv\Infrastructure\Bus\Event\DomainEventPublisher;
-use CodelyTv\Infrastructure\Bus\Query\QueryBus;
-use CodelyTv\Infrastructure\Bus\Query\Query;
-use CodelyTv\Infrastructure\Bus\Query\Response;
+use CodelyTv\Shared\Domain\Bus\Command\Command;
+use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
+use CodelyTv\Shared\Domain\Bus\Query\Query;
+use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
+use CodelyTv\Shared\Domain\Bus\Query\Response;
 use CodelyTv\Test\PhpUnit\TestCase\UnitTestCase;
 use Mockery\MockInterface;
 use Psr\Log\LoggerInterface;
@@ -21,7 +21,7 @@ abstract class ModuleUnitTestCase extends UnitTestCase
     private $commandBus;
     private $logger;
 
-    /** @return QueryBus|MockInterface */
+    /** @return \CodelyTv\Shared\Domain\Bus\Query\QueryBus|MockInterface */
     protected function queryBus()
     {
         return $this->queryBus = $this->queryBus ?: $this->mock(QueryBus::class);
@@ -33,7 +33,7 @@ abstract class ModuleUnitTestCase extends UnitTestCase
         return $this->domainEventPublisher = $this->domainEventPublisher ?: $this->mock(DomainEventPublisher::class);
     }
 
-    /** @return CommandBus|MockInterface */
+    /** @return \CodelyTv\Shared\Domain\Bus\Command\CommandBus|MockInterface */
     protected function commandBus()
     {
         return $this->commandBus = $this->commandBus ?: $this->mock(CommandBus::class);

@@ -2,8 +2,8 @@
 
 namespace CodelyTv\Test\PhpUnit\TestCase\Module;
 
-use CodelyTv\Infrastructure\Bus\Event\DomainEvent;
-use CodelyTv\Infrastructure\Bus\Event\DomainEventPublisher;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
 use CodelyTv\Test\Arranger\EnvironmentArranger;
 use CodelyTv\Test\PhpUnit\TestCase\FunctionalTestCase;
 use function CodelyTv\Test\assertSimilar;
@@ -52,7 +52,7 @@ abstract class ModuleFunctionalTestCase extends FunctionalTestCase
         assertSimilar($expected, $actual);
     }
 
-    private function domainEventPublisher() : DomainEventPublisher
+    private function domainEventPublisher(): DomainEventPublisher
     {
         return $this->service('codely.infrastructure.domain_event_publisher');
     }

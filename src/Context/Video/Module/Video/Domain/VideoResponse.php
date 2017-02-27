@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Context\Video\Module\Video\Domain;
 
-use CodelyTv\Infrastructure\Bus\Query\Response;
+use CodelyTv\Shared\Domain\Bus\Query\Response;
 
 final class VideoResponse implements Response
 {

@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Tests\Infrastructure\Bus\Event;
 
-use CodelyTv\Infrastructure\Bus\Event\DomainEvent;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 
 /**
  * @method string someIdentifier()

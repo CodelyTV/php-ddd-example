@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Test\PhpUnit\Comparator;
 
-use CodelyTv\Infrastructure\Bus\Event\DomainEvent;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use function CodelyTv\Test\isSimilar;

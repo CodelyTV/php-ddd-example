@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Context\Video\Module\Video\Domain\Create;
 
-use CodelyTv\Infrastructure\Bus\Event\DomainEvent;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 
 /**
  * @method string title()

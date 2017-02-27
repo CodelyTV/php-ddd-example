@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Context\Video\Module\Video\Domain\Create;
 
-use CodelyTv\Infrastructure\Bus\Command\Command;
+use CodelyTv\Shared\Domain\Bus\Command\Command;
 
 final class CreateVideoCommand implements Command
 {

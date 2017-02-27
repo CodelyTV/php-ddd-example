@@ -2,8 +2,8 @@
 
 namespace CodelyTv\Tests\Infrastructure\Bus\Event;
 
-use CodelyTv\Infrastructure\Bus\Event\DomainEvent;
 use CodelyTv\Infrastructure\Bus\Event\DomainEventPublisherSync;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Test\PhpUnit\TestCase\UnitTestCase;
 use Mockery\MockInterface;
 
@@ -43,13 +43,13 @@ final class DomainEventPublisherSyncTest extends UnitTestCase
         $this->publisher->publish([$this->domainEvent(), $this->anotherDomainEvent()]);
     }
 
-    /** @return DomainEvent|MockInterface */
+    /** @return \CodelyTv\Shared\Domain\Bus\Event\DomainEvent|MockInterface */
     private function domainEvent()
     {
         return $this->domainEvent = $this->domainEvent ?: $this->namedMock('CoolDomainEvent', DomainEvent::class);
     }
 
-    /** @return DomainEvent|MockInterface */
+    /** @return \CodelyTv\Shared\Domain\Bus\Event\DomainEvent|MockInterface */
     private function anotherDomainEvent()
     {
         return $this->anotherDomainEvent = $this->anotherDomainEvent ?: $this->namedMock('Another', DomainEvent::class);

@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Context\Video\Module\Video\Domain\Find;
 
-use CodelyTv\Infrastructure\Bus\Query\Query;
+use CodelyTv\Shared\Domain\Bus\Query\Query;
 
 final class FindVideoQuery implements Query
 {

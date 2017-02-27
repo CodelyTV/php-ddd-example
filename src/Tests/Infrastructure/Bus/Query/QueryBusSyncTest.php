@@ -2,8 +2,8 @@
 
 namespace CodelyTv\Tests\Infrastructure\Bus\Query;
 
-use CodelyTv\Infrastructure\Bus\Query\Query;
 use CodelyTv\Infrastructure\Bus\Query\QueryBusSync;
+use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Test\PhpUnit\TestCase\UnitTestCase;
 use RuntimeException;
 

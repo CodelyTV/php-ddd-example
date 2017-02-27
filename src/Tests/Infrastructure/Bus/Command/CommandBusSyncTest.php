@@ -2,8 +2,8 @@
 
 namespace CodelyTv\Tests\Infrastructure\Bus\Command;
 
-use CodelyTv\Infrastructure\Bus\Command\Command;
 use CodelyTv\Infrastructure\Bus\Command\CommandBusSync;
+use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Test\PhpUnit\TestCase\UnitTestCase;
 use Mockery\MockInterface;
 use RuntimeException;
@@ -52,10 +52,10 @@ final class CommandBusSyncTest extends UnitTestCase
         };
     }
 
-    /** @return Command|MockInterface */
+    /** @return \CodelyTv\Shared\Domain\Bus\Command\Command|MockInterface */
     private function command()
     {
-        return $this->command = $this->command ?: $this->mock(Command::class);
+        return $this->command = $this->command ?: $this->mock(\CodelyTv\Shared\Domain\Bus\Command\Command::class);
     }
 
     private function commandHandlerShouldBeCalled()

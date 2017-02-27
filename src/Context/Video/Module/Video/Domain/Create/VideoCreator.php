@@ -7,7 +7,7 @@ use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoRepository;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoTitle;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoUrl;
-use CodelyTv\Infrastructure\Bus\Event\DomainEventPublisher;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
 use CodelyTv\Shared\Domain\CourseId;
 
 final class VideoCreator

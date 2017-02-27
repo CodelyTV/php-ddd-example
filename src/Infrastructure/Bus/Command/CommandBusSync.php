@@ -2,6 +2,8 @@
 
 namespace CodelyTv\Infrastructure\Bus\Command;
 
+use CodelyTv\Shared\Domain\Bus\Command\Command;
+use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
 use Prooph\ServiceBus\CommandBus as ProophCommandBus;
 use Prooph\ServiceBus\Plugin\Router\CommandRouter;
 use RuntimeException;

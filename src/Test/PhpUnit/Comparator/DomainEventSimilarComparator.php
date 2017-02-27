@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Test\PhpUnit\Comparator;
 
-use CodelyTv\Infrastructure\Bus\Event\DomainEvent;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use ReflectionObject;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
@@ -20,8 +20,8 @@ final class DomainEventSimilarComparator extends Comparator
     }
 
     /**
-     * @param DomainEvent $expected
-     * @param DomainEvent $actual
+     * @param DomainEvent                                   $expected
+     * @param \CodelyTv\Shared\Domain\Bus\Event\DomainEvent $actual
      */
     public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false)
     {

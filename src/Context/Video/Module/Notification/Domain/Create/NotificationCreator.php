@@ -6,8 +6,8 @@ use CodelyTv\Context\Video\Module\Notification\Domain\Notification;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationId;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationText;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationType;
-use CodelyTv\Infrastructure\Bus\Event\DomainEventPublisher;
 use CodelyTv\Infrastructure\Uuid\UuidGenerator;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
 
 final class NotificationCreator
 {
