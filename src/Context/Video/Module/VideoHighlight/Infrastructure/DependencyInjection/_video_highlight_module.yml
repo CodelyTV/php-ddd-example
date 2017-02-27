@@ -1,0 +1,4 @@
+imports:
+
+  - { resource: video_highlight_infrastructure.yml }
+  - { resource: video_highlight_services.yml }

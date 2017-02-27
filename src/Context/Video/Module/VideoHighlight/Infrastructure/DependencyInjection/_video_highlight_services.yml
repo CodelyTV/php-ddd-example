@@ -1,0 +1,21 @@
+services:
+
+  # Command Handlers
+
+  codely.video.video_highlight.command_handler.create_video_highlight:
+    class: CodelyTv\Context\Video\Module\VideoHighlight\Application\Create\CreateVideoHighlightCommandHandler
+    arguments:
+      - '@codely.video.video_highlight.video_highlight_creator'
+    tags:
+      - { name: 'codely.video.command' }
+    public: false
+
+
+  # Services
+
+  codely.video.video_highlight.video_highlight_creator:
+    class: CodelyTv\Context\Video\Module\VideoHighlight\Application\Create\VideoHighlightCreator
+    arguments:
+     - '@codely.video.video_highlight.repository'
+     - '@codely.video.domain_event_publisher'
+    public: false

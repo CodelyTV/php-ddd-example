@@ -1,0 +1,6 @@
+services:
+
+  codely.video.video_highlight.repository:
+    class: CodelyTv\Context\Video\Module\VideoHighlight\Infrastructure\Persistence\VideoHighlightRepositoryMySql
+    arguments:
+     - '@codely.video.infrastructure.database'
