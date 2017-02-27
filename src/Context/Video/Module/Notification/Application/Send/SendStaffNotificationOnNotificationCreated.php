@@ -1,8 +1,8 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Notification\Domain\Send;
+namespace CodelyTv\Context\Video\Module\Notification\Application\Send;
 
-use CodelyTv\Context\Video\Module\Notification\Domain\Create\NotificationCreatedDomainEvent;
+use CodelyTv\Context\Video\Module\Notification\Contract\NotificationCreatedDomainEvent;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationText;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationType;
 

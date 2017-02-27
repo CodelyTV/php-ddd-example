@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Notification\Domain\Send;
+namespace CodelyTv\Context\Video\Module\Notification\Contract;
 
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationId;
 use CodelyTv\Exception\DomainError;

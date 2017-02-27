@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Notification\Domain\Create;
+namespace CodelyTv\Context\Video\Module\Notification\Application\Create;
 
 use CodelyTv\Context\Video\Module\Notification\Domain\Notification;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationId;

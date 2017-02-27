@@ -1,10 +1,8 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Notification\Domain\Send;
+namespace CodelyTv\Context\Video\Module\Notification\Domain;
 
-use CodelyTv\Context\Video\Module\Notification\Domain\Notification;
-use CodelyTv\Context\Video\Module\Notification\Domain\NotificationId;
-use CodelyTv\Context\Video\Module\Notification\Domain\NotificationRepository;
+use CodelyTv\Context\Video\Module\Notification\Contract\NotificationNotFound;
 
 final class NotificationFinder
 {
