@@ -2,8 +2,8 @@
 
 namespace CodelyTv\Context\Video\Module\Video\Tests\Behaviour;
 
-use CodelyTv\Context\Video\Module\Video\Domain\Create\CreateVideoCommandHandler;
-use CodelyTv\Context\Video\Module\Video\Domain\Create\VideoCreator;
+use CodelyTv\Context\Video\Module\Video\Application\Create\CreateVideoCommandHandler;
+use CodelyTv\Context\Video\Module\Video\Application\Create\VideoCreator;
 use CodelyTv\Context\Video\Module\Video\Test\PhpUnit\VideoModuleUnitTestCase;
 use CodelyTv\Context\Video\Module\Video\Test\Stub\CreateVideoCommandStub;
 use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoCreatedDomainEventStub;

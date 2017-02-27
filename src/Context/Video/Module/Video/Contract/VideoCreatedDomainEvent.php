@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Video\Domain\Create;
+namespace CodelyTv\Context\Video\Module\Video\Contract;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 

@@ -3,7 +3,7 @@ services:
   # Command Handlers
 
   codely.video.video.command_handler.create_video:
-    class: CodelyTv\Context\Video\Module\Video\Domain\Create\CreateVideoCommandHandler
+    class: CodelyTv\Context\Video\Module\Video\Application\Create\CreateVideoCommandHandler
     arguments:
       - '@codely.video.video.video_creator'
     tags:
@@ -14,7 +14,7 @@ services:
   # Query Handlers
 
   codely.video.video.query_handler.find:
-    class: CodelyTv\Context\Video\Module\Video\Domain\Find\FindVideoQueryHandler
+    class: CodelyTv\Context\Video\Module\Video\Application\Find\FindVideoQueryHandler
     arguments:
       - '@codely.video.video.video_finder'
     tags:
@@ -25,14 +25,14 @@ services:
   # Services
 
   codely.video.video.video_creator:
-    class: CodelyTv\Context\Video\Module\Video\Domain\Create\VideoCreator
+    class: CodelyTv\Context\Video\Module\Video\Application\Create\VideoCreator
     arguments:
      - '@codely.video.video.repository'
      - '@codely.video.domain_event_publisher'
     public: false
 
   codely.video.video.video_finder:
-    class: CodelyTv\Context\Video\Module\Video\Domain\Find\VideoFinder
+    class: CodelyTv\Context\Video\Module\Video\Application\Find\VideoFinder
     arguments:
      - '@codely.video.video.repository'
     public: false

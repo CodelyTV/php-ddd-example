@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Context\Video\Module\Video\Domain;
 
-use CodelyTv\Context\Video\Module\Video\Domain\Create\VideoCreatedDomainEvent;
+use CodelyTv\Context\Video\Module\Video\Contract\VideoCreatedDomainEvent;
 use CodelyTv\Shared\Domain\CourseId;
 use CodelyTv\Types\Aggregate\AggregateRoot;
 

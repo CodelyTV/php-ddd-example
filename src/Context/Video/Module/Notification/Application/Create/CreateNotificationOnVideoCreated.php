@@ -4,7 +4,6 @@ namespace CodelyTv\Context\Video\Module\Notification\Application\Create;
 
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationText;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationType;
-use CodelyTv\Context\Video\Module\Video\Domain\Create\VideoCreatedDomainEvent;
 use function Lambdish\Phunctional\apply;
 
 final class CreateNotificationOnVideoCreated
@@ -18,10 +17,10 @@ final class CreateNotificationOnVideoCreated
 
     public static function subscribedTo(): array
     {
-        return [VideoCreatedDomainEvent::class];
+        return [\CodelyTv\Context\Video\Module\Video\Contract\VideoCreatedDomainEvent::class];
     }
 
-    public function __invoke(VideoCreatedDomainEvent $event)
+    public function __invoke(\CodelyTv\Context\Video\Module\Video\Contract\VideoCreatedDomainEvent $event)
     {
         $text   = new NotificationText($event->title());
         $action = NotificationType::videoCreated();

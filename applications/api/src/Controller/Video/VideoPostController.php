@@ -4,7 +4,7 @@ namespace CodelyTv\Api\Controller\Video;
 
 use CodelyTv\Api\Infrastructure\Controller\ApiController;
 use CodelyTv\Api\Infrastructure\Response\ApiHttpCreatedResponse;
-use CodelyTv\Context\Video\Module\Video\Domain\Create\CreateVideoCommand;
+use CodelyTv\Context\Video\Module\Video\Contract\CreateVideoCommand;
 use Symfony\Component\HttpFoundation\Request;
 
 final class VideoPostController extends ApiController

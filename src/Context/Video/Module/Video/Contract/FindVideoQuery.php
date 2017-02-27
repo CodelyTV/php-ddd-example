@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Video\Domain\Find;
+namespace CodelyTv\Context\Video\Module\Video\Contract;
 
 use CodelyTv\Shared\Domain\Bus\Query\Query;
 

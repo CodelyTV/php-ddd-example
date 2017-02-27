@@ -1,7 +1,8 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Video\Domain\Find;
+namespace CodelyTv\Context\Video\Module\Video\Application\Find;
 
+use CodelyTv\Context\Video\Module\Video\Contract\VideoNotFound;
 use CodelyTv\Context\Video\Module\Video\Domain\Video;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoRepository;

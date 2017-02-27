@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Video\Domain\Create;
+namespace CodelyTv\Context\Video\Module\Video\Application\Create;
 
 use CodelyTv\Context\Video\Module\Video\Domain\Video;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
