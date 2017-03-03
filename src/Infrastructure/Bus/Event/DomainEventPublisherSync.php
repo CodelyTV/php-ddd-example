@@ -9,11 +9,12 @@ use Prooph\ServiceBus\Plugin\Router\EventRouter;
 use RuntimeException;
 use function Lambdish\Phunctional\each;
 
-final class DomainEventPublisherSync implements DomainEventPublisher
+class DomainEventPublisherSync implements DomainEventPublisher
 {
     private $bus;
     private $router;
     private $routerIsAttached = false;
+    private $events           = [];
 
     public function __construct()
     {
@@ -28,11 +29,22 @@ final class DomainEventPublisherSync implements DomainEventPublisher
         $this->router->route($eventClass)->to($subscriber);
     }
 
-    public function publish(array $domainEvents)
+    public function raise(array $domainEvents)
+    {
+        $this->events = array_merge($this->events, array_values($domainEvents));
+    }
+
+    public function flush()
     {
         $this->attachRouter();
 
-        each($this->eventPublisher(), $domainEvents);
+        each($this->eventPublisher(), $this->pullEvents());
+    }
+
+    public function publish(array $domainEvents)
+    {
+        $this->raise($domainEvents);
+        $this->flush();
     }
 
     private function guardRouterIsAttached()
@@ -56,5 +68,13 @@ final class DomainEventPublisherSync implements DomainEventPublisher
         return function (DomainEvent $event) {
             $this->bus->dispatch($event);
         };
+    }
+
+    private function pullEvents()
+    {
+        $events       = $this->events;
+        $this->events = [];
+
+        return $events;
     }
 }
