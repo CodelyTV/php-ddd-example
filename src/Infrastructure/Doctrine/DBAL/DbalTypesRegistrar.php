@@ -11,9 +11,8 @@ final class DbalTypesRegistrar
 {
     private static $initialized = false;
     private static $types       = [
-        DateTimeImmutableType::NAME => DateTimeImmutableType::class,
-        VideoIdType::NAME           => VideoIdType::class,
-        CourseIdType::NAME          => CourseIdType::class,
+        VideoIdType::NAME  => VideoIdType::class,
+        CourseIdType::NAME => CourseIdType::class,
     ];
 
     public static function register()
