@@ -1,3 +1,3 @@
 parameters:
-
- best_youtube_channel_ever: 'CodelyTv'
+    best_youtube_channel_ever: 'CodelyTv'
+    async_command_bus_pending_requests_file_path: '/path/to/the/codelytv_pending_requests.dat'

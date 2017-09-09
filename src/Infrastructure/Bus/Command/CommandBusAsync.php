@@ -11,11 +11,11 @@ use function Lambdish\Phunctional\apply;
 
 final class CommandBusAsync implements CommandBus
 {
-    private $filePath;
+    private $pendingRequestsFilePath;
 
-    public function __construct(string $filePath)
+    public function __construct(string $pendingRequestsFilePath)
     {
-        $this->filePath = $filePath;
+        $this->pendingRequestsFilePath = $pendingRequestsFilePath;
     }
 
     public function register($commandClass, callable $handler)
@@ -24,6 +24,6 @@ final class CommandBusAsync implements CommandBus
 
     public function dispatch(Command $command)
     {
-        file_put_contents($this->filePath, apply(new MessageSerializer(), [$command]));
+        file_put_contents($this->pendingRequestsFilePath, apply(new MessageSerializer(), [$command]));
     }
 }

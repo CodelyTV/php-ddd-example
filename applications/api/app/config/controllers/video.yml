@@ -12,5 +12,5 @@ services:
     class: CodelyTv\Api\Controller\Video\VideoDurationPatchController
     arguments:
       - '@codely.video.query_bus'
-      - '@codely.video.command_bus_async'
+      - '@codely.video.async_command_bus'
       - '@codely.api.exception_handler'
