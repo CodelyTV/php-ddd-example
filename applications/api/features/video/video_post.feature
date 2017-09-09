@@ -7,6 +7,7 @@ Feature: Create video
     Given  I send a POST request to "/video" with body:
     """
     {
+      "request_id": "170cfccd-869d-414b-a521-9cce9e0e67a2",
       "id": "c531eff4-137e-401d-abc3-52fdc59c0598",
       "title": "Most awesome video ever",
       "url": "http://codely.tv/screencasts/ddd-cqrs-preguntas-frecuentes",
