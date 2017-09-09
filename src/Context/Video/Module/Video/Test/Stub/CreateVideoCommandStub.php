@@ -8,17 +8,26 @@ use CodelyTv\Context\Video\Module\Video\Domain\VideoTitle;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoUrl;
 use CodelyTv\Shared\Domain\CourseId;
 use CodelyTv\Shared\Test\Stub\CourseIdStub;
+use CodelyTv\Test\Stub\UuidStub;
+use CodelyTv\Types\ValueObject\Uuid;
 
 final class CreateVideoCommandStub
 {
-    public static function create(VideoId $id, VideoTitle $title, VideoUrl $url, CourseId $courseId)
+    public static function create(
+        Uuid $requestId,
+        VideoId $id,
+        VideoTitle $title,
+        VideoUrl $url,
+        CourseId $courseId
+    ): CreateVideoCommand
     {
-        return new CreateVideoCommand($id->value(), $title->value(), $url->value(), $courseId->value());
+        return new CreateVideoCommand($requestId, $id->value(), $title->value(), $url->value(), $courseId->value());
     }
 
-    public static function random() : CreateVideoCommand
+    public static function random(): CreateVideoCommand
     {
         return self::create(
+            new Uuid(UuidStub::random()),
             VideoIdStub::random(),
             VideoTitleStub::random(),
             VideoUrlStub::random(),
