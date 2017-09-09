@@ -27,7 +27,7 @@ final class Notification extends AggregateRoot
     {
         $notification = new self($id, $text, $type, false);
 
-        $notification->raise(
+        $notification->record(
             new NotificationCreatedDomainEvent(
                 $id->value(),
                 [

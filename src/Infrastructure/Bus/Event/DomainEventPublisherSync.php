@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Infrastructure\Bus\Event;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
@@ -9,7 +11,7 @@ use Prooph\ServiceBus\Plugin\Router\EventRouter;
 use RuntimeException;
 use function Lambdish\Phunctional\each;
 
-class DomainEventPublisherSync implements DomainEventPublisher
+final class DomainEventPublisherSync implements DomainEventPublisher
 {
     private $bus;
     private $router;
@@ -22,29 +24,29 @@ class DomainEventPublisherSync implements DomainEventPublisher
         $this->router = new EventRouter();
     }
 
-    public function register($eventClass, callable $subscriber)
+    public function subscribe(string $eventClass, callable $subscriber): void
     {
         $this->guardRouterIsAttached();
 
         $this->router->route($eventClass)->to($subscriber);
     }
 
-    public function raise(array $domainEvents)
+    public function record(array $domainEvents): void
     {
         $this->events = array_merge($this->events, array_values($domainEvents));
     }
 
-    public function flush()
+    public function publishRecorded(): void
     {
         $this->attachRouter();
 
-        each($this->eventPublisher(), $this->pullEvents());
+        each($this->eventPublisher(), $this->popEvents());
     }
 
     public function publish(array $domainEvents)
     {
-        $this->raise($domainEvents);
-        $this->flush();
+        $this->record($domainEvents);
+        $this->publishRecorded();
     }
 
     private function guardRouterIsAttached()
@@ -70,7 +72,7 @@ class DomainEventPublisherSync implements DomainEventPublisher
         };
     }
 
-    private function pullEvents()
+    private function popEvents()
     {
         $events       = $this->events;
         $this->events = [];

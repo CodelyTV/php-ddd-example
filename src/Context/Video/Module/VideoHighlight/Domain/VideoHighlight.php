@@ -22,7 +22,7 @@ final class VideoHighlight extends AggregateRoot
     {
         $videoHighlight = new self($id, $interval, $message);
 
-        $videoHighlight->raise(
+        $videoHighlight->record(
             new VideoHighlightCreatedDomainEvent(
                 $id->value(),
                 [

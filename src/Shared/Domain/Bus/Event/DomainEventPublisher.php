@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Shared\Domain\Bus\Event;
 
 use RuntimeException;
@@ -7,36 +9,24 @@ use RuntimeException;
 interface DomainEventPublisher
 {
     /**
+     * Subscribes a $subscriber function to an specific $eventClass
+     *
      * @throws RuntimeException
-     *
-     * @return void
      */
-    public function register($eventClass, callable $subscriber);
+    public function subscribe(string $eventClass, callable $subscriber): void;
 
     /**
-     * Raises events to be published afterwards
-     *
-     * @param DomainEvent[] $events
-     *
-     * @return void
+     * Records events to be published afterwards using the publishRecorded method
      */
-    public function raise(array $domainEvents);
+    public function record(array $domainEvents): void;
 
     /**
-     * Send events to process
-     *
-     * @param DomainEvent[] $events
-     *
-     * @return void
+     * Publishes previously recorded events
      */
-    public function flush();
+    public function publishRecorded(): void;
 
     /**
-     * Raises events to be published afterwards (with flush command)
-     *
-     * @param DomainEvent[] $events
-     *
-     * @return void
+     * Immediately publishes the received events
      */
     public function publish(array $domainEvents);
 }

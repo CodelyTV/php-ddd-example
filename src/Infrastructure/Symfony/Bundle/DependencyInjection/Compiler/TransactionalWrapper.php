@@ -41,7 +41,7 @@ final class TransactionalWrapper
             throw new WrongTransaction($exception);
         }
 
-        $this->publisher->flush();
+        $this->publisher->publishRecorded();
 
         return $result;
     }

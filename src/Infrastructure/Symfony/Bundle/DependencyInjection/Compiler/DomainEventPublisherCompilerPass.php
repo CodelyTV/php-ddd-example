@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
@@ -40,7 +42,7 @@ class DomainEventPublisherCompilerPass implements CompilerPassInterface
         $events = $subscriberClass::subscribedTo();
 
         foreach ($events as $eventClass) {
-            $publisher->addMethodCall('register', [$eventClass, new Reference($subscriberServiceId)]);
+            $publisher->addMethodCall('subscribe', [$eventClass, new Reference($subscriberServiceId)]);
         }
     }
 }
