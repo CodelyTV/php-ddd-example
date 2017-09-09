@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Notification\Contract;
+namespace CodelyTv\Context\Video\Module\Notification\Application\Create;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 

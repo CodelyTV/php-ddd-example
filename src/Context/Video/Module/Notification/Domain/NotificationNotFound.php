@@ -1,8 +1,7 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Notification\Contract;
+namespace CodelyTv\Context\Video\Module\Notification\Domain;
 
-use CodelyTv\Context\Video\Module\Notification\Domain\NotificationId;
 use CodelyTv\Exception\DomainError;
 
 final class NotificationNotFound extends DomainError
