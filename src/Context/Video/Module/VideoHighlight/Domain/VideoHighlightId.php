@@ -2,8 +2,8 @@
 
 namespace CodelyTv\Context\Video\Module\VideoHighlight\Domain;
 
-use CodelyTv\Types\ValueObject\IdentifierUuid;
+use CodelyTv\Types\ValueObject\Uuid;
 
-final class VideoHighlightId extends IdentifierUuid
+final class VideoHighlightId extends Uuid
 {
 }

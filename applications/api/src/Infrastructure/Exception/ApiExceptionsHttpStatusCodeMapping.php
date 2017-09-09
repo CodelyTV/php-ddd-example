@@ -4,7 +4,9 @@ namespace CodelyTv\Api\Infrastructure\Exception;
 
 final class ApiExceptionsHttpStatusCodeMapping
 {
-    private $exceptions = [];
+    private $exceptions = [
+        I
+    ];
 
     public function register($exceptionClass, $statusCode)
     {

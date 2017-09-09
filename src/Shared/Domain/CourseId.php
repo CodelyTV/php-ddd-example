@@ -2,8 +2,8 @@
 
 namespace CodelyTv\Shared\Domain;
 
-use CodelyTv\Types\ValueObject\IdentifierUuid;
+use CodelyTv\Types\ValueObject\Uuid;
 
-final class CourseId extends IdentifierUuid
+final class CourseId extends Uuid
 {
 }
