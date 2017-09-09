@@ -3,17 +3,19 @@
 namespace CodelyTv\Shared\Domain\Bus\Event;
 
 use CodelyTv\Infrastructure\Bus\Event\Guard\DomainEventGuard;
+use CodelyTv\Shared\Domain\Bus\Message;
+use CodelyTv\Types\ValueObject\Uuid;
 use DateTimeImmutable;
 use InvalidArgumentException;
-use Rhumsaa\Uuid\Uuid;
 use RuntimeException;
 use function CodelyTv\Utils\date_to_string;
 
-abstract class DomainEvent
+abstract class DomainEvent extends Message
 {
     private $eventId;
     private $aggregateId;
     private $data;
+    private $occurredOn;
 
     public function __construct(
         string $aggregateId,
@@ -21,7 +23,11 @@ abstract class DomainEvent
         string $eventId = null,
         string $occurredOn = null
     ) {
-        $this->eventId = $eventId ?: Uuid::uuid4()->toString();
+        $eventId = $eventId ?: Uuid::random()->value();
+
+        parent::__construct(new Uuid($eventId));
+
+        $this->eventId = $eventId;
         $this->guardAggregateId($aggregateId);
         DomainEventGuard::guard($data, $this->rules(), get_called_class());
 

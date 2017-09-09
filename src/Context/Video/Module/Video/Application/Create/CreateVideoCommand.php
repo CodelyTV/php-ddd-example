@@ -3,16 +3,19 @@
 namespace CodelyTv\Context\Video\Module\Video\Application\Create;
 
 use CodelyTv\Shared\Domain\Bus\Command\Command;
+use CodelyTv\Types\ValueObject\Uuid;
 
-final class CreateVideoCommand implements Command
+final class CreateVideoCommand extends Command
 {
     private $id;
     private $title;
     private $url;
     private $courseId;
 
-    public function __construct(string $id, string $title, string $url, string $courseId)
+    public function __construct(Uuid $commandId, string $id, string $title, string $url, string $courseId)
     {
+        parent::__construct($commandId);
+
         $this->id       = $id;
         $this->title    = $title;
         $this->url      = $url;

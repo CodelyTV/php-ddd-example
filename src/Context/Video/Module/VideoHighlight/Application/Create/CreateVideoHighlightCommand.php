@@ -3,16 +3,19 @@
 namespace CodelyTv\Context\Video\Module\VideoHighlight\Application\Create;
 
 use CodelyTv\Shared\Domain\Bus\Command\Command;
+use CodelyTv\Types\ValueObject\Uuid;
 
-final class CreateVideoHighlightCommand implements Command
+final class CreateVideoHighlightCommand extends Command
 {
     private $id;
     private $from;
     private $to;
     private $message;
 
-    public function __construct(string $id, int $from, int $to, string $message)
+    public function __construct(Uuid $commandId, string $id, int $from, int $to, string $message)
     {
+        parent::__construct($commandId);
+
         $this->id      = $id;
         $this->from    = $from;
         $this->to      = $to;

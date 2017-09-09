@@ -37,6 +37,11 @@ function snake_to_camel($word)
     return lcfirst(str_replace('_', '', ucwords($word, '_')));
 }
 
+function camel_to_snake($word)
+{
+    return ctype_lower($word) ? $word : strtolower(preg_replace('/([^A-Z\s])([A-Z])/', "$1_$2", $word));
+}
+
 function map_no_null(callable $fn, $coll)
 {
     return filter_null(map($fn, $coll));

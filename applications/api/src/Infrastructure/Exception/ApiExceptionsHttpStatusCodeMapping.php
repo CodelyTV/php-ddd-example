@@ -2,9 +2,14 @@
 
 namespace CodelyTv\Api\Infrastructure\Exception;
 
+use InvalidArgumentException;
+use Symfony\Component\HttpFoundation\Response;
+
 final class ApiExceptionsHttpStatusCodeMapping
 {
-    private $exceptions = [];
+    private $exceptions = [
+        InvalidArgumentException::class => Response::HTTP_BAD_REQUEST
+    ];
 
     public function register($exceptionClass, $statusCode)
     {

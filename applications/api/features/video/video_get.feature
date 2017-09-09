@@ -7,6 +7,7 @@ Feature: Find a video
     Given  I send a POST request to "/video" with body:
     """
     {
+      "request_id": "8ca6c44c-c6ca-4a31-a66b-627473ddde54",
       "id": "c531eff4-137e-401d-abc3-52fdc59c0598",
       "title": "Most awesome video ever",
       "url": "http://codely.tv/screencasts/ddd-cqrs-preguntas-frecuentes",
