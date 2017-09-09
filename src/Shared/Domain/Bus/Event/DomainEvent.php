@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Shared\Domain\Bus\Event;
 
 use CodelyTv\Infrastructure\Bus\Event\Guard\DomainEventGuard;
@@ -35,6 +37,8 @@ abstract class DomainEvent extends Message
         $this->data        = $data;
         $this->occurredOn  = $occurredOn ?: date_to_string(new DateTimeImmutable());
     }
+
+    abstract public static function eventName(): string;
 
     abstract protected function rules() : array;
 
