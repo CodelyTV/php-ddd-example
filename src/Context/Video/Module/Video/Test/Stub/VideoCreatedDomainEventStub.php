@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Context\Video\Module\Video\Test\Stub;
 
-use CodelyTv\Context\Video\Module\Video\Contract\VideoCreatedDomainEvent;
+use CodelyTv\Context\Video\Module\Video\Domain\VideoCreatedDomainEvent;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoTitle;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoUrl;

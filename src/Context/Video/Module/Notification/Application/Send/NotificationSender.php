@@ -18,5 +18,7 @@ final class NotificationSender
     public function __invoke(NotificationText $text, NotificationType $action)
     {
         $this->notifier->notify($text, $action);
+
+        // @todo Send event
     }
 }

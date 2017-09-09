@@ -2,7 +2,6 @@
 
 namespace CodelyTv\Context\Video\Module\Video\Application\Create;
 
-use CodelyTv\Context\Video\Module\Video\Contract\CreateVideoCommand;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoTitle;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoUrl;

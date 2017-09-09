@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\VideoHighlight\Contract;
+namespace CodelyTv\Context\Video\Module\VideoHighlight\Application\Create;
 
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 

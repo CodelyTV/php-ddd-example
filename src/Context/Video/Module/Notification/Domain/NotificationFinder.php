@@ -2,8 +2,6 @@
 
 namespace CodelyTv\Context\Video\Module\Notification\Domain;
 
-use CodelyTv\Context\Video\Module\Notification\Contract\NotificationNotFound;
-
 final class NotificationFinder
 {
     private $repository;

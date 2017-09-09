@@ -4,7 +4,7 @@ namespace CodelyTv\Context\Video\Module\Video\Tests\Behaviour;
 
 use CodelyTv\Context\Video\Module\Video\Application\Find\FindVideoQueryHandler;
 use CodelyTv\Context\Video\Module\Video\Application\Find\VideoFinder;
-use CodelyTv\Context\Video\Module\Video\Contract\VideoNotFound;
+use CodelyTv\Context\Video\Module\Video\Domain\VideoNotFound;
 use CodelyTv\Context\Video\Module\Video\Test\PhpUnit\VideoModuleUnitTestCase;
 use CodelyTv\Context\Video\Module\Video\Test\Stub\FindVideoQueryStub;
 use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoIdStub;

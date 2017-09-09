@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Context\Video\Module\Video\Test\Stub;
 
-use CodelyTv\Context\Video\Module\Video\Contract\FindVideoQuery;
+use CodelyTv\Context\Video\Module\Video\Application\Find\FindVideoQuery;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 
 final class FindVideoQueryStub

@@ -1,8 +1,7 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Video\Contract;
+namespace CodelyTv\Context\Video\Module\Video\Domain;
 
-use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Exception\DomainError;
 
 final class VideoNotFound extends DomainError
