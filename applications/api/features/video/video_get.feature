@@ -30,7 +30,7 @@ Feature: Find a video
     }
     """
 
-  Scenario: Find a non existing video
+  Scenario: Not find a non existing video
     Given I send a GET request to "/video/09acb178-0831-4d86-a364-bff0e19d8f19"
     Then the response status code should be 404
     And the response content should be:
