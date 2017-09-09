@@ -17,10 +17,10 @@ final class CreateNotificationOnVideoCreated
 
     public static function subscribedTo(): array
     {
-        return [\CodelyTv\Context\Video\Module\Video\Application\Create\VideoCreatedDomainEvent::class];
+        return [\CodelyTv\Context\Video\Module\Video\Domain\VideoCreatedDomainEvent::class];
     }
 
-    public function __invoke(\CodelyTv\Context\Video\Module\Video\Application\Create\VideoCreatedDomainEvent $event)
+    public function __invoke(\CodelyTv\Context\Video\Module\Video\Domain\VideoCreatedDomainEvent $event)
     {
         $text   = new NotificationText($event->title());
         $action = NotificationType::videoCreated();

@@ -2,7 +2,6 @@
 
 namespace CodelyTv\Context\Video\Module\VideoHighlight\Domain;
 
-use CodelyTv\Context\Video\Module\VideoHighlight\Contract\VideoHighlightCreatedDomainEvent;
 use CodelyTv\Shared\Domain\SecondsInterval;
 use CodelyTv\Types\Aggregate\AggregateRoot;
 

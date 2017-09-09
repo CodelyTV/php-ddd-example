@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Context\Video\Module\Notification\Application\Send;
 
-use CodelyTv\Context\Video\Module\Notification\Application\Create\NotificationCreatedDomainEvent;
+use CodelyTv\Context\Video\Module\Notification\Domain\NotificationCreatedDomainEvent;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationText;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationType;
 

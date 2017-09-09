@@ -2,7 +2,6 @@
 
 namespace CodelyTv\Context\Video\Module\VideoHighlight\Application\Create;
 
-use CodelyTv\Context\Video\Module\VideoHighlight\Contract\CreateVideoHighlightCommand;
 use CodelyTv\Context\Video\Module\VideoHighlight\Domain\VideoHighlightId;
 use CodelyTv\Context\Video\Module\VideoHighlight\Domain\VideoHighlightMessage;
 use CodelyTv\Shared\Domain\SecondsInterval;

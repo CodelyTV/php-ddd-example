@@ -2,7 +2,6 @@
 
 namespace CodelyTv\Context\Video\Module\Notification\Domain;
 
-use CodelyTv\Context\Video\Module\Notification\Application\Create\NotificationCreatedDomainEvent;
 use CodelyTv\Types\Aggregate\AggregateRoot;
 
 final class Notification extends AggregateRoot
