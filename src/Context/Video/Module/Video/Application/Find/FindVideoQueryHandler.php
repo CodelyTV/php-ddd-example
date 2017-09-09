@@ -2,7 +2,6 @@
 
 namespace CodelyTv\Context\Video\Module\Video\Application\Find;
 
-use CodelyTv\Context\Video\Module\Video\Contract\FindVideoQuery;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoResponseConverter;
 use function Lambdish\Phunctional\apply;

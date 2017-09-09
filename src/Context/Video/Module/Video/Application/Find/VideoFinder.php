@@ -2,9 +2,9 @@
 
 namespace CodelyTv\Context\Video\Module\Video\Application\Find;
 
-use CodelyTv\Context\Video\Module\Video\Contract\VideoNotFound;
 use CodelyTv\Context\Video\Module\Video\Domain\Video;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
+use CodelyTv\Context\Video\Module\Video\Domain\VideoNotFound;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoRepository;
 
 final class VideoFinder
