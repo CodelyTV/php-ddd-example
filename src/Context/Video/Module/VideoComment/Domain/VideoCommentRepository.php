@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Context\Video\Module\VideoComment\Domain;
 
 interface VideoCommentRepository
 {
-    /** @return void */
-    public function save(VideoComment $comment);
+    public function save(VideoComment $comment): void;
 }

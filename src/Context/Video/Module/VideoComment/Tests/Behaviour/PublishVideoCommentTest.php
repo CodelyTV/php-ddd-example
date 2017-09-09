@@ -1,7 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Context\Video\Module\VideoComment\Tests\Behaviour;
 
+use CodelyTv\Context\Video\Module\Video\Test\Stub\PublishVideoCommentCommandStub;
+use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoCommentContentStub;
+use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoCommentIdStub;
+use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoCommentPublishedDomainEventStub;
+use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoCommentStub;
 use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoIdStub;
 use CodelyTv\Context\Video\Module\VideoComment\Application\Publish\PublishVideoCommentCommandHandler;
 use CodelyTv\Context\Video\Module\VideoComment\Application\Publish\VideoCommentPublisher;
@@ -32,25 +39,25 @@ final class PublishVideoCommentTest extends VideoContextUnitTestCase
 
         $id      = VideoCommentIdStub::create($command->id());
         $videoId = VideoIdStub::create($command->videoId());
-        $content = VideoCommentContentSub::create($command->content());
+        $content = VideoCommentContentStub::create($command->content());
 
-        $comment = VideoComment::create($id, $videoId, $content);
+        $comment = VideoCommentStub::create($id, $videoId, $content);
 
         $domainEvent = VideoCommentPublishedDomainEventStub::create($id, $videoId, $content);
 
-        $this->shouldSaveVideo($comment);
+        $this->shouldSaveVideoComment($comment);
         $this->shouldPublishDomainEvents([$domainEvent]);
 
-        $this->publish($command, $this->handler);
+        $this->dispatch($command, $this->handler);
     }
 
     /** @return VideoCommentRepository|MockInterface */
     private function repository()
     {
-        $this->repository = $this->repository ?: $this->mock(VideoCommentRepository::class);
+        return $this->repository = $this->repository ?: $this->mock(VideoCommentRepository::class);
     }
 
-    private function shouldSaveVideo(VideoComment $comment)
+    private function shouldSaveVideoComment(VideoComment $comment)
     {
         $this->repository()
             ->shouldReceive('save')

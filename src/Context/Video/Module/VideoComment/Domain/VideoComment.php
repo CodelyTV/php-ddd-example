@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Context\Video\Module\VideoComment\Domain;
 
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
@@ -27,8 +29,8 @@ final class VideoComment extends AggregateRoot
             new VideoCommentPublishedDomainEvent(
                 $id->value(),
                 [
-                    'videoId' => $videoId->value(),
-                    'content' => $content->value(),
+                    'video_id' => $videoId->value(),
+                    'content'  => $content->value(),
                 ]
             )
         );

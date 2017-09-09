@@ -11,6 +11,11 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
  */
 final class VideoHighlightCreatedDomainEvent extends DomainEvent
 {
+    public static function eventName(): string
+    {
+        return 'video_highlight_created';
+    }
+
     protected function rules(): array
     {
         return [
