@@ -19,14 +19,14 @@ Execute: `git clone https://github.com/CodelyTV/cqrs-ddd-example`
 Composer is used to handle the dependencies. You can download it executing:
 `curl -sS https://getcomposer.org/installer | php`
 
-And then you can install all the dependencies executing:
+And then you can install all the dependencies and setting your parameters executing:
 `php composer.phar install`
 
 ### 3. Run the tests!
 Once you have all the dependencies, in order to execute the tests, run this command:
-`vendor/bin/phpunit`
+`vendor/bin/behat -p api` // This will also create the needed databases.
 `vendor/bin/behat -p applications`
-`vendor/bin/behat -p api`
+`vendor/bin/phpunit`
 
 ## Contributing
 There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want 
