@@ -28,7 +28,7 @@ final class DomainEventPublisherSyncTest extends UnitTestCase
 
         $this->subscriberShouldBeCalled();
 
-        $this->publisher->publish([$this->domainEvent()]);
+        $this->publisher->publish($this->domainEvent());
     }
 
     /** @test */
@@ -40,7 +40,7 @@ final class DomainEventPublisherSyncTest extends UnitTestCase
         $this->subscriberShouldBeCalled();
         $this->subscriberShouldBeCalledWithTheOtherEvent();
 
-        $this->publisher->publish([$this->domainEvent(), $this->anotherDomainEvent()]);
+        $this->publisher->publish($this->domainEvent(), $this->anotherDomainEvent());
     }
 
     /** @return \CodelyTv\Shared\Domain\Bus\Event\DomainEvent|MockInterface */

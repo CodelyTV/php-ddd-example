@@ -42,7 +42,7 @@ final class CreateVideoTest extends VideoModuleUnitTestCase
         $domainEvent = VideoCreatedDomainEventStub::create($id, $title, $url, $courseId);
 
         $this->shouldSaveVideo($video);
-        $this->shouldPublishDomainEvents([$domainEvent]);
+        $this->shouldPublishDomainEvents($domainEvent);
 
         $this->dispatch($command, $this->handler);
     }

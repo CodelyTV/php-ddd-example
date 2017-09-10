@@ -31,7 +31,7 @@ final class DomainEventPublisherSync implements DomainEventPublisher
         $this->router->route($eventClass)->to($subscriber);
     }
 
-    public function record(array $domainEvents): void
+    public function record(DomainEvent ...$domainEvents): void
     {
         $this->events = array_merge($this->events, array_values($domainEvents));
     }
@@ -43,9 +43,9 @@ final class DomainEventPublisherSync implements DomainEventPublisher
         each($this->eventPublisher(), $this->popEvents());
     }
 
-    public function publish(array $domainEvents)
+    public function publish(DomainEvent ...$domainEvents)
     {
-        $this->record($domainEvents);
+        $this->record(...$domainEvents);
         $this->publishRecorded();
     }
 

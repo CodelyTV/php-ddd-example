@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
+use CodelyTv\Shared\Domain\Bus\Query\Response;
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use function Lambdish\Phunctional\apply;
@@ -23,7 +26,7 @@ final class TransactionalWrapper
         $this->service       = $service;
     }
 
-    public function __invoke(...$args)
+    public function __invoke(...$args): ?Response
     {
         $result = null;
 

@@ -46,7 +46,7 @@ final class PublishVideoCommentTest extends VideoContextUnitTestCase
         $domainEvent = VideoCommentPublishedDomainEventStub::create($id, $videoId, $content);
 
         $this->shouldSaveVideoComment($comment);
-        $this->shouldPublishDomainEvents([$domainEvent]);
+        $this->shouldPublishDomainEvents($domainEvent);
 
         $this->dispatch($command, $this->handler);
     }
