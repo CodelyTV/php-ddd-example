@@ -24,7 +24,7 @@ final class DomainEventPublisherSyncTest extends UnitTestCase
     /** @test */
     public function it_should_publish_and_handle_one_event()
     {
-        $this->publisher->register(get_class($this->domainEvent()), $this->subscriber());
+        $this->publisher->subscribe(get_class($this->domainEvent()), $this->subscriber());
 
         $this->subscriberShouldBeCalled();
 
@@ -34,8 +34,8 @@ final class DomainEventPublisherSyncTest extends UnitTestCase
     /** @test */
     public function it_should_be_able_to_handle_more_than_one_domain_event()
     {
-        $this->publisher->register(get_class($this->domainEvent()), $this->subscriber());
-        $this->publisher->register(get_class($this->anotherDomainEvent()), $this->subscriber());
+        $this->publisher->subscribe(get_class($this->domainEvent()), $this->subscriber());
+        $this->publisher->subscribe(get_class($this->anotherDomainEvent()), $this->subscriber());
 
         $this->subscriberShouldBeCalled();
         $this->subscriberShouldBeCalledWithTheOtherEvent();

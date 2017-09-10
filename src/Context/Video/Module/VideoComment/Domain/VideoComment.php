@@ -21,11 +21,11 @@ final class VideoComment extends AggregateRoot
         $this->content = $content;
     }
 
-    public static function publish(VideoCommentId $id, VideoId $videoId, VideoCommentContent $content)
+    public static function publish(VideoCommentId $id, VideoId $videoId, VideoCommentContent $content): VideoComment
     {
         $comment = new self($id, $videoId, $content);
 
-        $comment->raise(
+        $comment->record(
             new VideoCommentPublishedDomainEvent(
                 $id->value(),
                 [

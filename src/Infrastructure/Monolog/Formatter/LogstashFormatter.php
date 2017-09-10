@@ -25,7 +25,7 @@ class LogstashFormatter extends NormalizerFormatter
             '@timestamp' => $record['datetime'],
             '@version'   => 1,
             'host'       => gethostname(),
-            'tags'       => ['arya', $record['channel']],
+            'tags'       => ['codelytv', $record['channel']],
             'message'    => $record['message'],
             'severity'   => $record['level_name'],
         ];
