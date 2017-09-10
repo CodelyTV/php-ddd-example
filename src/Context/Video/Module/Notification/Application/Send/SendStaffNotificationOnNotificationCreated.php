@@ -23,7 +23,7 @@ final class SendStaffNotificationOnNotificationCreated
     public function __invoke(NotificationCreatedDomainEvent $event)
     {
         $text = new NotificationText($event->text());
-        $type = new NotificationType($event->type());
+        $type = new NotificationType($event->messageType());
 
         $this->sender->__invoke($text, $type);
     }
