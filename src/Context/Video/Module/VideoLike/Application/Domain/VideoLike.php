@@ -41,7 +41,6 @@ final class VideoLike extends AggregateRoot
             new VideoLikeCreatedDomainEvent(
                 $id,
                 [
-                    'id' => $id->value(),
                     'userId' => $userId->value(),
                     'videoId' => $videoId->value(),
                 ]

@@ -18,7 +18,6 @@ class VideoLikeCreatedDomainEvent extends DomainEvent
     protected function rules(): array
     {
         return [
-            'id' => ['string'],
             'userId' => ['string'],
             'videoId' => ['string'],
         ];
