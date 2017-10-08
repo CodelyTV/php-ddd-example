@@ -6,6 +6,7 @@ use CodelyTv\Api\Infrastructure\Controller\ApiController;
 use CodelyTv\Api\Infrastructure\Response\ApiHttpCreatedResponse;
 use CodelyTv\Context\Video\Module\VideoLike\Application\Create\CreateVideoLikeCommand;
 use CodelyTv\Types\ValueObject\Uuid;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * VideoLikePostController
