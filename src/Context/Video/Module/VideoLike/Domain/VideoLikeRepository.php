@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\VideoLike\Application\Domain;
+namespace CodelyTv\Context\Video\Module\VideoLike\Domain;
 
 /**
  * Interface VideoLikeRepository

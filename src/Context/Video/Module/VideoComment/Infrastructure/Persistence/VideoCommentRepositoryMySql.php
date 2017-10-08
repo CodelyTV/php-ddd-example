@@ -8,8 +8,8 @@ use CodelyTv\Infrastructure\Doctrine\Repository;
 
 final class VideoCommentRepositoryMySql extends Repository implements VideoCommentRepository
 {
-    public function save(VideoComment $comment)
+    public function save(VideoComment $comment): void
     {
-        return $this->persist($comment);
+        $this->persist($comment);
     }
 }

@@ -4,9 +4,9 @@ namespace CodelyTv\Context\Video\Module\VideoLike\Application\Create;
 
 use CodelyTv\Context\Video\Module\User\Domain\UserId;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
-use CodelyTv\Context\Video\Module\VideoLike\Application\Domain\VideoLike;
-use CodelyTv\Context\Video\Module\VideoLike\Application\Domain\VideoLikeId;
-use CodelyTv\Context\Video\Module\VideoLike\Application\Domain\VideoLikeRepository;
+use CodelyTv\Context\Video\Module\VideoLike\Domain\VideoLike;
+use CodelyTv\Context\Video\Module\VideoLike\Domain\VideoLikeId;
+use CodelyTv\Context\Video\Module\VideoLike\Domain\VideoLikeRepository;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
 
 /**
