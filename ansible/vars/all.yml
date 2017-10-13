@@ -1,0 +1,25 @@
+---
+server:
+    install: '1'
+    packages: [vim, htop, imagemagick]
+    timezone: Europe/Madrid
+    locale: es_ES.UTF-8
+vagrant_local:
+    install: '1'
+    vm: { base_box: trusty64, hostname: cqrs, ip: 172.16.0.100, memory: '512', sharedfolder: ./, useVagrantCloud: '1', syncType: nfs }
+nginx:
+    install: '1'
+    docroot: /vagrant
+    servername: cqrs.dev
+mysql:
+    install: '1'
+    root_password: vagrant
+    database: codely_video
+    user: db
+    password: vagrant
+    dump: ''
+php:
+    install: '1'
+    ppa: php
+    packages: [php7.1-cli, php7.1-intl, php7.1-mcrypt, php7.1-curl, php7.1-common, php7.1-fpm, php7.1-mbstring, php7.1-mysql, php7.1-sqlite3, php-apcu]
+

@@ -1,3 +1,5 @@
+.idea
+.vagrant
 applications/*/var/cache/*
 !applications/*/var/cache/.gitkeep
 
