@@ -11,14 +11,14 @@ final class Course extends AggregateRoot
     private $title;
     private $description;
 
-    public function __construct(CourseId $id, CourseTitle $title, CourseDescription $description)
+    private function __construct(CourseId $id, CourseTitle $title, CourseDescription $description)
     {
         $this->id = $id;
         $this->title = $title;
         $this->description = $description;
     }
 
-    public static function create(CourseId $id, CourseTitle $title, CourseDescription $description)
+    public static function create(CourseId $id, CourseTitle $title, CourseDescription $description): Course
     {
         $course = new self($id, $title, $description);
 
@@ -31,6 +31,8 @@ final class Course extends AggregateRoot
                 ]
             )
         );
+
+        return $course;
     }
 
     public function id(): CourseId

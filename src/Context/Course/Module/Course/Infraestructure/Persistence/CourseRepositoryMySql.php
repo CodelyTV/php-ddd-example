@@ -8,8 +8,7 @@ use CodelyTv\Infrastructure\Doctrine\Repository;
 
 final class CourseRepositoryMySql extends Repository implements CourseRepository
 {
-
-    public function save(Course $course)
+    public function save(Course $course): void
     {
         $this->persist($course);
     }

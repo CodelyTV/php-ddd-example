@@ -20,9 +20,9 @@ final class CourseCreator
         $this->publisher = $publisher;
     }
 
-    public function create(CourseId $id, CourseTitle $title, CourseDescription $description)
+    public function create(CourseId $id, CourseTitle $title, CourseDescription $description): void
     {
-        $course = new Course($id, $title, $description);
+        $course = Course::create($id, $title, $description);
 
         $this->repository->save($course);
 
