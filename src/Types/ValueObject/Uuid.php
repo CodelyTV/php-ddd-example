@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Types\ValueObject;
 
 use InvalidArgumentException;
