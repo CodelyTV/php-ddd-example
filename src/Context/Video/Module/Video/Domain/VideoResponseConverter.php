@@ -6,6 +6,11 @@ final class VideoResponseConverter
 {
     public function __invoke(Video $video)
     {
-        return new VideoResponse($video->id()->value(), $video->title()->value(), $video->url(), $video->courseId());
+        return new VideoResponse(
+            $video->id()->value(),
+            $video->title()->value(),
+            $video->url()->value(),
+            $video->courseId()->value()
+        );
     }
 }
