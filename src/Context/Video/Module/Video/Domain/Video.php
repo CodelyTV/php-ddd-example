@@ -40,6 +40,11 @@ final class Video extends AggregateRoot
         return $video;
     }
 
+    public function updateTitle(VideoTitle $newTitle): void
+    {
+        $this->title = $newTitle;
+    }
+
     public function id(): VideoId
     {
         return $this->id;
