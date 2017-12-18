@@ -7,8 +7,3 @@ video_get:
   path:     /video/{id}
   defaults: { _controller: codely.api.controller.video.get }
   methods:  [GET]
-
-video_like:
-  path: /video/like/{id}
-  defaults: { _controller: codely.api.controller.video.like.post }
-  methods:  [POST]
