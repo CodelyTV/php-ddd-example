@@ -26,6 +26,6 @@ final class VideoCommentPublisher
 
         $this->repository->save($comment);
 
-        $this->publisher->publish($comment->pullDomainEvents());
+        $this->publisher->publish(...$comment->pullDomainEvents());
     }
 }

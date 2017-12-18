@@ -20,8 +20,8 @@ final class VideoCommentPublishedDomainEvent extends DomainEvent
     protected function rules(): array
     {
         return [
-            'video_id' => ['string'],
-            'content'  => ['string'],
+            'videoId' => ['string'],
+            'content' => ['string'],
         ];
     }
 }

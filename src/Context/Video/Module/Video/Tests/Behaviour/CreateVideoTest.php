@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Context\Video\Module\Video\Tests\Behaviour;
 
 use CodelyTv\Context\Video\Module\Video\Application\Create\CreateVideoCommandHandler;
@@ -42,7 +44,7 @@ final class CreateVideoTest extends VideoModuleUnitTestCase
         $domainEvent = VideoCreatedDomainEventStub::create($id, $title, $url, $courseId);
 
         $this->shouldSaveVideo($video);
-        $this->shouldPublishDomainEvents([$domainEvent]);
+        $this->shouldPublishDomainEvents($domainEvent);
 
         $this->dispatch($command, $this->handler);
     }

@@ -8,6 +8,10 @@ services:
     class: CodelyTv\Api\Controller\Video\VideoGetController
     parent: codely.api.controller
 
+  codely.api.controller.video.like.post:
+    class: CodelyTv\Api\Controller\VideoLike\VideoLikePostController
+    parent: codely.api.controller
+
   codely.api.controller.video.duration.path:
     class: CodelyTv\Api\Controller\Video\VideoDurationPatchController
     arguments:

@@ -10,6 +10,14 @@ services:
       - { name: 'codely.video.command' }
     public: false
 
+  codely.video.video.command_handler.like_video:
+    class: CodelyTv\Context\Video\Module\VideoLike\Application\Create\CreateVideoLikeCommandHandler
+    arguments:
+      - '@codely.video.video_like.video_like_creator'
+    tags:
+      - { name: 'codely.video.command' }
+    public: false
+
 
   # Query Handlers
 
@@ -30,6 +38,13 @@ services:
      - '@codely.video.video.repository'
      - '@codely.video.domain_event_publisher'
     public: false
+
+  codely.video.video_like.video_like_creator:
+      class: CodelyTv\Context\Video\Module\VideoLike\Application\Create\VideoLikeCreator
+      arguments:
+       - '@codely.video.video_like.repository'
+       - '@codely.video.domain_event_publisher'
+      public: false
 
   codely.video.video.video_finder:
     class: CodelyTv\Context\Video\Module\Video\Application\Find\VideoFinder

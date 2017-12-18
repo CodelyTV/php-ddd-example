@@ -26,6 +26,6 @@ final class NotificationCreator
 
         $notification = Notification::create($id, $text, $action);
 
-        $this->publisher->publish($notification->pullDomainEvents());
+        $this->publisher->publish(...$notification->pullDomainEvents());
     }
 }
