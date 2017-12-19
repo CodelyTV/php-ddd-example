@@ -22,3 +22,11 @@ services:
       - username: '%slack_video_notification_username%'
         channel: '%slack_video_notification_channel%'
     public: false
+
+  codely.video.notification.twitter_client:
+    class: CodelyTv\Context\Video\Module\Notification\Infrastructure\Notifier\TwitterClient
+    arguments:
+      - '%twitter_video_notification_oauth_access_token%'
+      - '%twitter_video_notification_oauth_access_token_secret%'
+      - '%twitter_video_notification_consumer_key%'
+      - '%twitter_video_notification_consumer_secret%'

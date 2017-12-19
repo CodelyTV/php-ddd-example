@@ -13,3 +13,8 @@ parameters:
   slack_video_notification_hook_url: 'https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX'
   slack_video_notification_username: 'YourUsername'
   slack_video_notification_channel: '#your_cannel'
+
+  twitter_video_notification_oauth_access_token: 'XXXXXXXXXXXX'
+  twitter_video_notification_oauth_access_token_secret: 'XXXXXXXXXXXX'
+  twitter_video_notification_consumer_key: 'XXXXXXXXXXXX'
+  twitter_video_notification_consumer_secret: 'XXXXXXXXXXXX'
