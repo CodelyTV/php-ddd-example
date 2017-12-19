@@ -30,3 +30,9 @@ services:
       - '%twitter_video_notification_oauth_access_token_secret%'
       - '%twitter_video_notification_consumer_key%'
       - '%twitter_video_notification_consumer_secret%'
+
+  codely.video.notification.twitter_notifier:
+    class: CodelyTv\Context\Video\Module\Notification\Infrastructure\Notifier\TwitterNotifier
+    arguments:
+      - '@codely.video.notification.twitter_client'
+    public: false
