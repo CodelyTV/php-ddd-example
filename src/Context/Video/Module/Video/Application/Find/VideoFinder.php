@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Context\Video\Module\Video\Application\Find;
 
 use CodelyTv\Context\Video\Module\Video\Domain\Video;
@@ -16,7 +18,7 @@ final class VideoFinder
         $this->repository = $repository;
     }
 
-    public function __invoke(VideoId $id)
+    public function __invoke(VideoId $id): Video
     {
         $video = $this->repository->search($id);
 
@@ -25,7 +27,7 @@ final class VideoFinder
         return $video;
     }
 
-    private function guard(VideoId $id, Video $video = null)
+    private function guard(VideoId $id, Video $video = null): void
     {
         if (null === $video) {
             throw new VideoNotFound($id);

@@ -18,7 +18,7 @@ interface DomainEventPublisher
     /**
      * Records events to be published afterwards using the publishRecorded method
      */
-    public function record(array $domainEvents): void;
+    public function record(DomainEvent ...$domainEvents): void;
 
     /**
      * Publishes previously recorded events
@@ -28,5 +28,5 @@ interface DomainEventPublisher
     /**
      * Immediately publishes the received events
      */
-    public function publish(array $domainEvents);
+    public function publish(DomainEvent ...$domainEvents);
 }

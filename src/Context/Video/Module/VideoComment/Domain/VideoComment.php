@@ -29,8 +29,8 @@ final class VideoComment extends AggregateRoot
             new VideoCommentPublishedDomainEvent(
                 $id->value(),
                 [
-                    'video_id' => $videoId->value(),
-                    'content'  => $content->value(),
+                    'videoId' => $videoId->value(),
+                    'content' => $content->value(),
                 ]
             )
         );

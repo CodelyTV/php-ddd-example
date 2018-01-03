@@ -27,6 +27,6 @@ final class VideoCreator
 
         $this->repository->save($video);
 
-        $this->publisher->publish($video->pullDomainEvents());
+        $this->publisher->publish(...$video->pullDomainEvents());
     }
 }

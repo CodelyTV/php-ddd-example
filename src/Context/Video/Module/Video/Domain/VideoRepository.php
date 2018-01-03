@@ -1,12 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Context\Video\Module\Video\Domain;
 
 interface VideoRepository
 {
-    /** @return void */
-    public function save(Video $video);
+    public function save(Video $video): void;
 
-    /** @return Video|null */
-    public function search(VideoId $id);
+    public function search(VideoId $id): ?Video;
 }

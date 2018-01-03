@@ -8,16 +8,16 @@ use DateTimeZone;
 use function Lambdish\Phunctional\filter_null;
 use function Lambdish\Phunctional\map;
 
-function date_to_string(DateTimeInterface $date) : string
+function date_to_string(DateTimeInterface $date): string
 {
     $timestamp             = $date->getTimestamp();
     $microseconds          = $date->format('u');
     $millisecondsOnASecond = 1000;
 
-    return (string) ((float) ((string) $timestamp . '.' . (string) $microseconds)) * $millisecondsOnASecond;
+    return (string) (((float) ((string) $timestamp . '.' . (string) $microseconds)) * $millisecondsOnASecond);
 }
 
-function string_to_date($milliseconds) : DateTimeImmutable
+function string_to_date($milliseconds): DateTimeImmutable
 {
     $millisecondsOnASecond = 1000;
     $asSeconds             = (int) floor($milliseconds / $millisecondsOnASecond);

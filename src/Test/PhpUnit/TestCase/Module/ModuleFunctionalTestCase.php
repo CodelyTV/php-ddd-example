@@ -44,7 +44,7 @@ abstract class ModuleFunctionalTestCase extends FunctionalTestCase
 
     protected function notify(DomainEvent $event)
     {
-        $this->assertNull($this->domainEventPublisher()->publish([$event]));
+        $this->assertNull($this->domainEventPublisher()->publish($event));
     }
 
     protected function assertSimilar($expected, $actual)

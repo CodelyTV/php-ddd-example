@@ -15,12 +15,12 @@ final class VideoCommentPublishedDomainEventStub
         VideoCommentId $id,
         VideoId $videoId,
         VideoCommentContent $content
-    ): VideoCommentPublishedDomainEvent
-    {
+    ): VideoCommentPublishedDomainEvent {
         return new VideoCommentPublishedDomainEvent(
-            $id->value(), [
-                'video_id' => $videoId->value(),
-                'content'  => $content->value()
+            $id->value(),
+            [
+                'videoId' => $videoId->value(),
+                'content' => $content->value()
             ]
         );
     }

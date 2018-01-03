@@ -10,6 +10,7 @@ use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use CodelyTv\Shared\Domain\Bus\Query\Response;
 use CodelyTv\Test\PhpUnit\TestCase\UnitTestCase;
+use function Lambdish\Phunctional\map;
 use Mockery\MockInterface;
 use Psr\Log\LoggerInterface;
 use function CodelyTv\Test\similarTo;
@@ -98,12 +99,12 @@ abstract class ModuleUnitTestCase extends UnitTestCase
     }
 
     /** @param DomainEvent[] $events */
-    protected function shouldPublishDomainEvents(array $events)
+    protected function shouldPublishDomainEvents(DomainEvent ...$events)
     {
         $this->domainEventPublisher()
             ->shouldReceive('publish')
             ->once()
-            ->with(similarTo($events))
+            ->with(...map($this->addSimilarTo(), $events))
             ->andReturnNull();
     }
 
@@ -130,5 +131,12 @@ abstract class ModuleUnitTestCase extends UnitTestCase
     private function ask(Query $query, callable $handler)
     {
         return $handler($query);
+    }
+
+    private function addSimilarTo(): callable
+    {
+        return function(DomainEvent $event) {
+            return similarTo($event);
+        };
     }
 }

@@ -26,6 +26,6 @@ final class VideoHighlightCreator
 
         $this->repository->save($videoHighlight);
 
-        $this->publisher->publish($videoHighlight->pullDomainEvents());
+        $this->publisher->publish(...$videoHighlight->pullDomainEvents());
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
@@ -19,14 +21,14 @@ final class TransactionalServiceCompilerPass implements CompilerPassInterface
         $this->domainEventPublisherTag = $domainEventPublisherTag;
     }
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $servicesToBeTransactional = $container->findTaggedServiceIds(self::TRANSACTIONAL_TAG);
 
         each($this->serviceDecorator($container), $servicesToBeTransactional);
     }
 
-    private function serviceDecorator(ContainerBuilder $container)
+    private function serviceDecorator(ContainerBuilder $container): callable
     {
         return function ($tags, $serviceToBeTransactional) use ($container) {
             $this->guardByTagExist($tags, $serviceToBeTransactional);
@@ -40,7 +42,7 @@ final class TransactionalServiceCompilerPass implements CompilerPassInterface
         };
     }
 
-    private function guardByTagExist(array $tags, $serviceToBeTransactional)
+    private function guardByTagExist(array $tags, $serviceToBeTransactional): void
     {
         if (!array_key_exists(self::BY_TAG, $tags[0])) {
             throw new TransactionalServiceByTagNotDefined($serviceToBeTransactional);
