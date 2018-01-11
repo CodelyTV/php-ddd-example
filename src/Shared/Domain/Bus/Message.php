@@ -19,4 +19,6 @@ abstract class Message
     {
         return $this->messageId;
     }
+
+    abstract public function messageType(): string;
 }

@@ -2,3 +2,4 @@ imports:
 
   - { resource: status.yml }
   - { resource: video.yml }
+  - { resource: course.yml }

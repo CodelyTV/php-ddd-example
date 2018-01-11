@@ -3,46 +3,47 @@
 namespace CodelyTv\Tests\Infrastructure\Bus\Command;
 
 use CodelyTv\Infrastructure\Bus\Command\CommandBusSync;
+use CodelyTv\Infrastructure\Bus\Middleware\MessageLoggerMiddleware;
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Test\PhpUnit\TestCase\UnitTestCase;
 use Mockery\MockInterface;
-use RuntimeException;
+use Psr\Log\LoggerInterface;
 
-final class CommandBusSyncTest extends UnitTestCase
+final class CommandBusSyncWithMiddlewaresTest extends UnitTestCase
 {
     /** @var CommandBusSync */
     private $commandBus;
     private $command;
+    private $logger;
 
     protected function setUp()
     {
         parent::setUp();
 
-        $this->commandBus = new CommandBusSync();
+        $this->commandBus = new CommandBusSync(new MessageLoggerMiddleware($this->logger()));
     }
 
     /** @test */
-    public function it_should_be_able_to_handle_a_command()
+    public function it_should_be_able_to_handle_a_command_with_middlewares()
     {
         $this->commandBus->register(get_class($this->command()), $this->commandHandler());
 
+        $this->shouldCheckCommandMessageType();
+        $this->shouldLog();
         $this->commandHandlerShouldBeCalled();
 
         $this->commandBus->dispatch($this->command());
     }
 
-    /** @test */
-    public function it_should_throw_an_exception_registering_a_handler_after_some_dispath_has_been_done()
+    /** @return LoggerInterface|MockInterface */
+    protected function logger()
     {
-        $this->commandBus->register(get_class($this->command()), $this->commandHandler());
+        return $this->logger = $this->logger ?: $this->mock(LoggerInterface::class);
+    }
 
-        $this->commandHandlerShouldBeCalled();
-
-        $this->commandBus->dispatch($this->command());
-
-        $this->expectException(RuntimeException::class);
-
-        $this->commandBus->register(get_class($this->command()), $this->commandHandler());
+    protected function shouldLog()
+    {
+        $this->logger()->shouldReceive('debug')->once()->andReturnNull();
     }
 
     private function commandHandler()
@@ -64,5 +65,14 @@ final class CommandBusSyncTest extends UnitTestCase
             ->shouldReceive('name')
             ->once()
             ->withNoArgs();
+    }
+
+    private function shouldCheckCommandMessageType()
+    {
+        $this->command()
+            ->shouldReceive('messageType')
+            ->once()
+            ->withNoArgs()
+            ->andReturn('command');
     }
 }

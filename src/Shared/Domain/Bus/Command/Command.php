@@ -11,4 +11,9 @@ abstract class Command extends Request
     {
         return $this->requestId();
     }
+
+    public function messageType(): string
+    {
+        return 'command';
+    }
 }
