@@ -17,6 +17,7 @@ final class ApiSerializerDriver extends CodelyTvSerializerDriver
         return [
             VideoResponse::class => [
                 'id'       => ['type' => 'string'],
+                'type'     => ['type' => 'string'],
                 'title'    => ['type' => 'string'],
                 'url'      => ['type' => 'string'],
                 'courseId' => ['type' => 'string'],

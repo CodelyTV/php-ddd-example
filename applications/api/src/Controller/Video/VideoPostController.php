@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Api\Controller\Video;
 
 use CodelyTv\Api\Infrastructure\Controller\ApiController;
@@ -20,6 +22,7 @@ final class VideoPostController extends ApiController
         $command = new CreateVideoCommand(
             new Uuid($request->get('request_id')),
             $request->get('id'),
+            $request->get('type'),
             $request->get('title'),
             $request->get('url'),
             $request->get('course_id')

@@ -14,6 +14,9 @@ CodelyTv\Context\Video\Module\Video\Domain\Video:
       column: course_id
 
   embedded:
+    type:
+      class: CodelyTv\Context\Video\Module\Video\Domain\VideoType
+      columnPrefix: false
     title:
       class: CodelyTv\Context\Video\Module\Video\Domain\VideoTitle
       columnPrefix: false

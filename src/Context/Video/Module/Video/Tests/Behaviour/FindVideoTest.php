@@ -32,10 +32,16 @@ final class FindVideoTest extends VideoModuleUnitTestCase
     {
         $query = FindVideoQueryStub::random();
 
-        $id    = VideoIdStub::create($query->id());
+        $id = VideoIdStub::create($query->id());
         $video = VideoStub::withId($id);
 
-        $response = VideoResponseStub::create($video->id(), $video->title(), $video->url(), $video->courseId());
+        $response = VideoResponseStub::create(
+            $video->id(),
+            $video->type(),
+            $video->title(),
+            $video->url(),
+            $video->courseId()
+        );
 
         $this->shouldSearchVideo($id, $video);
 

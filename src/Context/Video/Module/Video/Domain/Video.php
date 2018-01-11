@@ -10,26 +10,34 @@ use CodelyTv\Types\Aggregate\AggregateRoot;
 final class Video extends AggregateRoot
 {
     private $id;
+    private $type;
     private $title;
     private $url;
     private $courseId;
 
-    public function __construct(VideoId $id, VideoTitle $title, VideoUrl $url, CourseId $courseId)
+    public function __construct(VideoId $id, VideoType $type, VideoTitle $title, VideoUrl $url, CourseId $courseId)
     {
         $this->id       = $id;
+        $this->type     = $type;
         $this->title    = $title;
         $this->url      = $url;
         $this->courseId = $courseId;
     }
 
-    public static function create(VideoId $id, VideoTitle $title, VideoUrl $url, CourseId $courseId): Video
-    {
-        $video = new self($id, $title, $url, $courseId);
+    public static function create(
+        VideoId $id,
+        VideoType $type,
+        VideoTitle $title,
+        VideoUrl $url,
+        CourseId $courseId
+    ): Video {
+        $video = new self($id, $type, $title, $url, $courseId);
 
         $video->record(
             new VideoCreatedDomainEvent(
                 $id->value(),
                 [
+                    'type'     => $type->value(),
                     'title'    => $title->value(),
                     'url'      => $url->value(),
                     'courseId' => $courseId->value(),
@@ -48,6 +56,11 @@ final class Video extends AggregateRoot
     public function id(): VideoId
     {
         return $this->id;
+    }
+
+    public function type(): VideoType
+    {
+        return $this->type;
     }
 
     public function title(): VideoTitle
