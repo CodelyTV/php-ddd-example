@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Domain\Bus\Event;
 
@@ -38,11 +38,16 @@ abstract class DomainEvent extends Message
         $this->occurredOn  = $occurredOn ?: date_to_string(new DateTimeImmutable());
     }
 
+    abstract protected function rules(): array;
+
     abstract public static function eventName(): string;
 
-    abstract protected function rules() : array;
+    public function messageType(): string
+    {
+        return 'domain_event';
+    }
 
-    public function eventId() : string
+    public function eventId(): string
     {
         return $this->eventId;
     }
@@ -52,12 +57,12 @@ abstract class DomainEvent extends Message
         return $this->aggregateId;
     }
 
-    public function data() : array
+    public function data(): array
     {
         return $this->data;
     }
 
-    public function occurredOn() : string
+    public function occurredOn(): string
     {
         return $this->occurredOn;
     }
