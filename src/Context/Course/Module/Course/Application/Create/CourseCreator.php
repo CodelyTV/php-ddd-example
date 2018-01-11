@@ -17,7 +17,7 @@ final class CourseCreator
     public function __construct(CourseRepository $repository, DomainEventPublisher $publisher)
     {
         $this->repository = $repository;
-        $this->publisher = $publisher;
+        $this->publisher  = $publisher;
     }
 
     public function create(CourseId $id, CourseTitle $title, CourseDescription $description): void

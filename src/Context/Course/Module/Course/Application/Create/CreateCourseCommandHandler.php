@@ -17,8 +17,8 @@ final class CreateCourseCommandHandler
 
     public function __invoke(CreateCourseCommand $command): void
     {
-        $id = new CourseId($command->id());
-        $title = new CourseTitle($command->title());
+        $id          = new CourseId($command->id());
+        $title       = new CourseTitle($command->title());
         $description = new CourseDescription($command->description());
 
         $this->creator->create($id, $title, $description);

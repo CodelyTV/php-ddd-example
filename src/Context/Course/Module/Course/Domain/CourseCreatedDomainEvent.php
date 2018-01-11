@@ -14,7 +14,7 @@ final class CourseCreatedDomainEvent extends DomainEvent
     protected function rules(): array
     {
         return [
-            'title' => ['string'],
+            'title'       => ['string'],
             'description' => ['string'],
         ];
     }
