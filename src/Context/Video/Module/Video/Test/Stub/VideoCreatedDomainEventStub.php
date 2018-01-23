@@ -7,6 +7,7 @@ namespace CodelyTv\Context\Video\Module\Video\Test\Stub;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoCreatedDomainEvent;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoTitle;
+use CodelyTv\Context\Video\Module\Video\Domain\VideoType;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoUrl;
 use CodelyTv\Shared\Domain\CourseId;
 use CodelyTv\Shared\Test\Stub\CourseIdStub;
@@ -15,6 +16,7 @@ final class VideoCreatedDomainEventStub
 {
     public static function create(
         VideoId $id,
+        VideoType $type,
         VideoTitle $title,
         VideoUrl $url,
         CourseId $courseId
@@ -22,6 +24,7 @@ final class VideoCreatedDomainEventStub
         return new VideoCreatedDomainEvent(
             $id->value(),
             [
+                'type'     => $type->value(),
                 'title'    => $title->value(),
                 'url'      => $url->value(),
                 'courseId' => $courseId->value(),
@@ -33,6 +36,7 @@ final class VideoCreatedDomainEventStub
     {
         return self::create(
             VideoIdStub::random(),
+            VideoTypeStub::random(),
             VideoTitleStub::random(),
             VideoUrlStub::random(),
             CourseIdStub::random()

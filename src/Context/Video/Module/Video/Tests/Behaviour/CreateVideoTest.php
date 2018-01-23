@@ -12,6 +12,7 @@ use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoCreatedDomainEventStub;
 use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoIdStub;
 use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoStub;
 use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoTitleStub;
+use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoTypeStub;
 use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoUrlStub;
 use CodelyTv\Shared\Test\Stub\CourseIdStub;
 
@@ -35,13 +36,14 @@ final class CreateVideoTest extends VideoModuleUnitTestCase
         $command = CreateVideoCommandStub::random();
 
         $id       = VideoIdStub::create($command->id());
+        $type     = VideoTypeStub::create($command->type());
         $title    = VideoTitleStub::create($command->title());
         $url      = VideoUrlStub::create($command->url());
         $courseId = CourseIdStub::create($command->courseId());
 
-        $video = VideoStub::create($id, $title, $url, $courseId);
+        $video = VideoStub::create($id, $type, $title, $url, $courseId);
 
-        $domainEvent = VideoCreatedDomainEventStub::create($id, $title, $url, $courseId);
+        $domainEvent = VideoCreatedDomainEventStub::create($id, $type, $title, $url, $courseId);
 
         $this->shouldSaveVideo($video);
         $this->shouldPublishDomainEvents($domainEvent);

@@ -1,0 +1,5 @@
+services:
+
+  codely.api.controller.course.post:
+    class: CodelyTv\Api\Controller\Course\CoursePostController
+    parent: codely.api.controller

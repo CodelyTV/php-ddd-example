@@ -7,8 +7,5 @@ use CodelyTv\Context\Video\Test\PhpUnit\VideoContextFunctionalTestCase;
 
 abstract class VideoModuleFunctionalTestCase extends VideoContextFunctionalTestCase
 {
-    protected function repository(): VideoRepository
-    {
-        return $this->service('codely.video.video.repository');
-    }
+
 }

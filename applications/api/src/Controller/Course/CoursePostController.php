@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
-
-namespace CodelyTv\Api\Controller\Video;
+namespace CodelyTv\Api\Controller\Course;
 
 use CodelyTv\Api\Infrastructure\Controller\ApiController;
 use CodelyTv\Api\Infrastructure\Response\ApiHttpCreatedResponse;
-use CodelyTv\Context\Video\Module\Video\Application\Create\CreateVideoCommand;
+use CodelyTv\Context\Course\Module\Course\Application\Create\CreateCourseCommand;
 use CodelyTv\Types\ValueObject\Uuid;
 use Symfony\Component\HttpFoundation\Request;
 
-final class VideoPostController extends ApiController
+final class CoursePostController extends ApiController
 {
     protected function exceptions(): array
     {
@@ -19,13 +17,11 @@ final class VideoPostController extends ApiController
 
     public function __invoke(Request $request)
     {
-        $command = new CreateVideoCommand(
+        $command = new CreateCourseCommand(
             new Uuid($request->get('request_id')),
             $request->get('id'),
-            $request->get('type'),
             $request->get('title'),
-            $request->get('url'),
-            $request->get('course_id')
+            $request->get('description')
         );
 
         $this->dispatch($command);

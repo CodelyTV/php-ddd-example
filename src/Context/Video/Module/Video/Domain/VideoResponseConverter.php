@@ -10,6 +10,7 @@ final class VideoResponseConverter
     {
         return new VideoResponse(
             $video->id()->value(),
+            $video->type()->value(),
             $video->title()->value(),
             $video->url()->value(),
             $video->courseId()->value()

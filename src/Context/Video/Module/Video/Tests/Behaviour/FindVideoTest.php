@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Context\Video\Module\Video\Tests\Behaviour;
 
 use CodelyTv\Context\Video\Module\Video\Application\Find\FindVideoQueryHandler;
-use CodelyTv\Context\Video\Module\Video\Application\Find\VideoFinder;
+use CodelyTv\Context\Video\Module\Video\Domain\VideoFinder;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoNotFound;
 use CodelyTv\Context\Video\Module\Video\Test\PhpUnit\VideoModuleUnitTestCase;
 use CodelyTv\Context\Video\Module\Video\Test\Stub\FindVideoQueryStub;
@@ -32,10 +32,16 @@ final class FindVideoTest extends VideoModuleUnitTestCase
     {
         $query = FindVideoQueryStub::random();
 
-        $id    = VideoIdStub::create($query->id());
+        $id = VideoIdStub::create($query->id());
         $video = VideoStub::withId($id);
 
-        $response = VideoResponseStub::create($video->id(), $video->title(), $video->url(), $video->courseId());
+        $response = VideoResponseStub::create(
+            $video->id(),
+            $video->type(),
+            $video->title(),
+            $video->url(),
+            $video->courseId()
+        );
 
         $this->shouldSearchVideo($id, $video);
 
