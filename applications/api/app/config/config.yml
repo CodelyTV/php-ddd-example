@@ -5,6 +5,7 @@ imports:
 #  - { resource: parameters.yml }
 
   - { resource: controllers/_controllers.yml }
+  - { resource: commands/commands.yml }
   - { resource: rest/_rest.yml }
 #  - { resource: docs.yml }
   - { resource: logs.yml }

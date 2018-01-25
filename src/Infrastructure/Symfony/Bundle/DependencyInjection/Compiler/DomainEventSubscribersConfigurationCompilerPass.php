@@ -7,6 +7,7 @@ namespace CodelyTv\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\Reference;
 use function Lambdish\Phunctional\each;
 use function Lambdish\Phunctional\get;
 use function Lambdish\Phunctional\last;
@@ -67,7 +68,7 @@ class DomainEventSubscribersConfigurationCompilerPass implements CompilerPassInt
             );
 
             $domainEventConfiguration->addMethodCall('set', [$subscriberClass, $config]);
-            $subscribersMapping->addMethodCall('add', [$subscriberName, $subscriberClass]);
+            $subscribersMapping->addMethodCall('add', [$subscriberName, new Reference($subscriberServiceId)]);
         };
     }
 

@@ -7,6 +7,7 @@
 
     "ext-pdo": "*",
     "ext-apcu": "*",
+    "ext-amqp": "*",
 
     "incenteev/composer-parameter-handler": "^2.1",
 
