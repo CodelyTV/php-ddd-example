@@ -1,0 +1,9 @@
+services:
+
+  codely.api.command.consume_domain_events:
+    class: CodelyTv\Api\Command\ConsumeDomainEventsCommand
+    arguments:
+      - '@codely.infrastructure.rabbitmq_domain_event_consumer'
+      - '@codely.infrastructure.subscribers_mapping'
+    tags:
+      -  { name: console.command }
