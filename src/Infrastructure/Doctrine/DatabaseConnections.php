@@ -20,6 +20,13 @@ final class DatabaseConnections
         each($this->clearer(), $this->connections);
     }
 
+    public function allConnectionsClearer()
+    {
+        return function () {
+            $this->clear();
+        };
+    }
+
     public function truncate()
     {
         apply(new DatabaseCleaner(), array_values($this->connections));

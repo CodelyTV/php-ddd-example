@@ -5,25 +5,32 @@ declare(strict_types = 1);
 namespace CodelyTv\Api\Command;
 
 use CodelyTv\Infrastructure\Bus\Event\SubscribersMapping;
+use CodelyTv\Infrastructure\Doctrine\DatabaseConnections;
 use CodelyTv\Infrastructure\RabbitMQ\RabbitMQDomainEventConsumer;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use function Lambdish\Phunctional\apply;
+use function Lambdish\Phunctional\pipe;
 use function Lambdish\Phunctional\repeat;
 
 final class ConsumeDomainEventsCommand extends Command
 {
     private $consumer;
     private $mapping;
+    private $connections;
 
-    public function __construct(RabbitMQDomainEventConsumer $consumer, SubscribersMapping $mapping)
-    {
+    public function __construct(
+        RabbitMQDomainEventConsumer $consumer,
+        SubscribersMapping $mapping,
+        DatabaseConnections $connections
+    ) {
         parent::__construct();
 
-        $this->consumer = $consumer;
-        $this->mapping  = $mapping;
+        $this->consumer    = $consumer;
+        $this->mapping     = $mapping;
+        $this->connections = $connections;
     }
 
     protected function configure()
@@ -40,7 +47,7 @@ final class ConsumeDomainEventsCommand extends Command
         $subscriberName    = $input->getArgument('subscriber');
         $messagesToProcess = $input->getArgument('quantity');
 
-        repeat($this->consume($subscriberName), $messagesToProcess);
+        repeat(pipe($this->consume($subscriberName), $this->connections->allConnectionsClearer()), $messagesToProcess);
     }
 
     private function consume(string $subscriberName)
