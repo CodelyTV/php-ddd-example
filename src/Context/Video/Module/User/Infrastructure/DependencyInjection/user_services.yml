@@ -1,0 +1,20 @@
+services:
+
+  # Query Handlers
+
+  codely.video.user.query_handler.find:
+    class: CodelyTv\Context\Video\Module\User\Application\Find\FindUserQueryHandler
+    arguments:
+      - '@codely.video.user.user_finder'
+    tags:
+      - { name: 'codely.video.query' }
+    public: false
+
+
+  # Services
+
+  codely.video.user.user_finder:
+    class: CodelyTv\Context\Video\Module\User\Application\Find\UserFinder
+    arguments:
+     - '@codely.video.user.repository'
+    public: false
