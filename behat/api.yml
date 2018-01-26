@@ -23,3 +23,12 @@ api:
             connections: '@codely.infrastructure.database_connections'
         - CodelyTv\Api\Test\Behat\ApiContext\ApiRequestContext
         - CodelyTv\Api\Test\Behat\ApiContext\ApiResponseContext
+    user:
+      paths: [ applications/api/features/user ]
+      contexts:
+        - CodelyTv\Api\Test\Behat\ApiFeatureContext:
+            connections: '@codely.infrastructure.database_connections'
+        - CodelyTv\Api\Test\Behat\ApiContext\ApiRequestContext
+        - CodelyTv\Api\Test\Behat\ApiContext\ApiResponseContext
+        - CodelyTv\Context\Video\Module\Video\Test\Behat\UserModuleBehatContext:
+            repository: '@codely.video.user.repository'

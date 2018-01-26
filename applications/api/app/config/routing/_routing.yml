@@ -1,5 +1,8 @@
 status:
   resource: status.yml
 
+user:
+  resource: user.yml
+
 video:
   resource: video.yml
