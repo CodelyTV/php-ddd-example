@@ -7,6 +7,7 @@ Feature: Find a user
     Given there is a user:
       | id                   | fe7017d0-9e8f-4952-99d1-e047e36b1694 |
       | total_pending_videos | 5                                    |
+      | name                 | Vicenç                               |
 
   Scenario: Find an existing user
     Given I send a GET request to "/users/fe7017d0-9e8f-4952-99d1-e047e36b1694"
@@ -15,6 +16,7 @@ Feature: Find a user
     """
     {
       "id": "fe7017d0-9e8f-4952-99d1-e047e36b1694",
+      "name": "Vicenç",
       "total_pending_videos": 5
     }
     """
