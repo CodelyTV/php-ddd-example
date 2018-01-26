@@ -7,7 +7,7 @@ namespace CodelyTv\Context\Video\Module\User\Domain;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 
 /**
- * @method string userId()
+ * @method string creatorId()
  */
 final class ScalaVideoCreatedDomainEvent extends DomainEvent
 {
@@ -19,7 +19,7 @@ final class ScalaVideoCreatedDomainEvent extends DomainEvent
     protected function rules(): array
     {
         return [
-            'userId' => ['string'],
+            'creatorId' => ['string'],
         ];
     }
 }

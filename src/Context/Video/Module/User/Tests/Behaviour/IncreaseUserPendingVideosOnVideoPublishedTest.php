@@ -32,7 +32,7 @@ final class IncreaseUserPendingVideosOnVideoPublishedTest extends UserModuleUnit
     {
         $event = ScalaVideoCreatedDomainEventStub::random();
 
-        $id = UserIdStub::create($event->userId());
+        $id = UserIdStub::create($event->creatorId());
         $user = UserStub::withId($id);
 
         $updatedUser = DuplicatorStub::with(

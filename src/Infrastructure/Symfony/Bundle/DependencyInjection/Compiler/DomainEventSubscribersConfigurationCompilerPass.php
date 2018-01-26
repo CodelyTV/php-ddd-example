@@ -17,7 +17,6 @@ class DomainEventSubscribersConfigurationCompilerPass implements CompilerPassInt
 {
     const DOMAIN_EVENT_CONFIGURATION_SERVICE = 'codely.infrastructure.domain_event_subscribers_configuration';
     const SUBSCRIBERS_MAPPING_SERVICE        = 'codely.infrastructure.subscribers_mapping';
-    const EVENT_MAPPING_SERVICE              = 'codely.infrastructure.domain_event_mapping';
 
     private $tag;
     private $methodMapper;

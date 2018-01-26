@@ -24,7 +24,7 @@ final class IncreaseUserTotalVideosCreatedOnVideoCreated
 
     public function __invoke(ScalaVideoCreatedDomainEvent $event)
     {
-        $id = new UserId($event->userId());
+        $id = new UserId($event->creatorId());
 
         apply($this->increaser, [$id]);
     }

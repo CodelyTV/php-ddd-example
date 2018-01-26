@@ -13,7 +13,7 @@ final class ScalaVideoCreatedDomainEventStub
 {
     public static function create(VideoId $id, UserId $userId)
     {
-        return new ScalaVideoCreatedDomainEvent($id->value(), ['userId' => $userId->value()]);
+        return new ScalaVideoCreatedDomainEvent($id->value(), ['creatorId' => $userId->value()]);
     }
 
     public static function random()
