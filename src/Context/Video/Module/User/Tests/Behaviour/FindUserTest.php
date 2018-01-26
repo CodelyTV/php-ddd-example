@@ -35,7 +35,7 @@ final class FindUserTest extends UserModuleUnitTestCase
         $id   = UserIdStub::create($query->id());
         $user = UserStub::withId($id);
 
-        $response = UserResponseStub::create($user->id(), $user->pendingVideos());
+        $response = UserResponseStub::create($user->id(), $user->totalVideosCreated());
 
         $this->shouldSearchUser($id, $user);
 

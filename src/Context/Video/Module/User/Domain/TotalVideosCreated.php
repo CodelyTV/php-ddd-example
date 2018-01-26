@@ -6,7 +6,7 @@ namespace CodelyTv\Context\Video\Module\User\Domain;
 
 use CodelyTv\Types\ValueObject\IntValueObject;
 
-final class TotalPendingVideos extends IntValueObject
+final class TotalVideosCreated extends IntValueObject
 {
     public function increase(): self
     {

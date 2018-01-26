@@ -9,6 +9,6 @@ CodelyTv\Context\Video\Module\User\Domain\User:
       length: 36
 
   embedded:
-    pendingVideos:
-      class: CodelyTv\Context\Video\Module\User\Domain\TotalPendingVideos
+    totalVideosCreated:
+      class: CodelyTv\Context\Video\Module\User\Domain\TotalVideosCreated
       columnPrefix: false

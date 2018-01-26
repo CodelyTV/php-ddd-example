@@ -4,14 +4,14 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Context\Video\Module\User\Test\Stub;
 
-use CodelyTv\Context\Video\Module\User\Domain\TotalPendingVideos;
+use CodelyTv\Context\Video\Module\User\Domain\TotalVideosCreated;
 use CodelyTv\Test\Stub\NumberStub;
 
-final class TotalPendingVideosStub
+final class TotalVideosCreatedStub
 {
     public static function create(int $total)
     {
-        return new TotalPendingVideos($total);
+        return new TotalVideosCreated($total);
     }
 
     public static function random()

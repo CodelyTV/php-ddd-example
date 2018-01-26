@@ -22,7 +22,7 @@ final class Users extends AggregateRootCollection
     private function pendingIncreaser()
     {
         return function (User $user) {
-            $user->increasePending();
+            $user->increaseTotalVideosCreated();
         };
     }
 }

@@ -10,6 +10,6 @@ final class UserResponseConverter
 {
    public function __invoke(User $user)
    {
-       return new UserResponse($user->id()->value(), $user->pendingVideos()->value());
+       return new UserResponse($user->id()->value(), $user->totalVideosCreated()->value());
    }
 }
