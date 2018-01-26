@@ -1,0 +1,14 @@
+CodelyTv\Context\Video\Module\User\Domain\User:
+  type:  entity
+  table: user
+
+  id:
+    id:
+      type: user_id
+      column: id
+      length: 36
+
+  embedded:
+    pendingVideos:
+      class: CodelyTv\Context\Video\Module\User\Domain\TotalPendingVideos
+      columnPrefix: false
