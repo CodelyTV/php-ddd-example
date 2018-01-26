@@ -20,6 +20,11 @@ final class UserStub
         return self::create($id, TotalPendingVideosStub::random());
     }
 
+    public static function withValues(string $id, int $totalPendingVideos)
+    {
+        return self::create(UserIdStub::create($id), TotalPendingVideosStub::create($totalPendingVideos));
+    }
+
     public static function random()
     {
         return self::create(UserIdStub::random(), TotalPendingVideosStub::random());
