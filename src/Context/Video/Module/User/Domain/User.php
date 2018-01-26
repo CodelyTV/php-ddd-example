@@ -26,4 +26,9 @@ final class User extends AggregateRoot
     {
         return $this->pendingVideos;
     }
+
+    public function increasePending()
+    {
+        $this->pendingVideos = $this->pendingVideos->increase();
+    }
 }

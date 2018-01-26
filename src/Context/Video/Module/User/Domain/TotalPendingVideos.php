@@ -8,4 +8,8 @@ use CodelyTv\Types\ValueObject\IntValueObject;
 
 final class TotalPendingVideos extends IntValueObject
 {
+    public function increase(): self
+    {
+        return new self($this->value() + 1);
+    }
 }
