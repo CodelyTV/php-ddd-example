@@ -26,23 +26,26 @@ class DomainEventPublisherCompilerPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         $domainEventPublisher = $container->findDefinition(self::SERVICE_ID_WHERE_REGISTER_SUBSCRIBERS);
+        $domainEventMapping   = $container->findDefinition(self::SERVICE_ID_WHERE_REGISTER_EVENT_MAPPING);
         $subscriberServiceIds = $container->findTaggedServiceIds($this->tag);
 
         foreach ($subscriberServiceIds as $id => $unused) {
             $subscriber = $container->findDefinition($id);
-            $this->registerSubscriber($subscriber->getClass(), $id, $domainEventPublisher);
+            $this->registerSubscriber($subscriber->getClass(), $id, $domainEventPublisher, $domainEventMapping);
         }
     }
 
     private function registerSubscriber(
         string $subscriberClass,
         string $subscriberServiceId,
-        Definition $publisher
+        Definition $publisher,
+        Definition $domainEventMapping
     ) {
         $events = $subscriberClass::subscribedTo();
 
         foreach ($events as $eventClass) {
             $publisher->addMethodCall('subscribe', [$eventClass, new Reference($subscriberServiceId)]);
+            $domainEventMapping->addMethodCall('add', [$eventClass::eventName(), $eventClass]);
         }
     }
 }

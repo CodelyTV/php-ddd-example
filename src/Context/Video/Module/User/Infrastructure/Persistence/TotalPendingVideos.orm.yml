@@ -1,7 +1,0 @@
-CodelyTv\Context\Video\Module\User\Domain\TotalPendingVideos:
-  type: embeddable
-
-  fields:
-    value:
-      type: integer
-      column: total_pending_videos

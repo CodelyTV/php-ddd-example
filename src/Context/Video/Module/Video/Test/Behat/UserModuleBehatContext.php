@@ -31,7 +31,7 @@ final class UserModuleBehatContext extends RawMinkContext implements Context
     private function creator()
     {
         return function (array $user) {
-            $this->repository->save(UserStub::withValues($user['id'], (int) $user['total_pending_videos']));
+            $this->repository->save(UserStub::withValues($user['id'], $user['name'], (int) $user['total_pending_videos']));
         };
     }
 }

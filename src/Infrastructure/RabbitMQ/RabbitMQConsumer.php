@@ -32,6 +32,7 @@ final class RabbitMQConsumer
 
         try {
             apply($this->consumer, [$envelope->getBody()]);
+
             $this->log('Message consumed', $envelope, $queueName, LogLevel::DEBUG);
         } catch (Exception $exception) {
             $level = $this->hasBeenRedeliveredTooMuch($envelope) ? LogLevel::ERROR : LogLevel::DEBUG;

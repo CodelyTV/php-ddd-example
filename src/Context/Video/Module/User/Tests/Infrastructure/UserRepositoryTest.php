@@ -5,6 +5,7 @@ namespace CodelyTv\Context\Video\Module\User\Tests\Infrastructure;
 use CodelyTv\Context\Video\Module\User\Domain\UserRepository;
 use CodelyTv\Context\Video\Module\User\Test\PhpUnit\UserModuleFunctionalTestCase;
 use CodelyTv\Context\Video\Module\User\Test\Stub\UserIdStub;
+use CodelyTv\Context\Video\Module\User\Test\Stub\UsersStub;
 use CodelyTv\Context\Video\Module\User\Test\Stub\UserStub;
 
 final class UserRepositoryTest extends UserModuleFunctionalTestCase
@@ -24,6 +25,19 @@ final class UserRepositoryTest extends UserModuleFunctionalTestCase
         $this->clearUnitOfWork();
 
         $this->assertSimilar($user, $this->repository()->search($user->id()));
+    }
+
+    /** @test */
+    public function it_should_find_multiples_video()
+    {
+        $user    = UserStub::random();
+        $another = UserStub::random();
+        $users   = UsersStub::create($user, $another);
+
+        $this->repository()->saveAll($users);
+        $this->clearUnitOfWork();
+
+        $this->assertSimilar($users, $this->repository()->all());
     }
 
     /** @test */

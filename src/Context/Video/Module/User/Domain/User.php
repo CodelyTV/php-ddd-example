@@ -9,12 +9,14 @@ use CodelyTv\Types\Aggregate\AggregateRoot;
 final class User extends AggregateRoot
 {
     private $id;
-    private $pendingVideos;
+    private $name;
+    private $totalVideosCreated;
 
-    public function __construct(UserId $id, TotalPendingVideos $pendingVideos)
+    public function __construct(UserId $id, UserName $name, TotalVideosCreated $totalVideosCreated)
     {
-        $this->id            = $id;
-        $this->pendingVideos = $pendingVideos;
+        $this->id                 = $id;
+        $this->name               = $name;
+        $this->totalVideosCreated = $totalVideosCreated;
     }
 
     public function id(): UserId
@@ -22,8 +24,18 @@ final class User extends AggregateRoot
         return $this->id;
     }
 
-    public function pendingVideos(): TotalPendingVideos
+    public function name(): UserName
     {
-        return $this->pendingVideos;
+        return $this->name;
+    }
+
+    public function totalVideosCreated(): TotalVideosCreated
+    {
+        return $this->totalVideosCreated;
+    }
+
+    public function increaseTotalVideosCreated()
+    {
+        $this->totalVideosCreated = $this->totalVideosCreated->increase();
     }
 }
