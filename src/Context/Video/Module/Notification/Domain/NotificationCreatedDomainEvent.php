@@ -6,7 +6,7 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 
 /**
  * @method string text()
- * @method string type()
+ * @method string messageType()
  */
 final class NotificationCreatedDomainEvent extends DomainEvent
 {

@@ -15,6 +15,10 @@ This is a simple demo of a CQRS project.
 ### 1. Clone this repo
 Execute: `git clone https://github.com/CodelyTV/cqrs-ddd-example`
 
+### 2. Start the docker compose
+Rename .env.dist to .env and fill with your necessary information
+Run `docker-compose up -d`
+
 ### 2. Install all the dependencies
 Composer is used to handle the dependencies. You can download it executing:
 `curl -sS https://getcomposer.org/installer | php`
