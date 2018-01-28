@@ -30,7 +30,8 @@
     "lambdish/phunctional": "^1.0",
 
     "swiftmailer/swiftmailer": "^5.4",
-    "maknz/slack": "^1.7"
+    "maknz/slack": "^1.7",
+    "telegram-bot/api": "^2.3"
   },
   "require-dev": {
     "phpunit/phpunit": "^5.7",
