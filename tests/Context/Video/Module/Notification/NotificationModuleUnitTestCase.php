@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Notification\Test\PhpUnit;
+namespace CodelyTv\Test\Context\Video\Module\Notification;
 
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationRepository;
 use CodelyTv\Context\Video\Test\PhpUnit\VideoContextUnitTestCase;

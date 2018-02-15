@@ -23,15 +23,21 @@
         verbose="false">
 
     <testsuites>
+        <!--@todo To deprecate when all tests are moved to the new structure -->
         <testsuite name="Infrastructure">
             <directory>./src/Tests</directory>
         </testsuite>
+        <!--@todo To deprecate when all tests are moved to the new structure -->
         <testsuite name="Modules">
             <directory>./src/*/Module/*/Tests</directory>
             <directory>./src/Context/*/Module/*/Tests</directory>
         </testsuite>
+        <testsuite name="Application">
+            <directory>./tests</directory>
+        </testsuite>
     </testsuites>
 
+    <!--@todo To deprecate when all tests are moved to the new structure -->
     <filter>
         <whitelist>
             <directory>./src/*</directory>

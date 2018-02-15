@@ -67,7 +67,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "CodelyTv\\Applications\\Bootstrap\\": "features/bootstrap"
+      "CodelyTv\\Applications\\Bootstrap\\": "features/bootstrap",
+      "CodelyTv\\Test\\": "tests"
     }
   }
 }

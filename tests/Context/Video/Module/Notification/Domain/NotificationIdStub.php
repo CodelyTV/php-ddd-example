@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Notification\Test\Stub;
+namespace CodelyTv\Test\Context\Video\Module\Notification\Stub;
 
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationId;
 use CodelyTv\Test\Stub\UuidStub;

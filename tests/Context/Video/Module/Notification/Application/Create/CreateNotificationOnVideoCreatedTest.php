@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace CodelyTv\Context\Video\Module\Notification\Tests\Behaviour;
+namespace CodelyTv\Test\Context\Video\Module\Notification\Application\Create;
 
-use CodelyTv\Context\Video\Module\Notification\Test\PhpUnit\NotificationModuleUnitTestCase;
+use CodelyTv\Test\Context\Video\Module\Notification\NotificationModuleUnitTestCase;
 
-final class SendStaffNotificationOnNotificationCreatedTest extends NotificationModuleUnitTestCase
+final class CreateNotificationOnVideoCreatedTest extends NotificationModuleUnitTestCase
 {
     /**
      * You have a similar example in:
@@ -16,5 +16,6 @@ final class SendStaffNotificationOnNotificationCreatedTest extends NotificationM
      */
     public function implementation_pending()
     {
+
     }
 }
