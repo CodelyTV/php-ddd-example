@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\VideoHighlight\Test\Stub;
+namespace CodelyTv\Test\Context\Video\Module\VideoHighlight\Domain;
 
 use CodelyTv\Context\Video\Module\VideoHighlight\Domain\VideoHighlightId;
 use CodelyTv\Test\Stub\UuidStub;

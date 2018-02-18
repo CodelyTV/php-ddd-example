@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace CodelyTv\Context\Video\Module\VideoHighlight\Tests\Behaviour;
+namespace CodelyTv\Test\Context\Video\Module\VideoHighlight\Application\Create;
 
-use CodelyTv\Context\Video\Module\VideoHighlight\Test\PhpUnit\VideoHighlightModuleUnitTestCase;
+use CodelyTv\Test\Context\Video\Module\VideoHighlight\VideoHighlightModuleUnitTestCase;
 
 final class CreateVideoHighlightCommandHandlerTest extends VideoHighlightModuleUnitTestCase
 {

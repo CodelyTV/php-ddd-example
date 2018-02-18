@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\VideoHighlight\Test\PhpUnit;
+namespace CodelyTv\Test\Context\Video\Module\VideoHighlight;
 
 use CodelyTv\Context\Video\Module\VideoHighlight\Domain\VideoHighlightRepository;
 use CodelyTv\Test\Context\Video\VideoContextUnitTestCase;
