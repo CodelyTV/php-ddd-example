@@ -1,12 +1,12 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\User\Tests\Infrastructure;
+namespace CodelyTv\Test\Context\Video\Module\User\Infrastructure\Persistence;
 
 use CodelyTv\Context\Video\Module\User\Domain\UserRepository;
-use CodelyTv\Context\Video\Module\User\Test\PhpUnit\UserModuleFunctionalTestCase;
-use CodelyTv\Context\Video\Module\User\Test\Stub\UserIdStub;
-use CodelyTv\Context\Video\Module\User\Test\Stub\UsersStub;
-use CodelyTv\Context\Video\Module\User\Test\Stub\UserStub;
+use CodelyTv\Test\Context\Video\Module\User\UserModuleFunctionalTestCase;
+use CodelyTv\Test\Context\Video\Module\User\Domain\UserIdStub;
+use CodelyTv\Test\Context\Video\Module\User\Domain\UsersStub;
+use CodelyTv\Test\Context\Video\Module\User\Domain\UserStub;
 
 final class UserRepositoryTest extends UserModuleFunctionalTestCase
 {

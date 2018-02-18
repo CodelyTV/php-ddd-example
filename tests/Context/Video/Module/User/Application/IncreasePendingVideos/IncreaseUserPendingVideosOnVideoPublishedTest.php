@@ -2,15 +2,15 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Context\Video\Module\User\Tests\Behaviour;
+namespace CodelyTv\Test\Context\Video\Module\User\Application\IncreasePendingVideos;
 
 use CodelyTv\Context\Video\Module\User\Application\IncreasePendingVideos\IncreaseUserTotalVideosCreatedOnVideoCreated;
 use CodelyTv\Context\Video\Module\User\Application\IncreasePendingVideos\UserTotalVideosCreatedIncreaser;
-use CodelyTv\Context\Video\Module\User\Test\PhpUnit\UserModuleUnitTestCase;
-use CodelyTv\Context\Video\Module\User\Test\Stub\ScalaVideoCreatedDomainEventStub;
-use CodelyTv\Context\Video\Module\User\Test\Stub\TotalVideosCreatedStub;
-use CodelyTv\Context\Video\Module\User\Test\Stub\UserIdStub;
-use CodelyTv\Context\Video\Module\User\Test\Stub\UserStub;
+use CodelyTv\Test\Context\Video\Module\User\UserModuleUnitTestCase;
+use CodelyTv\Test\Context\Video\Module\User\Domain\ScalaVideoCreatedDomainEventStub;
+use CodelyTv\Test\Context\Video\Module\User\Domain\TotalVideosCreatedStub;
+use CodelyTv\Test\Context\Video\Module\User\Domain\UserIdStub;
+use CodelyTv\Test\Context\Video\Module\User\Domain\UserStub;
 use CodelyTv\Test\Stub\DuplicatorStub;
 
 final class IncreaseUserPendingVideosOnVideoPublishedTest extends UserModuleUnitTestCase

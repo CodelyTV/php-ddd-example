@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Context\Video\Module\User\Test\Stub;
+namespace CodelyTv\Test\Context\Video\Module\User\Domain;
 
 use CodelyTv\Context\Video\Module\User\Domain\TotalVideosCreated;
 use CodelyTv\Test\Stub\NumberStub;
