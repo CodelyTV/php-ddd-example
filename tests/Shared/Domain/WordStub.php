@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CodelyTv\Test\Infrastructure\Stub;
+namespace CodelyTv\Test\Shared\Domain;
 
 final class WordStub
 {

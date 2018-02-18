@@ -3,7 +3,7 @@
 namespace CodelyTv\Test\Context\Video\Module\Notification\Stub;
 
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationId;
-use CodelyTv\Test\Infrastructure\Stub\UuidStub;
+use CodelyTv\Test\Shared\Domain\UuidStub;
 
 final class NotificationIdStub
 {

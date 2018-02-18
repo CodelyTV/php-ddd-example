@@ -6,7 +6,7 @@ namespace CodelyTv\Test\Context\Video\Module\User\Domain;
 
 use CodelyTv\Context\Video\Module\User\Domain\User;
 use CodelyTv\Context\Video\Module\User\Domain\Users;
-use CodelyTv\Test\Infrastructure\Stub\RepeatStub;
+use CodelyTv\Test\Shared\Domain\RepeatStub;
 
 final class UsersStub
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Test\Infrastructure\Stub;
+namespace CodelyTv\Test\Shared\Domain;
 
 final class NumberStub
 {

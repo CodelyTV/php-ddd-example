@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Test\Context\Video\Module\VideoComment\Domain;
 
 use CodelyTv\Context\Video\Module\VideoComment\Domain\VideoCommentContent;
-use CodelyTv\Test\Infrastructure\Stub\TextStub;
+use CodelyTv\Test\Shared\Domain\TextStub;
 
 final class VideoCommentContentStub
 {

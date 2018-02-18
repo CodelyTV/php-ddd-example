@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Test\EntryPoint;
+namespace CodelyTv\Test\Infrastructure\Behat;
 
 use Behat\Behat\Context\Context;
 use CodelyTv\Infrastructure\Doctrine\DatabaseConnections;

@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Test\EntryPoint\ApiContext;
+namespace CodelyTv\Test\Infrastructure\Behat\ApiContext;
 
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;

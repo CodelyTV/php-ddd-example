@@ -3,7 +3,7 @@
 namespace CodelyTv\Test\Context\Video\Module\Video\Domain;
 
 use CodelyTv\Context\Video\Module\Video\Domain\VideoUrl;
-use CodelyTv\Test\Infrastructure\Stub\UrlStub;
+use CodelyTv\Test\Shared\Domain\UrlStub;
 
 final class VideoUrlStub
 {

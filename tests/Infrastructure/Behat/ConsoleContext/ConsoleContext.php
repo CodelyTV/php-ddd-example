@@ -1,13 +1,13 @@
 <?php
 
-namespace CodelyTv\Applications\Bootstrap;
+namespace CodelyTv\Test\Infrastructure\Behat\ConsoleContext;
 
 use Behat\Behat\Context\Context;
 use Behat\Symfony2Extension\Context\KernelDictionary;
 use Exception;
 use Symfony\Component\Process\Process;
 
-final class FeatureContext implements Context
+final class ConsoleContext implements Context
 {
     use KernelDictionary;
     /** @var Process */

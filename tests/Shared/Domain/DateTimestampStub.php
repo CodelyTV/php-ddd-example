@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Test\Infrastructure\Stub;
+namespace CodelyTv\Test\Shared\Domain;
 
 use DateTimeImmutable;
 use function CodelyTv\Utils\date_to_string;
