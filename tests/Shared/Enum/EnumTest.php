@@ -3,8 +3,6 @@
 namespace CodelyTv\Test\Shared\Enum;
 
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
-use CodelyTv\Tests\Unit\Enum\NumberTestEnum;
-use CodelyTv\Tests\Unit\Enum\StringTestEnum;
 
 final class EnumTest extends UnitTestCase
 {

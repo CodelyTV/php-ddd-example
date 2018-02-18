@@ -4,8 +4,8 @@ namespace CodelyTv\Test\Infrastructure\Bus\Event;
 
 use DomainException;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
-use CodelyTv\Test\Stub\UuidStub;
-use CodelyTv\Test\Stub\WordStub;
+use CodelyTv\Test\Infrastructure\Stub\UuidStub;
+use CodelyTv\Test\Infrastructure\Stub\WordStub;
 
 final class DomainEventTest extends UnitTestCase
 {

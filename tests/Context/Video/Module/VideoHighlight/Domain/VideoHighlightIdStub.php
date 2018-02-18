@@ -3,7 +3,7 @@
 namespace CodelyTv\Test\Context\Video\Module\VideoHighlight\Domain;
 
 use CodelyTv\Context\Video\Module\VideoHighlight\Domain\VideoHighlightId;
-use CodelyTv\Test\Stub\UuidStub;
+use CodelyTv\Test\Infrastructure\Stub\UuidStub;
 
 final class VideoHighlightIdStub
 {

@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace CodelyTv\Test\Context\Video\Module\User\Domain;
 
 use CodelyTv\Context\Video\Module\User\Domain\UserId;
-use CodelyTv\Test\Stub\UuidStub;
+use CodelyTv\Test\Infrastructure\Stub\UuidStub;
 
 final class UserIdStub
 {

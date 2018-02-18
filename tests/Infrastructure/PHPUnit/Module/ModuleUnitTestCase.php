@@ -10,10 +10,10 @@ use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use CodelyTv\Shared\Domain\Bus\Query\Response;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
-use function Lambdish\Phunctional\map;
 use Mockery\MockInterface;
 use Psr\Log\LoggerInterface;
 use function CodelyTv\Test\similarTo;
+use function Lambdish\Phunctional\map;
 
 abstract class ModuleUnitTestCase extends UnitTestCase
 {
@@ -135,7 +135,7 @@ abstract class ModuleUnitTestCase extends UnitTestCase
 
     private function addSimilarTo(): callable
     {
-        return function(DomainEvent $event) {
+        return function (DomainEvent $event) {
             return similarTo($event);
         };
     }

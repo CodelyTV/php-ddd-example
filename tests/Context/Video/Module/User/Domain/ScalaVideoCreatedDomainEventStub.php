@@ -7,7 +7,7 @@ namespace CodelyTv\Test\Context\Video\Module\User\Domain;
 use CodelyTv\Context\Video\Module\User\Domain\ScalaVideoCreatedDomainEvent;
 use CodelyTv\Context\Video\Module\User\Domain\UserId;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
-use CodelyTv\Test\Context\Video\Module\Video\Application\Create\VideoIdStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdStub;
 
 final class ScalaVideoCreatedDomainEventStub
 {

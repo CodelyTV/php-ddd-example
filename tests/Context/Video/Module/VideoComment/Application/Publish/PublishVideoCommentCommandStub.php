@@ -11,7 +11,7 @@ use CodelyTv\Context\Video\Module\VideoComment\Domain\VideoCommentId;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdStub;
 use CodelyTv\Test\Context\Video\Module\VideoComment\Domain\VideoCommentContentStub;
 use CodelyTv\Test\Context\Video\Module\VideoComment\Domain\VideoCommentIdStub;
-use CodelyTv\Test\Stub\UuidStub;
+use CodelyTv\Test\Infrastructure\Stub\UuidStub;
 use CodelyTv\Types\ValueObject\Uuid;
 
 final class PublishVideoCommentCommandStub

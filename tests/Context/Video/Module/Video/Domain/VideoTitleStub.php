@@ -3,7 +3,7 @@
 namespace CodelyTv\Test\Context\Video\Module\Video\Domain;
 
 use CodelyTv\Context\Video\Module\Video\Domain\VideoTitle;
-use CodelyTv\Test\Stub\WordStub;
+use CodelyTv\Test\Infrastructure\Stub\WordStub;
 
 final class VideoTitleStub
 {

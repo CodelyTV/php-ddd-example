@@ -3,7 +3,7 @@
 namespace CodelyTv\Shared\Test\Stub;
 
 use CodelyTv\Shared\Domain\CourseId;
-use CodelyTv\Test\Stub\UuidStub;
+use CodelyTv\Test\Infrastructure\Stub\UuidStub;
 
 final class CourseIdStub
 {

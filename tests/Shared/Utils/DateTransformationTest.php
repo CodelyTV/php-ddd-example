@@ -4,8 +4,8 @@ namespace CodelyTv\Test\Shared\Utils;
 
 use DateTimeImmutable;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
-use CodelyTv\Test\Stub\DateTimeStub;
-use CodelyTv\Test\Stub\DateTimeZoneStub;
+use CodelyTv\Test\Infrastructure\Stub\DateTimeStub;
+use CodelyTv\Test\Infrastructure\Stub\DateTimeZoneStub;
 use function CodelyTv\Utils\date_to_string;
 use function CodelyTv\Utils\string_to_date;
 

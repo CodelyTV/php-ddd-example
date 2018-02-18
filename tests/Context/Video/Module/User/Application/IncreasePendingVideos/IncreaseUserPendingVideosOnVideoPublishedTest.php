@@ -11,7 +11,7 @@ use CodelyTv\Test\Context\Video\Module\User\Domain\ScalaVideoCreatedDomainEventS
 use CodelyTv\Test\Context\Video\Module\User\Domain\TotalVideosCreatedStub;
 use CodelyTv\Test\Context\Video\Module\User\Domain\UserIdStub;
 use CodelyTv\Test\Context\Video\Module\User\Domain\UserStub;
-use CodelyTv\Test\Stub\DuplicatorStub;
+use CodelyTv\Test\Infrastructure\Stub\DuplicatorStub;
 
 final class IncreaseUserPendingVideosOnVideoPublishedTest extends UserModuleUnitTestCase
 {
