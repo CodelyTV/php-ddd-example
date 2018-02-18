@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Video\Test\Stub;
+namespace CodelyTv\Test\Context\Video\Module\Video\Domain;
 
 use CodelyTv\Context\Video\Module\Video\Domain\VideoTitle;
 use CodelyTv\Test\Stub\WordStub;

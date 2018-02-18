@@ -10,7 +10,7 @@ final class CreateNotificationOnVideoCreatedTest extends NotificationModuleUnitT
 {
     /**
      * You have a similar example in:
-     * @see \CodelyTv\Context\Video\Module\Video\Tests\Behaviour\CreateVideoTest::it_should_create_a_video
+     * @see \CodelyTv\Test\Context\Video\Module\Video\Application\Create\CreateVideoTest::it_should_create_a_video
      *
      * @test
      */

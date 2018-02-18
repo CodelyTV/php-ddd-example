@@ -2,13 +2,13 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Context\Video\Module\Video\Test\Behat;
+namespace CodelyTv\Test\Context\Video\Module\User;
 
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\RawMinkContext;
 use CodelyTv\Context\Video\Module\User\Domain\UserRepository;
-use CodelyTv\Context\Video\Module\User\Test\Stub\UserStub;
+use CodelyTv\Test\Context\Video\Module\User\Domain\UserStub;
 use function Lambdish\Phunctional\apply;
 
 final class UserModuleBehatContext extends RawMinkContext implements Context

@@ -1,11 +1,11 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Video\Test\PhpUnit;
+namespace CodelyTv\Test\Context\Video\Module\Video;
 
 use CodelyTv\Context\Video\Module\Video\Domain\Video;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoRepository;
-use CodelyTv\Test\Context\Video\PhpUnit\VideoContextUnitTestCase;
+use CodelyTv\Test\Context\Video\VideoContextUnitTestCase;
 use Mockery\MockInterface;
 use function CodelyTv\Test\similarTo;
 

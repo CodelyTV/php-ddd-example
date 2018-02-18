@@ -3,7 +3,7 @@
 namespace CodelyTv\Context\Video\Module\VideoHighlight\Test\PhpUnit;
 
 use CodelyTv\Context\Video\Module\VideoHighlight\Domain\VideoHighlightRepository;
-use CodelyTv\Test\Context\Video\PhpUnit\VideoContextUnitTestCase;
+use CodelyTv\Test\Context\Video\VideoContextUnitTestCase;
 use Mockery\MockInterface;
 
 abstract class VideoHighlightModuleUnitTestCase extends VideoContextUnitTestCase

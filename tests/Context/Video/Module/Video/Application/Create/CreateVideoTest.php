@@ -2,18 +2,17 @@
 
 declare(strict_types=1);
 
-namespace CodelyTv\Context\Video\Module\Video\Tests\Behaviour;
+namespace CodelyTv\Test\Context\Video\Module\Video\Application\Create;
 
 use CodelyTv\Context\Video\Module\Video\Application\Create\CreateVideoCommandHandler;
 use CodelyTv\Context\Video\Module\Video\Application\Create\VideoCreator;
-use CodelyTv\Context\Video\Module\Video\Test\PhpUnit\VideoModuleUnitTestCase;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\CreateVideoCommandStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoCreatedDomainEventStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoIdStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoTitleStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoTypeStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoUrlStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoCreatedDomainEventStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoTitleStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoTypeStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoUrlStub;
+use CodelyTv\Test\Context\Video\Module\Video\VideoModuleUnitTestCase;
 use CodelyTv\Shared\Test\Stub\CourseIdStub;
 
 final class CreateVideoTest extends VideoModuleUnitTestCase

@@ -2,24 +2,29 @@
 
 declare(strict_types=1);
 
-namespace CodelyTv\Context\Video\Module\Video\Test\Stub;
+namespace CodelyTv\Test\Context\Video\Module\Video\Domain;
 
+use CodelyTv\Context\Video\Module\Video\Domain\Video;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
-use CodelyTv\Context\Video\Module\Video\Domain\VideoResponse;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoTitle;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoType;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoUrl;
 use CodelyTv\Shared\Domain\CourseId;
 use CodelyTv\Shared\Test\Stub\CourseIdStub;
 
-final class VideoResponseStub
+final class VideoStub
 {
-    public static function create(VideoId $id, VideoType $type, VideoTitle $title, VideoUrl $url, CourseId $courseId): VideoResponse
+    public static function create(VideoId $id, VideoType $type, VideoTitle $title, VideoUrl $url, CourseId $courseId)
     {
-        return new VideoResponse($id->value(), $type->value(), $title->value(), $url->value(), $courseId->value());
+        return new Video($id, $type, $title, $url, $courseId);
     }
 
-    public static function random(): VideoResponse
+    public static function withId(VideoId $id)
+    {
+        return self::create($id, VideoTypeStub::random(), VideoTitleStub::random(), VideoUrlStub::random(), CourseIdStub::random());
+    }
+
+    public static function random(): Video
     {
         return self::create(
             VideoIdStub::random(),

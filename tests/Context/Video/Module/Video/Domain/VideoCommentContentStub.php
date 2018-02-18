@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CodelyTv\Context\Video\Module\Video\Test\Stub;
+namespace CodelyTv\Test\Context\Video\Module\Video\Domain;
 
 use CodelyTv\Context\Video\Module\VideoComment\Domain\VideoCommentContent;
 use CodelyTv\Test\Stub\TextStub;

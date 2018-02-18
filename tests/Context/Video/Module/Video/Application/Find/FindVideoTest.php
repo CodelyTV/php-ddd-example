@@ -2,16 +2,14 @@
 
 declare(strict_types=1);
 
-namespace CodelyTv\Context\Video\Module\Video\Tests\Behaviour;
+namespace CodelyTv\Test\Context\Video\Module\Video\Application\Find;
 
 use CodelyTv\Context\Video\Module\Video\Application\Find\FindVideoQueryHandler;
 use CodelyTv\Context\Video\Module\Video\Application\Find\VideoFinder;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoNotFound;
-use CodelyTv\Context\Video\Module\Video\Test\PhpUnit\VideoModuleUnitTestCase;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\FindVideoQueryStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoIdStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoResponseStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoStub;
+use CodelyTv\Test\Context\Video\Module\Video\VideoModuleUnitTestCase;
 
 final class FindVideoTest extends VideoModuleUnitTestCase
 {

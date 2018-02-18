@@ -1,11 +1,11 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Video\Tests\Infrastructure;
+namespace CodelyTv\Test\Context\Video\Module\Video\Infrastructure\Persistence;
 
 use CodelyTv\Context\Video\Module\Video\Domain\VideoRepository;
-use CodelyTv\Context\Video\Module\Video\Test\PhpUnit\VideoModuleFunctionalTestCase;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoIdStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoStub;
+use CodelyTv\Test\Context\Video\Module\Video\VideoModuleFunctionalTestCase;
 
 final class VideoRepositoryTest extends VideoModuleFunctionalTestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Module\Video\Test\Stub;
+namespace CodelyTv\Test\Context\Video\Module\Video\Application\Create;
 
 use CodelyTv\Context\Video\Module\Video\Application\Create\CreateVideoCommand;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
@@ -9,6 +9,10 @@ use CodelyTv\Context\Video\Module\Video\Domain\VideoType;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoUrl;
 use CodelyTv\Shared\Domain\CourseId;
 use CodelyTv\Shared\Test\Stub\CourseIdStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoTitleStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoTypeStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoUrlStub;
 use CodelyTv\Test\Stub\UuidStub;
 use CodelyTv\Types\ValueObject\Uuid;
 

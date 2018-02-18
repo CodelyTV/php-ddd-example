@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace CodelyTv\Context\Video\Module\VideoComment\Tests\Behaviour;
 
-use CodelyTv\Context\Video\Module\Video\Test\Stub\PublishVideoCommentCommandStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoCommentContentStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoCommentIdStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoCommentPublishedDomainEventStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoCommentStub;
-use CodelyTv\Context\Video\Module\Video\Test\Stub\VideoIdStub;
+use CodelyTv\Test\Context\Video\Module\Video\Application\Create\PublishVideoCommentCommandStub;
+use CodelyTv\Test\Context\Video\Module\Video\Application\Create\VideoCommentContentStub;
+use CodelyTv\Test\Context\Video\Module\Video\Application\Create\VideoCommentIdStub;
+use CodelyTv\Test\Context\Video\Module\Video\Application\Create\VideoCommentPublishedDomainEventStub;
+use CodelyTv\Test\Context\Video\Module\Video\Application\Create\VideoCommentStub;
+use CodelyTv\Test\Context\Video\Module\Video\Application\Create\VideoIdStub;
 use CodelyTv\Context\Video\Module\VideoComment\Application\Publish\PublishVideoCommentCommandHandler;
 use CodelyTv\Context\Video\Module\VideoComment\Application\Publish\VideoCommentPublisher;
 use CodelyTv\Context\Video\Module\VideoComment\Domain\VideoComment;
 use CodelyTv\Context\Video\Module\VideoComment\Domain\VideoCommentRepository;
-use CodelyTv\Test\Context\Video\PhpUnit\VideoContextUnitTestCase;
+use CodelyTv\Test\Context\Video\VideoContextUnitTestCase;
 use function CodelyTv\Test\similarTo;
 use Mockery\MockInterface;
 

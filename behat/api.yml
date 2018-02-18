@@ -30,5 +30,5 @@ api:
             connections: '@codely.infrastructure.database_connections'
         - CodelyTv\Api\Test\Behat\ApiContext\ApiRequestContext
         - CodelyTv\Api\Test\Behat\ApiContext\ApiResponseContext
-        - CodelyTv\Context\Video\Module\Video\Test\Behat\UserModuleBehatContext:
+        - CodelyTv\Test\Context\Video\Module\User\UserModuleBehatContext:
             repository: '@codely.video.user.repository'
