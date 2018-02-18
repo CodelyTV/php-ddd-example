@@ -1,8 +1,8 @@
 <?php
 
-namespace CodelyTv\Tests\Unit;
+namespace CodelyTv\Test\Shared\Enum;
 
-use CodelyTv\Test\PhpUnit\TestCase\UnitTestCase;
+use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use CodelyTv\Tests\Unit\Enum\NumberTestEnum;
 use CodelyTv\Tests\Unit\Enum\StringTestEnum;
 

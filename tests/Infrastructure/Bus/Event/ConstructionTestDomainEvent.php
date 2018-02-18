@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Tests\Infrastructure\Bus\Event;
+namespace CodelyTv\Test\Infrastructure\Bus\Event;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 

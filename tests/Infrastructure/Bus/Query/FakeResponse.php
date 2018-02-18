@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Tests\Infrastructure\Bus\Query;
+namespace CodelyTv\Test\Infrastructure\Bus\Query;
 
 use CodelyTv\Shared\Domain\Bus\Query\Response;
 

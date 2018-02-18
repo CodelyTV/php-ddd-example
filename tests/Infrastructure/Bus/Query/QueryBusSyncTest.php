@@ -1,10 +1,10 @@
 <?php
 
-namespace CodelyTv\Tests\Infrastructure\Bus\Query;
+namespace CodelyTv\Test\Infrastructure\Bus\Query;
 
 use CodelyTv\Infrastructure\Bus\Query\QueryBusSync;
 use CodelyTv\Shared\Domain\Bus\Query\Query;
-use CodelyTv\Test\PhpUnit\TestCase\UnitTestCase;
+use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use RuntimeException;
 
 final class QueryBusSyncTest extends UnitTestCase

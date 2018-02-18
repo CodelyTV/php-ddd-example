@@ -1,10 +1,10 @@
 <?php
 
-namespace CodelyTv\Tests\Infrastructure\Bus\Event;
+namespace CodelyTv\Test\Infrastructure\Bus\Event;
 
 use CodelyTv\Infrastructure\Bus\Event\DomainEventPublisherSync;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
-use CodelyTv\Test\PhpUnit\TestCase\UnitTestCase;
+use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use Mockery\MockInterface;
 
 final class DomainEventPublisherSyncTest extends UnitTestCase

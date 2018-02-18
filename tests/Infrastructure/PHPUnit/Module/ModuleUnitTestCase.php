@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Test\PhpUnit\TestCase\Module;
+namespace CodelyTv\Test\Infrastructure\PHPUnit\Module;
 
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
@@ -9,7 +9,7 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
 use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use CodelyTv\Shared\Domain\Bus\Query\Response;
-use CodelyTv\Test\PhpUnit\TestCase\UnitTestCase;
+use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use function Lambdish\Phunctional\map;
 use Mockery\MockInterface;
 use Psr\Log\LoggerInterface;

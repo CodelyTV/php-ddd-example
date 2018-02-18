@@ -14,7 +14,7 @@ use CodelyTv\Context\Video\Module\VideoComment\Application\Publish\PublishVideoC
 use CodelyTv\Context\Video\Module\VideoComment\Application\Publish\VideoCommentPublisher;
 use CodelyTv\Context\Video\Module\VideoComment\Domain\VideoComment;
 use CodelyTv\Context\Video\Module\VideoComment\Domain\VideoCommentRepository;
-use CodelyTv\Context\Video\Test\PhpUnit\VideoContextUnitTestCase;
+use CodelyTv\Test\Context\Video\PhpUnit\VideoContextUnitTestCase;
 use function CodelyTv\Test\similarTo;
 use Mockery\MockInterface;
 

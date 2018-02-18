@@ -3,7 +3,7 @@
 namespace CodelyTv\Test\Context\Video\Module\Notification;
 
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationRepository;
-use CodelyTv\Context\Video\Test\PhpUnit\VideoContextUnitTestCase;
+use CodelyTv\Test\Context\Video\VideoContextUnitTestCase;
 use Mockery\MockInterface;
 
 abstract class NotificationModuleUnitTestCase extends VideoContextUnitTestCase

@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Tests\Unit\Enum;
+namespace CodelyTv\Test\Shared\Enum;
 
 use CodelyTv\Types\ValueObject\Enum;
 

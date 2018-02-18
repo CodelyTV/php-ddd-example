@@ -1,11 +1,11 @@
 <?php
 
-namespace CodelyTv\Test\PhpUnit\TestCase\Module;
+namespace CodelyTv\Test\Infrastructure\PHPUnit\Module;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
 use CodelyTv\Test\Arranger\EnvironmentArranger;
-use CodelyTv\Test\PhpUnit\TestCase\FunctionalTestCase;
+use CodelyTv\Test\Infrastructure\PHPUnit\FunctionalTestCase;
 use function CodelyTv\Test\assertSimilar;
 use function Lambdish\Phunctional\each;
 

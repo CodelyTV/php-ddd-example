@@ -3,7 +3,7 @@
 namespace CodelyTv\Context\Video\Module\VideoHighlight\Test\PhpUnit;
 
 use CodelyTv\Context\Video\Module\Video\Domain\VideoRepository;
-use CodelyTv\Context\Video\Test\PhpUnit\VideoContextFunctionalTestCase;
+use CodelyTv\Test\Context\Video\PhpUnit\VideoContextFunctionalTestCase;
 
 abstract class VideoHighlightModuleFunctionalTestCase extends VideoContextFunctionalTestCase
 {

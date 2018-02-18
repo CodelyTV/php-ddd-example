@@ -1,8 +1,8 @@
 <?php
 
-namespace CodelyTv\Context\Video\Test\PhpUnit;
+namespace CodelyTv\Test\Context\Video;
 
-use CodelyTv\Test\PhpUnit\TestCase\Module\ModuleFunctionalTestCase;
+use CodelyTv\Test\Infrastructure\PHPUnit\Module\ModuleFunctionalTestCase;
 
 abstract class VideoContextFunctionalTestCase extends ModuleFunctionalTestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Context\Video\Test\Arranger;
+namespace CodelyTv\Test\Context\Video;
 
 use CodelyTv\Infrastructure\Doctrine\DatabaseCleaner;
 use CodelyTv\Test\Arranger\EnvironmentArranger;

@@ -5,7 +5,7 @@ namespace CodelyTv\Context\Video\Module\User\Test\PhpUnit;
 use CodelyTv\Context\Video\Module\User\Domain\User;
 use CodelyTv\Context\Video\Module\User\Domain\UserId;
 use CodelyTv\Context\Video\Module\User\Domain\UserRepository;
-use CodelyTv\Context\Video\Test\PhpUnit\VideoContextUnitTestCase;
+use CodelyTv\Test\Context\Video\PhpUnit\VideoContextUnitTestCase;
 use Mockery\MockInterface;
 use function CodelyTv\Test\similarTo;
 

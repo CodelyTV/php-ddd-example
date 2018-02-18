@@ -1,9 +1,9 @@
 <?php
 
-namespace CodelyTv\Tests\Infrastructure\Bus\Event;
+namespace CodelyTv\Test\Infrastructure\Bus\Event;
 
 use DomainException;
-use CodelyTv\Test\PhpUnit\TestCase\UnitTestCase;
+use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use CodelyTv\Test\Stub\UuidStub;
 use CodelyTv\Test\Stub\WordStub;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace CodelyTv\Tests\Infrastructure\Bus\Command;
+namespace CodelyTv\Test\Infrastructure\Bus\Command;
 
 use CodelyTv\Infrastructure\Bus\Command\CommandBusSync;
 use CodelyTv\Infrastructure\Bus\Middleware\MessageLoggerMiddleware;
 use CodelyTv\Shared\Domain\Bus\Command\Command;
-use CodelyTv\Test\PhpUnit\TestCase\UnitTestCase;
+use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use Mockery\MockInterface;
 use Psr\Log\LoggerInterface;
 

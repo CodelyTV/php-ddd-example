@@ -1,9 +1,9 @@
 <?php
 
-namespace CodelyTv\Tests\Unit;
+namespace CodelyTv\Test\Shared\Utils;
 
 use DateTimeImmutable;
-use CodelyTv\Test\PhpUnit\TestCase\UnitTestCase;
+use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use CodelyTv\Test\Stub\DateTimeStub;
 use CodelyTv\Test\Stub\DateTimeZoneStub;
 use function CodelyTv\Utils\date_to_string;

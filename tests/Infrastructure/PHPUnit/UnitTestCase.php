@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Test\PhpUnit\TestCase;
+namespace CodelyTv\Test\Infrastructure\PHPUnit;
 
 use Mockery;
 use Mockery\MockInterface;
