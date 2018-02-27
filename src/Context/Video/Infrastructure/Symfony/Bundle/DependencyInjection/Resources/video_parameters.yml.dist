@@ -13,3 +13,5 @@ parameters:
   slack_video_notification_hook_url: 'https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX'
   slack_video_notification_username: 'YourUsername'
   slack_video_notification_channel: '#your_cannel'
+  telegram_video_notification_bot_api_key: api_key
+  telegram_video_notification_channel_name: channelName

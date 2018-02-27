@@ -22,3 +22,10 @@ services:
       - username: '%slack_video_notification_username%'
         channel: '%slack_video_notification_channel%'
     public: false
+  
+  codely.video.notification.telegram_notifier:
+    class: CodelyTv\Context\Video\Module\Notification\Infrastructure\Notifier
+    arguments:
+      - '%telegram_video_notification_bot_api_key%'
+      - '%telegram_video_notification_channel_name%'
+    public: false
