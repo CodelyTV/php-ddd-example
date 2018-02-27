@@ -61,13 +61,16 @@
       "CodelyTv\\Api\\": "applications/api/src"
     },
     "files": [
-      "src/utils.php",
-      "src/Test/utils.php"
+      "src/utils.php"
     ]
   },
   "autoload-dev": {
     "psr-4": {
-      "CodelyTv\\Applications\\Bootstrap\\": "features/bootstrap"
-    }
+      "CodelyTv\\Applications\\Bootstrap\\": "features/bootstrap",
+      "CodelyTv\\Test\\": "tests"
+    },
+    "files": [
+      "tests/utils.php"
+    ]
   }
 }

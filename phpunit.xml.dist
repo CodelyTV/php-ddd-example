@@ -23,31 +23,10 @@
         verbose="false">
 
     <testsuites>
-        <testsuite name="Infrastructure">
-            <directory>./src/Tests</directory>
-        </testsuite>
-        <testsuite name="Modules">
-            <directory>./src/*/Module/*/Tests</directory>
-            <directory>./src/Context/*/Module/*/Tests</directory>
+        <testsuite name="Application">
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
-
-    <filter>
-        <whitelist>
-            <directory>./src/*</directory>
-            <directory>./applications/*/src</directory>
-            <exclude>
-                <directory>./applications/*/src/Test</directory>
-                <directory>./applications/*/src/Tests</directory>
-
-                <directory>./src/Tests</directory>
-                <directory>./src/Context/*/Module/*/Tests</directory>
-                <directory>./src/Context/*/Module/*/Test</directory>
-
-                <directory>./src/Shared/Test</directory>
-            </exclude>
-        </whitelist>
-    </filter>
 
     <listeners>
         <listener class="\Mockery\Adapter\Phpunit\TestListener"></listener>

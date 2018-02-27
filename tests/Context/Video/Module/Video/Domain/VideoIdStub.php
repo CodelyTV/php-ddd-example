@@ -1,15 +1,17 @@
 <?php
 
-namespace CodelyTv\Shared\Test\Stub;
+declare(strict_types=1);
 
-use CodelyTv\Shared\Domain\CourseId;
+namespace CodelyTv\Test\Context\Video\Module\Video\Domain;
+
+use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Test\Shared\Domain\UuidStub;
 
-final class CourseIdStub
+final class VideoIdStub
 {
     public static function create(string $id)
     {
-        return new CourseId($id);
+        return new VideoId($id);
     }
 
     public static function random()

@@ -1,6 +1,6 @@
 services:
 
   codely.video.infrastructure.arranger:
-    class: CodelyTv\Context\Video\Test\Arranger\VideoEnvironmentArranger
+    class: CodelyTv\Test\Context\Video\VideoEnvironmentArranger
     arguments:
       - '@codely.video.infrastructure.database'
