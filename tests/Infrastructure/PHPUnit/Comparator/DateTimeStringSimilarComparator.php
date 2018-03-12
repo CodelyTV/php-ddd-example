@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Test\Infrastructure\PHPUnit\Comparator;
 
 use DateInterval;
@@ -15,14 +17,33 @@ class DateTimeStringSimilarComparator extends ObjectComparator
     public function accepts($expected, $actual)
     {
         return (null !== $actual) &&
-               is_string($expected) &&
-               is_string($actual) &&
-               $this->isValidDateTimeString($expected) &&
-               $this->isValidDateTimeString($actual);
+            is_string($expected) &&
+            is_string($actual) &&
+            $this->isValidDateTimeString($expected) &&
+            $this->isValidDateTimeString($actual);
     }
 
-    public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false)
+    private function isValidDateTimeString($expected)
     {
+        $isValid = true;
+
+        try {
+            new DateTimeImmutable($expected);
+        } catch (Throwable $throwable) {
+            $isValid = false;
+        }
+
+        return $isValid;
+    }
+
+    public function assertEquals(
+        $expected,
+        $actual,
+        $delta = 0.0,
+        $canonicalize = false,
+        $ignoreCase = false,
+        array &$processed = array()
+    ) {
         $expectedDate = new DateTimeImmutable($expected);
         $actualDate   = new DateTimeImmutable($actual);
 
@@ -46,18 +67,5 @@ class DateTimeStringSimilarComparator extends ObjectComparator
         $string = $datetime->format(DateTime::ISO8601);
 
         return $string ?: 'Invalid DateTime object';
-    }
-
-    private function isValidDateTimeString($expected)
-    {
-        $isValid = true;
-
-        try {
-            new DateTimeImmutable($expected);
-        } catch (Throwable $throwable) {
-            $isValid = false;
-        }
-
-        return $isValid;
     }
 }

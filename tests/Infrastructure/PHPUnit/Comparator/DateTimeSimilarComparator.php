@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Test\Infrastructure\PHPUnit\Comparator;
 
 use DateInterval;
@@ -15,8 +17,14 @@ class DateTimeSimilarComparator extends ObjectComparator
         return $expected instanceof DateTimeInterface && $actual instanceof DateTimeInterface;
     }
 
-    public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false)
-    {
+    public function assertEquals(
+        $expected,
+        $actual,
+        $delta = 0.0,
+        $canonicalize = false,
+        $ignoreCase = false,
+        array &$processed = array()
+    ) {
         $delta = $delta === 0.0 ? 10 : $delta;
         $delta = new DateInterval(sprintf('PT%sS', abs($delta)));
 
