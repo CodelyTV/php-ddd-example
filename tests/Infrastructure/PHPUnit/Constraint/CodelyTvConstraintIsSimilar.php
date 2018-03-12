@@ -9,12 +9,12 @@ use CodelyTv\Test\Infrastructure\PHPUnit\Comparator\DateTimeStringSimilarCompara
 use CodelyTv\Test\Infrastructure\PHPUnit\Comparator\DomainEventArraySimilarComparator;
 use CodelyTv\Test\Infrastructure\PHPUnit\Comparator\DomainEventSimilarComparator;
 use CodelyTv\Test\Infrastructure\PHPUnit\Comparator\StringableObjectSimilarComparator;
-use PHPUnit_Framework_Constraint_IsEqual;
-use PHPUnit_Framework_ExpectationFailedException;
+use PHPUnit\Framework\Constraint\IsEqual;
+use PHPUnit\Framework\ExpectationFailedException;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\Factory;
 
-class CodelyTvConstraintIsSimilar extends PHPUnit_Framework_Constraint_IsEqual
+class CodelyTvConstraintIsSimilar extends IsEqual
 {
     public function evaluate($other, $description = '', $returnResult = false)
     {
@@ -35,7 +35,7 @@ class CodelyTvConstraintIsSimilar extends PHPUnit_Framework_Constraint_IsEqual
             $comparator->assertEquals($this->value, $other, $this->delta, $this->canonicalize, $this->ignoreCase);
         } catch (ComparisonFailure $f) {
             if (!$returnResult) {
-                throw new PHPUnit_Framework_ExpectationFailedException(
+                throw new ExpectationFailedException(
                     trim($description . "\n" . $f->getMessage()),
                     $f
                 );
