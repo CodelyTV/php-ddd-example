@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f4dd8ff88e28bdce6481b4395fe1ca68",
+    "content-hash": "f86c44401982371816e78962dbfb3e54",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1179,60 +1179,62 @@
         },
         {
             "name": "jms/serializer-bundle",
-            "version": "1.5.0",
-            "target-dir": "JMS/SerializerBundle",
+            "version": "2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSerializerBundle.git",
-                "reference": "85ee039a2b7f89d77c403e33cee7b43a875c31e5"
+                "reference": "9dec7ab62248aa97f33cce70c301af15154f8f0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/85ee039a2b7f89d77c403e33cee7b43a875c31e5",
-                "reference": "85ee039a2b7f89d77c403e33cee7b43a875c31e5",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSerializerBundle/zipball/9dec7ab62248aa97f33cce70c301af15154f8f0b",
+                "reference": "9dec7ab62248aa97f33cce70c301af15154f8f0b",
                 "shasum": ""
             },
             "require": {
-                "jms/serializer": "^1.7",
-                "php": ">=5.4.0",
+                "jms/serializer": "^1.10",
+                "php": "^5.4|^7.0",
                 "phpoption/phpoption": "^1.1.0",
-                "symfony/framework-bundle": "~2.3|~3.0"
+                "symfony/framework-bundle": "~2.3|~3.0|~4.0"
             },
             "require-dev": {
-                "doctrine/doctrine-bundle": "*",
                 "doctrine/orm": "*",
-                "phpunit/phpunit": "^4.2|^5.0",
-                "symfony/browser-kit": "*",
-                "symfony/class-loader": "*",
-                "symfony/css-selector": "*",
-                "symfony/expression-language": "~2.6|~3.0",
-                "symfony/finder": "*",
+                "phpunit/phpunit": "^4.8.35|^5.4.3|^6.0",
+                "symfony/expression-language": "~2.6|~3.0|~4.0",
+                "symfony/finder": "^2.3|^3.0|^4.0",
                 "symfony/form": "*",
-                "symfony/process": "*",
                 "symfony/stopwatch": "*",
                 "symfony/twig-bundle": "*",
                 "symfony/validator": "*",
                 "symfony/yaml": "*"
             },
             "suggest": {
-                "jms/di-extra-bundle": "Required to get lazy loading (de)serialization visitors, ~1.3"
+                "jms/di-extra-bundle": "Required to get lazy loading (de)serialization visitors, ~1.3",
+                "symfony/finder": "Required for cache warmup, supported versions ^2.3|^3.0|^4.0"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "JMS\\SerializerBundle": ""
-                }
+                "psr-4": {
+                    "JMS\\SerializerBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache-2.0"
             ],
             "authors": [
+                {
+                    "name": "Asmir Mustafic",
+                    "email": "goetas@gmail.com"
+                },
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com"
@@ -1247,7 +1249,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2017-05-10T10:17:17+00:00"
+            "time": "2017-12-08T19:49:08+00:00"
         },
         {
             "name": "lambdish/phunctional",

@@ -18,7 +18,7 @@
 
     "sensio/framework-extra-bundle": "^3.0",
     "friendsofsymfony/rest-bundle": "^2.2",
-    "jms/serializer-bundle": "^1.5",
+    "jms/serializer-bundle": "^2.3",
     "symfony/twig-bundle": "^3.3",
     "symfony/asset": "^3.3",
 
