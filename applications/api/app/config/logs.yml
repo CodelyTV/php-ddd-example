@@ -5,20 +5,20 @@ monolog:
       type:      stream
       level:     warning
       formatter: codely.infrastructure.monolog.formatter.logstash
-      channels:  [!api]
+      channels:  ['!api']
     api_request:
       type:      stream
       path:      "%kernel.logs_dir%/%kernel.environment%.api.requests.log"
       level:     warning
       formatter: codely.infrastructure.monolog.formatter.logstash
-      channels:  [api]
+      channels:  ['api']
     events:
       type:      stream
       path:      "%kernel.logs_dir%/%kernel.environment%.events.log"
       level:     error
       formatter: codely.infrastructure.monolog.formatter.logstash
-      channels:  [events]
-  channels: [api, events]
+      channels:  ['events']
+  channels: ['api', 'events']
 
 
 services:
