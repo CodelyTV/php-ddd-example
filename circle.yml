@@ -6,8 +6,12 @@ dependencies:
   cache_directories:
     - "vendor"
   pre:
-    - printf "yes\n" | pecl install apcu-5.1.11
-    - printf "yes\n" | pecl install amqp-1.9.3
+    - git clone https://github.com/alanxz/rabbitmq-c
+    - cd rabbitmq-c && git checkout 2ca1774489328cde71195f5fa95e17cf3a80cb8a
+    - cd rabbitmq-c && git submodule init && git submodule update && autoreconf -i && ./configure && make && sudo make install
+    - pecl channel-update pear.php.net
+    - yes '' | pecl install amqp-1.9.3
+    - yes '' | pecl install apcu-5.1.11
     - rm /opt/circleci/php/$(phpenv global)/etc/conf.d/xdebug.ini
     - cp etc/circleci/php.ini /opt/circleci/php/$(phpenv global)/etc/conf.d/
 
