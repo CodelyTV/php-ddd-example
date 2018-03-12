@@ -6,7 +6,8 @@ dependencies:
   cache_directories:
     - "vendor"
   pre:
-    - printf "yes\n" | pecl install apcu-5.1.3
+    - printf "yes\n" | pecl install apcu-5.1.11
+    - printf "yes\n" | pecl install amqp-1.9.3
     - rm /opt/circleci/php/$(phpenv global)/etc/conf.d/xdebug.ini
     - cp etc/circleci/php.ini /opt/circleci/php/$(phpenv global)/etc/conf.d/
 
