@@ -10,7 +10,7 @@ use CodelyTv\Context\Video\Module\Video\Domain\VideoTitle;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoType;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoUrl;
 use CodelyTv\Shared\Domain\CourseId;
-use CodelyTv\Shared\Test\Stub\CourseIdStub;
+use CodelyTv\Test\Context\Course\Module\Course\Domain\CourseIdStub;
 
 final class VideoCreatedDomainEventStub
 {

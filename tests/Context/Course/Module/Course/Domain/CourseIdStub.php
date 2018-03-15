@@ -1,6 +1,8 @@
 <?php
 
-namespace CodelyTv\Shared\Test\Stub;
+declare(strict_types=1);
+
+namespace CodelyTv\Test\Context\Course\Module\Course\Domain;
 
 use CodelyTv\Shared\Domain\CourseId;
 use CodelyTv\Test\Shared\Domain\UuidStub;

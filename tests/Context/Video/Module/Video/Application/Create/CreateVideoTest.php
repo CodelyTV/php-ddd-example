@@ -6,6 +6,7 @@ namespace CodelyTv\Test\Context\Video\Module\Video\Application\Create;
 
 use CodelyTv\Context\Video\Module\Video\Application\Create\CreateVideoCommandHandler;
 use CodelyTv\Context\Video\Module\Video\Application\Create\VideoCreator;
+use CodelyTv\Test\Context\Course\Module\Course\Domain\CourseIdStub;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoCreatedDomainEventStub;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdStub;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoStub;
@@ -13,7 +14,6 @@ use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoTitleStub;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoTypeStub;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoUrlStub;
 use CodelyTv\Test\Context\Video\Module\Video\VideoModuleUnitTestCase;
-use CodelyTv\Shared\Test\Stub\CourseIdStub;
 
 final class CreateVideoTest extends VideoModuleUnitTestCase
 {

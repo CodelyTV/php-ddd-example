@@ -8,7 +8,7 @@ use CodelyTv\Context\Video\Module\Video\Domain\VideoTitle;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoType;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoUrl;
 use CodelyTv\Shared\Domain\CourseId;
-use CodelyTv\Shared\Test\Stub\CourseIdStub;
+use CodelyTv\Test\Context\Course\Module\Course\Domain\CourseIdStub;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdStub;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoTitleStub;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoTypeStub;
