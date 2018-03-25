@@ -6,4 +6,4 @@ imports:
 
 
 framework:
-  secret: %secret%
+  secret: '%secret%'

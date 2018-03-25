@@ -18,7 +18,7 @@
 
     "sensio/framework-extra-bundle": "^3.0",
     "friendsofsymfony/rest-bundle": "^2.2",
-    "jms/serializer-bundle": "^1.5",
+    "jms/serializer-bundle": "^2.3",
     "symfony/twig-bundle": "^3.3",
     "symfony/asset": "^3.3",
 
@@ -33,14 +33,14 @@
     "maknz/slack": "^1.7"
   },
   "require-dev": {
-    "phpunit/phpunit": "^5.7",
-    "mockery/mockery": "^0.9",
+    "phpunit/phpunit": "^6.5",
+    "mockery/mockery": "^1.0",
     "fzaninotto/faker": "^1.7",
     "squizlabs/php_codesniffer": "^2.9",
 
-    "behat/behat": "^3.3",
+    "behat/behat": "^3.4",
     "behat/mink": "^1.7",
-    "behat/mink-extension": "^2.2",
+    "behat/mink-extension": "^2.3",
     "behat/symfony2-extension": "^2.1",
     "behat/mink-browserkit-driver": "^1.3"
   },

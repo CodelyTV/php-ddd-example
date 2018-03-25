@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Test\Context\Video\Module\User;
 
 use CodelyTv\Context\Video\Module\User\Domain\User;
@@ -8,6 +10,7 @@ use CodelyTv\Context\Video\Module\User\Domain\UserRepository;
 use CodelyTv\Test\Context\Video\VideoContextUnitTestCase;
 use Mockery\MockInterface;
 use function CodelyTv\Test\similarTo;
+use function CodelyTv\Test\equalTo;
 
 abstract class UserModuleUnitTestCase extends VideoContextUnitTestCase
 {

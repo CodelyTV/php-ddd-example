@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Test\Infrastructure\Behat\ApiContext;
 
 use Behat\Behat\Context\Context;
@@ -10,8 +12,8 @@ use CodelyTv\Test\Infrastructure\Mink\MinkSessionResponseHelper;
 use CodelyTv\Test\Infrastructure\PHPUnit\Constraint\CodelyTvConstraintIsSimilar;
 use DateTimeImmutable;
 use Exception;
-use PHPUnit_Framework_Assert;
 use function CodelyTv\Utils\date_to_string;
+use PHPUnit\Framework\Assert;
 
 class ApiResponseContext extends RawMinkContext implements Context
 {
@@ -22,13 +24,13 @@ class ApiResponseContext extends RawMinkContext implements Context
 
     public static function assertJsonStringEqualsJsonString($expectedJson, $actualJson, $message = '')
     {
-        PHPUnit_Framework_Assert::assertJson($expectedJson, 'The expected value is not a valid json');
-        PHPUnit_Framework_Assert::assertJson($actualJson, 'The actual value is not a valid json');
+        Assert::assertJson($expectedJson, 'The expected value is not a valid json');
+        Assert::assertJson($actualJson, 'The actual value is not a valid json');
 
         $expected = json_decode($expectedJson);
         $actual   = json_decode($actualJson);
 
-        PHPUnit_Framework_Assert::assertThat(
+        Assert::assertThat(
             $actual,
             new CodelyTvConstraintIsSimilar($expected, 20), // @todo For functional
             $message
@@ -47,7 +49,7 @@ class ApiResponseContext extends RawMinkContext implements Context
                 sprintf('The string "%s" is not equal to the response of the current page', $expected)
             );
         } else {
-            PHPUnit_Framework_Assert::assertEquals(
+            Assert::assertEquals(
                 $expected->getRaw(),
                 $this->getSessionResponseHelper()->getResponse(),
                 sprintf('The string "%s" is not equal to the response of the current page', $expected)
@@ -60,7 +62,7 @@ class ApiResponseContext extends RawMinkContext implements Context
      */
     public function theResponseShouldBeEmpty()
     {
-        PHPUnit_Framework_Assert::assertEmpty(
+        Assert::assertEmpty(
             $this->getSessionResponseHelper()->getResponse(),
             'The response of the current page is not empty'
         );
@@ -95,7 +97,7 @@ class ApiResponseContext extends RawMinkContext implements Context
             [$name, $value, $regex]
         );
 
-        PHPUnit_Framework_Assert::assertRegExp($regex, (string) $value, $errorMessage);
+        Assert::assertRegExp($regex, (string) $value, $errorMessage);
     }
 
     /**
@@ -104,7 +106,7 @@ class ApiResponseContext extends RawMinkContext implements Context
     public function theResponseParameterShouldBe($name, $expectedValue)
     {
         $value = $this->getSessionHelper()->getResponseParameter($name);
-        PHPUnit_Framework_Assert::assertEquals($expectedValue, $value);
+        Assert::assertEquals($expectedValue, $value);
     }
 
     /**
@@ -124,7 +126,7 @@ class ApiResponseContext extends RawMinkContext implements Context
 
         $header = $this->getSessionHelper()->getResponseHeader($name);
 
-        PHPUnit_Framework_Assert::assertSame(
+        Assert::assertSame(
             $value,
             $header,
             sprintf('The header "%s" is equal to "%s"', $name, $header)
@@ -146,7 +148,7 @@ class ApiResponseContext extends RawMinkContext implements Context
      */
     public function theResponseStatusCodeShouldBe($expectedResponseCode)
     {
-        PHPUnit_Framework_Assert::assertSame((int) $expectedResponseCode, $this->getSession()->getStatusCode());
+        Assert::assertSame((int) $expectedResponseCode, $this->getSession()->getStatusCode());
     }
 
     private function getSessionResponseHelper()
