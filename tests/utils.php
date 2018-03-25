@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Test;
 
 use CodelyTv\Test\Infrastructure\Mockery\CodelyTvMatcherIsEqual;
 use CodelyTv\Test\Infrastructure\Mockery\CodelyTvMatcherIsSimilar;
 use CodelyTv\Test\Infrastructure\PHPUnit\Constraint\CodelyTvConstraintIsEqual;
 use CodelyTv\Test\Infrastructure\PHPUnit\Constraint\CodelyTvConstraintIsSimilar;
-use PHPUnit_Framework_Assert;
+use PHPUnit\Framework\Assert;
 
 function isSimilar($expected, $value, $delta = 0.0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)
 {
@@ -26,7 +28,7 @@ function assertSimilar(
 ) {
     $constraint = new CodelyTvConstraintIsSimilar($expected, $delta, $maxDepth, $canonicalize, $ignoreCase);
 
-    PHPUnit_Framework_Assert::assertThat($actual, $constraint, $message);
+    Assert::assertThat($actual, $constraint, $message);
 }
 
 function similarTo($value, $delta = 0.0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)
@@ -52,7 +54,7 @@ function assertEquals(
 ) {
     $constraint = new CodelyTvConstraintIsEqual($expected, $delta, $maxDepth, $canonicalize, $ignoreCase);
 
-    PHPUnit_Framework_Assert::assertThat($actual, $constraint, $message);
+    Assert::assertThat($actual, $constraint, $message);
 }
 
 function equalTo($value, $delta = 0.0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)
