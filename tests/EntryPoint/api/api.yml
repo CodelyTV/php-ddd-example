@@ -1,0 +1,34 @@
+api:
+  extensions:
+    Behat\Symfony2Extension:
+      kernel:
+        class: CodelyTv\Api\ApiKernel
+    Behat\MinkExtension:
+      sessions:
+        my_session:
+          symfony2: ~
+
+  suites:
+    status:
+      paths: [ tests/EntryPoint/api/features/status ]
+      contexts:
+        - CodelyTv\Test\Infrastructure\Behat\ApiFeatureContext:
+            connections: '@codely.infrastructure.database_connections'
+        - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiRequestContext
+        - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiResponseContext
+    video:
+      paths: [ tests/EntryPoint/api/features/video ]
+      contexts:
+        - CodelyTv\Test\Infrastructure\Behat\ApiFeatureContext:
+            connections: '@codely.infrastructure.database_connections'
+        - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiRequestContext
+        - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiResponseContext
+    user:
+      paths: [ tests/EntryPoint/api/features/user ]
+      contexts:
+        - CodelyTv\Test\Infrastructure\Behat\ApiFeatureContext:
+            connections: '@codely.infrastructure.database_connections'
+        - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiRequestContext
+        - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiResponseContext
+        - CodelyTv\Test\Context\Video\Module\User\UserModuleBehatContext:
+            repository: '@codely.video.user.repository'

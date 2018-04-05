@@ -1,3 +1,3 @@
 imports:
-  - behat/api.yml
-  - behat/applications.yml
+  - tests/EntryPoint/api/api.yml
+  - tests/EntryPoint/applications/applications.yml

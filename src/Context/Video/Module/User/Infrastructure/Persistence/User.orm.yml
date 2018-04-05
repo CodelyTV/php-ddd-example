@@ -1,0 +1,17 @@
+CodelyTv\Context\Video\Module\User\Domain\User:
+  type:  entity
+  table: user
+
+  id:
+    id:
+      type: user_id
+      column: id
+      length: 36
+
+  embedded:
+    name:
+      class: CodelyTv\Context\Video\Module\User\Domain\UserName
+      columnPrefix: false
+    totalVideosCreated:
+      class: CodelyTv\Context\Video\Module\User\Domain\TotalVideosCreated
+      columnPrefix: false

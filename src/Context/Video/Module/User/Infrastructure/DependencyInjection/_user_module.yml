@@ -1,0 +1,4 @@
+imports:
+
+  - { resource: user_infrastructure.yml }
+  - { resource: user_services.yml }

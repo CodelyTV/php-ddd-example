@@ -12,3 +12,16 @@ services:
 
   codely.infrastructure.subscribers_mapping:
     class: CodelyTv\Infrastructure\Bus\Event\SubscribersMapping
+
+  codely.infrastructure.rabbitmq_connection:
+    class: CodelyTv\Infrastructure\RabbitMQ\RabbitMQConnection
+    arguments:
+      - '%rabbitmq_connection_parameters%'
+      - '@logger'
+
+  codely.infrastructure.rabbitmq_domain_event_consumer:
+    class: CodelyTv\Infrastructure\RabbitMQ\RabbitMQDomainEventConsumer
+    arguments:
+      - '@codely.infrastructure.rabbitmq_connection'
+      - '@codely.infrastructure.domain_event_mapping'
+      - '@logger'

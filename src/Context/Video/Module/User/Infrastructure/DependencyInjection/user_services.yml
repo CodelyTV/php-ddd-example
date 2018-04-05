@@ -1,0 +1,38 @@
+services:
+
+  # Query Handlers
+
+  codely.video.user.query_handler.find:
+    class: CodelyTv\Context\Video\Module\User\Application\Find\FindUserQueryHandler
+    arguments:
+      - '@codely.video.user.user_finder'
+    tags:
+      - { name: 'codely.video.query' }
+    public: false
+
+
+  # Subscribers
+
+  codely.video.user.subscribers.increase_user_total_videos_created_on_video_created:
+    class: CodelyTv\Context\Video\Module\User\Application\IncreasePendingVideos\IncreaseUserTotalVideosCreatedOnVideoCreated
+    arguments:
+      - '@codely.video.user.user_total_videos_created_increaser'
+    tags:
+      - { name: 'codely.video.subscriber' }
+    public: false
+
+
+  # Services
+
+  codely.video.user.user_finder:
+    class: CodelyTv\Context\Video\Module\User\Application\Find\UserFinder
+    arguments:
+     - '@codely.video.user.repository'
+    public: false
+
+
+  codely.video.user.user_total_videos_created_increaser:
+    class: CodelyTv\Context\Video\Module\User\Application\IncreasePendingVideos\UserTotalVideosCreatedIncreaser
+    arguments:
+     - '@codely.video.user.repository'
+    public: false

@@ -1,6 +1,0 @@
-applications:
-  suites:
-    default:
-      paths: [features]
-      contexts:
-        - CodelyTv\Applications\Bootstrap\FeatureContext
