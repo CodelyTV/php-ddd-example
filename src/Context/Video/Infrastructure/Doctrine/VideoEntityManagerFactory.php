@@ -11,6 +11,7 @@ final class VideoEntityManagerFactory
     private static $prefixes  = [
         'Video\Domain' => 'Module/Video/Infrastructure/Persistence',
         'User\Domain'  => 'Module/User/Infrastructure/Persistence',
+        'Review\Domain'  => 'Module/Review/Infrastructure/Persistence',
     ];
 
     public static function create(array $parameters, $rootPath, $onDemand, $schemaFile)

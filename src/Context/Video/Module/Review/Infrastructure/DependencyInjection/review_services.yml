@@ -1,0 +1,20 @@
+services:
+
+  # Command Handlers
+
+  codely.video.video.command_handler.create_review:
+    class: CodelyTv\Context\Video\Module\Review\Application\Create\CreateVideoReviewCommandHandler
+    arguments:
+      - '@codely.video.review.review_creator'
+    tags:
+      - { name: 'codely.video.command' }
+    public: false
+
+  # Services
+
+  codely.video.review.review_creator:
+    class: CodelyTv\Context\Video\Module\Review\Application\Create\ReviewCreator
+    arguments:
+     - '@codely.video.review.repository'
+     - '@codely.video.domain_event_publisher'
+    public: false

@@ -1,0 +1,6 @@
+services:
+
+  codely.video.review.repository:
+    class: CodelyTv\Context\Video\Module\Review\Infrastructure\Persistence\ReviewRepositoryMySql
+    arguments:
+     - '@codely.video.infrastructure.database'

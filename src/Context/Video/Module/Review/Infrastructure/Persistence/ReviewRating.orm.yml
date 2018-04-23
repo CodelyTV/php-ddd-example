@@ -1,0 +1,7 @@
+CodelyTv\Context\Video\Module\Review\Domain\ReviewRating:
+  type: embeddable
+
+  fields:
+    value:
+      type: integer
+      column: rating

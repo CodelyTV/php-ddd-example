@@ -6,7 +6,7 @@ services:
       - '@codely.video.infrastructure.database'
 
   codely.video.notification.notifier:
-    alias: codely.video.notification.slack_notifier
+    alias: codely.video.notification.fake_notifier
 
   codely.video.notification.email_notifier:
     class: CodelyTv\Context\Video\Module\Notification\Infrastructure\Notifier\EmailNotifier
@@ -21,4 +21,8 @@ services:
       - '%slack_video_notification_hook_url%'
       - username: '%slack_video_notification_username%'
         channel: '%slack_video_notification_channel%'
+    public: false
+
+  codely.video.notification.fake_notifier:
+    class: CodelyTv\Context\Video\Module\Notification\Infrastructure\Notifier\FakeNotifier
     public: false

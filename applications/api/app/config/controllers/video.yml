@@ -14,3 +14,7 @@ services:
       - '@codely.video.query_bus'
       - '@codely.video.async_command_bus'
       - '@codely.api.exception_handler'
+
+  codely.api.controller.review.post:
+    class: CodelyTv\Api\Controller\Review\VideoReviewPostController
+    parent: codely.api.controller

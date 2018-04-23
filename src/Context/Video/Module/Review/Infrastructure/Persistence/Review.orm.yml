@@ -1,0 +1,22 @@
+CodelyTv\Context\Video\Module\Review\Domain\Review:
+  type:  entity
+  table: review
+
+  id:
+    id:
+      type: review_id
+      column: id
+      length: 36
+
+  fields:
+    videoId:
+      type: video_id
+      column: video_id
+
+  embedded:
+    rating:
+      class: CodelyTv\Context\Video\Module\Review\Domain\ReviewRating
+      columnPrefix: false
+    text:
+      class: CodelyTv\Context\Video\Module\Review\Domain\ReviewText
+      columnPrefix: false

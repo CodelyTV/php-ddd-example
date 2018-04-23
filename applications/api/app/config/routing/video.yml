@@ -7,3 +7,8 @@ video_get:
   path:     /video/{id}
   defaults: { _controller: codely.api.controller.video.get }
   methods:  [GET]
+
+review_post:
+  path:     /video/{videoId}/review
+  defaults: { _controller: codely.api.controller.review.post }
+  methods:  [POST]

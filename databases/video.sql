@@ -13,3 +13,11 @@ CREATE TABLE `user` (
   `total_videos_created` INTEGER(5) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `review` (
+  `id` char(36) COLLATE utf8_unicode_ci NOT NULL,
+  `video_id` char(36) COLLATE utf8_unicode_ci NOT NULL,
+  `rating` INTEGER(5) NOT NULL,
+  `text` VARCHAR(300) NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

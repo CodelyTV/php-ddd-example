@@ -1,0 +1,7 @@
+CodelyTv\Context\Video\Module\Review\Domain\ReviewText:
+  type: embeddable
+
+  fields:
+    value:
+      type: string
+      column: text

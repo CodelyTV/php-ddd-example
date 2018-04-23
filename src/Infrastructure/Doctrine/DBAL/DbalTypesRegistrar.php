@@ -3,6 +3,7 @@
 namespace CodelyTv\Infrastructure\Doctrine\DBAL;
 
 use CodelyTv\Context\Video\Module\User\Infrastructure\Persistence\UserIdType;
+use CodelyTv\Context\Video\Module\Video\Infrastructure\Persistence\ReviewIdType;
 use CodelyTv\Context\Video\Module\Video\Infrastructure\Persistence\VideoIdType;
 use CodelyTv\Shared\Infrastructure\Persistence\Course\CourseIdType;
 use Doctrine\DBAL\Types\Type;
@@ -15,6 +16,7 @@ final class DbalTypesRegistrar
         CourseIdType::NAME => CourseIdType::class,
         UserIdType::NAME   => UserIdType::class,
         VideoIdType::NAME  => VideoIdType::class,
+        ReviewIdType::NAME  => ReviewIdType::class,
     ];
 
     public static function register()
