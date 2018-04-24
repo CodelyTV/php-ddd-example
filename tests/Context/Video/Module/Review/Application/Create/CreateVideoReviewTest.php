@@ -6,6 +6,8 @@ namespace CodelyTv\Test\Context\Video\Module\Video\Application\Create;
 
 use CodelyTv\Context\Video\Module\Review\Application\Create\CreateVideoReviewCommandHandler;
 use CodelyTv\Context\Video\Module\Review\Application\Create\ReviewCreator;
+use CodelyTv\Context\Video\Module\Review\Domain\ReviewText;
+use CodelyTv\Context\Video\Module\Review\Domain\ReviewValidated;
 use CodelyTv\Test\Context\Video\Module\Review\Application\Create\CreateVideoReviewCommandStub;
 use CodelyTv\Test\Context\Video\Module\Review\Domain\ReviewCreatedDomainEventStub;
 use CodelyTv\Test\Context\Video\Module\Review\Domain\ReviewIdStub;
@@ -47,5 +49,27 @@ final class CreateVideoReviewTest extends ReviewModuleUnitTestCase
         $this->shouldPublishDomainEvents($domainEvent);
 
         $this->dispatch($command, $this->handler);
+    }
+
+    /** @test */
+    public function it_should_mark_it_as_not_validated()
+    {
+        $text = new ReviewText('Vaya pedazo de curso');
+        $command = CreateVideoReviewCommandStub::withText($text);
+
+        $id = ReviewIdStub::create($command->id());
+        $videoId = VideoIdStub::create($command->videoId());
+        $rating = ReviewRatingStub::create($command->rating());
+
+        $review = ReviewStub::create($id, $videoId, $rating, $text);
+
+        $domainEvent = ReviewCreatedDomainEventStub::create($id, $videoId, $rating, $text);
+
+        $this->shouldSaveReview($review);
+        $this->shouldPublishDomainEvents($domainEvent);
+
+        $this->dispatch($command, $this->handler);
+
+        $this->assertEquals(new ReviewValidated(false), $review->validated());
     }
 }

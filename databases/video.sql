@@ -19,5 +19,6 @@ CREATE TABLE `review` (
   `video_id` char(36) COLLATE utf8_unicode_ci NOT NULL,
   `rating` INTEGER(5) NOT NULL,
   `text` VARCHAR(300) NULL,
+  `validated` tinyint(5) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

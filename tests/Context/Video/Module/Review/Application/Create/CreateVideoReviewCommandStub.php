@@ -43,4 +43,15 @@ final class CreateVideoReviewCommandStub
             ReviewTextStub::random()
         );
     }
+
+    public function withText(ReviewText $text)
+    {
+        return self::create(
+            new Uuid(UuidStub::random()),
+            ReviewIdStub::random(),
+            VideoIdStub::random(),
+            ReviewRatingStub::random(),
+            $text
+        );
+    }
 }

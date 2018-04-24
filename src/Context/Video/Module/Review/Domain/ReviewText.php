@@ -33,4 +33,9 @@ final class ReviewText
             );
         }
     }
+
+    public function empty()
+    {
+        return is_null($this->value()) || strlen(trim($this->value())) === 0;
+    }
 }

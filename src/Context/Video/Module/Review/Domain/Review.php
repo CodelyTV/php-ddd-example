@@ -13,7 +13,7 @@ final class Review extends AggregateRoot
     private $videoId;
     private $rating;
     private $text;
-    private $url;
+    private $validated;
 
     public function __construct(ReviewId $id, VideoId $videoId, ReviewRating $rating, ReviewText $text)
     {
@@ -21,6 +21,12 @@ final class Review extends AggregateRoot
         $this->videoId = $videoId;
         $this->rating = $rating;
         $this->text = $text;
+
+        if ($text->empty()) {
+            $this->validated = new ReviewValidated(true);
+        } else {
+            $this->validated = new ReviewValidated(false);
+        }
     }
 
     public static function create(
@@ -63,5 +69,10 @@ final class Review extends AggregateRoot
     public function text(): ReviewText
     {
         return $this->text;
+    }
+
+    public function validated(): ReviewValidated
+    {
+        return $this->validated;
     }
 }

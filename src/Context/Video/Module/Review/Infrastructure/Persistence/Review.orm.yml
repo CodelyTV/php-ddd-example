@@ -20,3 +20,6 @@ CodelyTv\Context\Video\Module\Review\Domain\Review:
     text:
       class: CodelyTv\Context\Video\Module\Review\Domain\ReviewText
       columnPrefix: false
+    validated:
+      class: CodelyTv\Context\Video\Module\Review\Domain\ReviewValidated
+      columnPrefix: false

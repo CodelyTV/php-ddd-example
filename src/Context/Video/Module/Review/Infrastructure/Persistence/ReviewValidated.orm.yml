@@ -1,0 +1,7 @@
+CodelyTv\Context\Video\Module\Review\Domain\ReviewValidated:
+  type: embeddable
+
+  fields:
+    value:
+      type: boolean
+      column: validated
