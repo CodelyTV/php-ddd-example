@@ -3,3 +3,11 @@ services:
   codely.api.controller.course.post:
     class: CodelyTv\Api\Controller\Course\CoursePostController
     parent: codely.api.controller
+
+  codely.api.controller.course_opinion.post:
+    class: CodelyTv\Api\Controller\Course\CourseOpinionPostController
+    parent: codely.api.controller
+
+  codely.api.controller.course_opinion.patch:
+    class: CodelyTv\Api\Controller\Course\CourseOpinionPatchController
+    parent: codely.api.controller

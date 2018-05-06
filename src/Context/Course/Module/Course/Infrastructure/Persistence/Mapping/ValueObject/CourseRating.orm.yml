@@ -1,0 +1,7 @@
+CodelyTv\Context\Course\Module\Course\Domain\CourseRating:
+  type: embeddable
+
+  fields:
+    value:
+      type: integer
+      column: rating

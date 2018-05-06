@@ -1,3 +1,6 @@
+course:
+  resource: course.yml
+
 status:
   resource: status.yml
 

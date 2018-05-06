@@ -1,0 +1,6 @@
+imports:
+  - { resource: course_config_dev.yml }
+
+
+parameters:
+  course_database_name: codely_course_tests_%kernel.name%

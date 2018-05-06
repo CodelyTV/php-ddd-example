@@ -9,13 +9,13 @@ use CodelyTv\Test\Shared\Domain\UuidStub;
 
 final class CourseIdStub
 {
-    public static function create(string $id)
-    {
-        return new CourseId($id);
-    }
-
-    public static function random()
+    public static function random(): CourseId
     {
         return self::create(UuidStub::random());
+    }
+
+    public static function create(string $id): CourseId
+    {
+        return new CourseId($id);
     }
 }

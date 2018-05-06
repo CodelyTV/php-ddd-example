@@ -1,0 +1,6 @@
+parameters:
+
+  codely.course.root_path: '%kernel.root_dir%/../../src/Context/Course/'
+
+  codely.course.infrastructure.database.on_demand: false
+  codely.course.infrastructure.database.schema_file: '%kernel.root_dir%/../../databases/course.sql'

@@ -1,0 +1,7 @@
+CodelyTv\Context\Course\Module\CourseOpinion\Domain\ValueObject\CourseOpinionText:
+  type: embeddable
+
+  fields:
+    value:
+      type: text
+      column: text

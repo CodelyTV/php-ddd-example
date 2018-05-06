@@ -1,0 +1,7 @@
+CodelyTv\Context\Course\Module\Course\Domain\CourseDescription:
+  type: embeddable
+
+  fields:
+    value:
+      type: text
+      column: description

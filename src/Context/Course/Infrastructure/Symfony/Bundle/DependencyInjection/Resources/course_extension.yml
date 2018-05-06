@@ -1,0 +1,5 @@
+imports:
+  - { resource: course_parameters.yml }
+  - { resource: infrastructure/_course_infrastructure.yml }
+  - { resource: modules/_course_modules.yml }
+  - { resource: services/_course_services.yml }

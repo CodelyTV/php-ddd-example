@@ -1,0 +1,18 @@
+services:
+
+  codely.course.infrastructure.database:
+    class: Doctrine\ORM\EntityManager
+    factory: [CodelyTv\Context\Course\Infrastructure\Doctrine\CourseEntityManagerFactory, create]
+    arguments:
+      -
+        driver:   '%course_database_driver%'
+        host:     '%course_database_host%'
+        port:     '%course_database_port%'
+        dbname:   '%course_database_name%'
+        user:     '%course_database_user%'
+        password: '%course_database_password%'
+      - '%codely.course.root_path%'
+      - '%codely.course.infrastructure.database.on_demand%'
+      - '%codely.course.infrastructure.database.schema_file%'
+    tags:
+      - { name: codely.course.database }

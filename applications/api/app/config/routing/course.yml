@@ -1,0 +1,9 @@
+course_comment_create:
+  path:     /courses/{course_id}/opinion
+  defaults: { _controller: codely.api.controller.course_opinion.post }
+  methods:  [POST]
+
+course_comment_publish:
+  path:     /opinions/{course_opinion_id}/publish
+  defaults: { _controller: codely.api.controller.course_opinion.patch }
+  methods:  [POST]

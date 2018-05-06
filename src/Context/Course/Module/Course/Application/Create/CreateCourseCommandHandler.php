@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CodelyTv\Context\Course\Module\Course\Application\Create;
 
-use CodelyTv\Context\Course\Module\Course\Domain\CourseDescription;
-use CodelyTv\Context\Course\Module\Course\Domain\CourseTitle;
+use CodelyTv\Context\Course\Module\Course\Domain\ValueObject\CourseDescription;
+use CodelyTv\Context\Course\Module\Course\Domain\ValueObject\CourseTitle;
 use CodelyTv\Shared\Domain\CourseId;
 
 final class CreateCourseCommandHandler

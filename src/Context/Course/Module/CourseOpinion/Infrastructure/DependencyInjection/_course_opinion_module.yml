@@ -1,0 +1,4 @@
+imports:
+
+  - { resource: course_opinion_infrastructure.yml }
+  - { resource: course_opinion_services.yml }

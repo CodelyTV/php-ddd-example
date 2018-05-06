@@ -1,0 +1,13 @@
+services:
+
+  codely.course.async_command_bus:
+    alias: codely.infrastructure.async_command_bus
+
+  codely.course.command_bus:
+    alias: codely.infrastructure.command_bus
+
+  codely.course.query_bus:
+    alias: codely.infrastructure.query_bus
+
+  codely.course.domain_event_publisher:
+    alias: codely.infrastructure.domain_event_publisher

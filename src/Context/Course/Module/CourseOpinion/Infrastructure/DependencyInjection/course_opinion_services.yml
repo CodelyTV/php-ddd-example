@@ -1,0 +1,86 @@
+services:
+
+  # Command Handlers
+
+  codely.course.course_opinion.command_handler.create_course_opinion:
+    class: CodelyTv\Context\Course\Module\CourseOpinion\Application\Create\CreateCourseOpinionCommandHandler
+    arguments:
+      - '@codely.course.course_opinion.course_opinion_creator'
+    tags:
+      - { name: 'codely.course.command' }
+    public: false
+
+  codely.course.course_opinion.command_handler.publish_course_opinion:
+    class: CodelyTv\Context\Course\Module\CourseOpinion\Application\Publish\PublishCourseOpinionCommandHandler
+    arguments:
+      - '@codely.course.course_opinion.course_opinion_publisher'
+    tags:
+      - { name: 'codely.course.command' }
+    public: false
+
+  # Subscribers
+
+  codely.course.course_opinion.subscribers.publish_opinion_on_course_opinion_created:
+    class: CodelyTv\Context\Course\Module\CourseOpinion\Application\Publish\PublishCourseOpinionOnCourseOpinionCreated
+    arguments:
+      - '@codely.course.course_opinion.course_opinion_publisher'
+    tags:
+      - { name: 'codely.course.subscriber' }
+    public: false
+
+  codely.course.course_opinion.subscribers.send_validate_opinion_on_course_opinion_created:
+    class: CodelyTv\Context\Course\Module\CourseOpinion\Application\Send\SendValidateEmailOnCourseOpinionCreated
+    arguments:
+      - '@codely.course.course_opinion.course_opinion_notifier'
+    tags:
+      - { name: 'codely.course.subscriber' }
+    public: false
+
+  codely.course.course_opinion.subscribers.update_course_rating_on_course_opinion_published:
+    class: CodelyTv\Context\Course\Module\CourseOpinion\Application\Rate\RateCourseOnCourseOpinionCreated
+    arguments:
+      - '@codely.course.course_opinion.course_rating_updater'
+    tags:
+      - { name: 'codely.course.subscriber' }
+    public: false
+
+  # Services
+
+  codely.course.course.course_opinion_email_notifier:
+    class: CodelyTv\Context\Course\Module\CourseOpinion\Infrastructure\Notifier\EmailCourseOpinionNotifier
+    arguments:
+     - '%course_notification_email_smtp%'
+     - '%course_notification_email_port%'
+     - '%course_notification_email_security%'
+     - '%course_notification_email_username%'
+     - '%course_notification_email_password%'
+    public: false
+
+  codely.course.course_opinion.course_opinion_creator:
+    class: CodelyTv\Context\Course\Module\CourseOpinion\Application\Create\CourseOpinionCreator
+    arguments:
+     - '@codely.course.course_opinion.repository'
+     - '@codely.course.domain_event_publisher'
+    public: false
+
+  codely.course.course_opinion.course_opinion_publisher:
+    class: CodelyTv\Context\Course\Module\CourseOpinion\Application\Publish\CourseOpinionPublisher
+    arguments:
+     - '@codely.course.course_opinion.repository'
+     - '@codely.course.domain_event_publisher'
+    public: false
+
+  codely.course.course_opinion.course_opinion_notifier:
+    class: CodelyTv\Context\Course\Module\CourseOpinion\Application\Send\CourseOpinionNotifier
+    arguments:
+     - '@codely.course.course.course_opinion_email_notifier'
+    public: false
+
+  codely.course.course_opinion.course_rating_updater:
+    class: CodelyTv\Context\Course\Module\CourseOpinion\Application\Rate\CourseRatingUpdater
+    arguments:
+     - '@codely.course.course.repository'
+     - '@codely.course.course_opinion.repository'
+     - '@codely.course.domain_event_publisher'
+    public: false
+

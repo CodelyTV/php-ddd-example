@@ -1,0 +1,6 @@
+imports:
+  - { resource: course_config.yml }
+
+
+parameters:
+  codely.course.infrastructure.database.on_demand: true

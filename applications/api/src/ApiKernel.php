@@ -2,6 +2,7 @@
 
 namespace CodelyTv\Api;
 
+use CodelyTv\Context\Course\Infrastructure\Symfony\Bundle\CodelyTvCourseBundle;
 use CodelyTv\Context\Video\Infrastructure\Symfony\Bundle\CodelyTvVideoBundle;
 use CodelyTv\Infrastructure\Symfony\Bundle\CodelyTvInfrastructureBundle;
 use FOS\RestBundle\FOSRestBundle;
@@ -20,6 +21,7 @@ class ApiKernel extends Kernel
         return [
             new CodelyTvInfrastructureBundle(),
             new CodelyTvVideoBundle(),
+            new CodelyTvCourseBundle(),
 
             new SensioFrameworkExtraBundle(),
             new FrameworkBundle(),

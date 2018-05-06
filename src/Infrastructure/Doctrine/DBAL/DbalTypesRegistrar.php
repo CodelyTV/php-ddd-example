@@ -2,6 +2,7 @@
 
 namespace CodelyTv\Infrastructure\Doctrine\DBAL;
 
+use CodelyTv\Context\Course\Module\CourseOpinion\Infrastructure\Persistence\Types\CourseOpinionIdType;
 use CodelyTv\Context\Video\Module\User\Infrastructure\Persistence\UserIdType;
 use CodelyTv\Context\Video\Module\Video\Infrastructure\Persistence\VideoIdType;
 use CodelyTv\Shared\Infrastructure\Persistence\Course\CourseIdType;
@@ -11,10 +12,11 @@ use function Lambdish\Phunctional\each;
 final class DbalTypesRegistrar
 {
     private static $initialized = false;
-    private static $types       = [
-        CourseIdType::NAME => CourseIdType::class,
-        UserIdType::NAME   => UserIdType::class,
-        VideoIdType::NAME  => VideoIdType::class,
+    private static $types = [
+        CourseIdType::NAME        => CourseIdType::class,
+        UserIdType::NAME          => UserIdType::class,
+        VideoIdType::NAME         => VideoIdType::class,
+        CourseOpinionIdType::NAME => CourseOpinionIdType::class,
     ];
 
     public static function register()

@@ -1,0 +1,3 @@
+imports:
+
+  - { resource: ../../../../../../Module/CourseOpinion/Infrastructure/DependencyInjection/_course_opinion_module.yml }

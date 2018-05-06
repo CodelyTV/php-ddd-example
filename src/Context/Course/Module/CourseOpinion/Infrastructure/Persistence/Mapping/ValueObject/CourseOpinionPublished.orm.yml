@@ -1,0 +1,7 @@
+CodelyTv\Context\Course\Module\CourseOpinion\Domain\ValueObject\CourseOpinionPublished:
+  type: embeddable
+
+  fields:
+    value:
+      type: boolean
+      column: published

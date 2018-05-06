@@ -1,0 +1,14 @@
+parameters:
+
+  course_database_driver: pdo_mysql
+  course_database_host: 127.0.0.1
+  course_database_port: 3306
+  course_database_name: codely_course
+  course_database_user: root
+  course_database_password: null
+
+  course_notification_email_smtp: smtp.gmail.com
+  course_notification_email_port: 465
+  course_notification_email_security: tls
+  course_notification_email_username: your@email.com
+  course_notification_email_password: yourSecretPassword

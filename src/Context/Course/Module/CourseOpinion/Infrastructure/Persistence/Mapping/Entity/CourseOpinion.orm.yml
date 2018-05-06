@@ -1,0 +1,25 @@
+CodelyTv\Context\Course\Module\CourseOpinion\Domain\Entity\CourseOpinion:
+  type:  entity
+  table: opinion
+
+  id:
+    id:
+      type: course_opinion_id
+      column: id
+      length: 36
+
+  fields:
+    courseId:
+      type: course_id
+      column: course_id
+
+  embedded:
+    rating:
+      class: CodelyTv\Context\Course\Module\CourseOpinion\Domain\ValueObject\CourseOpinionRating
+      columnPrefix: false
+    text:
+      class: CodelyTv\Context\Course\Module\CourseOpinion\Domain\ValueObject\CourseOpinionText
+      columnPrefix: false
+    published:
+      class: CodelyTv\Context\Course\Module\CourseOpinion\Domain\ValueObject\CourseOpinionPublished
+      columnPrefix: false

@@ -1,0 +1,11 @@
+services:
+
+  codely.course.course.repository:
+    class: CodelyTv\Context\Course\Module\Course\Infrastructure\Persistence\Repository\CourseRepositoryMySql
+    arguments:
+     - '@codely.course.infrastructure.database'
+
+  codely.course.course_opinion.repository:
+    class: CodelyTv\Context\Course\Module\CourseOpinion\Infrastructure\Persistence\Repository\CourseOpinionRepositoryMySql
+    arguments:
+     - '@codely.course.infrastructure.database'

@@ -1,0 +1,20 @@
+CodelyTv\Context\Course\Module\Course\Domain\Course:
+  type:  entity
+  table: course
+
+  id:
+    id:
+      type: course_id
+      column: id
+      length: 36
+
+  embedded:
+    title:
+      class: CodelyTv\Context\Course\Module\Course\Domain\ValueObject\CourseTitle
+      columnPrefix: false
+    description:
+      class: CodelyTv\Context\Course\Module\Course\Domain\ValueObject\CourseDescription
+      columnPrefix: false
+    rating:
+      class: CodelyTv\Context\Course\Module\Course\Domain\ValueObject\CourseRating
+      columnPrefix: false
