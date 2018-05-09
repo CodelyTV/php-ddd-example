@@ -44,7 +44,7 @@ final class CreateVideoReviewCommandStub
         );
     }
 
-    public function withText(ReviewText $text)
+    public static function withText(ReviewText $text)
     {
         return self::create(
             new Uuid(UuidStub::random()),
