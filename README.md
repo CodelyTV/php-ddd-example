@@ -6,7 +6,8 @@
 [![CodelyTV](https://img.shields.io/badge/code-codely-green.svg?style=flat-square)](codely.tv)
 [![CircleCI](https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master.svg?style=svg&circle-token=ce12d04556fa79b78bb2beefa0356a6f6934b26b)](https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master)
 
-Implementation example of a PHP application following Domain-Driven Design (DDD) and Command Query Responsibility Segregation (CQRS) principles. Used by the CodelyTV Pro courses:
+Implementation example of a PHP application following Domain-Driven Design (DDD) and Command Query Responsibility Segregation (CQRS) principles.
+Used by the CodelyTV Pro courses:
 * [Arquitectura Hexagonal (Spanish)](https://pro.codely.tv/library/arquitectura-hexagonal/66748/about/)
 * [CQRS: Command Query Responsibility Segregation (Spanish)](https://pro.codely.tv/library/cqrs-command-query-responsibility-segregation-3719e4aa/62554/about/)
 
@@ -23,7 +24,7 @@ Once you have all the dependencies, in order to execute the tests, run this comm
 `vendor/bin/behat -p applications`
 `vendor/bin/phpunit`
 
-## Run the environment!
+### Run the environment
 While this doesn't have docker integration (feel free to do a pull request :) we need a few thing to run this together.
  1. A [MySQL](https://www.mysql.com/) database
      * Execute all `.sql` from `/databases` dir
