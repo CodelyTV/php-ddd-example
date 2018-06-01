@@ -23,6 +23,16 @@ Once you have all the dependencies, in order to execute the tests, run this comm
 `vendor/bin/behat -p applications`
 `vendor/bin/phpunit`
 
+## Run the environment!
+While this doesn't have docker integration (feel free to do a pull request :) we need a few thing to run this together.
+ 1. A [MySQL](https://www.mysql.com/) database
+   - Execute all `.sql` from `/databases` dir
+ 2. [Apache](https://httpd.apache.org/)/[Nginx](https://nginx.org/en/)
+ 3. [Supervisord](http://supervisord.org/)
+   - Execute the `applications/api/bin/console codelytv:domain-events:generate-supervisor-files` command
+   - Link the `applications/api/app/config/supervisor` folder to the supervisor config one
+   - Start supervisord
+
 ## Contributing
 There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want 
 some guidelines feel free to contact us :)
