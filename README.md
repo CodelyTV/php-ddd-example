@@ -7,6 +7,7 @@
 [![CircleCI](https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master.svg?style=svg&circle-token=ce12d04556fa79b78bb2beefa0356a6f6934b26b)](https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master)
 
 Implementation example of a PHP application following Domain-Driven Design (DDD) and Command Query Responsibility Segregation (CQRS) principles.
+
 Used by the CodelyTV Pro courses:
 * [Arquitectura Hexagonal (Spanish)](https://pro.codely.tv/library/arquitectura-hexagonal/66748/about/)
 * [CQRS: Command Query Responsibility Segregation (Spanish)](https://pro.codely.tv/library/cqrs-command-query-responsibility-segregation-3719e4aa/62554/about/)
