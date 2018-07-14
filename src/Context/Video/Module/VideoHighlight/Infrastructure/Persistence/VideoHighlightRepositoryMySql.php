@@ -5,7 +5,7 @@ namespace CodelyTv\Context\Video\Module\VideoHighlight\Infrastructure\Persistenc
 use CodelyTv\Context\Video\Module\VideoHighlight\Domain\VideoHighlight;
 use CodelyTv\Context\Video\Module\VideoHighlight\Domain\VideoHighlightId;
 use CodelyTv\Context\Video\Module\VideoHighlight\Domain\VideoHighlightRepository;
-use CodelyTv\Infrastructure\Doctrine\Repository;
+use CodelyTv\Shared\Infrastructure\Doctrine\Repository;
 
 final class VideoHighlightRepositoryMySql extends Repository implements VideoHighlightRepository
 {

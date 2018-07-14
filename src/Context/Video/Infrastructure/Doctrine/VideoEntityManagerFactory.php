@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Context\Video\Infrastructure\Doctrine;
 
-use CodelyTv\Infrastructure\Doctrine\DoctrineEntityManagerFactory;
+use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineEntityManagerFactory;
 use function Lambdish\Phunctional\apply;
 
 final class VideoEntityManagerFactory

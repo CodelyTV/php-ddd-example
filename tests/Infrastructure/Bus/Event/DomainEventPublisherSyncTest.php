@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Test\Infrastructure\Bus\Event;
 
-use CodelyTv\Infrastructure\Bus\Event\DomainEventPublisherSync;
+use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventPublisherSync;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use Mockery\MockInterface;
