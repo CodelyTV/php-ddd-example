@@ -11,7 +11,7 @@ final class Criteria
     private $offset;
     private $limit;
 
-    public function __construct(Filters $filters, ?Order $order, int $offset, int $limit)
+    public function __construct(Filters $filters, ?Order $order, ?int $offset, ?int $limit)
     {
         $this->filters = $filters;
         $this->order   = $order;

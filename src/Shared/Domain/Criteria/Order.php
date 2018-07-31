@@ -13,6 +13,11 @@ final class Order
         $this->orderType = $orderType ?: OrderType::asc();
     }
 
+    public static function createDesc(OrderBy $orderBy)
+    {
+        return new self($orderBy, OrderType::desc());
+    }
+
     public function orderBy(): OrderBy
     {
         return $this->orderBy;
