@@ -19,7 +19,7 @@ abstract class Collection implements Countable, IteratorAggregate
         $this->items = $items;
     }
 
-    abstract protected function type() : string;
+    abstract protected function type(): string;
 
     public function getIterator()
     {
