@@ -12,4 +12,14 @@ final class Order
         $this->orderBy   = $orderBy;
         $this->orderType = $orderType ?: OrderType::asc();
     }
+
+    public function orderBy(): OrderBy
+    {
+        return $this->orderBy;
+    }
+
+    public function orderType(): OrderType
+    {
+        return $this->orderType;
+    }
 }

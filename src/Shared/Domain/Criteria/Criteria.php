@@ -33,4 +33,24 @@ final class Criteria
     {
         return $this->filters->filters();
     }
+
+    public function filters(): Filters
+    {
+        return $this->filters;
+    }
+
+    public function order(): ?Order
+    {
+        return $this->order;
+    }
+
+    public function offset(): int
+    {
+        return $this->offset;
+    }
+
+    public function limit(): int
+    {
+        return $this->limit;
+    }
 }

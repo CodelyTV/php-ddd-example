@@ -23,4 +23,19 @@ final class Filter
             new FilterValue($values['value'])
         );
     }
+
+    public function field(): FilterField
+    {
+        return $this->field;
+    }
+
+    public function operator(): FilterOperator
+    {
+        return $this->operator;
+    }
+
+    public function value(): FilterValue
+    {
+        return $this->value;
+    }
 }
