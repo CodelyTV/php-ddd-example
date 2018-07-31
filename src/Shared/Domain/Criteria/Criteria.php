@@ -44,12 +44,12 @@ final class Criteria
         return $this->order;
     }
 
-    public function offset(): int
+    public function offset(): ?int
     {
         return $this->offset;
     }
 
-    public function limit(): int
+    public function limit(): ?int
     {
         return $this->limit;
     }
