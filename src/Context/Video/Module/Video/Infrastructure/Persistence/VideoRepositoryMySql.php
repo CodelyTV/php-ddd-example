@@ -14,7 +14,7 @@ use CodelyTv\Shared\Domain\Criteria\Criteria;
 
 final class VideoRepositoryMySql extends Repository implements VideoRepository
 {
-    private static $fieldsMap = [
+    private static $criteriaToDoctrineFields = [
         'id'        => 'id',
         'type'      => 'type',
         'title'     => 'title',
@@ -34,9 +34,9 @@ final class VideoRepositoryMySql extends Repository implements VideoRepository
 
     public function searchByCriteria(Criteria $criteria): Videos
     {
-        $doctrineCriteria = DoctrineCriteriaConverter::convert($criteria, self::$fieldsMap);
-        $movements        = $this->repository(Video::class)->matching($doctrineCriteria)->toArray();
+        $doctrineCriteria = DoctrineCriteriaConverter::convert($criteria, self::$criteriaToDoctrineFields);
+        $videos           = $this->repository(Video::class)->matching($doctrineCriteria)->toArray();
 
-        return new Videos($movements);
+        return new Videos($videos);
     }
 }

@@ -13,26 +13,29 @@ use Doctrine\Common\Collections\Expr\CompositeExpression;
 final class DoctrineCriteriaConverter
 {
     private $criteria;
-    private $fieldsMap;
+    private $criteriaToDoctrineFields;
     private $hydrators;
 
-    public function __construct(Criteria $criteria, array $fieldsMap = [], array $hydrators = [])
+    public function __construct(Criteria $criteria, array $criteriaToDoctrineFields = [], array $hydrators = [])
     {
-        $this->criteria  = $criteria;
-        $this->fieldsMap = $fieldsMap;
-        $this->hydrators = $hydrators;
+        $this->criteria                 = $criteria;
+        $this->criteriaToDoctrineFields = $criteriaToDoctrineFields;
+        $this->hydrators                = $hydrators;
     }
 
-    public static function convert(Criteria $criteria, array $fieldsMap = [], array $hydrators = [])
+    public static function convert(Criteria $criteria, array $criteriaToDoctrineFields = [], array $hydrators = [])
     {
-        $converter = new self($criteria, $fieldsMap, $hydrators);
+        $converter = new self($criteria, $criteriaToDoctrineFields, $hydrators);
 
         return $converter->convertToDoctrineCriteria();
     }
 
-    public static function convertToCount(Criteria $criteria, array $fieldsMap = [], array $hydrators = [])
-    {
-        $converter = new self($criteria, $fieldsMap, $hydrators);
+    public static function convertToCount(
+        Criteria $criteria,
+        array $criteriaToDoctrineFields = [],
+        array $hydrators = []
+    ) {
+        $converter = new self($criteria, $criteriaToDoctrineFields, $hydrators);
 
         return $converter->convertToDoctrineCriteriaToCount();
     }
@@ -78,8 +81,8 @@ final class DoctrineCriteriaConverter
 
     private function mapFieldValue(FilterField $field)
     {
-        return array_key_exists($field->value(), $this->fieldsMap) ?
-            $this->fieldsMap[$field->value()] :
+        return array_key_exists($field->value(), $this->criteriaToDoctrineFields) ?
+            $this->criteriaToDoctrineFields[$field->value()] :
             $field->value();
     }
 
@@ -94,8 +97,8 @@ final class DoctrineCriteriaConverter
 
     private function mapOrderBy(OrderBy $field)
     {
-        return array_key_exists($field->value(), $this->fieldsMap) ?
-            $this->fieldsMap[$field->value()] :
+        return array_key_exists($field->value(), $this->criteriaToDoctrineFields) ?
+            $this->criteriaToDoctrineFields[$field->value()] :
             $field->value();
     }
 
