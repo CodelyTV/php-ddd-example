@@ -8,9 +8,10 @@ use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoTitle;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoType;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoUrl;
+use CodelyTv\Shared\Domain\Bus\Command\CommandHandler;
 use CodelyTv\Shared\Domain\CourseId;
 
-final class CreateVideoCommandHandler
+final class CreateVideoCommandHandler implements CommandHandler
 {
     private $creator;
 
