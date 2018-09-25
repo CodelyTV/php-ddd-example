@@ -7,14 +7,6 @@ framework:
   templating:
     engines: ['twig']
   default_locale:  '%locale%'
-  trusted_proxies: ~
   session:   ~
   fragments: ~
   http_method_override: true
-
-
-sensio_framework_extra:
-
-  view:    { annotations: true }
-  router:  { annotations: true }
-  request: { converters: false }
