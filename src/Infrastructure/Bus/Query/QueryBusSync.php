@@ -2,35 +2,31 @@
 
 namespace CodelyTv\Infrastructure\Bus\Query;
 
-use CodelyTv\Infrastructure\Bus\HandleLocator;
 use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use RuntimeException;
+use Symfony\Component\Messenger\Handler\Locator\HandlerLocator;
+use Symfony\Component\Messenger\MessageBus;
+use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 
 final class QueryBusSync implements QueryBus
 {
-    private $locator;
+    private $queryToHandler = [];
+    private $bus;
     private $askHasBeenCalled = false;
-
-    public function __construct()
-    {
-        $this->locator = new HandleLocator();
-    }
 
     public function register($queryClass, callable $handler)
     {
         $this->guardAskHasNotBeenCalled();
 
-        $this->locator->add($queryClass, $handler);
+        $this->queryToHandler[$queryClass] = $handler;
     }
 
     public function ask(Query $query)
     {
         $this->markAsAsked();
 
-        $handler = $this->locator->find(get_class($query));
-
-        return $handler($query);
+        return $this->bus()->dispatch($query);
     }
 
     private function guardAskHasNotBeenCalled()
@@ -45,5 +41,14 @@ final class QueryBusSync implements QueryBus
         if (!$this->askHasBeenCalled) {
             $this->askHasBeenCalled = true;
         }
+    }
+
+    private function bus(): MessageBus
+    {
+        return $this->bus = $this->bus ?: new MessageBus(
+            [
+                new HandleMessageMiddleware(new HandlerLocator($this->queryToHandler)),
+            ]
+        );
     }
 }
