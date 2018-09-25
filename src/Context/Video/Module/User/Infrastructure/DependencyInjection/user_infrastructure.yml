@@ -4,3 +4,4 @@ services:
     class: CodelyTv\Context\Video\Module\User\Infrastructure\Persistence\UserRepositoryMySql
     arguments:
      - '@codely.video.infrastructure.database'
+    public: true
