@@ -9,7 +9,7 @@ use Symfony\Component\Messenger\Handler\Locator\HandlerLocator;
 use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 
-final class QueryBusSync implements QueryBus
+final class SymfonySyncQueryBus implements QueryBus
 {
     private $queryToHandler = [];
     private $bus;

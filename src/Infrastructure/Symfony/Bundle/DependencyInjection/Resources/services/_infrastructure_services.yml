@@ -12,14 +12,14 @@ services:
     lazy: true
 
   codely.infrastructure.command_bus:
-    class: CodelyTv\Infrastructure\Bus\Command\CommandBusSync
+    class: CodelyTv\Infrastructure\Bus\Command\SymfonySyncCommandBus
     lazy: true
 
   codely.infrastructure.domain_event_publisher:
     alias: codely.infrastructure.domain_event_publisher_sync
 
   codely.infrastructure.query_bus:
-    class: CodelyTv\Infrastructure\Bus\Query\QueryBusSync
+    class: CodelyTv\Infrastructure\Bus\Query\SymfonySyncQueryBus
     lazy: true
 
   codely.infrastructure.database_connections:

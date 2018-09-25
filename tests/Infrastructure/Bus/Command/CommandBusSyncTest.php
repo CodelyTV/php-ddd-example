@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Test\Infrastructure\Bus\Command;
 
-use CodelyTv\Infrastructure\Bus\Command\CommandBusSync;
+use CodelyTv\Infrastructure\Bus\Command\SymfonySyncCommandBus;
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use Mockery\MockInterface;
@@ -10,7 +10,7 @@ use RuntimeException;
 
 final class CommandBusSyncTest extends UnitTestCase
 {
-    /** @var CommandBusSync */
+    /** @var SymfonySyncCommandBus */
     private $commandBus;
     private $command;
 
@@ -18,7 +18,7 @@ final class CommandBusSyncTest extends UnitTestCase
     {
         parent::setUp();
 
-        $this->commandBus = new CommandBusSync();
+        $this->commandBus = new SymfonySyncCommandBus();
     }
 
     /** @test */

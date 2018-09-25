@@ -2,14 +2,14 @@
 
 namespace CodelyTv\Test\Infrastructure\Bus\Query;
 
-use CodelyTv\Infrastructure\Bus\Query\QueryBusSync;
+use CodelyTv\Infrastructure\Bus\Query\SymfonySyncQueryBus;
 use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use RuntimeException;
 
 final class QueryBusSyncTest extends UnitTestCase
 {
-    /** @var QueryBusSync */
+    /** @var SymfonySyncQueryBus */
     private $queryBus;
     /** @var Query */
     private $query;
@@ -18,7 +18,7 @@ final class QueryBusSyncTest extends UnitTestCase
     {
         parent::setUp();
 
-        $this->queryBus = new QueryBusSync();
+        $this->queryBus = new SymfonySyncQueryBus();
     }
 
     /** @test */
