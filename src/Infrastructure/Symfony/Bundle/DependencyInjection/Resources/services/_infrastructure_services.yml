@@ -9,12 +9,10 @@ services:
     class: CodelyTv\Infrastructure\Bus\Command\CommandBusAsync
     arguments:
         $pendingRequestsFilePath: '%async_command_bus_pending_requests_file_path%'
-    public: false
     lazy: true
 
   codely.infrastructure.command_bus:
     class: CodelyTv\Infrastructure\Bus\Command\CommandBusSync
-    public: false
     lazy: true
 
   codely.infrastructure.domain_event_publisher:
@@ -22,7 +20,6 @@ services:
 
   codely.infrastructure.query_bus:
     class: CodelyTv\Infrastructure\Bus\Query\QueryBusSync
-    public: false
     lazy: true
 
   codely.infrastructure.database_connections:

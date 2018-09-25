@@ -2,7 +2,6 @@ services:
 
   codely.infrastructure.domain_event_publisher_sync:
     class: CodelyTv\Infrastructure\Bus\Event\DomainEventPublisherSync
-    public: false
 
   codely.infrastructure.domain_event_subscribers_configuration:
     class: CodelyTv\Infrastructure\Bus\Event\DomainEventSubscribersConfiguration
