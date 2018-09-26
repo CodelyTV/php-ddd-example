@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Infrastructure\Uuid;
 
-use Rhumsaa\Uuid\Uuid;
+use Ramsey\Uuid\Uuid;
 
 final class UuidGenerator
 {
