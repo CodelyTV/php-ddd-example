@@ -2,14 +2,14 @@
 
 namespace CodelyTv\Test\Infrastructure\Bus\Event;
 
-use CodelyTv\Infrastructure\Bus\Event\DomainEventPublisherSync;
+use CodelyTv\Infrastructure\Bus\Event\SymfonySyncDomainEventPublisher;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use Mockery\MockInterface;
 
 final class DomainEventPublisherSyncTest extends UnitTestCase
 {
-    /** @var DomainEventPublisherSync */
+    /** @var SymfonySyncDomainEventPublisher */
     private $publisher;
     private $domainEvent;
     private $anotherDomainEvent;
@@ -18,7 +18,7 @@ final class DomainEventPublisherSyncTest extends UnitTestCase
     {
         parent::setUp();
 
-        $this->publisher = new DomainEventPublisherSync();
+        $this->publisher = new SymfonySyncDomainEventPublisher();
     }
 
     /** @test */

@@ -1,34 +1,30 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace CodelyTv\Infrastructure\Bus\Event;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
-use Prooph\ServiceBus\EventBus;
-use Prooph\ServiceBus\Plugin\Router\EventRouter;
 use RuntimeException;
+use Symfony\Component\Messenger\Handler\Locator\HandlerLocator;
+use Symfony\Component\Messenger\MessageBus;
+use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 use function Lambdish\Phunctional\each;
+use function Lambdish\Phunctional\map;
 
-final class DomainEventPublisherSync implements DomainEventPublisher
+final class SymfonySyncDomainEventPublisher implements DomainEventPublisher
 {
-    private $bus;
-    private $router;
     private $routerIsAttached = false;
-    private $events           = [];
-
-    public function __construct()
-    {
-        $this->bus    = new EventBus();
-        $this->router = new EventRouter();
-    }
+    private $eventToSubscribers = [];
+    private $bus;
+    private $events = [];
 
     public function subscribe(string $eventClass, callable $subscriber): void
     {
         $this->guardRouterIsAttached();
 
-        $this->router->route($eventClass)->to($subscriber);
+        $this->eventToSubscribers[$eventClass][] = $subscriber;
     }
 
     public function record(DomainEvent ...$domainEvents): void
@@ -46,6 +42,7 @@ final class DomainEventPublisherSync implements DomainEventPublisher
     public function publish(DomainEvent ...$domainEvents)
     {
         $this->record(...$domainEvents);
+
         $this->publishRecorded();
     }
 
@@ -59,8 +56,6 @@ final class DomainEventPublisherSync implements DomainEventPublisher
     private function attachRouter()
     {
         if (!$this->routerIsAttached) {
-            $this->bus->utilize($this->router);
-
             $this->routerIsAttached = true;
         }
     }
@@ -68,7 +63,7 @@ final class DomainEventPublisherSync implements DomainEventPublisher
     private function eventPublisher()
     {
         return function (DomainEvent $event) {
-            $this->bus->dispatch($event);
+            $this->bus()->dispatch($event);
         };
     }
 
@@ -78,5 +73,27 @@ final class DomainEventPublisherSync implements DomainEventPublisher
         $this->events = [];
 
         return $events;
+    }
+
+    private function bus(): MessageBus
+    {
+        return $this->bus = $this->bus ?: new MessageBus(
+            [
+                new HandleMessageMiddleware(
+                    new HandlerLocator(map($this->pipeSubscribers(), $this->eventToSubscribers))
+                ),
+            ]
+        );
+    }
+
+    private function pipeSubscribers()
+    {
+        return function (array $subscribers) {
+            return function (DomainEvent $event) use ($subscribers) {
+                foreach ($subscribers as $subscriber) {
+                    $subscriber($event);
+                }
+            };
+        };
     }
 }

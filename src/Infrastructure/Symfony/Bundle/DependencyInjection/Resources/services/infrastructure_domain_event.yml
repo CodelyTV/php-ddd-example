@@ -1,7 +1,7 @@
 services:
 
   codely.infrastructure.domain_event_publisher_sync:
-    class: CodelyTv\Infrastructure\Bus\Event\DomainEventPublisherSync
+    class: CodelyTv\Infrastructure\Bus\Event\SymfonySyncDomainEventPublisher
 
   codely.infrastructure.domain_event_subscribers_configuration:
     class: CodelyTv\Infrastructure\Bus\Event\DomainEventSubscribersConfiguration
