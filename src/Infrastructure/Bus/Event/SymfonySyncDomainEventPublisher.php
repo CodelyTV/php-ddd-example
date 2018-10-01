@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Infrastructure\Bus\Event;
 
+use CodelyTv\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler\CallableFirstParameterExtractor;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
-use RuntimeException;
 use Symfony\Component\Messenger\Handler\Locator\HandlerLocator;
 use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
@@ -15,16 +15,20 @@ use function Lambdish\Phunctional\map;
 
 final class SymfonySyncDomainEventPublisher implements DomainEventPublisher
 {
-    private $routerIsAttached = false;
-    private $eventToSubscribers = [];
     private $bus;
     private $events = [];
 
-    public function subscribe(string $eventClass, callable $subscriber): void
+    public function __construct(iterable $subscribers)
     {
-        $this->guardRouterIsAttached();
-
-        $this->eventToSubscribers[$eventClass][] = $subscriber;
+        $this->bus = new MessageBus(
+            [
+                new HandleMessageMiddleware(
+                    new HandlerLocator(
+                        map($this->pipeSubscribers(), CallableFirstParameterExtractor::forPipedCallables($subscribers))
+                    )
+                ),
+            ]
+        );
     }
 
     public function record(DomainEvent ...$domainEvents): void
@@ -34,8 +38,6 @@ final class SymfonySyncDomainEventPublisher implements DomainEventPublisher
 
     public function publishRecorded(): void
     {
-        $this->attachRouter();
-
         each($this->eventPublisher(), $this->popEvents());
     }
 
@@ -46,24 +48,10 @@ final class SymfonySyncDomainEventPublisher implements DomainEventPublisher
         $this->publishRecorded();
     }
 
-    private function guardRouterIsAttached()
-    {
-        if ($this->routerIsAttached) {
-            throw new RuntimeException('Trying to register a new subscriber after some publish has been done');
-        }
-    }
-
-    private function attachRouter()
-    {
-        if (!$this->routerIsAttached) {
-            $this->routerIsAttached = true;
-        }
-    }
-
     private function eventPublisher()
     {
         return function (DomainEvent $event) {
-            $this->bus()->dispatch($event);
+            $this->bus->dispatch($event);
         };
     }
 
@@ -73,17 +61,6 @@ final class SymfonySyncDomainEventPublisher implements DomainEventPublisher
         $this->events = [];
 
         return $events;
-    }
-
-    private function bus(): MessageBus
-    {
-        return $this->bus = $this->bus ?: new MessageBus(
-            [
-                new HandleMessageMiddleware(
-                    new HandlerLocator(map($this->pipeSubscribers(), $this->eventToSubscribers))
-                ),
-            ]
-        );
     }
 
     private function pipeSubscribers()

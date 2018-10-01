@@ -11,9 +11,6 @@ services:
         $pendingRequestsFilePath: '%async_command_bus_pending_requests_file_path%'
     lazy: true
 
-  codely.infrastructure.domain_event_publisher:
-    alias: codely.infrastructure.domain_event_publisher_sync
-
   codely.infrastructure.database_connections:
     class: CodelyTv\Infrastructure\Doctrine\DatabaseConnections
 

@@ -2,9 +2,11 @@
 
 namespace CodelyTv\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler;
 
-use function Lambdish\Phunctional\reindex;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 use ReflectionClass;
 use ReflectionMethod;
+use function Lambdish\Phunctional\reduce;
+use function Lambdish\Phunctional\reindex;
 
 final class CallableFirstParameterExtractor
 {
@@ -23,6 +25,11 @@ final class CallableFirstParameterExtractor
         return reindex(self::classExtractor(new self()), $callables);
     }
 
+    public static function forPipedCallables(iterable $callables): array
+    {
+        return reduce(self::pipedCallablesReducer(new self()), $callables);
+    }
+
     private function firstParameterClassFrom(ReflectionMethod $method)
     {
         return $method->getParameters()[0]->getClass()->getName();
@@ -37,6 +44,19 @@ final class CallableFirstParameterExtractor
     {
         return function (callable $handler) use ($parameterExtractor) {
             return $parameterExtractor->extract($handler);
+        };
+    }
+
+    private static function pipedCallablesReducer(CallableFirstParameterExtractor $parameterExtractor)
+    {
+        return function ($subscribers, DomainEventSubscriber $subscriber) use ($parameterExtractor) {
+            $subscribedEvents = $subscriber::subscribedTo();
+
+            foreach ($subscribedEvents as $subscribedEvent) {
+                $subscribers[$subscribedEvent][] = $subscriber;
+            }
+
+            return $subscribers;
         };
     }
 }
