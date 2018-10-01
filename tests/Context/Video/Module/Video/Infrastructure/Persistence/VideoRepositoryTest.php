@@ -6,6 +6,7 @@ use CodelyTv\Context\Video\Module\Video\Domain\VideoRepository;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdStub;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoStub;
 use CodelyTv\Test\Context\Video\Module\Video\VideoModuleFunctionalTestCase;
+use CodelyTv\Test\Shared\Domain\Criteria\CriteriaStub;
 
 final class VideoRepositoryTest extends VideoModuleFunctionalTestCase
 {
