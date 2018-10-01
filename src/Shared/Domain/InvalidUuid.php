@@ -2,9 +2,7 @@
 
 declare (strict_types = 1);
 
-namespace CodelyTv\Types;
-
-use CodelyTv\Exception\DomainError;
+namespace CodelyTv\Shared\Domain;
 
 final class InvalidUuid extends DomainError
 {

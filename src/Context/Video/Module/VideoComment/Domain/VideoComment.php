@@ -6,7 +6,7 @@ namespace CodelyTv\Context\Video\Module\VideoComment\Domain;
 
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Context\Video\Module\VideoComment\Contract\VideoCommentPublishedDomainEvent;
-use CodelyTv\Types\Aggregate\AggregateRoot;
+use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 
 final class VideoComment extends AggregateRoot
 {

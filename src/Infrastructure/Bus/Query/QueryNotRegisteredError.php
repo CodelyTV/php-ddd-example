@@ -4,9 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Infrastructure\Bus\Query;
 
-use CodelyTv\Exception\DomainError;
-use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Shared\Domain\Bus\Query\Query;
+use CodelyTv\Shared\Domain\DomainError;
 
 final class QueryNotRegisteredError extends DomainError
 {

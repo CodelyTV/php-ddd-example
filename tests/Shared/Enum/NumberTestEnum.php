@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Test\Shared\Enum;
 
-use CodelyTv\Types\ValueObject\Enum;
+use CodelyTv\Shared\Domain\ValueObject\Enum;
 
 /**
  * @method static NumberTestEnum one()

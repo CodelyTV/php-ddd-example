@@ -4,8 +4,6 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Context\Video\Module\User\Application\Find;
 
-use CodelyTv\Context\Video\Module\User\Application\UserResponse;
-use CodelyTv\Context\Video\Module\User\Application\UserResponseConverter;
 use CodelyTv\Context\Video\Module\User\Domain\UserId;
 use CodelyTv\Shared\Domain\Bus\Query\QueryHandler;
 use function Lambdish\Phunctional\apply;

@@ -5,8 +5,8 @@ namespace CodelyTv\Test\Infrastructure\Bus\Command;
 use CodelyTv\Infrastructure\Bus\Command\CommandNotRegisteredError;
 use CodelyTv\Infrastructure\Bus\Command\SymfonySyncCommandBus;
 use CodelyTv\Shared\Domain\Bus\Command\Command;
+use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
-use CodelyTv\Types\ValueObject\Uuid;
 use RuntimeException;
 
 final class SymfonySyncCommandBusTest extends UnitTestCase

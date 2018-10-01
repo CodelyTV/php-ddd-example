@@ -3,7 +3,7 @@
 namespace CodelyTv\Api\Infrastructure\EventSubscriber;
 
 use CodelyTv\Api\Infrastructure\Exception\ApiExceptionsHttpStatusCodeMapping;
-use CodelyTv\Exception\DomainError;
+use CodelyTv\Shared\Domain\DomainError;
 use Exception;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandler;

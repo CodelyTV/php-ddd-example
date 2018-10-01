@@ -5,7 +5,7 @@ namespace CodelyTv\Api\Controller\Course;
 use CodelyTv\Api\Infrastructure\Controller\ApiController;
 use CodelyTv\Api\Infrastructure\Response\ApiHttpCreatedResponse;
 use CodelyTv\Context\Course\Module\Course\Application\Create\CreateCourseCommand;
-use CodelyTv\Types\ValueObject\Uuid;
+use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use Symfony\Component\HttpFoundation\Request;
 
 final class CoursePostController extends ApiController

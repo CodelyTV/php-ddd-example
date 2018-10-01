@@ -1,5 +1,5 @@
 <?php
-namespace CodelyTv\Exception;
+namespace CodelyTv\Shared\Domain;
 
 use DomainException;
 

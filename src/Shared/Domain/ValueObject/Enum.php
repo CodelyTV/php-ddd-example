@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Types\ValueObject;
+namespace CodelyTv\Shared\Domain\ValueObject;
 
 use ReflectionClass;
 use function CodelyTv\Utils\snake_to_camel;

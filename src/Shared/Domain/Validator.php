@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Types;
+namespace CodelyTv\Shared\Domain;
 
 final class Validator
 {

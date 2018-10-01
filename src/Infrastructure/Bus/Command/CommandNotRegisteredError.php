@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Infrastructure\Bus\Command;
 
-use CodelyTv\Exception\DomainError;
 use CodelyTv\Shared\Domain\Bus\Command\Command;
+use CodelyTv\Shared\Domain\DomainError;
 
 final class CommandNotRegisteredError extends DomainError
 {

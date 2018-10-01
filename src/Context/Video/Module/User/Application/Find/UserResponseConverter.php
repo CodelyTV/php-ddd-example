@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Context\Video\Module\User\Application;
+namespace CodelyTv\Context\Video\Module\User\Application\Find;
 
 use CodelyTv\Context\Video\Module\User\Domain\User;
 

@@ -3,7 +3,7 @@
 namespace CodelyTv\Shared\Domain\Bus\Command;
 
 use CodelyTv\Shared\Domain\Bus\Request;
-use CodelyTv\Types\ValueObject\Uuid;
+use CodelyTv\Shared\Domain\ValueObject\Uuid;
 
 abstract class Command extends Request
 {

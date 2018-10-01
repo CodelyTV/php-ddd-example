@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Types\ValueObject;
+namespace CodelyTv\Shared\Domain\ValueObject;
 
 abstract class StringValueObject
 {
