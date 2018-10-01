@@ -15,7 +15,7 @@ use Exception;
 use function CodelyTv\Utils\date_to_string;
 use PHPUnit\Framework\Assert;
 
-class ApiResponseContext extends RawMinkContext implements Context
+final class ApiResponseContext extends RawMinkContext implements Context
 {
     /** @var MinkSessionResponseHelper */
     private $sessionResponseHelper;

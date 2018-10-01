@@ -9,7 +9,7 @@ use CodelyTv\Infrastructure\Doctrine\DatabaseConnections;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use function Lambdish\Phunctional\each;
 
-class ApiFeatureContext implements Context
+final class ApiFeatureContext implements Context
 {
     private $connections;
     private $publisher;

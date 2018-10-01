@@ -10,7 +10,7 @@ use function Lambdish\Phunctional\all;
 use function Lambdish\Phunctional\any;
 use function Lambdish\Phunctional\instance_of;
 
-class DomainEventArraySimilarComparator extends Comparator
+final class DomainEventArraySimilarComparator extends Comparator
 {
     public function accepts($expected, $actual)
     {

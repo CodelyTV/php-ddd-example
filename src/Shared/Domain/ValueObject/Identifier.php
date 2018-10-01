@@ -4,7 +4,7 @@ namespace CodelyTv\Shared\Domain\ValueObject;
 
 use InvalidArgumentException;
 
-class Identifier extends StringValueObject
+abstract class Identifier extends StringValueObject
 {
     public function __construct($id)
     {

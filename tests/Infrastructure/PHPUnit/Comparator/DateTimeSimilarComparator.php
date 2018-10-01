@@ -10,7 +10,7 @@ use DateTimeInterface;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\ObjectComparator;
 
-class DateTimeSimilarComparator extends ObjectComparator
+final class DateTimeSimilarComparator extends ObjectComparator
 {
     public function accepts($expected, $actual)
     {

@@ -9,7 +9,7 @@ use Behat\MinkExtension\Context\RawMinkContext;
 use CodelyTv\Test\Infrastructure\Mink\MinkHelper;
 use CodelyTv\Test\Infrastructure\Mink\MinkSessionRequestHelper;
 
-class ApiRequestContext extends RawMinkContext implements Context
+final class ApiRequestContext extends RawMinkContext implements Context
 {
     /** @var MinkSessionRequestHelper */
     private $sessionRequestHelper;

@@ -9,7 +9,7 @@ use Symfony\Bundle\MonologBundle\MonologBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 
-class CodelyKernel extends Kernel
+final class CodelyKernel extends Kernel
 {
     public function registerBundles()
     {

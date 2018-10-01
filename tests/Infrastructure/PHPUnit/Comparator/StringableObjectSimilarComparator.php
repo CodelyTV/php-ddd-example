@@ -5,7 +5,7 @@ namespace CodelyTv\Test\Infrastructure\PHPUnit\Comparator;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
 
-class StringableObjectSimilarComparator extends Comparator
+final class StringableObjectSimilarComparator extends Comparator
 {
     public function accepts($expected, $actual)
     {

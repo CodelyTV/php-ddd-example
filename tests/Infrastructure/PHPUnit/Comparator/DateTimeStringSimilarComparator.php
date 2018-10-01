@@ -12,7 +12,7 @@ use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\ObjectComparator;
 use Throwable;
 
-class DateTimeStringSimilarComparator extends ObjectComparator
+final class DateTimeStringSimilarComparator extends ObjectComparator
 {
     public function accepts($expected, $actual)
     {

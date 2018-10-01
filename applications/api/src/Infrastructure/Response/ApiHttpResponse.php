@@ -4,7 +4,7 @@ namespace CodelyTv\Api\Infrastructure\Response;
 
 use Symfony\Component\HttpFoundation\Response;
 
-class ApiHttpResponse
+abstract class ApiHttpResponse
 {
     private $data;
     private $statusCode;

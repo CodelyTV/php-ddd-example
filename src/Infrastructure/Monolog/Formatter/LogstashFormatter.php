@@ -5,7 +5,7 @@ namespace CodelyTv\Infrastructure\Monolog\Formatter;
 use Exception;
 use Monolog\Formatter\NormalizerFormatter;
 
-class LogstashFormatter extends NormalizerFormatter
+final class LogstashFormatter extends NormalizerFormatter
 {
     public function __construct()
     {

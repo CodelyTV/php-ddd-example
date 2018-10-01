@@ -14,7 +14,7 @@ use PHPUnit\Framework\ExpectationFailedException;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\Factory;
 
-class CodelyTvConstraintIsSimilar extends IsEqual
+final class CodelyTvConstraintIsSimilar extends IsEqual
 {
     public function evaluate($other, $description = '', $returnResult = false)
     {

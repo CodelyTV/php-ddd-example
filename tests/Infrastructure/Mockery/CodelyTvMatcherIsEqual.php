@@ -5,7 +5,7 @@ namespace CodelyTv\Test\Infrastructure\Mockery;
 use CodelyTv\Test\Infrastructure\PHPUnit\Constraint\CodelyTvConstraintIsEqual;
 use Mockery\Matcher\MatcherAbstract;
 
-class CodelyTvMatcherIsEqual extends MatcherAbstract
+final class CodelyTvMatcherIsEqual extends MatcherAbstract
 {
     private $constraint;
 
