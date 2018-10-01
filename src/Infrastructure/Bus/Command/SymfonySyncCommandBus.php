@@ -9,7 +9,6 @@ use Symfony\Component\Messenger\Exception\NoHandlerForMessageException;
 use Symfony\Component\Messenger\Handler\Locator\HandlerLocator;
 use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
-use function Lambdish\Phunctional\reindex;
 
 final class SymfonySyncCommandBus implements CommandBus
 {
@@ -17,13 +16,10 @@ final class SymfonySyncCommandBus implements CommandBus
 
     public function __construct(iterable $commandHandlers)
     {
-        $parameterExtractor = new CallableFirstParameterExtractor();
-
-        $messageToHandlerMapping = reindex($this->extractCommand($parameterExtractor), $commandHandlers);
-        $this->bus               = new MessageBus(
+        $this->bus = new MessageBus(
             [
                 new HandleMessageMiddleware(
-                    new HandlerLocator($messageToHandlerMapping)
+                    new HandlerLocator(CallableFirstParameterExtractor::forCallables($commandHandlers))
                 ),
             ]
         );

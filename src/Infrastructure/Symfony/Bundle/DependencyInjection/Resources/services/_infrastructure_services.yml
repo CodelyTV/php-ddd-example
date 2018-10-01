@@ -14,10 +14,6 @@ services:
   codely.infrastructure.domain_event_publisher:
     alias: codely.infrastructure.domain_event_publisher_sync
 
-  codely.infrastructure.query_bus:
-    class: CodelyTv\Infrastructure\Bus\Query\SymfonySyncQueryBus
-    lazy: true
-
   codely.infrastructure.database_connections:
     class: CodelyTv\Infrastructure\Doctrine\DatabaseConnections
 

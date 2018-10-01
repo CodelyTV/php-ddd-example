@@ -9,7 +9,9 @@ services:
     lazy: true
 
   codely.video.query_bus:
-    alias: codely.infrastructure.query_bus
+    class: CodelyTv\Infrastructure\Bus\Query\SymfonySyncQueryBus
+    arguments: [!tagged codely.video.query]
+    lazy: true
 
   codely.video.domain_event_publisher:
     alias: codely.infrastructure.domain_event_publisher

@@ -2,6 +2,7 @@
 
 namespace CodelyTv\Test\Infrastructure\Bus\Query;
 
+use CodelyTv\Infrastructure\Bus\Query\QueryNotRegisteredError;
 use CodelyTv\Infrastructure\Bus\Query\SymfonySyncQueryBus;
 use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
@@ -11,58 +12,39 @@ final class QueryBusSyncTest extends UnitTestCase
 {
     /** @var SymfonySyncQueryBus */
     private $queryBus;
-    /** @var Query */
-    private $query;
 
     protected function setUp()
     {
         parent::setUp();
 
-        $this->queryBus = new SymfonySyncQueryBus();
+        $this->queryBus = new SymfonySyncQueryBus([$this->queryHandler()]);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @expectedException RuntimeException
+     */
     public function it_should_return_a_response_successfully()
     {
-        $this->queryBus->register(get_class($this->query()), $this->queryHandler());
-
-        $this->shouldCallQueryHandler(5);
-
-        $this->assertEquals(new FakeResponse(25), $this->queryBus->ask($this->query));
+        $this->queryBus->ask(new FakeQuery());
     }
 
     /** @test */
-    public function it_should_throw_an_exception_registering_a_handler_after_some_ask_has_been_done()
+    public function it_should_raise_an_exception_dispatching_a_non_registered_query()
     {
-        $this->queryBus->register(get_class($this->query()), $this->queryHandler());
+        $this->expectException(QueryNotRegisteredError::class);
 
-        $this->shouldCallQueryHandler(5);
-
-        $this->assertEquals(new FakeResponse(25), $this->queryBus->ask($this->query));
-
-        $this->expectException(RuntimeException::class);
-
-        $this->queryBus->register(get_class($this->query()), $this->queryHandler());
-    }
-
-    private function query()
-    {
-        return $this->query = $this->query ?: $this->mock(Query::class);
+        $this->queryBus->ask($this->mock(Query::class));
     }
 
     private function queryHandler()
     {
-        return function ($query) {
-            return new FakeResponse($query->quantity() * 5);
+        return new class
+        {
+            public function __invoke(FakeQuery $query)
+            {
+                throw new RuntimeException('This works fine!');
+            }
         };
-    }
-
-    private function shouldCallQueryHandler($queryQuantity)
-    {
-        $this->query()
-            ->shouldReceive('quantity')
-            ->once()
-            ->withNoArgs()
-            ->andReturn($queryQuantity);
     }
 }
