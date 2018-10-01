@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CodelyTv\Infrastructure\Bus\Event\Guard;
 
-use CodelyTv\Types\Validator;
+use CodelyTv\Shared\Domain\Validator;
 use DomainException;
 use function Lambdish\Phunctional\all;
 

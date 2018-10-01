@@ -1,9 +1,9 @@
 <?php
 
-namespace CodelyTv\Types\Aggregate;
+namespace CodelyTv\Shared\Domain\Aggregate;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
-use CodelyTv\Types\Collection;
+use CodelyTv\Shared\Domain\Collection;
 use function Lambdish\Phunctional\reduce;
 
 abstract class AggregateRootCollection extends Collection

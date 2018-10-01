@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CodelyTv\Types\ValueObject;
+namespace CodelyTv\Shared\Domain\ValueObject;
 
 use InvalidArgumentException;
 use Ramsey\Uuid\Uuid as RamseyUuid;

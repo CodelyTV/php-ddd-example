@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Test\Infrastructure\PHPUnit\Comparator;
 
-use CodelyTv\Types\Aggregate\AggregateRoot;
+use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use function CodelyTv\Test\isSimilar;

@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Context\Video\Module\User\Domain;
 
-use CodelyTv\Types\Aggregate\AggregateRoot;
+use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 
 final class User extends AggregateRoot
 {

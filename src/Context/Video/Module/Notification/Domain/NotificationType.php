@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Context\Video\Module\Notification\Domain;
 
-use CodelyTv\Types\ValueObject\Enum;
+use CodelyTv\Shared\Domain\ValueObject\Enum;
 use InvalidArgumentException;
 
 /**

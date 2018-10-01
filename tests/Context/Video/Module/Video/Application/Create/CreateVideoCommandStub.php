@@ -8,13 +8,13 @@ use CodelyTv\Context\Video\Module\Video\Domain\VideoTitle;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoType;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoUrl;
 use CodelyTv\Shared\Domain\CourseId;
+use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use CodelyTv\Test\Context\Course\Module\Course\Domain\CourseIdStub;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdStub;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoTitleStub;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoTypeStub;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoUrlStub;
 use CodelyTv\Test\Shared\Domain\UuidStub;
-use CodelyTv\Types\ValueObject\Uuid;
 
 final class CreateVideoCommandStub
 {

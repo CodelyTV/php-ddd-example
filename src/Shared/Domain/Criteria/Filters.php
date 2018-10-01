@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Shared\Domain\Criteria;
 
-use CodelyTv\Types\Collection;
+use CodelyTv\Shared\Domain\Collection;
 
 final class Filters extends Collection
 {

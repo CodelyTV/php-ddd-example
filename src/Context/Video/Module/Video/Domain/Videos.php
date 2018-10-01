@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Context\Video\Module\Video\Domain;
 
-use CodelyTv\Types\Collection;
+use CodelyTv\Shared\Domain\Collection;
 
 final class Videos extends Collection
 {

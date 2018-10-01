@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Shared\Domain\Criteria;
 
-use CodelyTv\Types\ValueObject\Enum;
+use CodelyTv\Shared\Domain\ValueObject\Enum;
 use InvalidArgumentException;
 
 /**

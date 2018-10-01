@@ -4,7 +4,7 @@ declare (strict_types = 1);
 
 namespace CodelyTv\Infrastructure\Bus;
 
-use CodelyTv\Types\ValueObject\Uuid;
+use CodelyTv\Shared\Domain\ValueObject\Uuid;
 
 final class AsyncRequest
 {

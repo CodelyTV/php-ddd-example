@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Context\Video\Module\User\Domain;
 
-use CodelyTv\Types\ValueObject\IntValueObject;
+use CodelyTv\Shared\Domain\ValueObject\IntValueObject;
 
 final class TotalVideosCreated extends IntValueObject
 {

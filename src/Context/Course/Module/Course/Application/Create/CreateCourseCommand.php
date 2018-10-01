@@ -3,7 +3,7 @@
 namespace CodelyTv\Context\Course\Module\Course\Application\Create;
 
 use CodelyTv\Shared\Domain\Bus\Command\Command;
-use CodelyTv\Types\ValueObject\Uuid;
+use CodelyTv\Shared\Domain\ValueObject\Uuid;
 
 final class CreateCourseCommand extends Command
 {
