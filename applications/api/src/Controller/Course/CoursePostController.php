@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Api\Controller\Course;
 
 use CodelyTv\Api\Infrastructure\Controller\ApiController;

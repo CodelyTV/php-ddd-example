@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Shared\Contract;
 
 use CodelyTv\Shared\Domain\DomainError;

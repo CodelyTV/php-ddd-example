@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Test\Context\Video\Module\Notification\Stub;
 
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationId;

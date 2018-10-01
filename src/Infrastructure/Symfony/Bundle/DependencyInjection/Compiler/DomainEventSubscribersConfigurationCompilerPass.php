@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace CodelyTv\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler;
 
@@ -13,7 +13,7 @@ use function Lambdish\Phunctional\get;
 use function Lambdish\Phunctional\last;
 use function Lambdish\Phunctional\map;
 
-class DomainEventSubscribersConfigurationCompilerPass implements CompilerPassInterface
+final class DomainEventSubscribersConfigurationCompilerPass implements CompilerPassInterface
 {
     const DOMAIN_EVENT_CONFIGURATION_SERVICE = 'codely.infrastructure.domain_event_subscribers_configuration';
     const SUBSCRIBERS_MAPPING_SERVICE        = 'codely.infrastructure.subscribers_mapping';

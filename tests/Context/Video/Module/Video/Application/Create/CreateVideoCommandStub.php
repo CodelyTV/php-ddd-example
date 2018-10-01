@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Test\Context\Video\Module\Video\Application\Create;
 
 use CodelyTv\Context\Video\Module\Video\Application\Create\CreateVideoCommand;

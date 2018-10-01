@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Test\Context\Video\Module\User\Infrastructure\Persistence;
 
 use CodelyTv\Context\Video\Module\User\Domain\UserRepository;

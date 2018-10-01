@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Shared\Domain\Bus\Command;
 
 use CodelyTv\Shared\Domain\Bus\Request;

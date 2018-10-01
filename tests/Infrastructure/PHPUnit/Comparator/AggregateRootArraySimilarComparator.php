@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Test\Infrastructure\PHPUnit\Comparator;
 
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
@@ -10,7 +12,7 @@ use function Lambdish\Phunctional\all;
 use function Lambdish\Phunctional\any;
 use function Lambdish\Phunctional\instance_of;
 
-class AggregateRootArraySimilarComparator extends Comparator
+final class AggregateRootArraySimilarComparator extends Comparator
 {
     public function accepts($expected, $actual)
     {

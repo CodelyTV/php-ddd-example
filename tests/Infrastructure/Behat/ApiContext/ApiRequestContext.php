@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Test\Infrastructure\Behat\ApiContext;
 
 use Behat\Behat\Context\Context;
@@ -9,7 +11,7 @@ use Behat\MinkExtension\Context\RawMinkContext;
 use CodelyTv\Test\Infrastructure\Mink\MinkHelper;
 use CodelyTv\Test\Infrastructure\Mink\MinkSessionRequestHelper;
 
-class ApiRequestContext extends RawMinkContext implements Context
+final class ApiRequestContext extends RawMinkContext implements Context
 {
     /** @var MinkSessionRequestHelper */
     private $sessionRequestHelper;

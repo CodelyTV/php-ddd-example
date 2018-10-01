@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Test\Infrastructure\PHPUnit\Comparator;
 
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
@@ -8,7 +10,7 @@ use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use function CodelyTv\Test\isSimilar;
 
-class AggregateRootSimilarComparator extends Comparator
+final class AggregateRootSimilarComparator extends Comparator
 {
     public function accepts($expected, $actual)
     {

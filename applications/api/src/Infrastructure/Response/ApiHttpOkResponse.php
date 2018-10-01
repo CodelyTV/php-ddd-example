@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Api\Infrastructure\Response;
 
 use Symfony\Component\HttpFoundation\Response;

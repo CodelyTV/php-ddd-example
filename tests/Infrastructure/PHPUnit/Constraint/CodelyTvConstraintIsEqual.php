@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace CodelyTv\Test\Infrastructure\PHPUnit\Constraint;
 
@@ -10,7 +10,7 @@ use PHPUnit\Framework\ExpectationFailedException;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\Factory;
 
-class CodelyTvConstraintIsEqual extends IsEqual
+final class CodelyTvConstraintIsEqual extends IsEqual
 {
     public function evaluate($other, $description = '', $returnResult = false)
     {

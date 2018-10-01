@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Test\Infrastructure\Behat;
 
 use Behat\Behat\Context\Context;
@@ -9,7 +11,7 @@ use CodelyTv\Infrastructure\Doctrine\DatabaseConnections;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use function Lambdish\Phunctional\each;
 
-class ApiFeatureContext implements Context
+final class ApiFeatureContext implements Context
 {
     private $connections;
     private $publisher;

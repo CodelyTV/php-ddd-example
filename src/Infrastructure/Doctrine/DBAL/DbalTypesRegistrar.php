@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Infrastructure\Doctrine\DBAL;
 
 use CodelyTv\Context\Video\Module\User\Infrastructure\Persistence\UserIdType;
