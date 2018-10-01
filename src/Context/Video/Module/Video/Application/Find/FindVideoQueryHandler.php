@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace CodelyTv\Context\Video\Module\Video\Application\Find;
 
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
-use CodelyTv\Context\Video\Module\Video\Domain\VideoResponse;
-use CodelyTv\Context\Video\Module\Video\Domain\VideoResponseConverter;
 use CodelyTv\Shared\Domain\Bus\Query\QueryHandler;
 use function Lambdish\Phunctional\apply;
 use function Lambdish\Phunctional\pipe;
