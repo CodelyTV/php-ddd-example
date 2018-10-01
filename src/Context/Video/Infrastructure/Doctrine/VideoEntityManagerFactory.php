@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Context\Video\Infrastructure\Doctrine;
 
 use CodelyTv\Infrastructure\Doctrine\DoctrineEntityManagerFactory;

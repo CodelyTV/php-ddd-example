@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Infrastructure\Doctrine;
 
 use CodelyTv\Shared\Domain\Criteria\Criteria;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Test\Infrastructure\Bus\Query;
 
 use CodelyTv\Infrastructure\Bus\Query\QueryNotRegisteredError;

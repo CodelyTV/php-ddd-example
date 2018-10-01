@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Test\Infrastructure\PHPUnit\Constraint;
 
 use CodelyTv\Test\Infrastructure\PHPUnit\Comparator\AggregateRootArraySimilarComparator;

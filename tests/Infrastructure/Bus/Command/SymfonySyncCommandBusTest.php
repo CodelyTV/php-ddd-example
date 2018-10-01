@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Test\Infrastructure\Bus\Command;
 
 use CodelyTv\Infrastructure\Bus\Command\CommandNotRegisteredError;

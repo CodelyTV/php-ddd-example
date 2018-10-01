@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Test\Shared\Enum;
 
 use CodelyTv\Shared\Domain\ValueObject\Enum;

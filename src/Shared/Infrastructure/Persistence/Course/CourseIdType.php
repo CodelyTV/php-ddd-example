@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Shared\Infrastructure\Persistence\Course;
 
 use CodelyTv\Shared\Domain\CourseId;

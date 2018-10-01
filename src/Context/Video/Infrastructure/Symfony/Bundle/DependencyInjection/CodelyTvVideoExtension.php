@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Context\Video\Infrastructure\Symfony\Bundle\DependencyInjection;
 
 use CodelyTv\Shared\Domain\Bus\Command\CommandHandler;

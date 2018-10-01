@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Test\Infrastructure\PHPUnit\Module;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
