@@ -4,7 +4,9 @@ services:
     alias: codely.infrastructure.async_command_bus
 
   codely.video.command_bus:
-    alias: codely.infrastructure.command_bus
+    class: CodelyTv\Infrastructure\Bus\Command\SymfonySyncCommandBus
+    arguments: [!tagged codely.video.command]
+    lazy: true
 
   codely.video.query_bus:
     alias: codely.infrastructure.query_bus

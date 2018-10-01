@@ -11,10 +11,6 @@ services:
         $pendingRequestsFilePath: '%async_command_bus_pending_requests_file_path%'
     lazy: true
 
-  codely.infrastructure.command_bus:
-    class: CodelyTv\Infrastructure\Bus\Command\SymfonySyncCommandBus
-    lazy: true
-
   codely.infrastructure.domain_event_publisher:
     alias: codely.infrastructure.domain_event_publisher_sync
 

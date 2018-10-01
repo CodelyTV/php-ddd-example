@@ -2,67 +2,50 @@
 
 namespace CodelyTv\Test\Infrastructure\Bus\Command;
 
+use CodelyTv\Infrastructure\Bus\Command\CommandNotRegisteredError;
 use CodelyTv\Infrastructure\Bus\Command\SymfonySyncCommandBus;
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
-use Mockery\MockInterface;
+use CodelyTv\Types\ValueObject\Uuid;
 use RuntimeException;
 
 final class CommandBusSyncTest extends UnitTestCase
 {
     /** @var SymfonySyncCommandBus */
     private $commandBus;
-    private $command;
 
     protected function setUp()
     {
         parent::setUp();
 
-        $this->commandBus = new SymfonySyncCommandBus();
+        $this->commandBus = new SymfonySyncCommandBus([$this->commandHandler()]);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @expectedException RuntimeException
+     */
     public function it_should_be_able_to_handle_a_command()
     {
-        $this->commandBus->register(get_class($this->command()), $this->commandHandler());
-
-        $this->commandHandlerShouldBeCalled();
-
-        $this->commandBus->dispatch($this->command());
+        $this->commandBus->dispatch(new FakeCommand(Uuid::random()));
     }
 
     /** @test */
-    public function it_should_throw_an_exception_registering_a_handler_after_some_dispath_has_been_done()
+    public function it_should_raise_an_exception_dispatching_a_non_registered_command()
     {
-        $this->commandBus->register(get_class($this->command()), $this->commandHandler());
+        $this->expectException(CommandNotRegisteredError::class);
 
-        $this->commandHandlerShouldBeCalled();
-
-        $this->commandBus->dispatch($this->command());
-
-        $this->expectException(RuntimeException::class);
-
-        $this->commandBus->register(get_class($this->command()), $this->commandHandler());
+        $this->commandBus->dispatch($this->mock(Command::class));
     }
 
     private function commandHandler()
     {
-        return function ($command) {
-            $command->name();
+        return new class
+        {
+            public function __invoke(FakeCommand $command)
+            {
+                throw new RuntimeException('This works fine!');
+            }
         };
-    }
-
-    /** @return Command|MockInterface */
-    private function command()
-    {
-        return $this->command = $this->command ?: $this->mock(Command::class);
-    }
-
-    private function commandHandlerShouldBeCalled()
-    {
-        $this->command()
-            ->shouldReceive('name')
-            ->once()
-            ->withNoArgs();
     }
 }

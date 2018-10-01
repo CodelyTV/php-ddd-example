@@ -2,53 +2,46 @@
 
 namespace CodelyTv\Infrastructure\Bus\Command;
 
+use CodelyTv\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler\CallableFirstParameterExtractor;
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
-use RuntimeException;
+use Symfony\Component\Messenger\Exception\NoHandlerForMessageException;
 use Symfony\Component\Messenger\Handler\Locator\HandlerLocator;
 use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
+use function Lambdish\Phunctional\reindex;
 
 final class SymfonySyncCommandBus implements CommandBus
 {
-    private $commandToHandler = [];
     private $bus;
-    private $dispatchHasBeenCalled = false;
 
-    public function register($commandClass, callable $handler)
+    public function __construct(iterable $commandHandlers)
     {
-        $this->guardDispatchHasNotBeenCalled();
+        $parameterExtractor = new CallableFirstParameterExtractor();
 
-        $this->commandToHandler[$commandClass] = $handler;
-    }
-
-    public function dispatch(Command $command)
-    {
-        $this->markAsAsked();
-
-        $this->bus()->dispatch($command);
-    }
-
-    private function guardDispatchHasNotBeenCalled()
-    {
-        if ($this->dispatchHasBeenCalled) {
-            throw new RuntimeException('Trying to register a new handler after some command has been dispatched');
-        }
-    }
-
-    private function markAsAsked()
-    {
-        if (!$this->dispatchHasBeenCalled) {
-            $this->dispatchHasBeenCalled = true;
-        }
-    }
-
-    private function bus(): MessageBus
-    {
-        return $this->bus = $this->bus ?: new MessageBus(
+        $messageToHandlerMapping = reindex($this->extractCommand($parameterExtractor), $commandHandlers);
+        $this->bus               = new MessageBus(
             [
-                new HandleMessageMiddleware(new HandlerLocator($this->commandToHandler)),
+                new HandleMessageMiddleware(
+                    new HandlerLocator($messageToHandlerMapping)
+                ),
             ]
         );
+    }
+
+    public function dispatch(Command $command): void
+    {
+        try {
+            $this->bus->dispatch($command);
+        } catch (NoHandlerForMessageException $unused) {
+            throw new CommandNotRegisteredError($command);
+        }
+    }
+
+    private function extractCommand(CallableFirstParameterExtractor $parameterExtractor)
+    {
+        return function (callable $handler) use ($parameterExtractor) {
+            return $parameterExtractor->extract($handler);
+        };
     }
 }

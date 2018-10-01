@@ -17,7 +17,6 @@ class CodelyTvVideoBundle extends Bundle
     {
         parent::build($container);
 
-        $container->addCompilerPass(new CommandBusCompilerPass('codely.video.command'));
         $container->addCompilerPass(new QueryBusCompilerPass('codely.video.query'));
         $container->addCompilerPass(new DomainEventPublisherCompilerPass('codely.video.subscriber'));
         $container->addCompilerPass(new DomainEventSubscribersConfigurationCompilerPass('codely.video.subscriber'));
