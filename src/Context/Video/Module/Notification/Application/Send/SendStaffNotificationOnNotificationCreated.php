@@ -5,8 +5,9 @@ namespace CodelyTv\Context\Video\Module\Notification\Application\Send;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationCreatedDomainEvent;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationText;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationType;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 
-final class SendStaffNotificationOnNotificationCreated
+final class SendStaffNotificationOnNotificationCreated implements DomainEventSubscriber
 {
     private $sender;
 

@@ -3,10 +3,12 @@ services:
   codely.api.controller.video.post:
     class: CodelyTv\Api\Controller\Video\VideoPostController
     parent: codely.api.controller
+    public: true
 
   codely.api.controller.video.get:
     class: CodelyTv\Api\Controller\Video\VideoGetController
     parent: codely.api.controller
+    public: true
 
   codely.api.controller.video.duration.path:
     class: CodelyTv\Api\Controller\Video\VideoDurationPatchController
@@ -14,3 +16,4 @@ services:
       - '@codely.video.query_bus'
       - '@codely.video.async_command_bus'
       - '@codely.api.exception_handler'
+    public: true

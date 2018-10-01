@@ -1,4 +1,6 @@
 services:
+  _defaults:
+    autoconfigure: true
 
   # Subscriber
 
@@ -6,17 +8,11 @@ services:
     class: CodelyTv\Context\Video\Module\Notification\Application\Create\CreateNotificationOnVideoCreated
     arguments:
       - '@codely.video.notification.notification_creator'
-    tags:
-      - { name: 'codely.video.subscriber' }
-    public: false
 
   codely.video.notification.subscriber.send_notification_on_notification_created:
     class: CodelyTv\Context\Video\Module\Notification\Application\Send\SendStaffNotificationOnNotificationCreated
     arguments:
       - '@codely.video.notification.notification_sender'
-    tags:
-      - { name: 'codely.video.subscriber' }
-    public: false
 
 
   # Services
@@ -26,10 +22,8 @@ services:
     arguments:
      - '@codely.infrastructure.uuid_generator'
      - '@codely.video.domain_event_publisher'
-    public: false
 
   codely.video.notification.notification_sender:
     class: CodelyTv\Context\Video\Module\Notification\Application\Send\NotificationSender
     arguments:
      - '@codely.video.notification.notifier'
-    public: false

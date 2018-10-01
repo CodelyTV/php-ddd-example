@@ -6,7 +6,6 @@ use CodelyTv\Context\Video\Infrastructure\Symfony\Bundle\CodelyTvVideoBundle;
 use CodelyTv\Infrastructure\Symfony\Bundle\CodelyTvInfrastructureBundle;
 use FOS\RestBundle\FOSRestBundle;
 use JMS\SerializerBundle\JMSSerializerBundle;
-use Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\MonologBundle\MonologBundle;
 use Symfony\Bundle\TwigBundle\TwigBundle;
@@ -21,7 +20,6 @@ class ApiKernel extends Kernel
             new CodelyTvInfrastructureBundle(),
             new CodelyTvVideoBundle(),
 
-            new SensioFrameworkExtraBundle(),
             new FrameworkBundle(),
             new TwigBundle(),
 
@@ -29,7 +27,6 @@ class ApiKernel extends Kernel
 
             new FOSRestBundle(),
             new JMSSerializerBundle(),
-//            new NelmioApiDocBundle(),
         ];
     }
 

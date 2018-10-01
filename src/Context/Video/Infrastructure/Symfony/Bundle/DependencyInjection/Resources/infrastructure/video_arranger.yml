@@ -4,3 +4,4 @@ services:
     class: CodelyTv\Test\Context\Video\VideoEnvironmentArranger
     arguments:
       - '@codely.video.infrastructure.database'
+    public: true

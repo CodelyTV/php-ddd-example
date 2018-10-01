@@ -1,4 +1,6 @@
 services:
+  _defaults:
+    autoconfigure: true
 
   # Command Handlers
 
@@ -6,9 +8,6 @@ services:
     class: CodelyTv\Context\Video\Module\Video\Application\Create\CreateVideoCommandHandler
     arguments:
       - '@codely.video.video.video_creator'
-    tags:
-      - { name: 'codely.video.command' }
-    public: false
 
 
   # Query Handlers
@@ -17,9 +16,6 @@ services:
     class: CodelyTv\Context\Video\Module\Video\Application\Find\FindVideoQueryHandler
     arguments:
       - '@codely.video.video.video_finder'
-    tags:
-      - { name: 'codely.video.query' }
-    public: false
 
 
   # Services
@@ -29,10 +25,8 @@ services:
     arguments:
      - '@codely.video.video.repository'
      - '@codely.video.domain_event_publisher'
-    public: false
 
   codely.video.video.video_finder:
     class: CodelyTv\Context\Video\Module\Video\Application\Find\VideoFinder
     arguments:
      - '@codely.video.video.repository'
-    public: false

@@ -2,22 +2,41 @@
 
 namespace CodelyTv\Infrastructure\Bus\Event;
 
+use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
+use function Lambdish\Phunctional\reduce;
+use function Lambdish\Phunctional\reindex;
+
 final class DomainEventMapping
 {
-    private static $mapping = [];
+    private $mapping = [];
 
-    public function add(string $name, string $eventClass)
+    public function __construct(iterable $mapping)
     {
-        self::$mapping[$name] = $eventClass;
+        $this->mapping = reduce($this->eventsExtractor(), $mapping);
     }
 
     public function for(string $name)
     {
-        return self::$mapping[$name];
+        return $this->mapping[$name];
     }
 
     public function all()
     {
-        return self::$mapping;
+        return $this->mapping;
+    }
+
+    private function eventsExtractor()
+    {
+        return function (array $mapping, DomainEventSubscriber $subscriber) {
+            return array_merge($mapping, reindex($this->eventNameExtractor(), $subscriber::subscribedTo()));
+        };
+    }
+
+    private function eventNameExtractor()
+    {
+        return function (DomainEvent $event) {
+            return $event::eventName();
+        };
     }
 }

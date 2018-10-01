@@ -6,9 +6,10 @@ namespace CodelyTv\Context\Video\Module\User\Application\IncreasePendingVideos;
 
 use CodelyTv\Context\Video\Module\User\Domain\ScalaVideoCreatedDomainEvent;
 use CodelyTv\Context\Video\Module\User\Domain\UserId;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 use function Lambdish\Phunctional\apply;
 
-final class IncreaseUserTotalVideosCreatedOnVideoCreated
+final class IncreaseUserTotalVideosCreatedOnVideoCreated implements DomainEventSubscriber
 {
     private $increaser;
 
