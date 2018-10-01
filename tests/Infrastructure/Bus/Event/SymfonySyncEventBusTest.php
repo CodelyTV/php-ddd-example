@@ -2,23 +2,24 @@
 
 namespace CodelyTv\Test\Infrastructure\Bus\Event;
 
-use CodelyTv\Infrastructure\Bus\Event\SymfonySyncDomainEventPublisher;
+use CodelyTv\Infrastructure\Bus\Event\SymfonySyncEventBus;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 
-final class DomainEventPublisherSyncTest extends UnitTestCase
+final class SymfonySyncEventBusTest extends UnitTestCase
 {
     public static $totalTimesCalled;
-    /** @var SymfonySyncDomainEventPublisher */
-    private $publisher;
+    /** @var SymfonySyncEventBus */
+    private $bus;
 
     protected function setUp()
     {
         parent::setUp();
 
         self::$totalTimesCalled = 0;
-        $this->publisher        = new SymfonySyncDomainEventPublisher(
+
+        $this->bus = new SymfonySyncEventBus(
             [
                 $this->subscriber(),
                 $this->subscriber(),
@@ -29,7 +30,7 @@ final class DomainEventPublisherSyncTest extends UnitTestCase
     /** @test */
     public function it_should_publish_and_handle_one_event()
     {
-        $this->publisher->publish(new FakeDomainEvent('aggregate id'));
+        $this->bus->notify(new FakeDomainEvent('aggregate id'));
 
         $this->assertEquals(2, self::$totalTimesCalled);
     }
@@ -40,7 +41,7 @@ final class DomainEventPublisherSyncTest extends UnitTestCase
         {
             public function __invoke(DomainEvent $unused)
             {
-                DomainEventPublisherSyncTest::$totalTimesCalled++;
+                SymfonySyncEventBusTest::$totalTimesCalled++;
             }
 
             public static function subscribedTo(): array

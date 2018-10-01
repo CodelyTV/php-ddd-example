@@ -21,6 +21,7 @@ services:
     class: CodelyTv\Context\Video\Module\Notification\Application\Create\NotificationCreator
     arguments:
      - '@codely.infrastructure.uuid_generator'
+     - '@codely.video.domain_event_publisher'
 
   codely.video.notification.notification_sender:
     class: CodelyTv\Context\Video\Module\Notification\Application\Send\NotificationSender

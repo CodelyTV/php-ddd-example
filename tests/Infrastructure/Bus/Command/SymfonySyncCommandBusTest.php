@@ -9,7 +9,7 @@ use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use CodelyTv\Types\ValueObject\Uuid;
 use RuntimeException;
 
-final class CommandBusSyncTest extends UnitTestCase
+final class SymfonySyncCommandBusTest extends UnitTestCase
 {
     /** @var SymfonySyncCommandBus */
     private $commandBus;

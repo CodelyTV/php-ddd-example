@@ -8,7 +8,7 @@ use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use RuntimeException;
 
-final class QueryBusSyncTest extends UnitTestCase
+final class SymfonySyncQueryBusTest extends UnitTestCase
 {
     /** @var SymfonySyncQueryBus */
     private $queryBus;

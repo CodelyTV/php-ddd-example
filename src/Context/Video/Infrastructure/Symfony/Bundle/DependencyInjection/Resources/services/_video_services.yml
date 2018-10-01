@@ -13,7 +13,13 @@ services:
     arguments: [!tagged codely.video.query]
     lazy: true
 
-  codely.video.domain_event_publisher:
-    class: CodelyTv\Infrastructure\Bus\Event\SymfonySyncDomainEventPublisher
+  codely.video.event_bus:
+    class: CodelyTv\Infrastructure\Bus\Event\SymfonySyncEventBus
     arguments: [!tagged codely.video.subscriber]
     lazy: true
+    public: true
+
+  codely.video.domain_event_publisher:
+    class: CodelyTv\Infrastructure\Bus\Event\SymfonySyncDomainEventPublisher
+    lazy: true
+    public: true

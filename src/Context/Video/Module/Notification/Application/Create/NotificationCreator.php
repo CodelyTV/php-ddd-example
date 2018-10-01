@@ -7,19 +7,19 @@ use CodelyTv\Context\Video\Module\Notification\Domain\NotificationId;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationText;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationType;
 use CodelyTv\Infrastructure\Uuid\UuidGenerator;
-//use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
 
 final class NotificationCreator
 {
     private $uuidGenerator;
-//    private $publisher;
+    private $publisher;
 
     public function __construct(
-        UuidGenerator $uuidGenerator
-//        DomainEventPublisher $publisher
+        UuidGenerator $uuidGenerator,
+        DomainEventPublisher $publisher
     ) {
         $this->uuidGenerator = $uuidGenerator;
-//        $this->publisher     = $publisher;
+        $this->publisher     = $publisher;
     }
 
     public function __invoke(NotificationText $text, NotificationType $action)
@@ -28,6 +28,6 @@ final class NotificationCreator
 
         $notification = Notification::create($id, $text, $action);
 
-//        $this->publisher->publish(...$notification->pullDomainEvents());
+        $this->publisher->publish(...$notification->pullDomainEvents());
     }
 }
