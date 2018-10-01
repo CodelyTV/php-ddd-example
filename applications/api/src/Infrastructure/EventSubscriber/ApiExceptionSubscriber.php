@@ -53,6 +53,12 @@ final class ApiExceptionSubscriber implements EventSubscriberInterface
     {
         $moduleExceptionClass = DomainError::class;
 
-        return $exception instanceof $moduleExceptionClass ? $exception->errorCode() : $exception->getCode();
+        return $exception instanceof $moduleExceptionClass ? $this->domainErrorCode($exception) : $exception->getCode();
+    }
+
+    private function domainErrorCode($error): string
+    {
+        /** @var DomainError $error */
+        return $error->errorCode();
     }
 }
