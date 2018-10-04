@@ -14,9 +14,9 @@ Take a look, play and have fun with this!
 ## 🚀 Environment setup
 
 ### Install the needed tools
-1. Clone this repository: `git clone https://github.com/CodelyTV/cqrs-ddd-php-example cqrs-ddd-php-example`
-2. Move to your project folder: `cd cqrs-ddd-php-example`
-3. Install dependencies: `composer install`
+* Clone this repository: `git clone https://github.com/CodelyTV/cqrs-ddd-php-example cqrs-ddd-php-example`
+* Move to your project folder: `cd cqrs-ddd-php-example`
+* Install dependencies: `composer install`
 
 ### Run the tests!
 Once you have all the dependencies, in order to execute the tests, run this command:
@@ -26,13 +26,13 @@ Once you have all the dependencies, in order to execute the tests, run this comm
 
 ### Run the environment
 > While this doesn't have a docker integration (feel free to do a pull request :) we need a few thing to run this.
- 1. A [MySQL](https://www.mysql.com/) database
-     * Execute all `.sql` from `/databases` dir
- 2. [Apache](https://httpd.apache.org/)/[Nginx](https://nginx.org/en/)
- 3. [Supervisord](http://supervisord.org/)
-     * Execute the `applications/api/bin/console codelytv:domain-events:generate-supervisor-files` command
-     * Link the `applications/api/app/config/supervisor` folder to the supervisor config one
-     * Start supervisord
+* A [MySQL](https://www.mysql.com/) database
+  - Execute all `.sql` from `/databases` dir
+* [Apache](https://httpd.apache.org/)/[Nginx](https://nginx.org/en/)
+* [Supervisord](http://supervisord.org/)
+  - Execute the `applications/api/bin/console codelytv:domain-events:generate-supervisor-files` command
+  - Link the `applications/api/app/config/supervisor` folder to the supervisor config one
+  - Start supervisord
 
 ## 🧐 Contributing
 There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want 
