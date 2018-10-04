@@ -16,7 +16,7 @@ Take a look, play and have fun with this!
 ### Install the needed tools
 1. Clone this repository: `git clone https://github.com/CodelyTV/cqrs-ddd-php-example cqrs-ddd-php-example`
 2. Move to your project folder: `cd cqrs-ddd-php-example`
-3. Install dependencies: `php composer.phar install`
+3. Install dependencies: `composer install`
 
 ### Run the tests!
 Once you have all the dependencies, in order to execute the tests, run this command:
