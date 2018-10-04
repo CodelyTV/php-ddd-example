@@ -11,10 +11,6 @@ Implementation example of a PHP application following Domain-Driven Design (DDD)
 
 Take a look, play and have fun with this!
 
-🎥 Used in the CodelyTV Pro courses:
-* [🇪🇸 Arquitectura Hexagonal](https://pro.codely.tv/library/arquitectura-hexagonal/66748/about/)
-* [🇪🇸 CQRS: Command Query Responsibility Segregation](https://pro.codely.tv/library/cqrs-command-query-responsibility-segregation-3719e4aa/62554/about/)
-
 ## 🚀 Environment setup
 
 ### Install the needed tools
@@ -44,3 +40,7 @@ some guidelines feel free to contact us :)
 
 ## 🤩 Extra
 This code was show in the [From framework coupled code to #microservices through #DDD](http://codely.tv/screencasts/codigo-acoplado-framework-microservicios-ddd) talk and doubts where answered in [DDD y CQRS: Preguntas Frecuentes](http://codely.tv/screencasts/ddd-cqrs-preguntas-frecuentes/) video.
+
+🎥 Used in the CodelyTV Pro courses:
+* [🇪🇸 Arquitectura Hexagonal](https://pro.codely.tv/library/arquitectura-hexagonal/66748/about/)
+* [🇪🇸 CQRS: Command Query Responsibility Segregation](https://pro.codely.tv/library/cqrs-command-query-responsibility-segregation-3719e4aa/62554/about/)
