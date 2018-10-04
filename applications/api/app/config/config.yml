@@ -1,16 +1,10 @@
 imports:
-  - { resource: ../../../../global/config/config.yml }
-
-
-#  - { resource: parameters.yml }
-
   - { resource: controllers/_controllers.yml }
   - { resource: commands/commands.yml }
   - { resource: rest/_rest.yml }
-#  - { resource: docs.yml }
   - { resource: logs.yml }
   - { resource: symfony.yml }
 
 
 framework:
-  secret: '%secret%'
+  secret: 'secret'

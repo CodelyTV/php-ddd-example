@@ -52,7 +52,6 @@
   },
   "extra": {
     "incenteev-parameters": [
-      { "file": "global/config/parameters.yml"},
       { "file": "src/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/infrastructure_parameters.yml" },
       { "file": "src/Context/Video/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/video_parameters.yml" }
     ]
