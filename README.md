@@ -16,7 +16,8 @@ Take a look, play and have fun with this!
 ### Install the needed tools
 * Clone this repository: `git clone https://github.com/CodelyTV/cqrs-ddd-php-example cqrs-ddd-php-example`
 * Move to your project folder: `cd cqrs-ddd-php-example`
-* Install dependencies: `composer install`
+* Add `api.codelytv.dev` to your local `/etc/hosts`
+* Start the services: `docker-compose compose up -d` (this make a composer install)
 
 ### Run the tests!
 Once you have all the dependencies, in order to execute the tests, run this command:
