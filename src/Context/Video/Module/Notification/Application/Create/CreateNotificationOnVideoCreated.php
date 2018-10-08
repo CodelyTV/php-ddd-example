@@ -1,13 +1,16 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Context\Video\Module\Notification\Application\Create;
 
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationText;
 use CodelyTv\Context\Video\Module\Notification\Domain\NotificationType;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoCreatedDomainEvent;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 use function Lambdish\Phunctional\apply;
 
-final class CreateNotificationOnVideoCreated
+final class CreateNotificationOnVideoCreated implements DomainEventSubscriber
 {
     private $creator;
 

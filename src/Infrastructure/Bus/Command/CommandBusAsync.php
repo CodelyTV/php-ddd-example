@@ -18,11 +18,7 @@ final class CommandBusAsync implements CommandBus
         $this->pendingRequestsFilePath = $pendingRequestsFilePath;
     }
 
-    public function register($commandClass, callable $handler)
-    {
-    }
-
-    public function dispatch(Command $command)
+    public function dispatch(Command $command): void
     {
         file_put_contents($this->pendingRequestsFilePath, apply(new MessageSerializer(), [$command]));
     }

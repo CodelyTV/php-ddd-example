@@ -5,7 +5,7 @@ declare (strict_types = 1);
 namespace CodelyTv\Context\Video\Module\Video\Application\Trim;
 
 use CodelyTv\Shared\Domain\Bus\Command\Command;
-use CodelyTv\Types\ValueObject\Uuid;
+use CodelyTv\Shared\Domain\ValueObject\Uuid;
 
 final class TrimVideoCommand extends Command
 {

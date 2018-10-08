@@ -16,3 +16,4 @@ services:
       - '%codely.video.infrastructure.database.schema_file%'
     tags:
       - { name: codely.video.database }
+    public: true

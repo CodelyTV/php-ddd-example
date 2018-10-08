@@ -1,18 +1,10 @@
 <?php
 
-namespace CodelyTv\Shared\Domain\Bus\Command;
+declare(strict_types = 1);
 
-use RuntimeException;
+namespace CodelyTv\Shared\Domain\Bus\Command;
 
 interface CommandBus
 {
-    /**
-     * @throws RuntimeException
-     *
-     * @return void
-     */
-    public function register($commandClass, callable $handler);
-
-    /** @return void */
-    public function dispatch(Command $command);
+    public function dispatch(Command $command): void;
 }

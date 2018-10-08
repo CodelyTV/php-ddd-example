@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Test\Infrastructure\PHPUnit\Constraint;
 
 use CodelyTv\Test\Infrastructure\PHPUnit\Comparator\AggregateRootArraySimilarComparator;
@@ -14,7 +16,7 @@ use PHPUnit\Framework\ExpectationFailedException;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\Factory;
 
-class CodelyTvConstraintIsSimilar extends IsEqual
+final class CodelyTvConstraintIsSimilar extends IsEqual
 {
     public function evaluate($other, $description = '', $returnResult = false)
     {

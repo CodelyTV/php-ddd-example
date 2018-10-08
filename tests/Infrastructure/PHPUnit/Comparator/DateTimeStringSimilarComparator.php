@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace CodelyTv\Test\Infrastructure\PHPUnit\Comparator;
 
@@ -12,7 +12,7 @@ use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\ObjectComparator;
 use Throwable;
 
-class DateTimeStringSimilarComparator extends ObjectComparator
+final class DateTimeStringSimilarComparator extends ObjectComparator
 {
     public function accepts($expected, $actual)
     {

@@ -1,14 +1,11 @@
 services:
 
-  codely.infrastructure.domain_event_publisher_sync:
-    class: CodelyTv\Infrastructure\Bus\Event\DomainEventPublisherSync
-    public: false
-
   codely.infrastructure.domain_event_subscribers_configuration:
     class: CodelyTv\Infrastructure\Bus\Event\DomainEventSubscribersConfiguration
 
   codely.infrastructure.domain_event_mapping:
     class: CodelyTv\Infrastructure\Bus\Event\DomainEventMapping
+    arguments: [!tagged codely.video.subscriber]
 
   codely.infrastructure.subscribers_mapping:
     class: CodelyTv\Infrastructure\Bus\Event\SubscribersMapping

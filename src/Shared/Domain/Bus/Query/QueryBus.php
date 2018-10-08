@@ -1,22 +1,10 @@
 <?php
 
-namespace CodelyTv\Shared\Domain\Bus\Query;
+declare(strict_types = 1);
 
-use RuntimeException;
+namespace CodelyTv\Shared\Domain\Bus\Query;
 
 interface QueryBus
 {
-    /**
-     * @throws RuntimeException
-     *
-     * @return void
-     */
-    public function register($queryClass, callable $handler);
-
-    /**
-     * @throws RuntimeException
-     *
-     * @return Response|null
-     */
-    public function ask(Query $query);
+    public function ask(Query $query): ?Response;
 }

@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Context\Video\Module\Notification\Domain;
 
-use CodelyTv\Types\Aggregate\AggregateRoot;
+use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 
 final class Notification extends AggregateRoot
 {

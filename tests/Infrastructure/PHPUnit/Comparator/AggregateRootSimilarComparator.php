@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Test\Infrastructure\PHPUnit\Comparator;
 
-use CodelyTv\Types\Aggregate\AggregateRoot;
+use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 use ReflectionObject;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use function CodelyTv\Test\isSimilar;
 
-class AggregateRootSimilarComparator extends Comparator
+final class AggregateRootSimilarComparator extends Comparator
 {
     public function accepts($expected, $actual)
     {

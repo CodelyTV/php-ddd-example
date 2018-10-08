@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Infrastructure\Monolog\Processor;
 
 use Symfony\Component\HttpFoundation\Request;

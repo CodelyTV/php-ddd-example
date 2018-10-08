@@ -4,7 +4,7 @@ declare (strict_types = 1);
 
 namespace CodelyTv\Infrastructure\Bus;
 
-use CodelyTv\Types\ValueObject\Enum;
+use CodelyTv\Shared\Domain\ValueObject\Enum;
 
 /**
  * @method static AsyncRequestStatus ok()

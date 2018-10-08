@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Context\Video\Module\VideoHighlight\Application\Create;
 
 use CodelyTv\Context\Video\Module\VideoHighlight\Domain\VideoHighlight;

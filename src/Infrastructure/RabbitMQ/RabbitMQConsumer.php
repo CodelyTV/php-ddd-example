@@ -37,6 +37,8 @@ final class RabbitMQConsumer
         } catch (Exception $exception) {
             $level = $this->hasBeenRedeliveredTooMuch($envelope) ? LogLevel::ERROR : LogLevel::DEBUG;
             $this->log('Message consumption failed', $envelope, $queueName, $level, $exception);
+
+            // $this->requeue($envelope, $queue, $exception);
         }
 
         $this->ack($envelope, $queue);

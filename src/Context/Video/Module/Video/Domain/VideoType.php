@@ -1,10 +1,10 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace CodelyTv\Context\Video\Module\Video\Domain;
 
-use CodelyTv\Types\ValueObject\Enum;
+use CodelyTv\Shared\Domain\ValueObject\Enum;
 use InvalidArgumentException;
 
 /**

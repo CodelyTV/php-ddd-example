@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Context\Course\Module\Course\Domain;
 
+use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 use CodelyTv\Shared\Domain\CourseId;
-use CodelyTv\Types\Aggregate\AggregateRoot;
 
 final class Course extends AggregateRoot
 {
