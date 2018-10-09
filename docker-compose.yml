@@ -24,7 +24,6 @@ services:
             - PHP_IDE_CONFIG=serverName=CodelyCQRSCourse
         depends_on:
             - mysql
-        working_dir: "/app"
 
     mysql:
         image: mysql:5.7.23

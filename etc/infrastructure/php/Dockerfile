@@ -11,4 +11,6 @@ RUN apk add rabbitmq-c rabbitmq-c-dev \
     && pecl install amqp apcu\
     && docker-php-ext-enable amqp apcu
 
+WORKDIR /app
+
 CMD ["sh", "-c", "composer install && php-fpm"]
