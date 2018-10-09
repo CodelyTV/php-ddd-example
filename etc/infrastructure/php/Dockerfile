@@ -5,10 +5,9 @@ LABEL mantainer="sdecandelario@gmail.com"
 COPY --from=composer:1.7.2 /usr/bin/composer /usr/bin/composer
 
 RUN apk --update upgrade \
-    && apk add autoconf automake make gcc g++
+    && apk add autoconf automake make gcc g++ rabbitmq-c rabbitmq-c-dev
 
-RUN apk add rabbitmq-c rabbitmq-c-dev \
-    && pecl install amqp apcu\
+RUN pecl install amqp apcu \
     && docker-php-ext-enable amqp apcu
 
 WORKDIR /app
