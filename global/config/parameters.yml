@@ -1,4 +1,4 @@
 # This file is auto-generated during the composer install
 parameters:
     locale: en
-    secret: f89f0fadda52bf9275459ef5ae135712e29e95a0
+    secret: '%env(DATABASE_URL)%'
