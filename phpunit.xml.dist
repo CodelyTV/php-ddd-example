@@ -15,11 +15,11 @@
         convertNoticesToExceptions="true"
         convertWarningsToExceptions="true"
         processIsolation="false"
-        stopOnError="false"
-        stopOnFailure="false"
+        stopOnError="true"
+        stopOnFailure="true"
         stopOnIncomplete="false"
         stopOnSkipped="false"
-        stopOnRisky="false"
+        stopOnRisky="true"
         verbose="false">
 
     <testsuites>
