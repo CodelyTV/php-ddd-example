@@ -17,7 +17,6 @@ services:
         build:
             context: etc/infrastructure/php
         ports:
-            - "2244:22"
             - "9000:9000"
         volumes:
             - "$PWD:/app"
