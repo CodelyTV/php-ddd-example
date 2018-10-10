@@ -45,6 +45,6 @@ then
     echo "[OK] Your code will be pushed young Padawan"
     exit 0
 else
-    echo "[KO] Cancelling push due to test code style error (run 'composer test' for more information)"
+    echo "[KO] Cancelling push due to 'composer test' task error (run 'composer test' for more information)"
     exit 1
 fi
