@@ -11,6 +11,20 @@ Implementation example of a PHP application following Domain-Driven Design (DDD)
 
 Take a look, play and have fun with this!
 
+## Contents
+
+* [Environment setup](#environment-setup)
+* [Libraries and implementation examples](#libraries-and-implementation-examples)
+* [Environment setup](#environment-setup)
+    * [Install the needed tools](#install-the-needed-tools)
+    * [Prepare the application environment](#prepare-the-application-environment)
+    * [Run the tests and start the HTTP server](#run-the-tests-and-start-the-http-server)
+    * [Pre-push Git hook](#pre-push-git-hook)
+* [Logs](#logs)
+* [Deploy](#deploy)
+* [About](#about)
+* [License](#license)
+
 ## 🚀 Environment setup
 
 ### Install the needed tools
