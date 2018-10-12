@@ -25,7 +25,7 @@ Take a look, play and have fun with this!
 * [About](#about)
 * [License](#license)
 
-## 🚀 Environment setup
+## Environment setup
 
 ### Install the needed tools
 * Clone this repository: `git clone https://github.com/CodelyTV/cqrs-ddd-php-example cqrs-ddd-php-example`
