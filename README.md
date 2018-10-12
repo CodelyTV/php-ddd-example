@@ -13,18 +13,17 @@ Take a look, play and have fun with this!
 
 ## Contents
 
-* [Environment setup](#environment-setup)
-* [Libraries and implementation examples](#libraries-and-implementation-examples)
+
 * [Environment setup](#environment-setup)
     * [Install the needed tools](#install-the-needed-tools)
-    * [Prepare the application environment](#prepare-the-application-environment)
-    * [Run the tests and start the HTTP server](#run-the-tests-and-start-the-http-server)
+    * [Run the tests!](#run-the-tests)
+    * [Run the environment](#run-the-environment)
     * [Pre-push Git hook](#pre-push-git-hook)
-* [Logs](#logs)
-* [Deploy](#deploy)
-* [About](#about)
-* [License](#license)
+* [Contributing](#Contributing)
+* [Extra](#extra)
 
+
+🚀 
 ## Environment setup
 
 ### Install the needed tools
@@ -47,12 +46,13 @@ Once you have all the dependencies, in order to execute the tests, run this comm
   - Execute the `applications/api/bin/console codelytv:domain-events:generate-supervisor-files` command
   - Link the `applications/api/app/config/supervisor` folder to the supervisor config one
   - Start supervisord
-
-## 🧐 Contributing
+🧐 
+## Contributing
 There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want 
 some guidelines feel free to contact us :)
 
-## 🤩 Extra
+🤩 
+## Extra
 This code was show in the [From framework coupled code to #microservices through #DDD](http://codely.tv/screencasts/codigo-acoplado-framework-microservicios-ddd) talk and doubts where answered in [DDD y CQRS: Preguntas Frecuentes](http://codely.tv/screencasts/ddd-cqrs-preguntas-frecuentes/) video.
 
 🎥 Used in the CodelyTV Pro courses:
