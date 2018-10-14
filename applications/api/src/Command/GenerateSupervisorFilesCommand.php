@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Api\Command;
 
-use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventSubscriberConfig;
-use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventSubscribersConfiguration;
+use CodelyTv\Infrastructure\Bus\Event\DomainEventSubscriberConfig;
+use CodelyTv\Infrastructure\Bus\Event\DomainEventSubscribersConfiguration;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

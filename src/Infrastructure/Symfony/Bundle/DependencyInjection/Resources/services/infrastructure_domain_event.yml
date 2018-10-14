@@ -1,0 +1,27 @@
+services:
+
+  codely.infrastructure.domain_event_publisher_sync:
+    class: CodelyTv\Infrastructure\Bus\Event\DomainEventPublisherSync
+    public: false
+
+  codely.infrastructure.domain_event_subscribers_configuration:
+    class: CodelyTv\Infrastructure\Bus\Event\DomainEventSubscribersConfiguration
+
+  codely.infrastructure.domain_event_mapping:
+    class: CodelyTv\Infrastructure\Bus\Event\DomainEventMapping
+
+  codely.infrastructure.subscribers_mapping:
+    class: CodelyTv\Infrastructure\Bus\Event\SubscribersMapping
+
+  codely.infrastructure.rabbitmq_connection:
+    class: CodelyTv\Infrastructure\RabbitMQ\RabbitMQConnection
+    arguments:
+      - '%rabbitmq_connection_parameters%'
+      - '@logger'
+
+  codely.infrastructure.rabbitmq_domain_event_consumer:
+    class: CodelyTv\Infrastructure\RabbitMQ\RabbitMQDomainEventConsumer
+    arguments:
+      - '@codely.infrastructure.rabbitmq_connection'
+      - '@codely.infrastructure.domain_event_mapping'
+      - '@logger'

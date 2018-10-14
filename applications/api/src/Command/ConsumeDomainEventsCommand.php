@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Api\Command;
 
-use CodelyTv\Shared\Infrastructure\Bus\Event\SubscribersMapping;
-use CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections;
-use CodelyTv\Shared\Infrastructure\RabbitMQ\RabbitMQDomainEventConsumer;
+use CodelyTv\Infrastructure\Bus\Event\SubscribersMapping;
+use CodelyTv\Infrastructure\Doctrine\DatabaseConnections;
+use CodelyTv\Infrastructure\RabbitMQ\RabbitMQDomainEventConsumer;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

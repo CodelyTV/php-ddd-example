@@ -24,12 +24,12 @@ monolog:
 services:
 
   monolog.processor.codely_request:
-    class: CodelyTv\Shared\Infrastructure\Monolog\Processor\CodelyTvRequestProcessor
+    class: CodelyTv\Infrastructure\Monolog\Processor\CodelyTvRequestProcessor
     arguments:
       - '@request_stack'
     tags:
         - { name: monolog.processor, handler: api_request }
 
   codely.infrastructure.monolog.formatter.logstash:
-    class: CodelyTv\Shared\Infrastructure\Monolog\Formatter\LogstashFormatter
+    class: CodelyTv\Infrastructure\Monolog\Formatter\LogstashFormatter
     public: false

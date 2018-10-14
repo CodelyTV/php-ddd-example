@@ -3,7 +3,7 @@
 namespace CodelyTv\Test\Infrastructure\Behat;
 
 use Behat\Behat\Context\Context;
-use CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections;
+use CodelyTv\Infrastructure\Doctrine\DatabaseConnections;
 
 class ApiFeatureContext implements Context
 {

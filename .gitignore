@@ -17,4 +17,3 @@ src/Context/*/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/*_para
 /phpunit.xml
 
 vendor/
-.idea/

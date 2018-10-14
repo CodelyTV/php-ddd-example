@@ -7,7 +7,7 @@ namespace CodelyTv\Context\Video\Module\Video\Infrastructure\Persistence;
 use CodelyTv\Context\Video\Module\Video\Domain\Video;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoRepository;
-use CodelyTv\Shared\Infrastructure\Doctrine\Repository;
+use CodelyTv\Infrastructure\Doctrine\Repository;
 
 final class VideoRepositoryMySql extends Repository implements VideoRepository
 {
