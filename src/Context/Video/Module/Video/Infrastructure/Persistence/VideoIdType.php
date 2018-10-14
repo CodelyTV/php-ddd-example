@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Context\Video\Module\Video\Infrastructure\Persistence;
 
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;

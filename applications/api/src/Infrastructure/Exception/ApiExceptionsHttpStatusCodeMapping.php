@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Api\Infrastructure\Exception;
 
 use InvalidArgumentException;

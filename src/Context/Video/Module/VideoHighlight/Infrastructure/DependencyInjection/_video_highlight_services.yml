@@ -1,4 +1,6 @@
 services:
+  _defaults:
+    autoconfigure: true
 
   # Command Handlers
 
@@ -6,9 +8,6 @@ services:
     class: CodelyTv\Context\Video\Module\VideoHighlight\Application\Create\CreateVideoHighlightCommandHandler
     arguments:
       - '@codely.video.video_highlight.video_highlight_creator'
-    tags:
-      - { name: 'codely.video.command' }
-    public: false
 
 
   # Services
@@ -18,4 +17,3 @@ services:
     arguments:
      - '@codely.video.video_highlight.repository'
      - '@codely.video.domain_event_publisher'
-    public: false

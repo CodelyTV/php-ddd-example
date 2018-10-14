@@ -6,7 +6,7 @@ namespace CodelyTv\Shared\Domain\Bus\Event;
 
 use CodelyTv\Infrastructure\Bus\Event\Guard\DomainEventGuard;
 use CodelyTv\Shared\Domain\Bus\Message;
-use CodelyTv\Types\ValueObject\Uuid;
+use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use DateTimeImmutable;
 use InvalidArgumentException;
 use RuntimeException;

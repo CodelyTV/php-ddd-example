@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Context\Video\Module\Notification\Domain;
 
 final class NotificationFinder

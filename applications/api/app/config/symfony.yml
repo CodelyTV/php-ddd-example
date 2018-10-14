@@ -1,20 +1,12 @@
 framework:
 
-  secret: '%secret%'
+  secret: 'secret'
   router:
     resource: '%kernel.root_dir%/app/config/routing/_routing.yml'
     strict_requirements: '%kernel.debug%'
   templating:
     engines: ['twig']
-  default_locale:  '%locale%'
-  trusted_proxies: ~
+  default_locale:  'en'
   session:   ~
   fragments: ~
   http_method_override: true
-
-
-sensio_framework_extra:
-
-  view:    { annotations: true }
-  router:  { annotations: true }
-  request: { converters: false }

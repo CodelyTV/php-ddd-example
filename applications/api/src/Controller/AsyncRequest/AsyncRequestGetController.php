@@ -7,9 +7,9 @@ namespace CodelyTv\Api\Controller\AsyncRequest;
 use CodelyTv\Api\Infrastructure\Exception\ApiExceptionsHttpStatusCodeMapping;
 use CodelyTv\Infrastructure\Bus\AsyncRequestFinder;
 use CodelyTv\Infrastructure\Bus\AsyncRequestNotExists;
-use CodelyTv\Types\ValueObject\Uuid;
-use function Lambdish\Phunctional\each;
+use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use Symfony\Component\HttpFoundation\Response;
+use function Lambdish\Phunctional\each;
 
 final class AsyncRequestGetController
 {

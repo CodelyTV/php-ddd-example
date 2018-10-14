@@ -7,7 +7,7 @@ namespace CodelyTv\Api\Controller\Video;
 use CodelyTv\Api\Infrastructure\Controller\ApiController;
 use CodelyTv\Api\Infrastructure\Response\ApiHttpAcceptedResponse;
 use CodelyTv\Context\Video\Module\Video\Application\Trim\TrimVideoCommand;
-use CodelyTv\Types\ValueObject\Uuid;
+use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use Symfony\Component\HttpFoundation\Request;
 
 final class VideoDurationPatchController extends ApiController

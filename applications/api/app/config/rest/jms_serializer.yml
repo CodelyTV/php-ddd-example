@@ -12,6 +12,7 @@ services:
 
   jms_serializer.metadata_driver:
     alias: codely.api.serializer.metadata.php_driver
+    public: true
 
 
 parameters:

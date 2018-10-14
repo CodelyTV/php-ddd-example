@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Context\Course\Module\Course\Infraestructure\Persistence;
 
 use CodelyTv\Context\Course\Module\Course\Domain\Course;

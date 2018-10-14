@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Api\Infrastructure\Controller;
 
 use CodelyTv\Api\Infrastructure\Exception\ApiExceptionsHttpStatusCodeMapping;

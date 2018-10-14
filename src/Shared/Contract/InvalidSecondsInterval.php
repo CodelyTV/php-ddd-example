@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Shared\Contract;
 
-use CodelyTv\Exception\DomainError;
+use CodelyTv\Shared\Domain\DomainError;
 use CodelyTv\Shared\Domain\Second;
 
 final class InvalidSecondsInterval extends DomainError

@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Api\Infrastructure\Response;
 
-use CodelyTv\Types\ValueObject\Uuid;
+use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use Symfony\Component\HttpFoundation\Response;
 
 final class ApiHttpAcceptedResponse extends ApiHttpResponse

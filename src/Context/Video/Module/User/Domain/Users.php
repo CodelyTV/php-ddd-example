@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Context\Video\Module\User\Domain;
 
-use CodelyTv\Types\Aggregate\AggregateRootCollection;
+use CodelyTv\Shared\Domain\Aggregate\AggregateRootCollection;
 use function Lambdish\Phunctional\each;
 
 final class Users extends AggregateRootCollection

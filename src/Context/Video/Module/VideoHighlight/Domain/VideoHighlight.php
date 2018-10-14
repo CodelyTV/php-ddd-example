@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Context\Video\Module\VideoHighlight\Domain;
 
+use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 use CodelyTv\Shared\Domain\SecondsInterval;
-use CodelyTv\Types\Aggregate\AggregateRoot;
 
 final class VideoHighlight extends AggregateRoot
 {

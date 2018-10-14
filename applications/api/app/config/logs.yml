@@ -32,4 +32,3 @@ services:
 
   codely.infrastructure.monolog.formatter.logstash:
     class: CodelyTv\Infrastructure\Monolog\Formatter\LogstashFormatter
-    public: false

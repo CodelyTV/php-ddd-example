@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Context\Video\Module\Video\Domain;
 
-use CodelyTv\Exception\DomainError;
+use CodelyTv\Shared\Domain\DomainError;
 
 final class VideoNotFound extends DomainError
 {

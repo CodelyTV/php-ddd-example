@@ -1,20 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Domain\Bus\Event;
 
-use RuntimeException;
-
 interface DomainEventPublisher
 {
-    /**
-     * Subscribes a $subscriber function to an specific $eventClass
-     *
-     * @throws RuntimeException
-     */
-    public function subscribe(string $eventClass, callable $subscriber): void;
-
     /**
      * Records events to be published afterwards using the publishRecorded method
      */

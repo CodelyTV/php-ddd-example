@@ -6,13 +6,11 @@ applications/*/var/logs/*
 
 applications/*/app/config/parameters.yml
 
-global/config/parameters.yml
-
 src/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/infrastructure_parameters.yml
 src/Context/*/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/*_parameters.yml
 
-!/applications/api/app/config/supervisor/.gitkeep
 /applications/api/app/config/supervisor/*
+!/applications/api/app/config/supervisor/.gitkeep
 
 /phpunit.xml
 

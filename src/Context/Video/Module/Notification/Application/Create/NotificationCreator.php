@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Context\Video\Module\Notification\Application\Create;
 
 use CodelyTv\Context\Video\Module\Notification\Domain\Notification;
@@ -14,8 +16,10 @@ final class NotificationCreator
     private $uuidGenerator;
     private $publisher;
 
-    public function __construct(UuidGenerator $uuidGenerator, DomainEventPublisher $publisher)
-    {
+    public function __construct(
+        UuidGenerator $uuidGenerator,
+        DomainEventPublisher $publisher
+    ) {
         $this->uuidGenerator = $uuidGenerator;
         $this->publisher     = $publisher;
     }

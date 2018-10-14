@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodelyTv\Infrastructure\Bus\Event;
 
 final class SubscribersMapping
