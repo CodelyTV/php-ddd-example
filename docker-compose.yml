@@ -32,3 +32,5 @@ services:
             - "3306:3306"
         env_file:
             - .env
+        volumes:
+          - "$PWD/etc/infrastructure/mysql/data:/docker-entrypoint-initdb.d"
