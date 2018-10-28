@@ -23,7 +23,6 @@ final class VideoTitleUpdater
     public function __invoke(VideoId $id, VideoTitle $newTitle): void
     {
         $video = $this->finder->__invoke($id);
-
         $video->updateTitle($newTitle);
 
         $this->repository->save($video);

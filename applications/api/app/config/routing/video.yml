@@ -3,6 +3,11 @@ video_post:
   defaults: { _controller: codely.api.controller.video.post }
   methods:  [POST]
 
+video_title_patch:
+  path:     /video
+  defaults: { _controller: codely.api.controller.video.title.patch }
+  methods:  [PATCH]
+
 video_get:
   path:     /video/{id}
   defaults: { _controller: codely.api.controller.video.get }

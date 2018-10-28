@@ -10,6 +10,11 @@ services:
     parent: codely.api.controller
     public: true
 
+  codely.api.controller.video.title.patch:
+      class: CodelyTv\Api\Controller\Video\VideoPatchTitleController
+      parent: codely.api.controller
+      public: true
+
   codely.api.controller.video.duration.path:
     class: CodelyTv\Api\Controller\Video\VideoDurationPatchController
     arguments:

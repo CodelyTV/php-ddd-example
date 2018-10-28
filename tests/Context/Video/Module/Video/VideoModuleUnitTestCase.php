@@ -7,6 +7,7 @@ namespace CodelyTv\Test\Context\Video\Module\Video;
 use CodelyTv\Context\Video\Module\Video\Domain\Video;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoRepository;
+use CodelyTv\Context\Video\Module\Video\Domain\VideoTitle;
 use CodelyTv\Test\Context\Video\VideoContextUnitTestCase;
 use Mockery\MockInterface;
 use function CodelyTv\Test\similarTo;

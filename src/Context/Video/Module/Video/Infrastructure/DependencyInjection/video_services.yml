@@ -9,6 +9,11 @@ services:
     arguments:
       - '@codely.video.video.video_creator'
 
+  codely.video.video.command_handler.update_video_title:
+      class: CodelyTv\Context\Video\Module\Video\Application\Update\UpdateVideoTitleCommandHandler
+      arguments:
+        - '@codely.video.video.video_title_updater'
+
 
   # Query Handlers
 
@@ -25,6 +30,11 @@ services:
     arguments:
      - '@codely.video.video.repository'
      - '@codely.video.domain_event_publisher'
+
+  codely.video.video.video_title_updater:
+    class: CodelyTv\Context\Video\Module\Video\Application\Update\VideoTitleUpdater
+    arguments:
+     - '@codely.video.video.repository'
 
   codely.video.video.video_finder:
     class: CodelyTv\Context\Video\Module\Video\Application\Find\VideoFinder

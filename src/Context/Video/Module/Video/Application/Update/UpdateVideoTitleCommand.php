@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Context\Video\Module\Video\Application\Create;
+namespace CodelyTv\Context\Video\Module\Video\Application\Update;
 
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
@@ -11,15 +11,13 @@ final class UpdateVideoTitleCommand extends Command
 {
     private $id;
     private $title;
-    private $courseId;
 
-    public function __construct(Uuid $commandId, string $id, string $title, string $courseId)
+    public function __construct(Uuid $commandId, string $id, string $title)
     {
         parent::__construct($commandId);
 
         $this->id       = $id;
         $this->title    = $title;
-        $this->courseId = $courseId;
     }
 
     public function id() : string
@@ -30,10 +28,5 @@ final class UpdateVideoTitleCommand extends Command
     public function title() : string
     {
         return $this->title;
-    }
-
-    public function courseId() : string
-    {
-        return $this->courseId;
     }
 }
