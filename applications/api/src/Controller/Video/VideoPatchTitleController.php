@@ -6,7 +6,7 @@ namespace CodelyTv\Api\Controller\Video;
 
 use CodelyTv\Api\Infrastructure\Controller\ApiController;
 use CodelyTv\Api\Infrastructure\Response\ApiHttpSuccessfullPatchResponse;
-use CodelyTv\Context\Video\Module\Video\Application\Create\UpdateVideoTitleCommand;
+use CodelyTv\Context\Video\Module\Video\Application\Update\UpdateVideoTitleCommand;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use Symfony\Component\HttpFoundation\Request;
 
