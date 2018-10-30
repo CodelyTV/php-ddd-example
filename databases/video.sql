@@ -1,3 +1,7 @@
+CREATE DATABASE `video`;
+
+USE `video`;
+
 CREATE TABLE `video` (
   `id` char(36) COLLATE utf8_unicode_ci NOT NULL,
   `type` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
