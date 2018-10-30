@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: codelytv-cqrs_ddd_php_example-nginx
+    image: nginx:1.15-alpine
+    ports:
+      - "8030:80"
+    volumes:
+      - .:/app
+      - ./etc/infrastructure/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+
+  php:
+    container_name: codelytv-cqrs_ddd_php_example-php
+    build:
+      context: etc/infrastructure/php
+    ports:
+      - "9030:9000"
+    volumes:
+      - ".:/app"
+    environment:
+      - PHP_IDE_CONFIG=serverName=CodelyTvCqrsDddPhpExample
+    depends_on:
+      - mysql
+      - rabbitmq
+
+  mysql:
+    container_name: codelytv-cqrs_ddd_php_example-mysql
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3330:3306"
+    env_file:
+      - .env
+    volumes:
+      - "./databases:/docker-entrypoint-initdb.d"
+
+  rabbitmq:
+    container_name: codelytv-cqrs_ddd_php_example-rabbitmq
+    image: 'rabbitmq:3.7-management'
+    restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: codelytv
+      RABBITMQ_DEFAULT_PASS: c0d3ly
+    ports:
+      - 5630:5672
+      - 15630:15672

@@ -11,7 +11,7 @@ $debug  = false;
 $kernel = new KernelCache(new ApiKernel($env, $debug));
 
 $request = Request::createFromGlobals();
-Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')]);
+Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_ALL);
 
 $response = $kernel->handle($request);
 $response->send();
