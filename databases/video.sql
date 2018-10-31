@@ -1,4 +1,4 @@
-CREATE DATABASE `video`;
+CREATE DATABASE IF NOT EXISTS `video`;
 
 USE `video`;
 
