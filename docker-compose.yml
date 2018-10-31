@@ -16,7 +16,7 @@ services:
     container_name: codelytv-cqrs_ddd_php_example-php
     build:
       context: .
-      dockerfile: Dockerfile-php
+      dockerfile: Dockerfile
     ports:
       - "9030:9000"
     volumes:
