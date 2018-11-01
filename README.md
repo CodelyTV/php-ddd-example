@@ -27,7 +27,7 @@ Once you have all the dependencies, in order to execute the tests, run this comm
 * `vendor/bin/phpunit`
 
 ### Run the environment
-> While this doesn't have a docker integration (feel free to do a pull request :) we need a few thing to run this.
+> If you don't want to use the docker integration, you can do the following
 * A [MySQL](https://www.mysql.com/) database
   - Execute all `.sql` from `/databases` dir
 * [Apache](https://httpd.apache.org/)/[Nginx](https://nginx.org/en/)
