@@ -35,11 +35,4 @@ final class SymfonySyncCommandBus implements CommandBus
             throw new CommandNotRegisteredError($command);
         }
     }
-
-    private function extractCommand(CallableFirstParameterExtractor $parameterExtractor)
-    {
-        return function (callable $handler) use ($parameterExtractor) {
-            return $parameterExtractor->extract($handler);
-        };
-    }
 }
