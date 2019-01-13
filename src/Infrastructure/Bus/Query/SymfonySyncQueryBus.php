@@ -12,6 +12,7 @@ use Symfony\Component\Messenger\Exception\NoHandlerForMessageException;
 use Symfony\Component\Messenger\Handler\HandlersLocator;
 use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
+use Symfony\Component\Messenger\Stamp\HandledStamp;
 
 final class SymfonySyncQueryBus implements QueryBus
 {
@@ -31,7 +32,10 @@ final class SymfonySyncQueryBus implements QueryBus
     public function ask(Query $query): ?Response
     {
         try {
-            return $this->bus->dispatch($query)->getMessage();
+            /** @var HandledStamp $stamp */
+            $stamp = $this->bus->dispatch($query)->last(HandledStamp::class);
+
+            return $stamp->getResult();
         } catch (NoHandlerForMessageException $unused) {
             throw new QueryNotRegisteredError($query);
         }

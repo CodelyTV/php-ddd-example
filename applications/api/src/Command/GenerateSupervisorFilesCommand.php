@@ -15,7 +15,6 @@ use function Lambdish\Phunctional\each;
 final class GenerateSupervisorFilesCommand extends Command
 {
     private const SUPERVISOR_PATH = __DIR__ . '/../../app/config/supervisor';
-
     private $configuration;
 
     public function __construct(DomainEventSubscribersConfiguration $configuration)
@@ -35,7 +34,10 @@ final class GenerateSupervisorFilesCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        each($this->configCreator($input->getArgument('command-path')), $this->configuration->all());
+        /** @var string $path */
+        $path = $input->getArgument('command-path');
+
+        each($this->configCreator($path), $this->configuration->all());
     }
 
     private function configCreator(string $path)

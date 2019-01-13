@@ -44,7 +44,9 @@ final class ConsumeDomainEventsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $subscriberName    = $input->getArgument('subscriber');
+        /** @var string $subscriberName */
+        $subscriberName = $input->getArgument('subscriber');
+        /** @var int $messagesToProcess */
         $messagesToProcess = $input->getArgument('quantity');
 
         repeat(pipe($this->consume($subscriberName), $this->connections->allConnectionsClearer()), $messagesToProcess);
