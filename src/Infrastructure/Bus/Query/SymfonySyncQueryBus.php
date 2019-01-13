@@ -9,7 +9,7 @@ use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use CodelyTv\Shared\Domain\Bus\Query\Response;
 use Symfony\Component\Messenger\Exception\NoHandlerForMessageException;
-use Symfony\Component\Messenger\Handler\Locator\HandlerLocator;
+use Symfony\Component\Messenger\Handler\HandlersLocator;
 use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 
@@ -22,7 +22,7 @@ final class SymfonySyncQueryBus implements QueryBus
         $this->bus = new MessageBus(
             [
                 new HandleMessageMiddleware(
-                    new HandlerLocator(CallableFirstParameterExtractor::forCallables($queryHandlers))
+                    new HandlersLocator(CallableFirstParameterExtractor::forCallables($queryHandlers))
                 ),
             ]
         );
@@ -31,7 +31,7 @@ final class SymfonySyncQueryBus implements QueryBus
     public function ask(Query $query): ?Response
     {
         try {
-            return $this->bus->dispatch($query);
+            return $this->bus->dispatch($query)->getMessage();
         } catch (NoHandlerForMessageException $unused) {
             throw new QueryNotRegisteredError($query);
         }

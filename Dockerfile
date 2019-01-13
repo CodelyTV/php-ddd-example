@@ -1,4 +1,4 @@
-FROM composer:1.7 as builder
+FROM composer:latest as builder
 
 COPY composer.json composer.lock /app/
 RUN composer install  \
