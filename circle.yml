@@ -17,10 +17,11 @@ dependencies:
 
 test:
   pre:
+    - cp .env.dist .env
     - composer install --optimize-autoloader --prefer-dist
     - applications/api/bin/console cache:warmup --env=prod
   override:
-    -  ./vendor/bin/phpstan analyse -l 7 -c etc/phpstan/phpstan.neon applications/api/src applications/codely/src
+    - ./vendor/bin/phpstan analyse -l 7 -c etc/phpstan/phpstan.neon applications/api/src applications/codely/src
     - ./vendor/bin/phpunit --exclude-group='disabled'
     - ./vendor/bin/behat -p applications --format=progress -v
     - ./vendor/bin/behat -p api --format=progress -v
