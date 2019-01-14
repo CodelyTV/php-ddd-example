@@ -13,21 +13,27 @@ Take a look, play and have fun with this!
 
 ## 🚀 Environment setup
 
-### Install the needed tools
+### 🐳 Docker environment
+
 * Clone this repository: `git clone https://github.com/CodelyTV/cqrs-ddd-php-example cqrs-ddd-php-example`
 * Move to your project folder: `cd cqrs-ddd-php-example`
-* Start the services: `docker-compose compose up -d` (this make a composer install)
+* Copy the default environment variables: `cp .env.dist .env`
+* Start the services: `docker-compose up -d` ([this will perform a composer install](Dockerfile#L4))
 * Add `api.codelytv.dev` domain to your local hosts: `echo "127.0.0.1 api.codelytv.dev"| sudo tee -a /etc/hosts > /dev/null`
 * Go to [the API healthcheck page](http://api.codelytv.dev:8030/status)
 
-### Run the tests!
-Once you have all the dependencies, in order to execute the tests, run this command:
-* `vendor/bin/behat -p api` <sub>This will also create all needed databases.</sub>
-* `vendor/bin/behat -p applications`
-* `vendor/bin/phpunit`
+### ✅ Run the tests
 
-### Run the environment
-> If you don't want to use the docker integration, you can do the following
+Once you have all the dependencies, in order to execute the tests, run this command:
+
+* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/behat -p api` (This will also create all needed databases)
+* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/behat -p applications`
+* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/phpunit`
+
+### 🎰 Local environment
+
+If you don't want to use the Docker environment, you can do the following
+
 * A [MySQL](https://www.mysql.com/) database
   - Execute all `.sql` from `/databases` dir
 * [Apache](https://httpd.apache.org/)/[Nginx](https://nginx.org/en/)
@@ -46,3 +52,4 @@ This code was show in the [From framework coupled code to #microservices through
 🎥 Used in the CodelyTV Pro courses:
 * [🇪🇸 Arquitectura Hexagonal](https://pro.codely.tv/library/arquitectura-hexagonal/66748/about/)
 * [🇪🇸 CQRS: Command Query Responsibility Segregation](https://pro.codely.tv/library/cqrs-command-query-responsibility-segregation-3719e4aa/62554/about/)
+* [🇪🇸 Comunicación entre microservicios: Event-Driven Architecture](https://pro.codely.tv/library/comunicacion-entre-microservicios-event-driven-architecture/74823/about/)
