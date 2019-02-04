@@ -16,6 +16,7 @@
     "symfony/process": "^4.2",
     "symfony/messenger": "^4.2",
     "symfony/monolog-bundle": "^3.3",
+    "symfony/dotenv": "^4.2",
 
     "friendsofsymfony/rest-bundle": "^2.4",
     "jms/serializer-bundle": "^2.4",
