@@ -7,6 +7,8 @@ api:
       sessions:
         my_session:
           symfony2: ~
+    Behat\BootstrapExtension\Extension:
+      bootstrap_file: applications/bootstrap.php
 
   suites:
     status:
