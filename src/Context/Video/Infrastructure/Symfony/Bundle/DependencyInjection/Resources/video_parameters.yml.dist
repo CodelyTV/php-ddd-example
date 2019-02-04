@@ -1,11 +1,11 @@
 parameters:
 
   video_database_driver: pdo_mysql
-  video_database_host: 127.0.0.1
-  video_database_port: 3306
+  video_database_host: '%env(MYSQL_HOST)%'
+  video_database_port: '%env(MYSQL_PORT)%'
   video_database_name: codely_video
   video_database_user: root
-  video_database_password: null
+  video_database_password: '%env(MYSQL_ROOT_PASSWORD)%'
 
   video_notification_email_username: 'your@email.com'
   video_notification_email_password: 'yourSecretPassword'

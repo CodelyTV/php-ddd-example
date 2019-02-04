@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace CodelyTv\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
+use function Lambdish\Phunctional\map;
 use ReflectionClass;
 use ReflectionMethod;
 use function Lambdish\Phunctional\reduce;
@@ -24,7 +25,7 @@ final class CallableFirstParameterExtractor
 
     public static function forCallables(iterable $callables): array
     {
-        return reindex(self::classExtractor(new self()), $callables);
+        return map(self::unflatten(), reindex(self::classExtractor(new self()), $callables));
     }
 
     public static function forPipedCallables(iterable $callables): array
@@ -59,6 +60,13 @@ final class CallableFirstParameterExtractor
             }
 
             return $subscribers;
+        };
+    }
+
+    private static function unflatten()
+    {
+        return function ($value) {
+            return [$value];
         };
     }
 }

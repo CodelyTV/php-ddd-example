@@ -8,7 +8,7 @@ use CodelyTv\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler\Callable
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
 use Symfony\Component\Messenger\Exception\NoHandlerForMessageException;
-use Symfony\Component\Messenger\Handler\Locator\HandlerLocator;
+use Symfony\Component\Messenger\Handler\HandlersLocator;
 use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 
@@ -21,7 +21,7 @@ final class SymfonySyncCommandBus implements CommandBus
         $this->bus = new MessageBus(
             [
                 new HandleMessageMiddleware(
-                    new HandlerLocator(CallableFirstParameterExtractor::forCallables($commandHandlers))
+                    new HandlersLocator(CallableFirstParameterExtractor::forCallables($commandHandlers))
                 ),
             ]
         );

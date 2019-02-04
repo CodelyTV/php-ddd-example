@@ -21,8 +21,8 @@ services:
       - "9030:9000"
     volumes:
       - ".:/app"
-    environment:
-      - PHP_IDE_CONFIG=serverName=CodelyTvCqrsDddPhpExample
+    env_file:
+      - .env
     depends_on:
       - mysql
       - rabbitmq

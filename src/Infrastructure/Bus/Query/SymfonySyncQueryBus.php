@@ -9,9 +9,10 @@ use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use CodelyTv\Shared\Domain\Bus\Query\Response;
 use Symfony\Component\Messenger\Exception\NoHandlerForMessageException;
-use Symfony\Component\Messenger\Handler\Locator\HandlerLocator;
+use Symfony\Component\Messenger\Handler\HandlersLocator;
 use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
+use Symfony\Component\Messenger\Stamp\HandledStamp;
 
 final class SymfonySyncQueryBus implements QueryBus
 {
@@ -22,7 +23,7 @@ final class SymfonySyncQueryBus implements QueryBus
         $this->bus = new MessageBus(
             [
                 new HandleMessageMiddleware(
-                    new HandlerLocator(CallableFirstParameterExtractor::forCallables($queryHandlers))
+                    new HandlersLocator(CallableFirstParameterExtractor::forCallables($queryHandlers))
                 ),
             ]
         );
@@ -31,7 +32,10 @@ final class SymfonySyncQueryBus implements QueryBus
     public function ask(Query $query): ?Response
     {
         try {
-            return $this->bus->dispatch($query);
+            /** @var HandledStamp $stamp */
+            $stamp = $this->bus->dispatch($query)->last(HandledStamp::class);
+
+            return $stamp->getResult();
         } catch (NoHandlerForMessageException $unused) {
             throw new QueryNotRegisteredError($query);
         }
