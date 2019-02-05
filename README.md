@@ -1,15 +1,17 @@
+# 🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP Symfony
+
 <img src="http://codely.tv/wp-content/uploads/2016/05/cropped-logo-codelyTV.png" align="left" width="192px" height="192px"/>
 <img align="left" width="0" height="192px" hspace="10"/>
 
 > You can do awesome stuff with php :)
 
 [![CodelyTV](https://img.shields.io/badge/codely-tv-green.svg?style=flat-square)](codely.tv)
-[![Symfony](https://img.shields.io/badge/symfony-4.1-purple.svg?style=flat-square)](codely.tv)
+[![Symfony](https://img.shields.io/badge/symfony-4.2-purple.svg?style=flat-square)](codely.tv)
 [![CircleCI](https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master.svg?style=svg&circle-token=ce12d04556fa79b78bb2beefa0356a6f6934b26b)](https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master)
 
-Implementation example of a PHP application following Domain-Driven Design (DDD) and Command Query Responsibility Segregation (CQRS) principles, keeping the code as simple as possible.
+Implementation example of a PHP application following Domain-Driven Design (DDD) and Command Query Responsibility Segregation (CQRS) principles keeping the code as simple as possible.
 
-Take a look, play and have fun with this!
+Take a look, play and have fun with this. [Stars welcomed](https://github.com/CodelyTV/cqrs-ddd-php-example/stargazers) 😊
 
 ## 🚀 Environment setup
 
