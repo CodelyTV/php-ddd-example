@@ -1,13 +1,18 @@
+<!-- LOGO -->
 <p align="center">
   <a href="http://codely.tv">
     <img src="http://codely.tv/wp-content/uploads/2016/05/cropped-logo-codelyTV.png" width="192px" height="192px"/>
   </a>
 </p>
 
+
+<!-- TITLE -->
 <h1 align="center">
   🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP Symfony
 </h1>
 
+
+<!-- BADGES -->
 <p align="center">
     <a href="https://github.com/CodelyTV"><img src="https://img.shields.io/badge/CodelyTV-OS-green.svg?style=flat-square" alt="codely.tv"/></a>
     <a href="http://pro.codely.tv"><img src="https://img.shields.io/badge/CodelyTV-PRO-black.svg?style=flat-square" alt="CodelyTV Courses"/></a>
@@ -15,6 +20,8 @@
     <a href="https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master"><img src="https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master.svg?style=svg&circle-token=ce12d04556fa79b78bb2beefa0356a6f6934b26b" alt="CircleCI Status"/></a>
 </p>
 
+
+<!-- SUMMARY -->
 <p align="center">
   Example of a PHP application following Domain-Driven Design (DDD) and
   Command Query Responsibility Segregation (CQRS) principles keeping the code as simple as possible.
@@ -24,7 +31,7 @@
   <a href="https://github.com/CodelyTV/cqrs-ddd-php-example/stargazers">Stars are welcomed 😊</a>
   <br />
   <br />
-  <a href="#user-content--environment-setup"><strong>Explore the docs »</strong></a>
+  <a href="#table-of-contents"><strong>Explore the docs »</strong></a>
   <br />
   <br />
   <a href="https://www.youtube.com/watch?v=1kaP39W80zQ">View Demo</a>
@@ -35,7 +42,18 @@
 </p>
 
 
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
+* [🚀 Environment setup](#-environment-setup)
+  * [🐳 Docker environment](#-docker-environment)
+  * [🎰 Local environment](#-local-environment)
+  * [✅ Run the tests](#-run-the-tests)
+* [🧐 Contributing](#-contributing)
+* [🤩 Extra](#-extra)
+
+
+<!-- ENVIRONMENT SETUP -->
 ## 🚀 Environment setup
 
 ### 🐳 Docker environment
@@ -46,14 +64,6 @@
 * Start the services: `docker-compose up -d` ([this will perform a composer install](Dockerfile#L4))
 * Add `api.codelytv.dev` domain to your local hosts: `echo "127.0.0.1 api.codelytv.dev"| sudo tee -a /etc/hosts > /dev/null`
 * Go to [the API healthcheck page](http://api.codelytv.dev:8030/status)
-
-### ✅ Run the tests
-
-Once you have all the dependencies, in order to execute the tests, run this command:
-
-* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/behat -p api` (This will also create all needed databases)
-* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/behat -p applications`
-* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/phpunit`
 
 ### 🎰 Local environment
 
@@ -67,10 +77,22 @@ If you don't want to use the Docker environment, you can do the following
   - Link the `applications/api/app/config/supervisor` folder to the supervisor config one
   - Start supervisord
 
+### ✅ Run the tests
+
+Once you have all the dependencies, in order to execute the tests, run this command:
+
+* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/behat -p api` (This will also create all needed databases)
+* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/behat -p applications`
+* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/phpunit`
+
+
+<!-- CONTRIBUTING -->
 ## 🧐 Contributing
 There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want 
 some guidelines feel free to contact us :)
 
+
+<!-- EXTRA -->
 ## 🤩 Extra
 This code was show in the [From framework coupled code to #microservices through #DDD](http://codely.tv/screencasts/codigo-acoplado-framework-microservicios-ddd) talk and doubts where answered in [DDD y CQRS: Preguntas Frecuentes](http://codely.tv/screencasts/ddd-cqrs-preguntas-frecuentes/) video.
 
