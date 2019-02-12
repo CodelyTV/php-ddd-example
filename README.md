@@ -1,20 +1,21 @@
 <p align="center">
   <img src="http://codely.tv/wp-content/uploads/2016/05/cropped-logo-codelyTV.png" width="192px" height="192px"/>
+</p>
+<h1 align="center">
+  🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP Symfony
+</h1>
 
-  <h3 align="center">🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP Symfony</h3>
-
-  <p align="center">
-    You can do awesome stuff with php :)
-    <br />
-    <a href="#"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://www.youtube.com/watch?v=1kaP39W80zQ">View Demo</a>
-    ·
-    <a href="https://github.com/CodelyTV/cqrs-ddd-php-example/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/CodelyTV/cqrs-ddd-php-example/issues">Request Feature</a>
-  </p>
+<p align="center">
+  You can do awesome stuff with php :)
+  <br />
+  <a href="#"><strong>Explore the docs »</strong></a>
+  <br />
+  <br />
+  <a href="https://www.youtube.com/watch?v=1kaP39W80zQ">View Demo</a>
+  ·
+  <a href="https://github.com/CodelyTV/cqrs-ddd-php-example/issues">Report Bug</a>
+  ·
+  <a href="https://github.com/CodelyTV/cqrs-ddd-php-example/issues">Request Feature</a>
 </p>
 <p align="center">
 [![CodelyTV](https://img.shields.io/badge/codely-tv-green.svg?style=flat-square)](codely.tv)
