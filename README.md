@@ -7,11 +7,6 @@
 </h1>
 
 <p align="center">
-  Take a look, play and have fun with this.
-  <a href="https://github.com/CodelyTV/cqrs-ddd-php-example/stargazers">Stars are welcomed 😊</a>
-</p>
-
-<p align="center">
     <a href="http://codely.tv"><img src="https://img.shields.io/badge/codely-tv-green.svg?style=flat-square" alt="codely.tv"/></a>
     <a href="#"><img src="https://img.shields.io/badge/symfony-4.2-purple.svg?style=flat-square" alt="codely.tv"/></a>
     <a href="https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master"><img src="https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master.svg?style=svg&circle-token=ce12d04556fa79b78bb2beefa0356a6f6934b26b" alt="CircleCI Status"/></a>
@@ -20,6 +15,10 @@
 <p align="center">
   Example of a PHP application following Domain-Driven Design (DDD) and
   Command Query Responsibility Segregation (CQRS) principles keeping the code as simple as possible.
+  <br />
+  <br />
+  Take a look, play and have fun with this.
+  <a href="https://github.com/CodelyTV/cqrs-ddd-php-example/stargazers">Stars are welcomed 😊</a>
   <br />
   <br />
   <a href="#"><strong>Explore the docs »</strong></a>
