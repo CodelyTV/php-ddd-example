@@ -18,9 +18,9 @@
   <a href="https://github.com/CodelyTV/cqrs-ddd-php-example/issues">Request Feature</a>
 </p>
 <p align="center">
-[![CodelyTV](https://img.shields.io/badge/codely-tv-green.svg?style=flat-square)](codely.tv)
-[![Symfony](https://img.shields.io/badge/symfony-4.2-purple.svg?style=flat-square)](codely.tv)
-[![CircleCI](https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master.svg?style=svg&circle-token=ce12d04556fa79b78bb2beefa0356a6f6934b26b)](https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master)
+    <a href="http://codely.tv"><img src="https://img.shields.io/badge/codely-tv-green.svg?style=flat-square" alt="codely.tv"/></a>
+    <a href="#"><img src="https://img.shields.io/badge/symfony-4.2-purple.svg?style=flat-square" alt="codely.tv"/></a>
+    <a href="https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master"><img src="https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master.svg?style=svg&circle-token=ce12d04556fa79b78bb2beefa0356a6f6934b26b" alt="CircleCI Status"/></a>
 </p>
 
 
