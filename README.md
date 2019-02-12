@@ -108,16 +108,16 @@ Currently the project has two main bounded contexts:
 This repository follow the Hexagonal Architecture pattern. Also is structured using `modules`.
 With this, we can see that the current structure of a Bounded Context is:
 ```bash
-| Video
-|-- Infrastructure
+Video <-- Bounded Context name
+|-- Infrastructure # <-- All Bounded Context common infrastructure
 |   |-- Doctrine
 |   `-- Symfony
-`-- Module
+`-- Module  # <-- Modules inside that Bounded Context
     |-- Notification
     |-- User
     |-- Video
     |   |-- Application
-    |   |   |-- Create
+    |   |   |-- Create # <-- Inside the application layer all is structured by actions
     |   |   |   |-- CreateVideoCommand.php
     |   |   |   |-- CreateVideoCommandHandler.php
     |   |   |   `-- VideoCreator.php
@@ -125,19 +125,19 @@ With this, we can see that the current structure of a Bounded Context is:
     |   |   |-- Trim
     |   |   `-- Update
     |   |-- Domain
-    |   |   |-- Video.php
-    |   |   |-- VideoCreatedDomainEvent.php
+    |   |   |-- Video.php # <-- Our Aggregate of the Module
+    |   |   |-- VideoCreatedDomainEvent.php # <-- A Domain Event
     |   |   |-- VideoId.php
     |   |   |-- VideoNotFound.php
-    |   |   |-- VideoRepository.php
+    |   |   |-- VideoRepository.php # <-- The `Interface` of the repository is inside Domain
     |   |   |-- VideoTitle.php
     |   |   |-- VideoType.php
     |   |   |-- VideoUrl.php
-    |   |   `-- Videos.php
-    |   `-- Infrastructure
+    |   |   `-- Videos.php # <-- A collection of our Aggregate
+    |   `-- Infrastructure # <-- The infrastructure of our module 
     |       |-- DependencyInjection
     |       `-- Persistence
-    |           |-- VideoRepositoryMySql.php
+    |           |-- VideoRepositoryMySql.php # <-- An implementation of the repository
     |-- VideoComment
     `-- VideoHighlight
 ```
