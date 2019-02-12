@@ -49,6 +49,13 @@
   * [🐳 Docker environment](#-docker-environment)
   * [🎰 Local environment](#-local-environment)
   * [✅ Run the tests](#-run-the-tests)
+* [🎥 Project explanation](#-project-explanation)
+  * [Bounded Contexts](#bounded-contexts)
+  * [Hexagonal Architecture](#hexagonal-architecture)
+  * [Aggregates](#aggregates)
+  * [Command Bus](#command-bus)
+  * [Query Bus](#query-bus)
+  * [Event Bus](#event-bus)
 * [🧐 Contributing](#-contributing)
 * [🤩 Extra](#-extra)
 
@@ -84,6 +91,23 @@ Once you have all the dependencies, in order to execute the tests, run this comm
 * `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/behat -p api` (This will also create all needed databases)
 * `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/behat -p applications`
 * `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/phpunit`
+
+
+<!-- PROJECT EXPLANATION -->
+## 🎥 Project explanation
+
+### Bounded Contexts
+
+### Hexagonal Architecture
+#### Repository pattern
+
+### Aggregates
+
+### Command Bus
+
+### Query Bus
+
+### Event Bus
 
 
 <!-- CONTRIBUTING -->
