@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="http://codely.tv/wp-content/uploads/2016/05/cropped-logo-codelyTV.png" width="192px" height="192px"/>
+  <a href="http://codely.tv">
+    <img src="http://codely.tv/wp-content/uploads/2016/05/cropped-logo-codelyTV.png" width="192px" height="192px"/>
+  </a>
 </p>
 
 <h1 align="center">
@@ -7,8 +9,9 @@
 </h1>
 
 <p align="center">
-    <a href="http://codely.tv"><img src="https://img.shields.io/badge/codely-tv-green.svg?style=flat-square" alt="codely.tv"/></a>
-    <a href="#"><img src="https://img.shields.io/badge/symfony-4.2-purple.svg?style=flat-square" alt="codely.tv"/></a>
+    <a href="https://github.com/CodelyTV"><img src="https://img.shields.io/badge/CodelyTV-OS-green.svg?style=flat-square" alt="codely.tv"/></a>
+    <a href="http://pro.codely.tv"><img src="https://img.shields.io/badge/CodelyTV-PRO-black.svg?style=flat-square" alt="CodelyTV Courses"/></a>
+    <a href="#"><img src="https://img.shields.io/badge/Symfony-4.2-purple.svg?style=flat-square&logo=symfony" alt="Symfony 4.2"/></a>
     <a href="https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master"><img src="https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master.svg?style=svg&circle-token=ce12d04556fa79b78bb2beefa0356a6f6934b26b" alt="CircleCI Status"/></a>
 </p>
 
@@ -21,7 +24,7 @@
   <a href="https://github.com/CodelyTV/cqrs-ddd-php-example/stargazers">Stars are welcomed 😊</a>
   <br />
   <br />
-  <a href="#"><strong>Explore the docs »</strong></a>
+  <a href="#user-content--environment-setup"><strong>Explore the docs »</strong></a>
   <br />
   <br />
   <a href="https://www.youtube.com/watch?v=1kaP39W80zQ">View Demo</a>
