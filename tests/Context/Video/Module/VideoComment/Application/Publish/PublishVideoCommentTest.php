@@ -8,11 +8,11 @@ use CodelyTv\Context\Video\Module\VideoComment\Application\Publish\PublishVideoC
 use CodelyTv\Context\Video\Module\VideoComment\Application\Publish\VideoCommentPublisher;
 use CodelyTv\Context\Video\Module\VideoComment\Domain\VideoComment;
 use CodelyTv\Context\Video\Module\VideoComment\Domain\VideoCommentRepository;
-use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdStub;
-use CodelyTv\Test\Context\Video\Module\VideoComment\Domain\VideoCommentContentStub;
-use CodelyTv\Test\Context\Video\Module\VideoComment\Domain\VideoCommentIdStub;
-use CodelyTv\Test\Context\Video\Module\VideoComment\Domain\VideoCommentPublishedDomainEventStub;
-use CodelyTv\Test\Context\Video\Module\VideoComment\Domain\VideoCommentStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdMother;
+use CodelyTv\Test\Context\Video\Module\VideoComment\Domain\VideoCommentContentMother;
+use CodelyTv\Test\Context\Video\Module\VideoComment\Domain\VideoCommentIdMother;
+use CodelyTv\Test\Context\Video\Module\VideoComment\Domain\VideoCommentPublishedDomainEventMother;
+use CodelyTv\Test\Context\Video\Module\VideoComment\Domain\VideoCommentMother;
 use CodelyTv\Test\Context\Video\VideoContextUnitTestCase;
 use Mockery\MockInterface;
 use function CodelyTv\Test\similarTo;
@@ -34,15 +34,15 @@ final class PublishVideoCommentTest extends VideoContextUnitTestCase
     /** @test */
     public function it_should_publish_a_video()
     {
-        $command = PublishVideoCommentCommandStub::random();
+        $command = PublishVideoCommentCommandMother::random();
 
-        $id      = VideoCommentIdStub::create($command->id());
-        $videoId = VideoIdStub::create($command->videoId());
-        $content = VideoCommentContentStub::create($command->content());
+        $id      = VideoCommentIdMother::create($command->id());
+        $videoId = VideoIdMother::create($command->videoId());
+        $content = VideoCommentContentMother::create($command->content());
 
-        $comment = VideoCommentStub::create($id, $videoId, $content);
+        $comment = VideoCommentMother::create($id, $videoId, $content);
 
-        $domainEvent = VideoCommentPublishedDomainEventStub::create($id, $videoId, $content);
+        $domainEvent = VideoCommentPublishedDomainEventMother::create($id, $videoId, $content);
 
         $this->shouldSaveVideoComment($comment);
         $this->shouldPublishDomainEvents($domainEvent);

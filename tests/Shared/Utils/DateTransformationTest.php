@@ -6,8 +6,8 @@ namespace CodelyTv\Test\Shared\Utils;
 
 use DateTimeImmutable;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
-use CodelyTv\Test\Shared\Domain\DateTimeStub;
-use CodelyTv\Test\Shared\Domain\DateTimeZoneStub;
+use CodelyTv\Test\Shared\Domain\DateTimeMother;
+use CodelyTv\Test\Shared\Domain\DateTimeZoneMother;
 use function CodelyTv\Utils\date_to_string;
 use function CodelyTv\Utils\string_to_date;
 
@@ -35,20 +35,20 @@ final class DateTransformationTest extends UnitTestCase
     {
         return [
             [
-                'date'   => DateTimeStub::create('1993-06-26 10:00:00 GMT+0200'),
+                'date'   => DateTimeMother::create('1993-06-26 10:00:00 GMT+0200'),
                 'string' => '741081600000',
             ],
             [
-                'date'   => DateTimeStub::create('1994-09-29 15:00:00 GMT+0200'),
+                'date'   => DateTimeMother::create('1994-09-29 15:00:00 GMT+0200'),
                 'string' => '780843600000',
             ],
 
             [
-                'date'   => DateTimeStub::create('2020-01-15 22:23:24 GMT+0500'),
+                'date'   => DateTimeMother::create('2020-01-15 22:23:24 GMT+0500'),
                 'string' => '1579109004000',
             ],
             [
-                'date'   => DateTimeStub::create('2016-10-03 12:41:32.980000', DateTimeZoneStub::UTC()),
+                'date'   => DateTimeMother::create('2016-10-03 12:41:32.980000', DateTimeZoneMother::UTC()),
                 'string' => '1475498492980',
             ],
         ];

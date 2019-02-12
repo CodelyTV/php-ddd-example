@@ -6,13 +6,13 @@ namespace CodelyTv\Test\Context\Video\Module\Video\Application\Create;
 
 use CodelyTv\Context\Video\Module\Video\Application\Create\CreateVideoCommandHandler;
 use CodelyTv\Context\Video\Module\Video\Application\Create\VideoCreator;
-use CodelyTv\Test\Context\Course\Module\Course\Domain\CourseIdStub;
-use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoCreatedDomainEventStub;
-use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdStub;
-use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoStub;
-use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoTitleStub;
-use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoTypeStub;
-use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoUrlStub;
+use CodelyTv\Test\Context\Course\Module\Course\Domain\CourseIdMother;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoCreatedDomainEventMother;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdMother;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoMother;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoTitleMother;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoTypeMother;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoUrlMother;
 use CodelyTv\Test\Context\Video\Module\Video\VideoModuleUnitTestCase;
 
 final class CreateVideoTest extends VideoModuleUnitTestCase
@@ -32,17 +32,17 @@ final class CreateVideoTest extends VideoModuleUnitTestCase
     /** @test */
     public function it_should_create_a_video()
     {
-        $command = CreateVideoCommandStub::random();
+        $command = CreateVideoCommandMother::random();
 
-        $id       = VideoIdStub::create($command->id());
-        $type     = VideoTypeStub::create($command->type());
-        $title    = VideoTitleStub::create($command->title());
-        $url      = VideoUrlStub::create($command->url());
-        $courseId = CourseIdStub::create($command->courseId());
+        $id       = VideoIdMother::create($command->id());
+        $type     = VideoTypeMother::create($command->type());
+        $title    = VideoTitleMother::create($command->title());
+        $url      = VideoUrlMother::create($command->url());
+        $courseId = CourseIdMother::create($command->courseId());
 
-        $video = VideoStub::create($id, $type, $title, $url, $courseId);
+        $video = VideoMother::create($id, $type, $title, $url, $courseId);
 
-        $domainEvent = VideoCreatedDomainEventStub::create($id, $type, $title, $url, $courseId);
+        $domainEvent = VideoCreatedDomainEventMother::create($id, $type, $title, $url, $courseId);
 
         $this->shouldSaveVideo($video);
         $this->shouldPublishDomainEvents($domainEvent);
