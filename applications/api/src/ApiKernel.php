@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace CodelyTv\Api;
 
 use CodelyTv\Context\Video\Infrastructure\Symfony\Bundle\CodelyTvVideoBundle;
-use CodelyTv\Infrastructure\Symfony\Bundle\CodelyTvInfrastructureBundle;
+use CodelyTv\Shared\Infrastructure\Symfony\Bundle\CodelyTvInfrastructureBundle;
 use FOS\RestBundle\FOSRestBundle;
 use JMS\SerializerBundle\JMSSerializerBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;

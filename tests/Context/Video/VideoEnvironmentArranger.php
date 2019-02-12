@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Context\Video;
 
-use CodelyTv\Infrastructure\Doctrine\DatabaseCleaner;
+use CodelyTv\Shared\Infrastructure\Doctrine\DatabaseCleaner;
 use CodelyTv\Test\Infrastructure\Arranger\EnvironmentArranger;
 use Doctrine\ORM\EntityManager;
 use function Lambdish\Phunctional\apply;

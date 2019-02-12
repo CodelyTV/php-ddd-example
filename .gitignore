@@ -4,7 +4,7 @@ applications/*/var/cache/*
 applications/*/var/logs/*
 !applications/*/var/logs/.gitkeep
 
-src/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/infrastructure_parameters.yml
+src/Shared/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/infrastructure_parameters.yml
 src/Context/*/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/*_parameters.yml
 
 /applications/api/config/supervisor/*

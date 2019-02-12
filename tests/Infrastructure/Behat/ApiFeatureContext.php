@@ -5,9 +5,9 @@ declare(strict_types = 1);
 namespace CodelyTv\Test\Infrastructure\Behat;
 
 use Behat\Behat\Context\Context;
-use CodelyTv\Infrastructure\Bus\Event\SymfonySyncDomainEventPublisher;
-use CodelyTv\Infrastructure\Bus\Event\SymfonySyncEventBus;
-use CodelyTv\Infrastructure\Doctrine\DatabaseConnections;
+use CodelyTv\Shared\Infrastructure\Bus\Event\SymfonySyncDomainEventPublisher;
+use CodelyTv\Shared\Infrastructure\Bus\Event\SymfonySyncEventBus;
+use CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use function Lambdish\Phunctional\each;
 

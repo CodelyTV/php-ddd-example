@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Infrastructure\Bus\Event;
 
-use CodelyTv\Infrastructure\Bus\Event\SymfonySyncEventBus;
+use CodelyTv\Shared\Infrastructure\Bus\Event\SymfonySyncEventBus;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;

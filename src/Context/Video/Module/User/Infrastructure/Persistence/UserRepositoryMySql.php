@@ -8,7 +8,7 @@ use CodelyTv\Context\Video\Module\User\Domain\User;
 use CodelyTv\Context\Video\Module\User\Domain\UserId;
 use CodelyTv\Context\Video\Module\User\Domain\UserRepository;
 use CodelyTv\Context\Video\Module\User\Domain\Users;
-use CodelyTv\Infrastructure\Doctrine\Repository;
+use CodelyTv\Shared\Infrastructure\Doctrine\Repository;
 use function Lambdish\Phunctional\each;
 
 final class UserRepositoryMySql extends Repository implements UserRepository

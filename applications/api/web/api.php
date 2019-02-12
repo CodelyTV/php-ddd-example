@@ -1,7 +1,7 @@
 <?php
 
 use CodelyTv\Api\ApiKernel;
-use CodelyTv\Infrastructure\Symfony\KernelCache;
+use CodelyTv\Shared\Infrastructure\Symfony\KernelCache;
 use Symfony\Component\HttpFoundation\Request;
 
 require_once __DIR__ . '/../../bootstrap.php';

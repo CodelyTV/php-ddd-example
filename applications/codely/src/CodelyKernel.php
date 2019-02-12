@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace CodelyTv;
 
 use CodelyTv\Context\Video\Infrastructure\Symfony\Bundle\CodelyTvVideoBundle;
-use CodelyTv\Infrastructure\Symfony\Bundle\CodelyTvInfrastructureBundle;
+use CodelyTv\Shared\Infrastructure\Symfony\Bundle\CodelyTvInfrastructureBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\MonologBundle\MonologBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;

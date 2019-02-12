@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Infrastructure\Bus\Command;
 
-use CodelyTv\Infrastructure\Bus\Command\SymfonySyncCommandBus;
-use CodelyTv\Infrastructure\Bus\Middleware\MessageLoggerMiddleware;
+use CodelyTv\Shared\Infrastructure\Bus\Command\SymfonySyncCommandBus;
+use CodelyTv\Shared\Infrastructure\Bus\Middleware\MessageLoggerMiddleware;
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use Mockery\MockInterface;

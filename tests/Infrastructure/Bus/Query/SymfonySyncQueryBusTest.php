@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Infrastructure\Bus\Query;
 
-use CodelyTv\Infrastructure\Bus\Query\QueryNotRegisteredError;
-use CodelyTv\Infrastructure\Bus\Query\SymfonySyncQueryBus;
+use CodelyTv\Shared\Infrastructure\Bus\Query\QueryNotRegisteredError;
+use CodelyTv\Shared\Infrastructure\Bus\Query\SymfonySyncQueryBus;
 use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use RuntimeException;
