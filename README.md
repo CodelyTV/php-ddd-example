@@ -156,10 +156,15 @@ You can see an example of an aggregate [here](src/Context/Video/Module/Video/Dom
 extends the [AggregateRoot](src/Shared/Domain/Aggregate/AggregateRoot.php).
 
 ### Command Bus
+There are 2 implementations of the [command bus](src/Shared/Domain/Bus/Command/CommandBus.php).
+1. [Sync](src/Infrastructure/Bus/Command/SymfonySyncCommandBus.php) using the Symfony Message Bus
+2. [Async](src/Infrastructure/Bus/Command/CommandBusAsync.php) using a local file
 
 ### Query Bus
+The [Query Bus](src/Infrastructure/Bus/Query/SymfonySyncQueryBus.php) uses the Symfony Message Bus.
 
 ### Event Bus
+The [Event Bus](src/Infrastructure/Bus/Event/SymfonySyncEventBus.php) uses the Symfony Message Bus.
 
 
 <!-- CONTRIBUTING -->
