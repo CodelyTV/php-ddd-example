@@ -7,8 +7,8 @@ namespace CodelyTv\Test\Context\Video\Module\Video\Application\Find;
 use CodelyTv\Context\Video\Module\Video\Application\Find\FindVideoQueryHandler;
 use CodelyTv\Context\Video\Module\Video\Application\Find\VideoFinder;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoNotFound;
-use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdStub;
-use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoStub;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdMother;
+use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoMother;
 use CodelyTv\Test\Context\Video\Module\Video\VideoModuleUnitTestCase;
 
 final class FindVideoTest extends VideoModuleUnitTestCase
@@ -28,12 +28,12 @@ final class FindVideoTest extends VideoModuleUnitTestCase
     /** @test */
     public function it_should_find_an_existing_video()
     {
-        $query = FindVideoQueryStub::random();
+        $query = FindVideoQueryMother::random();
 
-        $id = VideoIdStub::create($query->id());
-        $video = VideoStub::withId($id);
+        $id = VideoIdMother::create($query->id());
+        $video = VideoMother::withId($id);
 
-        $response = VideoResponseStub::create(
+        $response = VideoResponseMother::create(
             $video->id(),
             $video->type(),
             $video->title(),
@@ -49,9 +49,9 @@ final class FindVideoTest extends VideoModuleUnitTestCase
     /** @test */
     public function it_should_throw_an_exception_finding_a_non_existing_video()
     {
-        $query = FindVideoQueryStub::random();
+        $query = FindVideoQueryMother::random();
 
-        $id = VideoIdStub::create($query->id());
+        $id = VideoIdMother::create($query->id());
 
         $this->shouldSearchVideo($id);
 

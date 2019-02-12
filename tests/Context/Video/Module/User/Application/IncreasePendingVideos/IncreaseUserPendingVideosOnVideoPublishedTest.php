@@ -7,11 +7,11 @@ namespace CodelyTv\Test\Context\Video\Module\User\Application\IncreasePendingVid
 use CodelyTv\Context\Video\Module\User\Application\IncreasePendingVideos\IncreaseUserTotalVideosCreatedOnVideoCreated;
 use CodelyTv\Context\Video\Module\User\Application\IncreasePendingVideos\UserTotalVideosCreatedIncreaser;
 use CodelyTv\Test\Context\Video\Module\User\UserModuleUnitTestCase;
-use CodelyTv\Test\Context\Video\Module\User\Domain\ScalaVideoCreatedDomainEventStub;
-use CodelyTv\Test\Context\Video\Module\User\Domain\TotalVideosCreatedStub;
-use CodelyTv\Test\Context\Video\Module\User\Domain\UserIdStub;
-use CodelyTv\Test\Context\Video\Module\User\Domain\UserStub;
-use CodelyTv\Test\Shared\Domain\DuplicatorStub;
+use CodelyTv\Test\Context\Video\Module\User\Domain\ScalaVideoCreatedDomainEventMother;
+use CodelyTv\Test\Context\Video\Module\User\Domain\TotalVideosCreatedMother;
+use CodelyTv\Test\Context\Video\Module\User\Domain\UserIdMother;
+use CodelyTv\Test\Context\Video\Module\User\Domain\UserMother;
+use CodelyTv\Test\Shared\Domain\DuplicatorMother;
 
 final class IncreaseUserPendingVideosOnVideoPublishedTest extends UserModuleUnitTestCase
 {
@@ -30,14 +30,14 @@ final class IncreaseUserPendingVideosOnVideoPublishedTest extends UserModuleUnit
     /** @test */
     public function it_should_increase_user_total_videos_created_on_scala_video_created()
     {
-        $event = ScalaVideoCreatedDomainEventStub::random();
+        $event = ScalaVideoCreatedDomainEventMother::random();
 
-        $id = UserIdStub::create($event->creatorId());
-        $user = UserStub::withId($id);
+        $id = UserIdMother::create($event->creatorId());
+        $user = UserMother::withId($id);
 
-        $updatedUser = DuplicatorStub::with(
+        $updatedUser = DuplicatorMother::with(
             $user,
-            ['totalVideosCreated' => TotalVideosCreatedStub::create($user->totalVideosCreated()->value() + 1)]
+            ['totalVideosCreated' => TotalVideosCreatedMother::create($user->totalVideosCreated()->value() + 1)]
         );
 
         $this->shouldSearchUser($id, $user);

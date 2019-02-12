@@ -8,7 +8,7 @@ use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\RawMinkContext;
 use CodelyTv\Context\Video\Module\User\Domain\UserRepository;
-use CodelyTv\Test\Context\Video\Module\User\Domain\UserStub;
+use CodelyTv\Test\Context\Video\Module\User\Domain\UserMother;
 use function Lambdish\Phunctional\apply;
 
 final class UserModuleBehatContext extends RawMinkContext implements Context
@@ -31,7 +31,7 @@ final class UserModuleBehatContext extends RawMinkContext implements Context
     private function creator()
     {
         return function (array $user) {
-            $this->repository->save(UserStub::withValues($user['id'], $user['name'], (int) $user['total_pending_videos']));
+            $this->repository->save(UserMother::withValues($user['id'], $user['name'], (int) $user['total_pending_videos']));
         };
     }
 }

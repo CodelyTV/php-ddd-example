@@ -6,7 +6,7 @@ namespace CodelyTv\Test\Shared\Domain;
 
 use Faker\Factory;
 
-final class StubCreator
+final class MotherCreator
 {
     private static $faker;
 
