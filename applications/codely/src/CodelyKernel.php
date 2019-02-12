@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace CodelyTv;
 
 use CodelyTv\Context\Video\Infrastructure\Symfony\Bundle\CodelyTvVideoBundle;
-use CodelyTv\Infrastructure\Symfony\Bundle\CodelyTvInfrastructureBundle;
+use CodelyTv\Shared\Infrastructure\Symfony\Bundle\CodelyTvInfrastructureBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\MonologBundle\MonologBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -47,7 +47,7 @@ final class CodelyKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load($this->getRootDir() . '/app/config/config_' . $this->getEnvironment() . '.yml');
+        $loader->load($this->getRootDir() . '/config/config_' . $this->getEnvironment() . '.yml');
     }
 
     public function getContainer()

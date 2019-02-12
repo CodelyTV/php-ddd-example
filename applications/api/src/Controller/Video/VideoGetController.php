@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Api\Controller\Video;
 
-use CodelyTv\Api\Infrastructure\Controller\ApiController;
+use CodelyTv\Shared\Infrastructure\Api\Controller\ApiController;
 use CodelyTv\Context\Video\Module\Video\Application\Find\FindVideoQuery;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoNotFound;
 use Symfony\Component\HttpFoundation\Response;

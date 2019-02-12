@@ -1,9 +1,0 @@
-services:
-
-  codely.api.controller:
-    class: CodelyTv\Api\Infrastructure\Controller\ApiController
-    abstract: true
-    arguments:
-      - '@codely.video.query_bus'
-      - '@codely.video.command_bus'
-      - '@codely.api.exception_handler'

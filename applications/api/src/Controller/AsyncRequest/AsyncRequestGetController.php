@@ -4,9 +4,9 @@ declare (strict_types = 1);
 
 namespace CodelyTv\Api\Controller\AsyncRequest;
 
-use CodelyTv\Api\Infrastructure\Exception\ApiExceptionsHttpStatusCodeMapping;
-use CodelyTv\Infrastructure\Bus\AsyncRequestFinder;
-use CodelyTv\Infrastructure\Bus\AsyncRequestNotExists;
+use CodelyTv\Shared\Infrastructure\Api\Exception\ApiExceptionsHttpStatusCodeMapping;
+use CodelyTv\Shared\Infrastructure\Bus\AsyncRequestFinder;
+use CodelyTv\Shared\Infrastructure\Bus\AsyncRequestNotExists;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use Symfony\Component\HttpFoundation\Response;
 use function Lambdish\Phunctional\each;

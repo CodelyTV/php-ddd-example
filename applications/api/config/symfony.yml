@@ -1,0 +1,12 @@
+framework:
+
+  secret: 'secret'
+  router:
+    resource: '%kernel.root_dir%/config/routing/_routing.yml'
+    strict_requirements: '%kernel.debug%'
+  templating:
+    engines: ['twig']
+  default_locale:  'en'
+  session:   ~
+  fragments: ~
+  http_method_override: true

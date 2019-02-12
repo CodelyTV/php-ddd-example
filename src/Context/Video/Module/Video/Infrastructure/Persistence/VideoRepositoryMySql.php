@@ -8,8 +8,8 @@ use CodelyTv\Context\Video\Module\Video\Domain\Video;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
 use CodelyTv\Context\Video\Module\Video\Domain\VideoRepository;
 use CodelyTv\Context\Video\Module\Video\Domain\Videos;
-use CodelyTv\Infrastructure\Doctrine\DoctrineCriteriaConverter;
-use CodelyTv\Infrastructure\Doctrine\Repository;
+use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineCriteriaConverter;
+use CodelyTv\Shared\Infrastructure\Doctrine\Repository;
 use CodelyTv\Shared\Domain\Criteria\Criteria;
 
 final class VideoRepositoryMySql extends Repository implements VideoRepository
