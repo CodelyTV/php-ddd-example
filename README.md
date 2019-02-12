@@ -95,10 +95,54 @@ Once you have all the dependencies, in order to execute the tests, run this comm
 
 <!-- PROJECT EXPLANATION -->
 ## 🎥 Project explanation
+This project tries to be a MOOC (Massive Open Online Course) platform.
+For now it only has an [API](applications/api/src/Controller)
+and some [Consumers](applications/api/src/Command)
 
 ### Bounded Contexts
+Currently the project has two main bounded contexts:
+* [Course](src/Context/Course): WIP
+* [Video](src/Context/Course): If you wanna see some code, look inside this context :)
 
 ### Hexagonal Architecture
+This repository follow the Hexagonal Architecture pattern. Also is structured using `modules`.
+With this, we can see that the current structure of a Bounded Context is:
+```bash
+| Video
+|-- Infrastructure
+|   |-- Doctrine
+|   `-- Symfony
+`-- Module
+    |-- Notification
+    |-- User
+    |-- Video
+    |   |-- Application
+    |   |   |-- Create
+    |   |   |   |-- CreateVideoCommand.php
+    |   |   |   |-- CreateVideoCommandHandler.php
+    |   |   |   `-- VideoCreator.php
+    |   |   |-- Find
+    |   |   |-- Trim
+    |   |   `-- Update
+    |   |-- Domain
+    |   |   |-- Video.php
+    |   |   |-- VideoCreatedDomainEvent.php
+    |   |   |-- VideoId.php
+    |   |   |-- VideoNotFound.php
+    |   |   |-- VideoRepository.php
+    |   |   |-- VideoTitle.php
+    |   |   |-- VideoType.php
+    |   |   |-- VideoUrl.php
+    |   |   `-- Videos.php
+    |   `-- Infrastructure
+    |       |-- DependencyInjection
+    |       `-- Persistence
+    |           |-- VideoRepositoryMySql.php
+    |-- VideoComment
+    `-- VideoHighlight
+```
+
+
 #### Repository pattern
 
 ### Aggregates
