@@ -1,9 +1,15 @@
 <p align="center">
   <img src="http://codely.tv/wp-content/uploads/2016/05/cropped-logo-codelyTV.png" width="192px" height="192px"/>
 </p>
+
 <h1 align="center">
   🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP Symfony
 </h1>
+
+<p align="center">
+  Take a look, play and have fun with this.
+  <a href="https://github.com/CodelyTV/cqrs-ddd-php-example/stargazers">Stars are welcomed 😊</a>
+</p>
 
 <p align="center">
     <a href="http://codely.tv"><img src="https://img.shields.io/badge/codely-tv-green.svg?style=flat-square" alt="codely.tv"/></a>
@@ -12,7 +18,9 @@
 </p>
 
 <p align="center">
-  You can do awesome stuff with php :)
+  Example of a PHP application following Domain-Driven Design (DDD) and
+  Command Query Responsibility Segregation (CQRS) principles keeping the code as simple as possible.
+  <br />
   <br />
   <a href="#"><strong>Explore the docs »</strong></a>
   <br />
@@ -24,9 +32,7 @@
   <a href="https://github.com/CodelyTV/cqrs-ddd-php-example/issues">Request Feature</a>
 </p>
 
-Implementation example of a PHP application following Domain-Driven Design (DDD) and Command Query Responsibility Segregation (CQRS) principles keeping the code as simple as possible.
 
-Take a look, play and have fun with this. [Stars welcomed](https://github.com/CodelyTV/cqrs-ddd-php-example/stargazers) 😊
 
 ## 🚀 Environment setup
 
