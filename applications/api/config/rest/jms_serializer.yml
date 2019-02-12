@@ -8,7 +8,7 @@ jms_serializer:
 services:
 
   codely.api.serializer.metadata.php_driver:
-    class: CodelyTv\Api\Infrastructure\Serializer\ApiSerializerDriver
+    class: CodelyTv\Shared\Infrastructure\Api\Serializer\ApiSerializerDriver
 
   jms_serializer.metadata_driver:
     alias: codely.api.serializer.metadata.php_driver
@@ -18,4 +18,4 @@ services:
 parameters:
 
   jms_serializer.infer_types_from_doctrine_metadata: false
-  jms_serializer.datetime_handler.class: CodelyTv\Api\Infrastructure\Serializer\DateTimeHandler
+  jms_serializer.datetime_handler.class: CodelyTv\Shared\Infrastructure\Api\Serializer\DateTimeHandler

@@ -1,7 +1,7 @@
 services:
 
   codely.api.controller:
-    class: CodelyTv\Api\Infrastructure\Controller\ApiController
+    class: CodelyTv\Shared\Infrastructure\Api\Controller\ApiController
     abstract: true
     arguments:
       - '@codely.video.query_bus'

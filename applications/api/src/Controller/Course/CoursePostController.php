@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Api\Controller\Course;
 
-use CodelyTv\Api\Infrastructure\Controller\ApiController;
-use CodelyTv\Api\Infrastructure\Response\ApiHttpCreatedResponse;
+use CodelyTv\Shared\Infrastructure\Api\Controller\ApiController;
+use CodelyTv\Shared\Infrastructure\Api\Response\ApiHttpCreatedResponse;
 use CodelyTv\Context\Course\Module\Course\Application\Create\CreateCourseCommand;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use Symfony\Component\HttpFoundation\Request;

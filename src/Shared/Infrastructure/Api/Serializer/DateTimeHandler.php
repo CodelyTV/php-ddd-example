@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Api\Infrastructure\Serializer;
+namespace CodelyTv\Shared\Infrastructure\Api\Serializer;
 
 use DateInterval;
 use DateTime;

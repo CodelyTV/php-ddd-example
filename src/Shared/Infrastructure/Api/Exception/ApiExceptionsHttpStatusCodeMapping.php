@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Api\Infrastructure\Exception;
+namespace CodelyTv\Shared\Infrastructure\Api\Exception;
 
 use InvalidArgumentException;
 use Symfony\Component\HttpFoundation\Response;

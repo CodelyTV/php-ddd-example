@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Api\Infrastructure\Serializer;
+namespace CodelyTv\Shared\Infrastructure\Api\Serializer;
 
 use CodelyTv\Context\Video\Module\User\Application\Find\UserResponse;
 use CodelyTv\Context\Video\Module\Video\Application\Find\VideoResponse;

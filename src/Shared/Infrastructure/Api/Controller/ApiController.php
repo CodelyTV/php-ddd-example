@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Api\Infrastructure\Controller;
+namespace CodelyTv\Shared\Infrastructure\Api\Controller;
 
-use CodelyTv\Api\Infrastructure\Exception\ApiExceptionsHttpStatusCodeMapping;
+use CodelyTv\Shared\Infrastructure\Api\Exception\ApiExceptionsHttpStatusCodeMapping;
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
 use CodelyTv\Shared\Domain\Bus\Query\Query;

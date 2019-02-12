@@ -4,7 +4,7 @@ declare (strict_types = 1);
 
 namespace CodelyTv\Api\Controller\AsyncRequest;
 
-use CodelyTv\Api\Infrastructure\Exception\ApiExceptionsHttpStatusCodeMapping;
+use CodelyTv\Shared\Infrastructure\Api\Exception\ApiExceptionsHttpStatusCodeMapping;
 use CodelyTv\Shared\Infrastructure\Bus\AsyncRequestFinder;
 use CodelyTv\Shared\Infrastructure\Bus\AsyncRequestNotExists;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;

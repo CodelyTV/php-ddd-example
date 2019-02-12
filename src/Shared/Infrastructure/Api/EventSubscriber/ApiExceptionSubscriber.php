@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Api\Infrastructure\EventSubscriber;
+namespace CodelyTv\Shared\Infrastructure\Api\EventSubscriber;
 
-use CodelyTv\Api\Infrastructure\Exception\ApiExceptionsHttpStatusCodeMapping;
+use CodelyTv\Shared\Infrastructure\Api\Exception\ApiExceptionsHttpStatusCodeMapping;
 use CodelyTv\Shared\Domain\DomainError;
 use Exception;
 use FOS\RestBundle\View\View;

@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Api\Infrastructure\Response;
+namespace CodelyTv\Shared\Infrastructure\Api\Response;
 
 use Symfony\Component\HttpFoundation\Response;
 

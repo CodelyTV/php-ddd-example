@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Api\Controller\Video;
 
-use CodelyTv\Api\Infrastructure\Controller\ApiController;
-use CodelyTv\Api\Infrastructure\Response\ApiHttpCreatedResponse;
+use CodelyTv\Shared\Infrastructure\Api\Controller\ApiController;
+use CodelyTv\Shared\Infrastructure\Api\Response\ApiHttpCreatedResponse;
 use CodelyTv\Context\Video\Module\Video\Application\Create\CreateVideoCommand;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use Symfony\Component\HttpFoundation\Request;

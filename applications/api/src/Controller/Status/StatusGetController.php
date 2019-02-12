@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Api\Controller\Status;
 
-use CodelyTv\Api\Infrastructure\Response\ApiHttpOkResponse;
+use CodelyTv\Shared\Infrastructure\Api\Response\ApiHttpOkResponse;
 
 final class StatusGetController
 {

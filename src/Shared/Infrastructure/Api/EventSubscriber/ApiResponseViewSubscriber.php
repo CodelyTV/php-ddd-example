@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Api\Infrastructure\EventSubscriber;
+namespace CodelyTv\Shared\Infrastructure\Api\EventSubscriber;
 
-use CodelyTv\Api\Infrastructure\Response\ApiHttpResponse;
+use CodelyTv\Shared\Infrastructure\Api\Response\ApiHttpResponse;
 use FOS\RestBundle\View\View;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;

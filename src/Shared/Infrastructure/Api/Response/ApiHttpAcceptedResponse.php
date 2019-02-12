@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Api\Infrastructure\Response;
+namespace CodelyTv\Shared\Infrastructure\Api\Response;
 
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use Symfony\Component\HttpFoundation\Response;
