@@ -97,7 +97,7 @@ Once you have all the dependencies, in order to execute the tests, run this comm
 ## 🎥 Project explanation
 This project tries to be a MOOC (Massive Open Online Course) platform.
 For now it only has an [API](applications/api/src/Controller)
-and some [Consumers](applications/api/src/Command)
+and some [Consumers](applications/api/src/Command).
 
 ### Bounded Contexts
 Currently the project has two main bounded contexts:
@@ -108,11 +108,11 @@ Currently the project has two main bounded contexts:
 This repository follow the Hexagonal Architecture pattern. Also is structured using `modules`.
 With this, we can see that the current structure of a Bounded Context is:
 ```bash
-Video <-- Bounded Context name
+Video # <-- Bounded Context name
 |-- Infrastructure # <-- All Bounded Context common infrastructure
 |   |-- Doctrine
 |   `-- Symfony
-`-- Module  # <-- Modules inside that Bounded Context
+`-- Module # <-- Modules inside that Bounded Context
     |-- Notification
     |-- User
     |-- Video
@@ -144,8 +144,16 @@ Video <-- Bounded Context name
 
 
 #### Repository pattern
+Our repositories try to be as simple as possible usually only containing 2 methods `search` and `save`.
+If we need some query with more filters we use the `Strategy` pattern also known as `Criteria` pattern. So we add a
+`searchByCriteria` method.
+
+You can see an example [here](src/Context/Video/Module/Video/Domain/VideoRepository.php)
+and its implementation [here](src/Context/Video/Module/Video/Infrastructure/Persistence/VideoRepositoryMySql.php). 
 
 ### Aggregates
+You can see an example of an aggregate [here](src/Context/Video/Module/Video/Domain/Video.php). All aggregates should
+extends the [AggregateRoot](src/Shared/Domain/Aggregate/AggregateRoot.php).
 
 ### Command Bus
 
