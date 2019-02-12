@@ -1,13 +1,27 @@
-# 🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP Symfony
+<p align="center">
+  <img src="http://codely.tv/wp-content/uploads/2016/05/cropped-logo-codelyTV.png" width="192px" height="192px"/>
 
-<img src="http://codely.tv/wp-content/uploads/2016/05/cropped-logo-codelyTV.png" align="left" width="192px" height="192px"/>
-<img align="left" width="0" height="192px" hspace="10"/>
+  <h3 align="center">🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP Symfony</h3>
 
-> You can do awesome stuff with php :)
-
+  <p align="center">
+    You can do awesome stuff with php :)
+    <br />
+    <a href="#"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://www.youtube.com/watch?v=1kaP39W80zQ">View Demo</a>
+    ·
+    <a href="https://github.com/CodelyTV/cqrs-ddd-php-example/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/CodelyTV/cqrs-ddd-php-example/issues">Request Feature</a>
+  </p>
+</p>
+<p align="center">
 [![CodelyTV](https://img.shields.io/badge/codely-tv-green.svg?style=flat-square)](codely.tv)
 [![Symfony](https://img.shields.io/badge/symfony-4.2-purple.svg?style=flat-square)](codely.tv)
 [![CircleCI](https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master.svg?style=svg&circle-token=ce12d04556fa79b78bb2beefa0356a6f6934b26b)](https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master)
+</p>
+
 
 Implementation example of a PHP application following Domain-Driven Design (DDD) and Command Query Responsibility Segregation (CQRS) principles keeping the code as simple as possible.
 
