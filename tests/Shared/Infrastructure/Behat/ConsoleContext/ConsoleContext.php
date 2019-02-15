@@ -21,7 +21,7 @@ final class ConsoleContext implements Context
     public function iRunTheApplicationConsole($app)
     {
         $command              = './bin/console';
-        $applicationDirectory = sprintf('%s/../../../../applications/%s', __DIR__, $app);
+        $applicationDirectory = sprintf('%s/../../../../../applications/%s', __DIR__, $app);
 
         $this->runProcess(new Process($command, $applicationDirectory));
     }

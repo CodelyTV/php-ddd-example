@@ -1,6 +1,6 @@
 <?php
 
-use CodelyTv\MoocBackend\ApiKernel;
+use CodelyTv\MoocBackend\MoocBackendKernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -26,7 +26,7 @@ Debug::enable();
 
 $env    = 'dev';
 $debug  = true;
-$kernel = new ApiKernel($env, $debug);
+$kernel = new MoocBackendKernel($env, $debug);
 
 $request  = Request::createFromGlobals();
 $response = $kernel->handle($request);

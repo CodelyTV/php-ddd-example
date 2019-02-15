@@ -4,12 +4,12 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Shared\Infrastructure\PHPUnit;
 
-use CodelyTv\Api\ApiKernel;
 use CodelyTv\CodelyKernel;
+use CodelyTv\MoocBackend\MoocBackendKernel;
 
 abstract class FunctionalTestCase extends UnitTestCase
 {
-    /** @var ApiKernel */
+    /** @var MoocBackendKernel */
     private $kernel;
 
     protected function setUp()

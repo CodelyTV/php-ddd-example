@@ -14,7 +14,7 @@ use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 
-final class ApiKernel extends Kernel
+final class MoocBackendKernel extends Kernel
 {
     public function registerBundles()
     {

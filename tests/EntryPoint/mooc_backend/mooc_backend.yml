@@ -1,8 +1,8 @@
-api:
+mooc_backend:
   extensions:
     Behat\Symfony2Extension:
       kernel:
-        class: CodelyTv\Api\ApiKernel
+        class: CodelyTv\MoocBackend\MoocBackendKernel
     Behat\MinkExtension:
       sessions:
         my_session:
@@ -14,7 +14,7 @@ api:
     status:
       paths: [ tests/EntryPoint/mooc_backend/features/status ]
       contexts:
-        - CodelyTv\Test\Infrastructure\Behat\ApiFeatureContext:
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiFeatureContext:
             connections: '@codely.infrastructure.database_connections'
             publisher: '@codely.mooc.domain_event_publisher'
             bus: '@codely.mooc.event_bus'
@@ -23,7 +23,7 @@ api:
     video:
       paths: [ tests/EntryPoint/mooc_backend/features/video ]
       contexts:
-        - CodelyTv\Test\Infrastructure\Behat\ApiFeatureContext:
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiFeatureContext:
             connections: '@codely.infrastructure.database_connections'
             publisher: '@codely.mooc.domain_event_publisher'
             bus: '@codely.mooc.event_bus'
@@ -32,7 +32,7 @@ api:
     user:
       paths: [ tests/EntryPoint/mooc_backend/features/user ]
       contexts:
-        - CodelyTv\Test\Infrastructure\Behat\ApiFeatureContext:
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiFeatureContext:
             connections: '@codely.infrastructure.database_connections'
             publisher: '@codely.mooc.domain_event_publisher'
             bus: '@codely.mooc.event_bus'

@@ -101,14 +101,14 @@ and some [Consumers](applications/api/src/Command).
 
 ### Bounded Contexts
 Currently the project has two main bounded contexts:
-* [Course](src/Context/Course): WIP
-* [Video](src/Context/Course): If you wanna see some code, look inside this context :)
+* [Backoffice](src/Context/Backoffice): WIP
+* [Mooc](src/Context/Mooc): If you wanna see some code, look inside this context :)
 
 ### Hexagonal Architecture
 This repository follow the Hexagonal Architecture pattern. Also is structured using `modules`.
 With this, we can see that the current structure of a Bounded Context is:
 ```bash
-Video # <-- Bounded Context name
+Mooc # <-- Bounded Context name
 |-- Infrastructure # <-- All Bounded Context common infrastructure
 |   |-- Doctrine
 |   `-- Symfony
@@ -148,23 +148,23 @@ Our repositories try to be as simple as possible usually only containing 2 metho
 If we need some query with more filters we use the `Strategy` pattern also known as `Criteria` pattern. So we add a
 `searchByCriteria` method.
 
-You can see an example [here](src/Context/Video/Module/Video/Domain/VideoRepository.php)
-and its implementation [here](src/Context/Video/Module/Video/Infrastructure/Persistence/VideoRepositoryMySql.php). 
+You can see an example [here](src/Context/Mooc/Module/Video/Domain/VideoRepository.php)
+and its implementation [here](src/Context/Mooc/Module/Video/Infrastructure/Persistence/VideoRepositoryMySql.php). 
 
 ### Aggregates
-You can see an example of an aggregate [here](src/Context/Video/Module/Video/Domain/Video.php). All aggregates should
+You can see an example of an aggregate [here](src/Context/Mooc/Module/Video/Domain/Video.php). All aggregates should
 extends the [AggregateRoot](src/Shared/Domain/Aggregate/AggregateRoot.php).
 
 ### Command Bus
 There are 2 implementations of the [command bus](src/Shared/Domain/Bus/Command/CommandBus.php).
-1. [Sync](src/Infrastructure/Bus/Command/SymfonySyncCommandBus.php) using the Symfony Message Bus
-2. [Async](src/Infrastructure/Bus/Command/CommandBusAsync.php) using a local file
+1. [Sync](src/Shared/Infrastructure/Bus/Command/SymfonySyncCommandBus.php) using the Symfony Message Bus
+2. [Async](src/Shared/Infrastructure/Bus/Command/CommandBusAsync.php) using a local file
 
 ### Query Bus
-The [Query Bus](src/Infrastructure/Bus/Query/SymfonySyncQueryBus.php) uses the Symfony Message Bus.
+The [Query Bus](src/Shared/Infrastructure/Bus/Query/SymfonySyncQueryBus.php) uses the Symfony Message Bus.
 
 ### Event Bus
-The [Event Bus](src/Infrastructure/Bus/Event/SymfonySyncEventBus.php) uses the Symfony Message Bus.
+The [Event Bus](src/Shared/Infrastructure/Bus/Event/SymfonySyncEventBus.php) uses the Symfony Message Bus.
 
 
 <!-- CONTRIBUTING -->
