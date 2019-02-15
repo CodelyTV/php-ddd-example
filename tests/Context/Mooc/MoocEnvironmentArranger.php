@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace CodelyTv\Test\Context\Mooc;
 
 use CodelyTv\Shared\Infrastructure\Doctrine\DatabaseCleaner;
-use CodelyTv\Test\Infrastructure\Arranger\EnvironmentArranger;
+use CodelyTv\Test\Shared\Infrastructure\Arranger\EnvironmentArranger;
 use Doctrine\ORM\EntityManager;
 use function Lambdish\Phunctional\apply;
 

@@ -18,8 +18,8 @@ api:
             connections: '@codely.infrastructure.database_connections'
             publisher: '@codely.mooc.domain_event_publisher'
             bus: '@codely.mooc.event_bus'
-        - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiRequestContext
-        - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiResponseContext
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiResponseContext
     video:
       paths: [ tests/EntryPoint/api/features/video ]
       contexts:
@@ -27,8 +27,8 @@ api:
             connections: '@codely.infrastructure.database_connections'
             publisher: '@codely.mooc.domain_event_publisher'
             bus: '@codely.mooc.event_bus'
-        - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiRequestContext
-        - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiResponseContext
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiResponseContext
     user:
       paths: [ tests/EntryPoint/api/features/user ]
       contexts:
@@ -36,7 +36,7 @@ api:
             connections: '@codely.infrastructure.database_connections'
             publisher: '@codely.mooc.domain_event_publisher'
             bus: '@codely.mooc.event_bus'
-        - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiRequestContext
-        - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiResponseContext
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiResponseContext
         - CodelyTv\Test\Context\Mooc\Module\User\UserModuleBehatContext:
             repository: '@codely.mooc.user.repository'

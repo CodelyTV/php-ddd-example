@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Shared\Utils;
 
-use DateTimeImmutable;
-use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
 use CodelyTv\Test\Shared\Domain\DateTimeMother;
 use CodelyTv\Test\Shared\Domain\DateTimeZoneMother;
+use CodelyTv\Test\Shared\Infrastructure\PHPUnit\UnitTestCase;
+use DateTimeImmutable;
 use function CodelyTv\Utils\date_to_string;
 use function CodelyTv\Utils\string_to_date;
 

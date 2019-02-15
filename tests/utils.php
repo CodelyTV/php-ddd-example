@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test;
 
-use CodelyTv\Test\Infrastructure\Mockery\CodelyTvMatcherIsEqual;
-use CodelyTv\Test\Infrastructure\Mockery\CodelyTvMatcherIsSimilar;
-use CodelyTv\Test\Infrastructure\PHPUnit\Constraint\CodelyTvConstraintIsEqual;
-use CodelyTv\Test\Infrastructure\PHPUnit\Constraint\CodelyTvConstraintIsSimilar;
+use CodelyTv\Test\Shared\Infrastructure\Mockery\CodelyTvMatcherIsEqual;
+use CodelyTv\Test\Shared\Infrastructure\Mockery\CodelyTvMatcherIsSimilar;
+use CodelyTv\Test\Shared\Infrastructure\PHPUnit\Constraint\CodelyTvConstraintIsEqual;
+use CodelyTv\Test\Shared\Infrastructure\PHPUnit\Constraint\CodelyTvConstraintIsSimilar;
 use PHPUnit\Framework\Assert;
 
 function isSimilar($expected, $value, $delta = 0.0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)
