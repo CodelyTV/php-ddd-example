@@ -2,15 +2,15 @@ services:
 
   codely.mooc.infrastructure.database:
     class: Doctrine\ORM\EntityManager
-    factory: [CodelyTv\Context\Mooc\Infrastructure\Doctrine\VideoEntityManagerFactory, create]
+    factory: [CodelyTv\Context\Mooc\Infrastructure\Doctrine\MoocEntityManagerFactory, create]
     arguments:
       -
-        driver:   '%video_database_driver%'
-        host:     '%video_database_host%'
-        port:     '%video_database_port%'
-        dbname:   '%video_database_name%'
-        user:     '%video_database_user%'
-        password: '%video_database_password%'
+        driver:   '%mooc_database_driver%'
+        host:     '%mooc_database_host%'
+        port:     '%mooc_database_port%'
+        dbname:   '%mooc_database_name%'
+        user:     '%mooc_database_user%'
+        password: '%mooc_database_password%'
       - '%codely.mooc.root_path%'
       - '%codely.mooc.infrastructure.database.on_demand%'
       - '%codely.mooc.infrastructure.database.schema_file%'

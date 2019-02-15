@@ -1,5 +1,5 @@
 CodelyTv\Context\Mooc\Module\User\Domain\User:
-  type:  entity
+  type: entity
   table: user
 
   id:

@@ -3,4 +3,4 @@ imports:
 
 
 parameters:
-  video_database_name: codely_mooc_tests_%kernel.name%
+  mooc_database_name: codely_mooc_tests_%kernel.name%
