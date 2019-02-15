@@ -11,7 +11,7 @@ use CodelyTv\Context\Mooc\Module\Video\Domain\VideoType;
 use CodelyTv\Context\Mooc\Module\Video\Domain\VideoUrl;
 use CodelyTv\Shared\Domain\CourseId;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
-use CodelyTv\Test\Context\Course\Module\Course\Domain\CourseIdMother;
+use CodelyTv\Test\Context\Backoffice\Module\Course\Domain\CourseIdMother;
 use CodelyTv\Test\Context\Mooc\Module\Video\Domain\VideoIdMother;
 use CodelyTv\Test\Context\Mooc\Module\Video\Domain\VideoTitleMother;
 use CodelyTv\Test\Context\Mooc\Module\Video\Domain\VideoTypeMother;

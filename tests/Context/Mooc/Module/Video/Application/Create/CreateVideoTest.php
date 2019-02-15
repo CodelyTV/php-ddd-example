@@ -6,7 +6,7 @@ namespace CodelyTv\Test\Context\Mooc\Module\Video\Application\Create;
 
 use CodelyTv\Context\Mooc\Module\Video\Application\Create\CreateVideoCommandHandler;
 use CodelyTv\Context\Mooc\Module\Video\Application\Create\VideoCreator;
-use CodelyTv\Test\Context\Course\Module\Course\Domain\CourseIdMother;
+use CodelyTv\Test\Context\Backoffice\Module\Course\Domain\CourseIdMother;
 use CodelyTv\Test\Context\Mooc\Module\Video\Domain\VideoCreatedDomainEventMother;
 use CodelyTv\Test\Context\Mooc\Module\Video\Domain\VideoIdMother;
 use CodelyTv\Test\Context\Mooc\Module\Video\Domain\VideoMother;

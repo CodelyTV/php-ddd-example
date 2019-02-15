@@ -2,12 +2,12 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Context\Course\Module\Course\Application\Create;
+namespace CodelyTv\Context\Backoffice\Module\Course\Application\Create;
 
-use CodelyTv\Context\Course\Module\Course\Domain\Course;
-use CodelyTv\Context\Course\Module\Course\Domain\CourseDescription;
-use CodelyTv\Context\Course\Module\Course\Domain\CourseRepository;
-use CodelyTv\Context\Course\Module\Course\Domain\CourseTitle;
+use CodelyTv\Context\Backoffice\Module\Course\Domain\Course;
+use CodelyTv\Context\Backoffice\Module\Course\Domain\CourseDescription;
+use CodelyTv\Context\Backoffice\Module\Course\Domain\CourseRepository;
+use CodelyTv\Context\Backoffice\Module\Course\Domain\CourseTitle;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
 use CodelyTv\Shared\Domain\CourseId;
 

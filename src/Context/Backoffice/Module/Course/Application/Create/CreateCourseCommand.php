@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Context\Course\Module\Course\Application\Create;
+namespace CodelyTv\Context\Backoffice\Module\Course\Application\Create;
 
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;

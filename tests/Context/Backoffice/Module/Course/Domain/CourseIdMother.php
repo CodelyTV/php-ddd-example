@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Test\Context\Course\Module\Course\Domain;
+namespace CodelyTv\Test\Context\Backoffice\Module\Course\Domain;
 
 use CodelyTv\Shared\Domain\CourseId;
 use CodelyTv\Test\Shared\Domain\UuidMother;

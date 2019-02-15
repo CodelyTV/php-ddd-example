@@ -10,7 +10,7 @@ use CodelyTv\Context\Mooc\Module\Video\Domain\VideoTitle;
 use CodelyTv\Context\Mooc\Module\Video\Domain\VideoType;
 use CodelyTv\Context\Mooc\Module\Video\Domain\VideoUrl;
 use CodelyTv\Shared\Domain\CourseId;
-use CodelyTv\Test\Context\Course\Module\Course\Domain\CourseIdMother;
+use CodelyTv\Test\Context\Backoffice\Module\Course\Domain\CourseIdMother;
 
 final class VideoCreatedDomainEventMother
 {

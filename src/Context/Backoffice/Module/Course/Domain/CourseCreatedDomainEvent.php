@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Context\Course\Module\Course\Domain;
+namespace CodelyTv\Context\Backoffice\Module\Course\Domain;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 
