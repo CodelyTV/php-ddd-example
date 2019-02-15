@@ -1,0 +1,42 @@
+api:
+  extensions:
+    Behat\Symfony2Extension:
+      kernel:
+        class: CodelyTv\Api\ApiKernel
+    Behat\MinkExtension:
+      sessions:
+        my_session:
+          symfony2: ~
+    Behat\BootstrapExtension\Extension:
+      bootstrap_file: applications/bootstrap.php
+
+  suites:
+    status:
+      paths: [ tests/EntryPoint/mooc_backend/features/status ]
+      contexts:
+        - CodelyTv\Test\Infrastructure\Behat\ApiFeatureContext:
+            connections: '@codely.infrastructure.database_connections'
+            publisher: '@codely.mooc.domain_event_publisher'
+            bus: '@codely.mooc.event_bus'
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiResponseContext
+    video:
+      paths: [ tests/EntryPoint/mooc_backend/features/video ]
+      contexts:
+        - CodelyTv\Test\Infrastructure\Behat\ApiFeatureContext:
+            connections: '@codely.infrastructure.database_connections'
+            publisher: '@codely.mooc.domain_event_publisher'
+            bus: '@codely.mooc.event_bus'
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiResponseContext
+    user:
+      paths: [ tests/EntryPoint/mooc_backend/features/user ]
+      contexts:
+        - CodelyTv\Test\Infrastructure\Behat\ApiFeatureContext:
+            connections: '@codely.infrastructure.database_connections'
+            publisher: '@codely.mooc.domain_event_publisher'
+            bus: '@codely.mooc.event_bus'
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiResponseContext
+        - CodelyTv\Test\Context\Mooc\Module\User\UserModuleBehatContext:
+            repository: '@codely.mooc.user.repository'

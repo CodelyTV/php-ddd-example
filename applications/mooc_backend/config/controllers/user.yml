@@ -1,0 +1,6 @@
+services:
+
+  codely.mooc_backend.controller.user.get:
+    class: CodelyTv\MoocBackend\Controller\User\UserGetController
+    parent: codely.mooc_backend.controller
+    public: true
