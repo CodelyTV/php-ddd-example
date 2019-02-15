@@ -16,8 +16,8 @@ api:
       contexts:
         - CodelyTv\Test\Infrastructure\Behat\ApiFeatureContext:
             connections: '@codely.infrastructure.database_connections'
-            publisher: '@codely.video.domain_event_publisher'
-            bus: '@codely.video.event_bus'
+            publisher: '@codely.mooc.domain_event_publisher'
+            bus: '@codely.mooc.event_bus'
         - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiRequestContext
         - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiResponseContext
     video:
@@ -25,8 +25,8 @@ api:
       contexts:
         - CodelyTv\Test\Infrastructure\Behat\ApiFeatureContext:
             connections: '@codely.infrastructure.database_connections'
-            publisher: '@codely.video.domain_event_publisher'
-            bus: '@codely.video.event_bus'
+            publisher: '@codely.mooc.domain_event_publisher'
+            bus: '@codely.mooc.event_bus'
         - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiRequestContext
         - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiResponseContext
     user:
@@ -34,9 +34,9 @@ api:
       contexts:
         - CodelyTv\Test\Infrastructure\Behat\ApiFeatureContext:
             connections: '@codely.infrastructure.database_connections'
-            publisher: '@codely.video.domain_event_publisher'
-            bus: '@codely.video.event_bus'
+            publisher: '@codely.mooc.domain_event_publisher'
+            bus: '@codely.mooc.event_bus'
         - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiRequestContext
         - CodelyTv\Test\Infrastructure\Behat\ApiContext\ApiResponseContext
         - CodelyTv\Test\Context\Video\Module\User\UserModuleBehatContext:
-            repository: '@codely.video.user.repository'
+            repository: '@codely.mooc.user.repository'

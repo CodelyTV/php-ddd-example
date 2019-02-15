@@ -1,20 +1,20 @@
 services:
 
-  codely.video.notification.repository:
+  codely.mooc.notification.repository:
     class: CodelyTv\Context\Mooc\Module\Notification\Infrastructure\Persistence\MySqlNotificationRepository
     arguments:
-      - '@codely.video.infrastructure.database'
+      - '@codely.mooc.infrastructure.database'
 
-  codely.video.notification.notifier:
-    alias: codely.video.notification.slack_notifier
+  codely.mooc.notification.notifier:
+    alias: codely.mooc.notification.slack_notifier
 
-  codely.video.notification.email_notifier:
+  codely.mooc.notification.email_notifier:
     class: CodelyTv\Context\Mooc\Module\Notification\Infrastructure\Notifier\EmailNotifier
     arguments:
       - '%video_notification_email_username%'
       - '%video_notification_email_password%'
 
-  codely.video.notification.slack_notifier:
+  codely.mooc.notification.slack_notifier:
     class: CodelyTv\Context\Mooc\Module\Notification\Infrastructure\Notifier\SlackNotifier
     arguments:
       - '%slack_video_notification_hook_url%'

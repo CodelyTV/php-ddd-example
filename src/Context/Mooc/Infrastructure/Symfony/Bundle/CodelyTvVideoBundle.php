@@ -16,8 +16,8 @@ final class CodelyTvVideoBundle extends Bundle
     {
         parent::build($container);
 
-        $container->addCompilerPass(new DomainEventSubscribersConfigurationCompilerPass('codely.video.subscriber'));
-        $container->addCompilerPass(new DatabasesConnectionCompilerPass('codely.video.database'));
-        $container->addCompilerPass(new TransactionalServiceCompilerPass('codely.video.domain_event_publisher'));
+        $container->addCompilerPass(new DomainEventSubscribersConfigurationCompilerPass('codely.mooc.subscriber'));
+        $container->addCompilerPass(new DatabasesConnectionCompilerPass('codely.mooc.database'));
+        $container->addCompilerPass(new TransactionalServiceCompilerPass('codely.mooc.domain_event_publisher'));
     }
 }

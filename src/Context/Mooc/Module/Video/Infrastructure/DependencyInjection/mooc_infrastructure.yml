@@ -1,7 +1,7 @@
 services:
 
-  codely.video.video.repository:
+  codely.mooc.video.repository:
     class: CodelyTv\Context\Mooc\Module\Video\Infrastructure\Persistence\VideoRepositoryMySql
     arguments:
-     - '@codely.video.infrastructure.database'
+     - '@codely.mooc.infrastructure.database'
     public: true

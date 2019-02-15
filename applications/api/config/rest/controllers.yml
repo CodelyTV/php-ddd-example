@@ -4,6 +4,6 @@ services:
     class: CodelyTv\Shared\Infrastructure\Api\Controller\ApiController
     abstract: true
     arguments:
-      - '@codely.video.query_bus'
-      - '@codely.video.command_bus'
+      - '@codely.mooc.query_bus'
+      - '@codely.mooc.command_bus'
       - '@codely.api.exception_handler'

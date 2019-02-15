@@ -3,4 +3,4 @@ imports:
 
 
 parameters:
-  codely.video.infrastructure.database.on_demand: true
+  codely.mooc.infrastructure.database.on_demand: true

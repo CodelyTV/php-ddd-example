@@ -18,5 +18,5 @@ framework:
 
 services:
 
-  codely.video.notification.notifier:
+  codely.mooc.notification.notifier:
     class: CodelyTv\Context\Mooc\Module\Notification\Infrastructure\Notifier\FakeNotifier

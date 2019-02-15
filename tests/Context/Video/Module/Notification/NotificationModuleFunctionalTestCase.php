@@ -11,6 +11,6 @@ abstract class NotificationModuleFunctionalTestCase extends VideoContextFunction
 {
     protected function repository(): NotificationRepository
     {
-        return $this->service('codely.video.notification.repository');
+        return $this->service('codely.mooc.notification.repository');
     }
 }

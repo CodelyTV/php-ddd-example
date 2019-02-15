@@ -16,9 +16,9 @@ final class CodelyTvVideoExtension extends Extension
 {
     public function load(array $config, ContainerBuilder $container)
     {
-        $container->registerForAutoconfiguration(CommandHandler::class)->addTag('codely.video.command');
-        $container->registerForAutoconfiguration(QueryHandler::class)->addTag('codely.video.query');
-        $container->registerForAutoconfiguration(DomainEventSubscriber::class)->addTag('codely.video.subscriber');
+        $container->registerForAutoconfiguration(CommandHandler::class)->addTag('codely.mooc.command');
+        $container->registerForAutoconfiguration(QueryHandler::class)->addTag('codely.mooc.query');
+        $container->registerForAutoconfiguration(DomainEventSubscriber::class)->addTag('codely.mooc.subscriber');
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/Resources'));
 

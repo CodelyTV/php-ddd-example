@@ -37,6 +37,6 @@ final class VideoRepositoryTest extends VideoModuleFunctionalTestCase
 
     private function repository(): VideoRepository
     {
-        return $this->service('codely.video.video.repository');
+        return $this->service('codely.mooc.video.repository');
     }
 }

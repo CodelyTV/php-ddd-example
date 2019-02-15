@@ -1,7 +1,7 @@
 services:
 
-  codely.video.infrastructure.arranger:
+  codely.mooc.infrastructure.arranger:
     class: CodelyTv\Test\Context\Video\VideoEnvironmentArranger
     arguments:
-      - '@codely.video.infrastructure.database'
+      - '@codely.mooc.infrastructure.database'
     public: true

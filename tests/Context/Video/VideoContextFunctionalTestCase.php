@@ -11,7 +11,7 @@ abstract class VideoContextFunctionalTestCase extends ModuleFunctionalTestCase
     protected function environmentArrangers()
     {
         return [
-            $this->service('codely.video.infrastructure.arranger'),
+            $this->service('codely.mooc.infrastructure.arranger'),
         ];
     }
 }

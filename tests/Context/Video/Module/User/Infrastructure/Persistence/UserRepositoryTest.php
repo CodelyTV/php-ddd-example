@@ -50,6 +50,6 @@ final class UserRepositoryTest extends UserModuleFunctionalTestCase
 
     private function repository(): UserRepository
     {
-        return $this->service('codely.video.user.repository');
+        return $this->service('codely.mooc.user.repository');
     }
 }

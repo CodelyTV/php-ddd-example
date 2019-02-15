@@ -11,6 +11,6 @@ abstract class VideoHighlightModuleFunctionalTestCase extends VideoContextFuncti
 {
     protected function repository(): VideoRepository
     {
-        return $this->service('codely.video.video_highlight.repository');
+        return $this->service('codely.mooc.video_highlight.repository');
     }
 }

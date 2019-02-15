@@ -1,25 +1,25 @@
 services:
 
-  codely.video.async_command_bus:
+  codely.mooc.async_command_bus:
     alias: codely.infrastructure.async_command_bus
 
-  codely.video.command_bus:
+  codely.mooc.command_bus:
     class: CodelyTv\Shared\Infrastructure\Bus\Command\SymfonySyncCommandBus
-    arguments: [!tagged codely.video.command]
+    arguments: [!tagged codely.mooc.command]
     lazy: true
 
-  codely.video.query_bus:
+  codely.mooc.query_bus:
     class: CodelyTv\Shared\Infrastructure\Bus\Query\SymfonySyncQueryBus
-    arguments: [!tagged codely.video.query]
+    arguments: [!tagged codely.mooc.query]
     lazy: true
 
-  codely.video.event_bus:
+  codely.mooc.event_bus:
     class: CodelyTv\Shared\Infrastructure\Bus\Event\SymfonySyncEventBus
-    arguments: [!tagged codely.video.subscriber]
+    arguments: [!tagged codely.mooc.subscriber]
     lazy: true
     public: true
 
-  codely.video.domain_event_publisher:
+  codely.mooc.domain_event_publisher:
     class: CodelyTv\Shared\Infrastructure\Bus\Event\SymfonySyncDomainEventPublisher
     lazy: true
     public: true

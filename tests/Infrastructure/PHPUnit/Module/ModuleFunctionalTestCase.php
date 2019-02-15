@@ -41,7 +41,7 @@ abstract class ModuleFunctionalTestCase extends FunctionalTestCase
 
     protected function clearUnitOfWork()
     {
-        $this->service('codely.video.infrastructure.database')->clear();
+        $this->service('codely.mooc.infrastructure.database')->clear();
     }
 
     protected function notify(DomainEvent $event)

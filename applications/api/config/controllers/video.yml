@@ -13,7 +13,7 @@ services:
   codely.api.controller.video.duration.path:
     class: CodelyTv\Api\Controller\Video\VideoDurationPatchController
     arguments:
-      - '@codely.video.query_bus'
-      - '@codely.video.async_command_bus'
+      - '@codely.mooc.query_bus'
+      - '@codely.mooc.async_command_bus'
       - '@codely.api.exception_handler'
     public: true

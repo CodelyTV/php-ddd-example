@@ -1,6 +1,6 @@
 services:
 
-  codely.video.infrastructure.database:
+  codely.mooc.infrastructure.database:
     class: Doctrine\ORM\EntityManager
     factory: [CodelyTv\Context\Mooc\Infrastructure\Doctrine\VideoEntityManagerFactory, create]
     arguments:
@@ -11,9 +11,9 @@ services:
         dbname:   '%video_database_name%'
         user:     '%video_database_user%'
         password: '%video_database_password%'
-      - '%codely.video.root_path%'
-      - '%codely.video.infrastructure.database.on_demand%'
-      - '%codely.video.infrastructure.database.schema_file%'
+      - '%codely.mooc.root_path%'
+      - '%codely.mooc.infrastructure.database.on_demand%'
+      - '%codely.mooc.infrastructure.database.schema_file%'
     tags:
-      - { name: codely.video.database }
+      - { name: codely.mooc.database }
     public: true

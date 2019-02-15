@@ -4,29 +4,29 @@ services:
 
   # Query Handlers
 
-  codely.video.user.query_handler.find:
+  codely.mooc.user.query_handler.find:
     class: CodelyTv\Context\Mooc\Module\User\Application\Find\FindUserQueryHandler
     arguments:
-      - '@codely.video.user.user_finder'
+      - '@codely.mooc.user.user_finder'
 
 
   # Subscribers
 
-  codely.video.user.subscribers.increase_user_total_videos_created_on_video_created:
+  codely.mooc.user.subscribers.increase_user_total_videos_created_on_video_created:
     class: CodelyTv\Context\Mooc\Module\User\Application\IncreasePendingVideos\IncreaseUserTotalVideosCreatedOnVideoCreated
     arguments:
-      - '@codely.video.user.user_total_videos_created_increaser'
+      - '@codely.mooc.user.user_total_videos_created_increaser'
 
 
   # Services
 
-  codely.video.user.user_finder:
+  codely.mooc.user.user_finder:
     class: CodelyTv\Context\Mooc\Module\User\Application\Find\UserFinder
     arguments:
-     - '@codely.video.user.repository'
+     - '@codely.mooc.user.repository'
 
 
-  codely.video.user.user_total_videos_created_increaser:
+  codely.mooc.user.user_total_videos_created_increaser:
     class: CodelyTv\Context\Mooc\Module\User\Application\IncreasePendingVideos\UserTotalVideosCreatedIncreaser
     arguments:
-     - '@codely.video.user.repository'
+     - '@codely.mooc.user.repository'

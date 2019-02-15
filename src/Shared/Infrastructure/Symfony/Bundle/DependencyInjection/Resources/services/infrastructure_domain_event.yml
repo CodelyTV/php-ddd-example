@@ -5,7 +5,7 @@ services:
 
   codely.infrastructure.domain_event_mapping:
     class: CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventMapping
-    arguments: [!tagged codely.video.subscriber]
+    arguments: [!tagged codely.mooc.subscriber]
 
   codely.infrastructure.subscribers_mapping:
     class: CodelyTv\Shared\Infrastructure\Bus\Event\SubscribersMapping
