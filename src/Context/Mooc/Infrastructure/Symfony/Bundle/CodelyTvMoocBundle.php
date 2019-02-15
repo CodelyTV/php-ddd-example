@@ -10,7 +10,7 @@ use CodelyTv\Shared\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler\T
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class CodelyTvVideoBundle extends Bundle
+final class CodelyTvMoocBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {

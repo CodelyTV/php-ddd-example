@@ -1,5 +1,5 @@
 imports:
-  - { resource: video_parameters.yml }
-  - { resource: infrastructure/_video_infrastructure.yml }
-  - { resource: modules/_video_modules.yml }
-  - { resource: services/_video_services.yml }
+  - { resource: mooc_parameters.yml }
+  - { resource: infrastructure/_mooc_infrastructure.yml }
+  - { resource: modules/_mooc_modules.yml }
+  - { resource: services/_mooc_services.yml }

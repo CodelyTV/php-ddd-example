@@ -1,5 +1,5 @@
 imports:
-  - { resource: video_config.yml }
+  - { resource: mooc_config.yml }
 
 
 parameters:

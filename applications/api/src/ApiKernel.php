@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Api;
 
-use CodelyTv\Context\Mooc\Infrastructure\Symfony\Bundle\CodelyTvVideoBundle;
+use CodelyTv\Context\Mooc\Infrastructure\Symfony\Bundle\CodelyTvMoocBundle;
 use CodelyTv\Shared\Infrastructure\Symfony\Bundle\CodelyTvInfrastructureBundle;
 use FOS\RestBundle\FOSRestBundle;
 use JMS\SerializerBundle\JMSSerializerBundle;
@@ -20,7 +20,7 @@ final class ApiKernel extends Kernel
     {
         return [
             new CodelyTvInfrastructureBundle(),
-            new CodelyTvVideoBundle(),
+            new CodelyTvMoocBundle(),
 
             new FrameworkBundle(),
             new TwigBundle(),

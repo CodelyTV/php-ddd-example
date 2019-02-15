@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-final class CodelyTvVideoExtension extends Extension
+final class CodelyTvMoocExtension extends Extension
 {
     public function load(array $config, ContainerBuilder $container)
     {
@@ -22,7 +22,7 @@ final class CodelyTvVideoExtension extends Extension
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/Resources'));
 
-        $loader->load('video_extension.yml');
-        $loader->load(sprintf('video_config_%s.yml', $container->getParameter('kernel.environment')));
+        $loader->load('mooc_extension.yml');
+        $loader->load(sprintf('mooc_config_%s.yml', $container->getParameter('kernel.environment')));
     }
 }
