@@ -1,0 +1,7 @@
+services:
+
+  codely.mooc.infrastructure.arranger:
+    class: CodelyTv\Test\Context\Mooc\MoocEnvironmentArranger
+    arguments:
+      - '@codely.mooc.infrastructure.database'
+    public: true

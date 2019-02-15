@@ -7,8 +7,8 @@ applications/*/var/logs/*
 src/Shared/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/infrastructure_parameters.yml
 src/Context/*/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/*_parameters.yml
 
-/applications/api/config/supervisor/*
-!/applications/api/config/supervisor/.gitkeep
+/applications/mooc_backend/config/supervisor/*
+!/applications/mooc_backend/config/supervisor/.gitkeep
 
 /phpunit.xml
 

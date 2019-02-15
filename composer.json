@@ -55,13 +55,13 @@
   "extra": {
     "incenteev-parameters": [
       { "file": "src/Shared/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/infrastructure_parameters.yml"},
-      { "file": "src/Context/Video/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/video_parameters.yml" }
+      { "file": "src/Context/Mooc/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/mooc_parameters.yml" }
     ]
   },
   "autoload": {
     "psr-4": {
       "CodelyTv\\": ["applications/codely/src", "src"],
-      "CodelyTv\\Api\\": "applications/api/src"
+      "CodelyTv\\MoocBackend\\": "applications/mooc_backend/src"
     },
     "files": [
       "src/utils.php"

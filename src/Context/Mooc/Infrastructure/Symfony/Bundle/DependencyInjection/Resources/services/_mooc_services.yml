@@ -1,0 +1,25 @@
+services:
+
+  codely.mooc.async_command_bus:
+    alias: codely.infrastructure.async_command_bus
+
+  codely.mooc.command_bus:
+    class: CodelyTv\Shared\Infrastructure\Bus\Command\SymfonySyncCommandBus
+    arguments: [!tagged codely.mooc.command]
+    lazy: true
+
+  codely.mooc.query_bus:
+    class: CodelyTv\Shared\Infrastructure\Bus\Query\SymfonySyncQueryBus
+    arguments: [!tagged codely.mooc.query]
+    lazy: true
+
+  codely.mooc.event_bus:
+    class: CodelyTv\Shared\Infrastructure\Bus\Event\SymfonySyncEventBus
+    arguments: [!tagged codely.mooc.subscriber]
+    lazy: true
+    public: true
+
+  codely.mooc.domain_event_publisher:
+    class: CodelyTv\Shared\Infrastructure\Bus\Event\SymfonySyncDomainEventPublisher
+    lazy: true
+    public: true

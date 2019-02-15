@@ -1,6 +1,0 @@
-imports:
-  - { resource: video_config.yml }
-
-
-parameters:
-  codely.video.infrastructure.database.on_demand: true

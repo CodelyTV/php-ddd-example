@@ -1,3 +1,3 @@
 imports:
-  - tests/EntryPoint/api/api.yml
+  - tests/EntryPoint/mooc_backend/mooc_backend.yml
   - tests/EntryPoint/applications/applications.yml

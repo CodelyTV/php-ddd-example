@@ -1,4 +1,0 @@
-user_get:
-  path:     /users/{id}
-  defaults: { _controller: codely.api.controller.user.get }
-  methods:  [GET]
