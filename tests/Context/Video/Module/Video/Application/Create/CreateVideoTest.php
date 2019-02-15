@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Context\Video\Module\Video\Application\Create;
 
-use CodelyTv\Context\Video\Module\Video\Application\Create\CreateVideoCommandHandler;
-use CodelyTv\Context\Video\Module\Video\Application\Create\VideoCreator;
+use CodelyTv\Context\Mooc\Module\Video\Application\Create\CreateVideoCommandHandler;
+use CodelyTv\Context\Mooc\Module\Video\Application\Create\VideoCreator;
 use CodelyTv\Test\Context\Course\Module\Course\Domain\CourseIdMother;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoCreatedDomainEventMother;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdMother;

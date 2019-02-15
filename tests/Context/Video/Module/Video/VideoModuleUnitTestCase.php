@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Context\Video\Module\Video;
 
-use CodelyTv\Context\Video\Module\Video\Domain\Video;
-use CodelyTv\Context\Video\Module\Video\Domain\VideoId;
-use CodelyTv\Context\Video\Module\Video\Domain\VideoRepository;
+use CodelyTv\Context\Mooc\Module\Video\Domain\Video;
+use CodelyTv\Context\Mooc\Module\Video\Domain\VideoId;
+use CodelyTv\Context\Mooc\Module\Video\Domain\VideoRepository;
 use CodelyTv\Test\Context\Video\VideoContextUnitTestCase;
 use Mockery\MockInterface;
 use function CodelyTv\Test\similarTo;

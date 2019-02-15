@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Context\Video\Module\User\Application\IncreasePendingVideos;
 
-use CodelyTv\Context\Video\Module\User\Application\IncreasePendingVideos\IncreaseUserTotalVideosCreatedOnVideoCreated;
-use CodelyTv\Context\Video\Module\User\Application\IncreasePendingVideos\UserTotalVideosCreatedIncreaser;
+use CodelyTv\Context\Mooc\Module\User\Application\IncreasePendingVideos\IncreaseUserTotalVideosCreatedOnVideoCreated;
+use CodelyTv\Context\Mooc\Module\User\Application\IncreasePendingVideos\UserTotalVideosCreatedIncreaser;
 use CodelyTv\Test\Context\Video\Module\User\UserModuleUnitTestCase;
 use CodelyTv\Test\Context\Video\Module\User\Domain\ScalaVideoCreatedDomainEventMother;
 use CodelyTv\Test\Context\Video\Module\User\Domain\TotalVideosCreatedMother;

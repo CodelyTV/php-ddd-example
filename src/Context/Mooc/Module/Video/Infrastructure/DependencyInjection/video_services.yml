@@ -1,0 +1,32 @@
+services:
+  _defaults:
+    autoconfigure: true
+
+  # Command Handlers
+
+  codely.video.video.command_handler.create_video:
+    class: CodelyTv\Context\Mooc\Module\Video\Application\Create\CreateVideoCommandHandler
+    arguments:
+      - '@codely.video.video.video_creator'
+
+
+  # Query Handlers
+
+  codely.video.video.query_handler.find:
+    class: CodelyTv\Context\Mooc\Module\Video\Application\Find\FindVideoQueryHandler
+    arguments:
+      - '@codely.video.video.video_finder'
+
+
+  # Services
+
+  codely.video.video.video_creator:
+    class: CodelyTv\Context\Mooc\Module\Video\Application\Create\VideoCreator
+    arguments:
+     - '@codely.video.video.repository'
+     - '@codely.video.domain_event_publisher'
+
+  codely.video.video.video_finder:
+    class: CodelyTv\Context\Mooc\Module\Video\Application\Find\VideoFinder
+    arguments:
+     - '@codely.video.video.repository'

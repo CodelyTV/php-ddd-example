@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Context\Video\Module\VideoHighlight;
 
-use CodelyTv\Context\Video\Module\VideoHighlight\Domain\VideoHighlightRepository;
+use CodelyTv\Context\Mooc\Module\VideoHighlight\Domain\VideoHighlightRepository;
 use CodelyTv\Test\Context\Video\VideoContextUnitTestCase;
 use Mockery\MockInterface;
 

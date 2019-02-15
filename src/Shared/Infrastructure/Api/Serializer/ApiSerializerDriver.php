@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Infrastructure\Api\Serializer;
 
-use CodelyTv\Context\Video\Module\User\Application\Find\UserResponse;
-use CodelyTv\Context\Video\Module\Video\Application\Find\VideoResponse;
+use CodelyTv\Context\Mooc\Module\User\Application\Find\UserResponse;
+use CodelyTv\Context\Mooc\Module\Video\Application\Find\VideoResponse;
 use CodelyTv\Shared\Infrastructure\Jms\CodelyTvSerializerDriver;
 
 final class ApiSerializerDriver extends CodelyTvSerializerDriver

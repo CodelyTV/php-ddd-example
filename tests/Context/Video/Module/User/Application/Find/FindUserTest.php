@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Context\Video\Module\User\Application\Find;
 
-use CodelyTv\Context\Video\Module\User\Application\Find\FindUserQueryHandler;
-use CodelyTv\Context\Video\Module\User\Application\Find\UserFinder;
-use CodelyTv\Context\Video\Module\User\Domain\UserNotExist;
+use CodelyTv\Context\Mooc\Module\User\Application\Find\FindUserQueryHandler;
+use CodelyTv\Context\Mooc\Module\User\Application\Find\UserFinder;
+use CodelyTv\Context\Mooc\Module\User\Domain\UserNotExist;
 use CodelyTv\Test\Context\Video\Module\User\UserModuleUnitTestCase;
 use CodelyTv\Test\Context\Video\Module\User\Domain\UserIdMother;
 use CodelyTv\Test\Context\Video\Module\User\Domain\UserResponseMother;

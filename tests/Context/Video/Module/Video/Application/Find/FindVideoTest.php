@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Context\Video\Module\Video\Application\Find;
 
-use CodelyTv\Context\Video\Module\Video\Application\Find\FindVideoQueryHandler;
-use CodelyTv\Context\Video\Module\Video\Application\Find\VideoFinder;
-use CodelyTv\Context\Video\Module\Video\Domain\VideoNotFound;
+use CodelyTv\Context\Mooc\Module\Video\Application\Find\FindVideoQueryHandler;
+use CodelyTv\Context\Mooc\Module\Video\Application\Find\VideoFinder;
+use CodelyTv\Context\Mooc\Module\Video\Domain\VideoNotFound;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoIdMother;
 use CodelyTv\Test\Context\Video\Module\Video\Domain\VideoMother;
 use CodelyTv\Test\Context\Video\Module\Video\VideoModuleUnitTestCase;

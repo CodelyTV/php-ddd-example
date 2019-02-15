@@ -7,7 +7,7 @@ namespace CodelyTv\Test\Context\Video\Module\User;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\RawMinkContext;
-use CodelyTv\Context\Video\Module\User\Domain\UserRepository;
+use CodelyTv\Context\Mooc\Module\User\Domain\UserRepository;
 use CodelyTv\Test\Context\Video\Module\User\Domain\UserMother;
 use function Lambdish\Phunctional\apply;
 

@@ -6,7 +6,7 @@ namespace CodelyTv\Api\Controller\Video;
 
 use CodelyTv\Shared\Infrastructure\Api\Controller\ApiController;
 use CodelyTv\Shared\Infrastructure\Api\Response\ApiHttpCreatedResponse;
-use CodelyTv\Context\Video\Module\Video\Application\Create\CreateVideoCommand;
+use CodelyTv\Context\Mooc\Module\Video\Application\Create\CreateVideoCommand;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use Symfony\Component\HttpFoundation\Request;
 
