@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Checks if locally staged changes are formatted properly ignoring non-staged changes.
+# Install it with the `install-hooks.sh` script
+# Based on: https://gist.github.com/cvogt/2676ed6c6d1abafa3d6a
+
+PATH=$PATH:/usr/local/bin:/usr/local/sbin
+
+echo ""
+echo "Running pre-push hook… (you can omit this with --no-verify, but don't)"
+
+echo "* Moving to the project directory…"
+_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+DIR=$( echo $_DIR | sed 's/\/.git\/hooks$//' )
+
+echo "* Stashing non-staged changes so we avoid checking them…"
+git diff --quiet
+hadNoNonStagedChanges=$?
+
+if ! [ $hadNoNonStagedChanges -eq 0 ]
+then
+	git stash --keep-index -u > /dev/null
+fi
+
+echo "* Checking pre push conditions ('test' composer task)…"
+composer test > /dev/null
+canPush=$?
+
+if [ $canPush -ne 0 ]
+then
+	echo "  [KO] Error :("
+fi
+
+echo "* Applying the stash with the non-staged changes…"
+if ! [ $hadNoNonStagedChanges -eq 0 ]
+then
+	sleep 1 && git stash pop --index > /dev/null & # sleep because otherwise commit fails when this leads to a merge conflict
+fi
+
+# Final result
+echo ""
+
+if [ $canPush -eq 0 ]
+then
+    echo "[OK] Your code will be pushed young Padawan"
+    exit 0
+else
+    echo "[KO] Cancelling push due to 'composer test' task error (run 'composer test' for more information)"
+    exit 1
+fi

@@ -50,7 +50,11 @@
   },
   "scripts": {
     "post-install-cmd": ["Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"],
-    "post-update-cmd": ["Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"]
+    "post-update-cmd": ["Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"],
+    "behat": "behat -p api && behat -p applications",
+    "phpunit": "phpunit --exclude-group='disabled'",
+    "phpstan": "phpstan analyse -l 7 -c etc/phpstan/phpstan.neon applications/api/src applications/codely/src --quiet",
+    "test": ["@phpstan", "@phpunit", "@behat"]
   },
   "extra": {
     "incenteev-parameters": [
