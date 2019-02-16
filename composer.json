@@ -1,5 +1,6 @@
 {
   "name": "codelytv/cqrs-ddd-example",
+  "license": "MIT",
   "type": "project",
   "description": "A simple skeleton for CQRS code :)",
   "require": {
