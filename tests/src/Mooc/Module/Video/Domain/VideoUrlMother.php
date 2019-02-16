@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\Video\Domain;
 
-use CodelyTv\Mooc\Module\Video\Domain\VideoUrl;
+use CodelyTv\Mooc\Video\Domain\VideoUrl;
 use CodelyTv\Test\Shared\Domain\UrlMother;
 
 final class VideoUrlMother

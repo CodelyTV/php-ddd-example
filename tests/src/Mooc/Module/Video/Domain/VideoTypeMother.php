@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\Video\Domain;
 
-use CodelyTv\Mooc\Module\Video\Domain\VideoType;
+use CodelyTv\Mooc\Video\Domain\VideoType;
 
 final class VideoTypeMother
 {

@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\User\Domain;
 
-use CodelyTv\Mooc\Module\User\Domain\UserId;
+use CodelyTv\Mooc\User\Domain\UserId;
 use CodelyTv\Test\Shared\Domain\UuidMother;
 
 final class UserIdMother

@@ -1,0 +1,17 @@
+CodelyTv\Mooc\User\Domain\User:
+  type: entity
+  table: user
+
+  id:
+    id:
+      type: user_id
+      column: id
+      length: 36
+
+  embedded:
+    name:
+      class: CodelyTv\Mooc\User\Domain\UserName
+      columnPrefix: false
+    totalVideosCreated:
+      class: CodelyTv\Mooc\User\Domain\TotalVideosCreated
+      columnPrefix: false

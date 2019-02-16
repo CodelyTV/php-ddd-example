@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\Video\Infrastructure\Persistence;
 
-use CodelyTv\Mooc\Module\Video\Domain\VideoRepository;
+use CodelyTv\Mooc\Video\Domain\VideoRepository;
 use CodelyTv\Test\Mooc\Module\Video\Domain\VideoIdMother;
 use CodelyTv\Test\Mooc\Module\Video\Domain\VideoMother;
 use CodelyTv\Test\Mooc\Module\Video\VideoModuleFunctionalTestCase;

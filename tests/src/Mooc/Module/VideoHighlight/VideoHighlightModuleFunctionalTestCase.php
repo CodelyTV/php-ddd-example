@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\VideoHighlight;
 
-use CodelyTv\Mooc\Module\Video\Domain\VideoRepository;
+use CodelyTv\Mooc\Video\Domain\VideoRepository;
 use CodelyTv\Test\Mooc\MoocContextFunctionalTestCase;
 
 abstract class VideoHighlightModuleFunctionalTestCase extends MoocContextFunctionalTestCase

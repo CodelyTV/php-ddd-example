@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\Video\Application\Find;
 
-use CodelyTv\Mooc\Module\Video\Application\Find\FindVideoQuery;
-use CodelyTv\Mooc\Module\Video\Domain\VideoId;
+use CodelyTv\Mooc\Video\Application\Find\FindVideoQuery;
+use CodelyTv\Mooc\Video\Domain\VideoId;
 use CodelyTv\Test\Mooc\Module\Video\Domain\VideoIdMother;
 
 final class FindVideoQueryMother

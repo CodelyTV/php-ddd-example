@@ -7,7 +7,7 @@ namespace CodelyTv\Test\Mooc\Module\User;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\RawMinkContext;
-use CodelyTv\Mooc\Module\User\Domain\UserRepository;
+use CodelyTv\Mooc\User\Domain\UserRepository;
 use CodelyTv\Test\Mooc\Module\User\Domain\UserMother;
 use function Lambdish\Phunctional\apply;
 

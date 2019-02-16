@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\VideoComment\Domain;
 
-use CodelyTv\Mooc\Module\VideoComment\Domain\VideoCommentId;
+use CodelyTv\Mooc\VideoComment\Domain\VideoCommentId;
 use CodelyTv\Test\Shared\Domain\UuidMother;
 
 final class VideoCommentIdMother

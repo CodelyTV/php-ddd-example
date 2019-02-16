@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\User\Domain;
 
-use CodelyTv\Mooc\Module\User\Domain\TotalVideosCreated;
+use CodelyTv\Mooc\User\Domain\TotalVideosCreated;
 use CodelyTv\Test\Shared\Domain\NumberMother;
 
 final class TotalVideosCreatedMother

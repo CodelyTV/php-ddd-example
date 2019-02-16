@@ -5,8 +5,8 @@ declare(strict_types = 1);
 namespace CodelyTv\MoocBackend\Controller\Video;
 
 use CodelyTv\Shared\Infrastructure\Api\Controller\ApiController;
-use CodelyTv\Mooc\Module\Video\Application\Find\FindVideoQuery;
-use CodelyTv\Mooc\Module\Video\Domain\VideoNotFound;
+use CodelyTv\Mooc\Video\Application\Find\FindVideoQuery;
+use CodelyTv\Mooc\Video\Domain\VideoNotFound;
 use Symfony\Component\HttpFoundation\Response;
 
 final class VideoGetController extends ApiController

@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\VideoComment\Domain;
 
-use CodelyTv\Mooc\Module\Video\Domain\VideoId;
-use CodelyTv\Mooc\Module\VideoComment\Contract\VideoCommentPublishedDomainEvent;
-use CodelyTv\Mooc\Module\VideoComment\Domain\VideoCommentContent;
-use CodelyTv\Mooc\Module\VideoComment\Domain\VideoCommentId;
+use CodelyTv\Mooc\Video\Domain\VideoId;
+use CodelyTv\Mooc\VideoComment\Contract\VideoCommentPublishedDomainEvent;
+use CodelyTv\Mooc\VideoComment\Domain\VideoCommentContent;
+use CodelyTv\Mooc\VideoComment\Domain\VideoCommentId;
 
 final class VideoCommentPublishedDomainEventMother
 {

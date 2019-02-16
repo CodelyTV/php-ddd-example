@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\User\Domain;
 
-use CodelyTv\Mooc\Module\User\Domain\User;
-use CodelyTv\Mooc\Module\User\Domain\Users;
+use CodelyTv\Mooc\User\Domain\User;
+use CodelyTv\Mooc\User\Domain\Users;
 use CodelyTv\Test\Shared\Domain\RepeatMother;
 
 final class UsersMother

@@ -56,7 +56,7 @@
   "extra": {
     "incenteev-parameters": [
       { "file": "src/Shared/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/infrastructure_parameters.yml"},
-      { "file": "src/Mooc/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/mooc_parameters.yml" }
+      { "file": "src/Mooc/Shared/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/mooc_parameters.yml"}
     ]
   },
   "autoload": {

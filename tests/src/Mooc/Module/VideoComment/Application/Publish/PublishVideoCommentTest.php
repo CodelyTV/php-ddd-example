@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\VideoComment\Application\Publish;
 
-use CodelyTv\Mooc\Module\VideoComment\Application\Publish\PublishVideoCommentCommandHandler;
-use CodelyTv\Mooc\Module\VideoComment\Application\Publish\VideoCommentPublisher;
-use CodelyTv\Mooc\Module\VideoComment\Domain\VideoComment;
-use CodelyTv\Mooc\Module\VideoComment\Domain\VideoCommentRepository;
+use CodelyTv\Mooc\VideoComment\Application\Publish\PublishVideoCommentCommandHandler;
+use CodelyTv\Mooc\VideoComment\Application\Publish\VideoCommentPublisher;
+use CodelyTv\Mooc\VideoComment\Domain\VideoComment;
+use CodelyTv\Mooc\VideoComment\Domain\VideoCommentRepository;
 use CodelyTv\Test\Mooc\Module\Video\Domain\VideoIdMother;
 use CodelyTv\Test\Mooc\Module\VideoComment\Domain\VideoCommentContentMother;
 use CodelyTv\Test\Mooc\Module\VideoComment\Domain\VideoCommentIdMother;

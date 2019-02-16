@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\User;
 
-use CodelyTv\Mooc\Module\User\Domain\User;
-use CodelyTv\Mooc\Module\User\Domain\UserId;
-use CodelyTv\Mooc\Module\User\Domain\UserRepository;
+use CodelyTv\Mooc\User\Domain\User;
+use CodelyTv\Mooc\User\Domain\UserId;
+use CodelyTv\Mooc\User\Domain\UserRepository;
 use CodelyTv\Test\Mooc\MoocContextUnitTestCase;
 use Mockery\MockInterface;
 use function CodelyTv\Test\similarTo;

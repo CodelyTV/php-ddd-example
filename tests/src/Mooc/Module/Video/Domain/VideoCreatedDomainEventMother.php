@@ -4,11 +4,11 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\Video\Domain;
 
-use CodelyTv\Mooc\Module\Video\Domain\VideoCreatedDomainEvent;
-use CodelyTv\Mooc\Module\Video\Domain\VideoId;
-use CodelyTv\Mooc\Module\Video\Domain\VideoTitle;
-use CodelyTv\Mooc\Module\Video\Domain\VideoType;
-use CodelyTv\Mooc\Module\Video\Domain\VideoUrl;
+use CodelyTv\Mooc\Video\Domain\VideoCreatedDomainEvent;
+use CodelyTv\Mooc\Video\Domain\VideoId;
+use CodelyTv\Mooc\Video\Domain\VideoTitle;
+use CodelyTv\Mooc\Video\Domain\VideoType;
+use CodelyTv\Mooc\Video\Domain\VideoUrl;
 use CodelyTv\Shared\Domain\CourseId;
 use CodelyTv\Test\Backoffice\Course\Domain\CourseIdMother;
 

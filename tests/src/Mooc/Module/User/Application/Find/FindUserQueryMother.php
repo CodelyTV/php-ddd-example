@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\User\Application\Find;
 
-use CodelyTv\Mooc\Module\User\Application\Find\FindUserQuery;
-use CodelyTv\Mooc\Module\User\Domain\UserId;
+use CodelyTv\Mooc\User\Application\Find\FindUserQuery;
+use CodelyTv\Mooc\User\Domain\UserId;
 use CodelyTv\Test\Mooc\Module\User\Domain\UserIdMother;
 
 final class FindUserQueryMother

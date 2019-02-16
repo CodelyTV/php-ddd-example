@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Module\User\Domain;
 
-use CodelyTv\Mooc\Module\User\Domain\TotalVideosCreated;
-use CodelyTv\Mooc\Module\User\Domain\User;
-use CodelyTv\Mooc\Module\User\Domain\UserId;
-use CodelyTv\Mooc\Module\User\Domain\UserName;
+use CodelyTv\Mooc\User\Domain\TotalVideosCreated;
+use CodelyTv\Mooc\User\Domain\User;
+use CodelyTv\Mooc\User\Domain\UserId;
+use CodelyTv\Mooc\User\Domain\UserName;
 
 final class UserMother
 {
