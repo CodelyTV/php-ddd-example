@@ -77,6 +77,7 @@
 If you don't want to use the Docker environment, you can do the following
 
 * A [MySQL](https://www.mysql.com/) database
+  - `mysql.server start`
   - Execute all `.sql` from `/databases` dir
 * [Apache](https://httpd.apache.org/)/[Nginx](https://nginx.org/en/)
 * [Supervisord](http://supervisord.org/)
@@ -88,8 +89,8 @@ If you don't want to use the Docker environment, you can do the following
 
 Once you have all the dependencies, in order to execute the tests, run this command:
 
-* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/behat -p api` (This will also create all needed databases)
-* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/behat -p applications`
+* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/behat -p mooc_backend` (This will also create all needed databases)
+* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/behat -p all_applications`
 * `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/phpunit`
 
 
