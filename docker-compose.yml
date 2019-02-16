@@ -7,9 +7,7 @@ services:
     ports:
       - "8030:80"
     volumes:
-      - type: bind
-        source: .
-        target: /app
+      - .:/var/www
       - ./etc/infrastructure/nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
@@ -22,9 +20,8 @@ services:
     ports:
       - "9030:9001"
     volumes:
-      - type: bind
-        source: .
-        target: /var/www
+      - .:/app
+      - ./vendor:/app/vendor
     env_file:
       - .env
     depends_on:

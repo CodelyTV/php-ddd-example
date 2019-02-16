@@ -15,10 +15,10 @@ COPY . /app/
 RUN composer dump-autoload --optimize --classmap-authoritative
 
 FROM php:7.3-fpm-alpine
-WORKDIR /vaw/www
+WORKDIR /app
 
-COPY . /vaw/www/
-COPY --from=builder /app/vendor /var/www/vendor
+COPY . /app/
+COPY --from=builder /app/vendor /app/vendor
 COPY etc/infrastructure/php/ /usr/local/etc/php/
 
 RUN apk --update upgrade \
@@ -30,4 +30,3 @@ RUN apk --update upgrade \
     && docker-php-ext-install pdo pdo_mysql
 
 EXPOSE 9001
-CMD ["php-fpm"]
