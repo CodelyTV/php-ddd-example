@@ -70,7 +70,7 @@
 * Copy the default environment variables: `cp .env.dist .env`
 * Start the services: `docker-compose up -d` ([this will perform a composer install](Dockerfile#L4))
 * Add `api.codelytv.dev` domain to your local hosts: `echo "127.0.0.1 api.codelytv.dev"| sudo tee -a /etc/hosts > /dev/null`
-* Go to [the API healthcheck page](http://api.codelytv.dev:8030/status)
+* Go to [the API health check page](http://api.codelytv.dev:8030/status)
 
 ### 🎰 Local environment
 
@@ -149,11 +149,11 @@ Our repositories try to be as simple as possible usually only containing 2 metho
 If we need some query with more filters we use the `Strategy` pattern also known as `Criteria` pattern. So we add a
 `searchByCriteria` method.
 
-You can see an example [here](src/Context/Mooc/Module/Video/Domain/VideoRepository.php)
-and its implementation [here](src/Context/Mooc/Module/Video/Infrastructure/Persistence/VideoRepositoryMySql.php). 
+You can see an example [here](src/Mooc/Video/Domain/VideoRepository.php)
+and its implementation [here](src/Mooc/Video/Infrastructure/Persistence/VideoRepositoryMySql.php). 
 
 ### Aggregates
-You can see an example of an aggregate [here](src/Context/Mooc/Module/Video/Domain/Video.php). All aggregates should
+You can see an example of an aggregate [here](src/Mooc/Video/Domain/Video.php). All aggregates should
 extends the [AggregateRoot](src/Shared/Domain/Aggregate/AggregateRoot.php).
 
 ### Command Bus
