@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv;
 
-use CodelyTv\Context\Mooc\Infrastructure\Symfony\Bundle\CodelyTvMoocBundle;
+use CodelyTv\Mooc\Infrastructure\Symfony\Bundle\CodelyTvMoocBundle;
 use CodelyTv\Shared\Infrastructure\Symfony\Bundle\CodelyTvInfrastructureBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\MonologBundle\MonologBundle;

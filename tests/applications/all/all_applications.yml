@@ -1,0 +1,6 @@
+all_applications:
+  suites:
+    default:
+      paths: [tests/applications/all]
+      contexts:
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ConsoleContext\ConsoleContext

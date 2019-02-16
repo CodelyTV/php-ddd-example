@@ -1,0 +1,23 @@
+<?php
+
+declare(strict_types = 1);
+
+namespace CodelyTv\Mooc\Module\Notification\Infrastructure\Persistence;
+
+use CodelyTv\Mooc\Module\Notification\Domain\Notification;
+use CodelyTv\Mooc\Module\Notification\Domain\NotificationId;
+use CodelyTv\Mooc\Module\Notification\Domain\NotificationRepository;
+use CodelyTv\Shared\Infrastructure\Doctrine\Repository;
+
+final class MySqlNotificationRepository extends Repository implements NotificationRepository
+{
+    public function search(NotificationId $id)
+    {
+        return $this->repository(Notification::class)->find($id);
+    }
+
+    public function save(Notification $notification)
+    {
+        $this->persist($notification);
+    }
+}
