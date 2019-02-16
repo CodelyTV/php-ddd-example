@@ -1,6 +1,9 @@
-FROM composer:1.8.0 as builder
+FROM composer:1.8 as builder
+WORKDIR /app
 
 COPY composer.json composer.lock /app/
+# Composer parallel
+RUN composer global require hirak/prestissimo
 RUN composer install  \
     --ignore-platform-reqs \
     --no-ansi \
@@ -11,16 +14,20 @@ RUN composer install  \
 COPY . /app/
 RUN composer dump-autoload --optimize --classmap-authoritative
 
-FROM php:7.2-fpm-alpine
-WORKDIR /app
+FROM php:7.3-fpm-alpine
+WORKDIR /vaw/www
+
+COPY . /vaw/www/
+COPY --from=builder /app/vendor /var/www/vendor
+COPY etc/infrastructure/php/ /usr/local/etc/php/
 
 RUN apk --update upgrade \
     && apk add autoconf automake make gcc g++ rabbitmq-c rabbitmq-c-dev \
-    && pecl install amqp-1.9.3 \
-    && pecl install apcu-5.1.12 \
-    && pecl install xdebug-2.6.1 \
+    && pecl install amqp-1.9.4 \
+    && pecl install apcu-5.1.17 \
+    && pecl install xdebug-2.7.0RC2 \
     && docker-php-ext-enable amqp apcu xdebug \
     && docker-php-ext-install pdo pdo_mysql
 
-COPY --from=builder /app /var/www/
-COPY etc/infrastructure/php/ /usr/local/etc/php/
+EXPOSE 9001
+CMD ["php-fpm"]

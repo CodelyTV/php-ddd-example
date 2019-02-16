@@ -1,5 +1,6 @@
 {
   "name": "codelytv/cqrs-ddd-example",
+  "license": "MIT",
   "type": "project",
   "description": "A simple skeleton for CQRS code :)",
   "require": {
@@ -59,7 +60,7 @@
   "extra": {
     "incenteev-parameters": [
       { "file": "src/Shared/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/infrastructure_parameters.yml"},
-      { "file": "src/Context/Mooc/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/mooc_parameters.yml" }
+      { "file": "src/Mooc/Shared/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/mooc_parameters.yml"}
     ]
   },
   "autoload": {
@@ -73,10 +74,10 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "CodelyTv\\Test\\": "tests"
+      "CodelyTv\\Test\\": "tests/src"
     },
     "files": [
-      "tests/utils.php"
+      "tests/src/utils.php"
     ]
   }
 }

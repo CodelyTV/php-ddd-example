@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Infrastructure\Doctrine\DBAL;
 
-use CodelyTv\Context\Mooc\Module\User\Infrastructure\Persistence\UserIdType;
-use CodelyTv\Context\Mooc\Module\Video\Infrastructure\Persistence\VideoIdType;
+use CodelyTv\Mooc\User\Infrastructure\Persistence\UserIdType;
+use CodelyTv\Mooc\Video\Infrastructure\Persistence\VideoIdType;
 use CodelyTv\Shared\Infrastructure\Persistence\Course\CourseIdType;
 use Doctrine\DBAL\Types\Type;
 use function Lambdish\Phunctional\each;

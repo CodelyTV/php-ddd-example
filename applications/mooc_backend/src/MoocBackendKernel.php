@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\MoocBackend;
 
-use CodelyTv\Context\Mooc\Infrastructure\Symfony\Bundle\CodelyTvMoocBundle;
+use CodelyTv\Mooc\Shared\Infrastructure\Symfony\Bundle\CodelyTvMoocBundle;
 use CodelyTv\Shared\Infrastructure\Symfony\Bundle\CodelyTvInfrastructureBundle;
 use FOS\RestBundle\FOSRestBundle;
 use JMS\SerializerBundle\JMSSerializerBundle;
