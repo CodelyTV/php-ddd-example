@@ -4,6 +4,6 @@ Feature: Bootstrap check
     When I run the "<app>" console
     Then the console command should run successfully
     Examples:
-      | app    |
-      | codely |
-      | api    |
+      | app          |
+      | codely       |
+      | mooc_backend |

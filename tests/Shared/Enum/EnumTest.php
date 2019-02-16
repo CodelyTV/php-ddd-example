@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Shared\Enum;
 
-use CodelyTv\Test\Infrastructure\PHPUnit\UnitTestCase;
+use CodelyTv\Test\Shared\Infrastructure\PHPUnit\UnitTestCase;
 
 final class EnumTest extends UnitTestCase
 {

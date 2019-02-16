@@ -1,0 +1,15 @@
+parameters:
+
+  mooc_database_driver: pdo_mysql
+  mooc_database_host: '%env(MYSQL_HOST)%'
+  mooc_database_port: '%env(MYSQL_PORT)%'
+  mooc_database_name: codely_video
+  mooc_database_user: root
+  mooc_database_password: '%env(MYSQL_ROOT_PASSWORD)%'
+
+  video_notification_email_username: 'your@email.com'
+  video_notification_email_password: 'yourSecretPassword'
+
+  slack_video_notification_hook_url: 'https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX'
+  slack_video_notification_username: 'YourUsername'
+  slack_video_notification_channel: '#your_cannel'

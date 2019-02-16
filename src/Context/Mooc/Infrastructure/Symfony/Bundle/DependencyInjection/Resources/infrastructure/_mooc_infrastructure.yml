@@ -1,0 +1,3 @@
+imports:
+  - { resource: mooc_arranger.yml }
+  - { resource: mooc_database.yml }

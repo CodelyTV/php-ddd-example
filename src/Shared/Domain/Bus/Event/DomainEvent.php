@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Domain\Bus\Event;
 
-use CodelyTv\Infrastructure\Bus\Event\Guard\DomainEventGuard;
+use CodelyTv\Shared\Infrastructure\Bus\Event\Guard\DomainEventGuard;
 use CodelyTv\Shared\Domain\Bus\Message;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use DateTimeImmutable;

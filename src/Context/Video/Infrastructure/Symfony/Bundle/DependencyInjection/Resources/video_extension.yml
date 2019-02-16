@@ -1,5 +1,0 @@
-imports:
-  - { resource: video_parameters.yml }
-  - { resource: infrastructure/_video_infrastructure.yml }
-  - { resource: modules/_video_modules.yml }
-  - { resource: services/_video_services.yml }

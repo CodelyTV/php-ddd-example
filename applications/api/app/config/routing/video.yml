@@ -1,9 +1,0 @@
-video_post:
-  path:     /video
-  defaults: { _controller: codely.api.controller.video.post }
-  methods:  [POST]
-
-video_get:
-  path:     /video/{id}
-  defaults: { _controller: codely.api.controller.video.get }
-  methods:  [GET]

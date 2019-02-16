@@ -1,6 +1,0 @@
-services:
-
-  codely.api.controller.user.get:
-    class: CodelyTv\Api\Controller\User\UserGetController
-    parent: codely.api.controller
-    public: true

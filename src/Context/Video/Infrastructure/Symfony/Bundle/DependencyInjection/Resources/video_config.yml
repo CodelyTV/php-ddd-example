@@ -1,6 +1,0 @@
-parameters:
-
-  codely.video.root_path: '%kernel.root_dir%/../../src/Context/Video/'
-
-  codely.video.infrastructure.database.on_demand: false
-  codely.video.infrastructure.database.schema_file: '%kernel.root_dir%/../../databases/video.sql'

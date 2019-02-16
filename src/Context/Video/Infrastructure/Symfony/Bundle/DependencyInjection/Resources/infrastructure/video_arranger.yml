@@ -1,7 +1,0 @@
-services:
-
-  codely.video.infrastructure.arranger:
-    class: CodelyTv\Test\Context\Video\VideoEnvironmentArranger
-    arguments:
-      - '@codely.video.infrastructure.database'
-    public: true
