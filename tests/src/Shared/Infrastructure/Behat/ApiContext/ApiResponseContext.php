@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext;
 
-use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\MinkExtension\Context\RawMinkContext;
 use CodelyTv\Test\Shared\Infrastructure\Mink\MinkHelper;
@@ -15,7 +14,7 @@ use Exception;
 use PHPUnit\Framework\Assert;
 use function CodelyTv\Utils\date_to_string;
 
-final class ApiResponseContext extends RawMinkContext implements Context
+final class ApiResponseContext extends RawMinkContext
 {
     /** @var MinkSessionResponseHelper */
     private $sessionResponseHelper;

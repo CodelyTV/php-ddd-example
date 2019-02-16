@@ -1,7 +1,0 @@
-imports:
-  - { resource: infrastructure/_codely_infrastructure.yml }
-  - { resource: services/commands.yml }
-
-
-framework:
-  secret: 'secret'

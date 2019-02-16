@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Shared\Infrastructure\PHPUnit;
 
-use CodelyTv\CodelyKernel;
 use CodelyTv\MoocBackend\MoocBackendKernel;
 
 abstract class FunctionalTestCase extends UnitTestCase
@@ -31,7 +30,7 @@ abstract class FunctionalTestCase extends UnitTestCase
 
     private function kernel()
     {
-        return $this->kernel = $this->kernel ?: new CodelyKernel('test', true);
+        return $this->kernel = $this->kernel ?: new MoocBackendKernel('test', true);
     }
 
     private function container()

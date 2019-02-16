@@ -96,50 +96,50 @@ Once you have all the dependencies, in order to execute the tests, run this comm
 <!-- PROJECT EXPLANATION -->
 ## 🎥 Project explanation
 This project tries to be a MOOC (Massive Open Online Course) platform.
-For now it only has an [API](applications/api/src/Controller)
-and some [Consumers](applications/api/src/Command).
+For now it only has an [API](applications/mooc_backend/src/Controller)
+and some [Consumers](applications/mooc_backend/src/Command).
 
 ### Bounded Contexts
 Currently the project has two main bounded contexts:
-* [Backoffice](src/Context/Backoffice): WIP
-* [Mooc](src/Context/Mooc): If you wanna see some code, look inside this context :)
+* [Backoffice](src/Backoffice): WIP
+* [Mooc](src/Mooc): If you wanna see some code, look inside this context :)
 
 ### Hexagonal Architecture
 This repository follow the Hexagonal Architecture pattern. Also is structured using `modules`.
 With this, we can see that the current structure of a Bounded Context is:
 ```bash
 Mooc # <-- Bounded Context name
-|-- Infrastructure # <-- All Bounded Context common infrastructure
-|   |-- Doctrine
-|   `-- Symfony
-`-- Module # <-- Modules inside that Bounded Context
-    |-- Notification
-    |-- User
-    |-- Video
-    |   |-- Application
-    |   |   |-- Create # <-- Inside the application layer all is structured by actions
-    |   |   |   |-- CreateVideoCommand.php
-    |   |   |   |-- CreateVideoCommandHandler.php
-    |   |   |   `-- VideoCreator.php
-    |   |   |-- Find
-    |   |   |-- Trim
-    |   |   `-- Update
-    |   |-- Domain
-    |   |   |-- Video.php # <-- Our Aggregate of the Module
-    |   |   |-- VideoCreatedDomainEvent.php # <-- A Domain Event
-    |   |   |-- VideoId.php
-    |   |   |-- VideoNotFound.php
-    |   |   |-- VideoRepository.php # <-- The `Interface` of the repository is inside Domain
-    |   |   |-- VideoTitle.php
-    |   |   |-- VideoType.php
-    |   |   |-- VideoUrl.php
-    |   |   `-- Videos.php # <-- A collection of our Aggregate
-    |   `-- Infrastructure # <-- The infrastructure of our module 
-    |       |-- DependencyInjection
-    |       `-- Persistence
-    |           |-- VideoRepositoryMySql.php # <-- An implementation of the repository
-    |-- VideoComment
-    `-- VideoHighlight
+|-- Shared
+|   |-- Infrastructure # <-- All Bounded Context common infrastructure
+|   |   |-- Doctrine
+|   |   `-- Symfony
+|-- Notification
+|-- User
+|-- Video
+|   |-- Application
+|   |   |-- Create # <-- Inside the application layer all is structured by actions
+|   |   |   |-- CreateVideoCommand.php
+|   |   |   |-- CreateVideoCommandHandler.php
+|   |   |   `-- VideoCreator.php
+|   |   |-- Find
+|   |   |-- Trim
+|   |   `-- Update
+|   |-- Domain
+|   |   |-- Video.php # <-- Our Aggregate of the Module
+|   |   |-- VideoCreatedDomainEvent.php # <-- A Domain Event
+|   |   |-- VideoId.php
+|   |   |-- VideoNotFound.php
+|   |   |-- VideoRepository.php # <-- The `Interface` of the repository is inside Domain
+|   |   |-- VideoTitle.php
+|   |   |-- VideoType.php
+|   |   |-- VideoUrl.php
+|   |   `-- Videos.php # <-- A collection of our Aggregate
+|   `-- Infrastructure # <-- The infrastructure of our module 
+|       |-- DependencyInjection
+|       `-- Persistence
+|           |-- VideoRepositoryMySql.php # <-- An implementation of the repository
+|-- VideoComment
+`-- VideoHighlight
 ```
 
 

@@ -5,5 +5,4 @@ Feature: Bootstrap check
     Then the console command should run successfully
     Examples:
       | app          |
-      | codely       |
       | mooc_backend |

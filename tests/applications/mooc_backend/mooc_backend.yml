@@ -38,5 +38,5 @@ mooc_backend:
             bus: '@codely.mooc.event_bus'
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiResponseContext
-        - CodelyTv\Test\Mooc\Module\User\UserModuleBehatContext:
+        - CodelyTv\Test\Mooc\User\UserModuleBehatContext:
             repository: '@codely.mooc.user.repository'

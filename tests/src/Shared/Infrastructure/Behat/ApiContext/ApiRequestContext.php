@@ -4,14 +4,13 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext;
 
-use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\RawMinkContext;
 use CodelyTv\Test\Shared\Infrastructure\Mink\MinkHelper;
 use CodelyTv\Test\Shared\Infrastructure\Mink\MinkSessionRequestHelper;
 
-final class ApiRequestContext extends RawMinkContext implements Context
+final class ApiRequestContext extends RawMinkContext
 {
     /** @var MinkSessionRequestHelper */
     private $sessionRequestHelper;
