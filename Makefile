@@ -5,8 +5,7 @@ deps:
 		gsingh1/prestissimo install \
 			--ignore-platform-reqs \
 			--no-ansi \
-			--no-interaction \
-			--no-scripts
+			--no-interaction
 
 build: deps start
 
