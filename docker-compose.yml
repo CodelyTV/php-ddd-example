@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3'
 
 services:
   nginx:
@@ -7,7 +7,7 @@ services:
     ports:
       - "8030:80"
     volumes:
-      - .:/var/www
+      - .:/app
       - ./etc/infrastructure/nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
@@ -20,8 +20,8 @@ services:
     ports:
       - "9030:9001"
     volumes:
-      - .:/app
-      - ./vendor:/app/vendor
+      - .:/app:delegated
+      - vendor:/app/vendor
     env_file:
       - .env
     depends_on:
@@ -49,3 +49,5 @@ services:
     ports:
       - 5630:5672
       - 15630:15672
+volumes:
+  vendor:
