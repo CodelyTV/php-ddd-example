@@ -30,7 +30,6 @@ services:
   mysql:
     container_name: codelytv-cqrs_ddd_php_example-mysql
     image: mariadb:10.4
-    restart: always
     ports:
       - "3330:3306"
     env_file:
@@ -41,7 +40,6 @@ services:
   rabbitmq:
     container_name: codelytv-cqrs_ddd_php_example-rabbitmq
     image: 'rabbitmq:3.7-management'
-    restart: always
     environment:
       RABBITMQ_DEFAULT_USER: codelytv
       RABBITMQ_DEFAULT_PASS: c0d3ly
