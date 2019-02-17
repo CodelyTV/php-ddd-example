@@ -21,7 +21,6 @@ services:
       - "9030:9001"
     volumes:
       - .:/app:delegated
-      - vendor:/app/vendor
     env_file:
       - .env
     depends_on:
