@@ -87,11 +87,9 @@ If you don't want to use the Docker environment, you can do the following
 
 ### ✅ Run the tests
 
-Once you have all the dependencies, in order to execute the tests, run this command:
-
-* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/behat -p mooc_backend` (This will also create all needed databases)
-* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/behat -p all_applications`
-* `docker exec -it codelytv-cqrs_ddd_php_example-php vendor/bin/phpunit`
+Once you have all the dependencies, in order to execute the tests, run:
+* If you're developing with docker: `make test`
+* If you're developing in local: `make run-tests`
 
 
 <!-- PROJECT EXPLANATION -->
