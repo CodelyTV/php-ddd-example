@@ -4,8 +4,8 @@ applications/*/var/cache/*
 applications/*/var/logs/*
 !applications/*/var/logs/.gitkeep
 
-src/Shared/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/infrastructure_parameters.yml
-src/Context/*/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/*_parameters.yml
+src/*/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/*_parameters.yml
+src/*/Shared/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/*_parameters.yml
 
 /applications/mooc_backend/config/supervisor/*
 !/applications/mooc_backend/config/supervisor/.gitkeep

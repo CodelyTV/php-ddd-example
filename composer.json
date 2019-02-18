@@ -65,8 +65,8 @@
   },
   "autoload": {
     "psr-4": {
-      "CodelyTv\\": ["applications/codely/src", "src"],
-      "CodelyTv\\MoocBackend\\": "applications/mooc_backend/src"
+      "CodelyTv\\MoocBackend\\": "applications/mooc_backend/src",
+      "CodelyTv\\": ["src"]
     },
     "files": [
       "src/utils.php"

@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run: cp .env.dist .env
+      - run: make build
+      # We need to wait until the mysql is ready, and since docker-compose remove the health check condition
+      # on depends_on, we have to do this 💩 https://docs.docker.com/compose/compose-file/#depends_on
+      - run: >
+          while ! docker exec codelytv-cqrs_ddd_php_example-mysql mysqladmin --user=root --password=root --host "127.0.0.1" ping --silent &> /dev/null ; do
+              echo "Waiting for database connection..."
+              sleep 2
+          done
+      - run: make test

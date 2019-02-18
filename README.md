@@ -68,7 +68,7 @@
 * Clone this repository: `git clone https://github.com/CodelyTV/cqrs-ddd-php-example cqrs-ddd-php-example`
 * Move to your project folder: `cd cqrs-ddd-php-example`
 * Copy the default environment variables: `cp .env.dist .env`
-* Start the services: `docker-compose up -d` ([this will perform a composer install](Dockerfile#L4))
+* Run `make build`. This will install all the `composer` dependencies and start the needed containers
 * Add `api.codelytv.dev` domain to your local hosts: `echo "127.0.0.1 api.codelytv.dev"| sudo tee -a /etc/hosts > /dev/null`
 * Go to [the API health check page](http://api.codelytv.dev:8030/status)
 
