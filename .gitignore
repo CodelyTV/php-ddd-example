@@ -15,3 +15,5 @@ src/*/Shared/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/*_param
 vendor/
 
 .env
+
+build/
