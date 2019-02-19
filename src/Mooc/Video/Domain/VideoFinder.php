@@ -17,12 +17,12 @@ final class VideoFinder
     {
         $video = $this->repository->search($id);
 
-        $this->guard($id, $video);
+        $this->ensureVideoExists($id, $video);
 
         return $video;
     }
 
-    private function guard(VideoId $id, Video $video = null): void
+    private function ensureVideoExists(VideoId $id, Video $video = null): void
     {
         if (null === $video) {
             throw new VideoNotFound($id);
