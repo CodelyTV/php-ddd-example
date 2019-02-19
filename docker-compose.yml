@@ -7,8 +7,8 @@ services:
     ports:
       - "8030:80"
     volumes:
-      - .:/app
-      - ./etc/infrastructure/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - .:/app:delegated
+      - ./etc/infrastructure/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
       - php
     restart: unless-stopped
