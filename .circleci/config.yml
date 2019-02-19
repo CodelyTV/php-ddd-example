@@ -4,6 +4,11 @@ jobs:
     machine: true
     steps:
       - checkout
+
+      - restore_cache:
+          keys:
+            - composer_{{ checksum "composer.lock" }}
+
       - run: cp .env.dist .env
       - run: make build
       # We need to wait until the mysql is ready, and since docker-compose remove the health check condition
@@ -14,3 +19,8 @@ jobs:
               sleep 2
           done
       - run: make test
+
+      - save_cache:
+        key: composer_{{ checksum "composer.lock" }}
+        paths:
+          - ~/.composer
