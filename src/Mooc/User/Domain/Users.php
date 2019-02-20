@@ -14,14 +14,14 @@ final class Users extends AggregateRootCollection
         return User::class;
     }
 
-    public function increasePending()
+    public function increasePending(): void
     {
         each($this->pendingIncreaser(), $this);
     }
 
-    private function pendingIncreaser()
+    private function pendingIncreaser(): callable
     {
-        return function (User $user) {
+        return function (User $user): void {
             $user->increaseTotalVideosCreated();
         };
     }

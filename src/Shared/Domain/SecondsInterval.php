@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Domain;
 
+use DomainException;
+
 final class SecondsInterval
 {
     private $from;
@@ -11,7 +13,7 @@ final class SecondsInterval
 
     public function __construct(Second $from, Second $to)
     {
-        $this->guard($from, $to);
+        $this->ensureIntervalEndsAfterStart($from, $to);
 
         $this->from = $from;
         $this->to   = $to;
@@ -32,9 +34,10 @@ final class SecondsInterval
         return new self(new Second($from), new Second($to));
     }
 
-    private function guard(Second $from, Second $to)
+    private function ensureIntervalEndsAfterStart(Second $from, Second $to)
     {
-        if ($from->equalsTo($to) || $from->isBiggerThan($to)) {
+        if ($from->isBiggerThan($to)) {
+            throw new DomainException("To is bigger than from");
         }
     }
 }

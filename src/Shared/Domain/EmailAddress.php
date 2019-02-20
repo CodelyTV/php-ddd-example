@@ -20,7 +20,7 @@ final class EmailAddress
     private function guard(string $value)
     {
         if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
-            throw new InvalidArgumentException(sprintf('The email <%s> is not valid'));
+            throw new InvalidArgumentException(sprintf('The email <%s> is not valid', $value));
         }
     }
 

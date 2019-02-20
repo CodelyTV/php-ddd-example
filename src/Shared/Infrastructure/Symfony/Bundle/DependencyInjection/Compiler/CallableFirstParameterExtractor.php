@@ -52,7 +52,7 @@ final class CallableFirstParameterExtractor
 
     private static function pipedCallablesReducer(CallableFirstParameterExtractor $parameterExtractor)
     {
-        return function ($subscribers, DomainEventSubscriber $subscriber) use ($parameterExtractor) {
+        return function ($subscribers, DomainEventSubscriber $subscriber): array {
             $subscribedEvents = $subscriber::subscribedTo();
 
             foreach ($subscribedEvents as $subscribedEvent) {

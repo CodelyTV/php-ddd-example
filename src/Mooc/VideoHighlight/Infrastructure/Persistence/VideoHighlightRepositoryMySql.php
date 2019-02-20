@@ -11,13 +11,12 @@ use CodelyTv\Shared\Infrastructure\Doctrine\Repository;
 
 final class VideoHighlightRepositoryMySql extends Repository implements VideoHighlightRepository
 {
-    /** @return void */
-    public function save(VideoHighlight $videoHighlight)
+    public function save(VideoHighlight $videoHighlight): void
     {
         $this->persist($videoHighlight);
     }
 
-    public function search(VideoHighlightId $id)
+    public function search(VideoHighlightId $id): ?VideoHighlight
     {
         return $this->repository(VideoHighlight::class)->find($id);
     }

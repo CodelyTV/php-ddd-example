@@ -1,4 +1,5 @@
 version: 2
+
 jobs:
   build:
     machine: true
@@ -19,8 +20,12 @@ jobs:
               sleep 2
           done
       - run: make test
+      - store_test_results:
+          path: build/test_results
+      - store_artifacts:
+          path: build/test_results
 
       - save_cache:
-        key: composer_{{ checksum "composer.lock" }}
-        paths:
-          - ~/.composer
+          key: composer_{{ checksum "composer.lock" }}
+          paths:
+            - ~/.composer

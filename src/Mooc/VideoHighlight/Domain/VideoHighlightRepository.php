@@ -6,9 +6,7 @@ namespace CodelyTv\Mooc\VideoHighlight\Domain;
 
 interface VideoHighlightRepository
 {
-    /** @return void */
-    public function save(VideoHighlight $videoHighlight);
+    public function save(VideoHighlight $videoHighlight): void;
 
-    /** @return VideoHighlight|null */
-    public function search(VideoHighlightId $id);
+    public function search(VideoHighlightId $id): ?VideoHighlight;
 }

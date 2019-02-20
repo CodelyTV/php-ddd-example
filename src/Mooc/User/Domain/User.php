@@ -34,7 +34,7 @@ final class User extends AggregateRoot
         return $this->totalVideosCreated;
     }
 
-    public function increaseTotalVideosCreated()
+    public function increaseTotalVideosCreated(): void
     {
         $this->totalVideosCreated = $this->totalVideosCreated->increase();
     }
