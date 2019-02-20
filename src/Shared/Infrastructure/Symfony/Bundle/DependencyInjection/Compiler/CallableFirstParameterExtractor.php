@@ -28,7 +28,7 @@ final class CallableFirstParameterExtractor
         return map(self::unflatten(), reindex(self::classExtractor(new self()), $callables));
     }
 
-    public static function forPipedCallables(iterable $callables): array
+    public static function forPipedCallables(array $callables): array
     {
         return reduce(self::pipedCallablesReducer(new self()), $callables);
     }
@@ -52,7 +52,7 @@ final class CallableFirstParameterExtractor
 
     private static function pipedCallablesReducer(CallableFirstParameterExtractor $parameterExtractor)
     {
-        return function ($subscribers, DomainEventSubscriber $subscriber) use ($parameterExtractor) {
+        return function (array $subscribers, DomainEventSubscriber $subscriber): array {
             $subscribedEvents = $subscriber::subscribedTo();
 
             foreach ($subscribedEvents as $subscribedEvent) {

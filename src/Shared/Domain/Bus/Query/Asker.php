@@ -13,8 +13,7 @@ final class Asker
         $this->queryBus = $queryBus;
     }
 
-    /** @return Response|null */
-    public function __invoke(Query $query)
+    public function __invoke(Query $query): ?Response
     {
         return $this->queryBus->ask($query);
     }

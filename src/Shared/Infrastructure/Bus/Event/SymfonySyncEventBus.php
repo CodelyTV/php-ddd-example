@@ -15,7 +15,7 @@ final class SymfonySyncEventBus implements EventBus
 {
     private $bus;
 
-    public function __construct(iterable $subscribers)
+    public function __construct(array $subscribers)
     {
         $this->bus = new MessageBus(
             [

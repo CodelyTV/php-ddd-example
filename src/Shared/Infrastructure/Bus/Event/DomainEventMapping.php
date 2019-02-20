@@ -11,7 +11,7 @@ use function Lambdish\Phunctional\reindex;
 
 final class DomainEventMapping
 {
-    private $mapping = [];
+    private $mapping;
 
     public function __construct(iterable $mapping)
     {

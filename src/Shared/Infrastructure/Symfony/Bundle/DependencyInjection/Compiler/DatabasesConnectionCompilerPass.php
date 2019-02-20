@@ -26,12 +26,12 @@ final class DatabasesConnectionCompilerPass implements CompilerPassInterface
         $databasesConnectionsService = $container->findDefinition(self::DATABASE_CONNECTIONS_SERVICE);
         $databasesConnectionsIds     = $container->findTaggedServiceIds($this->tag);
 
-        each($this->addDatabasesConnections($databasesConnectionsService, $container), $databasesConnectionsIds);
+        each($this->addDatabasesConnections($databasesConnectionsService), $databasesConnectionsIds);
     }
 
-    private function addDatabasesConnections(Definition $connectionsService, ContainerBuilder $container)
+    private function addDatabasesConnections(Definition $connectionsService)
     {
-        return function (array $attributes, string $databaseConnectionServiceId) use ($connectionsService, $container) {
+        return function (array $attributes, string $databaseConnectionServiceId) use ($connectionsService) {
             $connectionsService->addMethodCall(
                 'set',
                 [$databaseConnectionServiceId, new Reference($databaseConnectionServiceId)]
