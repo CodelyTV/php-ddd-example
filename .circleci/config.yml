@@ -22,6 +22,8 @@ jobs:
       - run: make test
       - store_test_results:
           path: build/test_results
+      - store_artifacts:
+          path: build/test_results
 
       - save_cache:
           key: composer_{{ checksum "composer.lock" }}
