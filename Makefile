@@ -1,13 +1,20 @@
-.PHONY: all deps build test run-tests
+.PHONY: all install update build test run-tests
 
-deps:
+install:
 	@docker run --rm --interactive --tty --volume $(shell pwd):/app --user $(id -u):$(id -g) \
 		gsingh1/prestissimo install \
 			--ignore-platform-reqs \
 			--no-ansi \
 			--no-interaction
 
-build: deps start
+update:
+	@docker run --rm --interactive --tty --volume $(shell pwd):/app --user $(id -u):$(id -g) \
+		gsingh1/prestissimo update \
+			--ignore-platform-reqs \
+			--no-ansi \
+			--no-interaction
+
+build: install start
 
 test:
 	@docker exec -it codelytv-cqrs_ddd_php_example-php make run-tests
