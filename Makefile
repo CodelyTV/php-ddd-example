@@ -22,9 +22,9 @@ test:
 	@docker exec -it codelytv-cqrs_ddd_php_example-php make run-tests
 
 run-tests:
-	mkdir -p build/phpunit
+	mkdir -p build/test_results/phpunit
 	./vendor/bin/phpstan analyse -l 7 -c etc/phpstan/phpstan.neon applications/mooc_backend/src
-	./vendor/bin/phpunit --exclude-group='disabled --log-junit build/phpunit/junit.xml tests'
+	./vendor/bin/phpunit --exclude-group='disabled --log-junit build/test_results/phpunit/junit.xml tests'
 	./vendor/bin/behat -p all_applications --format=progress -v
 	./vendor/bin/behat -p mooc_backend --format=progress -v
 

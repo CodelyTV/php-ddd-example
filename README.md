@@ -74,7 +74,7 @@
 
 ### ✅ Tests execution
 
-1. Install PHP dependencies if you haven't done so: `make install`
+1. Install PHP dependencies if you haven't done so: `make deps`
 2. Execute Behat and PHP Unit tests: `make test`
 
 ## 🤔 Project explanation
