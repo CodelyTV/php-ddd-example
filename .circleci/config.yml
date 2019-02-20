@@ -22,6 +22,6 @@ jobs:
       - run: make test
 
       - save_cache:
-        key: composer_{{ checksum "composer.lock" }}
-        paths:
-          - ~/.composer
+          key: composer_{{ checksum "composer.lock" }}
+          paths:
+            - ~/.composer
