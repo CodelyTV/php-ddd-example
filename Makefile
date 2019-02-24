@@ -1,16 +1,18 @@
 .PHONY: all deps composer-install composer-update build test run-tests
 
+current-dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+
 deps: composer-install
 
 composer-install:
-	@docker run --rm --interactive --tty --volume $(shell pwd):/app --user $(id -u):$(id -g) \
+	@docker run --rm --interactive --tty --volume $(current-dir):/app --user $(id -u):$(id -g) \
 		gsingh1/prestissimo install \
 			--ignore-platform-reqs \
 			--no-ansi \
 			--no-interaction
 
 composer-update:
-	@docker run --rm --interactive --tty --volume $(shell pwd):/app --user $(id -u):$(id -g) \
+	@docker run --rm --interactive --tty --volume $(current-dir):/app --user $(id -u):$(id -g) \
 		gsingh1/prestissimo update \
 			--ignore-platform-reqs \
 			--no-ansi \
