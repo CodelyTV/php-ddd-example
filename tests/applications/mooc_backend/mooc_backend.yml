@@ -29,8 +29,8 @@ mooc_backend:
             bus: '@codely.mooc.event_bus'
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiResponseContext
-    user:
-      paths: [ tests/applications/mooc_backend/features/user ]
+    student:
+      paths: [ tests/applications/mooc_backend/features/student ]
       contexts:
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiFeatureContext:
             connections: '@codely.infrastructure.database_connections'
@@ -38,5 +38,5 @@ mooc_backend:
             bus: '@codely.mooc.event_bus'
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiResponseContext
-        - CodelyTv\Test\Mooc\User\UserModuleBehatContext:
-            repository: '@codely.mooc.user.repository'
+        - CodelyTv\Test\Mooc\Student\StudentModuleBehatContext:
+            repository: '@codely.mooc.student.repository'

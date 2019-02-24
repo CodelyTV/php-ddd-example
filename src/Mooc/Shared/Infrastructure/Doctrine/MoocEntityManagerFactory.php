@@ -12,7 +12,7 @@ final class MoocEntityManagerFactory
     private static $namespace = 'CodelyTv\Mooc';
     private static $prefixes  = [
         'Video\Domain' => 'Video/Infrastructure/Persistence',
-        'User\Domain'  => 'User/Infrastructure/Persistence',
+        'Student\Domain'  => 'Student/Infrastructure/Persistence',
     ];
 
     public static function create(array $parameters, $rootPath, $onDemand, $schemaFile)

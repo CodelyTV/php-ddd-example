@@ -1,5 +1,5 @@
 imports:
 
   - { resource: ../../../../../../../Notification/Infrastructure/DependencyInjection/_notification_module.yml }
-  - { resource: ../../../../../../../User/Infrastructure/DependencyInjection/_user_module.yml }
+  - { resource: ../../../../../../../Student/Infrastructure/DependencyInjection/_student_module.yml }
   - { resource: ../../../../../../../Video/Infrastructure/DependencyInjection/_video_module.yml }

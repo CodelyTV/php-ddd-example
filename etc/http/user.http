@@ -1,9 +1,0 @@
-PUT http://localhost:8030/users/75b14bd7-7925-424c-9a69-29b89d2b44f9
-Content-Type: application/json
-{
-}
-
-###
-GET http://localhost:8030/users/75b14bd7-7925-424c-9a69-29b89d2b44f9
-
-###

@@ -1,0 +1,11 @@
+services:
+
+  codely.mooc_backend.controller.student.put:
+    class: CodelyTv\MoocBackend\Controller\Student\StudentPutController
+    parent: codely.mooc_backend.controller
+    public: true
+
+  codely.mooc_backend.controller.student.get:
+    class: CodelyTv\MoocBackend\Controller\Student\StudentGetController
+    parent: codely.mooc_backend.controller
+    public: true

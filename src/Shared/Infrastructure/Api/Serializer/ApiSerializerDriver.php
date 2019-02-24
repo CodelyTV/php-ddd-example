@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Infrastructure\Api\Serializer;
 
-use CodelyTv\Mooc\User\Application\Find\UserResponse;
+use CodelyTv\Mooc\Student\Application\Find\StudentResponse;
 use CodelyTv\Mooc\Video\Application\Find\VideoResponse;
 use CodelyTv\Shared\Infrastructure\Jms\CodelyTvSerializerDriver;
 
@@ -18,12 +18,12 @@ final class ApiSerializerDriver extends CodelyTvSerializerDriver
     public function getMetadata()
     {
         return [
-            UserResponse::class  => [
+            StudentResponse::class => [
                 'id'                 => ['type' => 'string'],
                 'name'               => ['type' => 'string'],
                 'totalPendingVideos' => ['type' => 'string'],
             ],
-            VideoResponse::class => [
+            VideoResponse::class   => [
                 'id'       => ['type' => 'string'],
                 'type'     => ['type' => 'string'],
                 'title'    => ['type' => 'string'],
