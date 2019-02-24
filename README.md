@@ -93,14 +93,14 @@ and some [Consumers](applications/mooc_backend/src/Command).
 This repository follow the Hexagonal Architecture pattern. Also is structured using `modules`.
 With this, we can see that the current structure of a Bounded Context is:
 
-```bash
+```scala
 $ tree -L 4 src
 
 src
-|-- Mooc # <-- Company subdomain / Bounded Context: Features related to one of the company business lines / products
-|   `-- Video # <-- Some Module inside the Mooc context
+|-- Mooc // Company subdomain / Bounded Context: Features related to one of the company business lines / products
+|   `-- Video // Some Module inside the Mooc context
 |       |-- Application
-|       |   |-- Create # <-- Inside the application layer all is structured by actions
+|       |   |-- Create // Inside the application layer all is structured by actions
 |       |   |   |-- CreateVideoCommand.php
 |       |   |   |-- CreateVideoCommandHandler.php
 |       |   |   `-- VideoCreator.php
@@ -108,21 +108,21 @@ src
 |       |   |-- Trim
 |       |   `-- Update
 |       |-- Domain
-|       |   |-- Video.php # <-- The Aggregate of the Module
-|       |   |-- VideoCreatedDomainEvent.php # <-- A Domain Event
+|       |   |-- Video.php // The Aggregate of the Module
+|       |   |-- VideoCreatedDomainEvent.php // A Domain Event
 |       |   |-- VideoFinder.php
 |       |   |-- VideoId.php
 |       |   |-- VideoNotFound.php
-|       |   |-- VideoRepository.php # <-- The `Interface` of the repository is inside Domain
+|       |   |-- VideoRepository.php // The `Interface` of the repository is inside Domain
 |       |   |-- VideoTitle.php
 |       |   |-- VideoType.php
 |       |   |-- VideoUrl.php
-|       |   `-- Videos.php # <-- A collection of our Aggregate
-|       `-- Infrastructure # <-- The infrastructure of our module 
+|       |   `-- Videos.php // A collection of our Aggregate
+|       `-- Infrastructure // The infrastructure of our module 
 |           |-- DependencyInjection
 |           `-- Persistence
-|               `--VideoRepositoryMySql.php # <-- An implementation of the repository
-`-- Shared # <-- Shared Kernel: Common infrastructure and domain shared between the different Bounded Contexts 
+|               `--VideoRepositoryMySql.php // An implementation of the repository
+`-- Shared // Shared Kernel: Common infrastructure and domain shared between the different Bounded Contexts 
     |-- Domain
     `-- Infrastructure
 ```
