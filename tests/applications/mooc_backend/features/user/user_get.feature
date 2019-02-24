@@ -1,7 +1,7 @@
 Feature: Find a user
-  In order to be the best youtuber ever
-  As a codelyver
-  I want to find a user
+  In order to learn from CodelyTV Pro courses
+  As an anonymous user
+  I want to view my profile details
 
   Background:
     Given there is a user:
