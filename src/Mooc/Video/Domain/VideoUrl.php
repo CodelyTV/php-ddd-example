@@ -10,12 +10,12 @@ final class VideoUrl extends StringValueObject
 {
     public function __construct(string $value)
     {
-        $this->guardValidUrl($value);
+        $this->ensureIsValidUrl($value);
 
         parent::__construct($value);
     }
 
-    private function guardValidUrl(string $url)
+    private function ensureIsValidUrl(string $url): void
     {
         if (false === filter_var($url, FILTER_VALIDATE_URL)) {
             throw new \InvalidArgumentException(sprintf('The url <%s> is not well formatted', $url));

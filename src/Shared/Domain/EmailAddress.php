@@ -12,12 +12,12 @@ final class EmailAddress
 
     public function __construct(string $value)
     {
-        $this->guard($value);
+        $this->ensureIsValidEmail($value);
 
         $this->value = $value;
     }
 
-    private function guard(string $value)
+    private function ensureIsValidEmail(string $value)
     {
         if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
             throw new InvalidArgumentException(sprintf('The email <%s> is not valid', $value));

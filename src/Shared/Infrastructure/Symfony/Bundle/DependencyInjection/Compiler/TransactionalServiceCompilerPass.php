@@ -16,7 +16,7 @@ final class TransactionalServiceCompilerPass implements CompilerPassInterface
 
     private $domainEventPublisherTag;
 
-    public function __construct($domainEventPublisherTag)
+    public function __construct(string $domainEventPublisherTag)
     {
         $this->domainEventPublisherTag = $domainEventPublisherTag;
     }
@@ -30,8 +30,8 @@ final class TransactionalServiceCompilerPass implements CompilerPassInterface
 
     private function serviceDecorator(ContainerBuilder $container): callable
     {
-        return function ($tags, $serviceToBeTransactional) use ($container) {
-            $this->guardByTagExist($tags, $serviceToBeTransactional);
+        return function (array $tags, string $serviceToBeTransactional) use ($container): void {
+            $this->ensureByTagExists($tags, $serviceToBeTransactional);
 
             $container->register($serviceToBeTransactional . '.transactional', TransactionalWrapper::class)
                 ->addArgument(new Reference($tags[0][self::BY_TAG]))
@@ -42,7 +42,7 @@ final class TransactionalServiceCompilerPass implements CompilerPassInterface
         };
     }
 
-    private function guardByTagExist(array $tags, $serviceToBeTransactional): void
+    private function ensureByTagExists(array $tags, string $serviceToBeTransactional): void
     {
         if (!array_key_exists(self::BY_TAG, $tags[0])) {
             throw new TransactionalServiceByTagNotDefined($serviceToBeTransactional);

@@ -9,6 +9,7 @@ use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Schema\MySqlSchemaManager;
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver;
 use Doctrine\ORM\Tools\Setup;
 use RuntimeException;
@@ -20,7 +21,7 @@ final class DoctrineEntityManagerFactory
         __DIR__ . '/../../Shared/Infrastructure/Persistence' => 'CodelyTv\Shared\Domain',
     ];
 
-    public static function create(array $parameters, array $prefixes, $isDevMode, $schemaFile)
+    public static function create(array $parameters, array $prefixes, $isDevMode, $schemaFile): EntityManagerInterface
     {
         if (true === $isDevMode) {
             static::generateDatabaseIfNotExists($parameters, $schemaFile);
@@ -31,9 +32,9 @@ final class DoctrineEntityManagerFactory
         return EntityManager::create($parameters, self::createConfiguration($prefixes, $isDevMode));
     }
 
-    private static function generateDatabaseIfNotExists(array $parameters, $schemaFile)
+    private static function generateDatabaseIfNotExists(array $parameters, $schemaFile): void
     {
-        self::guardSchemeFile($schemaFile);
+        self::ensureSchemaFileExists($schemaFile);
 
         $databaseName                  = $parameters['dbname'];
         $parametersWithoutDatabaseName = dissoc($parameters, 'dbname');
@@ -64,7 +65,7 @@ final class DoctrineEntityManagerFactory
         return in_array($databaseName, $schemaManager->listDatabases(), true);
     }
 
-    private static function guardSchemeFile(string $schemaFile)
+    private static function ensureSchemaFileExists(string $schemaFile): void
     {
         if (!file_exists($schemaFile)) {
             throw new RuntimeException(sprintf('The file <%s> does not exist', $schemaFile));

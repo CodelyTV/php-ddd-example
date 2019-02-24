@@ -4,11 +4,10 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Domain\Bus\Event;
 
-use CodelyTv\Shared\Infrastructure\Bus\Event\Guard\DomainEventGuard;
+use CodelyTv\Shared\Infrastructure\Bus\Event\Guard\DomainEventDataValidator;
 use CodelyTv\Shared\Domain\Bus\Message;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use DateTimeImmutable;
-use InvalidArgumentException;
 use RuntimeException;
 use function CodelyTv\Utils\date_to_string;
 
@@ -30,8 +29,7 @@ abstract class DomainEvent extends Message
         parent::__construct(new Uuid($eventId));
 
         $this->eventId = $eventId;
-        $this->guardAggregateId($aggregateId);
-        DomainEventGuard::guard($data, $this->rules(), get_called_class());
+        DomainEventDataValidator::isValid($data, $this->rules(), get_called_class());
 
         $this->aggregateId = $aggregateId;
         $this->data        = $data;
@@ -83,18 +81,5 @@ abstract class DomainEvent extends Message
         }
 
         throw new RuntimeException(sprintf('The method "%s" does not exist.', $method));
-    }
-
-    private function guardAggregateId($aggregateId)
-    {
-        if (!is_string($aggregateId) && !is_int($aggregateId)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    'The Aggregate Id <%s> in <%s> is not valid, should be int or string.',
-                    var_export($aggregateId, true),
-                    get_class($this)
-                )
-            );
-        }
     }
 }

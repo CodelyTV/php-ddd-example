@@ -12,7 +12,7 @@ final class VideoCommentContent
 
     public function __construct(string $value)
     {
-        $this->guard($value);
+        $this->ensureHasMinimumLength($value);
 
         $this->value = $value;
     }
@@ -22,7 +22,7 @@ final class VideoCommentContent
         return $this->value;
     }
 
-    private function guard(string $content)
+    private function ensureHasMinimumLength(string $content):void
     {
         $contentLength = strlen($content);
 

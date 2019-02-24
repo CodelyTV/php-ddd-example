@@ -27,7 +27,7 @@ final class DomainEventSubscribersConfigurationCompilerPass implements CompilerP
         $this->methodMapper = new CallableFirstParameterExtractor();
     }
 
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $domainEventConfiguration = $container->findDefinition(self::DOMAIN_EVENT_CONFIGURATION_SERVICE);
         $subscribersMapping       = $container->findDefinition(self::SUBSCRIBERS_MAPPING_SERVICE);
@@ -43,7 +43,7 @@ final class DomainEventSubscribersConfigurationCompilerPass implements CompilerP
         Definition $domainEventConfiguration,
         Definition $subscribersMapping,
         ContainerBuilder $container
-    ) {
+    ): callable {
         return function (
             array $attributes,
             string $subscriberServiceId
@@ -51,7 +51,7 @@ final class DomainEventSubscribersConfigurationCompilerPass implements CompilerP
             $domainEventConfiguration,
             $subscribersMapping,
             $container
-        ) {
+        ): void {
             $subscriber = $container->findDefinition($subscriberServiceId);
 
             $subscriberName  = $this->extractSubscriberName($subscriberServiceId);

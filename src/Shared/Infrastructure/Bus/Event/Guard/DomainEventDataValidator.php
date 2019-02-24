@@ -8,16 +8,16 @@ use CodelyTv\Shared\Domain\Validator;
 use DomainException;
 use function Lambdish\Phunctional\all;
 
-final class DomainEventGuard
+final class DomainEventDataValidator
 {
-    public static function guard(array $data, array $rules, string $eventClass): void
+    public static function isValid(array $data, array $rules, string $eventClass): void
     {
-        if (!self::isValid($data, $rules)) {
+        if (!self::areAllParametersValid($data, $rules)) {
             throw new DomainException(sprintf('Error constructing <%s>', $eventClass));
         }
     }
 
-    private static function isValid(array $data, array $rules): bool
+    private static function areAllParametersValid(array $data, array $rules): bool
     {
         return self::hasAllParameters($data, $rules) && all(self::parameterIsValid($data), $rules);
     }

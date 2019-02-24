@@ -13,7 +13,7 @@ class Uuid
 
     public function __construct(string $value)
     {
-        $this->guard($value);
+        $this->ensureIsValidUuid($value);
 
         $this->value = $value;
     }
@@ -28,7 +28,7 @@ class Uuid
         return $this->value;
     }
 
-    private function guard($id): void
+    private function ensureIsValidUuid($id): void
     {
         if (!RamseyUuid::isValid($id)) {
             throw new InvalidArgumentException(
