@@ -7,7 +7,7 @@ CREATE TABLE `video` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-CREATE TABLE `user` (
+CREATE TABLE `student` (
   `id` CHAR(36) NOT NULL,
   `name` VARCHAR(155) NOT NULL,
   `total_videos_created` INTEGER(5) NOT NULL,

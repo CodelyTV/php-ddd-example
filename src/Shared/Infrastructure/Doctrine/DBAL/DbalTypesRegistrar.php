@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Infrastructure\Doctrine\DBAL;
 
-use CodelyTv\Mooc\User\Infrastructure\Persistence\UserIdType;
+use CodelyTv\Mooc\Student\Infrastructure\Persistence\StudentIdType;
 use CodelyTv\Mooc\Video\Infrastructure\Persistence\VideoIdType;
 use CodelyTv\Shared\Infrastructure\Persistence\Course\CourseIdType;
 use Doctrine\DBAL\Types\Type;
@@ -14,9 +14,9 @@ final class DbalTypesRegistrar
 {
     private static $initialized = false;
     private static $types       = [
-        CourseIdType::NAME => CourseIdType::class,
-        UserIdType::NAME   => UserIdType::class,
-        VideoIdType::NAME  => VideoIdType::class,
+        CourseIdType::NAME  => CourseIdType::class,
+        StudentIdType::NAME => StudentIdType::class,
+        VideoIdType::NAME   => VideoIdType::class,
     ];
 
     public static function register()

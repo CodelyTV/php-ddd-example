@@ -1,8 +1,8 @@
 status:
   resource: status.yml
 
-user:
-  resource: user.yml
+student:
+  resource: student.yml
 
 video:
   resource: video.yml

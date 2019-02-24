@@ -1,0 +1,31 @@
+<?php
+
+declare(strict_types = 1);
+
+namespace CodelyTv\Mooc\Student\Infrastructure\Persistence;
+
+use CodelyTv\Mooc\Student\Domain\StudentId;
+use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Types\StringType;
+
+final class StudentIdType extends StringType
+{
+    const NAME = 'student_id';
+
+    public function getName()
+    {
+        return static::NAME;
+    }
+
+    public function convertToPHPValue($value, AbstractPlatform $platform)
+    {
+        return new StudentId($value);
+    }
+
+    /** @var StudentId $value */
+    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    {
+        return $value->value();
+    }
+}
+
