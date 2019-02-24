@@ -93,8 +93,9 @@ and some [Consumers](applications/mooc_backend/src/Command).
 This repository follow the Hexagonal Architecture pattern. Also is structured using `modules`.
 With this, we can see that the current structure of a Bounded Context is:
 
-```bash
+```
 $ tree -L 4 src
+
 src
 |-- Mooc # <-- Company subdomain / Bounded Context: Features related to one of the company business lines / products
 |   `-- Video # <-- Some Module inside the Mooc context
