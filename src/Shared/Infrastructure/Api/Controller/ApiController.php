@@ -41,9 +41,9 @@ abstract class ApiController
         return $this->queryBus->ask($query);
     }
 
-    private function exceptionRegistrar()
+    private function exceptionRegistrar(): callable
     {
-        return function ($httpCode, $exception) {
+        return function ($httpCode, $exception): void {
             $this->exceptionHandler->register($exception, $httpCode);
         };
     }
