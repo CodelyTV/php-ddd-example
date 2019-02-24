@@ -94,39 +94,36 @@ This repository follow the Hexagonal Architecture pattern. Also is structured us
 With this, we can see that the current structure of a Bounded Context is:
 
 ```bash
-.
-…
-├── src
-│   ├── Mooc
-
-│   │   ├Mooc # <-- Company subdomain / Bounded Context: Features related to one of the company business lines / products
-|-- Shared # <-- Shared Kernel: Common infrastructure and domain shared between the different Bounded Contexts 
-|-- Video # <-- Module: 
-|   |-- Application
-|   |   |-- Create # <-- Inside the application layer all is structured by actions
-|   |   |   |-- CreateVideoCommand.php
-|   |   |   |-- CreateVideoCommandHandler.php
-|   |   |   `-- VideoCreator.php
-|   |   |-- Find
-|   |   |-- Trim
-|   |   `-- Update
-|   |-- Domain
-|   |   |-- Video.php # <-- Our Aggregate of the Module
-|   |   |-- VideoCreatedDomainEvent.php # <-- A Domain Event
-|   |   |-- VideoId.php
-|   |   |-- VideoNotFound.php
-|   |   |-- VideoRepository.php # <-- The `Interface` of the repository is inside Domain
-|   |   |-- VideoTitle.php
-|   |   |-- VideoType.php
-|   |   |-- VideoUrl.php
-|   |   `-- Videos.php # <-- A collection of our Aggregate
-|   `-- Infrastructure # <-- The infrastructure of our module 
-|       |-- DependencyInjection
-|       `-- Persistence
-|           |-- VideoRepositoryMySql.php # <-- An implementation of the repository
-|-- …
-|   
-
+$ tree -L 4 src
+src
+|-- Mooc # <-- Company subdomain / Bounded Context: Features related to one of the company business lines / products
+|   `-- Video # <-- Some Module inside the Mooc context
+|       |-- Application
+|       |   |-- Create # <-- Inside the application layer all is structured by actions
+|       |   |   |-- CreateVideoCommand.php
+|       |   |   |-- CreateVideoCommandHandler.php
+|       |   |   `-- VideoCreator.php
+|       |   |-- Find
+|       |   |-- Trim
+|       |   `-- Update
+|       |-- Domain
+|       |   |-- Video.php # <-- The Aggregate of the Module
+|       |   |-- VideoCreatedDomainEvent.php # <-- A Domain Event
+|       |   |-- VideoFinder.php
+|       |   |-- VideoId.php
+|       |   |-- VideoNotFound.php
+|       |   |-- VideoRepository.php # <-- The `Interface` of the repository is inside Domain
+|       |   |-- VideoTitle.php
+|       |   |-- VideoType.php
+|       |   |-- VideoUrl.php
+|       |   `-- Videos.php # <-- A collection of our Aggregate
+|       `-- Infrastructure # <-- The infrastructure of our module 
+|           |-- DependencyInjection
+|           `-- Persistence
+|               `--VideoRepositoryMySql.php # <-- An implementation of the repository
+`-- Shared # <-- Shared Kernel: Common infrastructure and domain shared between the different Bounded Contexts 
+    |-- Domain
+    `-- Infrastructure
 ```
 
 #### Repository pattern
