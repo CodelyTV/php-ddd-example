@@ -7,9 +7,9 @@ namespace CodelyTv\Mooc\Notification\Infrastructure\Persistence;
 use CodelyTv\Mooc\Notification\Domain\Notification;
 use CodelyTv\Mooc\Notification\Domain\NotificationId;
 use CodelyTv\Mooc\Notification\Domain\NotificationRepository;
-use CodelyTv\Shared\Infrastructure\Doctrine\Repository;
+use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineRepository;
 
-final class MySqlNotificationRepository extends Repository implements NotificationRepository
+final class MySqlNotificationRepository extends DoctrineRepository implements NotificationRepository
 {
     public function search(NotificationId $id)
     {

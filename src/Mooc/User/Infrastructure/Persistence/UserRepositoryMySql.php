@@ -8,10 +8,10 @@ use CodelyTv\Mooc\User\Domain\User;
 use CodelyTv\Mooc\User\Domain\UserId;
 use CodelyTv\Mooc\User\Domain\UserRepository;
 use CodelyTv\Mooc\User\Domain\Users;
-use CodelyTv\Shared\Infrastructure\Doctrine\Repository;
+use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineRepository;
 use function Lambdish\Phunctional\each;
 
-final class UserRepositoryMySql extends Repository implements UserRepository
+final class UserRepositoryMySql extends DoctrineRepository implements UserRepository
 {
     public function save(User $user): void
     {

@@ -9,7 +9,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
 
-abstract class Repository
+abstract class DoctrineRepository
 {
     private $entityManager;
 

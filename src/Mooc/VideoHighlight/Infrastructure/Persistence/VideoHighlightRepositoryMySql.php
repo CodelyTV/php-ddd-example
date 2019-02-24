@@ -7,9 +7,9 @@ namespace CodelyTv\Mooc\VideoHighlight\Infrastructure\Persistence;
 use CodelyTv\Mooc\VideoHighlight\Domain\VideoHighlight;
 use CodelyTv\Mooc\VideoHighlight\Domain\VideoHighlightId;
 use CodelyTv\Mooc\VideoHighlight\Domain\VideoHighlightRepository;
-use CodelyTv\Shared\Infrastructure\Doctrine\Repository;
+use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineRepository;
 
-final class VideoHighlightRepositoryMySql extends Repository implements VideoHighlightRepository
+final class VideoHighlightRepositoryMySql extends DoctrineRepository implements VideoHighlightRepository
 {
     public function save(VideoHighlight $videoHighlight): void
     {
