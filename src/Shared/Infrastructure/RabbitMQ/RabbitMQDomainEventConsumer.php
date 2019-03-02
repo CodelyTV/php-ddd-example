@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Infrastructure\RabbitMQ;
 
+use AMQPQueue;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventMapping;
 use Exception;
 use Psr\Log\LoggerInterface;
@@ -31,7 +32,7 @@ final class RabbitMQDomainEventConsumer
         );
     }
 
-    private function queue(string $queueName): ?\AMQPQueue
+    private function queue(string $queueName): ?AMQPQueue
     {
         try {
             return $this->connection->queue($queueName);
