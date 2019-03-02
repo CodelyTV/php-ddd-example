@@ -25,7 +25,7 @@ final class DateTimeMother
 
     public static function randomPast(): DateTimeImmutable
     {
-        return static::immutable(MotherCreator::random()->dateTimeBetween('-1 year', 'now'));
+        return static::immutable(MotherCreator::random()->dateTimeBetween('-1 year'));
     }
 
     public static function now(): DateTimeImmutable

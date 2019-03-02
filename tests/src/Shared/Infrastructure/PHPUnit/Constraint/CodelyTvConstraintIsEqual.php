@@ -22,7 +22,7 @@ final class CodelyTvConstraintIsEqual extends IsEqual
         try {
             $comparator = $comparatorFactory->getComparatorFor($other, $this->value);
 
-            $comparator->assertEquals($this->value, $other, $this->delta, $this->canonicalize, $this->ignoreCase);
+            $comparator->assertEquals($this->value, $other, $this->delta);
         } catch (ComparisonFailure $f) {
             if (!$returnResult) {
                 throw new ExpectationFailedException(

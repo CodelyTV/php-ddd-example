@@ -6,8 +6,7 @@ namespace CodelyTv\Test\Shared\Infrastructure\Behat\ConsoleContext;
 
 use Behat\Behat\Context\Context;
 use Behat\Symfony2Extension\Context\KernelDictionary;
-use Exception;
-use function realpath;
+use RuntimeException;
 use Symfony\Component\Process\Process;
 
 final class ConsoleContext implements Context
@@ -41,7 +40,7 @@ final class ConsoleContext implements Context
     public function theConsoleCommandShouldRunSuccessfully(): void
     {
         if (!$this->process->isSuccessful()) {
-            throw new Exception(
+            throw new RuntimeException(
                 sprintf(
                     'The command should run successfully, but it returns the <%f> exit code and this output: %s',
                     $this->process->getExitCode(),

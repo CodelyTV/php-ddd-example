@@ -18,13 +18,13 @@ final class AggregateRootArraySimilarComparator extends Comparator
     {
         return is_array($expected) &&
                is_array($actual) &&
-               ((all(instance_of(AggregateRoot::class), $expected) &&
-                 all(instance_of(AggregateRoot::class), $actual)));
+               (all(instance_of(AggregateRoot::class), $expected) &&
+                 all(instance_of(AggregateRoot::class), $actual));
     }
 
     public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void
     {
-        if (count($expected) !== count($actual) || !$this->contains($expected, $actual)) {
+        if (!$this->contains($expected, $actual) || count($expected) !== count($actual)) {
             throw new ComparisonFailure(
                 $expected,
                 $actual,

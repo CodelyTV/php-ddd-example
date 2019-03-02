@@ -11,7 +11,7 @@ use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineRepository;
 
 final class MySqlNotificationRepository extends DoctrineRepository implements NotificationRepository
 {
-    public function search(NotificationId $id)
+    public function search(NotificationId $id): ?Notification
     {
         return $this->repository(Notification::class)->find($id);
     }

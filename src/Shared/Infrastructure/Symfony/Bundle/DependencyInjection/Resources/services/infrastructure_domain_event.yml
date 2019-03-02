@@ -14,7 +14,6 @@ services:
     class: CodelyTv\Shared\Infrastructure\RabbitMQ\RabbitMQConnection
     arguments:
       - '%rabbitmq_connection_parameters%'
-      - '@logger'
 
   codely.infrastructure.rabbitmq_domain_event_consumer:
     class: CodelyTv\Shared\Infrastructure\RabbitMQ\RabbitMQDomainEventConsumer

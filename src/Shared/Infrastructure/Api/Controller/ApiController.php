@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Infrastructure\Api\Controller;
 
+use CodelyTv\Shared\Domain\Bus\Query\Response;
 use CodelyTv\Shared\Infrastructure\Api\Exception\ApiExceptionsHttpStatusCodeMapping;
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
@@ -36,7 +37,7 @@ abstract class ApiController
         $this->commandBus->dispatch($command);
     }
 
-    protected function ask(Query $query): ?\CodelyTv\Shared\Domain\Bus\Query\Response
+    protected function ask(Query $query): ?Response
     {
         return $this->queryBus->ask($query);
     }

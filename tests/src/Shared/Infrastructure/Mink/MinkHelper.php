@@ -6,8 +6,9 @@ namespace CodelyTv\Test\Shared\Infrastructure\Mink;
 
 use Behat\Mink\Session;
 use Behat\Symfony2Extension\Driver\KernelDriver;
-use Exception;
+use RuntimeException;
 use Symfony\Component\BrowserKit\Client;
+use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\Request;
 use function Lambdish\Phunctional\get_in;
 
@@ -31,7 +32,7 @@ final class MinkHelper
         $this->getClient()->setServerParameter('PHP_AUTH_PW', $password);
     }
 
-    public function sendRequest($method, $url, array $optionalParams = []): \Symfony\Component\DomCrawler\Crawler
+    public function sendRequest($method, $url, array $optionalParams = []): Crawler
     {
         $defaultOptionalParams = [
             'parameters'    => [],
@@ -78,14 +79,14 @@ final class MinkHelper
     public function responseShouldContain($needle): void
     {
         if (strpos($this->clearString($this->getResponse()), $this->clearString($needle)) === false) {
-            throw new Exception(sprintf('The response do not contain %s', $needle));
+            throw new RuntimeException(sprintf('The response do not contain %s', $needle));
         }
     }
 
     public function responseShouldNotContain($needle): void
     {
         if (strpos($this->clearString($this->getResponse()), $this->clearString($needle)) === true) {
-            throw new Exception(sprintf('The response do not contain %s', $needle));
+            throw new RuntimeException(sprintf('The response do not contain %s', $needle));
         }
     }
 

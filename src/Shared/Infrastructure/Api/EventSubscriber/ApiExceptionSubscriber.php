@@ -10,6 +10,7 @@ use Exception;
 use FOS\RestBundle\View\View;
 use FOS\RestBundle\View\ViewHandler;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
@@ -39,7 +40,7 @@ final class ApiExceptionSubscriber implements EventSubscriberInterface
         }
     }
 
-    private function createResponseFromApiErrorException(Exception $exception): \Symfony\Component\HttpFoundation\Response
+    private function createResponseFromApiErrorException(Exception $exception): Response
     {
         $data = [
             'code'    => $this->getExceptionCode($exception),

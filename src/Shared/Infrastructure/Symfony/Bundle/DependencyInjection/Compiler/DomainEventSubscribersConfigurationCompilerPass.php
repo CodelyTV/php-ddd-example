@@ -19,12 +19,10 @@ final class DomainEventSubscribersConfigurationCompilerPass implements CompilerP
     public const SUBSCRIBERS_MAPPING_SERVICE        = 'codely.infrastructure.subscribers_mapping';
 
     private $tag;
-    private $methodMapper;
 
     public function __construct(string $tag)
     {
-        $this->tag          = $tag;
-        $this->methodMapper = new CallableFirstParameterExtractor();
+        $this->tag = $tag;
     }
 
     public function process(ContainerBuilder $container): void

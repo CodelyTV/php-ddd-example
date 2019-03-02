@@ -50,7 +50,7 @@ final class RabbitMQConsumer
             $ack = $queue->ack($envelope->getDeliveryTag());
 
             if (false === $ack) {
-                $this->log('Message has not been acknowledged', $envelope, $queue->getName(), LogLevel::ERROR);
+                $this->log('Message has not been acknowledged', $envelope, $queue->getName());
             }
         } catch (Exception $exception) {
             $this->log('Message has not been acknowledged', $envelope, $queue->getName(), LogLevel::ERROR, $exception);

@@ -71,7 +71,7 @@ final class DomainEventSimilarComparator extends Comparator
         $actualReflected   = new ReflectionObject($actual);
 
         foreach ($expectedReflected->getProperties() as $expectedReflectedProperty) {
-            if (!in_array($expectedReflectedProperty->getName(), self::$ignoredAttributes)) {
+            if (!in_array($expectedReflectedProperty->getName(), self::$ignoredAttributes, false)) {
                 $actualReflectedProperty = $actualReflected->getProperty($expectedReflectedProperty->getName());
 
                 $expectedReflectedProperty->setAccessible(true);

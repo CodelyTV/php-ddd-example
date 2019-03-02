@@ -26,7 +26,7 @@ final class DateTimeHandler implements SubscribingHandlerInterface
     private $defaultTimezone;
     private $xmlCData;
 
-    public function __construct($defaultFormat = DateTime::ISO8601, $defaultTimezone = 'UTC', $xmlCData = true)
+    public function __construct($defaultFormat = DateTime::ATOM, $defaultTimezone = 'UTC', $xmlCData = true)
     {
         $this->defaultFormat   = $defaultFormat;
         $this->defaultTimezone = new DateTimeZone($defaultTimezone);
@@ -144,7 +144,7 @@ final class DateTimeHandler implements SubscribingHandlerInterface
      */
     private function getFormat(array $type): string
     {
-        return isset($type['params'][0]) ? $type['params'][0] : $this->defaultFormat;
+        return $type['params'][0] ?? $this->defaultFormat;
     }
 
     private function parseDateTime($data, array $type)

@@ -39,7 +39,7 @@ final class MoocBackendKernel extends Kernel
 
     public function getRootDir()
     {
-        return realpath(__DIR__ . '/..');
+        return dirname(__DIR__) . '';
     }
 
     public function getCacheDir()

@@ -56,7 +56,7 @@ final class DomainEventSubscribersConfiguration
     private function containingEvent(string $name): callable
     {
         return function (array $config) use ($name) {
-            return in_array($name, $config['subscribed_events']);
+            return in_array($name, $config['subscribed_events'], false);
         };
     }
 }

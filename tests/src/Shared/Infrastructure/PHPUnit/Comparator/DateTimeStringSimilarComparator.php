@@ -17,10 +17,10 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
     public function accepts($expected, $actual): bool
     {
         return (null !== $actual) &&
-            is_string($expected) &&
-            is_string($actual) &&
-            $this->isValidDateTimeString($expected) &&
-            $this->isValidDateTimeString($actual);
+               is_string($expected) &&
+               is_string($actual) &&
+               $this->isValidDateTimeString($expected) &&
+               $this->isValidDateTimeString($actual);
     }
 
     private function isValidDateTimeString($expected): bool
@@ -42,15 +42,16 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
         $delta = 0.0,
         $canonicalize = false,
         $ignoreCase = false,
-        array &$processed = array()
+        array &$processed = []
     ): void {
         $expectedDate = new DateTimeImmutable($expected);
         $actualDate   = new DateTimeImmutable($actual);
 
-        $delta = $delta === 0.0 ? 10 : $delta;
-        $delta = new DateInterval(sprintf('PT%sS', abs($delta)));
+        $normalizedDelta   = $delta === 0.0 ? 10 : $delta;
+        $intervalWithDelta = new DateInterval(sprintf('PT%sS', abs($normalizedDelta)));
 
-        if ($actualDate < $expectedDate->sub($delta) || $actualDate > $expectedDate->add($delta)) {
+        if ($actualDate < $expectedDate->sub($intervalWithDelta) ||
+            $actualDate > $expectedDate->add($intervalWithDelta)) {
             throw new ComparisonFailure(
                 $expectedDate,
                 $actualDate,
@@ -64,7 +65,7 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
 
     protected function dateTimeToString(DateTimeInterface $datetime): string
     {
-        $string = $datetime->format(DateTime::ISO8601);
+        $string = $datetime->format(DateTime::ATOM);
 
         return $string ?: 'Invalid DateTime object';
     }

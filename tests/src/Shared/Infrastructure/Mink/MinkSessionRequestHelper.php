@@ -6,6 +6,7 @@ namespace CodelyTv\Test\Shared\Infrastructure\Mink;
 
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
+use Symfony\Component\DomCrawler\Crawler;
 
 final class MinkSessionRequestHelper
 {
@@ -45,7 +46,7 @@ final class MinkSessionRequestHelper
         print_r($this->sessionHelper->getRequestHeaders());
     }
 
-    public function request($method, $url, array $optionalParams = []): \Symfony\Component\DomCrawler\Crawler
+    public function request($method, $url, array $optionalParams = []): Crawler
     {
         return $this->sessionHelper->sendRequest($method, $url, $optionalParams);
     }

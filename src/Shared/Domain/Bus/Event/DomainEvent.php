@@ -29,7 +29,7 @@ abstract class DomainEvent extends Message
         parent::__construct(new Uuid($eventId));
 
         $this->eventId = $eventId;
-        DomainEventDataValidator::isValid($data, $this->rules(), get_called_class());
+        DomainEventDataValidator::isValid($data, $this->rules(), static::class);
 
         $this->aggregateId = $aggregateId;
         $this->data        = $data;

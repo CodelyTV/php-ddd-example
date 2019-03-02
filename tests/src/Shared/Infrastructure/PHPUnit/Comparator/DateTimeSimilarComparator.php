@@ -23,15 +23,15 @@ final class DateTimeSimilarComparator extends ObjectComparator
         $delta = 0.0,
         $canonicalize = false,
         $ignoreCase = false,
-        array &$processed = array()
+        array &$processed = []
     ): void {
-        $delta = $delta === 0.0 ? 10 : $delta;
-        $delta = new DateInterval(sprintf('PT%sS', abs($delta)));
+        $normalizedDelta   = $delta === 0.0 ? 10 : $delta;
+        $intervalWithDelta = new DateInterval(sprintf('PT%sS', abs($normalizedDelta)));
 
         $expectedLower = clone $expected;
         $expectedUpper = clone $expected;
 
-        if ($actual < $expectedLower->sub($delta) || $actual > $expectedUpper->add($delta)) {
+        if ($actual < $expectedLower->sub($intervalWithDelta) || $actual > $expectedUpper->add($intervalWithDelta)) {
             throw new ComparisonFailure(
                 $expected,
                 $actual,
@@ -45,8 +45,6 @@ final class DateTimeSimilarComparator extends ObjectComparator
 
     protected function dateTimeToString(DateTimeInterface $datetime): string
     {
-        $string = $datetime->format(DateTime::ISO8601);
-
-        return $string ? $string : 'Invalid DateTime object';
+        return $datetime->format(DateTime::ATOM) ?: 'Invalid DateTime object';
     }
 }

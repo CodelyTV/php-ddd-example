@@ -10,8 +10,8 @@ use CodelyTv\Test\Shared\Infrastructure\Mink\MinkHelper;
 use CodelyTv\Test\Shared\Infrastructure\Mink\MinkSessionResponseHelper;
 use CodelyTv\Test\Shared\Infrastructure\PHPUnit\Constraint\CodelyTvConstraintIsSimilar;
 use DateTimeImmutable;
-use Exception;
 use PHPUnit\Framework\Assert;
+use RuntimeException;
 use function CodelyTv\Utils\date_to_string;
 
 final class ApiResponseContext extends RawMinkContext
@@ -42,7 +42,7 @@ final class ApiResponseContext extends RawMinkContext
     public function theResponseContentShouldBe(PyStringNode $expected): void
     {
         if ($this->getSessionHelper()->getResponseHeader('content-type') === 'application/json') {
-            $this->assertJsonStringEqualsJsonString(
+            self::assertJsonStringEqualsJsonString(
                 $this->adaptExpected($expected->getRaw()),
                 $this->getSessionResponseHelper()->getResponse(),
                 sprintf('The string "%s" is not equal to the response of the current page', $expected)
@@ -81,7 +81,7 @@ final class ApiResponseContext extends RawMinkContext
     public function theResponseParameterShouldExist($name): void
     {
         if (!$this->getSessionHelper()->hasResponseParameter($name)) {
-            throw new Exception(sprintf('Parameter "%s" does not exists in response', $name));
+            throw new RuntimeException(sprintf('Parameter "%s" does not exists in response', $name));
         }
     }
 
@@ -138,7 +138,7 @@ final class ApiResponseContext extends RawMinkContext
     public function theHeaderShouldExists($name): void
     {
         if (!$this->getSessionHelper()->hasResponseHeader($name)) {
-            throw new Exception(sprintf('The header "%s" does not exists', $name));
+            throw new RuntimeException(sprintf('The header "%s" does not exists', $name));
         }
     }
 

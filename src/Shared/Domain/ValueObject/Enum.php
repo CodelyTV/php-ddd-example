@@ -34,7 +34,7 @@ abstract class Enum
 
     public static function values(): array
     {
-        $class = get_called_class();
+        $class = static::class;
 
         if (!isset(self::$cache[$class])) {
             $reflected           = new ReflectionClass($class);
