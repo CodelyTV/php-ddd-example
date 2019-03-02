@@ -27,14 +27,14 @@ final class MessageSerializer
 
     private function methodNameExtractor(): callable
     {
-        return function (ReflectionMethod $method) {
+        return function (ReflectionMethod $method): string {
             return camel_to_snake($method->getName());
         };
     }
 
     private function nameExtractor(Request $message): callable
     {
-        return function ($unused, $name) use ($message) {
+        return function ($unused, $name) use ($message): string {
             $methodName = snake_to_camel($name);
 
             return $message->$methodName();

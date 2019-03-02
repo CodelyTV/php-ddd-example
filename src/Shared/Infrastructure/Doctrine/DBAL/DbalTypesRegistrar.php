@@ -30,7 +30,7 @@ final class DbalTypesRegistrar
 
     private static function registerType(): callable
     {
-        return function ($class, $name) {
+        return function ($class, $name): void {
             Type::addType($name, $class);
         };
     }

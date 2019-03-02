@@ -24,7 +24,7 @@ final class DatabaseConnections
 
     public function allConnectionsClearer(): callable
     {
-        return function () {
+        return function (): void {
             $this->clear();
         };
     }

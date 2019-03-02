@@ -47,7 +47,7 @@ final class CallableFirstParameterExtractor
 
     private static function classExtractor(CallableFirstParameterExtractor $parameterExtractor): callable
     {
-        return function (callable $handler) use ($parameterExtractor) {
+        return function (callable $handler) use ($parameterExtractor): string {
             return $parameterExtractor->extract($handler);
         };
     }

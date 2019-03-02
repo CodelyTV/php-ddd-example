@@ -74,7 +74,7 @@ final class DoctrineCriteriaConverter
 
     private function buildComparison(): callable
     {
-        return function (Filter $filter) {
+        return function (Filter $filter): Comparison {
             $field = $this->mapFieldValue($filter->field());
             $value = $this->existsHydratorFor($field) ?
                 $this->hydrate($field, $filter->value()->value()) :

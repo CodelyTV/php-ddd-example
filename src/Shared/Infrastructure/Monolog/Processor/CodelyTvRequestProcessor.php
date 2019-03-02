@@ -66,7 +66,7 @@ final class CodelyTvRequestProcessor
 
     private function isArray(): callable
     {
-        return function ($value) {
+        return function ($value): bool {
             return is_array($value);
         };
     }

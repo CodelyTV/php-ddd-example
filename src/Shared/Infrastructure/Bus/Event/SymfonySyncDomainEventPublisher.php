@@ -45,7 +45,7 @@ final class SymfonySyncDomainEventPublisher implements DomainEventPublisher
 
     private function eventPublisher(): callable
     {
-        return function (DomainEvent $event) {
+        return function (DomainEvent $event): void {
             $this->publishedEvents[] = $event;
         };
     }

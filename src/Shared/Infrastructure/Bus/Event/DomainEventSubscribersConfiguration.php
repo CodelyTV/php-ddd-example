@@ -41,21 +41,21 @@ final class DomainEventSubscribersConfiguration
 
     private function domainEventConfigCreator(): callable
     {
-        return function (array $configuration) {
+        return function (array $configuration): DomainEventSubscriberConfig {
             return new DomainEventSubscriberConfig($configuration);
         };
     }
 
     private function byNameFinder(string $name): callable
     {
-        return function (array $config) use ($name) {
+        return function (array $config) use ($name): bool {
             return $name === $config['name'];
         };
     }
 
     private function containingEvent(string $name): callable
     {
-        return function (array $config) use ($name) {
+        return function (array $config) use ($name): bool {
             return in_array($name, $config['subscribed_events'], false);
         };
     }

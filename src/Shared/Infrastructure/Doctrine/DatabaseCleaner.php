@@ -30,7 +30,7 @@ final class DatabaseCleaner
 
     private function truncateTableSql(): callable
     {
-        return function (array $table) {
+        return function (array $table): string {
             return sprintf('TRUNCATE TABLE `%s`;', first($table));
         };
     }

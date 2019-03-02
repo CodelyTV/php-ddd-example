@@ -27,28 +27,28 @@ final class Validator
 
     private static function stringValidator(): callable
     {
-        return function ($value) {
+        return function ($value): bool {
             return is_string($value);
         };
     }
 
     private static function intValidator(): callable
     {
-        return function ($value) {
+        return function ($value): bool {
             return is_int($value);
         };
     }
 
     private static function arrayValidator(): callable
     {
-        return function ($value) {
+        return function ($value): bool {
             return is_array($value);
         };
     }
 
     private static function floatValidator(): callable
     {
-        return function ($value) {
+        return function ($value): bool {
             return is_float($value);
         };
     }

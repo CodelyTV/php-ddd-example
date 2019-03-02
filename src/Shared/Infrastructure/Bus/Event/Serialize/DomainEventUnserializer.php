@@ -31,7 +31,7 @@ final class DomainEventUnserializer
 
     private function toCamel(): callable
     {
-        return function ($unused, $key) {
+        return function ($unused, $key): string {
             return snake_to_camel($key);
         };
     }

@@ -37,7 +37,7 @@ final class DomainEventMapping
 
     private function eventNameExtractor(): callable
     {
-        return function (DomainEvent $event) {
+        return function (DomainEvent $event): string {
             return $event::eventName();
         };
     }
