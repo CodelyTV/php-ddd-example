@@ -38,7 +38,7 @@ final class AsyncRequestGetController
         ];
     }
 
-    private function exceptionRegistrar()
+    private function exceptionRegistrar(): callable
     {
         return function ($httpCode, $exception) {
             $this->exceptionHandler->register($exception, $httpCode);

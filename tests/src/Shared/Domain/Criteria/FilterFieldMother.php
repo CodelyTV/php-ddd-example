@@ -9,12 +9,12 @@ use CodelyTv\Test\Shared\Domain\WordMother;
 
 final class FilterFieldMother
 {
-    public static function create($fieldName)
+    public static function create($fieldName): FilterField
     {
         return new FilterField($fieldName);
     }
 
-    public static function random()
+    public static function random(): FilterField
     {
         return self::create(WordMother::random());
     }

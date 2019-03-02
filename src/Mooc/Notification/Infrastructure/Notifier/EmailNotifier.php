@@ -27,7 +27,7 @@ final class EmailNotifier implements Notifier
         $this->client = new GmailSwiftMailerEmailClient($username, $password);
     }
 
-    public function notify(NotificationText $text, NotificationType $action)
+    public function notify(NotificationText $text, NotificationType $action): void
     {
         $from    = new EmailAddress(self::NOTIFY_FROM);
         $to      = new EmailAddress(self::NOTIFY_TO);

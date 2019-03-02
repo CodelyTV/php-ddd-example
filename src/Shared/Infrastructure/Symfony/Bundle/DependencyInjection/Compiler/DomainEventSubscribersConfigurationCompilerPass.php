@@ -76,7 +76,7 @@ final class DomainEventSubscribersConfigurationCompilerPass implements CompilerP
         return last(explode('.', $subscriberServiceId));
     }
 
-    private function eventNameExtractor()
+    private function eventNameExtractor(): callable
     {
         return function (string $eventClass) {
             return $eventClass::eventName();

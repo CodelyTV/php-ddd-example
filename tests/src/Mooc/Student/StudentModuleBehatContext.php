@@ -27,7 +27,7 @@ final class StudentModuleBehatContext extends RawMinkContext
         apply($this->creator(), [$table->getRowsHash()]);
     }
 
-    private function creator()
+    private function creator(): callable
     {
         return function (array $student) {
             $this->repository->save(

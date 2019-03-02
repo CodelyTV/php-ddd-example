@@ -12,7 +12,7 @@ final class StudentIdType extends StringType
 {
     public const NAME = 'student_id';
 
-    public function getName()
+    public function getName(): string
     {
         return static::NAME;
     }

@@ -16,7 +16,7 @@ final class MySqlNotificationRepository extends DoctrineRepository implements No
         return $this->repository(Notification::class)->find($id);
     }
 
-    public function save(Notification $notification)
+    public function save(Notification $notification): void
     {
         $this->persist($notification);
     }

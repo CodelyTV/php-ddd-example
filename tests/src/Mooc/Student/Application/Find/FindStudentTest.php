@@ -28,7 +28,7 @@ final class FindStudentTest extends StudentModuleUnitTestCase
     }
 
     /** @test */
-    public function it_should_find_an_existing_student()
+    public function it_should_find_an_existing_student(): void
     {
         $query = FindStudentQueryMother::random();
 
@@ -43,7 +43,7 @@ final class FindStudentTest extends StudentModuleUnitTestCase
     }
 
     /** @test */
-    public function it_should_throw_an_exception_finding_a_non_existing_student()
+    public function it_should_throw_an_exception_finding_a_non_existing_student(): void
     {
         $query = FindStudentQueryMother::random();
 

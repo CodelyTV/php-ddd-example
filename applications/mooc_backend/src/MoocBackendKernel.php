@@ -64,7 +64,7 @@ final class MoocBackendKernel extends Kernel
         return parent::getContainer();
     }
 
-    private function bootKernelInTestEnvironmentToDiscoverErrorsWhenDeveloping()
+    private function bootKernelInTestEnvironmentToDiscoverErrorsWhenDeveloping(): void
     {
         if ($this->getEnvironment() === 'test') {
             $this->boot();

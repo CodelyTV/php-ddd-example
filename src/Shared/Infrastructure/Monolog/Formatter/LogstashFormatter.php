@@ -21,7 +21,7 @@ final class LogstashFormatter extends NormalizerFormatter
         return $this->toJson($message) . PHP_EOL;
     }
 
-    private function formatLogstash(array $record)
+    private function formatLogstash(array $record): array
     {
         $message = [
             '@timestamp' => $record['datetime'],
@@ -50,7 +50,7 @@ final class LogstashFormatter extends NormalizerFormatter
     }
 
     /** @param Exception $exception */
-    protected function normalizeException($exception)
+    protected function normalizeException($exception): array
     {
         return [
             'class'   => get_class($exception),

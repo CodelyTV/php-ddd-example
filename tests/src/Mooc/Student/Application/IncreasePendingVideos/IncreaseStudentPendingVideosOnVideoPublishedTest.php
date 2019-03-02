@@ -28,7 +28,7 @@ final class IncreaseStudentPendingVideosOnVideoPublishedTest extends StudentModu
     }
 
     /** @test */
-    public function it_should_increase_student_total_videos_created_on_scala_video_created()
+    public function it_should_increase_student_total_videos_created_on_scala_video_created(): void
     {
         $event = ScalaVideoCreatedDomainEventMother::random();
 

@@ -15,7 +15,7 @@ final class NumberTestEnum extends Enum
     const ONE = 1;
     const TWO = 2;
 
-    protected function throwExceptionForInvalidValue($unused)
+    protected function throwExceptionForInvalidValue($unused): void
     {
         // Not necessary for the test
     }

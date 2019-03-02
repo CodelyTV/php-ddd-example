@@ -24,7 +24,7 @@ final class FilterOperator extends Enum
         return new self('=');
     }
 
-    protected function throwExceptionForInvalidValue($value)
+    protected function throwExceptionForInvalidValue($value): void
     {
         throw new InvalidArgumentException(sprintf('The filter <%s> is invalid', $value));
     }

@@ -9,7 +9,7 @@ use CodelyTv\Test\Shared\Infrastructure\PHPUnit\UnitTestCase;
 final class EnumTest extends UnitTestCase
 {
     /** @test */
-    public function it_should_be_able_to_construct_enums_with_strings_inside()
+    public function it_should_be_able_to_construct_enums_with_strings_inside(): void
     {
         $this->assertEquals('one', StringTestEnum::one()->value());
         $this->assertEquals('two', StringTestEnum::two()->value());
@@ -17,7 +17,7 @@ final class EnumTest extends UnitTestCase
     }
 
     /** @test */
-    public function it_should_be_able_to_construct_enums_with_numbers_inside()
+    public function it_should_be_able_to_construct_enums_with_numbers_inside(): void
     {
         $this->assertEquals(1, NumberTestEnum::one()->value());
         $this->assertEquals(2, NumberTestEnum::two()->value());

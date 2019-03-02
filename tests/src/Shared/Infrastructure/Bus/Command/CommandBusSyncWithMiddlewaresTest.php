@@ -28,7 +28,7 @@ final class CommandBusSyncWithMiddlewaresTest extends UnitTestCase
     }
 
     /** @test */
-    public function it_should_be_able_to_handle_a_command_with_middlewares()
+    public function it_should_be_able_to_handle_a_command_with_middlewares(): void
     {
         $this->commandBus->register(get_class($this->command()), $this->commandHandler());
 
@@ -45,12 +45,12 @@ final class CommandBusSyncWithMiddlewaresTest extends UnitTestCase
         return $this->logger = $this->logger ?: $this->mock(LoggerInterface::class);
     }
 
-    protected function shouldLog()
+    protected function shouldLog(): void
     {
         $this->logger()->shouldReceive('debug')->once()->andReturnNull();
     }
 
-    private function commandHandler()
+    private function commandHandler(): callable
     {
         return function ($command) {
             $command->name();
@@ -63,7 +63,7 @@ final class CommandBusSyncWithMiddlewaresTest extends UnitTestCase
         return $this->command = $this->command ?: $this->mock(Command::class);
     }
 
-    private function commandHandlerShouldBeCalled()
+    private function commandHandlerShouldBeCalled(): void
     {
         $this->command()
             ->shouldReceive('name')
@@ -71,7 +71,7 @@ final class CommandBusSyncWithMiddlewaresTest extends UnitTestCase
             ->withNoArgs();
     }
 
-    private function shouldCheckCommandMessageType()
+    private function shouldCheckCommandMessageType(): void
     {
         $this->command()
             ->shouldReceive('messageType')

@@ -15,7 +15,7 @@ final class MoocEntityManagerFactory
         'Student\Domain'  => 'Student/Infrastructure/Persistence',
     ];
 
-    public static function create(array $parameters, $rootPath, $onDemand, $schemaFile)
+    public static function create(array $parameters, $rootPath, $onDemand, $schemaFile): \Doctrine\ORM\EntityManagerInterface
     {
         return DoctrineEntityManagerFactory::create(
             $parameters,

@@ -24,12 +24,12 @@ final class ApiExceptionSubscriber implements EventSubscriberInterface
         $this->exceptionHandler = $exceptionHandler;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [KernelEvents::EXCEPTION => ['onKernelException', 0]];
     }
 
-    public function onKernelException(GetResponseForExceptionEvent $event)
+    public function onKernelException(GetResponseForExceptionEvent $event): void
     {
         $exception      = $event->getException();
         $exceptionClass = get_class($exception);
@@ -39,7 +39,7 @@ final class ApiExceptionSubscriber implements EventSubscriberInterface
         }
     }
 
-    private function createResponseFromApiErrorException(Exception $exception)
+    private function createResponseFromApiErrorException(Exception $exception): \Symfony\Component\HttpFoundation\Response
     {
         $data = [
             'code'    => $this->getExceptionCode($exception),

@@ -28,7 +28,7 @@ final class ApiFeatureContext implements Context
     }
 
     /** @BeforeScenario */
-    public function cleanEnvironment()
+    public function cleanEnvironment(): void
     {
         $this->connections->clear();
         $this->connections->truncate();
@@ -36,7 +36,7 @@ final class ApiFeatureContext implements Context
 
 
     /** @AfterStep */
-    public function publishEvents()
+    public function publishEvents(): void
     {
         $publisher = function (DomainEvent $event) {
             $this->bus->notify($event);

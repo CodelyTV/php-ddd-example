@@ -12,7 +12,7 @@ final class DomainEventSubscribersConfiguration
 {
     private static $config = [];
 
-    public function set(string $subscriber, array $config)
+    public function set(string $subscriber, array $config): void
     {
         self::$config[$subscriber] = $config;
     }
@@ -39,21 +39,21 @@ final class DomainEventSubscribersConfiguration
         return map($this->domainEventConfigCreator(), filter($this->containingEvent($name), self::$config));
     }
 
-    private function domainEventConfigCreator()
+    private function domainEventConfigCreator(): callable
     {
         return function (array $configuration) {
             return new DomainEventSubscriberConfig($configuration);
         };
     }
 
-    private function byNameFinder(string $name)
+    private function byNameFinder(string $name): callable
     {
         return function (array $config) use ($name) {
             return $name === $config['name'];
         };
     }
 
-    private function containingEvent(string $name)
+    private function containingEvent(string $name): callable
     {
         return function (array $config) use ($name) {
             return in_array($name, $config['subscribed_events']);

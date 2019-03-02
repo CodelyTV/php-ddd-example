@@ -30,7 +30,7 @@ final class CreateVideoTest extends VideoModuleUnitTestCase
     }
 
     /** @test */
-    public function it_should_create_a_video()
+    public function it_should_create_a_video(): void
     {
         $command = CreateVideoCommandMother::random();
 

@@ -50,7 +50,7 @@ abstract class DomainEvent extends Message
         return $this->eventId;
     }
 
-    public function aggregateId()
+    public function aggregateId(): string
     {
         return $this->aggregateId;
     }

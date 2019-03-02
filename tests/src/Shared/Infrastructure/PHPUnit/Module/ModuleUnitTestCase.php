@@ -48,24 +48,24 @@ abstract class ModuleUnitTestCase extends UnitTestCase
         return $this->logger = $this->logger ?: $this->mock(LoggerInterface::class);
     }
 
-    protected function assertAskResponse(Query $query, Response $response, callable $handler)
+    protected function assertAskResponse(Query $query, Response $response, callable $handler): void
     {
         $this->assertEquals($response, $this->ask($query, $handler), 'QueryBus did not returned the expected response');
     }
 
-    protected function assertAskNullResponse(Query $query, callable $handler)
+    protected function assertAskNullResponse(Query $query, callable $handler): void
     {
         $this->assertNull($this->ask($query, $handler), 'QueryBus did not returned the expected response');
     }
 
-    protected function assertAskThrowsException($exceptionClass, Query $query, callable $handler)
+    protected function assertAskThrowsException($exceptionClass, Query $query, callable $handler): void
     {
         $this->expectException($exceptionClass);
 
         $this->ask($query, $handler);
     }
 
-    protected function shouldAsk(Query $query, Response $response = null)
+    protected function shouldAsk(Query $query, Response $response = null): void
     {
         $this->queryBus()
             ->shouldReceive('ask')
@@ -74,7 +74,7 @@ abstract class ModuleUnitTestCase extends UnitTestCase
             ->andReturn($response);
     }
 
-    protected function shouldAskThrowingException(Query $query, $exception)
+    protected function shouldAskThrowingException(Query $query, $exception): void
     {
         $this->queryBus()
             ->shouldReceive('ask')
@@ -83,25 +83,25 @@ abstract class ModuleUnitTestCase extends UnitTestCase
             ->andThrow($exception);
     }
 
-    protected function notify(DomainEvent $event, callable $subscriber)
+    protected function notify(DomainEvent $event, callable $subscriber): void
     {
         $subscriber($event);
     }
 
-    protected function shouldNotifyThrowingException(DomainEvent $event, callable $subscriber, string $exceptionClass)
+    protected function shouldNotifyThrowingException(DomainEvent $event, callable $subscriber, string $exceptionClass): void
     {
         $this->expectException($exceptionClass);
 
         $this->notify($event, $subscriber);
     }
 
-    protected function dispatch(Command $command, callable $handler)
+    protected function dispatch(Command $command, callable $handler): void
     {
         $handler($command);
     }
 
     /** @param DomainEvent[] $events */
-    protected function shouldPublishDomainEvents(DomainEvent ...$events)
+    protected function shouldPublishDomainEvents(DomainEvent ...$events): void
     {
         $this->domainEventPublisher()
             ->shouldReceive('publish')
@@ -110,18 +110,18 @@ abstract class ModuleUnitTestCase extends UnitTestCase
             ->andReturnNull();
     }
 
-    protected function shouldNotPublishDomainEvents()
+    protected function shouldNotPublishDomainEvents(): void
     {
         $this->domainEventPublisher()
             ->shouldNotReceive('publish');
     }
 
-    protected function shouldLog($level)
+    protected function shouldLog($level): void
     {
         $this->logger()->shouldReceive($level)->once()->andReturnNull();
     }
 
-    protected function shouldLogMessage($level, $message, array $context = [])
+    protected function shouldLogMessage($level, $message, array $context = []): void
     {
         $this->logger()
             ->shouldReceive($level)

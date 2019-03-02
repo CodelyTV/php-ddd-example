@@ -44,7 +44,7 @@ final class RabbitMQConsumer
         $this->ack($envelope, $queue);
     }
 
-    private function ack(AMQPEnvelope $envelope, AMQPQueue $queue)
+    private function ack(AMQPEnvelope $envelope, AMQPQueue $queue): void
     {
         try {
             $ack = $queue->ack($envelope->getDeliveryTag());
@@ -57,7 +57,7 @@ final class RabbitMQConsumer
         }
     }
 
-    private function hasBeenRedeliveredTooMuch(AMQPEnvelope $envelope)
+    private function hasBeenRedeliveredTooMuch(AMQPEnvelope $envelope): bool
     {
         return get('redelivery_count', $envelope->getHeaders(), 0) > 500;
     }
@@ -68,7 +68,7 @@ final class RabbitMQConsumer
         string $queueName,
         string $level = LogLevel::ERROR,
         Exception $exception = null
-    ) {
+    ): void {
         $this->logger->log(
             $level,
             $message,

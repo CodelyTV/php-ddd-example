@@ -31,12 +31,12 @@ abstract class ApiController
 
     abstract protected function exceptions(): array;
 
-    protected function dispatch(Command $command)
+    protected function dispatch(Command $command): void
     {
         $this->commandBus->dispatch($command);
     }
 
-    protected function ask(Query $query)
+    protected function ask(Query $query): ?\CodelyTv\Shared\Domain\Bus\Query\Response
     {
         return $this->queryBus->ask($query);
     }

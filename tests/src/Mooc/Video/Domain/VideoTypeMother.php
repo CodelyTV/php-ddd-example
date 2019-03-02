@@ -8,7 +8,7 @@ use CodelyTv\Mooc\Video\Domain\VideoType;
 
 final class VideoTypeMother
 {
-    public static function create(string $title)
+    public static function create(string $title): VideoType
     {
         return new VideoType($title);
     }

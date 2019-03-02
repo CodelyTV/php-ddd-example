@@ -9,12 +9,12 @@ use function CodelyTv\Utils\date_to_string;
 
 final class DateTimestampMother
 {
-    public static function create(string $date)
+    public static function create(string $date): string
     {
         return date_to_string(new DateTimeImmutable($date));
     }
 
-    public static function random()
+    public static function random(): string
     {
         return date_to_string(new DateTimeImmutable());
     }

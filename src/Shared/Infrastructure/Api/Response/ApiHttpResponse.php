@@ -19,17 +19,17 @@ abstract class ApiHttpResponse
         $this->headers    = $headers;
     }
 
-    public function data()
+    public function data(): ?array
     {
         return $this->data;
     }
 
-    public function statusCode()
+    public function statusCode(): int
     {
         return $this->statusCode;
     }
 
-    public function headers()
+    public function headers(): array
     {
         return $this->headers;
     }

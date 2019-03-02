@@ -14,7 +14,7 @@ use Throwable;
 
 final class DateTimeStringSimilarComparator extends ObjectComparator
 {
-    public function accepts($expected, $actual)
+    public function accepts($expected, $actual): bool
     {
         return (null !== $actual) &&
             is_string($expected) &&
@@ -23,7 +23,7 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
             $this->isValidDateTimeString($actual);
     }
 
-    private function isValidDateTimeString($expected)
+    private function isValidDateTimeString($expected): bool
     {
         $isValid = true;
 
@@ -43,7 +43,7 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
         $canonicalize = false,
         $ignoreCase = false,
         array &$processed = array()
-    ) {
+    ): void {
         $expectedDate = new DateTimeImmutable($expected);
         $actualDate   = new DateTimeImmutable($actual);
 
@@ -62,7 +62,7 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
         }
     }
 
-    protected function dateTimeToString(DateTimeInterface $datetime)
+    protected function dateTimeToString(DateTimeInterface $datetime): string
     {
         $string = $datetime->format(DateTime::ISO8601);
 

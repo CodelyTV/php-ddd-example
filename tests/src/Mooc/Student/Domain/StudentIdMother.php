@@ -9,12 +9,12 @@ use CodelyTv\Test\Shared\Domain\UuidMother;
 
 final class StudentIdMother
 {
-    public static function create(string $id)
+    public static function create(string $id): StudentId
     {
         return new StudentId($id);
     }
 
-    public static function random()
+    public static function random(): StudentId
     {
         return self::create(UuidMother::random());
     }

@@ -26,13 +26,13 @@ final class SymfonySyncQueryBusTest extends UnitTestCase
      * @test
      * @expectedException RuntimeException
      */
-    public function it_should_return_a_response_successfully()
+    public function it_should_return_a_response_successfully(): void
     {
         $this->queryBus->ask(new FakeQuery());
     }
 
     /** @test */
-    public function it_should_raise_an_exception_dispatching_a_non_registered_query()
+    public function it_should_raise_an_exception_dispatching_a_non_registered_query(): void
     {
         $this->expectException(QueryNotRegisteredError::class);
 

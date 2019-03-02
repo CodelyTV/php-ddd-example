@@ -44,7 +44,7 @@ final class DomainEventSubscriberConfig
         return $this->config['subscribed_events'];
     }
 
-    public function isSubscribedToEvent($eventName)
+    public function isSubscribedToEvent($eventName): bool
     {
         return in_array($eventName, $this->subscribedEvents());
     }
@@ -54,12 +54,12 @@ final class DomainEventSubscriberConfig
         return $this->config['enabled'];
     }
 
-    public function enabledString()
+    public function enabledString(): string
     {
         return $this->isEnabled() ? 'true' : 'false';
     }
 
-    public static function blank()
+    public static function blank(): DomainEventSubscriberConfig
     {
         return new self([]);
     }

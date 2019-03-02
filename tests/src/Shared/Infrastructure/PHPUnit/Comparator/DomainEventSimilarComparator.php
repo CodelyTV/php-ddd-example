@@ -14,7 +14,7 @@ final class DomainEventSimilarComparator extends Comparator
 {
     private static $ignoredAttributes = ['eventId', 'occurredOn'];
 
-    public function accepts($expected, $actual)
+    public function accepts($expected, $actual): bool
     {
         $domainEventRootClass = DomainEvent::class;
 
@@ -25,7 +25,7 @@ final class DomainEventSimilarComparator extends Comparator
      * @param DomainEvent $expected
      * @param DomainEvent $actual
      */
-    public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false)
+    public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void
     {
         if (!$this->areSimilar($expected, $actual)) {
             throw new ComparisonFailure(
@@ -43,7 +43,7 @@ final class DomainEventSimilarComparator extends Comparator
      * @param DomainEvent $expected
      * @param DomainEvent $actual
      */
-    private function areSimilar($expected, $actual)
+    private function areSimilar($expected, $actual): bool
     {
         if (!$this->areTheSameClass($expected, $actual)) {
             return false;
@@ -56,7 +56,7 @@ final class DomainEventSimilarComparator extends Comparator
      * @param DomainEvent $expected
      * @param DomainEvent $actual
      */
-    private function areTheSameClass($expected, $actual)
+    private function areTheSameClass($expected, $actual): bool
     {
         return get_class($expected) === get_class($actual);
     }
@@ -65,7 +65,7 @@ final class DomainEventSimilarComparator extends Comparator
      * @param DomainEvent $expected
      * @param DomainEvent $actual
      */
-    private function propertiesAreSimilar($expected, $actual)
+    private function propertiesAreSimilar($expected, $actual): bool
     {
         $expectedReflected = new ReflectionObject($expected);
         $actualReflected   = new ReflectionObject($actual);

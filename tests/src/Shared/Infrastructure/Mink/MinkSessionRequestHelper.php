@@ -17,7 +17,7 @@ final class MinkSessionRequestHelper
         $this->sessionHelper = $sessionHelper;
     }
 
-    public function sendRequest($method, $url, array $optionalParams = [])
+    public function sendRequest($method, $url, array $optionalParams = []): void
     {
         $this->request($method, $url, $optionalParams);
     }
@@ -25,32 +25,32 @@ final class MinkSessionRequestHelper
     /**
      * @todo : Fix parameters from hash, now is a simple solution
      */
-    public function sendRequestWithTableNode($method, $url, TableNode $parameters)
+    public function sendRequestWithTableNode($method, $url, TableNode $parameters): void
     {
         $this->request($method, $url, ['parameters' => $parameters->getRowsHash()]);
     }
 
-    public function sendRequestWithPyStringNode($method, $url, PyStringNode $body)
+    public function sendRequestWithPyStringNode($method, $url, PyStringNode $body): void
     {
         $this->request($method, $url, ['content' => $body->getRaw()]);
     }
 
-    public function addHeaderEqualTo($name, $value)
+    public function addHeaderEqualTo($name, $value): void
     {
         $this->sessionHelper->setRequestHeader($name, $value);
     }
 
-    public function printRequestHeaders()
+    public function printRequestHeaders(): void
     {
         print_r($this->sessionHelper->getRequestHeaders());
     }
 
-    public function request($method, $url, array $optionalParams = [])
+    public function request($method, $url, array $optionalParams = []): \Symfony\Component\DomCrawler\Crawler
     {
         return $this->sessionHelper->sendRequest($method, $url, $optionalParams);
     }
 
-    public function addHttpBasicAuthentication($username, $password)
+    public function addHttpBasicAuthentication($username, $password): void
     {
         $this->sessionHelper->addRequestHttpBasicAuthentication($username, $password);
     }

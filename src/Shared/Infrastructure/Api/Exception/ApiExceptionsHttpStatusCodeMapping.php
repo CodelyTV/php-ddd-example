@@ -13,12 +13,12 @@ final class ApiExceptionsHttpStatusCodeMapping
         InvalidArgumentException::class => Response::HTTP_BAD_REQUEST
     ];
 
-    public function register($exceptionClass, $statusCode)
+    public function register($exceptionClass, $statusCode): void
     {
         $this->exceptions[$exceptionClass] = $statusCode;
     }
 
-    public function exists($exceptionClass)
+    public function exists($exceptionClass): bool
     {
         return array_key_exists($exceptionClass, $this->exceptions);
     }

@@ -19,7 +19,7 @@ final class ConsoleContext implements Context
     /**
      * @When /^I run the "([^"]*)" console$/
      */
-    public function iRunTheApplicationConsole($app)
+    public function iRunTheApplicationConsole($app): void
     {
         $command              = './bin/console';
         $applicationDirectory = sprintf('%s/../../../../../../applications/%s', __DIR__, $app);
@@ -29,7 +29,7 @@ final class ConsoleContext implements Context
         $this->runProcess(new Process($command, $applicationDirectory));
     }
 
-    public function runProcess(Process $process)
+    public function runProcess(Process $process): void
     {
         $this->process = $process;
         $this->process->run();
@@ -38,7 +38,7 @@ final class ConsoleContext implements Context
     /**
      * @Then /^the console command should run successfully$/
      */
-    public function theConsoleCommandShouldRunSuccessfully()
+    public function theConsoleCommandShouldRunSuccessfully(): void
     {
         if (!$this->process->isSuccessful()) {
             throw new Exception(

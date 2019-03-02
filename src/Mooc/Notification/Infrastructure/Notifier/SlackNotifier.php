@@ -25,7 +25,7 @@ final class SlackNotifier implements Notifier
         $this->client = new Client($hookUrl, $settings);
     }
 
-    public function notify(NotificationText $text, NotificationType $action)
+    public function notify(NotificationText $text, NotificationType $action): void
     {
         $message = $this->client->createMessage();
 

@@ -20,7 +20,7 @@ final class VideoHighlight extends AggregateRoot
         $this->message  = $message;
     }
 
-    public static function create(VideoHighlightId $id, SecondsInterval $interval, VideoHighlightMessage $message)
+    public static function create(VideoHighlightId $id, SecondsInterval $interval, VideoHighlightMessage $message): VideoHighlight
     {
         $videoHighlight = new self($id, $interval, $message);
 

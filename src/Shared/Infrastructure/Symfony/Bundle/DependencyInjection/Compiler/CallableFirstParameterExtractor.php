@@ -13,7 +13,7 @@ use function Lambdish\Phunctional\reindex;
 
 final class CallableFirstParameterExtractor
 {
-    public function extract($class)
+    public function extract($class): ?string
     {
         $reflector = new ReflectionClass($class);
         $method    = $reflector->getMethod('__invoke');
@@ -35,24 +35,24 @@ final class CallableFirstParameterExtractor
         return reduce(self::pipedCallablesReducer(), $callables);
     }
 
-    private function firstParameterClassFrom(ReflectionMethod $method)
+    private function firstParameterClassFrom(ReflectionMethod $method): string
     {
         return $method->getParameters()[0]->getClass()->getName();
     }
 
-    private function hasOnlyOneParameter(ReflectionMethod $method)
+    private function hasOnlyOneParameter(ReflectionMethod $method): bool
     {
         return $method->getNumberOfParameters() === 1;
     }
 
-    private static function classExtractor(CallableFirstParameterExtractor $parameterExtractor)
+    private static function classExtractor(CallableFirstParameterExtractor $parameterExtractor): callable
     {
         return function (callable $handler) use ($parameterExtractor) {
             return $parameterExtractor->extract($handler);
         };
     }
 
-    private static function pipedCallablesReducer()
+    private static function pipedCallablesReducer(): callable
     {
         return function ($subscribers, DomainEventSubscriber $subscriber): array {
             $subscribedEvents = $subscriber::subscribedTo();
@@ -65,7 +65,7 @@ final class CallableFirstParameterExtractor
         };
     }
 
-    private static function unflatten()
+    private static function unflatten(): callable
     {
         return function ($value) {
             return [$value];

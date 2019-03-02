@@ -22,7 +22,7 @@ final class VideoHighlightCreator
         $this->publisher  = $publisher;
     }
 
-    public function create(VideoHighlightId $id, SecondsInterval $interval, VideoHighlightMessage $message)
+    public function create(VideoHighlightId $id, SecondsInterval $interval, VideoHighlightMessage $message): void
     {
         $videoHighlight = VideoHighlight::create($id, $interval, $message);
 

@@ -18,7 +18,7 @@ final class RepeatMother
         return self::repeat($function, NumberMother::lessThan($max));
     }
 
-    public static function random(callable $function)
+    public static function random(callable $function): array
     {
         return self::repeat($function, NumberMother::lessThan(5));
     }

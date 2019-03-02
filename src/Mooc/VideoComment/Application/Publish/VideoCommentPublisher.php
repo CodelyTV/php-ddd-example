@@ -22,7 +22,7 @@ final class VideoCommentPublisher
         $this->publisher  = $publisher;
     }
 
-    public function publish(VideoCommentId $id, VideoId $videoId, VideoCommentContent $content)
+    public function publish(VideoCommentId $id, VideoId $videoId, VideoCommentContent $content): void
     {
         $comment = VideoComment::publish($id, $videoId, $content);
 

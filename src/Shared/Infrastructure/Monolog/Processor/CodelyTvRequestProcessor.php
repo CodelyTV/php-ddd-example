@@ -24,7 +24,7 @@ final class CodelyTvRequestProcessor
         return $request ? $this->addRequestInfo($record, $request) : $record;
     }
 
-    private function addRequestInfo(array $record, Request $request)
+    private function addRequestInfo(array $record, Request $request): array
     {
         $record['extra']['request']['method']     = $request->getMethod();
         $record['extra']['request']['url']        = $request->getUri();
@@ -36,7 +36,7 @@ final class CodelyTvRequestProcessor
         return $record;
     }
 
-    private function hashToString(array $hash, $format = '%s: %s')
+    private function hashToString(array $hash, $format = '%s: %s'): string
     {
         $elements = [];
 
@@ -47,7 +47,7 @@ final class CodelyTvRequestProcessor
         return implode(', ', $elements);
     }
 
-    private function elementAsString($format, $key, $values)
+    private function elementAsString($format, $key, $values): string
     {
         return sprintf($format, $key, is_array($values) ? $this->arrayElementAsString($values) : $values);
     }
@@ -59,12 +59,12 @@ final class CodelyTvRequestProcessor
             implode(', ', $values);
     }
 
-    private function containsAnArray(array $values)
+    private function containsAnArray(array $values): bool
     {
         return any($this->isArray(), $values);
     }
 
-    private function isArray()
+    private function isArray(): callable
     {
         return function ($value) {
             return is_array($value);

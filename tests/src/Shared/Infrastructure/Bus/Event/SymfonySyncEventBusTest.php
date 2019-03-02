@@ -30,7 +30,7 @@ final class SymfonySyncEventBusTest extends UnitTestCase
     }
 
     /** @test */
-    public function it_should_publish_and_handle_one_event()
+    public function it_should_publish_and_handle_one_event(): void
     {
         $this->bus->notify(new FakeDomainEvent('aggregate id'));
 

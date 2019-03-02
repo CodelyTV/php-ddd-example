@@ -19,7 +19,7 @@ final class DbalTypesRegistrar
         VideoIdType::NAME   => VideoIdType::class,
     ];
 
-    public static function register()
+    public static function register(): void
     {
         if (!self::$initialized) {
             each(self::registerType(), self::$types);
@@ -28,7 +28,7 @@ final class DbalTypesRegistrar
         }
     }
 
-    private static function registerType()
+    private static function registerType(): callable
     {
         return function ($class, $name) {
             Type::addType($name, $class);

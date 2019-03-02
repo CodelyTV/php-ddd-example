@@ -11,17 +11,17 @@ use CodelyTv\Shared\Domain\Criteria\FilterValue;
 
 final class FilterMother
 {
-    public static function create(FilterField $field, FilterOperator $operator, FilterValue $value)
+    public static function create(FilterField $field, FilterOperator $operator, FilterValue $value): Filter
     {
         return new Filter($field, $operator, $value);
     }
 
-    public static function fromValues($values)
+    public static function fromValues($values): Filter
     {
         return Filter::fromValues($values);
     }
 
-    public static function random()
+    public static function random(): Filter
     {
         return self::create(FilterFieldMother::random(), FilterOperator::random(), FilterValueMother::random());
     }

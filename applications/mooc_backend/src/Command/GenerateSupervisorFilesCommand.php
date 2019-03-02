@@ -24,7 +24,7 @@ final class GenerateSupervisorFilesCommand extends Command
         $this->configuration = $configuration;
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('codelytv:domain-events:generate-supervisor-files')
@@ -40,7 +40,7 @@ final class GenerateSupervisorFilesCommand extends Command
         each($this->configCreator($path), $this->configuration->all());
     }
 
-    private function configCreator(string $path)
+    private function configCreator(string $path): callable
     {
         return function (DomainEventSubscriberConfig $config) use ($path) {
             $fileContent = str_replace(
@@ -53,7 +53,7 @@ final class GenerateSupervisorFilesCommand extends Command
         };
     }
 
-    private function template()
+    private function template(): string
     {
         return <<<EOF
 [program:codely_{subscriber}]

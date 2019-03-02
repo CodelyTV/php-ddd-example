@@ -9,12 +9,12 @@ use CodelyTv\Test\Shared\Domain\WordMother;
 
 final class VideoTitleMother
 {
-    public static function create(string $title)
+    public static function create(string $title): VideoTitle
     {
         return new VideoTitle($title);
     }
 
-    public static function random()
+    public static function random(): VideoTitle
     {
         return self::create(WordMother::random());
     }

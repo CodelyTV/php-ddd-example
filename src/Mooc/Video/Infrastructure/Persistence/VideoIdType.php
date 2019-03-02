@@ -12,7 +12,7 @@ final class VideoIdType extends StringType
 {
     public const NAME = 'video_id';
 
-    public function getName()
+    public function getName(): string
     {
         return static::NAME;
     }

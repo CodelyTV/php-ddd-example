@@ -11,12 +11,12 @@ use CodelyTv\Test\Mooc\Video\Domain\VideoIdMother;
 
 final class ScalaVideoCreatedDomainEventMother
 {
-    public static function create(VideoId $id, StudentId $userId)
+    public static function create(VideoId $id, StudentId $userId): ScalaVideoCreatedDomainEvent
     {
         return new ScalaVideoCreatedDomainEvent($id->value(), ['creatorId' => $userId->value()]);
     }
 
-    public static function random()
+    public static function random(): ScalaVideoCreatedDomainEvent
     {
         return self::create(VideoIdMother::random(), StudentIdMother::random());
     }

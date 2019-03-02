@@ -18,12 +18,12 @@ final class MoocEnvironmentArranger implements EnvironmentArranger
         $this->entityManager = $entityManager;
     }
 
-    public function arrange()
+    public function arrange(): void
     {
         apply(new DatabaseCleaner(), [$this->entityManager]);
     }
 
-    public function close()
+    public function close(): void
     {
     }
 }

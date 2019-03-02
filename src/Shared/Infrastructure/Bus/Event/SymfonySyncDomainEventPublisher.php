@@ -23,14 +23,14 @@ final class SymfonySyncDomainEventPublisher implements DomainEventPublisher
         each($this->eventPublisher(), $this->popEvents());
     }
 
-    public function publish(DomainEvent ...$domainEvents)
+    public function publish(DomainEvent ...$domainEvents): void
     {
         $this->record(...$domainEvents);
 
         $this->publishRecorded();
     }
 
-    public function popPublishedEvents()
+    public function popPublishedEvents(): array
     {
         $events                = $this->publishedEvents;
         $this->publishedEvents = [];
@@ -43,14 +43,14 @@ final class SymfonySyncDomainEventPublisher implements DomainEventPublisher
         return count($this->publishedEvents) > 0;
     }
 
-    private function eventPublisher()
+    private function eventPublisher(): callable
     {
         return function (DomainEvent $event) {
             $this->publishedEvents[] = $event;
         };
     }
 
-    private function popEvents()
+    private function popEvents(): array
     {
         $events       = $this->events;
         $this->events = [];

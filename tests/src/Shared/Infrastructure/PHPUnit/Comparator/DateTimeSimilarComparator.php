@@ -12,7 +12,7 @@ use SebastianBergmann\Comparator\ObjectComparator;
 
 final class DateTimeSimilarComparator extends ObjectComparator
 {
-    public function accepts($expected, $actual)
+    public function accepts($expected, $actual): bool
     {
         return $expected instanceof DateTimeInterface && $actual instanceof DateTimeInterface;
     }
@@ -24,7 +24,7 @@ final class DateTimeSimilarComparator extends ObjectComparator
         $canonicalize = false,
         $ignoreCase = false,
         array &$processed = array()
-    ) {
+    ): void {
         $delta = $delta === 0.0 ? 10 : $delta;
         $delta = new DateInterval(sprintf('PT%sS', abs($delta)));
 
@@ -43,7 +43,7 @@ final class DateTimeSimilarComparator extends ObjectComparator
         }
     }
 
-    protected function dateTimeToString(DateTimeInterface $datetime)
+    protected function dateTimeToString(DateTimeInterface $datetime): string
     {
         $string = $datetime->format(DateTime::ISO8601);
 

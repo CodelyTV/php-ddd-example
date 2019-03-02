@@ -29,7 +29,7 @@ final class DomainEventUnserializer
         return new $eventClass(get('id', $parsedEvent), reindex($this->toCamel(), $parsedEvent));
     }
 
-    private function toCamel()
+    private function toCamel(): callable
     {
         return function ($unused, $key) {
             return snake_to_camel($key);

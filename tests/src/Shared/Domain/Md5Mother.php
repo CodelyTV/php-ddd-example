@@ -6,7 +6,7 @@ namespace CodelyTv\Test\Shared\Domain;
 
 final class Md5Mother
 {
-    public static function random()
+    public static function random(): string
     {
         return MotherCreator::random()->md5;
     }

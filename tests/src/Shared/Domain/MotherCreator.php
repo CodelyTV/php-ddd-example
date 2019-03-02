@@ -10,12 +10,12 @@ final class MotherCreator
 {
     private static $faker;
 
-    public static function random()
+    public static function random(): \Faker\Generator
     {
         return self::faker();
     }
 
-    protected static function faker()
+    protected static function faker(): \Faker\Generator
     {
         return self::$faker = self::$faker ?: Factory::create();
     }

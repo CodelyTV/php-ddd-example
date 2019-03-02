@@ -31,7 +31,7 @@ abstract class StudentModuleUnitTestCase extends MoocContextUnitTestCase
             ->andReturnNull();
     }
 
-    protected function shouldSearchStudent(StudentId $id, Student $student = null)
+    protected function shouldSearchStudent(StudentId $id, Student $student = null): void
     {
         $this->repository()
             ->shouldReceive('search')

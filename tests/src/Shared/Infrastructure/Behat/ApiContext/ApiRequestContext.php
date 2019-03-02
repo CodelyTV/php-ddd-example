@@ -18,7 +18,7 @@ final class ApiRequestContext extends RawMinkContext
     /**
      * @Given I send a :method request to :url
      */
-    public function iSendARequestTo($method, $url)
+    public function iSendARequestTo($method, $url): void
     {
         $this->getSessionRequestHelper()->sendRequest($method, $this->locatePath($url));
     }
@@ -26,7 +26,7 @@ final class ApiRequestContext extends RawMinkContext
     /**
      * @When I send a :method request to :url with the parameters:
      */
-    public function iSendARequestToWithParameters($method, $url, TableNode $parameters)
+    public function iSendARequestToWithParameters($method, $url, TableNode $parameters): void
     {
         $this->getSessionRequestHelper()->sendRequestWithTableNode($method, $this->locatePath($url), $parameters);
     }
@@ -34,7 +34,7 @@ final class ApiRequestContext extends RawMinkContext
     /**
      * @Given I send a :method request to :url with body:
      */
-    public function iSendARequestToWithBody($method, $url, PyStringNode $body)
+    public function iSendARequestToWithBody($method, $url, PyStringNode $body): void
     {
         $this->getSessionRequestHelper()->sendRequestWithPyStringNode($method, $this->locatePath($url), $body);
     }
@@ -42,7 +42,7 @@ final class ApiRequestContext extends RawMinkContext
     /**
      * @When I add :name header equal to :value
      */
-    public function iAddHeaderEqualTo($name, $value)
+    public function iAddHeaderEqualTo($name, $value): void
     {
         $this->getSessionRequestHelper()->addHeaderEqualTo($name, $value);
     }
@@ -50,12 +50,12 @@ final class ApiRequestContext extends RawMinkContext
     /**
      * @Then print request headers
      */
-    public function printRequestHeaders()
+    public function printRequestHeaders(): void
     {
         $this->getSessionRequestHelper()->printRequestHeaders();
     }
 
-    private function getSessionRequestHelper()
+    private function getSessionRequestHelper(): MinkSessionRequestHelper
     {
         return $this->sessionRequestHelper = $this->sessionRequestHelper
             ?: new MinkSessionRequestHelper(new MinkHelper($this->getSession()));

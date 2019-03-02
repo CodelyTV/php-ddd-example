@@ -51,7 +51,7 @@ final class DoctrineEntityManagerFactory
     }
 
     /** @fixme add ApcuCache config to configuration */
-    private static function createConfiguration(array $prefixes, $isDevMode)
+    private static function createConfiguration(array $prefixes, $isDevMode): \Doctrine\ORM\Configuration
     {
         $config = Setup::createConfiguration($isDevMode, null, new ArrayCache());
 

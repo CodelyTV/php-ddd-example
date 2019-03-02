@@ -15,7 +15,7 @@ final class ApiSerializerDriver extends CodelyTvSerializerDriver
         $this->addResourceFile(__FILE__);
     }
 
-    public function getMetadata()
+    public function getMetadata(): array
     {
         return [
             StudentResponse::class => [

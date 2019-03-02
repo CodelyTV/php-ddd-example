@@ -11,17 +11,17 @@ use CodelyTv\Mooc\Student\Domain\StudentName;
 
 final class StudentMother
 {
-    public static function create(StudentId $id, StudentName $name, StudentTotalVideosCreated $totalPendingVideos)
+    public static function create(StudentId $id, StudentName $name, StudentTotalVideosCreated $totalPendingVideos): Student
     {
         return new Student($id, $name, $totalPendingVideos);
     }
 
-    public static function withId(StudentId $id)
+    public static function withId(StudentId $id): Student
     {
         return self::create($id, StudentNameMother::random(), StudentTotalVideosCreatedMother::random());
     }
 
-    public static function withValues(string $id, string $name, int $totalPendingVideos)
+    public static function withValues(string $id, string $name, int $totalPendingVideos): Student
     {
         return self::create(
             StudentIdMother::create($id),
@@ -30,7 +30,7 @@ final class StudentMother
         );
     }
 
-    public static function random()
+    public static function random(): Student
     {
         return self::create(StudentIdMother::random(), StudentNameMother::random(), StudentTotalVideosCreatedMother::random());
     }

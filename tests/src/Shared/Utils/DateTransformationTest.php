@@ -17,7 +17,7 @@ final class DateTransformationTest extends UnitTestCase
      * @test
      * @dataProvider validDatesConversions
      */
-    public function it_should_convert_a_date_to_milliseconds(DateTimeImmutable $date, string $expected)
+    public function it_should_convert_a_date_to_milliseconds(DateTimeImmutable $date, string $expected): void
     {
         $this->assertSame($expected, date_to_string($date));
     }
@@ -26,12 +26,12 @@ final class DateTransformationTest extends UnitTestCase
      * @test
      * @dataProvider validDatesConversions
      */
-    public function it_should_convert_a_date_from_milliseconds(DateTimeImmutable $expected, string $stringDate)
+    public function it_should_convert_a_date_from_milliseconds(DateTimeImmutable $expected, string $stringDate): void
     {
         $this->assertEquals($expected, string_to_date($stringDate));
     }
 
-    public function validDatesConversions()
+    public function validDatesConversions(): array
     {
         return [
             [

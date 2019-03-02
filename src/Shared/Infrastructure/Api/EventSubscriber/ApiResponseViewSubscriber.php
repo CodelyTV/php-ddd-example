@@ -12,12 +12,12 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 final class ApiResponseViewSubscriber implements EventSubscriberInterface
 {
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [KernelEvents::VIEW => ['onKernelView', 200]];
     }
 
-    public function onKernelView(GetResponseForControllerResultEvent $event)
+    public function onKernelView(GetResponseForControllerResultEvent $event): void
     {
         $result = $event->getControllerResult();
 

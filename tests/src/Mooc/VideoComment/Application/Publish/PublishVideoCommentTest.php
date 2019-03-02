@@ -32,7 +32,7 @@ final class PublishVideoCommentTest extends MoocContextUnitTestCase
     }
 
     /** @test */
-    public function it_should_publish_a_video()
+    public function it_should_publish_a_video(): void
     {
         $command = PublishVideoCommentCommandMother::random();
 
@@ -56,7 +56,7 @@ final class PublishVideoCommentTest extends MoocContextUnitTestCase
         return $this->repository = $this->repository ?: $this->mock(VideoCommentRepository::class);
     }
 
-    private function shouldSaveVideoComment(VideoComment $comment)
+    private function shouldSaveVideoComment(VideoComment $comment): void
     {
         $this->repository()
             ->shouldReceive('save')

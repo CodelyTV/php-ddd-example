@@ -31,7 +31,7 @@ final class RabbitMQDomainEventConsumer
         );
     }
 
-    private function queue(string $queueName)
+    private function queue(string $queueName): ?\AMQPQueue
     {
         try {
             return $this->connection->queue($queueName);

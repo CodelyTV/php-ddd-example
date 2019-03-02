@@ -21,7 +21,7 @@ final class ApiResponseContext extends RawMinkContext
     /** @return MinkHelper */
     private $sessionHelper;
 
-    public static function assertJsonStringEqualsJsonString($expectedJson, $actualJson, $message = '')
+    public static function assertJsonStringEqualsJsonString($expectedJson, $actualJson, $message = ''): void
     {
         Assert::assertJson($expectedJson, 'The expected value is not a valid json');
         Assert::assertJson($actualJson, 'The actual value is not a valid json');
@@ -39,7 +39,7 @@ final class ApiResponseContext extends RawMinkContext
     /**
      * @Then the response content should be:
      */
-    public function theResponseContentShouldBe(PyStringNode $expected)
+    public function theResponseContentShouldBe(PyStringNode $expected): void
     {
         if ($this->getSessionHelper()->getResponseHeader('content-type') === 'application/json') {
             $this->assertJsonStringEqualsJsonString(
@@ -59,7 +59,7 @@ final class ApiResponseContext extends RawMinkContext
     /**
      * @Then the response should be empty
      */
-    public function theResponseShouldBeEmpty()
+    public function theResponseShouldBeEmpty(): void
     {
         Assert::assertEmpty(
             $this->getSessionResponseHelper()->getResponse(),
@@ -70,7 +70,7 @@ final class ApiResponseContext extends RawMinkContext
     /**
      * @Then print last api response
      */
-    public function printApiResponse()
+    public function printApiResponse(): void
     {
         print_r($this->getSessionResponseHelper()->getResponse());
     }
@@ -78,7 +78,7 @@ final class ApiResponseContext extends RawMinkContext
     /**
      * @Then the response parameter :name should exist
      */
-    public function theResponseParameterShouldExist($name)
+    public function theResponseParameterShouldExist($name): void
     {
         if (!$this->getSessionHelper()->hasResponseParameter($name)) {
             throw new Exception(sprintf('Parameter "%s" does not exists in response', $name));
@@ -88,7 +88,7 @@ final class ApiResponseContext extends RawMinkContext
     /**
      * @Then the response parameter :name should match :regex
      */
-    public function theResponseParameterShouldMatch($name, $regex)
+    public function theResponseParameterShouldMatch($name, $regex): void
     {
         $value        = $this->getSessionHelper()->getResponseParameter($name);
         $errorMessage = vsprintf(
@@ -102,7 +102,7 @@ final class ApiResponseContext extends RawMinkContext
     /**
      * @Then the response parameter :name should be :expectedValue
      */
-    public function theResponseParameterShouldBe($name, $expectedValue)
+    public function theResponseParameterShouldBe($name, $expectedValue): void
     {
         $value = $this->getSessionHelper()->getResponseParameter($name);
         Assert::assertEquals($expectedValue, $value);
@@ -111,7 +111,7 @@ final class ApiResponseContext extends RawMinkContext
     /**
      * @Then print response headers
      */
-    public function printResponseHeaders()
+    public function printResponseHeaders(): void
     {
         print_r($this->getSessionHelper()->getResponseHeaders());
     }
@@ -119,7 +119,7 @@ final class ApiResponseContext extends RawMinkContext
     /**
      * @Then the response header :name should be :value
      */
-    public function theResponseHeaderShouldBe($name, $value)
+    public function theResponseHeaderShouldBe($name, $value): void
     {
         $this->theHeaderShouldExists($name);
 
@@ -135,7 +135,7 @@ final class ApiResponseContext extends RawMinkContext
     /**
      * @Then the response header :name should exists
      */
-    public function theHeaderShouldExists($name)
+    public function theHeaderShouldExists($name): void
     {
         if (!$this->getSessionHelper()->hasResponseHeader($name)) {
             throw new Exception(sprintf('The header "%s" does not exists', $name));
@@ -145,19 +145,19 @@ final class ApiResponseContext extends RawMinkContext
     /**
      * @Then the response status code should be :expectedResponseCode
      */
-    public function theResponseStatusCodeShouldBe($expectedResponseCode)
+    public function theResponseStatusCodeShouldBe($expectedResponseCode): void
     {
         Assert::assertSame((int) $expectedResponseCode, $this->getSession()->getStatusCode());
     }
 
-    private function getSessionResponseHelper()
+    private function getSessionResponseHelper(): MinkSessionResponseHelper
     {
         return $this->sessionResponseHelper = $this->sessionResponseHelper ?: new MinkSessionResponseHelper(
             $this->getSessionHelper()
         );
     }
 
-    private function getSessionHelper()
+    private function getSessionHelper(): MinkHelper
     {
         return $this->sessionHelper = $this->sessionHelper ?: new MinkHelper($this->getSession());
     }

@@ -17,7 +17,7 @@ final class StringTestEnum extends Enum
     const TWO                 = 'two';
     const A_VERY_LARGE_NUMBER = 'A very large number';
 
-    protected function throwExceptionForInvalidValue($unused)
+    protected function throwExceptionForInvalidValue($unused): void
     {
         // Not necessary for the test
     }

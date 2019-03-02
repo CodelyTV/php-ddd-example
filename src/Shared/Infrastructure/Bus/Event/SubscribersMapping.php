@@ -8,7 +8,7 @@ final class SubscribersMapping
 {
     private static $mapping = [];
 
-    public function add(string $name, callable $subscriberClass)
+    public function add(string $name, callable $subscriberClass): void
     {
         self::$mapping[$name] = $subscriberClass;
     }

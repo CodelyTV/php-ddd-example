@@ -22,7 +22,7 @@ final class GmailSwiftMailerEmailClient
         $this->mailer = Swift_Mailer::newInstance($transport);
     }
 
-    public function send(EmailAddress $from, EmailAddress $to, string $subject, string $body)
+    public function send(EmailAddress $from, EmailAddress $to, string $subject, string $body): void
     {
         $message = Swift_Message::newInstance($subject)
             ->setFrom($from->value())

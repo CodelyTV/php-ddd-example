@@ -8,15 +8,11 @@ interface EnvironmentArranger
 {
     /**
      * Clean all the infrastructure required and arrange all the needed stuff
-     *
-     * @return void
      */
-    public function arrange();
+    public function arrange(): void;
 
     /**
      * Close all the infrastructure connections
-     *
-     * @return void
      */
-    public function close();
+    public function close(): void;
 }
