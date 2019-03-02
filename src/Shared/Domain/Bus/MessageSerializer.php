@@ -6,8 +6,8 @@ namespace CodelyTv\Shared\Domain\Bus;
 
 use ReflectionClass;
 use ReflectionMethod;
-use function CodelyTv\Utils\camel_to_snake;
-use function CodelyTv\Utils\snake_to_camel;
+use function CodelyTv\Utils\Shared\camel_to_snake;
+use function CodelyTv\Utils\Shared\snake_to_camel;
 use function Lambdish\Phunctional\filter;
 use function Lambdish\Phunctional\map;
 use function Lambdish\Phunctional\not;

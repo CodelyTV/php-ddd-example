@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace CodelyTv\Test\Shared\Domain;
 
 use DateTimeImmutable;
-use function CodelyTv\Utils\date_to_string;
+use function CodelyTv\Utils\Shared\date_to_string;
 
 final class DateTimestampMother
 {

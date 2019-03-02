@@ -8,7 +8,7 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use ReflectionObject;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
-use function CodelyTv\Test\isSimilar;
+use function CodelyTv\Test\Shared\isSimilar;
 
 final class DomainEventSimilarComparator extends Comparator
 {

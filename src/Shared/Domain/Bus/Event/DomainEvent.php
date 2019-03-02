@@ -9,7 +9,7 @@ use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use CodelyTv\Shared\Infrastructure\Bus\Event\Guard\DomainEventDataValidator;
 use DateTimeImmutable;
 use RuntimeException;
-use function CodelyTv\Utils\date_to_string;
+use function CodelyTv\Utils\Shared\date_to_string;
 
 abstract class DomainEvent extends Message
 {

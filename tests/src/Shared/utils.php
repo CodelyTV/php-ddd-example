@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Test;
+namespace CodelyTv\Test\Shared;
 
 use CodelyTv\Test\Shared\Infrastructure\Mockery\CodelyTvMatcherIsEqual;
 use CodelyTv\Test\Shared\Infrastructure\Mockery\CodelyTvMatcherIsSimilar;

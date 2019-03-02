@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Utils;
+namespace CodelyTv\Utils\Shared;
 
 use DateTimeImmutable;
 use DateTimeInterface;

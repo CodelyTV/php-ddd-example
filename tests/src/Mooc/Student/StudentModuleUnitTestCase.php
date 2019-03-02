@@ -9,8 +9,8 @@ use CodelyTv\Mooc\Student\Domain\StudentId;
 use CodelyTv\Mooc\Student\Domain\StudentRepository;
 use CodelyTv\Test\Mooc\Shared\Infrastructure\MoocContextUnitTestCase;
 use Mockery\MockInterface;
-use function CodelyTv\Test\equalTo;
-use function CodelyTv\Test\similarTo;
+use function CodelyTv\Test\Shared\equalTo;
+use function CodelyTv\Test\Shared\similarTo;
 
 abstract class StudentModuleUnitTestCase extends MoocContextUnitTestCase
 {

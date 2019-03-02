@@ -7,7 +7,7 @@ namespace CodelyTv\Test\Shared\Infrastructure\PHPUnit\Comparator;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
-use function CodelyTv\Test\isSimilar;
+use function CodelyTv\Test\Shared\isSimilar;
 use function Lambdish\Phunctional\all;
 use function Lambdish\Phunctional\any;
 use function Lambdish\Phunctional\instance_of;

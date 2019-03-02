@@ -15,7 +15,7 @@ use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentIdMother;
 use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentMother;
 use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentPublishedDomainEventMother;
 use Mockery\MockInterface;
-use function CodelyTv\Test\similarTo;
+use function CodelyTv\Test\Shared\similarTo;
 
 final class PublishVideoCommentTest extends MoocContextUnitTestCase
 {

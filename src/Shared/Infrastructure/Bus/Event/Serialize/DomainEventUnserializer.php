@@ -6,7 +6,7 @@ namespace CodelyTv\Shared\Infrastructure\Bus\Event\Serialize;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventMapping;
-use function CodelyTv\Utils\snake_to_camel;
+use function CodelyTv\Utils\Shared\snake_to_camel;
 use function Lambdish\Phunctional\get;
 use function Lambdish\Phunctional\reindex;
 

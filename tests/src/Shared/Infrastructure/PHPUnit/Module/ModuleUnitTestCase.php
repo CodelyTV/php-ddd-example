@@ -14,7 +14,7 @@ use CodelyTv\Shared\Domain\Bus\Query\Response;
 use CodelyTv\Test\Shared\Infrastructure\PHPUnit\UnitTestCase;
 use Mockery\MockInterface;
 use Psr\Log\LoggerInterface;
-use function CodelyTv\Test\similarTo;
+use function CodelyTv\Test\Shared\similarTo;
 use function Lambdish\Phunctional\map;
 
 abstract class ModuleUnitTestCase extends UnitTestCase

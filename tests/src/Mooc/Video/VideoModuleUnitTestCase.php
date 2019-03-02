@@ -9,8 +9,8 @@ use CodelyTv\Mooc\Video\Domain\VideoId;
 use CodelyTv\Mooc\Video\Domain\VideoRepository;
 use CodelyTv\Test\Mooc\Shared\Infrastructure\MoocContextUnitTestCase;
 use Mockery\MockInterface;
-use function CodelyTv\Test\equalTo;
-use function CodelyTv\Test\similarTo;
+use function CodelyTv\Test\Shared\equalTo;
+use function CodelyTv\Test\Shared\similarTo;
 
 abstract class VideoModuleUnitTestCase extends MoocContextUnitTestCase
 {

@@ -72,7 +72,7 @@
       "CodelyTv\\": ["src"]
     },
     "files": [
-      "src/utils.php"
+      "src/Shared/utils.php"
     ]
   },
   "autoload-dev": {
@@ -80,7 +80,7 @@
       "CodelyTv\\Test\\": "tests/src"
     },
     "files": [
-      "tests/src/utils.php"
+      "tests/src/Shared/utils.php"
     ]
   }
 }

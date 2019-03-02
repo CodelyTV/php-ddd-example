@@ -8,7 +8,7 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
 use CodelyTv\Test\Shared\Infrastructure\Arranger\EnvironmentArranger;
 use CodelyTv\Test\Shared\Infrastructure\PHPUnit\FunctionalTestCase;
-use function CodelyTv\Test\assertSimilar;
+use function CodelyTv\Test\Shared\assertSimilar;
 use function Lambdish\Phunctional\each;
 
 abstract class ModuleFunctionalTestCase extends FunctionalTestCase

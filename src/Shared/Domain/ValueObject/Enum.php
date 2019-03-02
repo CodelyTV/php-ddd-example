@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace CodelyTv\Shared\Domain\ValueObject;
 
 use ReflectionClass;
-use function CodelyTv\Utils\snake_to_camel;
+use function CodelyTv\Utils\Shared\snake_to_camel;
 use function Lambdish\Phunctional\reindex;
 
 abstract class Enum

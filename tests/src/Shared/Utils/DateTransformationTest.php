@@ -8,8 +8,8 @@ use CodelyTv\Test\Shared\Domain\DateTimeMother;
 use CodelyTv\Test\Shared\Domain\DateTimeZoneMother;
 use CodelyTv\Test\Shared\Infrastructure\PHPUnit\UnitTestCase;
 use DateTimeImmutable;
-use function CodelyTv\Utils\date_to_string;
-use function CodelyTv\Utils\string_to_date;
+use function CodelyTv\Utils\Shared\date_to_string;
+use function CodelyTv\Utils\Shared\string_to_date;
 
 final class DateTransformationTest extends UnitTestCase
 {

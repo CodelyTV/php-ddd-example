@@ -12,7 +12,7 @@ use CodelyTv\Test\Shared\Infrastructure\PHPUnit\Constraint\CodelyTvConstraintIsS
 use DateTimeImmutable;
 use PHPUnit\Framework\Assert;
 use RuntimeException;
-use function CodelyTv\Utils\date_to_string;
+use function CodelyTv\Utils\Shared\date_to_string;
 
 final class ApiResponseContext extends RawMinkContext
 {
