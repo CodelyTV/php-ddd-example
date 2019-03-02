@@ -5,14 +5,17 @@ declare(strict_types = 1);
 namespace CodelyTv\Test\Mooc\Student\Domain;
 
 use CodelyTv\Mooc\Student\Domain\Student;
-use CodelyTv\Mooc\Student\Domain\StudentTotalVideosCreated;
 use CodelyTv\Mooc\Student\Domain\StudentId;
 use CodelyTv\Mooc\Student\Domain\StudentName;
+use CodelyTv\Mooc\Student\Domain\StudentTotalVideosCreated;
 
 final class StudentMother
 {
-    public static function create(StudentId $id, StudentName $name, StudentTotalVideosCreated $totalPendingVideos): Student
-    {
+    public static function create(
+        StudentId $id,
+        StudentName $name,
+        StudentTotalVideosCreated $totalPendingVideos
+    ): Student {
         return new Student($id, $name, $totalPendingVideos);
     }
 
@@ -32,6 +35,10 @@ final class StudentMother
 
     public static function random(): Student
     {
-        return self::create(StudentIdMother::random(), StudentNameMother::random(), StudentTotalVideosCreatedMother::random());
+        return self::create(
+            StudentIdMother::random(),
+            StudentNameMother::random(),
+            StudentTotalVideosCreatedMother::random()
+        );
     }
 }

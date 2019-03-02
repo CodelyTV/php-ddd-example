@@ -8,12 +8,12 @@ use CodelyTv\Mooc\VideoComment\Application\Publish\PublishVideoCommentCommandHan
 use CodelyTv\Mooc\VideoComment\Application\Publish\VideoCommentPublisher;
 use CodelyTv\Mooc\VideoComment\Domain\VideoComment;
 use CodelyTv\Mooc\VideoComment\Domain\VideoCommentRepository;
+use CodelyTv\Test\Mooc\Shared\Infrastructure\MoocContextUnitTestCase;
 use CodelyTv\Test\Mooc\Video\Domain\VideoIdMother;
 use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentContentMother;
 use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentIdMother;
-use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentPublishedDomainEventMother;
 use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentMother;
-use CodelyTv\Test\Mooc\Shared\Infrastructure\MoocContextUnitTestCase;
+use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentPublishedDomainEventMother;
 use Mockery\MockInterface;
 use function CodelyTv\Test\similarTo;
 

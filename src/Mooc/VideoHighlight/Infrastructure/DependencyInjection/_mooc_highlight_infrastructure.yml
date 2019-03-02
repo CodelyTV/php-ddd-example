@@ -3,4 +3,4 @@ services:
   codely.mooc.video_highlight.repository:
     class: CodelyTv\Mooc\VideoHighlight\Infrastructure\Persistence\VideoHighlightRepositoryMySql
     arguments:
-     - '@codely.mooc.infrastructure.database'
+      - '@codely.mooc.infrastructure.database'

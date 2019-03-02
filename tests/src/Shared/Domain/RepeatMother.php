@@ -8,12 +8,12 @@ use function Lambdish\Phunctional\repeat;
 
 final class RepeatMother
 {
-    public static function repeat(callable $function, $quantity) : array
+    public static function repeat(callable $function, $quantity): array
     {
         return repeat($function, $quantity);
     }
 
-    public static function repeatLessThan(callable $function, $max) : array
+    public static function repeatLessThan(callable $function, $max): array
     {
         return self::repeat($function, NumberMother::lessThan($max));
     }

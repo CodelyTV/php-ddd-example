@@ -28,6 +28,4 @@ final class EmailAddress
     {
         return $this->value;
     }
-
-
 }

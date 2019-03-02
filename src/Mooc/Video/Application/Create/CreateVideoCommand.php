@@ -26,27 +26,27 @@ final class CreateVideoCommand extends Command
         $this->courseId = $courseId;
     }
 
-    public function id() : string
+    public function id(): string
     {
         return $this->id;
     }
 
-    public function type() : string
+    public function type(): string
     {
         return $this->type;
     }
 
-    public function title() : string
+    public function title(): string
     {
         return $this->title;
     }
 
-    public function url() : string
+    public function url(): string
     {
         return $this->url;
     }
 
-    public function courseId() : string
+    public function courseId(): string
     {
         return $this->courseId;
     }

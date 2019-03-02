@@ -6,7 +6,7 @@ namespace CodelyTv\Test\Shared\Domain;
 
 final class UrlMother
 {
-    public static function random() : string
+    public static function random(): string
     {
         return MotherCreator::random()->url;
     }

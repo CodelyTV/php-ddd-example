@@ -25,8 +25,13 @@ final class VideoMother
         );
     }
 
-    public static function create(VideoId $id, VideoType $type, VideoTitle $title, VideoUrl $url, CourseId $courseId): Video
-    {
+    public static function create(
+        VideoId $id,
+        VideoType $type,
+        VideoTitle $title,
+        VideoUrl $url,
+        CourseId $courseId
+    ): Video {
         return new Video($id, $type, $title, $url, $courseId);
     }
 

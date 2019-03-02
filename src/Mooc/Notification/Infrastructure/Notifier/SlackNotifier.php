@@ -13,11 +13,9 @@ use function Lambdish\Phunctional\get;
 final class SlackNotifier implements Notifier
 {
     public const UNKNOWN_NOTIFICATION = '( ͡° ͜ʖ ͡°)';
-
     private static $actionsFaces = [
         NotificationType::VIDEO_CREATED => '(｡◕‿◕｡)',
     ];
-
     private $client;
 
     public function __construct(string $hookUrl, array $settings)

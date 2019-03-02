@@ -14,7 +14,6 @@ use CodelyTv\Test\Mooc\Student\StudentModuleUnitTestCase;
 
 final class FindStudentTest extends StudentModuleUnitTestCase
 {
-
     /** @var FindStudentQueryHandler */
     private $handler;
 
@@ -32,7 +31,7 @@ final class FindStudentTest extends StudentModuleUnitTestCase
     {
         $query = FindStudentQueryMother::random();
 
-        $id   = StudentIdMother::create($query->id());
+        $id      = StudentIdMother::create($query->id());
         $student = StudentMother::withId($id);
 
         $response = StudentResponseMother::create($student->id(), $student->name(), $student->totalVideosCreated());

@@ -7,10 +7,10 @@ services:
       - '@codely.infrastructure.subscribers_mapping'
       - '@codely.infrastructure.database_connections'
     tags:
-      -  { name: console.command }
+      - { name: console.command }
 
   codely.mooc_backend.command.generate_supervisor_files:
     class: CodelyTv\MoocBackend\Command\GenerateSupervisorFilesCommand
     arguments: ['@codely.infrastructure.domain_event_subscribers_configuration']
     tags:
-      -  { name: console.command }
+      - { name: console.command }

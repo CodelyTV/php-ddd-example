@@ -13,7 +13,7 @@ use function Lambdish\Phunctional\each;
 final class DbalTypesRegistrar
 {
     private static $initialized = false;
-    private static $types       = [
+    private static $types = [
         CourseIdType::NAME  => CourseIdType::class,
         StudentIdType::NAME => StudentIdType::class,
         VideoIdType::NAME   => VideoIdType::class,

@@ -78,11 +78,6 @@ final class DateTimeHandler implements SubscribingHandlerInterface
         return $visitor->visitString($iso8601DateIntervalString, $type, $context);
     }
 
-    /**
-     * @param DateInterval $dateInterval
-     *
-     * @return string
-     */
     public function format(DateInterval $dateInterval): string
     {
         $format = 'P';
@@ -138,9 +133,10 @@ final class DateTimeHandler implements SubscribingHandlerInterface
     }
 
     /**
+     * @param array $type
+     *
      * @return string
      *
-     * @param array $type
      */
     private function getFormat(array $type): string
     {

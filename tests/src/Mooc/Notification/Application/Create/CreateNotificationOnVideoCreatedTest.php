@@ -16,6 +16,5 @@ final class CreateNotificationOnVideoCreatedTest extends NotificationModuleUnitT
      */
     public function implementation_pending(): void
     {
-
     }
 }

@@ -21,7 +21,7 @@ final class VideoCommentPublishedDomainEventMother
             $id->value(),
             [
                 'videoId' => $videoId->value(),
-                'content' => $content->value()
+                'content' => $content->value(),
             ]
         );
     }

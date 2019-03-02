@@ -34,7 +34,6 @@ final class ApiFeatureContext implements Context
         $this->connections->truncate();
     }
 
-
     /** @AfterStep */
     public function publishEvents(): void
     {

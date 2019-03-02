@@ -120,7 +120,6 @@ final class MinkHelper
         return $this->getSession()->getPage()->find('xpath', $query);
     }
 
-    /** @return Request $request */
     public function getRequest(): Request
     {
         return $this->getClient()->getRequest();
@@ -131,13 +130,11 @@ final class MinkHelper
         return $this->session;
     }
 
-    /** @return KernelDriver */
     private function getDriver(): KernelDriver
     {
         return $this->getSession()->getDriver();
     }
 
-    /** @return Client */
     private function getClient(): Client
     {
         return $this->getDriver()->getClient();

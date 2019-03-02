@@ -18,7 +18,7 @@ final class ApiResponseContext extends RawMinkContext
 {
     /** @var MinkSessionResponseHelper */
     private $sessionResponseHelper;
-    /** @return MinkHelper */
+    /** @var MinkHelper */
     private $sessionHelper;
 
     public static function assertJsonStringEqualsJsonString($expectedJson, $actualJson, $message = ''): void

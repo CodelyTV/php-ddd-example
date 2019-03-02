@@ -13,7 +13,6 @@ final class TransactionalServiceCompilerPass implements CompilerPassInterface
 {
     public const TRANSACTIONAL_TAG = 'transactional';
     public const BY_TAG            = 'by';
-
     private $domainEventPublisherTag;
 
     public function __construct(string $domainEventPublisherTag)

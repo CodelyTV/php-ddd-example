@@ -11,12 +11,12 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
  */
 final class ConstructionTestDomainEvent extends DomainEvent
 {
-    public static function eventName() : string
+    public static function eventName(): string
     {
         return 'construction_test';
     }
 
-    protected function rules() : array
+    protected function rules(): array
     {
         return [
             'someIdentifier' => ['string'],

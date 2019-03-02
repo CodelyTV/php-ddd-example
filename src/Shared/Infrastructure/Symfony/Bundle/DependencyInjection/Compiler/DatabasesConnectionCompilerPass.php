@@ -13,7 +13,6 @@ use function Lambdish\Phunctional\each;
 final class DatabasesConnectionCompilerPass implements CompilerPassInterface
 {
     public const DATABASE_CONNECTIONS_SERVICE = 'codely.infrastructure.database_connections';
-
     private $tag;
 
     public function __construct(string $tag)

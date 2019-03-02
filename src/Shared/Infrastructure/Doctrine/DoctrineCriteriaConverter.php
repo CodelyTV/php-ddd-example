@@ -20,13 +20,16 @@ final class DoctrineCriteriaConverter
 
     public function __construct(Criteria $criteria, array $criteriaToDoctrineFields = [], array $hydrators = [])
     {
-        $this->criteria                 = $criteria;
+        $this->criteria = $criteria;
         $this->criteriaToDoctrineFields = $criteriaToDoctrineFields;
-        $this->hydrators                = $hydrators;
+        $this->hydrators = $hydrators;
     }
 
-    public static function convert(Criteria $criteria, array $criteriaToDoctrineFields = [], array $hydrators = []): DoctrineCriteria
-    {
+    public static function convert(
+        Criteria $criteria,
+        array $criteriaToDoctrineFields = [],
+        array $hydrators = []
+    ): DoctrineCriteria {
         $converter = new self($criteria, $criteriaToDoctrineFields, $hydrators);
 
         return $converter->convertToDoctrineCriteria();

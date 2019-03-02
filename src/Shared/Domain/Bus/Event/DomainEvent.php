@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Domain\Bus\Event;
 
-use CodelyTv\Shared\Infrastructure\Bus\Event\Guard\DomainEventDataValidator;
 use CodelyTv\Shared\Domain\Bus\Message;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
+use CodelyTv\Shared\Infrastructure\Bus\Event\Guard\DomainEventDataValidator;
 use DateTimeImmutable;
 use RuntimeException;
 use function CodelyTv\Utils\date_to_string;

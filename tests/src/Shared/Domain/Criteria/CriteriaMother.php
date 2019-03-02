@@ -23,6 +23,11 @@ final class CriteriaMother
 
     public static function random(): Criteria
     {
-        return self::create(FiltersMother::random(), OrderMother::random(), NumberMother::random(), NumberMother::random());
+        return self::create(
+            FiltersMother::random(),
+            OrderMother::random(),
+            NumberMother::random(),
+            NumberMother::random()
+        );
     }
 }

@@ -12,7 +12,7 @@ use ReflectionClass;
 
 abstract class CodelyTvSerializerDriver implements DriverInterface
 {
-    private $baseMetadata  = [];
+    private $baseMetadata = [];
     private $fileResources = [__FILE__];
 
     abstract public function getMetadata();

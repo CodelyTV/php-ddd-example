@@ -88,8 +88,11 @@ abstract class ModuleUnitTestCase extends UnitTestCase
         $subscriber($event);
     }
 
-    protected function shouldNotifyThrowingException(DomainEvent $event, callable $subscriber, string $exceptionClass): void
-    {
+    protected function shouldNotifyThrowingException(
+        DomainEvent $event,
+        callable $subscriber,
+        string $exceptionClass
+    ): void {
         $this->expectException($exceptionClass);
 
         $this->notify($event, $subscriber);

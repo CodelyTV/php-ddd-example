@@ -13,7 +13,7 @@ final class MultipleHandleLocator
         $this->handlers[$key][] = $handler;
     }
 
-    public function find($key) : array
+    public function find($key): array
     {
         return $this->handlers[$key];
     }

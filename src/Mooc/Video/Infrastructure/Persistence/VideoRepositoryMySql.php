@@ -8,9 +8,9 @@ use CodelyTv\Mooc\Video\Domain\Video;
 use CodelyTv\Mooc\Video\Domain\VideoId;
 use CodelyTv\Mooc\Video\Domain\VideoRepository;
 use CodelyTv\Mooc\Video\Domain\Videos;
+use CodelyTv\Shared\Domain\Criteria\Criteria;
 use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineCriteriaConverter;
 use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineRepository;
-use CodelyTv\Shared\Domain\Criteria\Criteria;
 
 final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepository
 {

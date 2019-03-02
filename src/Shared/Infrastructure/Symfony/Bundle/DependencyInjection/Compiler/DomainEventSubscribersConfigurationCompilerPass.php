@@ -17,7 +17,6 @@ final class DomainEventSubscribersConfigurationCompilerPass implements CompilerP
 {
     public const DOMAIN_EVENT_CONFIGURATION_SERVICE = 'codely.infrastructure.domain_event_subscribers_configuration';
     public const SUBSCRIBERS_MAPPING_SERVICE        = 'codely.infrastructure.subscribers_mapping';
-
     private $tag;
 
     public function __construct(string $tag)

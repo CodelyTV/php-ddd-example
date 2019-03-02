@@ -10,12 +10,12 @@ use Mockery\MockInterface;
 
 abstract class UnitTestCase extends MockeryTestCase
 {
-    protected function mock($className) : MockInterface
+    protected function mock($className): MockInterface
     {
         return Mockery::mock($className);
     }
 
-    protected function namedMock($name, $className) : MockInterface
+    protected function namedMock($name, $className): MockInterface
     {
         return Mockery::namedMock($name, $className);
     }

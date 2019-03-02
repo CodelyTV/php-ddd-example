@@ -23,10 +23,10 @@ services:
   codely.mooc.student.student_finder:
     class: CodelyTv\Mooc\Student\Application\Find\StudentFinder
     arguments:
-     - '@codely.mooc.student.repository'
+      - '@codely.mooc.student.repository'
 
 
   codely.mooc.student.student_total_videos_created_increaser:
     class: CodelyTv\Mooc\Student\Application\IncreasePendingVideos\StudentTotalVideosCreatedIncreaser
     arguments:
-     - '@codely.mooc.student.repository'
+      - '@codely.mooc.student.repository'

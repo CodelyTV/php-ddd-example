@@ -18,8 +18,13 @@ use CodelyTv\Test\Mooc\Video\Domain\VideoUrlMother;
 
 final class VideoResponseMother
 {
-    public static function create(VideoId $id, VideoType $type, VideoTitle $title, VideoUrl $url, CourseId $courseId): VideoResponse
-    {
+    public static function create(
+        VideoId $id,
+        VideoType $type,
+        VideoTitle $title,
+        VideoUrl $url,
+        CourseId $courseId
+    ): VideoResponse {
         return new VideoResponse($id->value(), $type->value(), $title->value(), $url->value(), $courseId->value());
     }
 

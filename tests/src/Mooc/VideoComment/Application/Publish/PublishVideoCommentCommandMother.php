@@ -21,8 +21,7 @@ final class PublishVideoCommentCommandMother
         VideoCommentId $id,
         VideoId $videoId,
         VideoCommentContent $content
-    ): PublishVideoCommentCommand
-    {
+    ): PublishVideoCommentCommand {
         return new PublishVideoCommentCommand($requestId, $id->value(), $videoId->value(), $content->value());
     }
 

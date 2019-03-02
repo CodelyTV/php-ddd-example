@@ -23,7 +23,7 @@ final class TextMother
 
     public static function withMinLength(int $minLength): string
     {
-        $numWords = $minLength;
+        $numWords         = $minLength;
         $variableNumWords = false;
 
         return MotherCreator::random()->sentence($numWords, $variableNumWords);

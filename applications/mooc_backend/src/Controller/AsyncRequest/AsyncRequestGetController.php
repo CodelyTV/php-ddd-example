@@ -4,10 +4,10 @@ declare (strict_types = 1);
 
 namespace CodelyTv\MoocBackend\Controller\AsyncRequest;
 
+use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use CodelyTv\Shared\Infrastructure\Api\Exception\ApiExceptionsHttpStatusCodeMapping;
 use CodelyTv\Shared\Infrastructure\Bus\AsyncRequestFinder;
 use CodelyTv\Shared\Infrastructure\Bus\AsyncRequestNotExists;
-use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use Symfony\Component\HttpFoundation\Response;
 use function Lambdish\Phunctional\each;
 
@@ -16,8 +16,10 @@ final class AsyncRequestGetController
     private $asyncRequestFinder;
     private $exceptionHandler;
 
-    public function __construct(AsyncRequestFinder $asyncRequestFinder, ApiExceptionsHttpStatusCodeMapping $exceptionHandler)
-    {
+    public function __construct(
+        AsyncRequestFinder $asyncRequestFinder,
+        ApiExceptionsHttpStatusCodeMapping $exceptionHandler
+    ) {
         $this->asyncRequestFinder = $asyncRequestFinder;
         $this->exceptionHandler   = $exceptionHandler;
 

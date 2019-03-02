@@ -5,9 +5,9 @@ declare(strict_types = 1);
 namespace CodelyTv\Shared\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
-use function Lambdish\Phunctional\map;
 use ReflectionClass;
 use ReflectionMethod;
+use function Lambdish\Phunctional\map;
 use function Lambdish\Phunctional\reduce;
 use function Lambdish\Phunctional\reindex;
 

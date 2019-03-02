@@ -4,8 +4,7 @@ services:
     class: Doctrine\ORM\EntityManager
     factory: [CodelyTv\Mooc\Shared\Infrastructure\Doctrine\MoocEntityManagerFactory, create]
     arguments:
-      -
-        driver:   '%mooc_database_driver%'
+      - driver:   '%mooc_database_driver%'
         host:     '%mooc_database_host%'
         port:     '%mooc_database_port%'
         dbname:   '%mooc_database_name%'

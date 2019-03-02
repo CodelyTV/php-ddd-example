@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Mooc\Video\Application\Find;
 
+use CodelyTv\Mooc\Video\Domain\VideoFinder as DomainVideoFinder;
 use CodelyTv\Mooc\Video\Domain\VideoId;
 use CodelyTv\Mooc\Video\Domain\VideoRepository;
-use CodelyTv\Mooc\Video\Domain\VideoFinder as DomainVideoFinder;
 
 final class VideoFinder
 {

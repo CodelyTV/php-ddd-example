@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 final class ApiExceptionsHttpStatusCodeMapping
 {
     private $exceptions = [
-        InvalidArgumentException::class => Response::HTTP_BAD_REQUEST
+        InvalidArgumentException::class => Response::HTTP_BAD_REQUEST,
     ];
 
     public function register($exceptionClass, $statusCode): void

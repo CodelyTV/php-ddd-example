@@ -32,9 +32,9 @@ final class StudentRepositoryTest extends StudentModuleFunctionalTestCase
     /** @test */
     public function it_should_find_multiples_video(): void
     {
-        $student    = StudentMother::random();
-        $another = StudentMother::random();
-        $students   = StudentsMother::create($student, $another);
+        $student  = StudentMother::random();
+        $another  = StudentMother::random();
+        $students = StudentsMother::create($student, $another);
 
         $this->repository()->saveAll($students);
         $this->clearUnitOfWork();

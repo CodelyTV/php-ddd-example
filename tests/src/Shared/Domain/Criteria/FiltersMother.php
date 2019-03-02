@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Shared\Domain\Criteria;
 
-
 use CodelyTv\Shared\Domain\Criteria\Filter;
 use CodelyTv\Shared\Domain\Criteria\Filters;
 

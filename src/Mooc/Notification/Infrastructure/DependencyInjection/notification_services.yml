@@ -20,10 +20,10 @@ services:
   codely.mooc.notification.notification_creator:
     class: CodelyTv\Mooc\Notification\Application\Create\NotificationCreator
     arguments:
-     - '@codely.infrastructure.uuid_generator'
-     - '@codely.mooc.domain_event_publisher'
+      - '@codely.infrastructure.uuid_generator'
+      - '@codely.mooc.domain_event_publisher'
 
   codely.mooc.notification.notification_sender:
     class: CodelyTv\Mooc\Notification\Application\Send\NotificationSender
     arguments:
-     - '@codely.mooc.notification.notifier'
+      - '@codely.mooc.notification.notifier'

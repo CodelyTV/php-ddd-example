@@ -5,8 +5,8 @@ declare(strict_types = 1);
 namespace CodelyTv\Test\Mooc\Student;
 
 use CodelyTv\Mooc\Student\Domain\Student;
-use CodelyTv\Mooc\Student\Domain\StudentRepository;
 use CodelyTv\Mooc\Student\Domain\StudentId;
+use CodelyTv\Mooc\Student\Domain\StudentRepository;
 use CodelyTv\Test\Mooc\Shared\Infrastructure\MoocContextUnitTestCase;
 use Mockery\MockInterface;
 use function CodelyTv\Test\equalTo;

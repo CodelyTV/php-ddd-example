@@ -2,8 +2,7 @@ fos_rest:
 
   format_listener:
     rules:
-      -
-        path:             ~
+      - path:             ~
         host:             ~
         prefer_extension: false
         fallback_format:  json

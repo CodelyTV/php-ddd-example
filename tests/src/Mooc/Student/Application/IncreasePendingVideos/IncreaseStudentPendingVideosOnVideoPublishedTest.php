@@ -7,9 +7,9 @@ namespace CodelyTv\Test\Mooc\Student\Application\IncreasePendingVideos;
 use CodelyTv\Mooc\Student\Application\IncreasePendingVideos\IncreaseStudentTotalVideosCreatedOnVideoCreated;
 use CodelyTv\Mooc\Student\Application\IncreasePendingVideos\StudentTotalVideosCreatedIncreaser;
 use CodelyTv\Test\Mooc\Student\Domain\ScalaVideoCreatedDomainEventMother;
-use CodelyTv\Test\Mooc\Student\Domain\StudentTotalVideosCreatedMother;
 use CodelyTv\Test\Mooc\Student\Domain\StudentIdMother;
 use CodelyTv\Test\Mooc\Student\Domain\StudentMother;
+use CodelyTv\Test\Mooc\Student\Domain\StudentTotalVideosCreatedMother;
 use CodelyTv\Test\Mooc\Student\StudentModuleUnitTestCase;
 use CodelyTv\Test\Shared\Domain\DuplicatorMother;
 
@@ -37,7 +37,11 @@ final class IncreaseStudentPendingVideosOnVideoPublishedTest extends StudentModu
 
         $updatedStudent = DuplicatorMother::with(
             $student,
-            ['totalVideosCreated' => StudentTotalVideosCreatedMother::create($student->totalVideosCreated()->value() + 1)]
+            [
+                'totalVideosCreated' => StudentTotalVideosCreatedMother::create(
+                    $student->totalVideosCreated()->value() + 1
+                ),
+            ]
         );
 
         $this->shouldSearchStudent($id, $student);

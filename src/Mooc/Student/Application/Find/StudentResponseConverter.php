@@ -10,6 +10,10 @@ final class StudentResponseConverter
 {
     public function __invoke(Student $student)
     {
-        return new StudentResponse($student->id()->value(), $student->name()->value(), $student->totalVideosCreated()->value());
+        return new StudentResponse(
+            $student->id()->value(),
+            $student->name()->value(),
+            $student->totalVideosCreated()->value()
+        );
     }
 }

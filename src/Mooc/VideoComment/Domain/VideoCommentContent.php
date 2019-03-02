@@ -7,7 +7,6 @@ namespace CodelyTv\Mooc\VideoComment\Domain;
 final class VideoCommentContent
 {
     private const MIN_LENGTH = 20;
-
     private $value;
 
     public function __construct(string $value)
@@ -22,7 +21,7 @@ final class VideoCommentContent
         return $this->value;
     }
 
-    private function ensureHasMinimumLength(string $content):void
+    private function ensureHasMinimumLength(string $content): void
     {
         $contentLength = strlen($content);
 

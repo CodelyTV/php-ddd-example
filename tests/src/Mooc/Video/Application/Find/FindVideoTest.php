@@ -30,7 +30,7 @@ final class FindVideoTest extends VideoModuleUnitTestCase
     {
         $query = FindVideoQueryMother::random();
 
-        $id = VideoIdMother::create($query->id());
+        $id    = VideoIdMother::create($query->id());
         $video = VideoMother::withId($id);
 
         $response = VideoResponseMother::create(
