@@ -21,6 +21,8 @@ final class CallableFirstParameterExtractor
         if ($this->hasOnlyOneParameter($method)) {
             return $this->firstParameterClassFrom($method);
         }
+
+        return null;
     }
 
     public static function forCallables(iterable $callables): array
@@ -30,7 +32,7 @@ final class CallableFirstParameterExtractor
 
     public static function forPipedCallables(iterable $callables): array
     {
-        return reduce(self::pipedCallablesReducer(new self()), $callables);
+        return reduce(self::pipedCallablesReducer(), $callables);
     }
 
     private function firstParameterClassFrom(ReflectionMethod $method)
@@ -50,7 +52,7 @@ final class CallableFirstParameterExtractor
         };
     }
 
-    private static function pipedCallablesReducer(CallableFirstParameterExtractor $parameterExtractor)
+    private static function pipedCallablesReducer()
     {
         return function ($subscribers, DomainEventSubscriber $subscriber): array {
             $subscribedEvents = $subscriber::subscribedTo();

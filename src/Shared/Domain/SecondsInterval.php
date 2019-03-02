@@ -37,7 +37,7 @@ final class SecondsInterval
     private function ensureIntervalEndsAfterStart(Second $from, Second $to)
     {
         if ($from->isBiggerThan($to)) {
-            throw new DomainException("To is bigger than from");
+            throw new DomainException('To is bigger than from');
         }
     }
 }

@@ -12,7 +12,7 @@ abstract class ApiHttpResponse
     private $statusCode;
     private $headers;
 
-    public function __construct($data, $statusCode = Response::HTTP_OK, array $headers = [])
+    public function __construct(?array $data, int $statusCode = Response::HTTP_OK, array $headers = [])
     {
         $this->data       = $data;
         $this->statusCode = $statusCode;

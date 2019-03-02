@@ -13,8 +13,8 @@ use InvalidArgumentException;
  */
 final class VideoType extends Enum
 {
-    const SCREENCAST = 'screencast';
-    const INTERVIEW  = 'interview';
+    public const SCREENCAST = 'screencast';
+    public const INTERVIEW  = 'interview';
 
     protected function throwExceptionForInvalidValue($value)
     {

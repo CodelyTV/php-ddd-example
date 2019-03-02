@@ -16,7 +16,7 @@ function date_to_string(DateTimeInterface $date): string
     $microseconds          = $date->format('u');
     $millisecondsOnASecond = 1000;
 
-    return (string) (((float) ((string) $timestamp . '.' . (string) $microseconds)) * $millisecondsOnASecond);
+    return (string) (((float) ($timestamp . '.' . $microseconds)) * $millisecondsOnASecond);
 }
 
 function string_to_date($milliseconds): DateTimeImmutable
@@ -41,7 +41,7 @@ function snake_to_camel($word)
 
 function camel_to_snake($word)
 {
-    return ctype_lower($word) ? $word : strtolower(preg_replace('/([^A-Z\s])([A-Z])/', "$1_$2", $word));
+    return ctype_lower($word) ? $word : strtolower(preg_replace('/([^A-Z\s])([A-Z])/', '$1_$2', $word));
 }
 
 function map_no_null(callable $fn, $coll)

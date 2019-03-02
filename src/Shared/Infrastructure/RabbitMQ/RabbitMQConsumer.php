@@ -88,7 +88,7 @@ final class RabbitMQConsumer
                     'priority'         => $envelope->getPriority(),
                     'reply_to'         => $envelope->getReplyTo(),
                     'routing_key'      => $envelope->getRoutingKey(),
-                    'timestamp'        => $envelope->getTimeStamp(),
+                    'timestamp'        => $envelope->getTimestamp(),
                     'type'             => $envelope->getType(),
                     'user_id'          => $envelope->getUserId(),
                     'is_redelivery'    => $envelope->isRedelivery(),

@@ -22,8 +22,8 @@ final class DomainEventSimilarComparator extends Comparator
     }
 
     /**
-     * @param DomainEvent                                   $expected
-     * @param \CodelyTv\Shared\Domain\Bus\Event\DomainEvent $actual
+     * @param DomainEvent $expected
+     * @param DomainEvent $actual
      */
     public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false)
     {

@@ -122,7 +122,7 @@ final class DateTimeHandler implements SubscribingHandlerInterface
     {
         $attributes = $data->attributes('xsi', true);
         if (isset($attributes['nil'][0]) && (string) $attributes['nil'][0] === 'true') {
-            return;
+            return null;
         }
 
         return $this->parseDateTime($data, $type);
@@ -131,7 +131,7 @@ final class DateTimeHandler implements SubscribingHandlerInterface
     public function deserializeDateTimeFromJson(JsonDeserializationVisitor $unused, $data, array $type)
     {
         if (null === $data) {
-            return;
+            return null;
         }
 
         return $this->parseDateTime($data, $type);

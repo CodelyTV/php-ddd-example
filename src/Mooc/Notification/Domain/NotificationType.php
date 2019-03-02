@@ -12,7 +12,7 @@ use InvalidArgumentException;
  */
 final class NotificationType extends Enum
 {
-    const VIDEO_CREATED = 'VideoCreated';
+    public const VIDEO_CREATED = 'VideoCreated';
 
     protected function throwExceptionForInvalidValue($value)
     {

@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace CodelyTv\Shared\Infrastructure\RabbitMQ;
 
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventMapping;
-use CodelyTv\Shared\Application\DomainEventSubscriber;
 use Exception;
 use Psr\Log\LoggerInterface;
 

@@ -24,7 +24,7 @@ abstract class ModuleUnitTestCase extends UnitTestCase
     private $commandBus;
     private $logger;
 
-    /** @return \CodelyTv\Shared\Domain\Bus\Query\QueryBus|MockInterface */
+    /** @return QueryBus|MockInterface */
     protected function queryBus()
     {
         return $this->queryBus = $this->queryBus ?: $this->mock(QueryBus::class);
@@ -36,7 +36,7 @@ abstract class ModuleUnitTestCase extends UnitTestCase
         return $this->domainEventPublisher = $this->domainEventPublisher ?: $this->mock(DomainEventPublisher::class);
     }
 
-    /** @return \CodelyTv\Shared\Domain\Bus\Command\CommandBus|MockInterface */
+    /** @return CommandBus|MockInterface */
     protected function commandBus()
     {
         return $this->commandBus = $this->commandBus ?: $this->mock(CommandBus::class);

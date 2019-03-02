@@ -11,8 +11,8 @@ use function Lambdish\Phunctional\each;
 
 final class TransactionalServiceCompilerPass implements CompilerPassInterface
 {
-    const TRANSACTIONAL_TAG = 'transactional';
-    const BY_TAG            = 'by';
+    public const TRANSACTIONAL_TAG = 'transactional';
+    public const BY_TAG            = 'by';
 
     private $domainEventPublisherTag;
 

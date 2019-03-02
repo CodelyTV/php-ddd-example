@@ -12,9 +12,9 @@ use function Lambdish\Phunctional\get;
 
 final class EmailNotifier implements Notifier
 {
-    const NOTIFY_FROM          = 'notifications@codely.tv';
-    const NOTIFY_TO            = 'hi@codely.tv';
-    const UNKNOWN_NOTIFICATION = 'Unknown Notification';
+    public const NOTIFY_FROM          = 'notifications@codely.tv';
+    public const NOTIFY_TO            = 'hi@codely.tv';
+    public const UNKNOWN_NOTIFICATION = 'Unknown Notification';
 
     private static $subjects = [
         NotificationType::VIDEO_CREATED => 'New video, yeah!',

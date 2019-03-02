@@ -16,6 +16,7 @@ abstract class Enum
     public function __construct($value)
     {
         $this->ensureIsBetweenAcceptedValues($value);
+
         $this->value = $value;
     }
 

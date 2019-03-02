@@ -8,7 +8,6 @@ use CodelyTv\Mooc\Video\Domain\VideoRepository;
 use CodelyTv\Test\Mooc\Video\Domain\VideoIdMother;
 use CodelyTv\Test\Mooc\Video\Domain\VideoMother;
 use CodelyTv\Test\Mooc\Video\VideoModuleFunctionalTestCase;
-use CodelyTv\Test\Shared\Domain\Criteria\CriteriaMother;
 
 final class VideoRepositoryTest extends VideoModuleFunctionalTestCase
 {

@@ -6,7 +6,7 @@ namespace CodelyTv\Shared\Infrastructure\RabbitMQ;
 
 final class RabbitMQQueueNameFormatter
 {
-    const QUEUE_PREFIX = 'codelytv_php_api';
+    public const QUEUE_PREFIX = 'codelytv_php_api';
 
     public static function format(string $name)
     {

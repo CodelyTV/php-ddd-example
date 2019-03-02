@@ -12,7 +12,7 @@ use function Lambdish\Phunctional\each;
 
 final class DatabasesConnectionCompilerPass implements CompilerPassInterface
 {
-    const DATABASE_CONNECTIONS_SERVICE = 'codely.infrastructure.database_connections';
+    public const DATABASE_CONNECTIONS_SERVICE = 'codely.infrastructure.database_connections';
 
     private $tag;
 
@@ -31,7 +31,7 @@ final class DatabasesConnectionCompilerPass implements CompilerPassInterface
 
     private function addDatabasesConnections(Definition $connectionsService): callable
     {
-        return function (array $attributes, string $databaseConnectionServiceId) use ($connectionsService): void {
+        return function (array $unused, string $databaseConnectionServiceId) use ($connectionsService): void {
             $connectionsService->addMethodCall(
                 'set',
                 [$databaseConnectionServiceId, new Reference($databaseConnectionServiceId)]

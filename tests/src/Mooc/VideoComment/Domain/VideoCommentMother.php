@@ -8,6 +8,7 @@ use CodelyTv\Mooc\Video\Domain\VideoId;
 use CodelyTv\Mooc\VideoComment\Domain\VideoComment;
 use CodelyTv\Mooc\VideoComment\Domain\VideoCommentContent;
 use CodelyTv\Mooc\VideoComment\Domain\VideoCommentId;
+use CodelyTv\Test\Mooc\Video\Domain\VideoIdMother;
 
 final class VideoCommentMother
 {
