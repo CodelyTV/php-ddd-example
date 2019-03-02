@@ -8,6 +8,7 @@ use CodelyTv\Shared\Infrastructure\Doctrine\DBAL\DbalTypesRegistrar;
 use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Schema\MySqlSchemaManager;
+use Doctrine\ORM\Configuration;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver;
@@ -51,7 +52,7 @@ final class DoctrineEntityManagerFactory
     }
 
     /** @fixme add ApcuCache config to configuration */
-    private static function createConfiguration(array $prefixes, $isDevMode)
+    private static function createConfiguration(array $prefixes, $isDevMode): Configuration
     {
         $config = Setup::createConfiguration($isDevMode, null, new ArrayCache());
 

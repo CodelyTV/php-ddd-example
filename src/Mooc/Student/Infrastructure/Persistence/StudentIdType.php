@@ -10,9 +10,9 @@ use Doctrine\DBAL\Types\StringType;
 
 final class StudentIdType extends StringType
 {
-    const NAME = 'student_id';
+    public const NAME = 'student_id';
 
-    public function getName()
+    public function getName(): string
     {
         return static::NAME;
     }

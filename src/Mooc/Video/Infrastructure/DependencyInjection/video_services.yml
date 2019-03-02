@@ -23,10 +23,10 @@ services:
   codely.mooc.video.video_creator:
     class: CodelyTv\Mooc\Video\Application\Create\VideoCreator
     arguments:
-     - '@codely.mooc.video.repository'
-     - '@codely.mooc.domain_event_publisher'
+      - '@codely.mooc.video.repository'
+      - '@codely.mooc.domain_event_publisher'
 
   codely.mooc.video.video_finder:
     class: CodelyTv\Mooc\Video\Application\Find\VideoFinder
     arguments:
-     - '@codely.mooc.video.repository'
+      - '@codely.mooc.video.repository'

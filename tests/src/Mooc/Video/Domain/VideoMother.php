@@ -14,7 +14,7 @@ use CodelyTv\Test\Backoffice\Course\Domain\CourseIdMother;
 
 final class VideoMother
 {
-    public static function withId(VideoId $id)
+    public static function withId(VideoId $id): Video
     {
         return self::create(
             $id,
@@ -25,8 +25,13 @@ final class VideoMother
         );
     }
 
-    public static function create(VideoId $id, VideoType $type, VideoTitle $title, VideoUrl $url, CourseId $courseId)
-    {
+    public static function create(
+        VideoId $id,
+        VideoType $type,
+        VideoTitle $title,
+        VideoUrl $url,
+        CourseId $courseId
+    ): Video {
         return new Video($id, $type, $title, $url, $courseId);
     }
 

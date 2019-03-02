@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Infrastructure\Bus\Event\Serialize;
 
-use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventMapping;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
-use function CodelyTv\Utils\snake_to_camel;
+use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventMapping;
+use function CodelyTv\Utils\Shared\snake_to_camel;
 use function Lambdish\Phunctional\get;
 use function Lambdish\Phunctional\reindex;
 
@@ -29,9 +29,9 @@ final class DomainEventUnserializer
         return new $eventClass(get('id', $parsedEvent), reindex($this->toCamel(), $parsedEvent));
     }
 
-    private function toCamel()
+    private function toCamel(): callable
     {
-        return function ($unused, $key) {
+        return function ($unused, $key): string {
             return snake_to_camel($key);
         };
     }

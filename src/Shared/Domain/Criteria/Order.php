@@ -15,7 +15,7 @@ final class Order
         $this->orderType = $orderType ?: OrderType::asc();
     }
 
-    public static function createDesc(OrderBy $orderBy)
+    public static function createDesc(OrderBy $orderBy): Order
     {
         return new self($orderBy, OrderType::desc());
     }

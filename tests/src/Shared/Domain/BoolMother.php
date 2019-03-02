@@ -6,7 +6,7 @@ namespace CodelyTv\Test\Shared\Domain;
 
 final class BoolMother
 {
-    public static function random()
+    public static function random(): bool
     {
         return MotherCreator::random()->boolean;
     }

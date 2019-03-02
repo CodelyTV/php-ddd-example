@@ -12,14 +12,12 @@ use function Lambdish\Phunctional\get;
 
 final class EmailNotifier implements Notifier
 {
-    const NOTIFY_FROM          = 'notifications@codely.tv';
-    const NOTIFY_TO            = 'hi@codely.tv';
-    const UNKNOWN_NOTIFICATION = 'Unknown Notification';
-
+    private const NOTIFY_FROM          = 'notifications@codely.tv';
+    private const NOTIFY_TO            = 'hi@codely.tv';
+    private const UNKNOWN_NOTIFICATION = 'Unknown Notification';
     private static $subjects = [
         NotificationType::VIDEO_CREATED => 'New video, yeah!',
     ];
-
     private $client;
 
     public function __construct(string $username, string $password)
@@ -27,7 +25,7 @@ final class EmailNotifier implements Notifier
         $this->client = new GmailSwiftMailerEmailClient($username, $password);
     }
 
-    public function notify(NotificationText $text, NotificationType $action)
+    public function notify(NotificationText $text, NotificationType $action): void
     {
         $from    = new EmailAddress(self::NOTIFY_FROM);
         $to      = new EmailAddress(self::NOTIFY_TO);

@@ -14,7 +14,7 @@ final class MinkSessionResponseHelper
         $this->sessionHelper = $sessionHelper;
     }
 
-    public function getResponse()
+    public function getResponse(): string
     {
         return $this->sessionHelper->getResponse();
     }

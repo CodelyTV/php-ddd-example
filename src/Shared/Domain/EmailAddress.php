@@ -17,7 +17,7 @@ final class EmailAddress
         $this->value = $value;
     }
 
-    private function ensureIsValidEmail(string $value)
+    private function ensureIsValidEmail(string $value): void
     {
         if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
             throw new InvalidArgumentException(sprintf('The email <%s> is not valid', $value));
@@ -28,6 +28,4 @@ final class EmailAddress
     {
         return $this->value;
     }
-
-
 }

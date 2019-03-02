@@ -12,12 +12,10 @@ use function Lambdish\Phunctional\get;
 
 final class SlackNotifier implements Notifier
 {
-    const UNKNOWN_NOTIFICATION = '( ͡° ͜ʖ ͡°)';
-
+    private const UNKNOWN_NOTIFICATION = '( ͡° ͜ʖ ͡°)';
     private static $actionsFaces = [
         NotificationType::VIDEO_CREATED => '(｡◕‿◕｡)',
     ];
-
     private $client;
 
     public function __construct(string $hookUrl, array $settings)
@@ -25,7 +23,7 @@ final class SlackNotifier implements Notifier
         $this->client = new Client($hookUrl, $settings);
     }
 
-    public function notify(NotificationText $text, NotificationType $action)
+    public function notify(NotificationText $text, NotificationType $action): void
     {
         $message = $this->client->createMessage();
 

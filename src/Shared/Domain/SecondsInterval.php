@@ -29,15 +29,15 @@ final class SecondsInterval
         return $this->to;
     }
 
-    public static function fromValues(int $from, int $to)
+    public static function fromValues(int $from, int $to): SecondsInterval
     {
         return new self(new Second($from), new Second($to));
     }
 
-    private function ensureIntervalEndsAfterStart(Second $from, Second $to)
+    private function ensureIntervalEndsAfterStart(Second $from, Second $to): void
     {
         if ($from->isBiggerThan($to)) {
-            throw new DomainException("To is bigger than from");
+            throw new DomainException('To is bigger than from');
         }
     }
 }

@@ -11,9 +11,9 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 final class CodelyTvInfrastructureExtension extends Extension
 {
-    public function load(array $config, ContainerBuilder $container)
+    public function load(array $config, ContainerBuilder $container): void
     {
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/Resources'));
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/Resources'));
 
         $loader->load('infrastructure_extension.yml');
         $loader->load(sprintf('infrastructure_config_%s.yml', $container->getParameter('kernel.environment')));

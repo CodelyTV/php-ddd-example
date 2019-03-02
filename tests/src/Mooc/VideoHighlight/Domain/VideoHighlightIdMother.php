@@ -9,12 +9,12 @@ use CodelyTv\Test\Shared\Domain\UuidMother;
 
 final class VideoHighlightIdMother
 {
-    public static function create(string $id)
+    public static function create(string $id): VideoHighlightId
     {
         return new VideoHighlightId($id);
     }
 
-    public static function random()
+    public static function random(): VideoHighlightId
     {
         return self::create(UuidMother::random());
     }

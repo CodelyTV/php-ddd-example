@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 final class CodelyTvMoocExtension extends Extension
 {
-    public function load(array $config, ContainerBuilder $container)
+    public function load(array $config, ContainerBuilder $container): void
     {
         $container->registerForAutoconfiguration(CommandHandler::class)->addTag('codely.mooc.command');
         $container->registerForAutoconfiguration(QueryHandler::class)->addTag('codely.mooc.query');

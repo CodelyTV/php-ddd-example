@@ -8,18 +8,17 @@ use CodelyTv\Mooc\Video\Domain\VideoRepository;
 use CodelyTv\Test\Mooc\Video\Domain\VideoIdMother;
 use CodelyTv\Test\Mooc\Video\Domain\VideoMother;
 use CodelyTv\Test\Mooc\Video\VideoModuleFunctionalTestCase;
-use CodelyTv\Test\Shared\Domain\Criteria\CriteriaMother;
 
 final class VideoRepositoryTest extends VideoModuleFunctionalTestCase
 {
     /** @test */
-    public function it_should_save_a_video()
+    public function it_should_save_a_video(): void
     {
         $this->repository()->save(VideoMother::random());
     }
 
     /** @test */
-    public function it_should_find_an_existing_video()
+    public function it_should_find_an_existing_video(): void
     {
         $video = VideoMother::random();
 
@@ -30,7 +29,7 @@ final class VideoRepositoryTest extends VideoModuleFunctionalTestCase
     }
 
     /** @test */
-    public function it_should_not_find_a_non_existing_video()
+    public function it_should_not_find_a_non_existing_video(): void
     {
         $this->assertNull($this->repository()->search(VideoIdMother::random()));
     }

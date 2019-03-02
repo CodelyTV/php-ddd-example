@@ -11,14 +11,14 @@ use function Lambdish\Phunctional\reduce;
 abstract class AggregateRootCollection extends Collection
 {
     /** @return DomainEvent[] */
-    public function pullDomainEvents()
+    public function pullDomainEvents(): array
     {
         return reduce($this->pullItemDomainEvents(), $this, []);
     }
 
-    private function pullItemDomainEvents()
+    private function pullItemDomainEvents(): callable
     {
-        return function (array $accumulatedEvents, AggregateRoot $aggregateRoot) {
+        return function (array $accumulatedEvents, AggregateRoot $aggregateRoot): array {
             return array_merge($accumulatedEvents, $aggregateRoot->pullDomainEvents());
         };
     }

@@ -4,12 +4,12 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Domain\Bus\Event;
 
-use CodelyTv\Shared\Infrastructure\Bus\Event\Guard\DomainEventDataValidator;
 use CodelyTv\Shared\Domain\Bus\Message;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
+use CodelyTv\Shared\Infrastructure\Bus\Event\Guard\DomainEventDataValidator;
 use DateTimeImmutable;
 use RuntimeException;
-use function CodelyTv\Utils\date_to_string;
+use function CodelyTv\Utils\Shared\date_to_string;
 
 abstract class DomainEvent extends Message
 {
@@ -29,7 +29,7 @@ abstract class DomainEvent extends Message
         parent::__construct(new Uuid($eventId));
 
         $this->eventId = $eventId;
-        DomainEventDataValidator::isValid($data, $this->rules(), get_called_class());
+        DomainEventDataValidator::isValid($data, $this->rules(), static::class);
 
         $this->aggregateId = $aggregateId;
         $this->data        = $data;
@@ -50,7 +50,7 @@ abstract class DomainEvent extends Message
         return $this->eventId;
     }
 
-    public function aggregateId()
+    public function aggregateId(): string
     {
         return $this->aggregateId;
     }

@@ -12,7 +12,7 @@ use ReflectionClass;
 
 abstract class CodelyTvSerializerDriver implements DriverInterface
 {
-    private $baseMetadata  = [];
+    private $baseMetadata = [];
     private $fileResources = [__FILE__];
 
     abstract public function getMetadata();
@@ -22,7 +22,7 @@ abstract class CodelyTvSerializerDriver implements DriverInterface
         return array_merge($this->getBaseMetadata(), $this->getMetadata());
     }
 
-    public function getBaseMetadata()
+    public function getBaseMetadata(): array
     {
         return $this->baseMetadata;
     }
@@ -34,7 +34,7 @@ abstract class CodelyTvSerializerDriver implements DriverInterface
         return $this->createMetadata($refClass->getName(), $metadata);
     }
 
-    protected function addResourceFile($file)
+    protected function addResourceFile($file): void
     {
         $this->fileResources[] = $file;
     }
@@ -52,7 +52,7 @@ abstract class CodelyTvSerializerDriver implements DriverInterface
         return $metadata[$refClass->getName()];
     }
 
-    private function createMetadata($className, array $config)
+    private function createMetadata($className, array $config): ClassMetadata
     {
         $metadata = new ClassMetadata($className);
 
@@ -62,12 +62,12 @@ abstract class CodelyTvSerializerDriver implements DriverInterface
         return $metadata;
     }
 
-    private function addThisFileAsMetadataResourceToBeInvalidatedOnChanges(ClassMetadata $metadata)
+    private function addThisFileAsMetadataResourceToBeInvalidatedOnChanges(ClassMetadata $metadata): void
     {
         $metadata->fileResources = array_merge($metadata->fileResources, $this->fileResources);
     }
 
-    private function addPropertiesToMetadata(array $config, ClassMetadata $metadata)
+    private function addPropertiesToMetadata(array $config, ClassMetadata $metadata): void
     {
         foreach ($config as $propertyName => $propertyAttributes) {
             $propertyMetadata = new PropertyMetadata($metadata->name, $propertyName);

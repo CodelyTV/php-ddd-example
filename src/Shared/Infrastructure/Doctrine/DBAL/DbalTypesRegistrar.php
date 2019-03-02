@@ -13,13 +13,13 @@ use function Lambdish\Phunctional\each;
 final class DbalTypesRegistrar
 {
     private static $initialized = false;
-    private static $types       = [
+    private static $types = [
         CourseIdType::NAME  => CourseIdType::class,
         StudentIdType::NAME => StudentIdType::class,
         VideoIdType::NAME   => VideoIdType::class,
     ];
 
-    public static function register()
+    public static function register(): void
     {
         if (!self::$initialized) {
             each(self::registerType(), self::$types);
@@ -28,9 +28,9 @@ final class DbalTypesRegistrar
         }
     }
 
-    private static function registerType()
+    private static function registerType(): callable
     {
-        return function ($class, $name) {
+        return function ($class, $name): void {
             Type::addType($name, $class);
         };
     }

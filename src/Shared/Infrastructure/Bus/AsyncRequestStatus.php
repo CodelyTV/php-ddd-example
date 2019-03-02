@@ -14,12 +14,12 @@ use CodelyTv\Shared\Domain\ValueObject\Enum;
  */
 final class AsyncRequestStatus extends Enum
 {
-    private const OK          = 'ok';
-    private const KO          = 'ko';
-    private const PENDING     = 'pending';
-    private const IN_PROGRESS = 'in_progress';
+    public const OK          = 'ok';
+    public const KO          = 'ko';
+    public const PENDING     = 'pending';
+    public const IN_PROGRESS = 'in_progress';
 
-    protected function throwExceptionForInvalidValue($value)
+    protected function throwExceptionForInvalidValue($value): void
     {
         throw new \InvalidArgumentException(sprintf('The value <%s> is an invalid async request status', $value));
     }

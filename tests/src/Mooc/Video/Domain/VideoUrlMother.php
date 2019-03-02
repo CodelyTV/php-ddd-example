@@ -9,12 +9,12 @@ use CodelyTv\Test\Shared\Domain\UrlMother;
 
 final class VideoUrlMother
 {
-    public static function create(string $url)
+    public static function create(string $url): VideoUrl
     {
         return new VideoUrl($url);
     }
 
-    public static function random()
+    public static function random(): VideoUrl
     {
         return self::create(UrlMother::random());
     }

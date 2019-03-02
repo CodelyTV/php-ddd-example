@@ -15,7 +15,7 @@ final class StudentTotalVideosCreatedIncreaser
 
     public function __construct(StudentRepository $repository)
     {
-        $this->finder = new StudentFinder($repository);
+        $this->finder     = new StudentFinder($repository);
         $this->repository = $repository;
     }
 

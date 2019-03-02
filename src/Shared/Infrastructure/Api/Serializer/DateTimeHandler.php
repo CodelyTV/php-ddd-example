@@ -26,14 +26,14 @@ final class DateTimeHandler implements SubscribingHandlerInterface
     private $defaultTimezone;
     private $xmlCData;
 
-    public function __construct($defaultFormat = DateTime::ISO8601, $defaultTimezone = 'UTC', $xmlCData = true)
+    public function __construct($defaultFormat = DateTime::ATOM, $defaultTimezone = 'UTC', $xmlCData = true)
     {
         $this->defaultFormat   = $defaultFormat;
         $this->defaultTimezone = new DateTimeZone($defaultTimezone);
         $this->xmlCData        = $xmlCData;
     }
 
-    public static function getSubscribingMethods()
+    public static function getSubscribingMethods(): array
     {
         $methods = [];
         $types   = ['DateTime', 'DateInterval'];
@@ -78,12 +78,7 @@ final class DateTimeHandler implements SubscribingHandlerInterface
         return $visitor->visitString($iso8601DateIntervalString, $type, $context);
     }
 
-    /**
-     * @param DateInterval $dateInterval
-     *
-     * @return string
-     */
-    public function format(DateInterval $dateInterval)
+    public function format(DateInterval $dateInterval): string
     {
         $format = 'P';
 
@@ -122,7 +117,7 @@ final class DateTimeHandler implements SubscribingHandlerInterface
     {
         $attributes = $data->attributes('xsi', true);
         if (isset($attributes['nil'][0]) && (string) $attributes['nil'][0] === 'true') {
-            return;
+            return null;
         }
 
         return $this->parseDateTime($data, $type);
@@ -131,20 +126,21 @@ final class DateTimeHandler implements SubscribingHandlerInterface
     public function deserializeDateTimeFromJson(JsonDeserializationVisitor $unused, $data, array $type)
     {
         if (null === $data) {
-            return;
+            return null;
         }
 
         return $this->parseDateTime($data, $type);
     }
 
     /**
+     * @param array $type
+     *
      * @return string
      *
-     * @param array $type
      */
-    private function getFormat(array $type)
+    private function getFormat(array $type): string
     {
-        return isset($type['params'][0]) ? $type['params'][0] : $this->defaultFormat;
+        return $type['params'][0] ?? $this->defaultFormat;
     }
 
     private function parseDateTime($data, array $type)

@@ -8,7 +8,7 @@ use CodelyTv\Test\Shared\Infrastructure\PHPUnit\Module\ModuleFunctionalTestCase;
 
 abstract class MoocContextFunctionalTestCase extends ModuleFunctionalTestCase
 {
-    protected function environmentArrangers()
+    protected function environmentArrangers(): array
     {
         return [
             $this->service('codely.mooc.infrastructure.arranger'),

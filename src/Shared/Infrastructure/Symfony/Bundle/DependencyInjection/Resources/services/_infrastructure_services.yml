@@ -8,7 +8,7 @@ services:
   codely.infrastructure.async_command_bus:
     class: CodelyTv\Shared\Infrastructure\Bus\Command\CommandBusAsync
     arguments:
-        $pendingRequestsFilePath: '%async_command_bus_pending_requests_file_path%'
+      $pendingRequestsFilePath: '%async_command_bus_pending_requests_file_path%'
     lazy: true
 
   codely.infrastructure.database_connections:

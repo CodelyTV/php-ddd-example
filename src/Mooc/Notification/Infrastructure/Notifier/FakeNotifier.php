@@ -10,7 +10,7 @@ use CodelyTv\Mooc\Notification\Domain\Notifier;
 
 final class FakeNotifier implements Notifier
 {
-    public function notify(NotificationText $text, NotificationType $action)
+    public function notify(NotificationText $text, NotificationType $action): void
     {
         // I do nothing n.n
     }

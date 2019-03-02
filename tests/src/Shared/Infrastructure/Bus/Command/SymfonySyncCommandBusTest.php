@@ -27,13 +27,13 @@ final class SymfonySyncCommandBusTest extends UnitTestCase
      * @test
      * @expectedException RuntimeException
      */
-    public function it_should_be_able_to_handle_a_command()
+    public function it_should_be_able_to_handle_a_command(): void
     {
         $this->commandBus->dispatch(new FakeCommand(Uuid::random()));
     }
 
     /** @test */
-    public function it_should_raise_an_exception_dispatching_a_non_registered_command()
+    public function it_should_raise_an_exception_dispatching_a_non_registered_command(): void
     {
         $this->expectException(CommandNotRegisteredError::class);
 

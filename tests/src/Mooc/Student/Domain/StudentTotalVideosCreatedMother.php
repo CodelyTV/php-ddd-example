@@ -9,12 +9,12 @@ use CodelyTv\Test\Shared\Domain\NumberMother;
 
 final class StudentTotalVideosCreatedMother
 {
-    public static function create(int $total)
+    public static function create(int $total): StudentTotalVideosCreated
     {
         return new StudentTotalVideosCreated($total);
     }
 
-    public static function random()
+    public static function random(): StudentTotalVideosCreated
     {
         return self::create(NumberMother::lessThan(100));
     }

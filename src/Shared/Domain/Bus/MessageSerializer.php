@@ -6,8 +6,8 @@ namespace CodelyTv\Shared\Domain\Bus;
 
 use ReflectionClass;
 use ReflectionMethod;
-use function CodelyTv\Utils\camel_to_snake;
-use function CodelyTv\Utils\snake_to_camel;
+use function CodelyTv\Utils\Shared\camel_to_snake;
+use function CodelyTv\Utils\Shared\snake_to_camel;
 use function Lambdish\Phunctional\filter;
 use function Lambdish\Phunctional\map;
 use function Lambdish\Phunctional\not;
@@ -25,23 +25,23 @@ final class MessageSerializer
         return map($this->nameExtractor($message), filter(not($this->isConstruct()), $methodNames));
     }
 
-    private function methodNameExtractor()
+    private function methodNameExtractor(): callable
     {
-        return function (ReflectionMethod $method) {
+        return function (ReflectionMethod $method): string {
             return camel_to_snake($method->getName());
         };
     }
 
-    private function nameExtractor(Request $message)
+    private function nameExtractor(Request $message): callable
     {
-        return function ($unused, $name) use ($message) {
+        return function ($unused, $name) use ($message): string {
             $methodName = snake_to_camel($name);
 
             return $message->$methodName();
         };
     }
 
-    private function isConstruct()
+    private function isConstruct(): callable
     {
         return function ($unused, $name) {
             return $name === '__construct';

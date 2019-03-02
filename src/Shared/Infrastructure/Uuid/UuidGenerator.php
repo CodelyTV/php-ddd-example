@@ -8,7 +8,7 @@ use Ramsey\Uuid\Uuid;
 
 final class UuidGenerator
 {
-    public function next()
+    public function next(): string
     {
         return Uuid::uuid4()->toString();
     }

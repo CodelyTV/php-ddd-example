@@ -8,6 +8,7 @@ use CodelyTv\Mooc\Video\Domain\VideoId;
 use CodelyTv\Mooc\VideoComment\Contract\VideoCommentPublishedDomainEvent;
 use CodelyTv\Mooc\VideoComment\Domain\VideoCommentContent;
 use CodelyTv\Mooc\VideoComment\Domain\VideoCommentId;
+use CodelyTv\Test\Mooc\Video\Domain\VideoIdMother;
 
 final class VideoCommentPublishedDomainEventMother
 {
@@ -20,7 +21,7 @@ final class VideoCommentPublishedDomainEventMother
             $id->value(),
             [
                 'videoId' => $videoId->value(),
-                'content' => $content->value()
+                'content' => $content->value(),
             ]
         );
     }

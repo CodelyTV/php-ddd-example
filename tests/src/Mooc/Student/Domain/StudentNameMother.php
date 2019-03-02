@@ -9,12 +9,12 @@ use CodelyTv\Test\Shared\Domain\WordMother;
 
 final class StudentNameMother
 {
-    public static function create(string $name)
+    public static function create(string $name): StudentName
     {
         return new StudentName($name);
     }
 
-    public static function random()
+    public static function random(): StudentName
     {
         return self::create(WordMother::random());
     }

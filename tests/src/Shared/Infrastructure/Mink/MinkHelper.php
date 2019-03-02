@@ -6,8 +6,9 @@ namespace CodelyTv\Test\Shared\Infrastructure\Mink;
 
 use Behat\Mink\Session;
 use Behat\Symfony2Extension\Driver\KernelDriver;
-use Exception;
+use RuntimeException;
 use Symfony\Component\BrowserKit\Client;
+use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\Request;
 use function Lambdish\Phunctional\get_in;
 
@@ -20,18 +21,18 @@ final class MinkHelper
         $this->session = $session;
     }
 
-    public function setRequestHeader($header, $value)
+    public function setRequestHeader($header, $value): void
     {
         $this->getClient()->setServerParameter($header, $value);
     }
 
-    public function addRequestHttpBasicAuthentication($username, $password)
+    public function addRequestHttpBasicAuthentication($username, $password): void
     {
         $this->getClient()->setServerParameter('PHP_AUTH_USER', $username);
         $this->getClient()->setServerParameter('PHP_AUTH_PW', $password);
     }
 
-    public function sendRequest($method, $url, array $optionalParams = [])
+    public function sendRequest($method, $url, array $optionalParams = []): Crawler
     {
         $defaultOptionalParams = [
             'parameters'    => [],
@@ -58,38 +59,38 @@ final class MinkHelper
         return $crawler;
     }
 
-    public function getRequestHeaders()
+    public function getRequestHeaders(): array
     {
         return $this->normalizeHeaders($this->getRequest()->headers->all());
     }
 
-    public function getResponse()
+    public function getResponse(): string
     {
         return $this->getSession()->getPage()->getContent();
     }
 
-    public function getResponseHeaders()
+    public function getResponseHeaders(): array
     {
         return $this->normalizeHeaders(
             array_change_key_case($this->getSession()->getResponseHeaders(), CASE_LOWER)
         );
     }
 
-    public function responseShouldContain($needle)
+    public function responseShouldContain($needle): void
     {
         if (strpos($this->clearString($this->getResponse()), $this->clearString($needle)) === false) {
-            throw new Exception(sprintf('The response do not contain %s', $needle));
+            throw new RuntimeException(sprintf('The response do not contain %s', $needle));
         }
     }
 
-    public function responseShouldNotContain($needle)
+    public function responseShouldNotContain($needle): void
     {
         if (strpos($this->clearString($this->getResponse()), $this->clearString($needle)) === true) {
-            throw new Exception(sprintf('The response do not contain %s', $needle));
+            throw new RuntimeException(sprintf('The response do not contain %s', $needle));
         }
     }
 
-    public function hasResponseHeader($name)
+    public function hasResponseHeader($name): bool
     {
         return array_key_exists($name, $this->getResponseHeaders());
     }
@@ -99,7 +100,7 @@ final class MinkHelper
         return get_in([$name], $this->getResponseHeaders());
     }
 
-    public function hasResponseParameter($name)
+    public function hasResponseParameter($name): bool
     {
         return array_key_exists($name, $this->getResponseParameters());
     }
@@ -109,7 +110,7 @@ final class MinkHelper
         return get_in([$name], $this->getResponseParameters());
     }
 
-    public function resetServerParameters()
+    public function resetServerParameters(): void
     {
         $this->getClient()->setServerParameters([]);
     }
@@ -119,25 +120,22 @@ final class MinkHelper
         return $this->getSession()->getPage()->find('xpath', $query);
     }
 
-    /** @return Request $request */
-    public function getRequest()
+    public function getRequest(): Request
     {
         return $this->getClient()->getRequest();
     }
 
-    private function getSession()
+    private function getSession(): Session
     {
         return $this->session;
     }
 
-    /** @return KernelDriver */
-    private function getDriver()
+    private function getDriver(): KernelDriver
     {
         return $this->getSession()->getDriver();
     }
 
-    /** @return Client */
-    private function getClient()
+    private function getClient(): Client
     {
         return $this->getDriver()->getClient();
     }
@@ -148,12 +146,12 @@ final class MinkHelper
         return json_decode($this->getSession()->getPage()->getContent(), true);
     }
 
-    private function normalizeHeaders(array $headers)
+    private function normalizeHeaders(array $headers): array
     {
         return array_map('implode', array_filter($headers));
     }
 
-    private function resetRequestStuff()
+    private function resetRequestStuff(): void
     {
         $this->getSession()->reset();
         $this->resetServerParameters();

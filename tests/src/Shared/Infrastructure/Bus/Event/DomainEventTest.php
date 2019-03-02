@@ -12,7 +12,7 @@ use DomainException;
 final class DomainEventTest extends UnitTestCase
 {
     /** @test */
-    public function it_should_retrieve_the_event_data_as_attributes()
+    public function it_should_retrieve_the_event_data_as_attributes(): void
     {
         $aggregateId    = UuidMother::random();
         $someIdentifier = UuidMother::random();
@@ -23,7 +23,7 @@ final class DomainEventTest extends UnitTestCase
     }
 
     /** @test */
-    public function it_should_not_throw_an_exception_constructing_an_event_with_more_parameters_than_defined()
+    public function it_should_not_throw_an_exception_constructing_an_event_with_more_parameters_than_defined(): void
     {
         $aggregateId          = UuidMother::random();
         $someIdentifier       = UuidMother::random();
@@ -43,7 +43,7 @@ final class DomainEventTest extends UnitTestCase
     }
 
     /** @test */
-    public function it_should_throw_an_exception_constructing_an_event_without_a_required_parameter()
+    public function it_should_throw_an_exception_constructing_an_event_without_a_required_parameter(): void
     {
         $this->expectException(DomainException::class);
 
@@ -51,7 +51,7 @@ final class DomainEventTest extends UnitTestCase
     }
 
     /** @test */
-    public function it_should_throw_an_exception_constructing_an_event_having_a_parameter_with_an_incorrect_type()
+    public function it_should_throw_an_exception_constructing_an_event_having_a_parameter_with_an_incorrect_type(): void
     {
         $this->expectException(DomainException::class);
 

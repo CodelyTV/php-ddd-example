@@ -13,10 +13,10 @@ use InvalidArgumentException;
  */
 final class VideoType extends Enum
 {
-    const SCREENCAST = 'screencast';
-    const INTERVIEW  = 'interview';
+    public const SCREENCAST = 'screencast';
+    public const INTERVIEW  = 'interview';
 
-    protected function throwExceptionForInvalidValue($value)
+    protected function throwExceptionForInvalidValue($value): void
     {
         throw new InvalidArgumentException(sprintf('The <%s> value is not a valid video type', $value));
     }

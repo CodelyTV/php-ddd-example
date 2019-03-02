@@ -8,12 +8,12 @@ final class MultipleHandleLocator
 {
     private $handlers = [];
 
-    public function add($key, callable $handler)
+    public function add($key, callable $handler): void
     {
         $this->handlers[$key][] = $handler;
     }
 
-    public function find($key) : array
+    public function find($key): array
     {
         return $this->handlers[$key];
     }

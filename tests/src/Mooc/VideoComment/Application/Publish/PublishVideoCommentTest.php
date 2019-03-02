@@ -8,14 +8,14 @@ use CodelyTv\Mooc\VideoComment\Application\Publish\PublishVideoCommentCommandHan
 use CodelyTv\Mooc\VideoComment\Application\Publish\VideoCommentPublisher;
 use CodelyTv\Mooc\VideoComment\Domain\VideoComment;
 use CodelyTv\Mooc\VideoComment\Domain\VideoCommentRepository;
+use CodelyTv\Test\Mooc\Shared\Infrastructure\MoocContextUnitTestCase;
 use CodelyTv\Test\Mooc\Video\Domain\VideoIdMother;
 use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentContentMother;
 use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentIdMother;
-use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentPublishedDomainEventMother;
 use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentMother;
-use CodelyTv\Test\Mooc\Shared\Infrastructure\MoocContextUnitTestCase;
+use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentPublishedDomainEventMother;
 use Mockery\MockInterface;
-use function CodelyTv\Test\similarTo;
+use function CodelyTv\Test\Shared\similarTo;
 
 final class PublishVideoCommentTest extends MoocContextUnitTestCase
 {
@@ -32,7 +32,7 @@ final class PublishVideoCommentTest extends MoocContextUnitTestCase
     }
 
     /** @test */
-    public function it_should_publish_a_video()
+    public function it_should_publish_a_video(): void
     {
         $command = PublishVideoCommentCommandMother::random();
 
@@ -56,7 +56,7 @@ final class PublishVideoCommentTest extends MoocContextUnitTestCase
         return $this->repository = $this->repository ?: $this->mock(VideoCommentRepository::class);
     }
 
-    private function shouldSaveVideoComment(VideoComment $comment)
+    private function shouldSaveVideoComment(VideoComment $comment): void
     {
         $this->repository()
             ->shouldReceive('save')

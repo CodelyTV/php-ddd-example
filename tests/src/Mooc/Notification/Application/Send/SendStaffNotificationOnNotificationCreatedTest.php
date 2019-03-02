@@ -14,7 +14,7 @@ final class SendStaffNotificationOnNotificationCreatedTest extends NotificationM
      *
      * @test
      */
-    public function implementation_pending()
+    public function implementation_pending(): void
     {
     }
 }

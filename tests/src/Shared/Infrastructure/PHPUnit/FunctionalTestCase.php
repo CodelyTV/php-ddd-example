@@ -28,7 +28,7 @@ abstract class FunctionalTestCase extends UnitTestCase
         return $this->container()->getParameter($parameter);
     }
 
-    private function kernel()
+    private function kernel(): MoocBackendKernel
     {
         return $this->kernel = $this->kernel ?: new MoocBackendKernel('test', true);
     }

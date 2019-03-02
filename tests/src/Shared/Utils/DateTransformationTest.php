@@ -8,8 +8,8 @@ use CodelyTv\Test\Shared\Domain\DateTimeMother;
 use CodelyTv\Test\Shared\Domain\DateTimeZoneMother;
 use CodelyTv\Test\Shared\Infrastructure\PHPUnit\UnitTestCase;
 use DateTimeImmutable;
-use function CodelyTv\Utils\date_to_string;
-use function CodelyTv\Utils\string_to_date;
+use function CodelyTv\Utils\Shared\date_to_string;
+use function CodelyTv\Utils\Shared\string_to_date;
 
 final class DateTransformationTest extends UnitTestCase
 {
@@ -17,7 +17,7 @@ final class DateTransformationTest extends UnitTestCase
      * @test
      * @dataProvider validDatesConversions
      */
-    public function it_should_convert_a_date_to_milliseconds(DateTimeImmutable $date, string $expected)
+    public function it_should_convert_a_date_to_milliseconds(DateTimeImmutable $date, string $expected): void
     {
         $this->assertSame($expected, date_to_string($date));
     }
@@ -26,12 +26,12 @@ final class DateTransformationTest extends UnitTestCase
      * @test
      * @dataProvider validDatesConversions
      */
-    public function it_should_convert_a_date_from_milliseconds(DateTimeImmutable $expected, string $stringDate)
+    public function it_should_convert_a_date_from_milliseconds(DateTimeImmutable $expected, string $stringDate): void
     {
         $this->assertEquals($expected, string_to_date($stringDate));
     }
 
-    public function validDatesConversions()
+    public function validDatesConversions(): array
     {
         return [
             [

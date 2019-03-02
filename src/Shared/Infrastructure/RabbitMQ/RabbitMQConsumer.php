@@ -37,27 +37,26 @@ final class RabbitMQConsumer
         } catch (Exception $exception) {
             $level = $this->hasBeenRedeliveredTooMuch($envelope) ? LogLevel::ERROR : LogLevel::DEBUG;
             $this->log('Message consumption failed', $envelope, $queueName, $level, $exception);
-
             // $this->requeue($envelope, $queue, $exception);
         }
 
         $this->ack($envelope, $queue);
     }
 
-    private function ack(AMQPEnvelope $envelope, AMQPQueue $queue)
+    private function ack(AMQPEnvelope $envelope, AMQPQueue $queue): void
     {
         try {
             $ack = $queue->ack($envelope->getDeliveryTag());
 
             if (false === $ack) {
-                $this->log('Message has not been acknowledged', $envelope, $queue->getName(), LogLevel::ERROR);
+                $this->log('Message has not been acknowledged', $envelope, $queue->getName());
             }
         } catch (Exception $exception) {
             $this->log('Message has not been acknowledged', $envelope, $queue->getName(), LogLevel::ERROR, $exception);
         }
     }
 
-    private function hasBeenRedeliveredTooMuch(AMQPEnvelope $envelope)
+    private function hasBeenRedeliveredTooMuch(AMQPEnvelope $envelope): bool
     {
         return get('redelivery_count', $envelope->getHeaders(), 0) > 500;
     }
@@ -68,7 +67,7 @@ final class RabbitMQConsumer
         string $queueName,
         string $level = LogLevel::ERROR,
         Exception $exception = null
-    ) {
+    ): void {
         $this->logger->log(
             $level,
             $message,
@@ -88,7 +87,7 @@ final class RabbitMQConsumer
                     'priority'         => $envelope->getPriority(),
                     'reply_to'         => $envelope->getReplyTo(),
                     'routing_key'      => $envelope->getRoutingKey(),
-                    'timestamp'        => $envelope->getTimeStamp(),
+                    'timestamp'        => $envelope->getTimestamp(),
                     'type'             => $envelope->getType(),
                     'user_id'          => $envelope->getUserId(),
                     'is_redelivery'    => $envelope->isRedelivery(),

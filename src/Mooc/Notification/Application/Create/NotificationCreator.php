@@ -8,8 +8,8 @@ use CodelyTv\Mooc\Notification\Domain\Notification;
 use CodelyTv\Mooc\Notification\Domain\NotificationId;
 use CodelyTv\Mooc\Notification\Domain\NotificationText;
 use CodelyTv\Mooc\Notification\Domain\NotificationType;
-use CodelyTv\Shared\Infrastructure\Uuid\UuidGenerator;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
+use CodelyTv\Shared\Infrastructure\Uuid\UuidGenerator;
 
 final class NotificationCreator
 {

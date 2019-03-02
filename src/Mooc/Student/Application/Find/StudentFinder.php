@@ -4,8 +4,9 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Mooc\Student\Application\Find;
 
-use CodelyTv\Mooc\Student\Domain\StudentNotExist;
+use CodelyTv\Mooc\Student\Domain\Student;
 use CodelyTv\Mooc\Student\Domain\StudentId;
+use CodelyTv\Mooc\Student\Domain\StudentNotExist;
 use CodelyTv\Mooc\Student\Domain\StudentRepository;
 
 final class StudentFinder
@@ -17,7 +18,7 @@ final class StudentFinder
         $this->repository = $repository;
     }
 
-    public function __invoke(StudentId $id)
+    public function __invoke(StudentId $id): Student
     {
         $student = $this->repository->search($id);
 

@@ -62,7 +62,7 @@ final class Notification extends AggregateRoot
         return $this->hasBeenSent;
     }
 
-    public function markAsNotified()
+    public function markAsNotified(): void
     {
         $this->hasBeenSent = true;
     }

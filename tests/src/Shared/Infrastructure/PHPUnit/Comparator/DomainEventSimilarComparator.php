@@ -8,13 +8,13 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use ReflectionObject;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
-use function CodelyTv\Test\isSimilar;
+use function CodelyTv\Test\Shared\isSimilar;
 
 final class DomainEventSimilarComparator extends Comparator
 {
     private static $ignoredAttributes = ['eventId', 'occurredOn'];
 
-    public function accepts($expected, $actual)
+    public function accepts($expected, $actual): bool
     {
         $domainEventRootClass = DomainEvent::class;
 
@@ -22,10 +22,10 @@ final class DomainEventSimilarComparator extends Comparator
     }
 
     /**
-     * @param DomainEvent                                   $expected
-     * @param \CodelyTv\Shared\Domain\Bus\Event\DomainEvent $actual
+     * @param DomainEvent $expected
+     * @param DomainEvent $actual
      */
-    public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false)
+    public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void
     {
         if (!$this->areSimilar($expected, $actual)) {
             throw new ComparisonFailure(
@@ -43,7 +43,7 @@ final class DomainEventSimilarComparator extends Comparator
      * @param DomainEvent $expected
      * @param DomainEvent $actual
      */
-    private function areSimilar($expected, $actual)
+    private function areSimilar($expected, $actual): bool
     {
         if (!$this->areTheSameClass($expected, $actual)) {
             return false;
@@ -56,7 +56,7 @@ final class DomainEventSimilarComparator extends Comparator
      * @param DomainEvent $expected
      * @param DomainEvent $actual
      */
-    private function areTheSameClass($expected, $actual)
+    private function areTheSameClass($expected, $actual): bool
     {
         return get_class($expected) === get_class($actual);
     }
@@ -65,13 +65,13 @@ final class DomainEventSimilarComparator extends Comparator
      * @param DomainEvent $expected
      * @param DomainEvent $actual
      */
-    private function propertiesAreSimilar($expected, $actual)
+    private function propertiesAreSimilar($expected, $actual): bool
     {
         $expectedReflected = new ReflectionObject($expected);
         $actualReflected   = new ReflectionObject($actual);
 
         foreach ($expectedReflected->getProperties() as $expectedReflectedProperty) {
-            if (!in_array($expectedReflectedProperty->getName(), self::$ignoredAttributes)) {
+            if (!in_array($expectedReflectedProperty->getName(), self::$ignoredAttributes, false)) {
                 $actualReflectedProperty = $actualReflected->getProperty($expectedReflectedProperty->getName());
 
                 $expectedReflectedProperty->setAccessible(true);

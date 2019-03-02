@@ -28,16 +28,16 @@ final class DomainEventMapping
         return $this->mapping;
     }
 
-    private function eventsExtractor()
+    private function eventsExtractor(): callable
     {
         return function (array $mapping, DomainEventSubscriber $subscriber) {
             return array_merge($mapping, reindex($this->eventNameExtractor(), $subscriber::subscribedTo()));
         };
     }
 
-    private function eventNameExtractor()
+    private function eventNameExtractor(): callable
     {
-        return function (DomainEvent $event) {
+        return function (DomainEvent $event): string {
             return $event::eventName();
         };
     }

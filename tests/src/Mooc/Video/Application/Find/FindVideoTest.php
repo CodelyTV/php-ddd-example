@@ -26,11 +26,11 @@ final class FindVideoTest extends VideoModuleUnitTestCase
     }
 
     /** @test */
-    public function it_should_find_an_existing_video()
+    public function it_should_find_an_existing_video(): void
     {
         $query = FindVideoQueryMother::random();
 
-        $id = VideoIdMother::create($query->id());
+        $id    = VideoIdMother::create($query->id());
         $video = VideoMother::withId($id);
 
         $response = VideoResponseMother::create(
@@ -47,7 +47,7 @@ final class FindVideoTest extends VideoModuleUnitTestCase
     }
 
     /** @test */
-    public function it_should_throw_an_exception_finding_a_non_existing_video()
+    public function it_should_throw_an_exception_finding_a_non_existing_video(): void
     {
         $query = FindVideoQueryMother::random();
 

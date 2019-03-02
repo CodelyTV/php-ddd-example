@@ -9,8 +9,8 @@ use CodelyTv\Mooc\Video\Domain\VideoId;
 use CodelyTv\Mooc\Video\Domain\VideoRepository;
 use CodelyTv\Test\Mooc\Shared\Infrastructure\MoocContextUnitTestCase;
 use Mockery\MockInterface;
-use function CodelyTv\Test\similarTo;
-use function CodelyTv\Test\equalTo;
+use function CodelyTv\Test\Shared\equalTo;
+use function CodelyTv\Test\Shared\similarTo;
 
 abstract class VideoModuleUnitTestCase extends MoocContextUnitTestCase
 {
@@ -22,7 +22,7 @@ abstract class VideoModuleUnitTestCase extends MoocContextUnitTestCase
         return $this->repository = $this->repository ?: $this->mock(VideoRepository::class);
     }
 
-    protected function shouldSaveVideo(Video $video)
+    protected function shouldSaveVideo(Video $video): void
     {
         $this->repository()
             ->shouldReceive('save')
@@ -31,7 +31,7 @@ abstract class VideoModuleUnitTestCase extends MoocContextUnitTestCase
             ->andReturnNull();
     }
 
-    protected function shouldSearchVideo(VideoId $id, Video $video = null)
+    protected function shouldSearchVideo(VideoId $id, Video $video = null): void
     {
         $this->repository()
             ->shouldReceive('search')

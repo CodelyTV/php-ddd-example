@@ -13,10 +13,10 @@ use InvalidArgumentException;
  */
 final class OrderType extends Enum
 {
-    const ASC  = 'asc';
-    const DESC = 'desc';
+    public const ASC  = 'asc';
+    public const DESC = 'desc';
 
-    protected function throwExceptionForInvalidValue($value)
+    protected function throwExceptionForInvalidValue($value): void
     {
         throw new InvalidArgumentException($value);
     }

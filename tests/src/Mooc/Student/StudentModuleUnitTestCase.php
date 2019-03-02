@@ -5,12 +5,12 @@ declare(strict_types = 1);
 namespace CodelyTv\Test\Mooc\Student;
 
 use CodelyTv\Mooc\Student\Domain\Student;
-use CodelyTv\Mooc\Student\Domain\StudentRepository;
 use CodelyTv\Mooc\Student\Domain\StudentId;
+use CodelyTv\Mooc\Student\Domain\StudentRepository;
 use CodelyTv\Test\Mooc\Shared\Infrastructure\MoocContextUnitTestCase;
 use Mockery\MockInterface;
-use function CodelyTv\Test\equalTo;
-use function CodelyTv\Test\similarTo;
+use function CodelyTv\Test\Shared\equalTo;
+use function CodelyTv\Test\Shared\similarTo;
 
 abstract class StudentModuleUnitTestCase extends MoocContextUnitTestCase
 {
@@ -31,7 +31,7 @@ abstract class StudentModuleUnitTestCase extends MoocContextUnitTestCase
             ->andReturnNull();
     }
 
-    protected function shouldSearchStudent(StudentId $id, Student $student = null)
+    protected function shouldSearchStudent(StudentId $id, Student $student = null): void
     {
         $this->repository()
             ->shouldReceive('search')

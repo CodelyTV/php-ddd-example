@@ -5,15 +5,15 @@ declare(strict_types = 1);
 namespace CodelyTv\Shared\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
-use function Lambdish\Phunctional\map;
 use ReflectionClass;
 use ReflectionMethod;
+use function Lambdish\Phunctional\map;
 use function Lambdish\Phunctional\reduce;
 use function Lambdish\Phunctional\reindex;
 
 final class CallableFirstParameterExtractor
 {
-    public function extract($class)
+    public function extract($class): ?string
     {
         $reflector = new ReflectionClass($class);
         $method    = $reflector->getMethod('__invoke');
@@ -21,6 +21,8 @@ final class CallableFirstParameterExtractor
         if ($this->hasOnlyOneParameter($method)) {
             return $this->firstParameterClassFrom($method);
         }
+
+        return null;
     }
 
     public static function forCallables(iterable $callables): array
@@ -30,27 +32,27 @@ final class CallableFirstParameterExtractor
 
     public static function forPipedCallables(iterable $callables): array
     {
-        return reduce(self::pipedCallablesReducer(new self()), $callables);
+        return reduce(self::pipedCallablesReducer(), $callables);
     }
 
-    private function firstParameterClassFrom(ReflectionMethod $method)
+    private function firstParameterClassFrom(ReflectionMethod $method): string
     {
         return $method->getParameters()[0]->getClass()->getName();
     }
 
-    private function hasOnlyOneParameter(ReflectionMethod $method)
+    private function hasOnlyOneParameter(ReflectionMethod $method): bool
     {
         return $method->getNumberOfParameters() === 1;
     }
 
-    private static function classExtractor(CallableFirstParameterExtractor $parameterExtractor)
+    private static function classExtractor(CallableFirstParameterExtractor $parameterExtractor): callable
     {
-        return function (callable $handler) use ($parameterExtractor) {
+        return function (callable $handler) use ($parameterExtractor): string {
             return $parameterExtractor->extract($handler);
         };
     }
 
-    private static function pipedCallablesReducer(CallableFirstParameterExtractor $parameterExtractor)
+    private static function pipedCallablesReducer(): callable
     {
         return function ($subscribers, DomainEventSubscriber $subscriber): array {
             $subscribedEvents = $subscriber::subscribedTo();
@@ -63,7 +65,7 @@ final class CallableFirstParameterExtractor
         };
     }
 
-    private static function unflatten()
+    private static function unflatten(): callable
     {
         return function ($value) {
             return [$value];

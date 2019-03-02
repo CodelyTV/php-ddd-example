@@ -7,24 +7,24 @@ namespace CodelyTv\Test\Shared\Infrastructure\PHPUnit\Comparator;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
-use function CodelyTv\Test\isSimilar;
+use function CodelyTv\Test\Shared\isSimilar;
 use function Lambdish\Phunctional\all;
 use function Lambdish\Phunctional\any;
 use function Lambdish\Phunctional\instance_of;
 
 final class DomainEventArraySimilarComparator extends Comparator
 {
-    public function accepts($expected, $actual)
+    public function accepts($expected, $actual): bool
     {
         return is_array($expected) &&
                is_array($actual) &&
-               ((all(instance_of(DomainEvent::class), $expected) &&
-                 all(instance_of(DomainEvent::class), $actual)));
+               (all(instance_of(DomainEvent::class), $expected) &&
+                all(instance_of(DomainEvent::class), $actual));
     }
 
-    public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false)
+    public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void
     {
-        if (count($expected) !== count($actual) || !$this->contains($expected, $actual)) {
+        if (!$this->contains($expected, $actual) || count($expected) !== count($actual)) {
             throw new ComparisonFailure(
                 $expected,
                 $actual,
@@ -36,7 +36,7 @@ final class DomainEventArraySimilarComparator extends Comparator
         }
     }
 
-    private function contains(array $expectedArray, array $actualArray)
+    private function contains(array $expectedArray, array $actualArray): bool
     {
         $exists = function (DomainEvent $expected) use ($actualArray) {
             return any(

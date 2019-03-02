@@ -20,13 +20,16 @@ final class DoctrineCriteriaConverter
 
     public function __construct(Criteria $criteria, array $criteriaToDoctrineFields = [], array $hydrators = [])
     {
-        $this->criteria                 = $criteria;
+        $this->criteria = $criteria;
         $this->criteriaToDoctrineFields = $criteriaToDoctrineFields;
-        $this->hydrators                = $hydrators;
+        $this->hydrators = $hydrators;
     }
 
-    public static function convert(Criteria $criteria, array $criteriaToDoctrineFields = [], array $hydrators = [])
-    {
+    public static function convert(
+        Criteria $criteria,
+        array $criteriaToDoctrineFields = [],
+        array $hydrators = []
+    ): DoctrineCriteria {
         $converter = new self($criteria, $criteriaToDoctrineFields, $hydrators);
 
         return $converter->convertToDoctrineCriteria();
@@ -36,13 +39,13 @@ final class DoctrineCriteriaConverter
         Criteria $criteria,
         array $criteriaToDoctrineFields = [],
         array $hydrators = []
-    ) {
+    ): DoctrineCriteria {
         $converter = new self($criteria, $criteriaToDoctrineFields, $hydrators);
 
         return $converter->convertToDoctrineCriteriaToCount();
     }
 
-    private function convertToDoctrineCriteria()
+    private function convertToDoctrineCriteria(): DoctrineCriteria
     {
         return new DoctrineCriteria(
             $this->buildExpression($this->criteria),
@@ -52,12 +55,12 @@ final class DoctrineCriteriaConverter
         );
     }
 
-    private function convertToDoctrineCriteriaToCount()
+    private function convertToDoctrineCriteriaToCount(): DoctrineCriteria
     {
         return new DoctrineCriteria($this->buildExpression($this->criteria), $this->formatOrder($this->criteria));
     }
 
-    private function buildExpression(Criteria $criteria)
+    private function buildExpression(Criteria $criteria): ?CompositeExpression
     {
         if ($criteria->hasFilters()) {
             return new CompositeExpression(
@@ -69,9 +72,9 @@ final class DoctrineCriteriaConverter
         return null;
     }
 
-    private function buildComparison()
+    private function buildComparison(): callable
     {
-        return function (Filter $filter) {
+        return function (Filter $filter): Comparison {
             $field = $this->mapFieldValue($filter->field());
             $value = $this->existsHydratorFor($field) ?
                 $this->hydrate($field, $filter->value()->value()) :
@@ -88,7 +91,7 @@ final class DoctrineCriteriaConverter
             $field->value();
     }
 
-    private function formatOrder(Criteria $criteria)
+    private function formatOrder(Criteria $criteria): ?array
     {
         if (!$criteria->hasOrder()) {
             return null;
@@ -104,7 +107,7 @@ final class DoctrineCriteriaConverter
             $field->value();
     }
 
-    private function existsHydratorFor($field)
+    private function existsHydratorFor($field): bool
     {
         return array_key_exists($field, $this->hydrators);
     }

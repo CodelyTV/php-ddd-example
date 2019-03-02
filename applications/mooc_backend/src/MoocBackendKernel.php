@@ -39,7 +39,7 @@ final class MoocBackendKernel extends Kernel
 
     public function getRootDir()
     {
-        return realpath(__DIR__ . '/..');
+        return \dirname(__DIR__);
     }
 
     public function getCacheDir()
@@ -64,7 +64,7 @@ final class MoocBackendKernel extends Kernel
         return parent::getContainer();
     }
 
-    private function bootKernelInTestEnvironmentToDiscoverErrorsWhenDeveloping()
+    private function bootKernelInTestEnvironmentToDiscoverErrorsWhenDeveloping(): void
     {
         if ($this->getEnvironment() === 'test') {
             $this->boot();

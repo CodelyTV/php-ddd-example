@@ -12,29 +12,29 @@ final class DatabaseConnections
 {
     private $connections = [];
 
-    public function set(string $name, EntityManager $entityManager)
+    public function set(string $name, EntityManager $entityManager): void
     {
         $this->connections[$name] = $entityManager;
     }
 
-    public function clear()
+    public function clear(): void
     {
         each($this->clearer(), $this->connections);
     }
 
-    public function allConnectionsClearer()
+    public function allConnectionsClearer(): callable
     {
-        return function () {
+        return function (): void {
             $this->clear();
         };
     }
 
-    public function truncate()
+    public function truncate(): void
     {
         apply(new DatabaseCleaner(), array_values($this->connections));
     }
 
-    public function testConnections()
+    public function testConnections(): void
     {
         each($this->connectionTester(), $this->connections);
     }

@@ -7,7 +7,6 @@ namespace CodelyTv\Shared\Infrastructure\RabbitMQ;
 use AMQPChannel;
 use AMQPConnection;
 use AMQPQueue;
-use Psr\Log\LoggerInterface;
 
 final class RabbitMQConnection
 {
@@ -18,12 +17,10 @@ final class RabbitMQConnection
     /** @var AMQPQueue[] */
     private static $queues = [];
     private $configuration;
-    private $logger;
 
-    public function __construct(array $configuration, LoggerInterface $logger)
+    public function __construct(array $configuration)
     {
         $this->configuration = $configuration;
-        $this->logger        = $logger;
     }
 
     public function queue(string $name): AMQPQueue

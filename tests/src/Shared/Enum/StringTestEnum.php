@@ -13,11 +13,11 @@ use CodelyTv\Shared\Domain\ValueObject\Enum;
  */
 final class StringTestEnum extends Enum
 {
-    const ONE                 = 'one';
-    const TWO                 = 'two';
-    const A_VERY_LARGE_NUMBER = 'A very large number';
+    public const ONE                 = 'one';
+    public const TWO                 = 'two';
+    public const A_VERY_LARGE_NUMBER = 'A very large number';
 
-    protected function throwExceptionForInvalidValue($unused)
+    protected function throwExceptionForInvalidValue($unused): void
     {
         // Not necessary for the test
     }

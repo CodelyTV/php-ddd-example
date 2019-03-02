@@ -12,51 +12,51 @@ final class DomainEventSubscribersConfiguration
 {
     private static $config = [];
 
-    public function set(string $subscriber, array $config)
+    public function set(string $subscriber, array $config): void
     {
         self::$config[$subscriber] = $config;
     }
 
-    public function get(string $subscriber) : DomainEventSubscriberConfig
+    public function get(string $subscriber): DomainEventSubscriberConfig
     {
         return new DomainEventSubscriberConfig(self::$config[$subscriber]);
     }
 
-    public function byName($name) : DomainEventSubscriberConfig
+    public function byName($name): DomainEventSubscriberConfig
     {
         return new DomainEventSubscriberConfig(search($this->byNameFinder($name), self::$config));
     }
 
     /** @return DomainEventSubscriberConfig[] */
-    public function all() : array
+    public function all(): array
     {
         return map($this->domainEventConfigCreator(), self::$config);
     }
 
     /** @return DomainEventSubscriberConfig[] */
-    public function allWithEvent(string $name) : array
+    public function allWithEvent(string $name): array
     {
         return map($this->domainEventConfigCreator(), filter($this->containingEvent($name), self::$config));
     }
 
-    private function domainEventConfigCreator()
+    private function domainEventConfigCreator(): callable
     {
-        return function (array $configuration) {
+        return function (array $configuration): DomainEventSubscriberConfig {
             return new DomainEventSubscriberConfig($configuration);
         };
     }
 
-    private function byNameFinder(string $name)
+    private function byNameFinder(string $name): callable
     {
-        return function (array $config) use ($name) {
+        return function (array $config) use ($name): bool {
             return $name === $config['name'];
         };
     }
 
-    private function containingEvent(string $name)
+    private function containingEvent(string $name): callable
     {
-        return function (array $config) use ($name) {
-            return in_array($name, $config['subscribed_events']);
+        return function (array $config) use ($name): bool {
+            return in_array($name, $config['subscribed_events'], false);
         };
     }
 }

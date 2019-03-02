@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace CodelyTv\Shared\Domain\ValueObject;
 
 use ReflectionClass;
-use function CodelyTv\Utils\snake_to_camel;
+use function CodelyTv\Utils\Shared\snake_to_camel;
 use function Lambdish\Phunctional\reindex;
 
 abstract class Enum
@@ -16,6 +16,7 @@ abstract class Enum
     public function __construct($value)
     {
         $this->ensureIsBetweenAcceptedValues($value);
+
         $this->value = $value;
     }
 
@@ -33,7 +34,7 @@ abstract class Enum
 
     public static function values(): array
     {
-        $class = get_called_class();
+        $class = static::class;
 
         if (!isset(self::$cache[$class])) {
             $reflected           = new ReflectionClass($class);

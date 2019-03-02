@@ -23,12 +23,12 @@ final class ApiExceptionLoggerSubscriber implements EventSubscriberInterface
         $this->exceptionHandler = $exceptionHandler;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [KernelEvents::EXCEPTION => ['onKernelException', 1]];
     }
 
-    public function onKernelException(GetResponseForExceptionEvent $event)
+    public function onKernelException(GetResponseForExceptionEvent $event): void
     {
         $exception = $event->getException();
 
@@ -44,7 +44,7 @@ final class ApiExceptionLoggerSubscriber implements EventSubscriberInterface
         );
     }
 
-    protected function logException(Exception $exception, $message)
+    protected function logException(Exception $exception, $message): void
     {
         $level = $this->logLevel($this->exceptionStatusCode($exception));
 
@@ -63,7 +63,7 @@ final class ApiExceptionLoggerSubscriber implements EventSubscriberInterface
         return $statusCode;
     }
 
-    private function logLevel($statusCode)
+    private function logLevel($statusCode): string
     {
         return $statusCode >= 500 ? LogLevel::CRITICAL : LogLevel::ERROR;
     }
