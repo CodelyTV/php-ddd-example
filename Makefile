@@ -4,16 +4,13 @@ current-dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 deps: composer-install
 
-composer-install:
-	@docker run --rm --interactive --tty --volume $(current-dir):/app --user $(id -u):$(id -g) \
-		gsingh1/prestissimo install \
-			--ignore-platform-reqs \
-			--no-ansi \
-			--no-interaction
+composer-install: CMD=install
+composer-update: CMD=update
 
-composer-update:
+# Usage example (add a new dependency): `make composer CMD="require --dev symfony/var-dumper ^4.2"`
+composer composer-install composer-update:
 	@docker run --rm --interactive --tty --volume $(current-dir):/app --user $(id -u):$(id -g) \
-		gsingh1/prestissimo update \
+		gsingh1/prestissimo $(CMD) \
 			--ignore-platform-reqs \
 			--no-ansi \
 			--no-interaction
