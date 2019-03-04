@@ -1,8 +1,14 @@
-.PHONY: all deps composer-install composer-update build test run-tests
+.PHONY: all build deps composer-install composer-update composer reload test run-tests start stop destroy doco rebuild
 
 current-dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
+# 👌 Main targets
+
+build: deps start
+
 deps: composer-install
+
+# 🐘 Composer
 
 composer-install: CMD=install
 composer-update: CMD=update
@@ -15,7 +21,15 @@ composer composer-install composer-update:
 			--no-ansi \
 			--no-interaction
 
-build: deps start
+# 🕵️ Clear cache
+# OpCache: Restarts the unique process running in the PHP FPM container
+# Nginx: Reloads the server
+
+reload:
+	@docker-compose exec php-fpm kill -USR2 1
+	@docker-compose exec nginx nginx -s reload
+
+# ✅ Tests
 
 test:
 	@docker exec -it codelytv-cqrs_ddd_php_example-php make run-tests
@@ -23,14 +37,27 @@ test:
 run-tests:
 	mkdir -p build/test_results/phpunit
 	./vendor/bin/phpstan analyse -l 7 -c etc/phpstan/phpstan.neon applications/mooc_backend/src
-	./vendor/bin/phpunit --exclude-group='disabled --log-junit build/test_results/phpunit/junit.xml tests'
+	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests
 	./vendor/bin/behat -p mooc_backend --format=progress -v
+
+# 🐳 Docker Compose
 
 start:
 	@docker-compose up -d
 
-stop:
-	@docker-compose stop
+stop: CMD=stop
 
-destroy:
-	@docker-compose down
+destroy: CMD=down
+
+# Usage: `make doco CMD="ps --services"`
+# Usage: `make doco CMD="build --parallel --pull --force-rm --no-cache"`
+doco stop destroy:
+	@docker-compose $(CMD)
+
+rebuild:
+	echo "docker-compose build --parallel --pull --force-rm --no-cache"
+	@docker-compose build --parallel --pull --force-rm --no-cache
+	echo "composer-install"
+	@make deps
+	echo "start"
+	@make start
