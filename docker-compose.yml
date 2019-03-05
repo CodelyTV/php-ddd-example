@@ -20,7 +20,7 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:
-      - "9030:9000"
+      - "9030:9001"
     volumes:
       - .:/app:delegated
     env_file:
