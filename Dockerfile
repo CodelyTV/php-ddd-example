@@ -10,7 +10,6 @@ RUN apk --update upgrade \
         bcmath \
         opcache \
         intl \
-        pdo \
         pdo_mysql \
     && docker-php-ext-enable \
         amqp \
