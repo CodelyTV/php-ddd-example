@@ -6,13 +6,14 @@
   "require": {
     "php": "^7.1",
 
-    "ext-pdo": "*",
-    "ext-apcu": "*",
-    "ext-opcache": "*",
     "ext-amqp": "*",
-    "ext-json": "*",
+    "ext-apcu": "*",
+    "ext-bcmath": "*",
     "ext-ctype": "*",
     "ext-intl": "*",
+    "ext-json": "*",
+    "ext-opcache": "*",
+    "ext-pdo": "*",
 
     "incenteev/composer-parameter-handler": "^2.1",
 
