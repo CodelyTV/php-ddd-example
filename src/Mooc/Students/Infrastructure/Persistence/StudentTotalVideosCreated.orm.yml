@@ -1,0 +1,7 @@
+CodelyTv\Mooc\Students\Domain\StudentTotalVideosCreated:
+  type: embeddable
+
+  fields:
+    value:
+      type: integer
+      column: total_videos_created

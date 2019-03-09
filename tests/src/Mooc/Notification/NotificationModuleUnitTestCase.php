@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Notification;
 
-use CodelyTv\Mooc\Notification\Domain\NotificationRepository;
+use CodelyTv\Mooc\Notifications\Domain\NotificationRepository;
 use CodelyTv\Test\Mooc\Shared\Infrastructure\MoocContextUnitTestCase;
 use Mockery\MockInterface;
 

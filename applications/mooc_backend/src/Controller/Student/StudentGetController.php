@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\MoocBackend\Controller\Student;
 
-use CodelyTv\Mooc\Student\Application\Find\FindStudentQuery;
-use CodelyTv\Mooc\Student\Domain\StudentNotExist;
+use CodelyTv\Mooc\Students\Application\Find\FindStudentQuery;
+use CodelyTv\Mooc\Students\Domain\StudentNotExist;
 use CodelyTv\Shared\Infrastructure\Api\Controller\ApiController;
 use Symfony\Component\HttpFoundation\Response;
 

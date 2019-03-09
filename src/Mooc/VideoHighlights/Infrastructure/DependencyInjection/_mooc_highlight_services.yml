@@ -1,0 +1,19 @@
+services:
+  _defaults:
+    autoconfigure: true
+
+  # Command Handlers
+
+  codely.mooc.video_highlight.command_handler.create_video_highlight:
+    class: CodelyTv\Mooc\VideoHighlights\Application\Create\CreateVideoHighlightCommandHandler
+    arguments:
+      - '@codely.mooc.video_highlight.video_highlight_creator'
+
+
+  # Services
+
+  codely.mooc.video_highlight.video_highlight_creator:
+    class: CodelyTv\Mooc\VideoHighlights\Application\Create\VideoHighlightCreator
+    arguments:
+      - '@codely.mooc.video_highlight.repository'
+      - '@codely.mooc.domain_event_publisher'

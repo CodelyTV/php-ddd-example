@@ -98,7 +98,7 @@ $ tree -L 4 src
 
 src
 |-- Mooc // Company subdomain / Bounded Context: Features related to one of the company business lines / products
-|   `-- Video // Some Module inside the Mooc context
+|   `-- Videos // Some Module inside the Mooc context
 |       |-- Application
 |       |   |-- Create // Inside the application layer all is structured by actions
 |       |   |   |-- CreateVideoCommand.php

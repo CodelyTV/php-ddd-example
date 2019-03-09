@@ -1,4 +1,0 @@
-imports:
-
-  - { resource: notification_infrastructure.yml }
-  - { resource: notification_services.yml }

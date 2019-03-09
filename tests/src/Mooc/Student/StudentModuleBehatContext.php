@@ -6,7 +6,7 @@ namespace CodelyTv\Test\Mooc\Student;
 
 use Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\RawMinkContext;
-use CodelyTv\Mooc\Student\Domain\StudentRepository;
+use CodelyTv\Mooc\Students\Domain\StudentRepository;
 use CodelyTv\Test\Mooc\Student\Domain\StudentMother;
 use function Lambdish\Phunctional\apply;
 
