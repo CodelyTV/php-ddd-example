@@ -8,7 +8,10 @@ use CodelyTv\Mooc\VideoComments\Application\Publish\PublishVideoCommentCommandHa
 use CodelyTv\Mooc\VideoComments\Application\Publish\VideoCommentPublisher;
 use CodelyTv\Mooc\VideoComments\Domain\VideoComment;
 use CodelyTv\Mooc\VideoComments\Domain\VideoCommentRepository;
+use CodelyTv\Mooc\Videos\Domain\VideoNotFound;
 use CodelyTv\Test\Mooc\Shared\Infrastructure\MoocContextUnitTestCase;
+use CodelyTv\Test\Mooc\Video\Application\Find\FindVideoQueryMother;
+use CodelyTv\Test\Mooc\Video\Application\Find\VideoResponseMother;
 use CodelyTv\Test\Mooc\Video\Domain\VideoIdMother;
 use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentContentMother;
 use CodelyTv\Test\Mooc\VideoComment\Domain\VideoCommentIdMother;
@@ -22,17 +25,17 @@ final class PublishVideoCommentTest extends MoocContextUnitTestCase
     private $handler;
     private $repository;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
-        $publisher = new VideoCommentPublisher($this->repository(), $this->domainEventPublisher());
+        $publisher = new VideoCommentPublisher($this->repository(), $this->queryBus(), $this->domainEventPublisher());
 
         $this->handler = new PublishVideoCommentCommandHandler($publisher);
     }
 
     /** @test */
-    public function it_should_publish_a_video(): void
+    public function it_should_publish_a_video_comment(): void
     {
         $command = PublishVideoCommentCommandMother::random();
 
@@ -44,8 +47,23 @@ final class PublishVideoCommentTest extends MoocContextUnitTestCase
 
         $domainEvent = VideoCommentPublishedDomainEventMother::create($id, $videoId, $content);
 
+        $this->shouldAsk(FindVideoQueryMother::create($videoId), VideoResponseMother::withId($videoId));
         $this->shouldSaveVideoComment($comment);
         $this->shouldPublishDomainEvents($domainEvent);
+
+        $this->dispatch($command, $this->handler);
+    }
+
+    /** @test */
+    public function it_should_not_publish_a_video_comment_when_the_video_not_exist(): void
+    {
+        $this->expectException(VideoNotFound::class);
+
+        $command = PublishVideoCommentCommandMother::random();
+
+        $videoId = VideoIdMother::create($command->videoId());
+
+        $this->shouldAskThrowingException(FindVideoQueryMother::create($videoId), new VideoNotFound($videoId));
 
         $this->dispatch($command, $this->handler);
     }
