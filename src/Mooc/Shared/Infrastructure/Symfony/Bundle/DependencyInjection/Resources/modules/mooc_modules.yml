@@ -15,13 +15,3 @@ services:
       $settings:
         - username: '%slack_video_notification_username%'
           channel: '%slack_video_notification_channel%'
-
-  # Students
-  CodelyTv\Mooc\Students\Infrastructure\Persistence\StudentRepositoryMySql:
-    autowire: true
-    public: true
-
-  # Videos
-  CodelyTv\Mooc\Videos\Infrastructure\Persistence\VideoRepositoryMySql:
-    autowire: true
-    public: true

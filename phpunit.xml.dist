@@ -22,6 +22,11 @@
         stopOnRisky="true"
         verbose="false">
 
+    <php>
+        <ini name="error_reporting" value="-1" />
+        <server name="KERNEL_CLASS" value="CodelyTv\MoocBackend\MoocBackendKernel" />
+    </php>
+
     <testsuites>
         <testsuite name="Application">
             <directory>./tests</directory>

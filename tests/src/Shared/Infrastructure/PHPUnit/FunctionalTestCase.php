@@ -4,37 +4,24 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Shared\Infrastructure\PHPUnit;
 
-use CodelyTv\MoocBackend\MoocBackendKernel;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-abstract class FunctionalTestCase extends UnitTestCase
+abstract class FunctionalTestCase extends KernelTestCase
 {
-    /** @var MoocBackendKernel */
-    private $kernel;
-
     protected function setUp()
     {
-        parent::setUp();
+        self::bootKernel(['environment' => 'test']);
 
-        $this->kernel()->boot();
+        parent::setUp();
     }
 
     protected function service($id)
     {
-        return $this->container()->get($id);
+        return self::$container->get($id);
     }
 
     protected function parameter($parameter)
     {
-        return $this->container()->getParameter($parameter);
-    }
-
-    private function kernel(): MoocBackendKernel
-    {
-        return $this->kernel = $this->kernel ?: new MoocBackendKernel('test', true);
-    }
-
-    private function container()
-    {
-        return $this->kernel()->getContainer();
+        return self::$container->getParameter($parameter);
     }
 }

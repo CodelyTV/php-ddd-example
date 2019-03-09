@@ -13,5 +13,6 @@ services:
 
   codely.infrastructure.database_connections:
     class: CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections
+    public: true
 
   CodelyTv\Shared\Infrastructure\Uuid\UuidGenerator: ~
