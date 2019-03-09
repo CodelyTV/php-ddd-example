@@ -1,7 +1,6 @@
 services:
 
-  codely.mooc.infrastructure.database:
-    class: Doctrine\ORM\EntityManager
+  Doctrine\ORM\EntityManager:
     factory: [CodelyTv\Mooc\Shared\Infrastructure\Doctrine\MoocEntityManagerFactory, create]
     arguments:
       - driver:   '%mooc_database_driver%'

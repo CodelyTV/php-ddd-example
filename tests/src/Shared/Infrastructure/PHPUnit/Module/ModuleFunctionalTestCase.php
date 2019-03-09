@@ -9,6 +9,7 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
 use CodelyTv\Test\Shared\Infrastructure\Arranger\EnvironmentArranger;
 use CodelyTv\Test\Shared\Infrastructure\PHPUnit\FunctionalTestCase;
 use function CodelyTv\Test\Shared\assertSimilar;
+use Doctrine\ORM\EntityManager;
 use function Lambdish\Phunctional\each;
 
 abstract class ModuleFunctionalTestCase extends FunctionalTestCase
@@ -41,7 +42,7 @@ abstract class ModuleFunctionalTestCase extends FunctionalTestCase
 
     protected function clearUnitOfWork(): void
     {
-        $this->service('codely.mooc.infrastructure.database')->clear();
+        $this->service(EntityManager::class)->clear();
     }
 
     protected function notify(DomainEvent $event): void

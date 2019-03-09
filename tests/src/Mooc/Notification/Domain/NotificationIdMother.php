@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Notification\Mother;
 
-use CodelyTv\Mooc\Notification\Domain\NotificationId;
+use CodelyTv\Mooc\Notifications\Domain\NotificationId;
 use CodelyTv\Test\Shared\Domain\UuidMother;
 
 final class NotificationIdMother

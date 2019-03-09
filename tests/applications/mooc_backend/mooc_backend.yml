@@ -1,42 +1,31 @@
 mooc_backend:
   extensions:
-    Behat\Symfony2Extension:
+    FriendsOfBehat\SymfonyExtension:
       kernel:
         class: CodelyTv\MoocBackend\MoocBackendKernel
     Behat\MinkExtension:
       sessions:
-        my_session:
-          symfony2: ~
-    Behat\BootstrapExtension\Extension:
-      bootstrap_file: applications/bootstrap.php
+        symfony:
+          symfony: ~
+      base_url: 'http://localhost'
 
   suites:
     status:
       paths: [ tests/applications/mooc_backend/features/status ]
       contexts:
-        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiFeatureContext:
-            connections: '@codely.infrastructure.database_connections'
-            publisher: '@codely.mooc.domain_event_publisher'
-            bus: '@codely.mooc.event_bus'
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiFeatureContext
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiResponseContext
     video:
       paths: [ tests/applications/mooc_backend/features/video ]
       contexts:
-        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiFeatureContext:
-            connections: '@codely.infrastructure.database_connections'
-            publisher: '@codely.mooc.domain_event_publisher'
-            bus: '@codely.mooc.event_bus'
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiFeatureContext
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiResponseContext
     student:
       paths: [ tests/applications/mooc_backend/features/student ]
       contexts:
-        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiFeatureContext:
-            connections: '@codely.infrastructure.database_connections'
-            publisher: '@codely.mooc.domain_event_publisher'
-            bus: '@codely.mooc.event_bus'
+        - CodelyTv\Test\Shared\Infrastructure\Behat\ApiFeatureContext
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiResponseContext
-        - CodelyTv\Test\Mooc\Student\StudentModuleBehatContext:
-            repository: '@codely.mooc.student.repository'
+        - CodelyTv\Test\Mooc\Student\StudentModuleBehatContext

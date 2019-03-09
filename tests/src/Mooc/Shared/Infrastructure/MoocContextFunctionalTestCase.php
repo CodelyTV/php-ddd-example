@@ -11,7 +11,7 @@ abstract class MoocContextFunctionalTestCase extends ModuleFunctionalTestCase
     protected function environmentArrangers(): array
     {
         return [
-            $this->service('codely.mooc.infrastructure.arranger'),
+            $this->service(MoocEnvironmentArranger::class),
         ];
     }
 }

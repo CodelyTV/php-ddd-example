@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\MoocBackend\Controller\Video;
 
-use CodelyTv\Mooc\Video\Application\Find\FindVideoQuery;
-use CodelyTv\Mooc\Video\Domain\VideoNotFound;
+use CodelyTv\Mooc\Videos\Application\Find\FindVideoQuery;
+use CodelyTv\Mooc\Videos\Domain\VideoNotFound;
 use CodelyTv\Shared\Infrastructure\Api\Controller\ApiController;
 use Symfony\Component\HttpFoundation\Response;
 

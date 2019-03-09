@@ -8,7 +8,7 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
 use function Lambdish\Phunctional\each;
 
-final class SymfonySyncDomainEventPublisher implements DomainEventPublisher
+class SymfonySyncDomainEventPublisher implements DomainEventPublisher
 {
     private $events = [];
     private $publishedEvents = [];

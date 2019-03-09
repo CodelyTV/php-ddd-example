@@ -1,4 +1,0 @@
-imports:
-
-  - { resource: student_infrastructure.yml }
-  - { resource: student_services.yml }

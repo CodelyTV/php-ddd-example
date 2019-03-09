@@ -4,10 +4,10 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Student\Domain;
 
-use CodelyTv\Mooc\Student\Domain\Student;
-use CodelyTv\Mooc\Student\Domain\StudentId;
-use CodelyTv\Mooc\Student\Domain\StudentName;
-use CodelyTv\Mooc\Student\Domain\StudentTotalVideosCreated;
+use CodelyTv\Mooc\Students\Domain\Student;
+use CodelyTv\Mooc\Students\Domain\StudentId;
+use CodelyTv\Mooc\Students\Domain\StudentName;
+use CodelyTv\Mooc\Students\Domain\StudentTotalVideosCreated;
 
 final class StudentMother
 {

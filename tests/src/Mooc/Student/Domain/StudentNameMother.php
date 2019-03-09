@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Student\Domain;
 
-use CodelyTv\Mooc\Student\Domain\StudentName;
+use CodelyTv\Mooc\Students\Domain\StudentName;
 use CodelyTv\Test\Shared\Domain\WordMother;
 
 final class StudentNameMother

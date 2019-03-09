@@ -4,7 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Student\Infrastructure\Persistence;
 
-use CodelyTv\Mooc\Student\Domain\StudentRepository;
+use CodelyTv\Mooc\Students\Domain\StudentRepository;
+use CodelyTv\Mooc\Students\Infrastructure\Persistence\StudentRepositoryMySql;
 use CodelyTv\Test\Mooc\Student\Domain\StudentIdMother;
 use CodelyTv\Test\Mooc\Student\Domain\StudentMother;
 use CodelyTv\Test\Mooc\Student\Domain\StudentsMother;
@@ -50,6 +51,6 @@ final class StudentRepositoryTest extends StudentModuleFunctionalTestCase
 
     private function repository(): StudentRepository
     {
-        return $this->service('codely.mooc.student.repository');
+        return $this->service(StudentRepositoryMySql::class);
     }
 }

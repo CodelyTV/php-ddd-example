@@ -9,7 +9,7 @@ use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
 use CodelyTv\Shared\Domain\Bus\MessageSerializer;
 use function Lambdish\Phunctional\apply;
 
-final class CommandBusAsync implements CommandBus
+class CommandBusAsync implements CommandBus
 {
     private $pendingRequestsFilePath;
 

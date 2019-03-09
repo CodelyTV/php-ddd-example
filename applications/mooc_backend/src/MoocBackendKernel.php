@@ -4,42 +4,20 @@ declare(strict_types = 1);
 
 namespace CodelyTv\MoocBackend;
 
-use CodelyTv\Mooc\Shared\Infrastructure\Symfony\Bundle\CodelyTvMoocBundle;
-use CodelyTv\Shared\Infrastructure\Symfony\Bundle\CodelyTvInfrastructureBundle;
-use FOS\RestBundle\FOSRestBundle;
-use JMS\SerializerBundle\JMSSerializerBundle;
-use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
-use Symfony\Bundle\MonologBundle\MonologBundle;
-use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
+use function array_key_exists;
+use function dirname;
+use function Lambdish\Phunctional\filter;
+use function Lambdish\Phunctional\map;
 
 final class MoocBackendKernel extends Kernel
 {
     public function registerBundles()
     {
-        return [
-            new CodelyTvInfrastructureBundle(),
-            new CodelyTvMoocBundle(),
+        $bundles = require $this->getRootDir() . '/config/bundles.php';
 
-            new FrameworkBundle(),
-            new TwigBundle(),
-
-            new MonologBundle(),
-
-            new FOSRestBundle(),
-            new JMSSerializerBundle(),
-        ];
-    }
-
-    public function getName()
-    {
-        return 'api';
-    }
-
-    public function getRootDir()
-    {
-        return \dirname(__DIR__);
+        return map($this->instanciateBundle(), filter($this->hasToBeRemoved(), $bundles));
     }
 
     public function getCacheDir()
@@ -66,8 +44,31 @@ final class MoocBackendKernel extends Kernel
 
     private function bootKernelInTestEnvironmentToDiscoverErrorsWhenDeveloping(): void
     {
-        if ($this->getEnvironment() === 'test') {
+        if ('test' === $this->getEnvironment()) {
             $this->boot();
         }
+    }
+
+    public function getRootDir(): string
+    {
+        return dirname(__DIR__);
+    }
+
+    private function hasToBeRemoved(): callable
+    {
+        return function (array $environmentOptions) {
+            if ('test' === $this->getEnvironment()) {
+                return true;
+            }
+
+            return !array_key_exists('test', $environmentOptions);
+        };
+    }
+
+    private function instanciateBundle(): callable
+    {
+        return function (array $unused, $class) {
+            return new $class();
+        };
     }
 }

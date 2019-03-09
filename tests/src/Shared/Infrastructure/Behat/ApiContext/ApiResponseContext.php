@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext;
 
 use Behat\Gherkin\Node\PyStringNode;
+use Behat\Mink\Session;
 use Behat\MinkExtension\Context\RawMinkContext;
 use CodelyTv\Test\Shared\Infrastructure\Mink\MinkHelper;
 use CodelyTv\Test\Shared\Infrastructure\Mink\MinkSessionResponseHelper;
@@ -20,6 +21,12 @@ final class ApiResponseContext extends RawMinkContext
     private $sessionResponseHelper;
     /** @var MinkHelper */
     private $sessionHelper;
+    private $minkSession;
+
+    public function __construct(Session $minkSession)
+    {
+        $this->minkSession = $minkSession;
+    }
 
     public static function assertJsonStringEqualsJsonString($expectedJson, $actualJson, $message = ''): void
     {
@@ -147,7 +154,7 @@ final class ApiResponseContext extends RawMinkContext
      */
     public function theResponseStatusCodeShouldBe($expectedResponseCode): void
     {
-        Assert::assertSame((int) $expectedResponseCode, $this->getSession()->getStatusCode());
+        Assert::assertSame((int) $expectedResponseCode, $this->minkSession->getStatusCode());
     }
 
     private function getSessionResponseHelper(): MinkSessionResponseHelper
@@ -159,7 +166,7 @@ final class ApiResponseContext extends RawMinkContext
 
     private function getSessionHelper(): MinkHelper
     {
-        return $this->sessionHelper = $this->sessionHelper ?: new MinkHelper($this->getSession());
+        return $this->sessionHelper = $this->sessionHelper ?: new MinkHelper($this->minkSession);
     }
 
     private function adaptExpected($expectedResponse)

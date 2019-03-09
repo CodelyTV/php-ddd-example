@@ -44,8 +44,8 @@
   * [🌍 Application execution](#-application-execution)
   * [✅ Tests execution](#-tests-execution)
 * [🤔 Project explanation](#-project-explanation)
-  * [Bounded Contexts](#bounded-contexts)
-  * [Hexagonal Architecture](#hexagonal-architecture)
+  * [Bounded Contexts](#-bounded-contexts)
+  * [Hexagonal Architecture](#-hexagonal-architecture)
   * [Aggregates](#aggregates)
   * [Command Bus](#command-bus)
   * [Query Bus](#query-bus)
@@ -98,7 +98,7 @@ $ tree -L 4 src
 
 src
 |-- Mooc // Company subdomain / Bounded Context: Features related to one of the company business lines / products
-|   `-- Video // Some Module inside the Mooc context
+|   `-- Videos // Some Module inside the Mooc context
 |       |-- Application
 |       |   |-- Create // Inside the application layer all is structured by actions
 |       |   |   |-- CreateVideoCommand.php
@@ -132,11 +132,11 @@ Our repositories try to be as simple as possible usually only containing 2 metho
 If we need some query with more filters we use the `Strategy` pattern also known as `Criteria` pattern. So we add a
 `searchByCriteria` method.
 
-You can see an example [here](src/Mooc/Video/Domain/VideoRepository.php)
-and its implementation [here](src/Mooc/Video/Infrastructure/Persistence/VideoRepositoryMySql.php). 
+You can see an example [here](src/Mooc/Videos/Domain/VideoRepository.php)
+and its implementation [here](src/Mooc/Videos/Infrastructure/Persistence/VideoRepositoryMySql.php). 
 
 ### Aggregates
-You can see an example of an aggregate [here](src/Mooc/Video/Domain/Video.php). All aggregates should
+You can see an example of an aggregate [here](src/Mooc/Videos/Domain/Video.php). All aggregates should
 extends the [AggregateRoot](src/Shared/Domain/Aggregate/AggregateRoot.php).
 
 ### Command Bus
@@ -150,7 +150,7 @@ The [Query Bus](src/Shared/Infrastructure/Bus/Query/SymfonySyncQueryBus.php) use
 ### Event Bus
 The [Event Bus](src/Shared/Infrastructure/Bus/Event/SymfonySyncEventBus.php) uses the Symfony Message Bus.
 
-## 🤔  Contributing
+## 🤔 Contributing
 There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want 
 some guidelines feel free to contact us :)
 

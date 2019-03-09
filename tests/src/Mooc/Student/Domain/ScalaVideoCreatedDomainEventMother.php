@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Student\Domain;
 
-use CodelyTv\Mooc\Student\Domain\ScalaVideoCreatedDomainEvent;
-use CodelyTv\Mooc\Student\Domain\StudentId;
-use CodelyTv\Mooc\Video\Domain\VideoId;
+use CodelyTv\Mooc\Students\Domain\ScalaVideoCreatedDomainEvent;
+use CodelyTv\Mooc\Students\Domain\StudentId;
+use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Test\Mooc\Video\Domain\VideoIdMother;
 
 final class ScalaVideoCreatedDomainEventMother

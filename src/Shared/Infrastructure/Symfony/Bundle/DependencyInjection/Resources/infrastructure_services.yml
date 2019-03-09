@@ -1,0 +1,23 @@
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  CodelyTv\Shared\:
+    resource: '../../../../../*'
+    exclude:
+      - '../../../../../utils.php'
+      - '../../../../../Infrastructure/Api/*'
+
+  CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventMapping:
+    arguments: [!tagged codely.mooc.subscriber]
+
+  CodelyTv\Shared\Infrastructure\RabbitMQ\RabbitMQConnection:
+    arguments:
+      - '%rabbitmq_connection_parameters%'
+
+  codely.infrastructure.async_command_bus:
+    class: CodelyTv\Shared\Infrastructure\Bus\Command\CommandBusAsync
+    arguments:
+      $pendingRequestsFilePath: '%async_command_bus_pending_requests_file_path%'
+    lazy: true
