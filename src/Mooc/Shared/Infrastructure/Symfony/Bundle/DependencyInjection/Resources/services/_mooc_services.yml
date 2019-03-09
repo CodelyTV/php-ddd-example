@@ -23,3 +23,5 @@ services:
     class: CodelyTv\Shared\Infrastructure\Bus\Event\SymfonySyncDomainEventPublisher
     lazy: true
     public: true
+
+  CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher: '@codely.mooc.domain_event_publisher'

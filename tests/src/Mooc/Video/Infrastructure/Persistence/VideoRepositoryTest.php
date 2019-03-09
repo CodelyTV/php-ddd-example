@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace CodelyTv\Test\Mooc\Video\Infrastructure\Persistence;
 
 use CodelyTv\Mooc\Videos\Domain\VideoRepository;
+use CodelyTv\Mooc\Videos\Infrastructure\Persistence\VideoRepositoryMySql;
 use CodelyTv\Test\Mooc\Video\Domain\VideoIdMother;
 use CodelyTv\Test\Mooc\Video\Domain\VideoMother;
 use CodelyTv\Test\Mooc\Video\VideoModuleFunctionalTestCase;
@@ -36,6 +37,6 @@ final class VideoRepositoryTest extends VideoModuleFunctionalTestCase
 
     private function repository(): VideoRepository
     {
-        return $this->service('codely.mooc.videos.repository');
+        return $this->service(VideoRepositoryMySql::class);
     }
 }

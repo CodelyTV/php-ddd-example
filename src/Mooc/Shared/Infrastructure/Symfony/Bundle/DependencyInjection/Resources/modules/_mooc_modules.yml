@@ -1,5 +1,6 @@
 imports:
 
-  - { resource: ../../../../../../../Notifications/Infrastructure/DependencyInjection/_notifications_module.yml }
-  - { resource: ../../../../../../../Students/Infrastructure/DependencyInjection/_students_module.yml }
-  - { resource: ../../../../../../../Videos/Infrastructure/DependencyInjection/_videos_module.yml }
+  - { resource: ../../../../../../../Notifications/Infrastructure/dependency_injection.yml }
+  - { resource: ../../../../../../../Students/Infrastructure/dependency_injection.yml }
+  - { resource: ../../../../../../../VideoHighlights/Infrastructure/dependency_injection.yml }
+  - { resource: ../../../../../../../Videos/Infrastructure/dependency_injection.yml }

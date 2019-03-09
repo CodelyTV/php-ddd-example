@@ -1,4 +1,0 @@
-imports:
-
-  - { resource: videos_infrastructure.yml }
-  - { resource: videos_services.yml }

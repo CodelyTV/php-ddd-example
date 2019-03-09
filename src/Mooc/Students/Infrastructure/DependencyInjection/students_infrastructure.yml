@@ -1,7 +1,0 @@
-services:
-
-  codely.mooc.students.repository:
-    class: CodelyTv\Mooc\Students\Infrastructure\Persistence\StudentRepositoryMySql
-    arguments:
-      - '@codely.mooc.infrastructure.database'
-    public: true

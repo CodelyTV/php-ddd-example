@@ -14,5 +14,4 @@ services:
   codely.infrastructure.database_connections:
     class: CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections
 
-  codely.infrastructure.uuid_generator:
-    class: CodelyTv\Shared\Infrastructure\Uuid\UuidGenerator
+  CodelyTv\Shared\Infrastructure\Uuid\UuidGenerator: ~

@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  CodelyTv\Mooc\VideoHighlights\Application\:
+    resource: '../Application/*'
+    exclude: '../Application/{*Command.php, *Query.php}'
+
+  # Infrastructure
+
+  CodelyTv\Mooc\VideoHighlights\Domain\VideoHighlightRepository: '@CodelyTv\Mooc\VideoHighlights\Infrastructure\Persistence\VideoHighlightRepositoryMySql'
+  CodelyTv\Mooc\VideoHighlights\Infrastructure\Persistence\VideoHighlightRepositoryMySql:
+    autowire: true
+    public: true
