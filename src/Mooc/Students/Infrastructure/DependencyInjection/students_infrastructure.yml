@@ -1,6 +1,6 @@
 services:
 
-  codely.mooc.student.repository:
+  codely.mooc.students.repository:
     class: CodelyTv\Mooc\Students\Infrastructure\Persistence\StudentRepositoryMySql
     arguments:
       - '@codely.mooc.infrastructure.database'

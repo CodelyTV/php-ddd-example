@@ -4,26 +4,26 @@ services:
 
   # Subscriber
 
-  codely.mooc.notification.subscriber.create_notification_on_video_created:
+  codely.mooc.notifications.subscriber.create_notification_on_video_created:
     class: CodelyTv\Mooc\Notifications\Application\Create\CreateNotificationOnVideoCreated
     arguments:
-      - '@codely.mooc.notification.notification_creator'
+      - '@codely.mooc.notifications.notification_creator'
 
-  codely.mooc.notification.subscriber.send_notification_on_notification_created:
+  codely.mooc.notifications.subscriber.send_notification_on_notification_created:
     class: CodelyTv\Mooc\Notifications\Application\Send\SendStaffNotificationOnNotificationCreated
     arguments:
-      - '@codely.mooc.notification.notification_sender'
+      - '@codely.mooc.notifications.notification_sender'
 
 
   # Services
 
-  codely.mooc.notification.notification_creator:
+  codely.mooc.notifications.notification_creator:
     class: CodelyTv\Mooc\Notifications\Application\Create\NotificationCreator
     arguments:
       - '@codely.infrastructure.uuid_generator'
       - '@codely.mooc.domain_event_publisher'
 
-  codely.mooc.notification.notification_sender:
+  codely.mooc.notifications.notification_sender:
     class: CodelyTv\Mooc\Notifications\Application\Send\NotificationSender
     arguments:
-      - '@codely.mooc.notification.notifier'
+      - '@codely.mooc.notifications.notifier'

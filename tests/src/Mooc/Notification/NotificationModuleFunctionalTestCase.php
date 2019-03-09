@@ -11,6 +11,6 @@ abstract class NotificationModuleFunctionalTestCase extends MoocContextFunctiona
 {
     protected function repository(): NotificationRepository
     {
-        return $this->service('codely.mooc.notification.repository');
+        return $this->service('codely.mooc.notifications.repository');
     }
 }

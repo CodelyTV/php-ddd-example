@@ -50,6 +50,6 @@ final class StudentRepositoryTest extends StudentModuleFunctionalTestCase
 
     private function repository(): StudentRepository
     {
-        return $this->service('codely.mooc.student.repository');
+        return $this->service('codely.mooc.students.repository');
     }
 }
