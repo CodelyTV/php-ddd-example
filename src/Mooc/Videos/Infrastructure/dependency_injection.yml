@@ -1,7 +1,0 @@
-services:
-  _defaults:
-    autoconfigure: true
-    autowire: true
-
-  CodelyTv\Mooc\Videos\:
-    resource: '../*'
