@@ -1,6 +1,0 @@
-imports:
-
-  - { resource: ../../../../../../../Notifications/Infrastructure/dependency_injection.yml }
-  - { resource: ../../../../../../../Students/Infrastructure/dependency_injection.yml }
-  - { resource: ../../../../../../../VideoHighlights/Infrastructure/dependency_injection.yml }
-  - { resource: ../../../../../../../Videos/Infrastructure/dependency_injection.yml }

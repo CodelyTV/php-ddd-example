@@ -1,0 +1,27 @@
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  CodelyTv\Mooc\:
+    resource: '../../../../../../../*'
+
+  # Notifications
+  CodelyTv\Mooc\Notifications\Domain\Notifier: '@CodelyTv\Mooc\Notifications\Infrastructure\Notifier\SlackNotifier'
+
+  CodelyTv\Mooc\Notifications\Infrastructure\Notifier\SlackNotifier:
+    arguments:
+      $hookUrl: '%slack_video_notification_hook_url%'
+      $settings:
+        - username: '%slack_video_notification_username%'
+          channel: '%slack_video_notification_channel%'
+
+  # Students
+  CodelyTv\Mooc\Students\Infrastructure\Persistence\StudentRepositoryMySql:
+    autowire: true
+    public: true
+
+  # Videos
+  CodelyTv\Mooc\Videos\Infrastructure\Persistence\VideoRepositoryMySql:
+    autowire: true
+    public: true

@@ -3,13 +3,5 @@ services:
     autoconfigure: true
     autowire: true
 
-  CodelyTv\Mooc\Videos\Application\:
-    resource: '../Application/*'
-    exclude: '../Application/{*Command.php, *Query.php}'
-
-  # Infrastructure
-
-  CodelyTv\Mooc\Videos\Domain\VideoRepository: '@CodelyTv\Mooc\Videos\Infrastructure\Persistence\VideoRepositoryMySql'
-  CodelyTv\Mooc\Videos\Infrastructure\Persistence\VideoRepositoryMySql:
-    autowire: true
-    public: true
+  CodelyTv\Mooc\Videos\:
+    resource: '../*'
