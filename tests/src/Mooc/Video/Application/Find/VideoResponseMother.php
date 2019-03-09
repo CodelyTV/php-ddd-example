@@ -15,6 +15,7 @@ use CodelyTv\Test\Mooc\Video\Domain\VideoIdMother;
 use CodelyTv\Test\Mooc\Video\Domain\VideoTitleMother;
 use CodelyTv\Test\Mooc\Video\Domain\VideoTypeMother;
 use CodelyTv\Test\Mooc\Video\Domain\VideoUrlMother;
+use CodelyTv\Test\Shared\Domain\DuplicatorMother;
 
 final class VideoResponseMother
 {
@@ -26,6 +27,11 @@ final class VideoResponseMother
         CourseId $courseId
     ): VideoResponse {
         return new VideoResponse($id->value(), $type->value(), $title->value(), $url->value(), $courseId->value());
+    }
+
+    public static function withId(VideoId $id): VideoResponse
+    {
+        return DuplicatorMother::with(self::random(), ['id' => $id->value()]);
     }
 
     public static function random(): VideoResponse
