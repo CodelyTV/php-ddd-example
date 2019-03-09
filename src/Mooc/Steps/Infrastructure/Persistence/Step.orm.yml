@@ -1,0 +1,35 @@
+CodelyTv\Mooc\Steps\Domain\Step:
+  type: entity
+  inheritanceType: JOINED
+  discriminatorColumn:
+    name: type
+    type: smallint
+  discriminatorMap:
+    1: CodelyTv\Mooc\Steps\Domain\Challenge\ChallengeStep
+    2: CodelyTv\Mooc\Steps\Domain\Quiz\QuizStep
+    3: CodelyTv\Mooc\Steps\Domain\Video\VideoStep
+  table: steps
+
+  id:
+    id:
+      type: step_id
+      length: 36
+
+  fields:
+    lessonId:
+      type: lesson_id
+      column: lesson_id
+    creationDate:
+      type: datetime_immutable
+      column: creation_date
+
+  embedded:
+    title:
+      class: CodelyTv\Mooc\Steps\Domain\StepTitle
+      columnPrefix: false
+    estimatedDuration:
+      class: \CodelyTv\Mooc\Steps\Domain\StepEstimatedDuration
+      columnPrefix: false
+    order:
+      class: \CodelyTv\Mooc\Steps\Domain\StepOrder
+      columnPrefix: false
