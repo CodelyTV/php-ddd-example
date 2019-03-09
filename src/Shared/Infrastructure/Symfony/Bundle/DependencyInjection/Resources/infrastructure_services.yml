@@ -5,7 +5,9 @@ services:
 
   CodelyTv\Shared\:
     resource: '../../../../../*'
-    exclude: '../../../../../utils.php'
+    exclude:
+      - '../../../../../utils.php'
+      - '../../../../../Infrastructure/Api/*'
 
   CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventMapping:
     arguments: [!tagged codely.mooc.subscriber]

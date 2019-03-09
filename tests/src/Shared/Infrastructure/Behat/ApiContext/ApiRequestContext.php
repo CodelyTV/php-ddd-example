@@ -6,14 +6,21 @@ namespace CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext;
 
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
+use Behat\Mink\Session;
 use Behat\MinkExtension\Context\RawMinkContext;
 use CodelyTv\Test\Shared\Infrastructure\Mink\MinkHelper;
 use CodelyTv\Test\Shared\Infrastructure\Mink\MinkSessionRequestHelper;
 
 final class ApiRequestContext extends RawMinkContext
 {
-    /** @var MinkSessionRequestHelper */
     private $sessionRequestHelper;
+    private $minkSession;
+
+    public function __construct(Session $minkSession)
+    {
+        $this->minkSession = $minkSession;
+    }
+
 
     /**
      * @Given I send a :method request to :url
@@ -58,6 +65,6 @@ final class ApiRequestContext extends RawMinkContext
     private function getSessionRequestHelper(): MinkSessionRequestHelper
     {
         return $this->sessionRequestHelper = $this->sessionRequestHelper
-            ?: new MinkSessionRequestHelper(new MinkHelper($this->getSession()));
+            ?: new MinkSessionRequestHelper(new MinkHelper($this->minkSession));
     }
 }

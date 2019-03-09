@@ -4,6 +4,6 @@ services:
     class: CodelyTv\Shared\Infrastructure\Api\Controller\ApiController
     abstract: true
     arguments:
-      - '@codely.mooc.query_bus'
-      - '@codely.mooc.command_bus'
-      - '@codely.mooc_backend.exception_handler'
+      - '@CodelyTv\Shared\Domain\Bus\Query\QueryBus'
+      - '@CodelyTv\Shared\Domain\Bus\Command\CommandBus'
+      - '@CodelyTv\Shared\Infrastructure\Api\Exception\ApiExceptionsHttpStatusCodeMapping'

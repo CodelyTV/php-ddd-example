@@ -1,8 +1,5 @@
-applications/*/var/cache/*
-!applications/*/var/cache/.gitkeep
-
-applications/*/var/logs/*
-!applications/*/var/logs/.gitkeep
+applications/*/var/*
+!applications/*/var/*/.gitkeep
 
 src/*/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/*_parameters.yml
 src/*/Shared/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/*_parameters.yml

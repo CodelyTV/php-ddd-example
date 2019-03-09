@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Shared\Infrastructure\Mink;
 
+use Behat\Mink\Driver\DriverInterface;
 use Behat\Mink\Session;
 use Behat\Symfony2Extension\Driver\KernelDriver;
 use RuntimeException;
@@ -130,7 +131,7 @@ final class MinkHelper
         return $this->session;
     }
 
-    private function getDriver(): KernelDriver
+    private function getDriver(): DriverInterface
     {
         return $this->getSession()->getDriver();
     }

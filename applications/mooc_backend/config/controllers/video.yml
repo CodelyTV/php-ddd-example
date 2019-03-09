@@ -12,8 +12,5 @@ services:
 
   codely.mooc_backend.controller.video.duration.path:
     class: CodelyTv\MoocBackend\Controller\Video\VideoDurationPatchController
-    arguments:
-      - '@codely.mooc.query_bus'
-      - '@codely.mooc.async_command_bus'
-      - '@codely.mooc_backend.exception_handler'
+    parent: codely.mooc_backend.controller
     public: true

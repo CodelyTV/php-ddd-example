@@ -17,6 +17,9 @@ framework:
   test: ~
 
 services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
 
-  codely.mooc.notifications.notifier:
-    class: CodelyTv\Mooc\Notifications\Infrastructure\Notifier\FakeNotifier
+  CodelyTv\Test\:
+    resource: '../../../tests/src/**/*Context.php'
