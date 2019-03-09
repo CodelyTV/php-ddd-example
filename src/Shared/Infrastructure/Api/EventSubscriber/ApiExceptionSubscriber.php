@@ -8,7 +8,7 @@ use CodelyTv\Shared\Domain\DomainError;
 use CodelyTv\Shared\Infrastructure\Api\Exception\ApiExceptionsHttpStatusCodeMapping;
 use Exception;
 use FOS\RestBundle\View\View;
-use FOS\RestBundle\View\ViewHandler;
+use FOS\RestBundle\View\ViewHandlerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
@@ -19,7 +19,7 @@ final class ApiExceptionSubscriber implements EventSubscriberInterface
     private $viewHandler;
     private $exceptionHandler;
 
-    public function __construct(ViewHandler $viewHandler, ApiExceptionsHttpStatusCodeMapping $exceptionHandler)
+    public function __construct(ViewHandlerInterface $viewHandler, ApiExceptionsHttpStatusCodeMapping $exceptionHandler)
     {
         $this->viewHandler      = $viewHandler;
         $this->exceptionHandler = $exceptionHandler;

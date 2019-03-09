@@ -15,7 +15,7 @@ mooc_backend:
       paths: [ tests/applications/mooc_backend/features/status ]
       contexts:
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiFeatureContext:
-            connections: '@codely.infrastructure.database_connections'
+            connections: '@CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections'
             publisher: '@codely.mooc.domain_event_publisher'
             bus: '@codely.mooc.event_bus'
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
@@ -24,7 +24,7 @@ mooc_backend:
       paths: [ tests/applications/mooc_backend/features/video ]
       contexts:
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiFeatureContext:
-            connections: '@codely.infrastructure.database_connections'
+            connections: '@CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections'
             publisher: '@codely.mooc.domain_event_publisher'
             bus: '@codely.mooc.event_bus'
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
@@ -33,7 +33,7 @@ mooc_backend:
       paths: [ tests/applications/mooc_backend/features/student ]
       contexts:
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiFeatureContext:
-            connections: '@codely.infrastructure.database_connections'
+            connections: '@CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections'
             publisher: '@codely.mooc.domain_event_publisher'
             bus: '@codely.mooc.event_bus'
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext

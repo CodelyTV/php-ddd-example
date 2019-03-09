@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Infrastructure\Symfony\Bundle\DependencyInjection\Compiler;
 
+use CodelyTv\Shared\Infrastructure\Bus\Event\SubscribersMapping;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -12,11 +13,12 @@ use function Lambdish\Phunctional\each;
 use function Lambdish\Phunctional\get;
 use function Lambdish\Phunctional\last;
 use function Lambdish\Phunctional\map;
+use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventSubscribersConfiguration;
 
 final class DomainEventSubscribersConfigurationCompilerPass implements CompilerPassInterface
 {
-    public const DOMAIN_EVENT_CONFIGURATION_SERVICE = 'codely.infrastructure.domain_event_subscribers_configuration';
-    public const SUBSCRIBERS_MAPPING_SERVICE        = 'codely.infrastructure.subscribers_mapping';
+    public const DOMAIN_EVENT_CONFIGURATION_SERVICE = DomainEventSubscribersConfiguration::class;
+    public const SUBSCRIBERS_MAPPING_SERVICE        = SubscribersMapping::class;
     private $tag;
 
     public function __construct(string $tag)

@@ -1,16 +1,6 @@
 services:
 
-#  codely.mooc_backend.command.consume_domain_events:
-#    class: CodelyTv\MoocBackend\Command\ConsumeDomainEventsCommand
-#    arguments:
-#      - '@codely.infrastructure.rabbitmq_domain_event_consumer'
-#      - '@codely.infrastructure.subscribers_mapping'
-#      - '@codely.infrastructure.database_connections'
-#    tags:
-#      - { name: console.command }
-
-  codely.mooc_backend.command.generate_supervisor_files:
-    class: CodelyTv\MoocBackend\Command\GenerateSupervisorFilesCommand
-    arguments: ['@codely.infrastructure.domain_event_subscribers_configuration']
+  CodelyTv\MoocBackend\Command\GenerateSupervisorFilesCommand:
+    arguments: ['@CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventSubscribersConfiguration']
     tags:
       - { name: console.command }
