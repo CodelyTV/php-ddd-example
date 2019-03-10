@@ -4,4 +4,4 @@ CodelyTv\Mooc\Steps\Domain\StepOrder:
   fields:
     value:
       type: integer
-      column: order
+      column: step_order

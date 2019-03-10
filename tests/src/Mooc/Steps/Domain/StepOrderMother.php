@@ -16,6 +16,6 @@ final class StepOrderMother
 
     public static function random(): StepOrder
     {
-        return self::create(NumberMother::random());
+        return self::create(NumberMother::lessThan(10));
     }
 }

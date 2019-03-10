@@ -16,6 +16,6 @@ final class StepTitleMother
 
     public static function random(): StepTitle
     {
-        return self::create(TextMother::random());
+        return self::create(TextMother::short());
     }
 }

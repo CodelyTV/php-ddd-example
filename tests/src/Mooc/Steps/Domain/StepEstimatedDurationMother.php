@@ -16,6 +16,6 @@ final class StepEstimatedDurationMother
 
     public static function random(): StepEstimatedDuration
     {
-        return self::create(NumberMother::random());
+        return self::create(NumberMother::lessThan(1000));
     }
 }

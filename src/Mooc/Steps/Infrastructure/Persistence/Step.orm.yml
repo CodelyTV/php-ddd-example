@@ -28,8 +28,8 @@ CodelyTv\Mooc\Steps\Domain\Step:
       class: CodelyTv\Mooc\Steps\Domain\StepTitle
       columnPrefix: false
     estimatedDuration:
-      class: \CodelyTv\Mooc\Steps\Domain\StepEstimatedDuration
+      class: CodelyTv\Mooc\Steps\Domain\StepEstimatedDuration
       columnPrefix: false
     order:
-      class: \CodelyTv\Mooc\Steps\Domain\StepOrder
+      class: CodelyTv\Mooc\Steps\Domain\StepOrder
       columnPrefix: false

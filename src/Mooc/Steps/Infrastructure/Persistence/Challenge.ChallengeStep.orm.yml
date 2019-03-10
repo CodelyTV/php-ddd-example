@@ -1,6 +1,6 @@
 CodelyTv\Mooc\Steps\Domain\Challenge\ChallengeStep:
   type: entity
-  table: step_challenge
+  table: step_challenges
 
   embedded:
     statement:
