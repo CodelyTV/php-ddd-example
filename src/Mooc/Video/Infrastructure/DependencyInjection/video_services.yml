@@ -17,6 +17,11 @@ services:
     arguments:
       - '@codely.mooc.video.video_finder'
 
+  codely.mooc.video.query_handler.find_all:
+    class: CodelyTv\Mooc\Video\Application\Find\FindAllVideosQueryHandler
+    arguments:
+      - '@codely.mooc.video.videos_finder'
+
 
   # Services
 
@@ -28,5 +33,10 @@ services:
 
   codely.mooc.video.video_finder:
     class: CodelyTv\Mooc\Video\Application\Find\VideoFinder
+    arguments:
+      - '@codely.mooc.video.repository'
+
+  codely.mooc.video.videos_finder:
+    class: CodelyTv\Mooc\Video\Application\Find\VideosFinder
     arguments:
       - '@codely.mooc.video.repository'

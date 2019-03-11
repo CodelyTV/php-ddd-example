@@ -6,6 +6,7 @@ namespace CodelyTv\Shared\Infrastructure\Api\Serializer;
 
 use CodelyTv\Mooc\Student\Application\Find\StudentResponse;
 use CodelyTv\Mooc\Video\Application\Find\VideoResponse;
+use CodelyTv\Mooc\Video\Application\Find\VideosResponse;
 use CodelyTv\Shared\Infrastructure\Jms\CodelyTvSerializerDriver;
 
 final class ApiSerializerDriver extends CodelyTvSerializerDriver
@@ -29,6 +30,9 @@ final class ApiSerializerDriver extends CodelyTvSerializerDriver
                 'title'    => ['type' => 'string'],
                 'url'      => ['type' => 'string'],
                 'courseId' => ['type' => 'string'],
+            ],
+            VideosResponse::class  => [
+                'videos' => ['type' => 'array']
             ],
         ];
     }

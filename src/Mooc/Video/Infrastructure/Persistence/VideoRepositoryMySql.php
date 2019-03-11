@@ -39,4 +39,11 @@ final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepo
 
         return new Videos($videos);
     }
+
+    public function findAll(): Videos
+    {
+        $videos = $this->repository(Video::class)->findAll();
+
+        return new Videos($videos);
+    }
 }
