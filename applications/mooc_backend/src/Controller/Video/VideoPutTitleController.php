@@ -18,7 +18,8 @@ final class VideoPutTitleController extends ApiController
     {
         $command = new UpdateVideoTitleCommand(
             new Uuid($request->get('request_id')),
-            $request->get('video')
+            $request->get('id'),
+            $request->get('title')
         );
 
         $this->dispatch($command);

@@ -13,11 +13,12 @@ final class UpdateVideoTitleCommand extends Command
 
     private $title;
 
-    public function __construct(Uuid $id, string $title)
+    public function __construct(Uuid $messageId, string $id, string $title)
     {
+        parent::__construct($messageId);
+
         $this->id = $id;
         $this->title = $title;
-        parent::__construct($id);
     }
 
     public function id()
