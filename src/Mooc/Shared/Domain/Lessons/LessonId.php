@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Shared\Domain\Lessons;
+namespace CodelyTv\Mooc\Shared\Domain\Lessons;
 
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
 

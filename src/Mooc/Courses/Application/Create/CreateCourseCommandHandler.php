@@ -2,11 +2,11 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Backoffice\Courses\Application\Create;
+namespace CodelyTv\Mooc\Courses\Application\Create;
 
-use CodelyTv\Backoffice\Courses\Domain\CourseDescription;
-use CodelyTv\Backoffice\Courses\Domain\CourseTitle;
-use CodelyTv\Shared\Domain\CourseId;
+use CodelyTv\Mooc\Courses\Domain\CourseDescription;
+use CodelyTv\Mooc\Courses\Domain\CourseTitle;
+use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 
 final class CreateCourseCommandHandler
 {

@@ -4,14 +4,14 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Mooc\Steps\Domain\Video;
 
-use CodelyTv\Mooc\Shared\Domain\VideoUrl;
+use CodelyTv\Mooc\Shared\Domain\Lessons\LessonId;
+use CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl;
 use CodelyTv\Mooc\Steps\Domain\Step;
 use CodelyTv\Mooc\Steps\Domain\StepEstimatedDuration;
 use CodelyTv\Mooc\Steps\Domain\StepId;
 use CodelyTv\Mooc\Steps\Domain\StepOrder;
 use CodelyTv\Mooc\Steps\Domain\StepPoints;
 use CodelyTv\Mooc\Steps\Domain\StepTitle;
-use CodelyTv\Shared\Domain\Lessons\LessonId;
 use DateTimeImmutable;
 
 final class VideoStep extends Step

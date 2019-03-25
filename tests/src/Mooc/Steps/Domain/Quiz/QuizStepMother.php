@@ -4,13 +4,13 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Test\Mooc\Steps\Domain\Quiz;
 
+use CodelyTv\Mooc\Shared\Domain\Lessons\LessonId;
 use CodelyTv\Mooc\Steps\Domain\Quiz\QuizStep;
 use CodelyTv\Mooc\Steps\Domain\Quiz\QuizStepQuestion;
 use CodelyTv\Mooc\Steps\Domain\StepEstimatedDuration;
 use CodelyTv\Mooc\Steps\Domain\StepId;
 use CodelyTv\Mooc\Steps\Domain\StepOrder;
 use CodelyTv\Mooc\Steps\Domain\StepTitle;
-use CodelyTv\Shared\Domain\Lessons\LessonId;
 use CodelyTv\Test\Mooc\Shared\Domain\Lessons\LessonIdMother;
 use CodelyTv\Test\Mooc\Steps\Domain\StepEstimatedDurationMother;
 use CodelyTv\Test\Mooc\Steps\Domain\StepIdMother;

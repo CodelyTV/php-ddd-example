@@ -2,14 +2,14 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Backoffice\Courses\Application\Create;
+namespace CodelyTv\Mooc\Courses\Application\Create;
 
-use CodelyTv\Backoffice\Courses\Domain\Course;
-use CodelyTv\Backoffice\Courses\Domain\CourseDescription;
-use CodelyTv\Backoffice\Courses\Domain\CourseRepository;
-use CodelyTv\Backoffice\Courses\Domain\CourseTitle;
+use CodelyTv\Mooc\Courses\Domain\Course;
+use CodelyTv\Mooc\Courses\Domain\CourseDescription;
+use CodelyTv\Mooc\Courses\Domain\CourseRepository;
+use CodelyTv\Mooc\Courses\Domain\CourseTitle;
+use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
-use CodelyTv\Shared\Domain\CourseId;
 
 final class CourseCreator
 {

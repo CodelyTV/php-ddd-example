@@ -1,4 +1,4 @@
-CodelyTv\Mooc\Shared\Domain\VideoUrl:
+CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl:
   type: embeddable
 
   fields:

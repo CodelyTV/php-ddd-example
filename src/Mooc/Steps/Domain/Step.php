@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Mooc\Steps\Domain;
 
+use CodelyTv\Mooc\Shared\Domain\Lessons\LessonId;
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
-use CodelyTv\Shared\Domain\Lessons\LessonId;
 use DateTimeImmutable;
 
 abstract class Step extends AggregateRoot

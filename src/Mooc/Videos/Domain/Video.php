@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Mooc\Videos\Domain;
 
-use CodelyTv\Mooc\Shared\Domain\VideoUrl;
+use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
+use CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl;
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
-use CodelyTv\Shared\Domain\CourseId;
 
 final class Video extends AggregateRoot
 {

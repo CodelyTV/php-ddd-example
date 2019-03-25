@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Mooc\Lesson\Domain;
 
-use CodelyTv\Shared\Domain\CourseId;
-use CodelyTv\Shared\Domain\Lessons\LessonId;
+use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
+use CodelyTv\Mooc\Shared\Domain\Lessons\LessonId;
 
 final class Lesson
 {
