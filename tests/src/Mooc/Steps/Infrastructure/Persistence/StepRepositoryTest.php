@@ -9,6 +9,7 @@ use CodelyTv\Mooc\Steps\Domain\StepRepository;
 use CodelyTv\Mooc\Steps\Infrastructure\Persistence\StepRepositoryMySql;
 use CodelyTv\Test\Mooc\Steps\Domain\Challenge\ChallengeStepMother;
 use CodelyTv\Test\Mooc\Steps\Domain\Quiz\QuizStepMother;
+use CodelyTv\Test\Mooc\Steps\Domain\Video\VideoStepMother;
 use CodelyTv\Test\Mooc\Steps\StepsModuleFunctionalTestCase;
 
 final class StepRepositoryTest extends StepsModuleFunctionalTestCase
@@ -27,6 +28,7 @@ final class StepRepositoryTest extends StepsModuleFunctionalTestCase
         return [
             ['challenge step' => ChallengeStepMother::random()],
             ['quiz step' => QuizStepMother::random()],
+            ['video step' => VideoStepMother::random()],
         ];
     }
 

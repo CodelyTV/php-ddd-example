@@ -38,3 +38,11 @@ CREATE TABLE `step_quiz` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_steps_quiz__step_id` FOREIGN KEY (`id`) REFERENCES `steps` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `step_video` (
+  `id` CHAR(36) NOT NULL,
+  `url` VARCHAR(255) NOT NULL,
+  `text` TEXT NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_steps_video__step_id` FOREIGN KEY (`id`) REFERENCES `steps` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

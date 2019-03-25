@@ -1,0 +1,7 @@
+CodelyTv\Mooc\Steps\Domain\Video\VideoStepText:
+  type: embeddable
+
+  fields:
+    value:
+      type: string
+      column: text
