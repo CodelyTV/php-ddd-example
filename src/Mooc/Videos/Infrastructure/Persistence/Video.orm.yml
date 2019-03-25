@@ -21,5 +21,5 @@ CodelyTv\Mooc\Videos\Domain\Video:
       class: CodelyTv\Mooc\Videos\Domain\VideoTitle
       columnPrefix: false
     url:
-      class: CodelyTv\Mooc\Videos\Domain\VideoUrl
+      class: CodelyTv\Mooc\Shared\Domain\VideoUrl
       columnPrefix: false
