@@ -28,6 +28,8 @@
     "jms/serializer-bundle": "^2.4",
     "symfony/twig-bundle": "^4.2",
 
+    "ocramius/proxy-manager": "2.2.*",
+
     "doctrine/dbal": "^2.8",
     "doctrine/orm": "^2.6",
 
