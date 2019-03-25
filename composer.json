@@ -6,11 +6,14 @@
   "require": {
     "php": "^7.1",
 
-    "ext-pdo": "*",
-    "ext-apcu": "*",
     "ext-amqp": "*",
-    "ext-json": "*",
+    "ext-apcu": "*",
+    "ext-bcmath": "*",
     "ext-ctype": "*",
+    "ext-intl": "*",
+    "ext-json": "*",
+    "ext-opcache": "*",
+    "ext-pdo": "*",
 
     "incenteev/composer-parameter-handler": "^2.1",
 
@@ -25,6 +28,8 @@
     "jms/serializer-bundle": "^2.4",
     "symfony/twig-bundle": "^4.2",
 
+    "ocramius/proxy-manager": "2.2.*",
+
     "doctrine/dbal": "^2.8",
     "doctrine/orm": "^2.6",
 
@@ -36,7 +41,10 @@
     "ramsey/uuid": "^3.8"
   },
   "require-dev": {
+    "ext-xdebug": "*",
+
     "roave/security-advisories": "dev-master",
+
     "phpunit/phpunit": "^6.5",
     "symfony/phpunit-bridge": "^4.2",
     "mockery/mockery": "^1.0",
