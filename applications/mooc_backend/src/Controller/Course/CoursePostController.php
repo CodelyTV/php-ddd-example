@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\MoocBackend\Controller\Course;
 
-use CodelyTv\Backoffice\Courses\Application\Create\CreateCourseCommand;
+use CodelyTv\Mooc\Courses\Application\Create\CreateCourseCommand;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use CodelyTv\Shared\Infrastructure\Api\Controller\ApiController;
 use CodelyTv\Shared\Infrastructure\Api\Response\ApiHttpCreatedResponse;

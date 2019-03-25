@@ -6,13 +6,13 @@ namespace CodelyTv\Test\Mooc\Videos\Application\Create;
 
 use CodelyTv\Mooc\Videos\Application\Create\CreateVideoCommandHandler;
 use CodelyTv\Mooc\Videos\Application\Create\VideoCreator;
-use CodelyTv\Test\Backoffice\Course\Domain\CourseIdMother;
+use CodelyTv\Test\Mooc\Shared\Domain\Courses\CourseIdMother;
+use CodelyTv\Test\Mooc\Shared\Domain\Videos\VideoUrlMother;
 use CodelyTv\Test\Mooc\Videos\Domain\VideoCreatedDomainEventMother;
 use CodelyTv\Test\Mooc\Videos\Domain\VideoIdMother;
 use CodelyTv\Test\Mooc\Videos\Domain\VideoMother;
 use CodelyTv\Test\Mooc\Videos\Domain\VideoTitleMother;
 use CodelyTv\Test\Mooc\Videos\Domain\VideoTypeMother;
-use CodelyTv\Test\Mooc\Videos\Domain\VideoUrlMother;
 use CodelyTv\Test\Mooc\Videos\VideoModuleUnitTestCase;
 
 final class CreateVideoTest extends VideoModuleUnitTestCase

@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Infrastructure\Persistence\Lesson;
 
-use CodelyTv\Shared\Domain\Lessons\LessonId;
+use CodelyTv\Mooc\Shared\Domain\Lessons\LessonId;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
 

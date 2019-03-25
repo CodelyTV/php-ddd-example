@@ -2,10 +2,10 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Backoffice\Courses\Domain;
+namespace CodelyTv\Mooc\Courses\Domain;
 
+use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
-use CodelyTv\Shared\Domain\CourseId;
 
 final class Course extends AggregateRoot
 {
