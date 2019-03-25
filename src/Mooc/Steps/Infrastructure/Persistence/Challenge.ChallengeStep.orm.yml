@@ -1,0 +1,8 @@
+CodelyTv\Mooc\Steps\Domain\Challenge\ChallengeStep:
+  type: entity
+  table: step_challenges
+
+  embedded:
+    statement:
+      class: CodelyTv\Mooc\Steps\Domain\Challenge\ChallengeStepStatement
+      columnPrefix: false

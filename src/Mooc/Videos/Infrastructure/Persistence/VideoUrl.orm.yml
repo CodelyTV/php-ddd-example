@@ -1,7 +1,0 @@
-CodelyTv\Mooc\Videos\Domain\VideoUrl:
-  type: embeddable
-
-  fields:
-    value:
-      type: string
-      column: url

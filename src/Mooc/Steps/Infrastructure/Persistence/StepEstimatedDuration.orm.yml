@@ -1,0 +1,7 @@
+CodelyTv\Mooc\Steps\Domain\StepEstimatedDuration:
+  type: embeddable
+
+  fields:
+    value:
+      type: integer
+      column: estimated_duration
