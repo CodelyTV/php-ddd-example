@@ -28,4 +28,4 @@ mooc_backend:
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiFeatureContext
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiRequestContext
         - CodelyTv\Test\Shared\Infrastructure\Behat\ApiContext\ApiResponseContext
-        - CodelyTv\Test\Mooc\Student\StudentModuleBehatContext
+        - CodelyTv\Test\Mooc\Students\StudentModuleBehatContext
