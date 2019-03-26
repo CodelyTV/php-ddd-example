@@ -6,6 +6,9 @@ namespace CodelyTv\Mooc\Steps\Domain\Challenge;
 
 use CodelyTv\Mooc\Steps\Domain\StepCreatedDomainEvent;
 
+/**
+ * @method string statement()
+ */
 final class ChallengeStepCreatedDomainEvent extends StepCreatedDomainEvent
 {
     public static function eventName(): string

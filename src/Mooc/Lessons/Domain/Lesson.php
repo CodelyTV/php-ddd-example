@@ -6,9 +6,10 @@ namespace CodelyTv\Mooc\Lessons\Domain;
 
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Mooc\Shared\Domain\Lessons\LessonId;
+use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 use DateTimeImmutable;
 
-final class Lesson
+final class Lesson extends AggregateRoot
 {
     private $id;
     private $courseId;
@@ -77,5 +78,20 @@ final class Lesson
     public function requireSubscription(): bool
     {
         return $this->requireSubscription;
+    }
+
+    public function recalculateEstimatedDuration(LessonEstimatedDuration $recalculatedEstimatedDuration): void
+    {
+        $this->estimatedDuration = $recalculatedEstimatedDuration;
+
+        $this->record(
+            new LessonEstimatedDurationRecalculatedDomainEvent(
+                $this->id()->value(),
+                [
+                    'courseId'             => $this->courseId()->value(),
+                    'newEstimatedDuration' => $recalculatedEstimatedDuration->value(),
+                ]
+            )
+        );
     }
 }

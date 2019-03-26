@@ -9,7 +9,7 @@ use CodelyTv\Mooc\Notifications\Domain\NotificationId;
 use CodelyTv\Mooc\Notifications\Domain\NotificationRepository;
 use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineRepository;
 
-final class MySqlNotificationRepository extends DoctrineRepository implements NotificationRepository
+final class NotificationRepositoryMySql extends DoctrineRepository implements NotificationRepository
 {
     public function search(NotificationId $id): ?Notification
     {

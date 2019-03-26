@@ -6,6 +6,10 @@ namespace CodelyTv\Mooc\Steps\Domain\Video;
 
 use CodelyTv\Mooc\Steps\Domain\StepCreatedDomainEvent;
 
+/**
+ * @method string url()
+ * @method string text()
+ */
 final class VideoStepCreatedDomainEvent extends StepCreatedDomainEvent
 {
     public static function eventName(): string

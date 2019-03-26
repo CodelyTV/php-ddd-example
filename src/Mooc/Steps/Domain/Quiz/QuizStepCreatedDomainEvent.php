@@ -6,6 +6,9 @@ namespace CodelyTv\Mooc\Steps\Domain\Quiz;
 
 use CodelyTv\Mooc\Steps\Domain\StepCreatedDomainEvent;
 
+/**
+ * @method array questions()
+ */
 final class QuizStepCreatedDomainEvent extends StepCreatedDomainEvent
 {
     public static function eventName(): string
