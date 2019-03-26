@@ -24,11 +24,12 @@ final class ApiSerializerDriver extends CodelyTvSerializerDriver
                 'totalPendingVideos' => ['type' => 'string'],
             ],
             VideoResponse::class   => [
-                'id'       => ['type' => 'string'],
-                'type'     => ['type' => 'string'],
-                'title'    => ['type' => 'string'],
-                'url'      => ['type' => 'string'],
-                'courseId' => ['type' => 'string'],
+                'id'            => ['type' => 'string'],
+                'type'          => ['type' => 'string'],
+                'title'         => ['type' => 'string'],
+                'url'           => ['type' => 'string'],
+                'courseId'      => ['type' => 'string'],
+                'dateTimeAdded' => ['type' => 'string']
             ],
         ];
     }

@@ -10,7 +10,13 @@ services:
     parent: codely.mooc_backend.controller
     public: true
 
+  codely.mooc_backend.controller.latestvideo.get:
+    class: CodelyTv\MoocBackend\Controller\LatestVideo\LatestVideoGetController
+    parent: codely.mooc_backend.controller
+    public: true
+
   codely.mooc_backend.controller.video.duration.path:
     class: CodelyTv\MoocBackend\Controller\Video\VideoDurationPatchController
     parent: codely.mooc_backend.controller
     public: true
+

@@ -65,12 +65,12 @@
 
 1. Copy the default environment variables: `cp .env.dist .env`
 2. Modify the environment variables if needed: `vim .env`
-3. Add `api.codelytv.dev` domain to your local hosts: `echo "127.0.0.1 api.codelytv.dev"| sudo tee -a /etc/hosts > /dev/null`
+3. Add `api.codelytv.test` domain to your local hosts: `echo "127.0.0.1 api.codelytv.test"| sudo tee -a /etc/hosts > /dev/null`
 
 ### 🌍 Application execution
 
 1. Install PHP dependencies and bring up the project Docker containers with Docker Compose: `make build`
-2. Go to [the API health check page](http://api.codelytv.dev:8030/status)
+2. Go to [the API health check page](http://api.codelytv.test:8030/status)
 
 ### ✅ Tests execution
 

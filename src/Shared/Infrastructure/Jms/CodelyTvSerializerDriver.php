@@ -30,7 +30,6 @@ abstract class CodelyTvSerializerDriver implements DriverInterface
     public function loadMetadataForClass(ReflectionClass $refClass)
     {
         $metadata = $this->getClassConfiguration($refClass);
-
         return $this->createMetadata($refClass->getName(), $metadata);
     }
 

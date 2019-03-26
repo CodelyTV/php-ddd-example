@@ -6,6 +6,7 @@ namespace CodelyTv\Mooc\Videos\Domain;
 
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 use CodelyTv\Shared\Domain\CourseId;
+use CodelyTv\Shared\Domain\ValueObject\DateTimeObject;
 
 final class Video extends AggregateRoot
 {
@@ -14,14 +15,16 @@ final class Video extends AggregateRoot
     private $title;
     private $url;
     private $courseId;
+    private $dateTimeAdded;
 
-    public function __construct(VideoId $id, VideoType $type, VideoTitle $title, VideoUrl $url, CourseId $courseId)
+    public function __construct(VideoId $id, VideoType $type, VideoTitle $title, VideoUrl $url, CourseId $courseId, VideoDateAdded $dateTimeAdded)
     {
-        $this->id       = $id;
-        $this->type     = $type;
-        $this->title    = $title;
-        $this->url      = $url;
-        $this->courseId = $courseId;
+        $this->id            = $id;
+        $this->type          = $type;
+        $this->title         = $title;
+        $this->url           = $url;
+        $this->courseId      = $courseId;
+        $this->dateTimeAdded = $dateTimeAdded;
     }
 
     public static function create(
@@ -29,9 +32,10 @@ final class Video extends AggregateRoot
         VideoType $type,
         VideoTitle $title,
         VideoUrl $url,
-        CourseId $courseId
+        CourseId $courseId,
+        VideoDateAdded $dateTimeAdded
     ): Video {
-        $video = new self($id, $type, $title, $url, $courseId);
+        $video = new self($id, $type, $title, $url, $courseId, $dateTimeAdded);
 
         $video->record(
             new VideoCreatedDomainEvent(
@@ -76,5 +80,10 @@ final class Video extends AggregateRoot
     public function courseId(): CourseId
     {
         return $this->courseId;
+    }
+
+    public function dateTimeAdded(): VideoDateAdded
+    {
+        return $this->dateTimeAdded;
     }
 }

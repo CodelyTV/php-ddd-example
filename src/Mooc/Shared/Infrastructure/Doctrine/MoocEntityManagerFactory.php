@@ -21,7 +21,7 @@ final class MoocEntityManagerFactory
         return DoctrineEntityManagerFactory::create(
             $parameters,
             self::getNormalizedPrefixes($rootPath),
-            $onDemand,
+            true,
             $schemaFile
         );
     }

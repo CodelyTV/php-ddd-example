@@ -23,3 +23,6 @@ CodelyTv\Mooc\Videos\Domain\Video:
     url:
       class: CodelyTv\Mooc\Videos\Domain\VideoUrl
       columnPrefix: false
+    dateTimeAdded:
+      class: CodelyTv\Mooc\Videos\Domain\VideoDateAdded
+      columnPrefix: false

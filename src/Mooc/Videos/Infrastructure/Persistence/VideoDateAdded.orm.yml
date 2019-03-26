@@ -1,0 +1,8 @@
+CodelyTv\Mooc\Videos\Domain\VideoDateAdded:
+  type: embeddable
+
+  fields:
+    value:
+      type: integer
+      column: added
+

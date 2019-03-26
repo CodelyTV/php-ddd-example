@@ -16,10 +16,11 @@ final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepo
 {
     private static $criteriaToDoctrineFields = [
         'id'        => 'id',
-        'type'      => 'type',
-        'title'     => 'title',
-        'url'       => 'url',
+        'type'      => 'type.value',
+        'title'     => 'title.value',
+        'url'       => 'url.value',
         'course_id' => 'courseId',
+        'dateTimeAdded'     => 'dateTimeAdded.value'
     ];
 
     public function save(Video $video): void
