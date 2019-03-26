@@ -12,6 +12,7 @@ use CodelyTv\Mooc\Steps\Domain\StepOrder;
 use CodelyTv\Mooc\Steps\Domain\StepPoints;
 use CodelyTv\Mooc\Steps\Domain\StepTitle;
 use DateTimeImmutable;
+use function CodelyTv\Utils\Shared\date_to_string;
 
 final class ChallengeStep extends Step
 {
@@ -29,6 +30,32 @@ final class ChallengeStep extends Step
         parent::__construct($id, $lessonId, $title, $estimatedDuration, $order, $creationDate);
 
         $this->statement = $statement;
+    }
+
+    public static function create(
+        StepId $id,
+        LessonId $lessonId,
+        StepTitle $title,
+        StepEstimatedDuration $estimatedDuration,
+        StepOrder $order,
+        ChallengeStepStatement $statement
+    ): self {
+        $step = new self($id, $lessonId, $title, $estimatedDuration, $order, new DateTimeImmutable(), $statement);
+
+        $step->record(
+            new ChallengeStepCreatedDomainEvent(
+                $id->value(),
+                [
+                    'lessonId'          => $lessonId->value(),
+                    'title'             => $title->value(),
+                    'estimatedDuration' => $estimatedDuration->value(),
+                    'creationDate'      => date_to_string($step->creationDate()),
+                    'statement'         => $statement->value(),
+                ]
+            )
+        );
+
+        return $step;
     }
 
     public function points(): StepPoints

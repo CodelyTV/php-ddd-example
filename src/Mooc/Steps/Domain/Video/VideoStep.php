@@ -13,6 +13,7 @@ use CodelyTv\Mooc\Steps\Domain\StepOrder;
 use CodelyTv\Mooc\Steps\Domain\StepPoints;
 use CodelyTv\Mooc\Steps\Domain\StepTitle;
 use DateTimeImmutable;
+use function CodelyTv\Utils\Shared\date_to_string;
 
 final class VideoStep extends Step
 {
@@ -33,6 +34,34 @@ final class VideoStep extends Step
 
         $this->videoUrl = $videoUrl;
         $this->text     = $text;
+    }
+
+    public static function create(
+        StepId $id,
+        LessonId $lessonId,
+        StepTitle $title,
+        StepEstimatedDuration $estimatedDuration,
+        StepOrder $order,
+        VideoUrl $videoUrl,
+        VideoStepText $text
+    ): self {
+        $step = new self($id, $lessonId, $title, $estimatedDuration, $order, new DateTimeImmutable(), $videoUrl, $text);
+
+        $step->record(
+            new VideoStepCreatedDomainEvent(
+                $id->value(),
+                [
+                    'lessonId'          => $lessonId->value(),
+                    'title'             => $title->value(),
+                    'estimatedDuration' => $estimatedDuration->value(),
+                    'creationDate'      => date_to_string($step->creationDate()),
+                    'url'               => $videoUrl->value(),
+                    'text'              => $text->value(),
+                ]
+            )
+        );
+
+        return $step;
     }
 
     public function points(): StepPoints

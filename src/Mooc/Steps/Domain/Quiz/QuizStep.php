@@ -12,6 +12,8 @@ use CodelyTv\Mooc\Steps\Domain\StepOrder;
 use CodelyTv\Mooc\Steps\Domain\StepPoints;
 use CodelyTv\Mooc\Steps\Domain\StepTitle;
 use DateTimeImmutable;
+use function CodelyTv\Utils\Shared\date_to_string;
+use function Lambdish\Phunctional\map;
 
 final class QuizStep extends Step
 {
@@ -31,6 +33,32 @@ final class QuizStep extends Step
         $this->questions = $questions;
     }
 
+    public static function create(
+        StepId $id,
+        LessonId $lessonId,
+        StepTitle $title,
+        StepEstimatedDuration $estimatedDuration,
+        StepOrder $order,
+        QuizStepQuestion ...$questions
+    ): self {
+        $step = new self($id, $lessonId, $title, $estimatedDuration, $order, new DateTimeImmutable(), $questions);
+
+        $step->record(
+            new QuizStepCreatedDomainEvent(
+                $id->value(),
+                [
+                    'lessonId'          => $lessonId->value(),
+                    'title'             => $title->value(),
+                    'estimatedDuration' => $estimatedDuration->value(),
+                    'creationDate'      => date_to_string($step->creationDate()),
+                    'questions'         => map(self::questionToValues(), $questions),
+                ]
+            )
+        );
+
+        return $step;
+    }
+
     public function points(): StepPoints
     {
         return new StepPoints(10);
@@ -39,5 +67,12 @@ final class QuizStep extends Step
     public function questions(): array
     {
         return $this->questions;
+    }
+
+    private static function questionToValues(): callable
+    {
+        return static function (QuizStepQuestion $question): array {
+            return $question->toValues();
+        };
     }
 }
