@@ -4,34 +4,20 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Utils\Shared;
 
+use DateTime;
 use DateTimeImmutable;
 use DateTimeInterface;
-use DateTimeZone;
 use function Lambdish\Phunctional\filter_null;
 use function Lambdish\Phunctional\map;
 
 function date_to_string(DateTimeInterface $date): string
 {
-    $timestamp             = $date->getTimestamp();
-    $microseconds          = $date->format('u');
-    $millisecondsOnASecond = 1000;
-
-    return (string) (((float) ($timestamp . '.' . $microseconds)) * $millisecondsOnASecond);
+    return $date->format(DateTime::ATOM);
 }
 
-function string_to_date($milliseconds): DateTimeImmutable
+function string_to_date(string $date): DateTimeImmutable
 {
-    $millisecondsOnASecond = 1000;
-    $asSeconds             = (int) floor($milliseconds / $millisecondsOnASecond);
-    $dateTime              = new DateTimeImmutable('@' . ((string) $asSeconds), new DateTimeZone('UTC'));
-
-    return new DateTimeImmutable(
-        $dateTime->format('Y-m-d\TH:i:s') .
-        '.' .
-        sprintf('%03d', $milliseconds % $millisecondsOnASecond) .
-        '000' .
-        $dateTime->format('O')
-    );
+    return new DateTimeImmutable($date);
 }
 
 function snake_to_camel($word)

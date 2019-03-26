@@ -2,10 +2,11 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Mooc\Lesson\Domain;
+namespace CodelyTv\Mooc\Lessons\Domain;
 
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Mooc\Shared\Domain\Lessons\LessonId;
+use DateTimeImmutable;
 
 final class Lesson
 {
@@ -25,7 +26,7 @@ final class Lesson
         LessonDescription $description,
         LessonEstimatedDuration $estimatedDuration,
         LessonOrder $order,
-        LessonScheduledDate $scheduledDate,
+        DateTimeImmutable $scheduledDate,
         bool $requireSubscription
     ) {
         $this->id                  = $id;
@@ -68,7 +69,7 @@ final class Lesson
         return $this->order;
     }
 
-    public function scheduledDate(): LessonScheduledDate
+    public function scheduledDate(): DateTimeImmutable
     {
         return $this->scheduledDate;
     }

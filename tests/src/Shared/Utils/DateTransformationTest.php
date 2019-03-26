@@ -36,20 +36,20 @@ final class DateTransformationTest extends UnitTestCase
         return [
             [
                 'date'   => DateTimeMother::create('1993-06-26 10:00:00 GMT+0200'),
-                'string' => '741081600000',
+                'string' => '1993-06-26T10:00:00+02:00',
             ],
             [
                 'date'   => DateTimeMother::create('1994-09-29 15:00:00 GMT+0200'),
-                'string' => '780843600000',
+                'string' => '1994-09-29T15:00:00+02:00',
             ],
 
             [
                 'date'   => DateTimeMother::create('2020-01-15 22:23:24 GMT+0500'),
-                'string' => '1579109004000',
+                'string' => '2020-01-15T22:23:24+05:00',
             ],
             [
-                'date'   => DateTimeMother::create('2016-10-03 12:41:32.980000', DateTimeZoneMother::UTC()),
-                'string' => '1475498492980',
+                'date'   => DateTimeMother::create('2016-10-03 12:41:32', DateTimeZoneMother::UTC()),
+                'string' => '2016-10-03T12:41:32+00:00',
             ],
         ];
     }
