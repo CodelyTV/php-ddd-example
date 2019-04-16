@@ -57,7 +57,7 @@
 
 ### 🐳 Needed tools
 
-1. [Install Docker](https://www.docker.com/get-started) 
+1. [Install Docker](https://www.docker.com/get-started)
 2. Clone this project: `git clone https://github.com/CodelyTV/cqrs-ddd-php-example cqrs-ddd-php-example`
 3. Move to the project folder: `cd cqrs-ddd-php-example`
 
@@ -65,12 +65,12 @@
 
 1. Copy the default environment variables: `cp .env.dist .env`
 2. Modify the environment variables if needed: `vim .env`
-3. Add `api.codelytv.dev` domain to your local hosts: `echo "127.0.0.1 api.codelytv.dev"| sudo tee -a /etc/hosts > /dev/null`
+3. Add `api.codelytv.localhost` domain to your local hosts: `echo "127.0.0.1 api.codelytv.localhost"| sudo tee -a /etc/hosts > /dev/null`
 
 ### 🌍 Application execution
 
 1. Install PHP dependencies and bring up the project Docker containers with Docker Compose: `make build`
-2. Go to [the API health check page](http://api.codelytv.dev:8030/status)
+2. Go to [the API health check page](http://api.codelytv.localhost:8030/status)
 
 ### ✅ Tests execution
 
@@ -118,11 +118,11 @@ src
 |       |   |-- VideoType.php
 |       |   |-- VideoUrl.php
 |       |   `-- Videos.php // A collection of our Aggregate
-|       `-- Infrastructure // The infrastructure of our module 
+|       `-- Infrastructure // The infrastructure of our module
 |           |-- DependencyInjection
 |           `-- Persistence
 |               `--VideoRepositoryMySql.php // An implementation of the repository
-`-- Shared // Shared Kernel: Common infrastructure and domain shared between the different Bounded Contexts 
+`-- Shared // Shared Kernel: Common infrastructure and domain shared between the different Bounded Contexts
     |-- Domain
     `-- Infrastructure
 ```
@@ -133,7 +133,7 @@ If we need some query with more filters we use the `Strategy` pattern also known
 `searchByCriteria` method.
 
 You can see an example [here](src/Mooc/Videos/Domain/VideoRepository.php)
-and its implementation [here](src/Mooc/Videos/Infrastructure/Persistence/VideoRepositoryMySql.php). 
+and its implementation [here](src/Mooc/Videos/Infrastructure/Persistence/VideoRepositoryMySql.php).
 
 ### Aggregates
 You can see an example of an aggregate [here](src/Mooc/Videos/Domain/Video.php). All aggregates should
@@ -151,7 +151,7 @@ The [Query Bus](src/Shared/Infrastructure/Bus/Query/SymfonySyncQueryBus.php) use
 The [Event Bus](src/Shared/Infrastructure/Bus/Event/SymfonySyncEventBus.php) uses the Symfony Message Bus.
 
 ## 🤔 Contributing
-There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want 
+There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want
 some guidelines feel free to contact us :)
 
 ## 🤩 Extra
