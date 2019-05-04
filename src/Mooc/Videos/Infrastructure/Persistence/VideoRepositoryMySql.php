@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Videos\Infrastructure\Persistence;
 
@@ -15,10 +15,10 @@ use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineRepository;
 final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepository
 {
     private static $criteriaToDoctrineFields = [
-        'id'        => 'id',
-        'type'      => 'type',
-        'title'     => 'title',
-        'url'       => 'url',
+        'id' => 'id',
+        'type' => 'type',
+        'title' => 'title',
+        'url' => 'url',
         'course_id' => 'courseId',
     ];
 
@@ -35,8 +35,24 @@ final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepo
     public function searchByCriteria(Criteria $criteria): Videos
     {
         $doctrineCriteria = DoctrineCriteriaConverter::convert($criteria, self::$criteriaToDoctrineFields);
-        $videos           = $this->repository(Video::class)->matching($doctrineCriteria)->toArray();
+        $videos = $this->repository(Video::class)->matching($doctrineCriteria)->toArray();
 
         return new Videos($videos);
+    }
+
+    public function searchLast(): ?Video
+    {
+        $lastVideo = null;
+        try {
+            $lastVideo = $this->repository(Video::class)
+                ->createQueryBuilder('video')
+                ->setMaxResults(1)
+                ->orderBy('video.id', 'DESC')
+                ->getQuery()
+                ->getSingleResult();
+        } catch (NoResultException $e) {
+            $lastVideo = null;
+        }
+        return $lastVideo;
     }
 }

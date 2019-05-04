@@ -12,5 +12,7 @@ interface VideoRepository
 
     public function search(VideoId $id): ?Video;
 
+    public function searchLast(): ?Video;
+
     public function searchByCriteria(Criteria $criteria): Videos;
 }
