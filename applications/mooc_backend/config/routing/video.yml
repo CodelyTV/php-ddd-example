@@ -7,3 +7,8 @@ video_get:
   path:     /video/{id}
   defaults: { _controller: codely.mooc_backend.controller.video.get }
   methods:  [GET]
+
+video_remove:
+  path:     /video/{id}
+  defaults: { _controller: codely.mooc_backend.controller.video.remove }
+  methods: [DELETE]

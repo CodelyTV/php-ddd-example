@@ -10,6 +10,11 @@ services:
     parent: codely.mooc_backend.controller
     public: true
 
+  codely.mooc_backend.controller.video.remove:
+      class: CodelyTv\MoocBackend\Controller\Video\VideoRemoveController
+      parent: codely.mooc_backend.controller
+      public: true
+
   codely.mooc_backend.controller.video.duration.path:
     class: CodelyTv\MoocBackend\Controller\Video\VideoDurationPatchController
     parent: codely.mooc_backend.controller

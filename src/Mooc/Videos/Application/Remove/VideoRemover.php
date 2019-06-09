@@ -17,12 +17,12 @@ final class VideoRemover
 		$this->repository = $repository;
 	}
 
-	public function __invoke(VideoId $id): void
+	public function remove(VideoId $id): void
 	{
 		$video = $this->repository->search($id);
 
 		if (null !== $video) {
-			$this->repository->save($video);
+			$this->repository->remove($video);
 		} else {
 			throw new VideoNotFound($id);
 		}

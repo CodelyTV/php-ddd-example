@@ -8,6 +8,7 @@ use CodelyTv\Mooc\Videos\Domain\Video;
 use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Mooc\Videos\Domain\VideoRepository;
 use CodelyTv\Mooc\Videos\Domain\Videos;
+use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 use CodelyTv\Shared\Domain\Criteria\Criteria;
 use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineCriteriaConverter;
 use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineRepository;
@@ -31,6 +32,11 @@ final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepo
     {
         return $this->repository(Video::class)->find($id);
     }
+
+    public function remove(Video $video): void
+	{
+		$this->remove($video);
+	}
 
     public function searchByCriteria(Criteria $criteria): Videos
     {
