@@ -20,7 +20,7 @@ class VideoRemoveController extends ApiController
 
 	public function __invoke(Request $request)
 	{
-		var_dump('entro');die;
+
 		$command = new RemoveVideoCommand(
 			new Uuid($request->get('request_id')),
 			$request->get('id')
