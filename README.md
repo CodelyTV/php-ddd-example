@@ -150,7 +150,7 @@ The [Query Bus](src/Shared/Infrastructure/Bus/Query/SymfonySyncQueryBus.php) use
 ### Event Bus
 The [Event Bus](src/Shared/Infrastructure/Bus/Event/SymfonySyncEventBus.php) uses the Symfony Message Bus.
 
-## 🤔 Contributing
+## 🤝 Contributing
 There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want
 some guidelines feel free to contact us :)
 
