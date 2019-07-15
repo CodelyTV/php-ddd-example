@@ -12,7 +12,7 @@
     "ext-ctype": "*",
     "ext-intl": "*",
     "ext-json": "*",
-    "ext-opcache": "*",
+    "ext-zend-opcache": "*",
     "ext-pdo": "*",
 
     "incenteev/composer-parameter-handler": "^2.1",
