@@ -4,30 +4,30 @@ set current-dir=%~dp0
 set current-dir=%current-dir:\=/%
 
 CALL :%1
-GOTO :end
+EXIT /B %ERRORLEVEL%
 
 REM 👌 Main targets
 
 :build
 	CALL :deps
 	CALL :start
-	GOTO :end
+	EXIT /B 0
 
 :deps 
 	CALL :composer-install
-	GOTO :end
+	EXIT /B 0
 
 REM 🐘 Composer
 
 :composer-install
 	set CMD=install
 	GOTO :composer
-	GOTO :end
+	EXIT /B 0
 
 :composer-update
 	set CMD=update
 	GOTO :composer
-	GOTO :end
+	EXIT /B 0
 
 REM Usage example (add a new dependency): `make composer CMD="require --dev symfony/var-dumper ^4.2"`
 :composer
@@ -36,7 +36,7 @@ REM Usage example (add a new dependency): `make composer CMD="require --dev symf
 			--ignore-platform-reqs ^
 			--no-ansi ^
 			--no-interaction
-	GOTO :end
+	EXIT /B 0
 
 REM 🕵️ Clear cache
 REM OpCache: Restarts the unique process running in the PHP FPM container
@@ -45,35 +45,33 @@ REM Nginx: Reloads the server
 :reload
 	docker-compose exec php-fpm kill -USR2 1
 	docker-compose exec nginx nginx -s reload
-	GOTO :end
+	EXIT /B 0
 
 REM ✅ Tests
 
 :test
 	docker exec -it codelytv-cqrs_ddd_php_example-php make run-tests
-	GOTO :end
+	EXIT /B 0
 
 REM 🐳 Docker Compose
 
 :start
 	docker-compose up -d
-	GOTO :end
+	EXIT /B 0
 
 :stop 
-	docker-compose stop
-	GOTO :end
+	set CMD=stop
+	CALL :compose
+	EXIT /B 0
 
 :destroy 
-	docker-compose down
-	GOTO :end
+	set CMD=down
+	CALL :compose
+	EXIT /B 0
 
-REM Usage: `make doco CMD="ps --services"`
-REM Usage: `make doco CMD="build --parallel --pull --force-rm --no-cache"`
-:doco
-:stop
-:destroy
+:compose
 	docker-compose %CMD%
-	GOTO :end
+	EXIT /B 0
 
 :rebuild
 	@echo "docker-compose build --pull --force-rm --no-cache"
@@ -82,6 +80,4 @@ REM Usage: `make doco CMD="build --parallel --pull --force-rm --no-cache"`
 	CALL :deps
 	@echo "start"
 	CALL :start
-	GOTO :end
-
-:end
+	EXIT /B 0
