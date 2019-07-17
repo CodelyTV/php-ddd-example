@@ -8,6 +8,7 @@ src/*/Shared/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/*_param
 !/applications/mooc_backend/config/supervisor/.gitkeep
 
 /phpunit.xml
+.phpunit.result.cache
 
 vendor/
 

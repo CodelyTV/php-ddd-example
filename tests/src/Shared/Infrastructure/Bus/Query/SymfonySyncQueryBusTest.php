@@ -22,12 +22,10 @@ final class SymfonySyncQueryBusTest extends UnitTestCase
         $this->queryBus = new SymfonySyncQueryBus([$this->queryHandler()]);
     }
 
-    /**
-     * @test
-     * @expectedException RuntimeException
-     */
+    /** @test */
     public function it_should_return_a_response_successfully(): void
     {
+        $this->expectException(RuntimeException::class);
         $this->queryBus->ask(new FakeQuery());
     }
 

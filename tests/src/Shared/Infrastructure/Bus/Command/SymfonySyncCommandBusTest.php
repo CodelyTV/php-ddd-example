@@ -23,12 +23,11 @@ final class SymfonySyncCommandBusTest extends UnitTestCase
         $this->commandBus = new SymfonySyncCommandBus([$this->commandHandler()]);
     }
 
-    /**
-     * @test
-     * @expectedException RuntimeException
-     */
+    /** @test */
     public function it_should_be_able_to_handle_a_command(): void
     {
+        $this->expectException(RuntimeException::class);
+
         $this->commandBus->dispatch(new FakeCommand(Uuid::random()));
     }
 
