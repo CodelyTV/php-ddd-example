@@ -4,7 +4,7 @@
   "type": "project",
   "description": "A simple skeleton for CQRS code :)",
   "require": {
-    "php": "7.3",
+    "php": "7.3.6",
 
     "ext-amqp": "*",
     "ext-apcu": "*",
