@@ -15,7 +15,7 @@ final class SymfonySyncEventBusTest extends UnitTestCase
     /** @var SymfonySyncEventBus */
     private $bus;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

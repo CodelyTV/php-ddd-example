@@ -15,7 +15,7 @@ final class SymfonySyncQueryBusTest extends UnitTestCase
     /** @var SymfonySyncQueryBus */
     private $queryBus;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

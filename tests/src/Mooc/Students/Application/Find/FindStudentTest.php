@@ -17,7 +17,7 @@ final class FindStudentTest extends StudentModuleUnitTestCase
     /** @var FindStudentQueryHandler */
     private $handler;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

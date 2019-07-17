@@ -16,7 +16,7 @@ final class SymfonySyncCommandBusTest extends UnitTestCase
     /** @var SymfonySyncCommandBus */
     private $commandBus;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

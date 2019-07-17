@@ -5,35 +5,42 @@ declare(strict_types = 1);
 namespace CodelyTv\Test\Shared\Infrastructure\PHPUnit\Constraint;
 
 use CodelyTv\Test\Shared\Infrastructure\PHPUnit\Comparator\StringableObjectSimilarComparator;
+use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\IsEqual;
-use PHPUnit\Framework\ExpectationFailedException;
-use SebastianBergmann\Comparator\ComparisonFailure;
-use SebastianBergmann\Comparator\Factory;
+use SebastianBergmann\Comparator\Factory as ComparatorFactory;
 
-final class CodelyTvConstraintIsEqual extends IsEqual
+final class CodelyTvConstraintIsEqual extends Constraint
 {
-    public function evaluate($other, $description = '', $returnResult = false)
+    private $phpUnitIsEquals;
+
+    private $stringableObjectSimilarComparator;
+
+    public function __construct(
+        $value,
+        float $delta = 0.0,
+        int $maxDepth = 10,
+        bool $canonicalize = false,
+        bool $ignoreCase = false
+    ) {
+        $this->phpUnitIsEquals = new IsEqual($value, $delta, $maxDepth, $canonicalize, $ignoreCase);
+
+        $this->stringableObjectSimilarComparator = new StringableObjectSimilarComparator();
+    }
+
+    public function evaluate($other, string $description = '', bool $returnResult = false): bool
     {
-        $isValid           = true;
-        $comparatorFactory = new Factory();
+        $comparatorFactory = ComparatorFactory::getInstance();
+        $comparatorFactory->register($this->stringableObjectSimilarComparator);
 
-        $comparatorFactory->register(new StringableObjectSimilarComparator());
+        $result = $this->phpUnitIsEquals->evaluate($other, $description, $returnResult);
 
-        try {
-            $comparator = $comparatorFactory->getComparatorFor($other, $this->value);
+        $comparatorFactory->unregister($this->stringableObjectSimilarComparator);
 
-            $comparator->assertEquals($this->value, $other, $this->delta);
-        } catch (ComparisonFailure $f) {
-            if (!$returnResult) {
-                throw new ExpectationFailedException(
-                    trim($description . "\n" . $f->getMessage()),
-                    $f
-                );
-            }
+        return $result;
+    }
 
-            $isValid = false;
-        }
-
-        return $isValid;
+    public function toString(): string
+    {
+        return $this->phpUnitIsEquals->toString();
     }
 }

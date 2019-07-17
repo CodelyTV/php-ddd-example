@@ -16,7 +16,7 @@ abstract class ModuleFunctionalTestCase extends FunctionalTestCase
 {
     abstract protected function environmentArrangers();
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -28,7 +28,7 @@ abstract class ModuleFunctionalTestCase extends FunctionalTestCase
         );
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         each(
             function (EnvironmentArranger $arranger) {

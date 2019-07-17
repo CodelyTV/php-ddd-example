@@ -18,7 +18,7 @@ final class IncreaseStudentPendingVideosOnVideoPublishedTest extends StudentModu
     /** @var IncreaseStudentTotalVideosCreatedOnVideoCreated */
     private $subscriber;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

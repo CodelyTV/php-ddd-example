@@ -18,7 +18,7 @@ final class CommandBusSyncWithMiddlewaresTest extends UnitTestCase
     private $command;
     private $logger;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
