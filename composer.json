@@ -17,16 +17,16 @@
 
     "incenteev/composer-parameter-handler": "^2.1",
 
-    "symfony/framework-bundle": "^4.3",
-    "symfony/console": "^4.3",
-    "symfony/process": "^4.3",
-    "symfony/messenger": "^4.3",
+    "symfony/framework-bundle": "^4.2",
+    "symfony/console": "^4.2",
+    "symfony/process": "^4.2",
+    "symfony/messenger": "<4.3",
     "symfony/monolog-bundle": "^3.4",
-    "symfony/dotenv": "^4.3",
+    "symfony/dotenv": "^4.2",
 
     "friendsofsymfony/rest-bundle": "^2.5",
     "jms/serializer-bundle": "^3.4",
-    "symfony/twig-bundle": "^4.3",
+    "symfony/twig-bundle": "^4.2",
 
     "ocramius/proxy-manager": "<2.3",
 
@@ -46,7 +46,7 @@
     "roave/security-advisories": "dev-master",
 
     "phpunit/phpunit": "^8.2",
-    "symfony/phpunit-bridge": "^4.3",
+    "symfony/phpunit-bridge": "^4.2",
     "mockery/mockery": "^1.2",
     "fzaninotto/faker": "^1.8",
     "squizlabs/php_codesniffer": "^3.4",
