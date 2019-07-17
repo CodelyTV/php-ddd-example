@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace CodelyTv\Shared\Infrastructure\Jms;
 
 use InvalidArgumentException;
-use JMS\Serializer\Metadata\ClassMetadata;
+use Metadata\ClassMetadata;
 use JMS\Serializer\Metadata\PropertyMetadata;
 use Metadata\Driver\DriverInterface;
 use ReflectionClass;
@@ -27,7 +27,7 @@ abstract class CodelyTvSerializerDriver implements DriverInterface
         return $this->baseMetadata;
     }
 
-    public function loadMetadataForClass(ReflectionClass $refClass)
+    public function loadMetadataForClass(ReflectionClass $refClass): ?ClassMetadata
     {
         $metadata = $this->getClassConfiguration($refClass);
 

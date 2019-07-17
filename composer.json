@@ -24,8 +24,8 @@
     "symfony/monolog-bundle": "^3.3",
     "symfony/dotenv": "^4.2",
 
-    "friendsofsymfony/rest-bundle": "^2.4",
-    "jms/serializer-bundle": "^2.4",
+    "friendsofsymfony/rest-bundle": "^2.5",
+    "jms/serializer-bundle": "^3.4",
     "symfony/twig-bundle": "^4.2",
 
     "ocramius/proxy-manager": "2.2.*",

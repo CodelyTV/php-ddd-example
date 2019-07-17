@@ -1,7 +1,9 @@
 jms_serializer:
 
   visitors:
-    json:
+    json_serialization:
+      options: JSON_PRETTY_PRINT
+    json_deserialization:
       options: JSON_PRETTY_PRINT
 
 
