@@ -81,3 +81,4 @@ REM 🐳 Docker Compose
 	@echo "start"
 	CALL :start
 	EXIT /B 0
+	
