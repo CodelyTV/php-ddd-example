@@ -55,9 +55,6 @@ doco stop destroy:
 	@docker-compose $(CMD)
 
 rebuild:
-	echo "docker-compose build --parallel --pull --force-rm --no-cache"
-	@docker-compose build --parallel --pull --force-rm --no-cache
-	echo "composer-install"
-	@make deps
-	echo "start"
-	@make start
+	docker-compose build --pull --force-rm --no-cache
+	make deps
+	make start
