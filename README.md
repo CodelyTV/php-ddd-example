@@ -6,6 +6,7 @@
 [![CodelyTV](https://img.shields.io/badge/code-codely-green.svg?style=flat-square)](codely.tv)
 [![CircleCI](https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master.svg?style=svg&circle-token=ce12d04556fa79b78bb2beefa0356a6f6934b26b)](https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master)
 
+//🤝
 Implementation example of a PHP application following Domain-Driven Design (DDD) and Command Query Responsibility Segregation (CQRS) principles, keeping the code as simple as possible.
 
 Used by the CodelyTV Pro courses:
