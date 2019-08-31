@@ -12,7 +12,6 @@ CodelyTv\Mooc\Videos\Domain\Video:
     courseId:
       type: course_id
       column: course_id
-
   embedded:
     type:
       class: CodelyTv\Mooc\Videos\Domain\VideoType
@@ -22,7 +21,4 @@ CodelyTv\Mooc\Videos\Domain\Video:
       columnPrefix: false
     url:
       class: CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl
-      columnPrefix: false
-    published:
-      class: CodelyTv\Mooc\Shared\Domain\Videos\VideoPublished
       columnPrefix: false

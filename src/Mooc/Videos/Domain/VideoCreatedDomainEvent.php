@@ -11,7 +11,6 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
  * @method string title()
  * @method string url()
  * @method string courseId()
- * @method string publishDate()
  */
 final class VideoCreatedDomainEvent extends DomainEvent
 {
@@ -27,7 +26,6 @@ final class VideoCreatedDomainEvent extends DomainEvent
             'title'    => ['string'],
             'url'      => ['string'],
             'courseId' => ['string'],
-            'publishDate' => ['string'],
         ];
     }
 }
