@@ -9,6 +9,10 @@ use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Mooc\Videos\Domain\VideoRepository;
 use CodelyTv\Mooc\Videos\Domain\Videos;
 use CodelyTv\Shared\Domain\Criteria\Criteria;
+use CodelyTv\Shared\Domain\Criteria\Filters;
+use CodelyTv\Shared\Domain\Criteria\Order;
+use CodelyTv\Shared\Domain\Criteria\OrderBy;
+use CodelyTv\Shared\Domain\Criteria\OrderType;
 use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineCriteriaConverter;
 use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineRepository;
 
@@ -20,6 +24,7 @@ final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepo
         'title'     => 'title',
         'url'       => 'url',
         'course_id' => 'courseId',
+        'published' => 'published',
     ];
 
     public function save(Video $video): void
@@ -30,6 +35,19 @@ final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepo
     public function search(VideoId $id): ?Video
     {
         return $this->repository(Video::class)->find($id);
+    }
+
+    public function searchLastPublished(): ?Video
+    {
+        $orderBy = new OrderBy("published");
+        $orderType = new OrderType("desc");
+        $order = new Order($orderBy, $orderType);
+        $filters = Filters::fromValues(array());
+        $criteria = new Criteria($filters, $order, null, null);
+
+        $videos = $this->searchByCriteria($criteria);
+
+        return $videos->getIterator()->current();
     }
 
     public function searchByCriteria(Criteria $criteria): Videos

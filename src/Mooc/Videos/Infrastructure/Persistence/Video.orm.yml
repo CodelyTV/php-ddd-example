@@ -23,3 +23,6 @@ CodelyTv\Mooc\Videos\Domain\Video:
     url:
       class: CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl
       columnPrefix: false
+    published:
+      class: CodelyTv\Mooc\Shared\Domain\Videos\VideoPublished
+      columnPrefix: false

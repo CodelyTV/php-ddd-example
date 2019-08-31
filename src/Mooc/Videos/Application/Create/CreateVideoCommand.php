@@ -14,8 +14,11 @@ final class CreateVideoCommand extends Command
     private $title;
     private $url;
     private $courseId;
+    private $published;
 
-    public function __construct(Uuid $commandId, string $id, string $type, string $title, string $url, string $courseId)
+    public function __construct(Uuid $commandId, string $id, string $type, string $title, string $url,
+                                string $courseId, string $published
+    )
     {
         parent::__construct($commandId);
 
@@ -24,6 +27,7 @@ final class CreateVideoCommand extends Command
         $this->title    = $title;
         $this->url      = $url;
         $this->courseId = $courseId;
+        $this->published = $published;
     }
 
     public function id(): string
@@ -49,5 +53,10 @@ final class CreateVideoCommand extends Command
     public function courseId(): string
     {
         return $this->courseId;
+    }
+
+    public function published(): string
+    {
+        return $this->published;
     }
 }

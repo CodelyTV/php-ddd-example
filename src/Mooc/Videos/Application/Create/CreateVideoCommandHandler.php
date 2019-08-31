@@ -6,6 +6,7 @@ namespace CodelyTv\Mooc\Videos\Application\Create;
 
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl;
+use CodelyTv\Mooc\Shared\Domain\Videos\VideoPublished;
 use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Mooc\Videos\Domain\VideoTitle;
 use CodelyTv\Mooc\Videos\Domain\VideoType;
@@ -27,7 +28,8 @@ final class CreateVideoCommandHandler implements CommandHandler
         $title    = new VideoTitle($command->title());
         $url      = new VideoUrl($command->url());
         $courseId = new CourseId($command->courseId());
+        $published = new VideoPublished();
 
-        $this->creator->create($id, $type, $title, $url, $courseId);
+        $this->creator->create($id, $type, $title, $url, $courseId, $published);
     }
 }

@@ -15,7 +15,8 @@ final class VideoResponseConverter
             $video->type()->value(),
             $video->title()->value(),
             $video->url()->value(),
-            $video->courseId()->value()
+            $video->courseId()->value(),
+            $video->publishDate()->value()
         );
     }
 }

@@ -6,6 +6,7 @@ namespace CodelyTv\Mooc\Videos\Domain;
 
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl;
+use CodelyTv\Mooc\Shared\Domain\Videos\VideoPublished;
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 
 final class Video extends AggregateRoot
@@ -15,14 +16,18 @@ final class Video extends AggregateRoot
     private $title;
     private $url;
     private $courseId;
+    private $publishDate;
 
-    public function __construct(VideoId $id, VideoType $type, VideoTitle $title, VideoUrl $url, CourseId $courseId)
+    public function __construct(VideoId $id, VideoType $type, VideoTitle $title, VideoUrl $url, CourseId $courseId,
+                                VideoPublished $publishDate
+    )
     {
-        $this->id       = $id;
-        $this->type     = $type;
-        $this->title    = $title;
-        $this->url      = $url;
-        $this->courseId = $courseId;
+        $this->id           = $id;
+        $this->type         = $type;
+        $this->title        = $title;
+        $this->url          = $url;
+        $this->courseId     = $courseId;
+        $this->publishDate  = $publishDate;
     }
 
     public static function create(
@@ -30,9 +35,10 @@ final class Video extends AggregateRoot
         VideoType $type,
         VideoTitle $title,
         VideoUrl $url,
-        CourseId $courseId
+        CourseId $courseId,
+        VideoPublished $publishDate
     ): Video {
-        $video = new self($id, $type, $title, $url, $courseId);
+        $video = new self($id, $type, $title, $url, $courseId, $publishDate);
 
         $video->record(
             new VideoCreatedDomainEvent(
@@ -42,6 +48,7 @@ final class Video extends AggregateRoot
                     'title'    => $title->value(),
                     'url'      => $url->value(),
                     'courseId' => $courseId->value(),
+                    'publishDate' => $publishDate->value(),
                 ]
             )
         );
@@ -77,5 +84,10 @@ final class Video extends AggregateRoot
     public function courseId(): CourseId
     {
         return $this->courseId;
+    }
+
+    public function publishDate(): VideoPublished
+    {
+        return $this->publishDate;
     }
 }
