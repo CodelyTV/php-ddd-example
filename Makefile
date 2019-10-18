@@ -16,7 +16,7 @@ composer-update: CMD=update
 # Usage example (add a new dependency): `make composer CMD="require --dev symfony/var-dumper ^4.2"`
 composer composer-install composer-update:
 	@docker run --rm --interactive --tty --volume $(current-dir):/app --user $(id -u):$(id -g) \
-		gsingh1/prestissimo $(CMD) \
+		clevyr/prestissimo $(CMD) \
 			--ignore-platform-reqs \
 			--no-ansi \
 			--no-interaction
