@@ -4,7 +4,7 @@ namespace CodelyTv\Mooc\Courses\Domain;
 
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 
-class CourseFinder
+final class CourseFinder
 {
     private $repository;
 
