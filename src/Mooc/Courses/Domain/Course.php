@@ -15,8 +15,8 @@ final class Course extends AggregateRoot
 
     private function __construct(CourseId $id, CourseTitle $title, CourseDescription $description)
     {
-        $this->id          = $id;
-        $this->title       = $title;
+        $this->id = $id;
+        $this->title = $title;
         $this->description = $description;
     }
 
@@ -28,7 +28,7 @@ final class Course extends AggregateRoot
             new CourseCreatedDomainEvent(
                 $id,
                 [
-                    'title'       => $title->value(),
+                    'title' => $title->value(),
                     'description' => $description->value(),
                 ]
             )
@@ -50,5 +50,10 @@ final class Course extends AggregateRoot
     public function description(): CourseDescription
     {
         return $this->description;
+    }
+
+    public function updateDescription(CourseDescription $newDescription): void
+    {
+        $this->description = $newDescription;
     }
 }
