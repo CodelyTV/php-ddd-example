@@ -58,6 +58,11 @@ final class Video extends AggregateRoot
         $this->title = $newTitle;
     }
 
+    public function modifyDescription(VideoDescription $newDescription): void
+    {
+        $this->description = $newDescription;
+    }
+
     public function id(): VideoId
     {
         return $this->id;
