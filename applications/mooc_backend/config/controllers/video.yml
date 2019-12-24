@@ -14,3 +14,8 @@ services:
     class: CodelyTv\MoocBackend\Controller\Video\VideoDurationPatchController
     parent: codely.mooc_backend.controller
     public: true
+
+  codely.mooc_backend.controller.video.description.patch:
+    class: CodelyTv\MoocBackend\Controller\Video\VideoDescriptionPatchController
+    parent: codely.mooc_backend.controller
+    public: true
