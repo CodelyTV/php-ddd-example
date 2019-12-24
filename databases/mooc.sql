@@ -2,6 +2,7 @@ CREATE TABLE `videos` (
   `id` CHAR(36) NOT NULL,
   `type` VARCHAR(32) NOT NULL,
   `title` VARCHAR(255) NOT NULL,
+  `description` VARCHAR(255) NOT NULL,
   `url` VARCHAR(255) NOT NULL,
   `course_id` CHAR(36) NOT NULL,
   PRIMARY KEY (`id`)

@@ -9,6 +9,7 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 /**
  * @method string type()
  * @method string title()
+ * @method string description()
  * @method string url()
  * @method string courseId()
  */
@@ -24,6 +25,7 @@ final class VideoCreatedDomainEvent extends DomainEvent
         return [
             'type'     => ['string'],
             'title'    => ['string'],
+            'description' => ['string'],
             'url'      => ['string'],
             'courseId' => ['string'],
         ];

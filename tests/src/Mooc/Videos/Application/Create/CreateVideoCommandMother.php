@@ -9,12 +9,14 @@ use CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl;
 use CodelyTv\Mooc\Videos\Application\Create\CreateVideoCommand;
 use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Mooc\Videos\Domain\VideoTitle;
+use CodelyTv\Mooc\Videos\Domain\VideoDescription;
 use CodelyTv\Mooc\Videos\Domain\VideoType;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use CodelyTv\Test\Mooc\Shared\Domain\Courses\CourseIdMother;
 use CodelyTv\Test\Mooc\Shared\Domain\Videos\VideoUrlMother;
 use CodelyTv\Test\Mooc\Videos\Domain\VideoIdMother;
 use CodelyTv\Test\Mooc\Videos\Domain\VideoTitleMother;
+use CodelyTv\Test\Mooc\Videos\Domain\VideoDescriptionMother;
 use CodelyTv\Test\Mooc\Videos\Domain\VideoTypeMother;
 use CodelyTv\Test\Shared\Domain\UuidMother;
 
@@ -25,6 +27,7 @@ final class CreateVideoCommandMother
         VideoId $id,
         VideoType $type,
         VideoTitle $title,
+        VideoDescription $description,
         VideoUrl $url,
         CourseId $courseId
     ): CreateVideoCommand {
@@ -33,6 +36,7 @@ final class CreateVideoCommandMother
             $id->value(),
             $type->value(),
             $title->value(),
+            $description->value(),
             $url->value(),
             $courseId->value()
         );
@@ -45,6 +49,7 @@ final class CreateVideoCommandMother
             VideoIdMother::random(),
             VideoTypeMother::random(),
             VideoTitleMother::random(),
+            VideoDescriptionMother::random(),
             VideoUrlMother::random(),
             CourseIdMother::random()
         );

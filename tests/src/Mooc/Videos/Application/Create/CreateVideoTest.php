@@ -12,6 +12,7 @@ use CodelyTv\Test\Mooc\Videos\Domain\VideoCreatedDomainEventMother;
 use CodelyTv\Test\Mooc\Videos\Domain\VideoIdMother;
 use CodelyTv\Test\Mooc\Videos\Domain\VideoMother;
 use CodelyTv\Test\Mooc\Videos\Domain\VideoTitleMother;
+use CodelyTv\Test\Mooc\Videos\Domain\VideoDescriptionMother;
 use CodelyTv\Test\Mooc\Videos\Domain\VideoTypeMother;
 use CodelyTv\Test\Mooc\Videos\VideoModuleUnitTestCase;
 
@@ -37,12 +38,13 @@ final class CreateVideoTest extends VideoModuleUnitTestCase
         $id       = VideoIdMother::create($command->id());
         $type     = VideoTypeMother::create($command->type());
         $title    = VideoTitleMother::create($command->title());
+        $description    = VideoDescriptionMother::create($command->description());
         $url      = VideoUrlMother::create($command->url());
         $courseId = CourseIdMother::create($command->courseId());
 
-        $video = VideoMother::create($id, $type, $title, $url, $courseId);
+        $video = VideoMother::create($id, $type, $title, $description, $url, $courseId);
 
-        $domainEvent = VideoCreatedDomainEventMother::create($id, $type, $title, $url, $courseId);
+        $domainEvent = VideoCreatedDomainEventMother::create($id, $type, $title, $description, $url, $courseId);
 
         $this->shouldSaveVideo($video);
         $this->shouldPublishDomainEvents($domainEvent);

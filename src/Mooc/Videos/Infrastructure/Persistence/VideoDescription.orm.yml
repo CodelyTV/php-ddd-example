@@ -1,0 +1,7 @@
+CodelyTv\Mooc\Videos\Domain\VideoDescription:
+  type: embeddable
+
+  fields:
+    value:
+      type: string
+      column: description

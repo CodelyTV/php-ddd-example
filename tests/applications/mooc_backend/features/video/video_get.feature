@@ -10,6 +10,7 @@ Feature: Find a video
       "request_id": "170cfccd-869d-414b-a521-9cce9e0e67a2",
       "id": "465892a1-5a77-4cee-9450-46ecd6b68f69",
       "title": "Exprimiendo los tipos de PHP7",
+      "description": "hola",
       "url": "https://codely.tv/screencasts/tipos-php-7/",
       "type": "screencast",
       "course_id": "9c8a481a-0fe2-49cf-ab8a-79bcc2965d00"
@@ -26,6 +27,7 @@ Feature: Find a video
     {
       "id": "465892a1-5a77-4cee-9450-46ecd6b68f69",
       "title": "Exprimiendo los tipos de PHP7",
+      "description": "hola",
       "url": "https://codely.tv/screencasts/tipos-php-7/",
       "type": "screencast",
       "course_id": "9c8a481a-0fe2-49cf-ab8a-79bcc2965d00"

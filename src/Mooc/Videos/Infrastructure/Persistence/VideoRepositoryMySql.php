@@ -18,6 +18,7 @@ final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepo
         'id'        => 'id',
         'type'      => 'type',
         'title'     => 'title',
+        'description' => 'description',
         'url'       => 'url',
         'course_id' => 'courseId',
     ];

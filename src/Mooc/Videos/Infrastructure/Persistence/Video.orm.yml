@@ -20,6 +20,9 @@ CodelyTv\Mooc\Videos\Domain\Video:
     title:
       class: CodelyTv\Mooc\Videos\Domain\VideoTitle
       columnPrefix: false
+    description:
+      class: CodelyTv\Mooc\Videos\Domain\VideoDescription
+      columnPrefix: false
     url:
       class: CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl
       columnPrefix: false

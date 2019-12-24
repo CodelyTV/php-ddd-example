@@ -24,6 +24,7 @@ final class VideoPostController extends ApiController
             $request->get('id'),
             $request->get('type'),
             $request->get('title'),
+            $request->get('description'),
             $request->get('url'),
             $request->get('course_id')
         );

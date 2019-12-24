@@ -10,6 +10,7 @@ use CodelyTv\Mooc\Videos\Domain\Video;
 use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Mooc\Videos\Domain\VideoRepository;
 use CodelyTv\Mooc\Videos\Domain\VideoTitle;
+use CodelyTv\Mooc\Videos\Domain\VideoDescription;
 use CodelyTv\Mooc\Videos\Domain\VideoType;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
 
@@ -24,9 +25,9 @@ final class VideoCreator
         $this->publisher  = $publisher;
     }
 
-    public function create(VideoId $id, VideoType $type, VideoTitle $title, VideoUrl $url, CourseId $courseId): void
+    public function create(VideoId $id, VideoType $type, VideoTitle $title, VideoDescription $description, VideoUrl $url, CourseId $courseId): void
     {
-        $video = Video::create($id, $type, $title, $url, $courseId);
+        $video = Video::create($id, $type, $title, $description, $url, $courseId);
 
         $this->repository->save($video);
 
