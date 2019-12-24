@@ -21,10 +21,11 @@ Feature: Modify video description
     And the response status code should be 201
 
   Scenario: Modify the description of an existent video
-  Given I send a PATCH request to "/video/465892a1-5a77-4cee-9450-46ecd6b68f69" with body:
+  Given I send a PATCH request to "/video/465892a1-5a77-4cee-9450-46ecd6b68f69/description" with body:
     """
     {
-      "description": "Exprimiendo los tipos de PHP7.4",
+      "request_id": "170cfccd-869d-414b-a521-9cce9e0e67a3",
+      "newDescription": "Exprimiendo los tipos de PHP7.4"
     }
     """
    Then the response should be empty
