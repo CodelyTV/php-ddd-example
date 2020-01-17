@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace CodelyTv\Tests\Shared\Domain;
 
 use CodelyTv\Tests\Shared\Infrastructure\Mockery\CodelyTvMatcherIsSimilar;
-use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Constraint\CodelyTvConstraintIsSimilar;
+use CodelyTv\Tests\Shared\Infrastructure\PhpUnitaaa\Constraint\CodelyTvConstraintIsSimilar;
 
 final class TestUtils
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnit;
+namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnitaaa;
 
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;

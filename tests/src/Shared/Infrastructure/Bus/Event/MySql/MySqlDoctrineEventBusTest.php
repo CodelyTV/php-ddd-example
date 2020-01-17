@@ -10,7 +10,7 @@ use CodelyTv\Shared\Infrastructure\Bus\Event\MySql\MySqlDoctrineDomainEventsCons
 use CodelyTv\Shared\Infrastructure\Bus\Event\MySql\MySqlDoctrineEventBus;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseCreatedDomainEventMother;
 use CodelyTv\Tests\Mooc\CoursesCounter\Domain\CoursesCounterIncrementedDomainEventMother;
-use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\InfrastructureTestCase;
+use CodelyTv\Tests\Shared\Infrastructure\PhpUnitaaa\InfrastructureTestCase;
 use Doctrine\ORM\EntityManager;
 
 final class MySqlDoctrineEventBusTest extends InfrastructureTestCase

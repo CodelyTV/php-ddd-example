@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnit;
+namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnitaaa;
 
 use CodelyTv\Tests\Mooc\Shared\Infrastructure\PhpUnit\MoocEnvironmentArranger;
 use CodelyTv\Tests\Shared\Domain\TestUtils;

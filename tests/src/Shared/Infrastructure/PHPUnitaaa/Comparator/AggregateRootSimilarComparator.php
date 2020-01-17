@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator;
+namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnitaaa\Comparator;
 
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 use CodelyTv\Tests\Shared\Domain\TestUtils;

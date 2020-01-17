@@ -7,7 +7,7 @@ namespace CodelyTv\Tests\Mooc\Courses;
 use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
 use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
-use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
+use CodelyTv\Tests\Shared\Infrastructure\PhpUnitaaa\UnitTestCase;
 use Mockery\MockInterface;
 
 abstract class CoursesModuleUnitTestCase extends UnitTestCase

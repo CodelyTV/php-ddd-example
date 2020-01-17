@@ -7,7 +7,7 @@ namespace CodelyTv\Tests\Backoffice\Auth;
 use CodelyTv\Backoffice\Auth\Domain\AuthRepository;
 use CodelyTv\Backoffice\Auth\Domain\AuthUser;
 use CodelyTv\Backoffice\Auth\Domain\AuthUsername;
-use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
+use CodelyTv\Tests\Shared\Infrastructure\PhpUnitaaa\UnitTestCase;
 use Mockery\MockInterface;
 
 abstract class AuthModuleUnitTestCase extends UnitTestCase
