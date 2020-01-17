@@ -7,7 +7,7 @@ namespace CodelyTv\Tests\Shared\Infrastructure\Bus\Command;
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Shared\Infrastructure\Bus\Command\CommandNotRegisteredError;
 use CodelyTv\Shared\Infrastructure\Bus\Command\InMemorySymfonyCommandBus;
-use CodelyTv\Tests\Shared\Infrastructure\PhpUnitaaa\UnitTestCase;
+use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
 use RuntimeException;
 
 final class InMemorySymfonyCommandBusTest extends UnitTestCase
