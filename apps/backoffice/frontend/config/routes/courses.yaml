@@ -1,0 +1,9 @@
+courses_get:
+    path: /courses
+    controller: CodelyTv\Apps\Backoffice\Frontend\Controller\Courses\CoursesGetController
+    methods:  [GET]
+
+courses_post:
+    path: /courses
+    controller: CodelyTv\Apps\Backoffice\Frontend\Controller\Courses\CoursesPostController
+    methods:  [POST]

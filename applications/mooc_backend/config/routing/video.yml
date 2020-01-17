@@ -1,9 +1,0 @@
-video_post:
-  path:     /video
-  defaults: { _controller: codely.mooc_backend.controller.video.post }
-  methods:  [POST]
-
-video_get:
-  path:     /video/{id}
-  defaults: { _controller: codely.mooc_backend.controller.video.get }
-  methods:  [GET]

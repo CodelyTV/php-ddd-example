@@ -1,4 +1,0 @@
-imports:
-  - { resource: infrastructure_config_dev.yml }
-
-parameters:

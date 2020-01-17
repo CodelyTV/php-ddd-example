@@ -1,9 +1,0 @@
-parameters:
-    best_youtube_channel_ever: 'CodelyTv'
-    async_command_bus_pending_requests_file_path: '/path/to/the/codelytv_pending_requests.dat'
-
-    rabbitmq_host: 'localhost'
-    rabbitmq_port: 5672
-    rabbitmq_vhost: '/'
-    rabbitmq_login: 'codelytv'
-    rabbitmq_password: 'c0d3ly'

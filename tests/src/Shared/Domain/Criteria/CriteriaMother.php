@@ -2,23 +2,23 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Test\Shared\Domain\Criteria;
+namespace CodelyTv\Tests\Shared\Domain\Criteria;
 
 use CodelyTv\Shared\Domain\Criteria\Criteria;
 use CodelyTv\Shared\Domain\Criteria\Filters;
 use CodelyTv\Shared\Domain\Criteria\Order;
-use CodelyTv\Test\Shared\Domain\NumberMother;
+use CodelyTv\Tests\Shared\Domain\IntegerMother;
 
 final class CriteriaMother
 {
-    public static function create(Filters $filters, ?Order $order, ?int $offset, ?int $limit): Criteria
+    public static function create(Filters $filters, Order $order = null, int $offset = null, int $limit = null): Criteria
     {
-        return new Criteria($filters, $order, $offset, $limit);
+        return new Criteria($filters, $order ?: OrderMother::none(), $offset, $limit);
     }
 
-    public static function noFilters(): Criteria
+    public static function empty(): Criteria
     {
-        return self::create(FiltersMother::blank(), null, null, null);
+        return self::create(FiltersMother::blank(), OrderMother::none());
     }
 
     public static function random(): Criteria
@@ -26,8 +26,8 @@ final class CriteriaMother
         return self::create(
             FiltersMother::random(),
             OrderMother::random(),
-            NumberMother::random(),
-            NumberMother::random()
+            IntegerMother::random(),
+            IntegerMother::random()
         );
     }
 }

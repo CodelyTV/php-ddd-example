@@ -1,16 +1,12 @@
-applications/*/var/*
-!applications/*/var/*/.gitkeep
+/.env.local
+/.env.*.local
 
-src/*/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/*_parameters.yml
-src/*/Shared/Infrastructure/Symfony/Bundle/DependencyInjection/Resources/*_parameters.yml
+/apps/*/*/var/
 
-/applications/mooc_backend/config/supervisor/*
-!/applications/mooc_backend/config/supervisor/.gitkeep
+/apps/*/*/build/
+!/apps/*/*/build/supervisor/.gitkeep
 
-/phpunit.xml
+/vendor/
+.phpunit.result.cache
 
-vendor/
-
-.env
-
-build/
+/build

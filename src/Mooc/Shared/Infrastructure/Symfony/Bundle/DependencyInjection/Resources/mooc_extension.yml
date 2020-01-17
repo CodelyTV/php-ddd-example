@@ -1,5 +1,0 @@
-imports:
-  - { resource: mooc_parameters.yml }
-  - { resource: infrastructure/_mooc_infrastructure.yml }
-  - { resource: modules/mooc_modules.yml }
-  - { resource: services/_mooc_services.yml }

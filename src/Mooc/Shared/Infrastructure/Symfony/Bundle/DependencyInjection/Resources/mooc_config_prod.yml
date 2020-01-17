@@ -1,2 +1,0 @@
-imports:
-  - { resource: mooc_config.yml }

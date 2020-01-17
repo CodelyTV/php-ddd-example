@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Test\Shared\Domain\Criteria;
+namespace CodelyTv\Tests\Shared\Domain\Criteria;
 
 use CodelyTv\Shared\Domain\Criteria\Order;
 use CodelyTv\Shared\Domain\Criteria\OrderBy;
@@ -15,9 +15,14 @@ final class OrderMother
         return new Order($orderBy, $orderType);
     }
 
-    public static function createDesc($orderBy): Order
+    public static function createDesc(string $orderBy): Order
     {
-        return Order::createDesc($orderBy);
+        return Order::createDesc(OrderByMother::create($orderBy));
+    }
+
+    public static function none(): Order
+    {
+        return Order::none();
     }
 
     public static function random(): Order

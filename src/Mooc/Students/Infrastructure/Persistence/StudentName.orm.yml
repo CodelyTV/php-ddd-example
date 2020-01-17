@@ -1,7 +1,0 @@
-CodelyTv\Mooc\Students\Domain\StudentName:
-  type: embeddable
-
-  fields:
-    value:
-      type: string
-      column: name

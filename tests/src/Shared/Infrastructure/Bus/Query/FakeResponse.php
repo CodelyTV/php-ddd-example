@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Test\Shared\Infrastructure\Bus\Query;
+namespace CodelyTv\Tests\Shared\Infrastructure\Bus\Query;
 
 use CodelyTv\Shared\Domain\Bus\Query\Response;
 

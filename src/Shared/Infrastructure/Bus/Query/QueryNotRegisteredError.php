@@ -5,26 +5,14 @@ declare(strict_types = 1);
 namespace CodelyTv\Shared\Infrastructure\Bus\Query;
 
 use CodelyTv\Shared\Domain\Bus\Query\Query;
-use CodelyTv\Shared\Domain\DomainError;
+use RuntimeException;
 
-final class QueryNotRegisteredError extends DomainError
+final class QueryNotRegisteredError extends RuntimeException
 {
-    private $query;
-
     public function __construct(Query $query)
     {
-        $this->query = $query;
+        $queryClass = get_class($query);
 
-        parent::__construct();
-    }
-
-    public function errorCode(): string
-    {
-        return 'query_bus_not_registered_error';
-    }
-
-    protected function errorMessage(): string
-    {
-        return sprintf('The query <%s> has not been registered', get_class($this->query));
+        parent::__construct("The query <$queryClass> hasn't a query handler associated");
     }
 }

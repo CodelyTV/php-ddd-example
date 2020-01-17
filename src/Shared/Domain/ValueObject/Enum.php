@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Domain\ValueObject;
 
+use CodelyTv\Shared\Domain\Utils;
 use ReflectionClass;
-use function CodelyTv\Utils\Shared\snake_to_camel;
 use function Lambdish\Phunctional\reindex;
 
 abstract class Enum
@@ -27,7 +27,7 @@ abstract class Enum
         return new static(self::values()[$name]);
     }
 
-    public static function fromString(string $value)
+    public static function fromString(string $value): Enum
     {
         return new static($value);
     }
@@ -73,8 +73,8 @@ abstract class Enum
 
     private static function keysFormatter(): callable
     {
-        return function ($unused, string $key): string {
-            return snake_to_camel(strtolower($key));
+        return static function ($unused, string $key): string {
+            return Utils::toCamelCase(strtolower($key));
         };
     }
 

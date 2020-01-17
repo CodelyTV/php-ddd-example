@@ -5,29 +5,28 @@ declare(strict_types = 1);
 namespace CodelyTv\Mooc\Courses\Application\Create;
 
 use CodelyTv\Mooc\Courses\Domain\Course;
-use CodelyTv\Mooc\Courses\Domain\CourseDescription;
+use CodelyTv\Mooc\Courses\Domain\CourseDuration;
+use CodelyTv\Mooc\Courses\Domain\CourseName;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
-use CodelyTv\Mooc\Courses\Domain\CourseTitle;
-use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
-use CodelyTv\Shared\Domain\Bus\Event\DomainEventPublisher;
+use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
+use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 
 final class CourseCreator
 {
     private $repository;
-    private $publisher;
+    private $bus;
 
-    public function __construct(CourseRepository $repository, DomainEventPublisher $publisher)
+    public function __construct(CourseRepository $repository, EventBus $bus)
     {
         $this->repository = $repository;
-        $this->publisher  = $publisher;
+        $this->bus        = $bus;
     }
 
-    public function create(CourseId $id, CourseTitle $title, CourseDescription $description): void
+    public function __invoke(CourseId $id, CourseName $name, CourseDuration $duration)
     {
-        $course = Course::create($id, $title, $description);
+        $course = Course::create($id, $name, $duration);
 
         $this->repository->save($course);
-
-        $this->publisher->publish(...$course->pullDomainEvents());
+        $this->bus->publish(...$course->pullDomainEvents());
     }
 }

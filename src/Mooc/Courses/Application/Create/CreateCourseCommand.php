@@ -5,21 +5,18 @@ declare(strict_types = 1);
 namespace CodelyTv\Mooc\Courses\Application\Create;
 
 use CodelyTv\Shared\Domain\Bus\Command\Command;
-use CodelyTv\Shared\Domain\ValueObject\Uuid;
 
-final class CreateCourseCommand extends Command
+final class CreateCourseCommand implements Command
 {
     private $id;
-    private $title;
-    private $description;
+    private $name;
+    private $duration;
 
-    public function __construct(Uuid $messageId, string $id, string $title, string $description)
+    public function __construct(string $id, string $name, string $duration)
     {
-        parent::__construct($messageId);
-
-        $this->id          = $id;
-        $this->title       = $title;
-        $this->description = $description;
+        $this->id       = $id;
+        $this->name     = $name;
+        $this->duration = $duration;
     }
 
     public function id(): string
@@ -27,13 +24,13 @@ final class CreateCourseCommand extends Command
         return $this->id;
     }
 
-    public function title(): string
+    public function name(): string
     {
-        return $this->title;
+        return $this->name;
     }
 
-    public function description(): string
+    public function duration(): string
     {
-        return $this->description;
+        return $this->duration;
     }
 }

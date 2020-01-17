@@ -1,0 +1,93 @@
+imports:
+  - { resource: ../../../../src/Backoffice/Shared/Infrastructure/Symfony/DependencyInjection/backoffice_services.yaml }
+
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  # Configure
+  _instanceof:
+    CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber:
+      tags: ['codely.domain_event_subscriber']
+
+    CodelyTv\Shared\Domain\Bus\Command\CommandHandler:
+      tags: ['codely.command_handler']
+
+    CodelyTv\Shared\Domain\Bus\Query\QueryHandler:
+      tags: ['codely.query_handler']
+
+  CodelyTv\Apps\Backoffice\Backend\Controller\:
+    resource: '../src/Controller'
+    tags: ['controller.service_arguments']
+
+
+  # Wire
+  CodelyTv\Shared\:
+    resource: '../../../../src/Shared'
+
+  CodelyTv\Backoffice\:
+    resource: '../../../../src/Backoffice'
+
+  # -- TAGGING --
+  CodelyTv\Shared\Infrastructure\Bus\Event\InMemory\InMemorySymfonyEventBus:
+    arguments: [!tagged codely.domain_event_subscriber]
+    lazy: true
+
+  CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventMapping:
+    arguments: [!tagged codely.domain_event_subscriber]
+
+  CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventSubscriberLocator:
+    arguments: [!tagged codely.domain_event_subscriber]
+
+  CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections:
+    arguments: [!tagged codely.database_connection]
+
+  CodelyTv\Shared\Infrastructure\Symfony\AddJsonBodyToRequestListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+  CodelyTv\Shared\Infrastructure\Symfony\ApiExceptionListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.exception, method: onException }
+
+  CodelyTv\Shared\Infrastructure\Symfony\BasicHttpAuthMiddleware:
+    tags:
+      - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+
+  # -- APP DEFINITIONS --
+  # Command/Query Handlers
+  CodelyTv\Shared\Infrastructure\Bus\Command\InMemorySymfonyCommandBus:
+    arguments: [!tagged codely.command_handler]
+
+  CodelyTv\Shared\Infrastructure\Bus\Query\InMemorySymfonyQueryBus:
+    arguments: [!tagged codely.query_handler]
+
+  # RabbitMQ
+  CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqConnection:
+    arguments:
+      - host: '%env(RABBITMQ_HOST)%'
+        port: '%env(RABBITMQ_PORT)%'
+        vhost: '%env(RABBITMQ_MOOC_VHOST)%'
+        login: '%env(RABBITMQ_LOGIN)%'
+        password: '%env(RABBITMQ_PASSWORD)%'
+        read_timeout: 2
+        write_timeout: 2
+        connect_timeout: 5
+
+  CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqEventBus:
+    arguments: ['@CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqConnection', '%env(RABBITMQ_EXCHANGE)%']
+
+  CodelyTv\Shared\Infrastructure\Elasticsearch\ElasticsearchClient:
+    factory: '@CodelyTv\Shared\Infrastructure\Elasticsearch\ElasticsearchClientFactory'
+    arguments:
+      - '%env(BACKOFFICE_ELASTICSEARCH_HOST)%'
+      - '%env(BACKOFFICE_ELASTICSEARCH_INDEX_PREFIX)%'
+      - '%kernel.project_dir%/../../../databases/backoffice'
+      - '%env(APP_ENV)%'
+    public: true
+
+  # -- IMPLEMENTATIONS SELECTOR --
+  CodelyTv\Shared\Domain\Bus\Event\EventBus: '@CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqEventBus'
+  CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository: '@CodelyTv\Backoffice\Courses\Infrastructure\Persistence\ElasticsearchBackofficeCourseRepository'

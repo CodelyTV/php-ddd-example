@@ -1,4 +1,0 @@
-status_get:
-  path:     /status
-  defaults: { _controller: codely.mooc_backend.controller.status.get }
-  methods:  [GET]

@@ -1,0 +1,23 @@
+framework:
+  test: true
+
+wouterj_eloquent:
+  driver:   mysql
+  host:     '%env(MOOC_DATABASE_HOST)%'
+  port:     '%env(MOOC_DATABASE_PORT)%'
+  database: '%env(MOOC_DATABASE_NAME)%'
+  username: '%env(MOOC_DATABASE_USER)%'
+  password: '%env(MOOC_DATABASE_PASSWORD)%'
+  prefix:   ~
+  eloquent: ~
+
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  CodelyTv\Tests\:
+    resource: '../../../../tests/src'
+
+  # -- IMPLEMENTATIONS SELECTOR --
+  CodelyTv\Shared\Domain\Bus\Event\EventBus: '@CodelyTv\Shared\Infrastructure\Bus\Event\InMemory\InMemorySymfonyEventBus'

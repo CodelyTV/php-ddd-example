@@ -11,8 +11,8 @@
 <p align="center">
     <a href="https://github.com/CodelyTV"><img src="https://img.shields.io/badge/CodelyTV-OS-green.svg?style=flat-square" alt="codely.tv"/></a>
     <a href="http://pro.codely.tv"><img src="https://img.shields.io/badge/CodelyTV-PRO-black.svg?style=flat-square" alt="CodelyTV Courses"/></a>
-    <a href="#"><img src="https://img.shields.io/badge/Symfony-4.2-purple.svg?style=flat-square&logo=symfony" alt="Symfony 4.2"/></a>
-    <a href="https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master"><img src="https://circleci.com/gh/CodelyTV/cqrs-ddd-php-example/tree/master.svg?style=svg&circle-token=ce12d04556fa79b78bb2beefa0356a6f6934b26b" alt="CircleCI Status"/></a>
+    <a href="#"><img src="https://img.shields.io/badge/Symfony-4.4-purple.svg?style=flat-square&logo=symfony" alt="Symfony 4.4"/></a>
+    <a href="https://github.com/CodelyTV/php-ddd-example/actions"><img src="https://github.com/CodelyTV/php-ddd-example/workflows/CI/badge.svg" alt="CI pipeline status" /></a>
 </p>
 
 <p align="center">
@@ -63,8 +63,7 @@
 
 ### 🛠️ Environment configuration
 
-1. Copy the default environment variables: `cp .env.dist .env`
-2. Modify the environment variables if needed: `vim .env`
+1. Create a local environment file if needed: `cp .env .env.local`
 3. Add `api.codelytv.localhost` domain to your local hosts: `echo "127.0.0.1 api.codelytv.localhost"| sudo tee -a /etc/hosts > /dev/null`
 
 ### 🌍 Application execution
@@ -80,13 +79,13 @@
 ## 🤔 Project explanation
 
 This project tries to be a MOOC (Massive Open Online Course) platform.
-For now it only has an [API](applications/mooc_backend/src/Controller)
-and some [Consumers](applications/mooc_backend/src/Command).
+It has a [Web](apps/backoffice/frontend/src/Controller), an [API](apps/mooc/backend/src/Controller) and
+some [Consumers](apps/mooc/backend/src/Command).
 
 ### ⛱️ Bounded Contexts
 
 * [Mooc](src/Mooc): Place to look in if you wanna see some code 🙂. Massive Open Online Courses public platform with users, videos, notifications, and so on
-* [Backoffice](src/Backoffice): Work in progress. Here you'll find the use cases needed by the Customer Support department in order to manage users, courses, videos, and so on.
+* [Backoffice](src/Backoffice): Here you'll find the use cases needed by the Customer Support department in order to manage users, courses, videos, and so on.
 
 ### 🎯 Hexagonal Architecture
 
@@ -121,7 +120,7 @@ src
 |       `-- Infrastructure // The infrastructure of our module
 |           |-- DependencyInjection
 |           `-- Persistence
-|               `--VideoRepositoryMySql.php // An implementation of the repository
+|               `--MySqlVideoRepository.php // An implementation of the repository
 `-- Shared // Shared Kernel: Common infrastructure and domain shared between the different Bounded Contexts
     |-- Domain
     `-- Infrastructure
@@ -132,23 +131,24 @@ Our repositories try to be as simple as possible usually only containing 2 metho
 If we need some query with more filters we use the `Strategy` pattern also known as `Criteria` pattern. So we add a
 `searchByCriteria` method.
 
-You can see an example [here](src/Mooc/Videos/Domain/VideoRepository.php)
-and its implementation [here](src/Mooc/Videos/Infrastructure/Persistence/VideoRepositoryMySql.php).
+You can see an example [here](src/Mooc/Courses/Domain/CourseRepository.php)
+and its implementation [here](src/Mooc/Courses/Infrastructure/Persistence/DoctrineCourseRepository.php).
 
 ### Aggregates
-You can see an example of an aggregate [here](src/Mooc/Videos/Domain/Video.php). All aggregates should
+You can see an example of an aggregate [here](src/Mooc/Courses/Domain/Course.php). All aggregates should
 extends the [AggregateRoot](src/Shared/Domain/Aggregate/AggregateRoot.php).
 
 ### Command Bus
-There are 2 implementations of the [command bus](src/Shared/Domain/Bus/Command/CommandBus.php).
-1. [Sync](src/Shared/Infrastructure/Bus/Command/SymfonySyncCommandBus.php) using the Symfony Message Bus
-2. [Async](src/Shared/Infrastructure/Bus/Command/CommandBusAsync.php) using a local file
+There is 1 implementations of the [command bus](src/Shared/Domain/Bus/Command/CommandBus.php).
+1. [Sync](src/Shared/Infrastructure/Bus/Command/InMemorySymfonyCommandBus.php) using the Symfony Message Bus
 
 ### Query Bus
-The [Query Bus](src/Shared/Infrastructure/Bus/Query/SymfonySyncQueryBus.php) uses the Symfony Message Bus.
+The [Query Bus](src/Shared/Infrastructure/Bus/Query/InMemorySymfonyQueryBus.php) uses the Symfony Message Bus.
 
 ### Event Bus
-The [Event Bus](src/Shared/Infrastructure/Bus/Event/SymfonySyncEventBus.php) uses the Symfony Message Bus.
+The [Event Bus](src/Shared/Infrastructure/Bus/Event/InMemory/InMemorySymfonyEventBus.php) uses the Symfony Message Bus.
+The [MySql Bus](src/Shared/Infrastructure/Bus/Event/MySql/MySqlDoctrineEventBus.php) uses a MySql+Pulling as a bus.
+The [RabbitMQ Bus](src/Shared/Infrastructure/Bus/Event/RabbitMq/RabbitMqEventBus.php) uses RabbitMQ C extension.
 
 ## 🤔 Contributing
 There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want
@@ -158,6 +158,7 @@ some guidelines feel free to contact us :)
 This code was show in the [From framework coupled code to #microservices through #DDD](http://codely.tv/screencasts/codigo-acoplado-framework-microservicios-ddd) talk and doubts where answered in [DDD y CQRS: Preguntas Frecuentes](http://codely.tv/screencasts/ddd-cqrs-preguntas-frecuentes/) video.
 
 🎥 Used in the CodelyTV Pro courses:
+* [🇪🇸 DDD in PHP](https://pro.codely.tv/library/ddd-en-php/about/)
 * [🇪🇸 Arquitectura Hexagonal](https://pro.codely.tv/library/arquitectura-hexagonal/66748/about/)
 * [🇪🇸 CQRS: Command Query Responsibility Segregation](https://pro.codely.tv/library/cqrs-command-query-responsibility-segregation-3719e4aa/62554/about/)
 * [🇪🇸 Comunicación entre microservicios: Event-Driven Architecture](https://pro.codely.tv/library/comunicacion-entre-microservicios-event-driven-architecture/74823/about/)

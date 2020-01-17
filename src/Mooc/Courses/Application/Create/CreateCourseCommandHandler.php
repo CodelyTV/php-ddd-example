@@ -4,11 +4,12 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Mooc\Courses\Application\Create;
 
-use CodelyTv\Mooc\Courses\Domain\CourseDescription;
-use CodelyTv\Mooc\Courses\Domain\CourseTitle;
-use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
+use CodelyTv\Mooc\Courses\Domain\CourseDuration;
+use CodelyTv\Mooc\Courses\Domain\CourseName;
+use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
+use CodelyTv\Shared\Domain\Bus\Command\CommandHandler;
 
-final class CreateCourseCommandHandler
+final class CreateCourseCommandHandler implements CommandHandler
 {
     private $creator;
 
@@ -17,12 +18,12 @@ final class CreateCourseCommandHandler
         $this->creator = $creator;
     }
 
-    public function __invoke(CreateCourseCommand $command): void
+    public function __invoke(CreateCourseCommand $command)
     {
-        $id          = new CourseId($command->id());
-        $title       = new CourseTitle($command->title());
-        $description = new CourseDescription($command->description());
+        $id       = new CourseId($command->id());
+        $name     = new CourseName($command->name());
+        $duration = new CourseDuration($command->duration());
 
-        $this->creator->create($id, $title, $description);
+        $this->creator->__invoke($id, $name, $duration);
     }
 }

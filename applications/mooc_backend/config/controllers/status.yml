@@ -1,5 +1,0 @@
-services:
-
-  codely.mooc_backend.controller.status.get:
-    class: CodelyTv\MoocBackend\Controller\Status\StatusGetController
-    public: true

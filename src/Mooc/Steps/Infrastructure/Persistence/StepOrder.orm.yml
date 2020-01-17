@@ -1,7 +1,0 @@
-CodelyTv\Mooc\Steps\Domain\StepOrder:
-  type: embeddable
-
-  fields:
-    value:
-      type: integer
-      column: step_order

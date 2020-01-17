@@ -40,4 +40,9 @@ final class Filter
     {
         return $this->value;
     }
+
+    public function serialize(): string
+    {
+        return sprintf('%s.%s.%s', $this->field->value(), $this->operator->value(), $this->value->value());
+    }
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        beStrictAboutOutputDuringTests="true"
+        beStrictAboutChangesToGlobalState="true"
+        beStrictAboutTestsThatDoNotTestAnything="false"
+        beStrictAboutTodoAnnotatedTests="true"
+        bootstrap="./apps/bootstrap.php"
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        processIsolation="false"
+        stopOnError="true"
+        stopOnFailure="true"
+        stopOnIncomplete="false"
+        stopOnSkipped="false"
+        stopOnRisky="true"
+        verbose="false">
+
+    <php>
+        <ini name="error_reporting" value="-1" />
+        <server name="KERNEL_CLASS" value="CodelyTv\Apps\Mooc\Backend\MoocBackendKernel" />
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak" />
+        <env name="APP_ENV" value="test"/>
+    </php>
+
+    <testsuites>
+        <testsuite name="Contexts">
+            <directory>./tests/src</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

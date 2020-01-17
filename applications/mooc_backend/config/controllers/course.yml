@@ -1,6 +1,0 @@
-services:
-
-  codely.mooc_backend.controller.course.post:
-    class: CodelyTv\MoocBackend\Controller\Course\CoursePostController
-    parent: codely.mooc_backend.controller
-    public: true

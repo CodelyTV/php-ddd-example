@@ -1,6 +1,0 @@
-imports:
-  - { resource: mooc_config.yml }
-
-
-parameters:
-  codely.mooc.infrastructure.database.on_demand: true
