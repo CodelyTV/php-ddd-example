@@ -2,13 +2,13 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Test\Shared\Infrastructure\PHPUnit\Comparator;
+namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator;
 
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
+use CodelyTv\Tests\Shared\Domain\TestUtils;
 use ReflectionObject;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
-use function CodelyTv\Test\Shared\isSimilar;
 
 final class AggregateRootSimilarComparator extends Comparator
 {
@@ -40,11 +40,7 @@ final class AggregateRootSimilarComparator extends Comparator
         }
     }
 
-    /**
-     * @param AggregateRoot $expected
-     * @param AggregateRoot $actual
-     */
-    private function aggregateRootsAreSimilar($expected, $actual): bool
+    private function aggregateRootsAreSimilar(AggregateRoot $expected, AggregateRoot $actual): bool
     {
         if (!$this->aggregateRootsAreTheSameClass($expected, $actual)) {
             return false;
@@ -53,20 +49,12 @@ final class AggregateRootSimilarComparator extends Comparator
         return $this->aggregateRootPropertiesAreSimilar($expected, $actual);
     }
 
-    /**
-     * @param AggregateRoot $expected
-     * @param AggregateRoot $actual
-     */
-    private function aggregateRootsAreTheSameClass($expected, $actual): bool
+    private function aggregateRootsAreTheSameClass(AggregateRoot $expected, AggregateRoot $actual): bool
     {
         return get_class($expected) === get_class($actual);
     }
 
-    /**
-     * @param AggregateRoot $expected
-     * @param AggregateRoot $actual
-     */
-    private function aggregateRootPropertiesAreSimilar($expected, $actual): bool
+    private function aggregateRootPropertiesAreSimilar(AggregateRoot $expected, AggregateRoot $actual): bool
     {
         $expectedReflected = new ReflectionObject($expected);
         $actualReflected   = new ReflectionObject($actual);
@@ -80,7 +68,7 @@ final class AggregateRootSimilarComparator extends Comparator
             $expectedProperty = $expectedReflectedProperty->getValue($expected);
             $actualProperty   = $actualReflectedProperty->getValue($actual);
 
-            if (!isSimilar($expectedProperty, $actualProperty)) {
+            if (!TestUtils::isSimilar($expectedProperty, $actualProperty)) {
                 return false;
             }
         }

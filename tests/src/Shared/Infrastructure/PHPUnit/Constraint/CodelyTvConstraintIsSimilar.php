@@ -2,24 +2,40 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Test\Shared\Infrastructure\PHPUnit\Constraint;
+namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Constraint;
 
-use CodelyTv\Test\Shared\Infrastructure\PHPUnit\Comparator\AggregateRootArraySimilarComparator;
-use CodelyTv\Test\Shared\Infrastructure\PHPUnit\Comparator\AggregateRootSimilarComparator;
-use CodelyTv\Test\Shared\Infrastructure\PHPUnit\Comparator\DateTimeSimilarComparator;
-use CodelyTv\Test\Shared\Infrastructure\PHPUnit\Comparator\DateTimeStringSimilarComparator;
-use CodelyTv\Test\Shared\Infrastructure\PHPUnit\Comparator\DomainEventArraySimilarComparator;
-use CodelyTv\Test\Shared\Infrastructure\PHPUnit\Comparator\DomainEventSimilarComparator;
-use CodelyTv\Test\Shared\Infrastructure\PHPUnit\Comparator\StringableObjectSimilarComparator;
-use PHPUnit\Framework\Constraint\IsEqual;
+use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator\AggregateRootArraySimilarComparator;
+use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator\AggregateRootSimilarComparator;
+use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator\DateTimeSimilarComparator;
+use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator\DateTimeStringSimilarComparator;
+use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator\DomainEventArraySimilarComparator;
+use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator\DomainEventSimilarComparator;
+use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\ExpectationFailedException;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\Factory;
+use function is_string;
+use function sprintf;
+use function strpos;
 
-final class CodelyTvConstraintIsSimilar extends IsEqual
+// Based on \PHPUnit\Framework\Constraint\IsEqual
+final class CodelyTvConstraintIsSimilar extends Constraint
 {
-    public function evaluate($other, $description = '', $returnResult = false)
+    private $value;
+    private $delta;
+
+    public function __construct($value, float $delta = 0.0)
     {
+        $this->value = $value;
+        $this->delta = $delta;
+    }
+
+    public function evaluate($other, $description = '', $returnResult = false): bool
+    {
+        if ($this->value === $other) {
+            return true;
+        }
+
         $isValid           = true;
         $comparatorFactory = new Factory();
 
@@ -29,7 +45,6 @@ final class CodelyTvConstraintIsSimilar extends IsEqual
         $comparatorFactory->register(new DomainEventSimilarComparator());
         $comparatorFactory->register(new DateTimeSimilarComparator());
         $comparatorFactory->register(new DateTimeStringSimilarComparator());
-        $comparatorFactory->register(new StringableObjectSimilarComparator());
 
         try {
             $comparator = $comparatorFactory->getComparatorFor($other, $this->value);
@@ -47,5 +62,34 @@ final class CodelyTvConstraintIsSimilar extends IsEqual
         }
 
         return $isValid;
+    }
+
+    public function toString(): string
+    {
+        $delta = '';
+
+        if (is_string($this->value)) {
+            if (strpos($this->value, "\n") !== false) {
+                return 'is equal to <text>';
+            }
+
+            return sprintf(
+                "is equal to '%s'",
+                $this->value
+            );
+        }
+
+        if ($this->delta !== 0) {
+            $delta = sprintf(
+                ' with delta <%F>',
+                $this->delta
+            );
+        }
+
+        return sprintf(
+            'is equal to %s%s',
+            $this->exporter()->export($this->value),
+            $delta
+        );
     }
 }

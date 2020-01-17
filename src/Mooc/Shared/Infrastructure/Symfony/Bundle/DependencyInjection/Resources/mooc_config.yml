@@ -1,6 +1,0 @@
-parameters:
-
-  codely.mooc.root_path: '%kernel.root_dir%/../../src/Mooc/'
-
-  codely.mooc.infrastructure.database.on_demand: false
-  codely.mooc.infrastructure.database.schema_file: '%kernel.root_dir%/../../databases/mooc.sql'

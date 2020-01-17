@@ -1,0 +1,4 @@
+courses_counter_get:
+    path: /courses-counter
+    controller: CodelyTv\Apps\Mooc\Backend\Controller\CoursesCounter\CoursesCounterGetController
+    methods:  [GET]

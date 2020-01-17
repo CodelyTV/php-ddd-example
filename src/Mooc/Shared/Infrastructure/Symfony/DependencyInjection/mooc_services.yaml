@@ -1,0 +1,20 @@
+services:
+  # Databases
+  Doctrine\ORM\EntityManager:
+    factory: [CodelyTv\Mooc\Shared\Infrastructure\Doctrine\MoocEntityManagerFactory, create]
+    arguments:
+      - driver:   '%env(MOOC_DATABASE_DRIVER)%'
+        host:     '%env(MOOC_DATABASE_HOST)%'
+        port:     '%env(MOOC_DATABASE_PORT)%'
+        dbname:   '%env(MOOC_DATABASE_NAME)%'
+        user:     '%env(MOOC_DATABASE_USER)%'
+        password: '%env(MOOC_DATABASE_PASSWORD)%'
+      - '%env(APP_ENV)%'
+    tags:
+      - { name: codely.database_connection }
+    public: true
+
+
+  # Courses
+  CodelyTv\Mooc\Courses\Domain\CourseRepository: '@CodelyTv\Mooc\Courses\Infrastructure\Persistence\DoctrineCourseRepository'
+

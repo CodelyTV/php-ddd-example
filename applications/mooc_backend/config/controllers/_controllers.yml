@@ -1,6 +1,0 @@
-imports:
-
-  - { resource: course.yml }
-  - { resource: status.yml }
-  - { resource: student.yml }
-  - { resource: video.yml }

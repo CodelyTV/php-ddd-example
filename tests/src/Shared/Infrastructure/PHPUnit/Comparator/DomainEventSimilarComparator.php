@@ -2,13 +2,13 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Test\Shared\Infrastructure\PHPUnit\Comparator;
+namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
+use CodelyTv\Tests\Shared\Domain\TestUtils;
 use ReflectionObject;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
-use function CodelyTv\Test\Shared\isSimilar;
 
 final class DomainEventSimilarComparator extends Comparator
 {
@@ -39,11 +39,7 @@ final class DomainEventSimilarComparator extends Comparator
         }
     }
 
-    /**
-     * @param DomainEvent $expected
-     * @param DomainEvent $actual
-     */
-    private function areSimilar($expected, $actual): bool
+    private function areSimilar(DomainEvent $expected, DomainEvent $actual): bool
     {
         if (!$this->areTheSameClass($expected, $actual)) {
             return false;
@@ -52,20 +48,12 @@ final class DomainEventSimilarComparator extends Comparator
         return $this->propertiesAreSimilar($expected, $actual);
     }
 
-    /**
-     * @param DomainEvent $expected
-     * @param DomainEvent $actual
-     */
-    private function areTheSameClass($expected, $actual): bool
+    private function areTheSameClass(DomainEvent $expected, DomainEvent $actual): bool
     {
         return get_class($expected) === get_class($actual);
     }
 
-    /**
-     * @param DomainEvent $expected
-     * @param DomainEvent $actual
-     */
-    private function propertiesAreSimilar($expected, $actual): bool
+    private function propertiesAreSimilar(DomainEvent $expected, DomainEvent $actual): bool
     {
         $expectedReflected = new ReflectionObject($expected);
         $actualReflected   = new ReflectionObject($actual);
@@ -80,7 +68,7 @@ final class DomainEventSimilarComparator extends Comparator
                 $expectedProperty = $expectedReflectedProperty->getValue($expected);
                 $actualProperty   = $actualReflectedProperty->getValue($actual);
 
-                if (!isSimilar($expectedProperty, $actualProperty)) {
+                if (!TestUtils::isSimilar($expectedProperty, $actualProperty)) {
                     return false;
                 }
             }

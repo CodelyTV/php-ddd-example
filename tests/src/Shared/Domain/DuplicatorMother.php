@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Test\Shared\Domain;
+namespace CodelyTv\Tests\Shared\Domain;
 
 use ReflectionObject;
 use ReflectionProperty;
@@ -16,7 +16,7 @@ final class DuplicatorMother
         $reflection = new ReflectionObject($duplicated);
 
         each(
-            function (ReflectionProperty $property) use ($duplicated, $newParams) {
+            static function (ReflectionProperty $property) use ($duplicated, $newParams) {
                 if (isset($newParams[$property->getName()])) {
                     $property->setAccessible(true);
                     $property->setValue($duplicated, $newParams[$property->getName()]);

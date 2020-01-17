@@ -2,39 +2,28 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Test\Shared\Infrastructure\Mockery;
+namespace CodelyTv\Tests\Shared\Infrastructure\Mockery;
 
-use CodelyTv\Test\Shared\Infrastructure\PHPUnit\Constraint\CodelyTvConstraintIsSimilar;
+use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Constraint\CodelyTvConstraintIsSimilar;
 use Mockery\Matcher\MatcherAbstract;
 
 final class CodelyTvMatcherIsSimilar extends MatcherAbstract
 {
     private $constraint;
 
-    public function __construct($value, $delta = 0.0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)
+    public function __construct($value, $delta = 0.0)
     {
         parent::__construct($value);
 
-        $this->constraint = new CodelyTvConstraintIsSimilar(
-            $value,
-            $delta,
-            $maxDepth,
-            $canonicalize,
-            $ignoreCase
-        );
+        $this->constraint = new CodelyTvConstraintIsSimilar($value, $delta);
     }
 
-    public static function equalTo($value, $delta = 0.0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)
-    {
-        return new static($value, $delta, $maxDepth, $canonicalize, $ignoreCase);
-    }
-
-    public function match(&$actual)
+    public function match(&$actual): bool
     {
         return $this->constraint->evaluate($actual, '', true);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return 'Is similar';
     }

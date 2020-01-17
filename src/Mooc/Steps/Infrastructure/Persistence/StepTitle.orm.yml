@@ -1,7 +1,0 @@
-CodelyTv\Mooc\Steps\Domain\StepTitle:
-  type: embeddable
-
-  fields:
-    value:
-      type: string
-      column: title

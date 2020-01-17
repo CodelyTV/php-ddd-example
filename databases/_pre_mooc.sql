@@ -1,3 +1,0 @@
-CREATE DATABASE IF NOT EXISTS `video`;
-
-USE `video`;

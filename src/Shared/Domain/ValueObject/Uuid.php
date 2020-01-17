@@ -9,7 +9,7 @@ use Ramsey\Uuid\Uuid as RamseyUuid;
 
 class Uuid
 {
-    private $value;
+    protected $value;
 
     public function __construct(string $value)
     {
@@ -31,10 +31,13 @@ class Uuid
     private function ensureIsValidUuid($id): void
     {
         if (!RamseyUuid::isValid($id)) {
-            throw new InvalidArgumentException(
-                sprintf('<%s> does not allow the value <%s>.', static::class, is_scalar($id) ? $id : gettype($id))
-            );
+            throw new InvalidArgumentException(sprintf('<%s> does not allow the value <%s>.', static::class, $id));
         }
+    }
+
+    public function equals(Uuid $other): bool
+    {
+        return $this->value() === $other->value();
     }
 
     public function __toString()

@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Test\Shared\Domain;
+namespace CodelyTv\Tests\Shared\Domain;
 
 final class UuidMother
 {

@@ -4,35 +4,27 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Mooc\Courses\Domain;
 
-use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
+use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 
 final class Course extends AggregateRoot
 {
     private $id;
-    private $title;
-    private $description;
+    private $name;
+    private $duration;
 
-    private function __construct(CourseId $id, CourseTitle $title, CourseDescription $description)
+    public function __construct(CourseId $id, CourseName $name, CourseDuration $duration)
     {
-        $this->id          = $id;
-        $this->title       = $title;
-        $this->description = $description;
+        $this->id       = $id;
+        $this->name     = $name;
+        $this->duration = $duration;
     }
 
-    public static function create(CourseId $id, CourseTitle $title, CourseDescription $description): Course
+    public static function create(CourseId $id, CourseName $name, CourseDuration $duration): self
     {
-        $course = new self($id, $title, $description);
+        $course = new self($id, $name, $duration);
 
-        $course->record(
-            new CourseCreatedDomainEvent(
-                $id,
-                [
-                    'title'       => $title->value(),
-                    'description' => $description->value(),
-                ]
-            )
-        );
+        $course->record(new CourseCreatedDomainEvent($id->value(), $name->value(), $duration->value()));
 
         return $course;
     }
@@ -42,13 +34,18 @@ final class Course extends AggregateRoot
         return $this->id;
     }
 
-    public function title(): CourseTitle
+    public function name(): CourseName
     {
-        return $this->title;
+        return $this->name;
     }
 
-    public function description(): CourseDescription
+    public function duration(): CourseDuration
     {
-        return $this->description;
+        return $this->duration;
+    }
+
+    public function rename(CourseName $newName): void
+    {
+        $this->name = $newName;
     }
 }

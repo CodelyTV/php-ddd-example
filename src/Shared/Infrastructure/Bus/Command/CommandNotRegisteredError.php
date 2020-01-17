@@ -5,26 +5,15 @@ declare(strict_types = 1);
 namespace CodelyTv\Shared\Infrastructure\Bus\Command;
 
 use CodelyTv\Shared\Domain\Bus\Command\Command;
-use CodelyTv\Shared\Domain\DomainError;
+use RuntimeException;
 
-final class CommandNotRegisteredError extends DomainError
+final class CommandNotRegisteredError extends RuntimeException
 {
-    private $command;
-
     public function __construct(Command $command)
     {
-        $this->command = $command;
+        $commandClass = get_class($command);
 
-        parent::__construct();
-    }
-
-    public function errorCode(): string
-    {
-        return 'command_bus_not_registered_error';
-    }
-
-    protected function errorMessage(): string
-    {
-        return sprintf('The command <%s> has not been registered', get_class($this->command));
+        parent::__construct("The command <$commandClass> hasn't a command handler associated");
     }
 }
+

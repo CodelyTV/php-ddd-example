@@ -2,10 +2,10 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Test\Shared\Domain\Criteria;
+namespace CodelyTv\Tests\Shared\Domain\Criteria;
 
 use CodelyTv\Shared\Domain\Criteria\OrderBy;
-use CodelyTv\Test\Shared\Domain\WordMother;
+use CodelyTv\Tests\Shared\Domain\WordMother;
 
 final class OrderByMother
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTv\Test\Shared\Infrastructure\PHPUnit\Comparator;
+namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator;
 
 use DateInterval;
 use DateTime;

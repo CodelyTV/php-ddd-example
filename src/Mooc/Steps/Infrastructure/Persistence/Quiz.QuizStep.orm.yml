@@ -1,8 +1,0 @@
-CodelyTv\Mooc\Steps\Domain\Quiz\QuizStep:
-  type: entity
-  table: step_quiz
-
-  fields:
-    questions:
-      type: quiz_step_questions
-      column: questions

@@ -1,9 +1,0 @@
-services:
-
-  codely.mooc_backend.controller:
-    class: CodelyTv\Shared\Infrastructure\Api\Controller\ApiController
-    abstract: true
-    arguments:
-      - '@CodelyTv\Shared\Domain\Bus\Query\QueryBus'
-      - '@CodelyTv\Shared\Domain\Bus\Command\CommandBus'
-      - '@CodelyTv\Shared\Infrastructure\Api\Exception\ApiExceptionsHttpStatusCodeMapping'

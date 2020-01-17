@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Shared\Infrastructure\Doctrine;
 
+use CodelyTv\Tests\Shared\Infrastructure\Doctrine\DatabaseCleaner;
 use Doctrine\ORM\EntityManager;
 use function Lambdish\Phunctional\apply;
 use function Lambdish\Phunctional\each;
@@ -12,9 +13,9 @@ final class DatabaseConnections
 {
     private $connections = [];
 
-    public function set(string $name, EntityManager $entityManager): void
+    public function __construct(iterable $connections)
     {
-        $this->connections[$name] = $entityManager;
+        $this->connections = iterator_to_array($connections);
     }
 
     public function clear(): void
@@ -34,22 +35,10 @@ final class DatabaseConnections
         apply(new DatabaseCleaner(), array_values($this->connections));
     }
 
-    public function testConnections(): void
-    {
-        each($this->connectionTester(), $this->connections);
-    }
-
     private function clearer(): callable
     {
-        return function (EntityManager $entityManager) {
+        return static function (EntityManager $entityManager) {
             $entityManager->clear();
-        };
-    }
-
-    private function connectionTester(): callable
-    {
-        return function (EntityManager $entityManager) {
-            $entityManager->getConnection()->connect();
         };
     }
 }

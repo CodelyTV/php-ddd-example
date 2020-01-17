@@ -1,6 +1,0 @@
-services:
-
-  CodelyTv\MoocBackend\Command\GenerateSupervisorFilesCommand:
-    arguments: ['@CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventSubscribersConfiguration']
-    tags:
-      - { name: console.command }

@@ -1,0 +1,4 @@
+home_get:
+    path: /
+    controller: CodelyTv\Apps\Backoffice\Frontend\Controller\Home\HomeGetController
+    methods:  [GET]

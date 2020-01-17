@@ -6,31 +6,28 @@ namespace CodelyTv\Mooc\Shared\Infrastructure\Doctrine;
 
 use CodelyTv\Shared\Infrastructure\Doctrine\DoctrineEntityManagerFactory;
 use Doctrine\ORM\EntityManagerInterface;
-use function Lambdish\Phunctional\apply;
 
 final class MoocEntityManagerFactory
 {
-    private static $namespace = 'CodelyTv\Mooc';
-    private static $prefixes = [
-        'Shared\Domain' => 'Shared/Infrastructure/Persistence',
+    private const SCHEMA_PATH = __DIR__ . '/../../../../../databases/mooc.sql';
 
-        'Videos\Domain'   => 'Videos/Infrastructure/Persistence',
-        'Students\Domain' => 'Students/Infrastructure/Persistence',
-        'Steps\Domain'    => 'Steps/Infrastructure/Persistence',
-    ];
-
-    public static function create(array $parameters, $rootPath, $onDemand, $schemaFile): EntityManagerInterface
+    public static function create(array $parameters, string $environment): EntityManagerInterface
     {
+        $isDevMode = 'prod' !== $environment;
+
+        $prefixes = array_merge(
+            DoctrinePrefixesSearcher::inPath(__DIR__ . '/../../../../Mooc', 'CodelyTv\Mooc'),
+            DoctrinePrefixesSearcher::inPath(__DIR__ . '/../../../../Backoffice', 'CodelyTv\Backoffice')
+        );
+
+        $dbalCustomTypesClasses = DbalTypesSearcher::inPath(__DIR__ . '/../../../../Mooc', 'Mooc');
+
         return DoctrineEntityManagerFactory::create(
             $parameters,
-            self::getNormalizedPrefixes($rootPath),
-            $onDemand,
-            $schemaFile
+            $prefixes,
+            $isDevMode,
+            self::SCHEMA_PATH,
+            $dbalCustomTypesClasses
         );
-    }
-
-    private static function getNormalizedPrefixes($rootPath)
-    {
-        return apply(new PrefixesNormalizer(realpath($rootPath), self::$namespace), [self::$prefixes]);
     }
 }

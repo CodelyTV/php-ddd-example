@@ -11,7 +11,7 @@ final class Criteria
     private $offset;
     private $limit;
 
-    public function __construct(Filters $filters, ?Order $order, ?int $offset, ?int $limit)
+    public function __construct(Filters $filters, Order $order, ?int $offset, ?int $limit)
     {
         $this->filters = $filters;
         $this->order   = $order;
@@ -26,7 +26,7 @@ final class Criteria
 
     public function hasOrder(): bool
     {
-        return null !== $this->order;
+        return !$this->order->isNone();
     }
 
     public function plainFilters(): array
@@ -39,7 +39,7 @@ final class Criteria
         return $this->filters;
     }
 
-    public function order(): ?Order
+    public function order(): Order
     {
         return $this->order;
     }
@@ -52,5 +52,16 @@ final class Criteria
     public function limit(): ?int
     {
         return $this->limit;
+    }
+
+    public function serialize(): string
+    {
+        return sprintf(
+            '%s~~%s~~%s~~%s',
+            $this->filters->serialize(),
+            $this->order->serialize(),
+            $this->offset,
+            $this->limit
+        );
     }
 }

@@ -1,7 +1,0 @@
-CodelyTv\Mooc\Steps\Domain\Challenge\ChallengeStepStatement:
-  type: embeddable
-
-  fields:
-    value:
-      type: string
-      column: statement

@@ -1,5 +1,0 @@
-services:
-
-  CodelyTv\Test\Mooc\Shared\Infrastructure\MoocEnvironmentArranger:
-    autowire: true
-    public: true

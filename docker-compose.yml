@@ -1,8 +1,29 @@
 version: '3'
 
 services:
+  mysql:
+    container_name: codelytv-php_ddd_skeleton-mooc-mysql
+    image: mysql:8
+    ports:
+      - "3360:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    command: ["--default-authentication-plugin=mysql_native_password"]
+
+  rabbitmq:
+    container_name: codelytv-php_ddd_skeleton-rabbitmq
+    image: 'rabbitmq:3.7-management'
+    restart: unless-stopped
+    ports:
+      - 5630:5672
+      - 8090:15672
+    environment:
+      - RABBITMQ_DEFAULT_USER=codelytv
+      - RABBITMQ_DEFAULT_PASS=c0d3ly
+
   nginx:
-    container_name: codelytv-cqrs_ddd_php_example-nginx
+    container_name: codelytv-ddd-skeleton-nginx
     image: nginx:1.15-alpine
     restart: unless-stopped
     ports:
@@ -14,13 +35,13 @@ services:
       - php
 
   php:
-    container_name: codelytv-cqrs_ddd_php_example-php
+    container_name: codelytv-php_ddd_skeleton-php
     build:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:
-      - "9030:9001"
+      - "9090:9001"
     volumes:
       - .:/app:delegated
     env_file:
@@ -28,22 +49,3 @@ services:
     depends_on:
       - mysql
       - rabbitmq
-
-  mysql:
-    container_name: codelytv-cqrs_ddd_php_example-mysql
-    image: mariadb:10.4
-    restart: unless-stopped
-    ports:
-      - "3330:3306"
-    env_file:
-      - .env
-
-  rabbitmq:
-    container_name: codelytv-cqrs_ddd_php_example-rabbitmq
-    image: 'rabbitmq:3.7-management'
-    restart: unless-stopped
-    ports:
-      - 5630:5672
-      - 15630:15672
-    env_file:
-      - .env

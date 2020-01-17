@@ -1,9 +1,0 @@
-student_put:
-  path:     /students/{id}
-  defaults: { _controller: codely.mooc_backend.controller.student.put }
-  methods:  [PUT]
-
-student_get:
-  path:     /students/{id}
-  defaults: { _controller: codely.mooc_backend.controller.student.get }
-  methods:  [GET]

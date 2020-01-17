@@ -1,0 +1,4 @@
+health-check_get:
+    path: /health-check
+    controller: CodelyTv\Apps\Mooc\Backend\Controller\HealthCheck\HealthCheckGetController
+    methods:  [GET]
