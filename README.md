@@ -79,8 +79,8 @@
 ## 🤔 Project explanation
 
 This project tries to be a MOOC (Massive Open Online Course) platform.
-For now it only has an [API](applications/mooc_backend/src/Controller)
-and some [Consumers](applications/mooc_backend/src/Command).
+It has a [Web](apps/backoffice/frontend/src/Controller), an [API](apps/mooc/backend/src/Controller) and
+some [Consumers](apps/mooc/backend/src/Command).
 
 ### ⛱️ Bounded Contexts
 
