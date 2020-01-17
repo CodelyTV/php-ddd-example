@@ -1,4 +1,4 @@
-.PONY: build deps composer-install composer-update composer reload test run-tests start stop destroy doco rebuild start-local
+.PHONY: build deps composer-install composer-update composer reload test run-tests start stop destroy doco rebuild start-local
 
 current-dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
