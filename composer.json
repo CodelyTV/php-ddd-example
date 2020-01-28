@@ -42,7 +42,7 @@
 
     "doctrine/dbal": "^2.9",
     "doctrine/orm": "^2.6",
-    "ocramius/proxy-manager": "2.2.2",
+    "ocramius/proxy-manager": "^2.6",
 
     "elasticsearch/elasticsearch": "^7.3",
     "monolog/monolog": "^2.0"
