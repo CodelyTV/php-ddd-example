@@ -57,7 +57,7 @@
     "behat/mink-browserkit-driver": "dev-symfony-5",
     "friends-of-behat/symfony-extension": "2.1.0-BETA.1",
 
-    "phpunit/phpunit": "^8.2",
+    "phpunit/phpunit": "^8.5",
     "mockery/mockery": "^1.2",
 
     "fzaninotto/faker": "^1.8"
