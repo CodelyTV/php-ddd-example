@@ -45,7 +45,8 @@
     "ocramius/proxy-manager": "^2.6",
 
     "elasticsearch/elasticsearch": "^7.3",
-    "monolog/monolog": "^2.0"
+    "monolog/monolog": "^2.0",
+    "symfony/debug": "^4.4"
   },
   "require-dev": {
     "ext-xdebug": "*",

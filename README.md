@@ -69,7 +69,7 @@
 ### 🌍 Application execution
 
 1. Install PHP dependencies and bring up the project Docker containers with Docker Compose: `make build`
-2. Go to [the API health check page](http://api.codelytv.localhost:8030/status)
+2. Go to [the API health check page](http://api.codelytv.localhost:8030/health-check)
 
 ### ✅ Tests execution
 
