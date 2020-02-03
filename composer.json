@@ -46,7 +46,8 @@
 
     "elasticsearch/elasticsearch": "^7.3",
     "monolog/monolog": "^2.0",
-    "symfony/debug": "^4.4"
+    "symfony/debug": "^4.4",
+    "symfony/swiftmailer-bundle": "^3.4"
   },
   "require-dev": {
     "ext-xdebug": "*",

@@ -12,6 +12,7 @@ if ($_SERVER['APP_DEBUG']) {
     Debug::enable();
 }
 
+
 if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? $_ENV['TRUSTED_PROXIES'] ?? false) {
     Request::setTrustedProxies(
         explode(',', $trustedProxies),

@@ -1,5 +1,5 @@
 # ELASTIC - Search
-POST localhost:9200/backoffice_courses/_search
+PUT http://api.codelytv.localhost:8030/courses/{{id}}
 Content-Type: application/json
 
 {

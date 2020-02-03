@@ -17,7 +17,7 @@ composer composer-install composer-update:
 			--no-interaction
 
 reload:
-	@docker-compose exec php-fpm kill -USR2 1
+	@docker-compose exec php kill -USR2 1
 	@docker-compose exec nginx nginx -s reload
 
 test:

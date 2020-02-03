@@ -53,4 +53,9 @@ final class CoursesPostWebController extends WebController
             sprintf('Feliciades, el curso %s ha sido creado!', $request->request->get('name'))
         );
     }
+
+    protected function exceptions(): array
+    {
+        // TODO: Implement exceptions() method.
+    }
 }
