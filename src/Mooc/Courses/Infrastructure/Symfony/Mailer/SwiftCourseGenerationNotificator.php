@@ -12,6 +12,7 @@ use Swift_Mailer;
 class SwiftCourseGenerationNotificator implements CourseGenerationNotificator {
     private Swift_Mailer $mailer;
     private const TO_EMAIL_ADDRESS = 'mbertamini@tuenti.com';
+    private const BY_EMAIL_ADDRESS = 'test@test.com';
 
     /**
      * SwiftCourseGenerationNotificator constructor.
@@ -24,7 +25,7 @@ class SwiftCourseGenerationNotificator implements CourseGenerationNotificator {
     public function notifyCourseCreated(Course $course): void
     {
         $message = (new \Swift_Message('New course!'))
-            ->setFrom('send@example.com')
+            ->setFrom(self::BY_EMAIL_ADDRESS)
             ->setTo(self::TO_EMAIL_ADDRESS)
             ->setBody("A new course {$course->name()} Has been added!",
                 'text/html'

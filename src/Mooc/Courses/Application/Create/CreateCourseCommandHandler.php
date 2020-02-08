@@ -20,7 +20,6 @@ final class CreateCourseCommandHandler implements CommandHandler
 
     public function __invoke(CreateCourseCommand $command)
     {
-//        die(CourseId::random()->value());
         $id       = new CourseId($command->id());
         $name     = new CourseName($command->name());
         $duration = new CourseDuration($command->duration());
