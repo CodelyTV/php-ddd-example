@@ -95,5 +95,6 @@ services:
   # -- IMPLEMENTATIONS SELECTOR --
   CodelyTv\Shared\Domain\Bus\Event\EventBus: '@CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqEventBus'
 
+#https://symfony.com/doc/current/bundles/configuration.html to be done
 swiftmailer:
   disable_delivery: true
