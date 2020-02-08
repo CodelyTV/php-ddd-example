@@ -45,8 +45,7 @@
     "ocramius/proxy-manager": "^2.6",
 
     "elasticsearch/elasticsearch": "^7.3",
-    "monolog/monolog": "^2.0",
-    "symfony/debug": "^4.4"
+    "monolog/monolog": "^2.0"
   },
   "require-dev": {
     "ext-xdebug": "*",
@@ -61,7 +60,9 @@
     "phpunit/phpunit": "^8.5",
     "mockery/mockery": "^1.2",
 
-    "fzaninotto/faker": "^1.8"
+    "fzaninotto/faker": "^1.8",
+
+    "symfony/debug": "^4.4"
   },
   "autoload": {
     "psr-4": {
