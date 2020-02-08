@@ -1,3 +1,6 @@
+imports:
+  - { resource: ./services/swiftmailer_test.yaml }
+
 framework:
   test: true
 
