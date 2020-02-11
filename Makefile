@@ -57,5 +57,5 @@ stop-local:
 	symfony server:stop --dir=apps/backoffice/backend/public
 	
 ping-mysql:
-	docker exec codelytv-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent &> /dev/null
+	@docker exec codelytv-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
 
