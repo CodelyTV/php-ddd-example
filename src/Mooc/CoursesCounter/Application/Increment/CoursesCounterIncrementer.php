@@ -4,32 +4,31 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Mooc\CoursesCounter\Application\Increment;
 
-use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounter;
-use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterId;
+use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterInitializer;
 use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterRepository;
 use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
 use CodelyTv\Shared\Domain\Bus\Event\EventBus;
-use CodelyTv\Shared\Domain\UuidGenerator;
+use function Lambdish\Phunctional\apply;
 
 final class CoursesCounterIncrementer
 {
     private $repository;
-    private $uuidGenerator;
+    private $coursesCounterInitializer;
     private $bus;
 
     public function __construct(
         CoursesCounterRepository $repository,
-        UuidGenerator $uuidGenerator,
+        CoursesCounterInitializer $coursesCounterInitializer,
         EventBus $bus
     ) {
         $this->repository    = $repository;
-        $this->uuidGenerator = $uuidGenerator;
+        $this->coursesCounterInitializer = $coursesCounterInitializer;
         $this->bus           = $bus;
     }
 
     public function __invoke(CourseId $courseId)
     {
-        $counter = $this->repository->search() ?: $this->initializeCounter();
+        $counter = $this->repository->search() ?: apply($this->coursesCounterInitializer);
 
         if (!$counter->hasIncremented($courseId)) {
             $counter->increment($courseId);
@@ -37,10 +36,5 @@ final class CoursesCounterIncrementer
             $this->repository->save($counter);
             $this->bus->publish(...$counter->pullDomainEvents());
         }
-    }
-
-    private function initializeCounter(): CoursesCounter
-    {
-        return CoursesCounter::initialize(new CoursesCounterId($this->uuidGenerator->generate()));
     }
 }
