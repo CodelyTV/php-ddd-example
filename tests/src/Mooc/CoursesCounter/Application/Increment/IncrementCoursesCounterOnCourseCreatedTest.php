@@ -10,6 +10,7 @@ use CodelyTv\Tests\Mooc\Courses\Domain\CourseCreatedDomainEventMother;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseIdMother;
 use CodelyTv\Tests\Mooc\CoursesCounter\CoursesCounterModuleUnitTestCase;
 use CodelyTv\Tests\Mooc\CoursesCounter\Domain\CoursesCounterIncrementedDomainEventMother;
+use CodelyTv\Tests\Mooc\CoursesCounter\Domain\CoursesCounterInitializerMother;
 use CodelyTv\Tests\Mooc\CoursesCounter\Domain\CoursesCounterMother;
 
 final class IncrementCoursesCounterOnCourseCreatedTest extends CoursesCounterModuleUnitTestCase
@@ -23,7 +24,7 @@ final class IncrementCoursesCounterOnCourseCreatedTest extends CoursesCounterMod
         $this->subscriber = new IncrementCoursesCounterOnCourseCreated(
             new CoursesCounterIncrementer(
                 $this->repository(),
-                $this->initializer(),
+                CoursesCounterInitializerMother::create($this->uuidGenerator()),
                 $this->eventBus()
             )
         );

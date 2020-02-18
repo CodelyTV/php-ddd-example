@@ -38,19 +38,4 @@ abstract class CoursesCounterModuleUnitTestCase extends UnitTestCase
     {
         return $this->repository = $this->repository ?: $this->mock(CoursesCounterRepository::class);
     }
-
-    /** @return CoursesCounterInitializer|MockInterface */
-    protected function initializer(): MockInterface
-    {
-        return $this->initializer = $this->initializer ?: $this->mock(CoursesCounterInitializer::class);
-    }
-
-    protected function shouldInitialize(CoursesCounterId $coursesCounterId): void
-    {
-        $this->initializer()
-            ->shouldReceive('__invoke')
-            ->once()
-            ->withNoArgs()
-            ->andReturn(CoursesCounter::initialize($coursesCounterId));
-    }
 }
