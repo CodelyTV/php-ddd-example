@@ -77,10 +77,8 @@ final class DoctrineCriteriaConverter
         return function (Filter $filter): Comparison {
             $field = $this->mapFieldValue($filter->field());
             $value = $this->existsHydratorFor($field)
-                ?
-                $this->hydrate($field, $filter->value()->value())
-                :
-                $filter->value()->value();
+                ? $this->hydrate($field, $filter->value()->value())
+                : $filter->value()->value();
 
             return new Comparison($field, $filter->operator()->value(), $value);
         };
@@ -89,10 +87,8 @@ final class DoctrineCriteriaConverter
     private function mapFieldValue(FilterField $field)
     {
         return array_key_exists($field->value(), $this->criteriaToDoctrineFields)
-            ?
-            $this->criteriaToDoctrineFields[$field->value()]
-            :
-            $field->value();
+            ? $this->criteriaToDoctrineFields[$field->value()]
+            : $field->value();
     }
 
     private function formatOrder(Criteria $criteria): ?array
@@ -107,10 +103,8 @@ final class DoctrineCriteriaConverter
     private function mapOrderBy(OrderBy $field)
     {
         return array_key_exists($field->value(), $this->criteriaToDoctrineFields)
-            ?
-            $this->criteriaToDoctrineFields[$field->value()]
-            :
-            $field->value();
+            ? $this->criteriaToDoctrineFields[$field->value()]
+            : $field->value();
     }
 
     private function existsHydratorFor($field): bool
