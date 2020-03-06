@@ -16,7 +16,7 @@ final class BackofficeCourseMother
         return new BackofficeCourse($id, $name, $duration);
     }
 
-    public static function withName(string $name)
+    public static function withName(string $name): BackofficeCourse
     {
         return self::create(
             CourseIdMother::random()->value(),

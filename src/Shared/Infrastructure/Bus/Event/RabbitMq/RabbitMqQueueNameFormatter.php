@@ -19,7 +19,7 @@ final class RabbitMqQueueNameFormatter
             $subscriberClassPaths[0],
             $subscriberClassPaths[1],
             $subscriberClassPaths[2],
-            last($subscriberClassPaths)
+            last($subscriberClassPaths),
         ];
 
         return implode('.', map(self::toSnakeCase(), $queueNameParts));
@@ -48,8 +48,6 @@ final class RabbitMqQueueNameFormatter
 
     private static function toSnakeCase(): callable
     {
-        return static function (string $text) {
-            return Utils::toSnakeCase($text);
-        };
+        return static fn(string $text) => Utils::toSnakeCase($text);
     }
 }

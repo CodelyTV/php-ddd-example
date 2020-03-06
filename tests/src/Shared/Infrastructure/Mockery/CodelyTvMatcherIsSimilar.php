@@ -9,7 +9,7 @@ use Mockery\Matcher\MatcherAbstract;
 
 final class CodelyTvMatcherIsSimilar extends MatcherAbstract
 {
-    private $constraint;
+    private CodelyTvConstraintIsSimilar $constraint;
 
     public function __construct($value, $delta = 0.0)
     {

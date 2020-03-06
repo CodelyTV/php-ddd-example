@@ -8,7 +8,7 @@ use CodelyTv\Shared\Domain\Bus\Query\Response;
 
 final class CoursesCounterResponse implements Response
 {
-    private $total;
+    private int $total;
 
     public function __construct(int $total)
     {

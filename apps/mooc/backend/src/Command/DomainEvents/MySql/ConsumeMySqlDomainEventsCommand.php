@@ -16,10 +16,10 @@ use function Lambdish\Phunctional\pipe;
 
 final class ConsumeMySqlDomainEventsCommand extends Command
 {
-    protected static $defaultName = 'codelytv:domain-events:mysql:consume';
-    private $consumer;
-    private $subscriberLocator;
-    private $connections;
+    protected static                          $defaultName = 'codelytv:domain-events:mysql:consume';
+    private MySqlDoctrineDomainEventsConsumer $consumer;
+    private DomainEventSubscriberLocator      $subscriberLocator;
+    private DatabaseConnections               $connections;
 
     public function __construct(
         MySqlDoctrineDomainEventsConsumer $consumer,
@@ -40,7 +40,7 @@ final class ConsumeMySqlDomainEventsCommand extends Command
             ->addArgument('quantity', InputArgument::REQUIRED, 'Quantity of events to process');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $quantityEventsToProcess = (int) $input->getArgument('quantity');
 

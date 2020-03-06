@@ -8,7 +8,7 @@ use CodelyTv\Shared\Domain\Logger;
 
 final class MonologLogger implements Logger
 {
-    private $logger;
+    private \Monolog\Logger $logger;
 
     public function __construct(\Monolog\Logger $logger)
     {

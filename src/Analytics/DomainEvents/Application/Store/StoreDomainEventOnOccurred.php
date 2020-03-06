@@ -13,7 +13,7 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 
 final class StoreDomainEventOnOccurred implements DomainEventSubscriber
 {
-    private $storer;
+    private DomainEventStorer $storer;
 
     public function __construct(DomainEventStorer $storer)
     {
@@ -25,7 +25,7 @@ final class StoreDomainEventOnOccurred implements DomainEventSubscriber
         return [DomainEvent::class];
     }
 
-    public function __invoke(DomainEvent $event)
+    public function __invoke(DomainEvent $event): void
     {
         $id          = new AnalyticsDomainEventId($event->eventId());
         $aggregateId = new AnalyticsDomainEventAggregateId($event->aggregateId());

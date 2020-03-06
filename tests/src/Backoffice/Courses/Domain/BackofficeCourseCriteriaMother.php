@@ -8,7 +8,6 @@ use CodelyTv\Shared\Domain\Criteria\Criteria;
 use CodelyTv\Tests\Shared\Domain\Criteria\CriteriaMother;
 use CodelyTv\Tests\Shared\Domain\Criteria\FilterMother;
 use CodelyTv\Tests\Shared\Domain\Criteria\FiltersMother;
-use CodelyTv\Tests\Shared\Domain\Criteria\OrderMother;
 
 final class BackofficeCourseCriteriaMother
 {

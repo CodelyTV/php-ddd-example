@@ -10,7 +10,7 @@ use function Lambdish\Phunctional\each;
 
 final class RabbitMqConfigurer
 {
-    private $connection;
+    private RabbitMqConnection $connection;
 
     public function __construct(RabbitMqConnection $connection)
     {
