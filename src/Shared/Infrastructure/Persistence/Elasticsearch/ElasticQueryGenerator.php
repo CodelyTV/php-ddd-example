@@ -15,7 +15,7 @@ final class ElasticQueryGenerator
     private const TERM_TERM     = 'term';
     private const TERM_RANGE    = 'range';
     private const TERM_WILDCARD = 'wildcard';
-    private static $termMapping = [
+    private static array $termMapping   = [
         FilterOperator::EQUAL        => self::TERM_TERM,
         FilterOperator::NOT_EQUAL    => '!=',
         FilterOperator::GT           => self::TERM_RANGE,
@@ -23,9 +23,9 @@ final class ElasticQueryGenerator
         FilterOperator::CONTAINS     => self::TERM_WILDCARD,
         FilterOperator::NOT_CONTAINS => self::TERM_WILDCARD,
     ];
-    private static $mustNotFields = [FilterOperator::NOT_EQUAL, FilterOperator::NOT_CONTAINS];
+    private static array $mustNotFields = [FilterOperator::NOT_EQUAL, FilterOperator::NOT_CONTAINS];
 
-    public function __invoke(array $query, Filter $filter)
+    public function __invoke(array $query, Filter $filter): array
     {
         $type          = $this->typeFor($filter->operator());
         $termLevel     = $this->termLeverFor($filter->operator());

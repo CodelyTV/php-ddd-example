@@ -8,11 +8,10 @@ use Behat\Mink\Driver\DriverInterface;
 use Behat\Mink\Session;
 use Symfony\Component\BrowserKit\AbstractBrowser;
 use Symfony\Component\DomCrawler\Crawler;
-use Symfony\Component\HttpFoundation\Request;
 
 final class MinkHelper
 {
-    private $session;
+    private Session $session;
 
     public function __construct(Session $session)
     {
@@ -63,7 +62,7 @@ final class MinkHelper
         $this->getClient()->setServerParameters([]);
     }
 
-    public function getRequest(): Request
+    public function getRequest(): object
     {
         return $this->getClient()->getRequest();
     }
