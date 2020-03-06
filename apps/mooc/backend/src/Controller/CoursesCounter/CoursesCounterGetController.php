@@ -6,22 +6,24 @@ namespace CodelyTv\Apps\Mooc\Backend\Controller\CoursesCounter;
 
 use CodelyTv\Mooc\CoursesCounter\Application\Find\CoursesCounterResponse;
 use CodelyTv\Mooc\CoursesCounter\Application\Find\FindCoursesCounterQuery;
-use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
+use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterNotExist;
+use CodelyTv\Shared\Infrastructure\Symfony\ApiController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
-final class CoursesCounterGetController
+final class CoursesCounterGetController extends ApiController
 {
-    private $bus;
-
-    public function __construct(QueryBus $bus)
+    protected function exceptions(): array
     {
-        $this->bus = $bus;
+        return [
+            CoursesCounterNotExist::class => Response::HTTP_NOT_FOUND,
+        ];
     }
 
     public function __invoke()
     {
         /** @var CoursesCounterResponse $response */
-        $response = $this->bus->ask(new FindCoursesCounterQuery());
+        $response = $this->ask(new FindCoursesCounterQuery());
 
         return new JsonResponse(
             [

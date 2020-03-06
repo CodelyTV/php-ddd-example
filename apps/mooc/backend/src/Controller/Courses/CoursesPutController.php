@@ -5,22 +5,20 @@ declare(strict_types = 1);
 namespace CodelyTv\Apps\Mooc\Backend\Controller\Courses;
 
 use CodelyTv\Mooc\Courses\Application\Create\CreateCourseCommand;
-use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
+use CodelyTv\Shared\Infrastructure\Symfony\ApiController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-final class CoursesPutController
+final class CoursesPutController extends ApiController
 {
-    private CommandBus $bus;
-
-    public function __construct(CommandBus $bus)
+    protected function exceptions(): array
     {
-        $this->bus = $bus;
+        return [];
     }
 
     public function __invoke(string $id, Request $request): Response
     {
-        $this->bus->dispatch(
+        $this->dispatch(
             new CreateCourseCommand(
                 $id,
                 $request->request->get('name'),
