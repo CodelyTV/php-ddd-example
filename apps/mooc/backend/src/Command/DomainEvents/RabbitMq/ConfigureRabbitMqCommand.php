@@ -13,9 +13,9 @@ use Traversable;
 final class ConfigureRabbitMqCommand extends Command
 {
     protected static $defaultName = 'codelytv:domain-events:rabbitmq:configure';
-    private $configurer;
-    private $exchangeName;
-    private $subscribers;
+    private RabbitMqConfigurer $configurer;
+    private string $exchangeName;
+    private Traversable $subscribers;
 
     public function __construct(RabbitMqConfigurer $configurer, string $exchangeName, Traversable $subscribers)
     {
@@ -31,7 +31,7 @@ final class ConfigureRabbitMqCommand extends Command
         $this->setDescription('Configure the RabbitMQ to allow publish & consume domain events');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $this->configurer->configure($this->exchangeName, ...iterator_to_array($this->subscribers));
     }

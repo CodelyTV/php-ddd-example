@@ -11,11 +11,10 @@ use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
-use function Lambdish\Phunctional\get;
 
 final class BasicHttpAuthMiddleware
 {
-    private $bus;
+    private CommandBus $bus;
 
     public function __construct(CommandBus $bus)
     {

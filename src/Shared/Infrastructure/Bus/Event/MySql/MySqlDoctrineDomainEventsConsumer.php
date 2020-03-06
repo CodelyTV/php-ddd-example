@@ -7,15 +7,17 @@ namespace CodelyTv\Shared\Infrastructure\Bus\Event\MySql;
 use CodelyTv\Shared\Domain\Utils;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventMapping;
 use DateTimeImmutable;
+use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\FetchMode;
 use Doctrine\ORM\EntityManager;
+use RuntimeException;
 use function Lambdish\Phunctional\each;
 use function Lambdish\Phunctional\map;
 
 final class MySqlDoctrineDomainEventsConsumer
 {
-    private $connection;
-    private $eventMapping;
+    private Connection $connection;
+    private DomainEventMapping $eventMapping;
 
     public function __construct(EntityManager $entityManager, DomainEventMapping $eventMapping)
     {
@@ -51,7 +53,7 @@ final class MySqlDoctrineDomainEventsConsumer
                 );
 
                 $subscribers($domainEvent);
-            } catch (\RuntimeException $error) {
+            } catch (RuntimeException $error) {
             }
         };
     }
@@ -63,8 +65,6 @@ final class MySqlDoctrineDomainEventsConsumer
 
     private function idExtractor(): callable
     {
-        return static function (array $event): string {
-            return "'${event['id']}'";
-        };
+        return static fn(array $event): string => "'${event['id']}'";
     }
 }

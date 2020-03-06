@@ -7,13 +7,14 @@ namespace CodelyTv\Shared\Infrastructure\Bus\Event\MySql;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 use CodelyTv\Shared\Domain\Utils;
+use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManager;
 use function Lambdish\Phunctional\each;
 
 final class MySqlDoctrineEventBus implements EventBus
 {
     private const DATABASE_TIMESTAMP_FORMAT = 'Y-m-d H:i:s';
-    private $connection;
+    private Connection $connection;
 
     public function __construct(EntityManager $entityManager)
     {

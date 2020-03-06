@@ -10,9 +10,9 @@ use function Lambdish\Phunctional\search;
 
 final class CoursesCounter extends AggregateRoot
 {
-    private $total;
-    private $existingCourses;
-    private $id;
+    private CoursesCounterTotal $total;
+    private array $existingCourses;
+    private CoursesCounterId $id;
 
     public function __construct(CoursesCounterId $id, CoursesCounterTotal $total, CourseId ...$existingCourses)
     {
@@ -58,8 +58,6 @@ final class CoursesCounter extends AggregateRoot
 
     private function courseIdComparator(CourseId $courseId): callable
     {
-        return static function (CourseId $other) use ($courseId) {
-            return $courseId->equals($other);
-        };
+        return static fn(CourseId $other) => $courseId->equals($other);
     }
 }

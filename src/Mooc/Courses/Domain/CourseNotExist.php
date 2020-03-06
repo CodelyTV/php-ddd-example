@@ -9,7 +9,7 @@ use CodelyTv\Shared\Domain\DomainError;
 
 final class CourseNotExist extends DomainError
 {
-    private $id;
+    private CourseId $id;
 
     public function __construct(CourseId $id)
     {

@@ -14,15 +14,15 @@ use Doctrine\Common\Collections\Expr\CompositeExpression;
 
 final class DoctrineCriteriaConverter
 {
-    private $criteria;
-    private $criteriaToDoctrineFields;
-    private $hydrators;
+    private Criteria $criteria;
+    private array $criteriaToDoctrineFields;
+    private array $hydrators;
 
     public function __construct(Criteria $criteria, array $criteriaToDoctrineFields = [], array $hydrators = [])
     {
-        $this->criteria = $criteria;
+        $this->criteria                 = $criteria;
         $this->criteriaToDoctrineFields = $criteriaToDoctrineFields;
-        $this->hydrators = $hydrators;
+        $this->hydrators                = $hydrators;
     }
 
     public static function convert(
@@ -76,8 +76,10 @@ final class DoctrineCriteriaConverter
     {
         return function (Filter $filter): Comparison {
             $field = $this->mapFieldValue($filter->field());
-            $value = $this->existsHydratorFor($field) ?
-                $this->hydrate($field, $filter->value()->value()) :
+            $value = $this->existsHydratorFor($field)
+                ?
+                $this->hydrate($field, $filter->value()->value())
+                :
                 $filter->value()->value();
 
             return new Comparison($field, $filter->operator()->value(), $value);
@@ -86,8 +88,10 @@ final class DoctrineCriteriaConverter
 
     private function mapFieldValue(FilterField $field)
     {
-        return array_key_exists($field->value(), $this->criteriaToDoctrineFields) ?
-            $this->criteriaToDoctrineFields[$field->value()] :
+        return array_key_exists($field->value(), $this->criteriaToDoctrineFields)
+            ?
+            $this->criteriaToDoctrineFields[$field->value()]
+            :
             $field->value();
     }
 
@@ -102,8 +106,10 @@ final class DoctrineCriteriaConverter
 
     private function mapOrderBy(OrderBy $field)
     {
-        return array_key_exists($field->value(), $this->criteriaToDoctrineFields) ?
-            $this->criteriaToDoctrineFields[$field->value()] :
+        return array_key_exists($field->value(), $this->criteriaToDoctrineFields)
+            ?
+            $this->criteriaToDoctrineFields[$field->value()]
+            :
             $field->value();
     }
 

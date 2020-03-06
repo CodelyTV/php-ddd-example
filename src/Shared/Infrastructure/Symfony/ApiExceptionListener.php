@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 final class ApiExceptionListener
 {
-    private $exceptionHandler;
+    private ApiExceptionsHttpStatusCodeMapping $exceptionHandler;
 
     public function __construct(ApiExceptionsHttpStatusCodeMapping $exceptionHandler)
     {
@@ -34,7 +34,7 @@ final class ApiExceptionListener
         );
     }
 
-    private function exceptionCodeFor(Exception $error)
+    private function exceptionCodeFor(Exception $error): string
     {
         $domainErrorClass = DomainError::class;
 

@@ -13,9 +13,9 @@ use CodelyTv\Shared\Domain\UuidGenerator;
 
 final class CoursesCounterIncrementer
 {
-    private $repository;
-    private $uuidGenerator;
-    private $bus;
+    private CoursesCounterRepository $repository;
+    private UuidGenerator $uuidGenerator;
+    private EventBus $bus;
 
     public function __construct(
         CoursesCounterRepository $repository,
@@ -27,7 +27,7 @@ final class CoursesCounterIncrementer
         $this->bus           = $bus;
     }
 
-    public function __invoke(CourseId $courseId)
+    public function __invoke(CourseId $courseId): void
     {
         $counter = $this->repository->search() ?: $this->initializeCounter();
 

@@ -16,9 +16,9 @@ use function Lambdish\Phunctional\repeat;
 final class ConsumeRabbitMqDomainEventsCommand extends Command
 {
     protected static $defaultName = 'codelytv:domain-events:rabbitmq:consume';
-    private $consumer;
-    private $connections;
-    private $locator;
+    private RabbitMqDomainEventsConsumer $consumer;
+    private DatabaseConnections $connections;
+    private DomainEventSubscriberLocator $locator;
 
     public function __construct(
         RabbitMqDomainEventsConsumer $consumer,
@@ -40,7 +40,7 @@ final class ConsumeRabbitMqDomainEventsCommand extends Command
             ->addArgument('quantity', InputArgument::REQUIRED, 'Quantity of events to process');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $queueName       = (string) $input->getArgument('queue');
         $eventsToProcess = (int) $input->getArgument('quantity');

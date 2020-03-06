@@ -6,11 +6,12 @@ namespace CodelyTv\Shared\Domain\ValueObject;
 
 use CodelyTv\Shared\Domain\Utils;
 use ReflectionClass;
+use function in_array;
 use function Lambdish\Phunctional\reindex;
 
 abstract class Enum
 {
-    protected static $cache = [];
+    protected static array $cache = [];
     protected $value;
 
     public function __construct($value)
@@ -61,7 +62,7 @@ abstract class Enum
 
     private function ensureIsBetweenAcceptedValues($value): void
     {
-        if (!\in_array($value, static::values(), true)) {
+        if (!in_array($value, static::values(), true)) {
             $this->throwExceptionForInvalidValue($value);
         }
     }
@@ -73,9 +74,7 @@ abstract class Enum
 
     private static function keysFormatter(): callable
     {
-        return static function ($unused, string $key): string {
-            return Utils::toCamelCase(strtolower($key));
-        };
+        return static fn($unused, string $key): string => Utils::toCamelCase(strtolower($key));
     }
 
     public function __toString(): string

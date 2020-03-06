@@ -16,7 +16,7 @@ final class DoctrineCourseRepository extends DoctrineRepository implements Cours
         $this->persist($course);
     }
 
-    public function search(CourseId $id): ?Course
+    public function search(CourseId $id): ?object
     {
         return $this->repository(Course::class)->find($id);
     }

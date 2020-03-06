@@ -15,7 +15,7 @@ final class DoctrineCoursesCounterRepository extends DoctrineRepository implemen
         $this->persist($counter);
     }
 
-    public function search(): ?CoursesCounter
+    public function search(): ?object
     {
         return $this->repository(CoursesCounter::class)->findOneBy([]);
     }

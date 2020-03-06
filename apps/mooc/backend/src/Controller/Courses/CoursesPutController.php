@@ -11,14 +11,14 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class CoursesPutController
 {
-    private $bus;
+    private CommandBus $bus;
 
     public function __construct(CommandBus $bus)
     {
         $this->bus = $bus;
     }
 
-    public function __invoke(string $id, Request $request)
+    public function __invoke(string $id, Request $request): Response
     {
         $this->bus->dispatch(
             new CreateCourseCommand(

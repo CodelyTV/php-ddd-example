@@ -12,7 +12,7 @@ use function Lambdish\Phunctional\map;
 
 abstract class ElasticsearchRepository
 {
-    private $client;
+    private ElasticsearchClient $client;
 
     public function __construct(ElasticsearchClient $client)
     {
@@ -20,6 +20,15 @@ abstract class ElasticsearchRepository
     }
 
     abstract protected function aggregateName(): string;
+
+    public function searchByCriteria(Criteria $criteria): array
+    {
+        $converter = new ElasticsearchCriteriaConverter();
+
+        $query = $converter->convert($criteria);
+
+        return $this->searchRawElasticsearchQuery($query);
+    }
 
     protected function persist(string $id, array $plainBody): void
     {
@@ -44,15 +53,6 @@ abstract class ElasticsearchRepository
         }
     }
 
-    public function searchByCriteria(Criteria $criteria): array
-    {
-        $converter = new ElasticsearchCriteriaConverter();
-
-        $query = $converter->convert($criteria);
-
-        return $this->searchRawElasticsearchQuery($query);
-    }
-
     protected function indexName(): string
     {
         return sprintf('%s_%s', $this->client->indexPrefix(), $this->aggregateName());
@@ -60,8 +60,6 @@ abstract class ElasticsearchRepository
 
     private function elasticValuesExtractor(): callable
     {
-        return static function (array $elasticValues): array {
-            return $elasticValues['_source'];
-        };
+        return static fn(array $elasticValues): array => $elasticValues['_source'];
     }
 }
