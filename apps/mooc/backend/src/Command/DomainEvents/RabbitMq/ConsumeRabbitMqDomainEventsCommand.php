@@ -15,9 +15,9 @@ use function Lambdish\Phunctional\repeat;
 
 final class ConsumeRabbitMqDomainEventsCommand extends Command
 {
-    protected static $defaultName = 'codelytv:domain-events:rabbitmq:consume';
+    protected static                     $defaultName = 'codelytv:domain-events:rabbitmq:consume';
     private RabbitMqDomainEventsConsumer $consumer;
-    private DatabaseConnections $connections;
+    private DatabaseConnections          $connections;
     private DomainEventSubscriberLocator $locator;
 
     public function __construct(

@@ -13,8 +13,8 @@ use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 final class CourseRenamer
 {
     private CourseRepository $repository;
-    private CourseFinder $finder;
-    private EventBus $bus;
+    private CourseFinder     $finder;
+    private EventBus         $bus;
 
     public function __construct(CourseRepository $repository, EventBus $bus)
     {

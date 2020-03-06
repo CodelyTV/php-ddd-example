@@ -8,11 +8,11 @@ use CodelyTv\Shared\Domain\Bus\Query\Query;
 
 final class SearchBackofficeCoursesByCriteriaQuery implements Query
 {
-    private array $filters;
+    private array   $filters;
     private ?string $orderBy;
     private ?string $order;
-    private ?int $limit;
-    private ?int $offset;
+    private ?int    $limit;
+    private ?int    $offset;
 
     public function __construct(
         array $filters,

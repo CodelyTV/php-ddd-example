@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class ImportCoursesToElasticsearchCommand extends Command
 {
-    private MySqlBackofficeCourseRepository $mySqlRepository;
+    private MySqlBackofficeCourseRepository         $mySqlRepository;
     private ElasticsearchBackofficeCourseRepository $elasticRepository;
 
     public function __construct(

@@ -14,7 +14,7 @@ use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 final class CourseCreator
 {
     private CourseRepository $repository;
-    private EventBus $bus;
+    private EventBus         $bus;
 
     public function __construct(CourseRepository $repository, EventBus $bus)
     {

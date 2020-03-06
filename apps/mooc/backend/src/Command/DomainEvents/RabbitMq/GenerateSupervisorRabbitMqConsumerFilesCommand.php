@@ -18,7 +18,7 @@ final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
     private const EVENTS_TO_PROCESS_AT_TIME           = 200;
     private const NUMBERS_OF_PROCESSES_PER_SUBSCRIBER = 1;
     private const SUPERVISOR_PATH                     = __DIR__ . '/../../../../build/supervisor';
-    protected static $defaultName = 'codelytv:domain-events:rabbitmq:generate-supervisor-files';
+    protected static                     $defaultName = 'codelytv:domain-events:rabbitmq:generate-supervisor-files';
     private DomainEventSubscriberLocator $locator;
 
     public function __construct(DomainEventSubscriberLocator $locator)

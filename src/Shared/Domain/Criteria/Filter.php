@@ -6,9 +6,9 @@ namespace CodelyTv\Shared\Domain\Criteria;
 
 final class Filter
 {
-    private FilterField $field;
+    private FilterField    $field;
     private FilterOperator $operator;
-    private FilterValue $value;
+    private FilterValue    $value;
 
     public function __construct(FilterField $field, FilterOperator $operator, FilterValue $value)
     {

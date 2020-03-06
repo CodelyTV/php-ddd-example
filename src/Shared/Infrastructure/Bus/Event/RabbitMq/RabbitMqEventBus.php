@@ -13,8 +13,8 @@ use function Lambdish\Phunctional\each;
 
 final class RabbitMqEventBus implements EventBus
 {
-    private RabbitMqConnection $connection;
-    private string $exchangeName;
+    private RabbitMqConnection    $connection;
+    private string                $exchangeName;
     private MySqlDoctrineEventBus $failoverPublisher;
 
     public function __construct(

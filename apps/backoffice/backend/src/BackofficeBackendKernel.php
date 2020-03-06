@@ -10,10 +10,12 @@ use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
+use function dirname;
 
 final class BackofficeBackendKernel extends Kernel
 {
     use MicroKernelTrait;
+
     private const CONFIG_EXTS = '.{xml,yaml}';
 
     public function registerBundles(): iterable
@@ -28,7 +30,7 @@ final class BackofficeBackendKernel extends Kernel
 
     public function getProjectDir(): string
     {
-        return \dirname(__DIR__);
+        return dirname(__DIR__);
     }
 
     protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void

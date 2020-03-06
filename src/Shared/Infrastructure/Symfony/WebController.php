@@ -16,8 +16,8 @@ use Twig\Environment;
 
 abstract class WebController extends ApiController
 {
-    private Environment $twig;
-    private RouterInterface $router;
+    private Environment      $twig;
+    private RouterInterface  $router;
     private SessionInterface $session;
 
     public function __construct(

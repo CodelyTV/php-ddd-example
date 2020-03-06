@@ -13,8 +13,8 @@ use function Lambdish\Phunctional\each;
 
 abstract class ApiController
 {
-    private QueryBus $queryBus;
-    private CommandBus $commandBus;
+    private QueryBus                           $queryBus;
+    private CommandBus                         $commandBus;
     private ApiExceptionsHttpStatusCodeMapping $exceptionHandler;
 
     public function __construct(

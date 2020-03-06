@@ -16,10 +16,10 @@ use function Lambdish\Phunctional\pipe;
 
 final class ConsumeMySqlDomainEventsCommand extends Command
 {
-    protected static $defaultName = 'codelytv:domain-events:mysql:consume';
+    protected static                          $defaultName = 'codelytv:domain-events:mysql:consume';
     private MySqlDoctrineDomainEventsConsumer $consumer;
-    private DomainEventSubscriberLocator $subscriberLocator;
-    private DatabaseConnections $connections;
+    private DomainEventSubscriberLocator      $subscriberLocator;
+    private DatabaseConnections               $connections;
 
     public function __construct(
         MySqlDoctrineDomainEventsConsumer $consumer,

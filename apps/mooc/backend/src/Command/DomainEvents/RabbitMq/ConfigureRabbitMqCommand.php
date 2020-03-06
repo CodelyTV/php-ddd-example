@@ -12,10 +12,10 @@ use Traversable;
 
 final class ConfigureRabbitMqCommand extends Command
 {
-    protected static $defaultName = 'codelytv:domain-events:rabbitmq:configure';
+    protected static           $defaultName = 'codelytv:domain-events:rabbitmq:configure';
     private RabbitMqConfigurer $configurer;
-    private string $exchangeName;
-    private Traversable $subscribers;
+    private string             $exchangeName;
+    private Traversable        $subscribers;
 
     public function __construct(RabbitMqConfigurer $configurer, string $exchangeName, Traversable $subscribers)
     {

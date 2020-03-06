@@ -15,7 +15,7 @@ final class ElasticQueryGenerator
     private const TERM_TERM     = 'term';
     private const TERM_RANGE    = 'range';
     private const TERM_WILDCARD = 'wildcard';
-    private static array $termMapping = [
+    private static array $termMapping   = [
         FilterOperator::EQUAL        => self::TERM_TERM,
         FilterOperator::NOT_EQUAL    => '!=',
         FilterOperator::GT           => self::TERM_RANGE,

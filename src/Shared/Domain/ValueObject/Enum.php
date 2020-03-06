@@ -12,7 +12,7 @@ use function Lambdish\Phunctional\reindex;
 abstract class Enum
 {
     protected static array $cache = [];
-    protected $value;
+    protected              $value;
 
     public function __construct($value)
     {

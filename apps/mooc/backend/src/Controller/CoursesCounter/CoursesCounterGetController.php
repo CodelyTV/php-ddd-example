@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Apps\Mooc\Backend\Controller\CoursesCounter;
 
-use CodelyTv\Mooc\CoursesCounter\Application\Find\CoursesCounterFinder;
 use CodelyTv\Mooc\CoursesCounter\Application\Find\CoursesCounterResponse;
 use CodelyTv\Mooc\CoursesCounter\Application\Find\FindCoursesCounterQuery;
 use CodelyTv\Shared\Domain\Bus\Query\QueryBus;

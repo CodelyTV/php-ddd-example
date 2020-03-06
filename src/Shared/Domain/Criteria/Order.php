@@ -6,7 +6,7 @@ namespace CodelyTv\Shared\Domain\Criteria;
 
 final class Order
 {
-    private OrderBy $orderBy;
+    private OrderBy   $orderBy;
     private OrderType $orderType;
 
     public function __construct(OrderBy $orderBy, OrderType $orderType)
