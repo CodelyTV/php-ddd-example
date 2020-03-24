@@ -6,6 +6,8 @@ namespace CodelyTv\Mooc\Courses\Infrastructure\Persistence;
 
 use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
+use CodelyTv\Mooc\Courses\Domain\CouserEntity;
+use CodelyTv\Mooc\Courses\Domain\NullCourse;
 use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
 use CodelyTv\Shared\Infrastructure\Persistence\Doctrine\DoctrineRepository;
 
@@ -16,8 +18,8 @@ final class DoctrineCourseRepository extends DoctrineRepository implements Cours
         $this->persist($course);
     }
 
-    public function search(CourseId $id): ?Course
+    public function search(CourseId $id): CouserEntity
     {
-        return $this->repository(Course::class)->find($id);
+        return $this->repository(Course::class)->find($id) ?? new NullCourse();
     }
 }
