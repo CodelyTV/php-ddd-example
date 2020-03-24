@@ -6,6 +6,8 @@ namespace CodelyTv\Mooc\Courses\Infrastructure\Persistence;
 
 use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
+use CodelyTv\Mooc\Courses\Domain\CouserEntity;
+use CodelyTv\Mooc\Courses\Domain\NullCourse;
 use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
 
 final class FileCourseRepository implements CourseRepository
@@ -17,11 +19,11 @@ final class FileCourseRepository implements CourseRepository
         file_put_contents($this->fileName($course->id()->value()), serialize($course));
     }
 
-    public function search(CourseId $id): ?Course
+    public function search(CourseId $id): CouserEntity
     {
         return file_exists($this->fileName($id->value()))
             ? unserialize(file_get_contents($this->fileName($id->value())))
-            : null;
+            : new NullCourse($id);
     }
 
     private function fileName(string $id): string
