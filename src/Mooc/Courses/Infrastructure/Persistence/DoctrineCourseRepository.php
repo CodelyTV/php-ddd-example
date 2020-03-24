@@ -20,6 +20,6 @@ final class DoctrineCourseRepository extends DoctrineRepository implements Cours
 
     public function search(CourseId $id): CouserEntity
     {
-        return $this->repository(Course::class)->find($id) ?? new NullCourse();
+        return $this->repository(Course::class)->find($id) ?? new NullCourse($id);
     }
 }
