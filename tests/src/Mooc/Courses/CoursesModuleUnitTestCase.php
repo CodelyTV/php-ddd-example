@@ -6,6 +6,7 @@ namespace CodelyTv\Tests\Mooc\Courses;
 
 use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
+use CodelyTv\Mooc\Courses\Domain\CouserEntity;
 use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
 use Mockery\MockInterface;
@@ -23,7 +24,7 @@ abstract class CoursesModuleUnitTestCase extends UnitTestCase
             ->andReturnNull();
     }
 
-    protected function shouldSearch(CourseId $id, ?Course $course): void
+    protected function shouldSearch(CourseId $id, CouserEntity $course): void
     {
         $this->repository()
             ->shouldReceive('search')

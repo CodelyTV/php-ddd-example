@@ -6,6 +6,7 @@ namespace CodelyTv\Tests\Mooc\Courses\Application\Update;
 
 use CodelyTv\Mooc\Courses\Application\Update\CourseRenamer;
 use CodelyTv\Mooc\Courses\Domain\CourseNotExist;
+use CodelyTv\Mooc\Courses\Domain\NullCourse;
 use CodelyTv\Tests\Mooc\Courses\CoursesModuleUnitTestCase;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseIdMother;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseMother;
@@ -44,7 +45,7 @@ final class CourseRenamerTest extends CoursesModuleUnitTestCase
 
         $id = CourseIdMother::random();
 
-        $this->shouldSearch($id, null);
+        $this->shouldSearch($id, new NullCourse());
 
         $this->renamer->__invoke($id, CourseNameMother::random());
     }
