@@ -6,6 +6,7 @@ namespace CodelyTv\Mooc\Courses\Infrastructure\Persistence;
 
 use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
+use CodelyTv\Mooc\Courses\Domain\Courses;
 use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
 
 final class FileCourseRepository implements CourseRepository
@@ -27,5 +28,10 @@ final class FileCourseRepository implements CourseRepository
     private function fileName(string $id): string
     {
         return sprintf('%s.%s.repo', self::FILE_PATH, $id);
+    }
+
+    public function findAll(): ?Courses
+    {
+        // TODO: Implement findAll() method.
     }
 }

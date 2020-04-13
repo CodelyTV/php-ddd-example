@@ -2,3 +2,8 @@ courses_put:
   path: /courses/{id}
   controller: CodelyTv\Apps\Mooc\Backend\Controller\Courses\CoursesPutController
   methods:  [PUT]
+
+courses_get:
+  path: /courses
+  controller: CodelyTv\Apps\Mooc\Backend\Controller\Courses\CoursesGetController
+  methods:  [GET]
