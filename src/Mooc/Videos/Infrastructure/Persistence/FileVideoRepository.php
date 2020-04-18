@@ -26,12 +26,7 @@ final class FileVideoRepository implements VideoRepository
 
     public function search(VideoId $videoId): ?Video
     {
-        $files = glob($this->filesDirectory . '*.repo');
-        $videos = [];
-        foreach ($files as $file) {
-            $video = unserialize(file_get_contents($file));
-            $videos[$video->id()->value()] = $video;
-        }
+        $videos = $this->getAllVideos();
         return $videos[$videoId->value()];
     }
 
@@ -43,5 +38,16 @@ final class FileVideoRepository implements VideoRepository
     private function fileName(string $id)
     {
         return sprintf('%s.%s.repo', $this->filesDirectory, $id);
+    }
+
+    protected function getAllVideos(): array
+    {
+        $files = glob($this->filesDirectory . '*.repo');
+        $videos = [];
+        foreach ($files as $file) {
+            $video = unserialize(file_get_contents($file));
+            $videos[$video->id()->value()] = $video;
+        }
+        return $videos;
     }
 }
