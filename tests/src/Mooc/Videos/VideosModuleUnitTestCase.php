@@ -4,7 +4,9 @@
 namespace CodelyTv\Tests\Mooc\Videos;
 
 
+use CodelyTv\Mooc\Videos\Application\Update\VideoTitleUpdater;
 use CodelyTv\Mooc\Videos\Domain\Video;
+use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Mooc\Videos\Domain\VideoRepository;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
 use Mockery\MockInterface;
@@ -19,11 +21,11 @@ abstract class VideosModuleUnitTestCase extends UnitTestCase
         return $this->repository = $this->repository ?: $this->mock(VideoRepository::class);
     }
 
-    protected function shouldSearch(Video $video)
+    protected function shouldSearch(VideoId $videoId, ?Video $video)
     {
         $this->repository()
             ->shouldReceive('search')
-            ->with($this->similarTo($video->id()))
+            ->with($this->similarTo($videoId))
             ->once()
             ->andReturn($video);
     }
