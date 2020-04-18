@@ -17,10 +17,10 @@ final class VideoTitleUpdater
         $this->repository = $repository;
     }
 
-    public function __invoke($id, $title): void
+    public function __invoke(VideoTitleUpdaterRequest $request): void
     {
-        $video = $this->repository->search(new VideoId($id));
-        $video->changeTitle(new VideoTitle($title));
+        $video = $this->repository->search(new VideoId($request->videoId()));
+        $video->changeTitle(new VideoTitle($request->videoTitle()));
         $this->repository->update($video);
     }
 }
