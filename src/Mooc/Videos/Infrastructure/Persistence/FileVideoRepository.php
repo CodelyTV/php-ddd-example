@@ -27,7 +27,7 @@ final class FileVideoRepository implements VideoRepository
     public function search(VideoId $videoId): ?Video
     {
         $videos = $this->getAllVideos();
-        return $videos[$videoId->value()];
+        return $videos[$videoId->value()] ?? null;
     }
 
     public function update(Video $video): void
