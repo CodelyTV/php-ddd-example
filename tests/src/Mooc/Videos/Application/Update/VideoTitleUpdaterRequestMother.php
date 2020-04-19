@@ -5,18 +5,24 @@ namespace CodelyTv\Tests\Mooc\Videos\Application\Update;
 
 
 use CodelyTv\Mooc\Videos\Application\Update\VideoTitleUpdaterRequest;
-use CodelyTv\Tests\Mooc\Videos\Domain\VideoTitleMother;
-use CodelyTv\Tests\Shared\Domain\UuidMother;
+use CodelyTv\Mooc\Videos\Domain\Video;
+use CodelyTv\Tests\Mooc\Videos\Domain\VideoMother;
 
 final class VideoTitleUpdaterRequestMother
 {
-    public static function create(string $videoId, string $videoTitle): VideoTitleUpdaterRequest
+    private static function create(string $videoId, string $videoTitle): VideoTitleUpdaterRequest
     {
         return new VideoTitleUpdaterRequest($videoId, $videoTitle);
     }
 
     public static function random(): VideoTitleUpdaterRequest
     {
-        return self::create(UuidMother::random(), VideoTitleMother::random());
+        return self::createFrom(VideoMother::random());
     }
+
+    public static function createFrom(Video $video): VideoTitleUpdaterRequest
+    {
+        return self::create($video->id()->value(), $video->title()->value());
+    }
+
 }

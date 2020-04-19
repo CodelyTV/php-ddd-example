@@ -44,7 +44,7 @@ final class FileVideoRepository implements VideoRepository
         return sprintf('%s.%s.repo', $this->filesDirectory, $id->value());
     }
 
-    protected function getAllVideos(): array
+    private function getAllVideos(): array
     {
         $files = glob($this->filesDirectory . '*.repo');
         $videos = [];

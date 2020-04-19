@@ -24,7 +24,7 @@ final class VideoTitleUpdaterTest extends VideosModuleUnitTestCase
     {
         $video = VideoMother::random();
         $updatedVideo = VideoMother::createWithId($video->id());
-        $request = VideoTitleUpdaterRequestMother::create($video->id()->value(), $updatedVideo->title()->value());
+        $request = VideoTitleUpdaterRequestMother::createFrom($updatedVideo);
         $this->shouldSearch($video->id(), $video);
         $this->shouldUpdate($updatedVideo);
         $this->videoTitleUpdater->__invoke($request);
