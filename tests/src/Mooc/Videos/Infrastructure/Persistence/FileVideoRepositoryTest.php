@@ -22,4 +22,15 @@ final class FileVideoRepositoryTest extends FileVideoModuleInfrastructureTestCas
         $this->repository()->save(VideoMother::random());
         $this->assertEquals(null, $this->repository()->search(VideoId::random()));
     }
+
+    /** @test */
+    public function should_update_a_video_that_exists()
+    {
+        $video = VideoMother::random();
+        $this->repository()->save($video);
+        $this->repository()->save(VideoMother::random());
+        $updatedVideo = VideoMother::createWithId($video->id());
+        $this->repository()->update($updatedVideo);
+        $this->assertSimilar($updatedVideo, $this->repository()->search($video->id()));
+    }
 }

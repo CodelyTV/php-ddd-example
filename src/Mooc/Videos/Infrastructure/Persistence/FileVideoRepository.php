@@ -21,23 +21,22 @@ final class FileVideoRepository implements VideoRepository
 
     public function save(Video $video): void
     {
-        file_put_contents($this->fileName($video->id()->value()), serialize($video));
+        file_put_contents($this->fileName($video->id()), serialize($video));
     }
 
     public function search(VideoId $videoId): ?Video
     {
-        $videos = $this->getAllVideos();
-        return $videos[$videoId->value()] ?? null;
+        return $this->findVideo($videoId);
     }
 
     public function update(Video $video): void
     {
-        // TODO: Implement update() method.
+        file_put_contents($this->fileName($video->id()), serialize($video));
     }
 
-    private function fileName(string $id)
+    private function fileName(VideoId $id): string
     {
-        return sprintf('%s.%s.repo', $this->filesDirectory, $id);
+        return sprintf('%s.%s.repo', $this->filesDirectory, $id->value());
     }
 
     protected function getAllVideos(): array
@@ -49,5 +48,15 @@ final class FileVideoRepository implements VideoRepository
             $videos[$video->id()->value()] = $video;
         }
         return $videos;
+    }
+
+    /**
+     * @param VideoId $videoId
+     * @return mixed|null
+     */
+    protected function findVideo(VideoId $videoId): ?Video
+    {
+        $videos = $this->getAllVideos();
+        return $videos[$videoId->value()] ?? null;
     }
 }
