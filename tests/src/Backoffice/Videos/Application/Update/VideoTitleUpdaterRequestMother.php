@@ -1,12 +1,12 @@
 <?php
 
 
-namespace CodelyTv\Tests\Mooc\Videos\Application\Update;
+namespace CodelyTv\Tests\Backoffice\Videos\Application\Update;
 
 
-use CodelyTv\Mooc\Videos\Application\Update\VideoTitleUpdaterRequest;
-use CodelyTv\Mooc\Videos\Domain\Video;
-use CodelyTv\Tests\Mooc\Videos\Domain\VideoMother;
+use CodelyTv\Backoffice\Videos\Application\Update\VideoTitleUpdaterRequest;
+use CodelyTv\Backoffice\Videos\Domain\Video;
+use CodelyTv\Tests\Backoffice\Videos\Domain\VideoMother;
 
 final class VideoTitleUpdaterRequestMother
 {

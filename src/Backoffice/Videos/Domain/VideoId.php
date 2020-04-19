@@ -1,7 +1,7 @@
 <?php
 
 
-namespace CodelyTv\Mooc\Videos\Domain;
+namespace CodelyTv\Backoffice\Videos\Domain;
 
 
 use CodelyTv\Shared\Domain\ValueObject\Uuid;

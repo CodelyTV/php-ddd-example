@@ -1,12 +1,12 @@
 <?php
 
 
-namespace CodelyTv\Mooc\Videos\Infrastructure\Persistence;
+namespace CodelyTv\Backoffice\Videos\Infrastructure\Persistence;
 
 
-use CodelyTv\Mooc\Videos\Domain\Video;
-use CodelyTv\Mooc\Videos\Domain\VideoId;
-use CodelyTv\Mooc\Videos\Domain\VideoRepository;
+use CodelyTv\Backoffice\Videos\Domain\Video;
+use CodelyTv\Backoffice\Videos\Domain\VideoId;
+use CodelyTv\Backoffice\Videos\Domain\VideoRepository;
 
 final class FileVideoRepository implements VideoRepository
 {

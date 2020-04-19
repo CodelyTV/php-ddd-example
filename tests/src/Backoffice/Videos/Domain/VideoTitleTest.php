@@ -1,8 +1,8 @@
 <?php
 
-namespace CodelyTv\Tests\Mooc\Videos\Domain;
+namespace CodelyTv\Tests\Backoffice\Videos\Domain;
 
-use CodelyTv\Mooc\Videos\Domain\VideoTitle;
+use CodelyTv\Backoffice\Videos\Domain\VideoTitle;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
 use InvalidArgumentException;
 

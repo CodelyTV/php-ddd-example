@@ -1,13 +1,12 @@
 <?php
 
 
-namespace CodelyTv\Tests\Mooc\Videos;
+namespace CodelyTv\Tests\Backoffice\Videos;
 
 
-use CodelyTv\Mooc\Videos\Application\Update\VideoTitleUpdater;
-use CodelyTv\Mooc\Videos\Domain\Video;
-use CodelyTv\Mooc\Videos\Domain\VideoId;
-use CodelyTv\Mooc\Videos\Domain\VideoRepository;
+use CodelyTv\Backoffice\Videos\Domain\Video;
+use CodelyTv\Backoffice\Videos\Domain\VideoId;
+use CodelyTv\Backoffice\Videos\Domain\VideoRepository;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
 use Mockery\MockInterface;
 

@@ -1,11 +1,11 @@
 <?php
 
 
-namespace CodelyTv\Tests\Mooc\Videos\Infrastructure\Persistence;
+namespace CodelyTv\Tests\Backoffice\Videos\Infrastructure\Persistence;
 
 
-use CodelyTv\Mooc\Videos\Domain\VideoRepository;
-use CodelyTv\Mooc\Videos\Infrastructure\Persistence\FileVideoRepository;
+use CodelyTv\Backoffice\Videos\Domain\VideoRepository;
+use CodelyTv\Backoffice\Videos\Infrastructure\Persistence\FileVideoRepository;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
 
 class FileVideoModuleInfrastructureTestCase extends UnitTestCase

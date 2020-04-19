@@ -1,7 +1,7 @@
 <?php
 
 
-namespace CodelyTv\Mooc\Videos\Application\Update;
+namespace CodelyTv\Backoffice\Videos\Application\Update;
 
 
 class VideoTitleUpdaterRequest

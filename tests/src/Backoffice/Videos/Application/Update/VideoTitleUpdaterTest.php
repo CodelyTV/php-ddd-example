@@ -1,14 +1,14 @@
 <?php
 
 
-namespace CodelyTv\Tests\Mooc\Videos\Application\Update;
+namespace CodelyTv\Tests\Backoffice\Videos\Application\Update;
 
 
-use CodelyTv\Mooc\Videos\Application\Update\VideoTitleUpdater;
-use CodelyTv\Mooc\Videos\Domain\VideoId;
-use CodelyTv\Mooc\Videos\Domain\VideoNotExist;
-use CodelyTv\Tests\Mooc\Videos\Domain\VideoMother;
-use CodelyTv\Tests\Mooc\Videos\VideosModuleUnitTestCase;
+use CodelyTv\Backoffice\Videos\Application\Update\VideoTitleUpdater;
+use CodelyTv\Backoffice\Videos\Domain\VideoId;
+use CodelyTv\Backoffice\Videos\Domain\VideoNotExist;
+use CodelyTv\Tests\Backoffice\Videos\Domain\VideoMother;
+use CodelyTv\Tests\Backoffice\Videos\VideosModuleUnitTestCase;
 
 final class VideoTitleUpdaterTest extends VideosModuleUnitTestCase
 {
