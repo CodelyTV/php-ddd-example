@@ -26,11 +26,16 @@ final class FileVideoRepository implements VideoRepository
 
     public function search(VideoId $videoId): ?Video
     {
-        return $this->findVideo($videoId);
+        $videos = $this->getAllVideos();
+        return $videos[$videoId->value()] ?? null;
     }
 
     public function update(Video $video): void
     {
+        if (!array_key_exists($video->id()->value(), $this->getAllVideos())) {
+            return;
+        }
+
         file_put_contents($this->fileName($video->id()), serialize($video));
     }
 
@@ -48,15 +53,5 @@ final class FileVideoRepository implements VideoRepository
             $videos[$video->id()->value()] = $video;
         }
         return $videos;
-    }
-
-    /**
-     * @param VideoId $videoId
-     * @return mixed|null
-     */
-    protected function findVideo(VideoId $videoId): ?Video
-    {
-        $videos = $this->getAllVideos();
-        return $videos[$videoId->value()] ?? null;
     }
 }
