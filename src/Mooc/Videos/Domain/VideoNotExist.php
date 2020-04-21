@@ -1,7 +1,7 @@
 <?php
 
 
-namespace CodelyTv\Backoffice\Videos\Domain;
+namespace CodelyTv\Mooc\Videos\Domain;
 
 
 use CodelyTv\Shared\Domain\DomainError;

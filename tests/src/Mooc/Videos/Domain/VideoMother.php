@@ -1,11 +1,11 @@
 <?php
 
 
-namespace CodelyTv\Tests\Backoffice\Videos\Domain;
+namespace CodelyTv\Tests\Mooc\Videos\Domain;
 
 
-use CodelyTv\Backoffice\Videos\Domain\Video;
-use CodelyTv\Backoffice\Videos\Domain\VideoId;
+use CodelyTv\Mooc\Videos\Domain\Video;
+use CodelyTv\Mooc\Videos\Domain\VideoId;
 
 class VideoMother
 {

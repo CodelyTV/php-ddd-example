@@ -1,15 +1,15 @@
 <?php
 
 
-namespace CodelyTv\Tests\Backoffice\Videos\Application\Update;
+namespace CodelyTv\Tests\Mooc\Videos\Application\Update;
 
 
-use CodelyTv\Backoffice\Videos\Application\Update\VideoTitleUpdater;
-use CodelyTv\Backoffice\Videos\Domain\VideoId;
-use CodelyTv\Backoffice\Videos\Domain\VideoNotExist;
-use CodelyTv\Tests\Backoffice\Videos\Domain\VideoMother;
-use CodelyTv\Tests\Backoffice\Videos\Domain\VideoTitleUpdatedDomainEventMother;
-use CodelyTv\Tests\Backoffice\Videos\VideosModuleUnitTestCase;
+use CodelyTv\Mooc\Videos\Application\Update\VideoTitleUpdater;
+use CodelyTv\Mooc\Videos\Domain\VideoId;
+use CodelyTv\Mooc\Videos\Domain\VideoNotExist;
+use CodelyTv\Tests\Mooc\Videos\Domain\VideoMother;
+use CodelyTv\Tests\Mooc\Videos\Domain\VideoTitleUpdatedDomainEventMother;
+use CodelyTv\Tests\Mooc\Videos\VideosModuleUnitTestCase;
 
 final class VideoTitleUpdaterTest extends VideosModuleUnitTestCase
 {
@@ -32,7 +32,6 @@ final class VideoTitleUpdaterTest extends VideosModuleUnitTestCase
         $this->shouldPublishDomainEvent($domainEvent);
 
         $this->videoTitleUpdater->__invoke($request);
-
     }
 
     /** @test */

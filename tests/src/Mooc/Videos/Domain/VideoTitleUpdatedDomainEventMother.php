@@ -1,13 +1,13 @@
 <?php
 
 
-namespace CodelyTv\Tests\Backoffice\Videos\Domain;
+namespace CodelyTv\Tests\Mooc\Videos\Domain;
 
 
-use CodelyTv\Backoffice\Videos\Domain\Video;
-use CodelyTv\Backoffice\Videos\Domain\VideoId;
-use CodelyTv\Backoffice\Videos\Domain\VideoTitle;
-use CodelyTv\Backoffice\Videos\Domain\VideoTitleUpdatedDomainEvent;
+use CodelyTv\Mooc\Videos\Domain\Video;
+use CodelyTv\Mooc\Videos\Domain\VideoId;
+use CodelyTv\Mooc\Videos\Domain\VideoTitle;
+use CodelyTv\Mooc\Videos\Domain\VideoTitleUpdatedDomainEvent;
 
 final class VideoTitleUpdatedDomainEventMother
 {

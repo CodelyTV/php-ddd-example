@@ -1,9 +1,9 @@
 <?php
 
-namespace CodelyTv\Tests\Backoffice\Videos\Infrastructure\Persistence;
+namespace CodelyTv\Tests\Mooc\Videos\Infrastructure\Persistence;
 
-use CodelyTv\Backoffice\Videos\Domain\VideoId;
-use CodelyTv\Tests\Backoffice\Videos\Domain\VideoMother;
+use CodelyTv\Mooc\Videos\Domain\VideoId;
+use CodelyTv\Tests\Mooc\Videos\Domain\VideoMother;
 
 final class FileVideoRepositoryTest extends FileVideoModuleInfrastructureTestCase
 {

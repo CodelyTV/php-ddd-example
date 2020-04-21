@@ -1,13 +1,13 @@
 <?php
 
 
-namespace CodelyTv\Backoffice\Videos\Application\Update;
+namespace CodelyTv\Mooc\Videos\Application\Update;
 
 
-use CodelyTv\Backoffice\Videos\Domain\VideoId;
-use CodelyTv\Backoffice\Videos\Domain\VideoNotExist;
-use CodelyTv\Backoffice\Videos\Domain\VideoRepository;
-use CodelyTv\Backoffice\Videos\Domain\VideoTitle;
+use CodelyTv\Mooc\Videos\Domain\VideoId;
+use CodelyTv\Mooc\Videos\Domain\VideoNotExist;
+use CodelyTv\Mooc\Videos\Domain\VideoRepository;
+use CodelyTv\Mooc\Videos\Domain\VideoTitle;
 use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 
 final class VideoTitleUpdater

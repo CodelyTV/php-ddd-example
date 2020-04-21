@@ -1,10 +1,10 @@
 <?php
 
 
-namespace CodelyTv\Tests\Backoffice\Videos\Domain;
+namespace CodelyTv\Tests\Mooc\Videos\Domain;
 
 
-use CodelyTv\Backoffice\Videos\Domain\VideoTitle;
+use CodelyTv\Mooc\Videos\Domain\VideoTitle;
 use CodelyTv\Tests\Shared\Domain\WordMother;
 
 class VideoTitleMother
