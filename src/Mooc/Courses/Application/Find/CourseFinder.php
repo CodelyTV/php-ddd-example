@@ -6,7 +6,6 @@ namespace CodelyTv\Mooc\Courses\Application\Find;
 
 use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseFinder as DomainCourseFinder;
-use CodelyTv\Mooc\Courses\Domain\CourseNotExist;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
 use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
 

@@ -20,10 +20,15 @@ class CourseFinder
     {
         $course = $this->repository->search($id);
 
+        $this->ensureCourseExists($course, $id);
+
+        return $course;
+    }
+
+    protected function ensureCourseExists(?Course $course, CourseId $id): void
+    {
         if (null === $course) {
             throw new CourseNotExist($id);
         }
-
-        return $course;
     }
 }
