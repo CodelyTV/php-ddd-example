@@ -8,6 +8,7 @@ use CodelyTv\Backoffice\Videos\Application\Update\VideoTitleUpdater;
 use CodelyTv\Backoffice\Videos\Domain\VideoId;
 use CodelyTv\Backoffice\Videos\Domain\VideoNotExist;
 use CodelyTv\Tests\Backoffice\Videos\Domain\VideoMother;
+use CodelyTv\Tests\Backoffice\Videos\Domain\VideoTitleUpdatedDomainEventMother;
 use CodelyTv\Tests\Backoffice\Videos\VideosModuleUnitTestCase;
 
 final class VideoTitleUpdaterTest extends VideosModuleUnitTestCase
@@ -16,7 +17,7 @@ final class VideoTitleUpdaterTest extends VideosModuleUnitTestCase
 
     protected function setUp(): void
     {
-        $this->videoTitleUpdater = new VideoTitleUpdater($this->repository());
+        $this->videoTitleUpdater = new VideoTitleUpdater($this->repository(), $this->eventBus());
     }
 
     /** @test */
@@ -25,17 +26,23 @@ final class VideoTitleUpdaterTest extends VideosModuleUnitTestCase
         $video = VideoMother::random();
         $updatedVideo = VideoMother::createWithId($video->id());
         $request = VideoTitleUpdaterRequestMother::createFrom($updatedVideo);
+        $domainEvent = VideoTitleUpdatedDomainEventMother::fromVideo($updatedVideo);
         $this->shouldSearch($video->id(), $video);
         $this->shouldUpdate($updatedVideo);
+        $this->shouldPublishDomainEvent($domainEvent);
+
         $this->videoTitleUpdater->__invoke($request);
+
     }
 
     /** @test */
     public function should_fail_when_video_does_not_exist(): void
     {
         $this->expectException(VideoNotExist::class);
+
         $request = VideoTitleUpdaterRequestMother::random();
         $this->shouldSearch(new VideoId($request->videoId()), null);
+
         $this->videoTitleUpdater->__invoke($request);
     }
 

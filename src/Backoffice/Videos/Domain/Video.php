@@ -4,7 +4,9 @@
 namespace CodelyTv\Backoffice\Videos\Domain;
 
 
-final class Video
+use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
+
+final class Video extends AggregateRoot
 {
     private VideoId $id;
     private VideoTitle $title;
@@ -25,9 +27,10 @@ final class Video
         return $this->title;
     }
 
-    public function changeTitle(VideoTitle $title): void
+    public function updateTitle(VideoTitle $title): void
     {
         $this->title = $title;
+        $this->record(new VideoTitleUpdatedDomainEvent($this->id->value(), $this->title->value()));
     }
 
 }
