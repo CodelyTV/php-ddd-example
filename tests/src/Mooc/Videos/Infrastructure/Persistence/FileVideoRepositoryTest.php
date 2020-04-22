@@ -13,6 +13,7 @@ final class FileVideoRepositoryTest extends FileVideoModuleInfrastructureTestCas
         $video = VideoMother::random();
         $this->repository()->save($video);
         $this->repository()->save(VideoMother::random());
+
         $this->assertSimilar($video, $this->repository()->search($video->id()));
     }
 
@@ -20,6 +21,7 @@ final class FileVideoRepositoryTest extends FileVideoModuleInfrastructureTestCas
     public function should_return_null_when_video_does_not_exist()
     {
         $this->repository()->save(VideoMother::random());
+
         $this->assertEquals(null, $this->repository()->search(VideoId::random()));
     }
 
@@ -28,6 +30,7 @@ final class FileVideoRepositoryTest extends FileVideoModuleInfrastructureTestCas
     {
         $video = VideoMother::random();
         $this->repository()->save($video);
+
         $this->assertSimilar($video, $this->repository()->search($video->id()));
     }
 
@@ -39,6 +42,7 @@ final class FileVideoRepositoryTest extends FileVideoModuleInfrastructureTestCas
         $this->repository()->save(VideoMother::random());
         $updatedVideo = VideoMother::createWithId($video->id());
         $this->repository()->update($updatedVideo);
+
         $this->assertSimilar($updatedVideo, $this->repository()->search($video->id()));
     }
 
@@ -50,6 +54,7 @@ final class FileVideoRepositoryTest extends FileVideoModuleInfrastructureTestCas
         $this->repository()->save(VideoMother::random());
         $nonExistingVideo = VideoMother::random();
         $this->repository()->update($nonExistingVideo);
+
         $this->assertEquals(null, $this->repository()->search($nonExistingVideo->id()));
     }
 }

@@ -4,7 +4,6 @@
 namespace CodelyTv\Tests\Mooc\Videos;
 
 
-use CodelyTv\Mooc\Videos\Application\Update\VideoTitleUpdater;
 use CodelyTv\Mooc\Videos\Domain\Video;
 use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Mooc\Videos\Domain\VideoRepository;

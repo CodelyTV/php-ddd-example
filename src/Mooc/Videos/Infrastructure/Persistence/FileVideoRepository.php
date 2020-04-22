@@ -32,7 +32,7 @@ final class FileVideoRepository implements VideoRepository
 
     public function update(Video $video): void
     {
-        if (!array_key_exists($video->id()->value(), $this->getAllVideos())) {
+        if (!$this->videoExists($video)) {
             return;
         }
 
@@ -53,5 +53,10 @@ final class FileVideoRepository implements VideoRepository
             $videos[$video->id()->value()] = $video;
         }
         return $videos;
+    }
+
+    private function videoExists(Video $video): bool
+    {
+        return array_key_exists($video->id()->value(), $this->getAllVideos());
     }
 }
