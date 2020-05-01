@@ -33,4 +33,16 @@ final class CourseRepositoryTest extends CoursesModuleInfrastructureTestCase
     {
         $this->assertNull($this->repository()->search(CourseIdMother::random()));
     }
+
+        /** @test */
+        public function it_should_return_the_last_created_course(): void
+        {
+            $firstCourse = CourseMother::random();
+            $secondCourse = CourseMother::random();
+    
+            $this->repository()->save($firstCourse);
+            $this->repository()->save($secondCourse);
+    
+            $this->assertEquals($secibdCourse, $this->repository()->findLast());
+        }
 }
