@@ -24,6 +24,15 @@ final class FileCourseRepository implements CourseRepository
             : null;
     }
 
+    public function findLast(): ?Course
+    {
+        $files = glob(FILE_PATH.'/*');
+        $files = array_combine($files, array_map('filectime', $files));
+        arsort($files);
+        $courseId = key($files); // the filename 
+        return $this->search($courseId);
+    }
+
     private function fileName(string $id): string
     {
         return sprintf('%s.%s.repo', self::FILE_PATH, $id);
