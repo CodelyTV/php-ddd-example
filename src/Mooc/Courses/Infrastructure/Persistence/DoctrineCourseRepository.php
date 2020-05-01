@@ -20,4 +20,14 @@ final class DoctrineCourseRepository extends DoctrineRepository implements Cours
     {
         return $this->repository(Course::class)->find($id);
     }
+
+    public function findLast(): ?Course
+    {
+        return $this->repository(Course::class)
+                    ->createQueryBuilder("e")
+                    ->orderBy("e.id", "DESC")
+                    ->setMaxResults(1)
+                    ->getQuery()
+                    ->getOneOrNullResult();
+    }
 }
