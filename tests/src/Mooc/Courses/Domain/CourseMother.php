@@ -8,13 +8,14 @@ use CodelyTv\Mooc\Courses\Application\Create\CreateCourseCommand;
 use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseDuration;
 use CodelyTv\Mooc\Courses\Domain\CourseName;
+use CodelyTv\Mooc\Courses\Domain\CourseCreatedTime;
 use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
 
 final class CourseMother
 {
     public static function create(CourseId $id, CourseName $name, CourseDuration $duration): Course
     {
-        return new Course($id, $name, $duration);
+        return new Course($id, $name, $duration, new CourseCreatedTime(new \DateTimeImmutable()));
     }
 
     public static function fromRequest(CreateCourseCommand $request): Course
