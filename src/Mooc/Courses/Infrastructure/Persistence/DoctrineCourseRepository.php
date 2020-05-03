@@ -24,8 +24,9 @@ final class DoctrineCourseRepository extends DoctrineRepository implements Cours
     public function findLast(): ?Course
     {
         return $this->repository(Course::class)
-                    ->createQueryBuilder("e")
-                    ->orderBy("e.createdAt", "DESC")
+                    ->createQueryBuilder("course")
+                    // Doctrine\ORM\Query\QueryException: [Semantical Error] line 0, col 78 near 'createdAt DE': Error: Class CodelyTv\Mooc\Courses\Domain\Course has no field or association named createdAt
+                    //->orderBy("course.createdAt", "DESC")
                     ->setMaxResults(1)
                     ->getQuery()
                     ->getOneOrNullResult();

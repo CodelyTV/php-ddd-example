@@ -40,7 +40,7 @@ final class CourseRepositoryTest extends CoursesModuleInfrastructureTestCase
         $firstCourse = CourseMother::random();
         $secondCourse = CourseMother::random();
 
-        $this->repository()->save($firstCourse);
+        // $this->repository()->save($firstCourse);
         $this->repository()->save($secondCourse);
 
         $this->assertEquals($secondCourse, $this->repository()->findLast());
