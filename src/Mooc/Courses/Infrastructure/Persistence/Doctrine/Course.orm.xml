@@ -9,6 +9,7 @@
 
         <embedded name="name" class="CodelyTv\Mooc\Courses\Domain\CourseName" use-column-prefix="false" />
         <embedded name="duration" class="CodelyTv\Mooc\Courses\Domain\CourseDuration" use-column-prefix="false" />
+        <embedded name="createdAt" class="CodelyTv\Mooc\Courses\Domain\CourseCreatedTime" use-column-prefix="false" />
     </entity>
 
 </doctrine-mapping>

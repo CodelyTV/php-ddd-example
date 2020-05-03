@@ -12,17 +12,20 @@ final class Course extends AggregateRoot
     private CourseId       $id;
     private CourseName     $name;
     private CourseDuration $duration;
+    private CourseCreatedTime $createdAt;
 
-    public function __construct(CourseId $id, CourseName $name, CourseDuration $duration)
+    public function __construct(CourseId $id, CourseName $name, CourseDuration $duration, CourseCreatedTime $createdAt)
     {
         $this->id       = $id;
         $this->name     = $name;
         $this->duration = $duration;
+        $this->createdAt = $createdAt;
     }
 
     public static function create(CourseId $id, CourseName $name, CourseDuration $duration): self
     {
-        $course = new self($id, $name, $duration);
+        $createdAt = new CourseCreatedTime(new \DateTimeImmutable());
+        $course = new self($id, $name, $duration, $createdAt);
 
         $course->record(new CourseCreatedDomainEvent($id->value(), $name->value(), $duration->value()));
 
@@ -42,6 +45,11 @@ final class Course extends AggregateRoot
     public function duration(): CourseDuration
     {
         return $this->duration;
+    }
+
+    public function createdAt(): CourseCreatedTime
+    {
+        return $this->createdAt;
     }
 
     public function rename(CourseName $newName): void

@@ -25,7 +25,7 @@ final class DoctrineCourseRepository extends DoctrineRepository implements Cours
     {
         return $this->repository(Course::class)
                     ->createQueryBuilder("e")
-                    ->orderBy("e.id", "DESC")
+                    ->orderBy("e.createdAt", "DESC")
                     ->setMaxResults(1)
                     ->getQuery()
                     ->getOneOrNullResult();
