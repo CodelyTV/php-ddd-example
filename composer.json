@@ -28,6 +28,7 @@
     "ext-json": "*",
     "ext-zend-opcache": "*",
     "ext-pdo": "*",
+    "ext-sockets": "*",
 
     "symfony/framework-bundle": "^5.0",
     "symfony/messenger": "^5.0",
@@ -46,6 +47,7 @@
 
     "elasticsearch/elasticsearch": "^7.3",
     "monolog/monolog": "^2.0"
+
   },
   "require-dev": {
     "ext-xdebug": "*",
