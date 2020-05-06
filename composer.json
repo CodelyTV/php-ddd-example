@@ -21,7 +21,7 @@
     }
   ],
   "require": {
-    "php": "7.4",
+    "php": "7.4.*",
 
     "ext-amqp": "*",
     "ext-apcu": "*",

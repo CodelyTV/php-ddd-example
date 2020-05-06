@@ -16,4 +16,6 @@ RUN apk --update upgrade \
         apcu \
         opcache
 
+RUN docker-php-ext-install sockets
+
 COPY etc/infrastructure/php/ /usr/local/etc/php/
