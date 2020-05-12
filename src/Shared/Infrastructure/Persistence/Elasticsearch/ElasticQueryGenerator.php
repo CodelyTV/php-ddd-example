@@ -28,7 +28,7 @@ final class ElasticQueryGenerator
     public function __invoke(array $query, Filter $filter): array
     {
         $type          = $this->typeFor($filter->operator());
-        $termLevel     = $this->termLeverFor($filter->operator());
+        $termLevel     = $this->termLevelFor($filter->operator());
         $valueTemplate = $filter->operator()->isContaining() ? '*%s*' : '%s';
 
         return array_merge_recursive(
@@ -51,7 +51,7 @@ final class ElasticQueryGenerator
         return in_array($operator->value(), self::$mustNotFields, true) ? self::MUST_NOT_TYPE : self::MUST_TYPE;
     }
 
-    private function termLeverFor(FilterOperator $operator): string
+    private function termLevelFor(FilterOperator $operator): string
     {
         return get($operator->value(), self::$termMapping);
     }
