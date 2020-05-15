@@ -18,3 +18,19 @@ services:
   # Courses
   CodelyTv\Mooc\Courses\Domain\CourseRepository: '@CodelyTv\Mooc\Courses\Infrastructure\Persistence\DoctrineCourseRepository'
 
+  # Notifiers
+  codelytv.notifier.twitter:
+    class: CodelyTv\Mooc\Courses\Infrastructure\TwitterNotifier
+    arguments:
+      - '%env(TWITTER_ACCESS_TOKEN)%'
+      - '%env(TWITTER_ACCESS_TOKEN_SECRET)%'
+      - '%env(TWITTER_CONSUMER_KEY)%'
+      - '%env(TWITTER_CONSUMER_SECRET)%'
+
+  codelytv.course.twitter_notifier_listener:
+    class: CodelyTv\Mooc\Courses\Application\Notify\CourseTwitterNotifierListener
+    tags:
+      - { name: codelytv.course.create_twitter_listener, event: codelytv.course.created, method: onCourseCreated, priority: 1 }
+    arguments:
+      - '@codelytv.notifier.twitter'
+

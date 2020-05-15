@@ -45,7 +45,10 @@
     "ocramius/proxy-manager": "^2.6",
 
     "elasticsearch/elasticsearch": "^7.3",
-    "monolog/monolog": "^2.0"
+    "monolog/monolog": "^2.0",
+
+    "j7mbo/twitter-api-php": "1.0.6.*"
+
   },
   "require-dev": {
     "ext-xdebug": "*",
