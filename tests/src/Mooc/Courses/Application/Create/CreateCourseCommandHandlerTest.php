@@ -18,7 +18,10 @@ final class CreateCourseCommandHandlerTest extends CoursesModuleUnitTestCase
     {
         parent::setUp();
 
-        $this->handler = new CreateCourseCommandHandler(new CourseCreator($this->repository(), $this->eventBus()));
+        $handler = new CreateCourseCommandHandler(new CourseCreator($this->repository(), $this->eventBus()));
+        $handler->setLogger($this->logger());
+        $this->handler = $handler;
+
     }
 
     /** @test */
@@ -27,10 +30,12 @@ final class CreateCourseCommandHandlerTest extends CoursesModuleUnitTestCase
         $command = CreateCourseCommandMother::random();
 
         $course      = CourseMother::fromRequest($command);
+
         $domainEvent = CourseCreatedDomainEventMother::fromCourse($course);
 
         $this->shouldSave($course);
         $this->shouldPublishDomainEvent($domainEvent);
+        $this->shouldLogCourseCreation($course);
 
         $this->dispatch($command, $this->handler);
     }

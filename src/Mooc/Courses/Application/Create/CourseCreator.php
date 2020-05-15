@@ -40,7 +40,6 @@ final class CourseCreator implements LoggerAwareInterface
             $message = sprintf("Course named %s with id %s has been created", $name, $id);
             $this->logger->log(LogLevel::INFO, $message);
         }
-
     }
 
     public function setLogger(LoggerInterface $logger)
