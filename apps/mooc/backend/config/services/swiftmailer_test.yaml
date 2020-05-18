@@ -1,2 +1,5 @@
 swiftmailer:
-  disable_delivery: true
+  disable_delivery: false
+  transport: gmail
+  username: bertamini.matteo@gmail.com
+  password: zmqexnsukpjxapls

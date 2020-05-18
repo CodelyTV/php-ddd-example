@@ -7,7 +7,9 @@ namespace CodelyTv\Shared\Infrastructure\Symfony;
 use CodelyTv\Shared\Domain\DomainError;
 use CodelyTv\Shared\Domain\Utils;
 use Exception;
+use ReflectionClass;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 final class ApiExceptionListener
@@ -19,9 +21,9 @@ final class ApiExceptionListener
         $this->exceptionHandler = $exceptionHandler;
     }
 
-    public function onException(RequestEvent $event): void
+    public function onException(ExceptionEvent $event): void
     {
-        $exception = $event->getException();
+        $exception = $event->getThrowable();
 
         $event->setResponse(
             new JsonResponse(
@@ -34,10 +36,16 @@ final class ApiExceptionListener
         );
     }
 
-    private function exceptionCodeFor(Exception $error)
+    private function exceptionCodeFor(\Throwable $error)
     {
         $domainErrorClass = DomainError::class;
-
-        return $error instanceof $domainErrorClass ? $error->errorCode() : Utils::toSnakeCase(class_basename($error));
+        return $error instanceof $domainErrorClass ? $error->errorCode() : Utils::toSnakeCase($this->getClassBasename($error));
     }
+
+    //todo do be refactored
+    private function getClassBasename($object) {
+        $reflect = new ReflectionClass($object);
+        return $reflect->getShortName();
+    }
+
 }

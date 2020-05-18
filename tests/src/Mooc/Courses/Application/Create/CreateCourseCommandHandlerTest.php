@@ -6,9 +6,12 @@ namespace CodelyTv\Tests\Mooc\Courses\Application\Create;
 
 use CodelyTv\Mooc\Courses\Application\Create\CourseCreator;
 use CodelyTv\Mooc\Courses\Application\Create\CreateCourseCommandHandler;
+use CodelyTv\Mooc\Courses\Domain\CourseGenerationNotificator;
+use CodelyTv\Mooc\Courses\Domain\CourseRepository;
 use CodelyTv\Tests\Mooc\Courses\CoursesModuleUnitTestCase;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseCreatedDomainEventMother;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseMother;
+use Mockery\MockInterface;
 
 final class CreateCourseCommandHandlerTest extends CoursesModuleUnitTestCase
 {
@@ -17,8 +20,8 @@ final class CreateCourseCommandHandlerTest extends CoursesModuleUnitTestCase
     protected function setUp(): void
     {
         parent::setUp();
-
-        $this->handler = new CreateCourseCommandHandler(new CourseCreator($this->repository(), $this->eventBus()));
+        // todo continue here :-)
+        $this->handler = new CreateCourseCommandHandler(new CourseCreator($this->repository(), $this->eventBus(), $this->courseGenerationNotificator()));
     }
 
     /** @test */
@@ -33,5 +36,11 @@ final class CreateCourseCommandHandlerTest extends CoursesModuleUnitTestCase
         $this->shouldPublishDomainEvent($domainEvent);
 
         $this->dispatch($command, $this->handler);
+    }
+
+    /** @return CourseGenerationNotificator|MockInterface */
+    protected function courseGenerationNotificator(): MockInterface
+    {
+        return $this->mock(CourseGenerationNotificator::class);
     }
 }

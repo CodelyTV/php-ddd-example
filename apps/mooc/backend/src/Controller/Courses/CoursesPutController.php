@@ -8,6 +8,7 @@ use CodelyTv\Mooc\Courses\Application\Create\CreateCourseCommand;
 use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class CoursesPutController
 {

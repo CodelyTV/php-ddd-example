@@ -8,7 +8,6 @@ use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseGenerationNotificator;
 use Swift_Mailer;
 
-
 class SwiftCourseGenerationNotificator implements CourseGenerationNotificator {
     private Swift_Mailer $mailer;
     private const TO_EMAIL_ADDRESS = 'mbertamini@tuenti.com';

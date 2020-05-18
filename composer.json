@@ -18,6 +18,10 @@
       "type": "vcs",
       "url": "https://github.com/ruudk/MinkBrowserKitDriver",
       "comment": "Waiting for https://github.com/minkphp/Mink/issues/787 and then a new release"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/mikemccabe/json-patch-php"
     }
   ],
   "require": {
@@ -47,6 +51,7 @@
     "elasticsearch/elasticsearch": "^7.3",
     "monolog/monolog": "^2.0",
     "symfony/debug": "^4.4",
+    "mikemccabe/json-patch-php": "dev-master",
     "symfony/swiftmailer-bundle": "^3.4"
   },
   "require-dev": {
@@ -71,7 +76,6 @@
 
       "CodelyTv\\Apps\\Backoffice\\Backend\\": "apps/backoffice/backend/src",
       "CodelyTv\\Apps\\Backoffice\\Frontend\\": "apps/backoffice/frontend/src",
-
       "CodelyTv\\": ["src"]
     }
   },
