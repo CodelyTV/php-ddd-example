@@ -1,4 +1,4 @@
-.PHONY: build deps composer-install composer-update composer reload test run-tests start stop destroy doco rebuild start-local
+.PHONY: build deps composer-install composer-update composer reload test run-tests start stop destroy doco rebuild start-local require-composer-module
 
 current-dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
@@ -9,12 +9,12 @@ deps: composer-install
 # 🐘 Composer
 composer-install: CMD=install
 composer-update: CMD=update
-composer composer-install composer-update:
-	@docker run --rm --interactive --volume $(current-dir):/app --user $(id -u):$(id -g) \
+require-composer-module: CMD=require $(module)
+composer composer-install composer-update require-composer-module:
+	@docker run --rm -ti --interactive --volume $(current-dir):/app --user $(id -u):$(id -g) \
 		clevyr/prestissimo $(CMD) \
 			--ignore-platform-reqs \
-			--no-ansi \
-			--no-interaction
+			--no-ansi
 
 reload:
 	@docker-compose exec php-fpm kill -USR2 1
