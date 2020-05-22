@@ -10,7 +10,7 @@ use Doctrine\ORM\EntityRepository;
 
 abstract class DoctrineRepository
 {
-    private $entityManager;
+    private EntityManager $entityManager;
 
     public function __construct(EntityManager $entityManager)
     {

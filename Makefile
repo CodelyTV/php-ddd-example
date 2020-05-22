@@ -1,4 +1,4 @@
-.PHONY: build deps composer-install composer-update composer reload test run-tests start stop destroy doco rebuild start-local require-composer-module
+.PHONY: build deps composer-install composer-update composer reload test run-tests start stop destroy doco rebuild start-local ping-mysql require-composer-module
 
 current-dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
@@ -55,4 +55,7 @@ stop-local:
 	symfony server:stop --dir=apps/mooc/backend/public
 	symfony server:stop --dir=apps/backoffice/frontend/public
 	symfony server:stop --dir=apps/backoffice/backend/public
+	
+ping-mysql:
+	@docker exec codelytv-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
 

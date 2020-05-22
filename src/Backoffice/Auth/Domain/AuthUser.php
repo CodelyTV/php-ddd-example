@@ -6,8 +6,8 @@ namespace CodelyTv\Backoffice\Auth\Domain;
 
 final class AuthUser
 {
-    private $username;
-    private $password;
+    private AuthUsername $username;
+    private AuthPassword $password;
 
     public function __construct(AuthUsername $username, AuthPassword $password)
     {

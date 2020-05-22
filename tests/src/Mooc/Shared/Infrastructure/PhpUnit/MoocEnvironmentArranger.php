@@ -11,7 +11,7 @@ use function Lambdish\Phunctional\apply;
 
 final class MoocEnvironmentArranger implements EnvironmentArranger
 {
-    private $entityManager;
+    private EntityManager $entityManager;
 
     public function __construct(EntityManager $entityManager)
     {

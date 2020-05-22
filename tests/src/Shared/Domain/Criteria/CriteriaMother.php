@@ -11,8 +11,12 @@ use CodelyTv\Tests\Shared\Domain\IntegerMother;
 
 final class CriteriaMother
 {
-    public static function create(Filters $filters, Order $order = null, int $offset = null, int $limit = null): Criteria
-    {
+    public static function create(
+        Filters $filters,
+        Order $order = null,
+        int $offset = null,
+        int $limit = null
+    ): Criteria {
         return new Criteria($filters, $order ?: OrderMother::none(), $offset, $limit);
     }
 

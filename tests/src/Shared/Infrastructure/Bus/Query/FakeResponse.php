@@ -8,7 +8,7 @@ use CodelyTv\Shared\Domain\Bus\Query\Response;
 
 final class FakeResponse implements Response
 {
-    private $number;
+    private int $number;
 
     public function __construct(int $number)
     {

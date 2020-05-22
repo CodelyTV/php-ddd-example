@@ -32,9 +32,7 @@ final class Filters extends Collection
     public function serialize(): string
     {
         return reduce(
-            static function (string $accumulate, Filter $filter) {
-                return sprintf('%s^%s', $accumulate, $filter->serialize());
-            },
+            static fn(string $accumulate, Filter $filter) => sprintf('%s^%s', $accumulate, $filter->serialize()),
             $this->items(),
             ''
         );
@@ -42,8 +40,6 @@ final class Filters extends Collection
 
     private static function filterBuilder(): callable
     {
-        return function (array $values) {
-            return Filter::fromValues($values);
-        };
+        return fn(array $values) => Filter::fromValues($values);
     }
 }

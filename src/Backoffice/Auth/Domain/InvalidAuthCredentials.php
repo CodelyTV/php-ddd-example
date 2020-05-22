@@ -4,7 +4,9 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Backoffice\Auth\Domain;
 
-final class InvalidAuthCredentials extends \RuntimeException
+use RuntimeException;
+
+final class InvalidAuthCredentials extends RuntimeException
 {
     public function __construct(AuthUsername $username)
     {
