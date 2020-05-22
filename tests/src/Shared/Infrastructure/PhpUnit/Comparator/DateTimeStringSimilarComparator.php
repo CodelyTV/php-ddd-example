@@ -23,19 +23,6 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
                $this->isValidDateTimeString($actual);
     }
 
-    private function isValidDateTimeString($expected): bool
-    {
-        $isValid = true;
-
-        try {
-            new DateTimeImmutable($expected);
-        } catch (Throwable $throwable) {
-            $isValid = false;
-        }
-
-        return $isValid;
-    }
-
     public function assertEquals(
         $expected,
         $actual,
@@ -68,5 +55,18 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
         $string = $datetime->format(DateTime::ATOM);
 
         return $string ?: 'Invalid DateTime object';
+    }
+
+    private function isValidDateTimeString($expected): bool
+    {
+        $isValid = true;
+
+        try {
+            new DateTimeImmutable($expected);
+        } catch (Throwable $throwable) {
+            $isValid = false;
+        }
+
+        return $isValid;
     }
 }

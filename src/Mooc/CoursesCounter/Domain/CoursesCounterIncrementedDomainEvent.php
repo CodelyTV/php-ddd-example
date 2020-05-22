@@ -8,7 +8,7 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 
 final class CoursesCounterIncrementedDomainEvent extends DomainEvent
 {
-    private $total;
+    private int $total;
 
     public function __construct(string $aggregateId, int $total, string $eventId = null, string $occurredOn = null)
     {
@@ -25,7 +25,7 @@ final class CoursesCounterIncrementedDomainEvent extends DomainEvent
     public function toPrimitives(): array
     {
         return [
-            'total' => $this->total
+            'total' => $this->total,
         ];
     }
 

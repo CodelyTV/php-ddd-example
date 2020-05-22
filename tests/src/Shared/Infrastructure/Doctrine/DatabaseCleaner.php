@@ -11,7 +11,7 @@ use function Lambdish\Phunctional\map;
 
 final class DatabaseCleaner
 {
-    public function __invoke(EntityManagerInterface $entityManager)
+    public function __invoke(EntityManagerInterface $entityManager): void
     {
         $connection = $entityManager->getConnection();
 
@@ -30,9 +30,7 @@ final class DatabaseCleaner
 
     private function truncateTableSql(): callable
     {
-        return function (array $table): string {
-            return sprintf('TRUNCATE TABLE `%s`;', first($table));
-        };
+        return fn(array $table): string => sprintf('TRUNCATE TABLE `%s`;', first($table));
     }
 
     private function tables(Connection $connection): array

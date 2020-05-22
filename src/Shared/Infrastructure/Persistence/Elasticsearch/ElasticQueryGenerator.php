@@ -15,7 +15,7 @@ final class ElasticQueryGenerator
     private const TERM_TERM     = 'term';
     private const TERM_RANGE    = 'range';
     private const TERM_WILDCARD = 'wildcard';
-    private static $termMapping = [
+    private static array $termMapping   = [
         FilterOperator::EQUAL        => self::TERM_TERM,
         FilterOperator::NOT_EQUAL    => '!=',
         FilterOperator::GT           => self::TERM_RANGE,
@@ -23,12 +23,12 @@ final class ElasticQueryGenerator
         FilterOperator::CONTAINS     => self::TERM_WILDCARD,
         FilterOperator::NOT_CONTAINS => self::TERM_WILDCARD,
     ];
-    private static $mustNotFields = [FilterOperator::NOT_EQUAL, FilterOperator::NOT_CONTAINS];
+    private static array $mustNotFields = [FilterOperator::NOT_EQUAL, FilterOperator::NOT_CONTAINS];
 
-    public function __invoke(array $query, Filter $filter)
+    public function __invoke(array $query, Filter $filter): array
     {
         $type          = $this->typeFor($filter->operator());
-        $termLevel     = $this->termLeverFor($filter->operator());
+        $termLevel     = $this->termLevelFor($filter->operator());
         $valueTemplate = $filter->operator()->isContaining() ? '*%s*' : '%s';
 
         return array_merge_recursive(
@@ -51,7 +51,7 @@ final class ElasticQueryGenerator
         return in_array($operator->value(), self::$mustNotFields, true) ? self::MUST_NOT_TYPE : self::MUST_TYPE;
     }
 
-    private function termLeverFor(FilterOperator $operator): string
+    private function termLevelFor(FilterOperator $operator): string
     {
         return get($operator->value(), self::$termMapping);
     }

@@ -14,7 +14,12 @@ use Symfony\Component\Validator\Validation;
 
 final class CoursesPostWebController extends WebController
 {
-    public function __invoke(Request $request)
+    protected function exceptions(): array
+    {
+        return [];
+    }
+
+    public function __invoke(Request $request): RedirectResponse
     {
         $validationErrors = $this->validateRequest($request);
 

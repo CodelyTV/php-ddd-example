@@ -9,7 +9,7 @@ use function Lambdish\Phunctional\each;
 
 final class DbalCustomTypesRegistrar
 {
-    private static $initialized = false;
+    private static bool $initialized = false;
 
     public static function register(array $dbalCustomTypesClasses): void
     {

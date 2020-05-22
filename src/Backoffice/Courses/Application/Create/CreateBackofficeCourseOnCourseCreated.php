@@ -9,7 +9,7 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 
 final class CreateBackofficeCourseOnCourseCreated implements DomainEventSubscriber
 {
-    private $creator;
+    private BackofficeCourseCreator $creator;
 
     public function __construct(BackofficeCourseCreator $creator)
     {
@@ -21,7 +21,7 @@ final class CreateBackofficeCourseOnCourseCreated implements DomainEventSubscrib
         return [CourseCreatedDomainEvent::class];
     }
 
-    public function __invoke(CourseCreatedDomainEvent $event)
+    public function __invoke(CourseCreatedDomainEvent $event): void
     {
         $this->creator->create($event->aggregateId(), $event->name(), $event->duration());
     }
