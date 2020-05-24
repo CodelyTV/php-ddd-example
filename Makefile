@@ -17,7 +17,6 @@ composer composer-install composer-update require-composer-module:
 			--ignore-platform-reqs \
 			--no-ansi
 
-
 reload:
 	@docker-compose exec php-fpm kill -USR2 1
 	@docker-compose exec nginx nginx -s reload
