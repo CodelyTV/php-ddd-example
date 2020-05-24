@@ -12,7 +12,7 @@ use function Lambdish\Phunctional\map;
 
 final class AllBackofficeCoursesSearcher
 {
-    private $repository;
+    private BackofficeCourseRepository $repository;
 
     public function __construct(BackofficeCourseRepository $repository)
     {
@@ -26,8 +26,10 @@ final class AllBackofficeCoursesSearcher
 
     private function toResponse(): callable
     {
-        return static function (BackofficeCourse $course) {
-            return new BackofficeCourseResponse($course->id(), $course->name(), $course->duration());
-        };
+        return static fn(BackofficeCourse $course) => new BackofficeCourseResponse(
+            $course->id(),
+            $course->name(),
+            $course->duration()
+        );
     }
 }

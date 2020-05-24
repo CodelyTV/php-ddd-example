@@ -11,9 +11,9 @@ use function Lambdish\Phunctional\get;
 
 final class InMemoryCacheBackofficeCourseRepository implements BackofficeCourseRepository
 {
-    private static $allCoursesCache = [];
-    private static $matchingCache = [];
-    private $repository;
+    private static array               $allCoursesCache = [];
+    private static array               $matchingCache   = [];
+    private BackofficeCourseRepository $repository;
 
     public function __construct(BackofficeCourseRepository $repository)
     {

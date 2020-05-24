@@ -62,21 +62,20 @@ final class Utils
     {
         $results = [];
         foreach ($array as $key => $value) {
-            if (is_array($value) && ! empty($value)) {
-                $results = array_merge($results, static::dot($value, $prepend.$key.'.'));
+            if (is_array($value) && !empty($value)) {
+                $results = array_merge($results, static::dot($value, $prepend . $key . '.'));
             } else {
-                $results[$prepend.$key] = $value;
+                $results[$prepend . $key] = $value;
             }
         }
+
         return $results;
     }
 
     public static function directoriesIn(string $path): array
     {
         return filter(
-            static function (string $possibleModule) {
-                return !in_array($possibleModule, ['.', '..']);
-            },
+            static fn(string $possibleModule) => !in_array($possibleModule, ['.', '..']),
             scandir($path)
         );
     }
@@ -84,9 +83,7 @@ final class Utils
     public static function filesIn(string $path, $fileType): array
     {
         return filter(
-            static function (string $possibleModule) use ($fileType) {
-                return strstr($possibleModule, $fileType);
-            },
+            static fn(string $possibleModule) => strstr($possibleModule, $fileType),
             scandir($path)
         );
     }

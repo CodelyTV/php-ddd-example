@@ -11,8 +11,7 @@ use function Lambdish\Phunctional\each;
 
 abstract class Collection implements Countable, IteratorAggregate
 {
-    /** @var array */
-    private $items;
+    private array $items;
 
     public function __construct(array $items)
     {
@@ -23,22 +22,22 @@ abstract class Collection implements Countable, IteratorAggregate
 
     abstract protected function type(): string;
 
-    public function getIterator()
+    public function getIterator(): ArrayIterator
     {
         return new ArrayIterator($this->items());
     }
 
-    public function count()
+    public function count(): int
     {
         return count($this->items());
     }
 
-    protected function each(callable $fn)
+    protected function each(callable $fn): void
     {
         each($fn, $this->items());
     }
 
-    protected function items()
+    protected function items(): array
     {
         return $this->items;
     }
