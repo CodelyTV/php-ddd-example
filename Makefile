@@ -7,24 +7,27 @@ build: deps start
 deps: composer-install
 
 # 🐘 Composer
+composer-env-file:
+	@if [ ! -f .env.local ]; then echo '' > .env.local; fi
+
 composer-install: CMD=install
 composer-update: CMD=update
 require-composer-module: CMD=require $(module)
 require-composer-module: INTERACTIVE=-ti --interactive
-composer composer-install composer-update require-composer-module:
-	docker run --rm $(INTERACTIVE) --volume $(current-dir):/app --user $(id -u):$(id -g) \
+composer composer-install composer-update require-composer-module: composer-env-file
+	@docker run --rm --interactive --volume $(current-dir):/app --user $(id -u):$(id -g) \
 		clevyr/prestissimo $(CMD) \
 			--ignore-platform-reqs \
 			--no-ansi
 
-reload:
+reload: composer-env-file
 	@docker-compose exec php-fpm kill -USR2 1
 	@docker-compose exec nginx nginx -s reload
 
-test:
+test: composer-env-file
 	@docker exec codelytv-php_ddd_skeleton-php make run-tests
 
-run-tests:
+run-tests: composer-env-file
 	mkdir -p build/test_results/phpunit
 	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests
 	./vendor/bin/behat -p mooc_backend --format=progress -v
@@ -36,10 +39,10 @@ destroy: CMD=down
 
 # Usage: `make doco CMD="ps --services"`
 # Usage: `make doco CMD="build --parallel --pull --force-rm --no-cache"`
-doco start stop destroy:
+doco start stop destroy: composer-env-file
 	@docker-compose $(CMD)
 
-rebuild:
+rebuild: composer-env-file
 	docker-compose build --pull --force-rm --no-cache
 	make deps
 	make start
@@ -56,7 +59,7 @@ stop-local:
 	symfony server:stop --dir=apps/mooc/backend/public
 	symfony server:stop --dir=apps/backoffice/frontend/public
 	symfony server:stop --dir=apps/backoffice/backend/public
-	
+
 ping-mysql:
 	@docker exec codelytv-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
 
