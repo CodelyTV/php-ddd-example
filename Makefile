@@ -8,7 +8,7 @@ deps: composer-install
 
 # 🐘 Composer
 composer-env-file:
-	@if [ ! -f .env.local ]; then @touch .env.local; fi
+	@if [ ! -f .env.local ]; then echo '' > .env.local; fi
 
 composer-install: CMD=install
 composer-update: CMD=update
