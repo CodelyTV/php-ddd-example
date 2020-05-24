@@ -10,11 +10,13 @@ deps: composer-install
 composer-install: CMD=install
 composer-update: CMD=update
 require-composer-module: CMD=require $(module)
+require-composer-module: INTERACTIVE=-ti --interactive
 composer composer-install composer-update require-composer-module:
-	@docker run --rm -ti --interactive --volume $(current-dir):/app --user $(id -u):$(id -g) \
+	docker run --rm $(INTERACTIVE) --volume $(current-dir):/app --user $(id -u):$(id -g) \
 		clevyr/prestissimo $(CMD) \
 			--ignore-platform-reqs \
 			--no-ansi
+
 
 reload:
 	@docker-compose exec php-fpm kill -USR2 1
