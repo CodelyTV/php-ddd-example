@@ -8,8 +8,8 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 
 final class CourseCreatedDomainEvent extends DomainEvent
 {
-    private $name;
-    private $duration;
+    private string $name;
+    private string $duration;
 
     public function __construct(
         string $id,

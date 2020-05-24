@@ -11,6 +11,8 @@ use Doctrine\DBAL\Types\StringType;
 
 abstract class UuidType extends StringType implements DoctrineCustomType
 {
+    abstract protected function typeClassName(): string;
+
     public function getName(): string
     {
         return self::customTypeName();
@@ -28,6 +30,4 @@ abstract class UuidType extends StringType implements DoctrineCustomType
     {
         return $value->value();
     }
-
-    abstract protected function typeClassName(): string;
 }

@@ -16,7 +16,7 @@ use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 
 final class InMemorySymfonyCommandBus implements CommandBus
 {
-    private $bus;
+    private MessageBus $bus;
 
     public function __construct(iterable $commandHandlers)
     {

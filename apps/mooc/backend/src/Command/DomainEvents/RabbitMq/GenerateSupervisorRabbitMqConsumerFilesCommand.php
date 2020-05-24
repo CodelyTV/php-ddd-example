@@ -15,12 +15,11 @@ use function Lambdish\Phunctional\each;
 
 final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
 {
-    protected static $defaultName = 'codelytv:domain-events:rabbitmq:generate-supervisor-files';
-
     private const EVENTS_TO_PROCESS_AT_TIME           = 200;
     private const NUMBERS_OF_PROCESSES_PER_SUBSCRIBER = 1;
     private const SUPERVISOR_PATH                     = __DIR__ . '/../../../../build/supervisor';
-    private $locator;
+    protected static                     $defaultName = 'codelytv:domain-events:rabbitmq:generate-supervisor-files';
+    private DomainEventSubscriberLocator $locator;
 
     public function __construct(DomainEventSubscriberLocator $locator)
     {
@@ -36,7 +35,7 @@ final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
             ->addArgument('command-path', InputArgument::OPTIONAL, 'Path on this is gonna be deployed', '/var/www');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $path = (string) $input->getArgument('command-path');
 
@@ -62,7 +61,7 @@ final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
                     $queueName,
                     $path,
                     self::NUMBERS_OF_PROCESSES_PER_SUBSCRIBER,
-                    self::EVENTS_TO_PROCESS_AT_TIME
+                    self::EVENTS_TO_PROCESS_AT_TIME,
                 ],
                 $this->template()
             );
@@ -86,7 +85,7 @@ autostart    = true
 EOF;
     }
 
-    private function fileName(string $queue)
+    private function fileName(string $queue): string
     {
         return sprintf('%s/%s.ini', self::SUPERVISOR_PATH, $queue);
     }

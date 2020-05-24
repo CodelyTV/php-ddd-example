@@ -10,7 +10,6 @@ use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Schema\MySqlSchemaManager;
 use Doctrine\ORM\Configuration;
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver;
 use Doctrine\ORM\Tools\Setup;
 use RuntimeException;
@@ -18,7 +17,7 @@ use function Lambdish\Phunctional\dissoc;
 
 final class DoctrineEntityManagerFactory
 {
-    private static $sharedPrefixes = [
+    private static array $sharedPrefixes = [
         __DIR__ . '/../../../Shared/Infrastructure/Persistence/Mappings' => 'CodelyTv\Shared\Domain',
     ];
 
@@ -28,7 +27,7 @@ final class DoctrineEntityManagerFactory
         bool $isDevMode,
         string $schemaFile,
         array $dbalCustomTypesClasses
-    ): EntityManagerInterface {
+    ): EntityManager {
         if ($isDevMode) {
             static::generateDatabaseIfNotExists($parameters, $schemaFile);
         }

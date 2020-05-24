@@ -38,14 +38,10 @@ final class DomainEventArraySimilarComparator extends Comparator
 
     private function contains(array $expectedArray, array $actualArray): bool
     {
-        $exists = static function (DomainEvent $expected) use ($actualArray) {
-            return any(
-                static function (DomainEvent $actual) use ($expected) {
-                    return TestUtils::isSimilar($expected, $actual);
-                },
-                $actualArray
-            );
-        };
+        $exists = static fn(DomainEvent $expected) => any(
+            static fn(DomainEvent $actual) => TestUtils::isSimilar($expected, $actual),
+            $actualArray
+        );
 
         return all($exists, $expectedArray);
     }
