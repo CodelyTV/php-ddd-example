@@ -24,6 +24,13 @@ final class FileCourseRepository implements CourseRepository
             : null;
     }
 
+    public function searchLatest(): ?Course
+    {
+        return ($files = scandir(self::FILE_PATH, SCANDIR_SORT_DESCENDING))
+            ? unserialize($files[0])
+            : null;
+    }
+
     private function fileName(string $id): string
     {
         return sprintf('%s.%s.repo', self::FILE_PATH, $id);
