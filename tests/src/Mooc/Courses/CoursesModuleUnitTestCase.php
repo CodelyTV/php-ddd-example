@@ -32,6 +32,14 @@ abstract class CoursesModuleUnitTestCase extends UnitTestCase
             ->andReturn($course);
     }
 
+    protected function shouldSearchLatest(?Course $course): void
+    {
+        $this->repository
+            ->shouldReceive('searchLatest')
+            ->once()
+            ->andReturn($course);
+    }
+
     /** @return CourseRepository|MockInterface */
     protected function repository(): MockInterface
     {
