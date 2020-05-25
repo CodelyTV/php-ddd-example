@@ -18,7 +18,7 @@ final class CourseRenamerCommandHandler implements CommandHandler
 
     public function __invoke(CourseRenamerCommand $courseRenamerCommand)
     {
-        $id = new CourseId($courseRenamerCommand->getId());
+        $id      = new CourseId($courseRenamerCommand->getId());
         $newName = new CourseName($courseRenamerCommand->getNewName());
 
         $this->courseRenamer->__invoke($id, $newName);

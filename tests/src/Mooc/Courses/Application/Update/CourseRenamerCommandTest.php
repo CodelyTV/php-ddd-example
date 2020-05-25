@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace CodelyTv\Tests\Mooc\Courses\Application\Update;
 
-use CodelyTv\Mooc\Courses\Application\Update\CourseRenamer;
 use CodelyTv\Mooc\Courses\Application\Update\CourseRenamerCommandHandler;
 use CodelyTv\Mooc\Courses\Domain\CourseName;
 use CodelyTv\Tests\Mooc\Courses\CoursesModuleUnitTestCase;
@@ -22,7 +21,7 @@ class CourseRenamerCommandTest extends CoursesModuleUnitTestCase
 
         $updatedCourse = DuplicatorMother::with($existingCourse,
             [
-                'name' => new CourseName( $command->getNewName())
+                'name' => new CourseName($command->getNewName())
             ]);
 
         $this->shouldSearch($existingCourse->id(), $existingCourse);
@@ -30,14 +29,5 @@ class CourseRenamerCommandTest extends CoursesModuleUnitTestCase
         $this->shouldNotPublishDomainEvent();
 
         $this->dispatch($command, $this->handler);
-    }
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->handler = new CourseRenamerCommandHandler(
-            new CourseRenamer($this->repository(), $this->eventBus())
-        );
     }
 }
