@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Courses\Infrastructure\Persistence;
 
@@ -19,5 +19,10 @@ final class DoctrineCourseRepository extends DoctrineRepository implements Cours
     public function search(CourseId $id): ?Course
     {
         return $this->repository(Course::class)->find($id);
+    }
+
+    public function findAll(): array
+    {
+        return $this->repository(Course::class)->findAll();
     }
 }

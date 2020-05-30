@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Tests\Mooc\Courses;
 
@@ -20,7 +20,8 @@ abstract class CoursesModuleUnitTestCase extends UnitTestCase
             ->shouldReceive('save')
             ->with($this->similarTo($course))
             ->once()
-            ->andReturnNull();
+            ->andReturnNull()
+        ;
     }
 
     protected function shouldSearch(CourseId $id, ?Course $course): void
@@ -29,7 +30,17 @@ abstract class CoursesModuleUnitTestCase extends UnitTestCase
             ->shouldReceive('search')
             ->with($this->similarTo($id))
             ->once()
-            ->andReturn($course);
+            ->andReturn($course)
+        ;
+    }
+
+    protected function shouldFindAll(?array $courses): void
+    {
+        $this->repository()
+            ->shouldReceive('findAll')
+            ->once()
+            ->andReturn($courses)
+        ;
     }
 
     /** @return CourseRepository|MockInterface */

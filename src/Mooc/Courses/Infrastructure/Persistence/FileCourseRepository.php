@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Courses\Infrastructure\Persistence;
 
@@ -22,6 +22,11 @@ final class FileCourseRepository implements CourseRepository
         return file_exists($this->fileName($id->value()))
             ? unserialize(file_get_contents($this->fileName($id->value())))
             : null;
+    }
+
+    public function findAll(): array
+    {
+        return [];
     }
 
     private function fileName(string $id): string
