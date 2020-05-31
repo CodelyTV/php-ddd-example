@@ -6,8 +6,8 @@ namespace CodelyTv\Tests\Mooc\Courses\Application\Create;
 
 use CodelyTv\Mooc\Courses\Application\Create\CourseCreator;
 use CodelyTv\Mooc\Courses\Application\Create\CreateCourseCommandHandler;
+use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseGenerationNotificator;
-use CodelyTv\Mooc\Courses\Domain\CourseRepository;
 use CodelyTv\Tests\Mooc\Courses\CoursesModuleUnitTestCase;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseCreatedDomainEventMother;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseMother;
@@ -16,12 +16,19 @@ use Mockery\MockInterface;
 final class CreateCourseCommandHandlerTest extends CoursesModuleUnitTestCase
 {
     private $handler;
+    private $courseGenerationNotificator;
 
     protected function setUp(): void
     {
         parent::setUp();
-        // todo continue here :-)
-        $this->handler = new CreateCourseCommandHandler(new CourseCreator($this->repository(), $this->eventBus(), $this->courseGenerationNotificator()));
+
+        $this->handler = new CreateCourseCommandHandler(
+            new CourseCreator(
+                $this->repository(),
+                $this->eventBus(),
+                $this->courseGenerationNotificator()
+            )
+        );
     }
 
     /** @test */
@@ -34,6 +41,7 @@ final class CreateCourseCommandHandlerTest extends CoursesModuleUnitTestCase
 
         $this->shouldSave($course);
         $this->shouldPublishDomainEvent($domainEvent);
+        $this->shouldNotifyTheGeneration($course);
 
         $this->dispatch($command, $this->handler);
     }
@@ -41,6 +49,14 @@ final class CreateCourseCommandHandlerTest extends CoursesModuleUnitTestCase
     /** @return CourseGenerationNotificator|MockInterface */
     protected function courseGenerationNotificator(): MockInterface
     {
-        return $this->mock(CourseGenerationNotificator::class);
+        return $this->courseGenerationNotificator = $this->courseGenerationNotificator ?: $this->mock(CourseGenerationNotificator::class);
+    }
+
+    protected function shouldNotifyTheGeneration(Course $withCourse)
+    {
+        $this->courseGenerationNotificator()
+            ->shouldReceive('notifyCourseCreated')
+            ->once()
+            ->with($this->similarTo($withCourse));
     }
 }

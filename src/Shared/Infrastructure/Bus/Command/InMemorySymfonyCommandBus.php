@@ -37,8 +37,6 @@ final class InMemorySymfonyCommandBus implements CommandBus
             throw new CommandNotRegisteredError($command);
         } catch (HandlerFailedException $error) {
             throw $error->getPrevious();
-        } catch (\Throwable $e) {
-            die('ui');
         }
     }
 }

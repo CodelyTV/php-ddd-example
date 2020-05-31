@@ -21,7 +21,7 @@ composer composer-install composer-update require-composer-module: composer-env-
 			--no-ansi
 
 reload: composer-env-file
-	@docker-compose exec php-fpm kill -USR2 1
+	@docker-compose exec php kill -USR2 1
 	@docker-compose exec nginx nginx -s reload
 
 test: composer-env-file

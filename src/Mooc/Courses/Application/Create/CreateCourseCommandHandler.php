@@ -23,11 +23,7 @@ final class CreateCourseCommandHandler implements CommandHandler
         $id       = new CourseId($command->id());
         $name     = new CourseName($command->name());
         $duration = new CourseDuration($command->duration());
-        try {
 
         $this->creator->__invoke($id, $name, $duration);
-        } catch (\Throwable $e) {
-            die($e->getMessage());
-        }
     }
 }
