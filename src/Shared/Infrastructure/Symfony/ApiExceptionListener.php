@@ -38,6 +38,8 @@ final class ApiExceptionListener
     {
         $domainErrorClass = DomainError::class;
 
-        return $error instanceof $domainErrorClass ? $error->errorCode() : Utils::toSnakeCase(Utils::getClassBasename($error));
+        return $error instanceof $domainErrorClass
+            ? $error->errorCode()
+            : Utils::toSnakeCase(Utils::extractClassName($error));
     }
 }
