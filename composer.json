@@ -6,11 +6,6 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/DonCallisto/MinkExtension",
-      "comment": "Waiting for https://github.com/Behat/MinkExtension/pull/355"
-    },
-    {
-      "type": "vcs",
       "url": "https://github.com/ruudk/MinkBrowserKitDriver",
       "comment": "Waiting for https://github.com/minkphp/Mink/issues/787 and then a new release"
     }
@@ -48,7 +43,7 @@
     "roave/security-advisories": "dev-master",
 
     "behat/behat": "^3.6",
-    "behat/mink-extension": "dev-patch-4",
+    "friends-of-behat/mink-extension": "^2.4",
     "behat/mink-browserkit-driver": "dev-symfony-5",
     "friends-of-behat/symfony-extension": "2.1.0-BETA.1",
 
