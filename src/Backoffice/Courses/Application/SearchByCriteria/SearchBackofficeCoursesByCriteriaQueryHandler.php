@@ -11,7 +11,7 @@ use CodelyTv\Shared\Domain\Criteria\Order;
 
 final class SearchBackofficeCoursesByCriteriaQueryHandler implements QueryHandler
 {
-    private $searcher;
+    private BackofficeCoursesByCriteriaSearcher $searcher;
 
     public function __construct(BackofficeCoursesByCriteriaSearcher $searcher)
     {

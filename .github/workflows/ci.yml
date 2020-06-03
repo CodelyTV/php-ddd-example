@@ -1,6 +1,10 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   build:
@@ -18,7 +22,7 @@ jobs:
 
       - name: Wait for the environment to get up
         run: |
-          while ! docker exec codelytv-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent &> /dev/null ; do
+          while ! make ping-mysql &>/dev/null; do
               echo "Waiting for database connection..."
               sleep 2
           done

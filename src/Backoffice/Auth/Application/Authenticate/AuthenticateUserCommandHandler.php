@@ -10,14 +10,14 @@ use CodelyTv\Shared\Domain\Bus\Command\CommandHandler;
 
 final class AuthenticateUserCommandHandler implements CommandHandler
 {
-    private $authenticator;
+    private UserAuthenticator $authenticator;
 
     public function __construct(UserAuthenticator $authenticator)
     {
         $this->authenticator = $authenticator;
     }
 
-    public function __invoke(AuthenticateUserCommand $command)
+    public function __invoke(AuthenticateUserCommand $command): void
     {
         $username = new AuthUsername($command->username());
         $password = new AuthPassword($command->password());

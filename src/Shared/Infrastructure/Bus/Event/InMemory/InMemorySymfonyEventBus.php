@@ -14,7 +14,7 @@ use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 
 class InMemorySymfonyEventBus implements EventBus
 {
-    private $bus;
+    private MessageBus $bus;
 
     public function __construct(iterable $subscribers)
     {
@@ -34,7 +34,8 @@ class InMemorySymfonyEventBus implements EventBus
         foreach ($events as $event) {
             try {
                 $this->bus->dispatch($event);
-            } catch (NoHandlerForMessageException $error) {}
+            } catch (NoHandlerForMessageException $error) {
+            }
         }
     }
 }

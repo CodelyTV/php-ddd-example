@@ -12,11 +12,6 @@ use function Lambdish\Phunctional\map;
 
 final class ElasticsearchBackofficeCourseRepository extends ElasticsearchRepository implements BackofficeCourseRepository
 {
-    protected function aggregateName(): string
-    {
-        return 'courses';
-    }
-
     public function save(BackofficeCourse $course): void
     {
         $this->persist($course->id(), $course->toPrimitives());
@@ -32,10 +27,13 @@ final class ElasticsearchBackofficeCourseRepository extends ElasticsearchReposit
         return map($this->toCourse(), $this->searchByCriteria($criteria));
     }
 
-    private function toCourse()
+    protected function aggregateName(): string
     {
-        return static function (array $primitives) {
-            return BackofficeCourse::fromPrimitives($primitives);
-        };
+        return 'courses';
+    }
+
+    private function toCourse(): callable
+    {
+        return static fn(array $primitives) => BackofficeCourse::fromPrimitives($primitives);
     }
 }

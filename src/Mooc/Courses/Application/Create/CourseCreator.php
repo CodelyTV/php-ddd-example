@@ -13,8 +13,8 @@ use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 
 final class CourseCreator
 {
-    private $repository;
-    private $bus;
+    private CourseRepository $repository;
+    private EventBus         $bus;
 
     public function __construct(CourseRepository $repository, EventBus $bus)
     {
@@ -22,7 +22,7 @@ final class CourseCreator
         $this->bus        = $bus;
     }
 
-    public function __invoke(CourseId $id, CourseName $name, CourseDuration $duration)
+    public function __invoke(CourseId $id, CourseName $name, CourseDuration $duration): void
     {
         $course = Course::create($id, $name, $duration);
 

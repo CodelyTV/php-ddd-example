@@ -24,9 +24,7 @@ final class DbalTypesSearcher
     private static function modulesInPath(string $path): array
     {
         return filter(
-            static function (string $possibleModule) {
-                return !in_array($possibleModule, ['.', '..']);
-            },
+            static fn(string $possibleModule) => !in_array($possibleModule, ['.', '..']),
             scandir($path)
         );
     }
@@ -45,16 +43,12 @@ final class DbalTypesSearcher
 
     private static function isExistingDbalPath(): callable
     {
-        return static function (string $path) {
-            return !empty($path);
-        };
+        return static fn(string $path) => !empty($path);
     }
 
     private static function namespaceFormatter($baseNamespace): callable
     {
-        return static function (string $path, string $module) use ($baseNamespace) {
-            return "$baseNamespace\\$module\Domain";
-        };
+        return static fn(string $path, string $module) => "$baseNamespace\\$module\Domain";
     }
 
     private static function dbalClassesSearcher(string $contextName): callable
@@ -62,9 +56,7 @@ final class DbalTypesSearcher
         return static function (array $totalNamespaces, string $path) use ($contextName) {
             $possibleFiles = scandir($path);
             $files         = filter(
-                static function ($file) {
-                    return Utils::endsWith('Type.php', $file);
-                },
+                static fn($file) => Utils::endsWith('Type.php', $file),
                 $possibleFiles
             );
 

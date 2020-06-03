@@ -8,9 +8,9 @@ use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 
 final class BackofficeCourse extends AggregateRoot
 {
-    private $id;
-    private $name;
-    private $duration;
+    private string $id;
+    private string $name;
+    private string $duration;
 
     public function __construct(string $id, string $name, string $duration)
     {

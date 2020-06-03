@@ -16,9 +16,7 @@ final class CourseIdMother
 
     public static function creator(): callable
     {
-        return static function () {
-            return self::random();
-        };
+        return static fn() => self::random();
     }
 
     public static function random(): CourseId
