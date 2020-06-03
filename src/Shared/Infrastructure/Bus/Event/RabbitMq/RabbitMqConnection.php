@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq;
 
@@ -19,7 +19,7 @@ final class RabbitMqConnection
     private static $exchanges = [];
     /** @var AMQPQueue[] */
     private static $queues = [];
-    private $configuration;
+    private        $configuration;
 
     public function __construct(array $configuration)
     {
