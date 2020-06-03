@@ -46,11 +46,6 @@ final class DbalTypesSearcher
         return static fn(string $path) => !empty($path);
     }
 
-    private static function namespaceFormatter($baseNamespace): callable
-    {
-        return static fn(string $path, string $module) => "$baseNamespace\\$module\Domain";
-    }
-
     private static function dbalClassesSearcher(string $contextName): callable
     {
         return static function (array $totalNamespaces, string $path) use ($contextName) {
