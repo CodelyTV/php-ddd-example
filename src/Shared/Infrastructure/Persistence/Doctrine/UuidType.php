@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace CodelyTv\Shared\Infrastructure\Persistence\Doctrine;
 
+use CodelyTv\Shared\Domain\Utils;
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
 use CodelyTv\Shared\Infrastructure\Doctrine\Dbal\DoctrineCustomType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
+use function Lambdish\Phunctional\last;
 
 abstract class UuidType extends StringType implements DoctrineCustomType
 {
@@ -16,6 +18,11 @@ abstract class UuidType extends StringType implements DoctrineCustomType
     public function getName(): string
     {
         return self::customTypeName();
+    }
+
+    public static function customTypeName(): string
+    {
+        return Utils::toSnakeCase(str_replace('Type', '', last(explode('\\', static::class))));
     }
 
     public function convertToPHPValue($value, AbstractPlatform $platform)
