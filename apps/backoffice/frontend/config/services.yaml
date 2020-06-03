@@ -84,7 +84,7 @@ services:
     arguments:
       - '%env(BACKOFFICE_ELASTICSEARCH_HOST)%'
       - '%env(BACKOFFICE_ELASTICSEARCH_INDEX_PREFIX)%'
-      - '%kernel.project_dir%/../../../databases/backoffice'
+      - '%kernel.project_dir%/../../../etc/databases/backoffice'
       - '%env(APP_ENV)%'
     public: true
 
