@@ -60,7 +60,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "CodelyTv\\Tests\\": ["tests/src"]
+      "CodelyTv\\Tests\\": ["tests"]
     }
   }
 }
