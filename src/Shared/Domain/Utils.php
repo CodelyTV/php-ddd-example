@@ -7,6 +7,7 @@ namespace CodelyTv\Shared\Domain;
 use DateTimeImmutable;
 use DateTimeInterface;
 use RuntimeException;
+use ReflectionClass;
 use function Lambdish\Phunctional\filter;
 
 final class Utils
@@ -85,5 +86,11 @@ final class Utils
             static fn(string $possibleModule) => strstr($possibleModule, $fileType),
             scandir($path)
         );
+    }
+
+    public function getClassBasename(object $object): string
+    {
+        $reflect = new ReflectionClass($object);
+        return $reflect->getShortName();
     }
 }
