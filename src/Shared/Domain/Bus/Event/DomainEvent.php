@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Shared\Domain\Bus\Event;
 
@@ -21,8 +21,6 @@ abstract class DomainEvent
         $this->occurredOn  = $occurredOn ?: Utils::dateToString(new DateTimeImmutable());
     }
 
-    abstract public function toPrimitives(): array;
-
     abstract public static function fromPrimitives(
         string $aggregateId,
         array $body,
@@ -31,6 +29,8 @@ abstract class DomainEvent
     ): self;
 
     abstract public static function eventName(): string;
+
+    abstract public function toPrimitives(): array;
 
     public function aggregateId(): string
     {

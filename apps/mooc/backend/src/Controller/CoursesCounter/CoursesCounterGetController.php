@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Apps\Mooc\Backend\Controller\CoursesCounter;
 
@@ -13,13 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class CoursesCounterGetController extends ApiController
 {
-    protected function exceptions(): array
-    {
-        return [
-            CoursesCounterNotExist::class => Response::HTTP_NOT_FOUND,
-        ];
-    }
-
     public function __invoke()
     {
         /** @var CoursesCounterResponse $response */
@@ -30,5 +23,12 @@ final class CoursesCounterGetController extends ApiController
                 'total' => $response->total(),
             ]
         );
+    }
+
+    protected function exceptions(): array
+    {
+        return [
+            CoursesCounterNotExist::class => Response::HTTP_NOT_FOUND,
+        ];
     }
 }

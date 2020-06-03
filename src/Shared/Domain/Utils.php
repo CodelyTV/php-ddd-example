@@ -1,13 +1,13 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Shared\Domain;
 
 use DateTimeImmutable;
 use DateTimeInterface;
-use RuntimeException;
 use ReflectionClass;
+use RuntimeException;
 use function Lambdish\Phunctional\filter;
 
 final class Utils

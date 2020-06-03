@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Shared\Infrastructure\Bus;
 
@@ -13,18 +13,6 @@ use function Lambdish\Phunctional\reindex;
 
 final class CallableFirstParameterExtractor
 {
-    public function extract($class): ?string
-    {
-        $reflector = new ReflectionClass($class);
-        $method    = $reflector->getMethod('__invoke');
-
-        if ($this->hasOnlyOneParameter($method)) {
-            return $this->firstParameterClassFrom($method);
-        }
-
-        return null;
-    }
-
     public static function forCallables(iterable $callables): array
     {
         return map(self::unflatten(), reindex(self::classExtractor(new self()), $callables));
@@ -33,16 +21,6 @@ final class CallableFirstParameterExtractor
     public static function forPipedCallables(iterable $callables): array
     {
         return reduce(self::pipedCallablesReducer(), $callables, []);
-    }
-
-    private function firstParameterClassFrom(ReflectionMethod $method): string
-    {
-        return $method->getParameters()[0]->getClass()->getName();
-    }
-
-    private function hasOnlyOneParameter(ReflectionMethod $method): bool
-    {
-        return $method->getNumberOfParameters() === 1;
     }
 
     private static function classExtractor(CallableFirstParameterExtractor $parameterExtractor): callable
@@ -66,5 +44,27 @@ final class CallableFirstParameterExtractor
     private static function unflatten(): callable
     {
         return static fn($value) => [$value];
+    }
+
+    public function extract($class): ?string
+    {
+        $reflector = new ReflectionClass($class);
+        $method    = $reflector->getMethod('__invoke');
+
+        if ($this->hasOnlyOneParameter($method)) {
+            return $this->firstParameterClassFrom($method);
+        }
+
+        return null;
+    }
+
+    private function firstParameterClassFrom(ReflectionMethod $method): string
+    {
+        return $method->getParameters()[0]->getClass()->getName();
+    }
+
+    private function hasOnlyOneParameter(ReflectionMethod $method): bool
+    {
+        return $method->getNumberOfParameters() === 1;
     }
 }
