@@ -46,6 +46,7 @@ services:
       - .:/app:delegated
     env_file:
       - .env
+      - .env.local
     depends_on:
       - mysql
       - rabbitmq
