@@ -44,7 +44,7 @@ final class ConsumeMySqlDomainEventsCommand extends Command
     {
         $quantityEventsToProcess = (int) $input->getArgument('quantity');
 
-        $consumer = pipe($this->consumer(), $this->clearConnections());
+        $consumer = pipe($this->consumer(), fn() => $this->connections->clear());
 
         $this->consumer->consume($consumer, $quantityEventsToProcess);
     }
@@ -57,13 +57,6 @@ final class ConsumeMySqlDomainEventsCommand extends Command
             foreach ($subscribers as $subscriber) {
                 $subscriber($domainEvent);
             }
-        };
-    }
-
-    private function clearConnections(): callable
-    {
-        return function () {
-            $this->connections->clear();
         };
     }
 }
