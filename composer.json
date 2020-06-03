@@ -3,13 +3,6 @@
   "license": "MIT",
   "type": "project",
   "description": "An example project applying Domain-Driven Design, Hexagonal Architecture and CQRS in a Monorepository",
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/ruudk/MinkBrowserKitDriver",
-      "comment": "Waiting for https://github.com/minkphp/Mink/issues/787 and then a new release"
-    }
-  ],
   "require": {
     "php": "7.4",
 
@@ -44,7 +37,7 @@
 
     "behat/behat": "^3.6",
     "friends-of-behat/mink-extension": "^2.4",
-    "behat/mink-browserkit-driver": "dev-symfony-5",
+    "behat/mink-browserkit-driver": "^1.3",
     "friends-of-behat/symfony-extension": "2.1.0-BETA.1",
 
     "phpunit/phpunit": "^8.5",
