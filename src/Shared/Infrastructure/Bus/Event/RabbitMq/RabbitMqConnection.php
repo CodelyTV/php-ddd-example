@@ -11,15 +11,13 @@ use AMQPQueue;
 
 final class RabbitMqConnection
 {
-    /** @var AMQPConnection */
-    private static $connection;
-    /** @var AMQPChannel */
-    private static $channel;
+    private static AMQPConnection $connection;
+    private static AMQPChannel    $channel;
     /** @var AMQPExchange[] */
-    private static $exchanges = [];
+    private static array $exchanges = [];
     /** @var AMQPQueue[] */
-    private static $queues = [];
-    private        $configuration;
+    private static array $queues = [];
+    private array        $configuration;
 
     public function __construct(array $configuration)
     {

@@ -35,16 +35,6 @@ final class DoctrineCriteriaConverter
         return $converter->convertToDoctrineCriteria();
     }
 
-    public static function convertToCount(
-        Criteria $criteria,
-        array $criteriaToDoctrineFields = [],
-        array $hydrators = []
-    ): DoctrineCriteria {
-        $converter = new self($criteria, $criteriaToDoctrineFields, $hydrators);
-
-        return $converter->convertToDoctrineCriteriaToCount();
-    }
-
     private function convertToDoctrineCriteria(): DoctrineCriteria
     {
         return new DoctrineCriteria(
@@ -53,11 +43,6 @@ final class DoctrineCriteriaConverter
             $this->criteria->offset(),
             $this->criteria->limit()
         );
-    }
-
-    private function convertToDoctrineCriteriaToCount(): DoctrineCriteria
-    {
-        return new DoctrineCriteria($this->buildExpression($this->criteria), $this->formatOrder($this->criteria));
     }
 
     private function buildExpression(Criteria $criteria): ?CompositeExpression
