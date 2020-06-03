@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Shared\Domain\ValueObject;
 
@@ -50,23 +50,6 @@ abstract class Enum
         return self::values()[array_rand(self::values())];
     }
 
-    public function value()
-    {
-        return $this->value;
-    }
-
-    public function equals(Enum $other): bool
-    {
-        return $other == $this;
-    }
-
-    private function ensureIsBetweenAcceptedValues($value): void
-    {
-        if (!in_array($value, static::values(), true)) {
-            $this->throwExceptionForInvalidValue($value);
-        }
-    }
-
     public static function random(): self
     {
         return new static(self::randomValue());
@@ -77,8 +60,25 @@ abstract class Enum
         return static fn($unused, string $key): string => Utils::toCamelCase(strtolower($key));
     }
 
+    public function value()
+    {
+        return $this->value;
+    }
+
+    public function equals(Enum $other): bool
+    {
+        return $other == $this;
+    }
+
     public function __toString(): string
     {
         return (string) $this->value();
+    }
+
+    private function ensureIsBetweenAcceptedValues($value): void
+    {
+        if (!in_array($value, static::values(), true)) {
+            $this->throwExceptionForInvalidValue($value);
+        }
     }
 }

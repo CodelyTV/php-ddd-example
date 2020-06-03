@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Backoffice\Courses\Domain;
 
@@ -19,6 +19,11 @@ final class BackofficeCourse extends AggregateRoot
         $this->duration = $duration;
     }
 
+    public static function fromPrimitives(array $primitives): BackofficeCourse
+    {
+        return new self($primitives['id'], $primitives['name'], $primitives['duration']);
+    }
+
     public function toPrimitives(): array
     {
         return [
@@ -26,11 +31,6 @@ final class BackofficeCourse extends AggregateRoot
             'name'     => $this->name,
             'duration' => $this->duration,
         ];
-    }
-
-    public static function fromPrimitives(array $primitives): BackofficeCourse
-    {
-        return new self($primitives['id'], $primitives['name'], $primitives['duration']);
     }
 
     public function id(): string

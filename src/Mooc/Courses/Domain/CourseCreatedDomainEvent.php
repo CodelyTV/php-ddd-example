@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Courses\Domain;
 
@@ -29,14 +29,6 @@ final class CourseCreatedDomainEvent extends DomainEvent
         return 'course.created';
     }
 
-    public function toPrimitives(): array
-    {
-        return [
-            'name'     => $this->name,
-            'duration' => $this->duration,
-        ];
-    }
-
     public static function fromPrimitives(
         string $aggregateId,
         array $body,
@@ -44,6 +36,14 @@ final class CourseCreatedDomainEvent extends DomainEvent
         string $occurredOn
     ): DomainEvent {
         return new self($aggregateId, $body['name'], $body['duration'], $eventId, $occurredOn);
+    }
+
+    public function toPrimitives(): array
+    {
+        return [
+            'name'     => $this->name,
+            'duration' => $this->duration,
+        ];
     }
 
     public function name(): string

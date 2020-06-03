@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Shared\Infrastructure\Symfony;
 
@@ -8,6 +8,7 @@ use CodelyTv\Shared\Domain\DomainError;
 use CodelyTv\Shared\Domain\Utils;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
+use Throwable;
 
 final class ApiExceptionListener
 {
@@ -33,7 +34,7 @@ final class ApiExceptionListener
         );
     }
 
-    private function exceptionCodeFor(\Throwable $error): string
+    private function exceptionCodeFor(Throwable $error): string
     {
         $domainErrorClass = DomainError::class;
 
