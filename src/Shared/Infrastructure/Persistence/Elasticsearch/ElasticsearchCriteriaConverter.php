@@ -23,8 +23,6 @@ final class ElasticsearchCriteriaConverter
     private function formatQuery(Criteria $criteria): array
     {
         if ($criteria->hasFilters()) {
-            $multipleFilters = 1 < $criteria->filters()->count();
-
             return [
                 'query' => [
                     'bool' => reduce(new ElasticQueryGenerator(), $criteria->filters(), []),
