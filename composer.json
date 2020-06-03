@@ -1,14 +1,9 @@
 {
-  "name": "codelytv/ddd-skeleton",
+  "name": "codelytv/php-ddd-example",
   "license": "MIT",
   "type": "project",
-  "description": "DDD php Skeleton - Monorepository",
+  "description": "An example project applying Domain-Driven Design, Hexagonal Architecture and CQRS in a Monorepository",
   "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/Behat/Behat",
-      "comment": "Waiting for new tag"
-    },
     {
       "type": "vcs",
       "url": "https://github.com/DonCallisto/MinkExtension",
@@ -52,7 +47,7 @@
 
     "roave/security-advisories": "dev-master",
 
-    "behat/behat": "dev-master as 3.6",
+    "behat/behat": "^3.6",
     "behat/mink-extension": "dev-patch-4",
     "behat/mink-browserkit-driver": "dev-symfony-5",
     "friends-of-behat/symfony-extension": "2.1.0-BETA.1",
