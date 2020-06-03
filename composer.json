@@ -62,5 +62,6 @@
     "psr-4": {
       "CodelyTv\\Tests\\": ["tests"]
     }
-  }
+  },
+  "minimum-stability": "stable"
 }
