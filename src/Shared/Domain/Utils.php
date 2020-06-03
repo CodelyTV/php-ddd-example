@@ -72,14 +72,6 @@ final class Utils
         return $results;
     }
 
-    public static function directoriesIn(string $path): array
-    {
-        return filter(
-            static fn(string $possibleModule) => !in_array($possibleModule, ['.', '..']),
-            scandir($path)
-        );
-    }
-
     public static function filesIn(string $path, $fileType): array
     {
         return filter(
@@ -88,9 +80,10 @@ final class Utils
         );
     }
 
-    public function getClassBasename(object $object): string
+    public static function extractClassName(object $object): string
     {
         $reflect = new ReflectionClass($object);
+
         return $reflect->getShortName();
     }
 }

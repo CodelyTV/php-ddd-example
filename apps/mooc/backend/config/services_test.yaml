@@ -7,7 +7,7 @@ services:
     autowire: true
 
   CodelyTv\Tests\:
-    resource: '../../../../tests/src'
+    resource: '../../../../tests'
 
   # Instance selector
   CodelyTv\Shared\Domain\RandomNumberGenerator: '@CodelyTv\Tests\Shared\Infrastructure\ConstantRandomNumberGenerator'

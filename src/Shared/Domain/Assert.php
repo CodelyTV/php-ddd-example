@@ -23,16 +23,4 @@ final class Assert
             );
         }
     }
-
-    public static function money($value): void
-    {
-        if (!self::isValidMoneyAmount($value)) {
-            throw new InvalidArgumentException(sprintf('The value <%s> is not a valid money amount', $value));
-        }
-    }
-
-    private static function isValidMoneyAmount($value): bool
-    {
-        return is_numeric($value) && $value >= 0;
-    }
 }
