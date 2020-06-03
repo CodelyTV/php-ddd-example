@@ -1,2 +1,2 @@
 imports:
-  - tests/apps/mooc/backend/mooc_backend.yml
+  - apps/mooc/backend/tests/mooc_backend.yml
