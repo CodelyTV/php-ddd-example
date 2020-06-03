@@ -9,7 +9,8 @@ deps: composer-install
 # 🐘 Composer
 composer-install: CMD=install
 composer-update: CMD=update
-composer composer-install composer-update:
+composer-require: CMD=require
+composer composer-install composer-update composer-require:
 	@docker run --rm --interactive --volume $(current-dir):/app --user $(id -u):$(id -g) \
 		clevyr/prestissimo $(CMD) \
 			--ignore-platform-reqs \
