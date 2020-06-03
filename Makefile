@@ -1,4 +1,4 @@
-.PHONY: build deps composer-install composer-update composer reload test run-tests start stop destroy doco rebuild start-local ping-mysql
+.PHONY: build deps composer-install composer-update composer reload test run-tests start stop destroy doco rebuild start-local ping-mysql composer-require composer-require-module
 
 current-dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
@@ -13,12 +13,14 @@ composer-env-file:
 composer-install: CMD=install
 composer-update: CMD=update
 composer-require: CMD=require
-composer composer-install composer-update composer-require: composer-env-file
-	@docker run --rm --interactive --volume $(current-dir):/app --user $(id -u):$(id -g) \
+composer-require: INTERACTIVE=-ti --interactive
+composer-require-module: CMD=require $(module)
+composer-require-module: INTERACTIVE=-ti --interactive
+composer composer-install composer-update composer-require composer-require-module: composer-env-file
+	@docker run --rm $(INTERACTIVE) --volume $(current-dir):/app --user $(id -u):$(id -g) \
 		clevyr/prestissimo $(CMD) \
 			--ignore-platform-reqs \
-			--no-ansi \
-			--no-interaction
+			--no-ansi
 
 reload: composer-env-file
 	@docker-compose exec php-fpm kill -USR2 1
