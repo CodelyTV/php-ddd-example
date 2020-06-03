@@ -11,8 +11,8 @@ use AMQPQueue;
 
 final class RabbitMqConnection
 {
-    private static AMQPConnection $connection;
-    private static AMQPChannel    $channel;
+    private static ?AMQPConnection $connection = null;
+    private static ?AMQPChannel    $channel    = null;
     /** @var AMQPExchange[] */
     private static array $exchanges = [];
     /** @var AMQPQueue[] */
