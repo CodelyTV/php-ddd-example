@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Shared\Domain\Criteria;
 
@@ -20,7 +20,7 @@ final class FilterOperator extends Enum
     public const LT           = '<';
     public const CONTAINS     = 'CONTAINS';
     public const NOT_CONTAINS = 'NOT_CONTAINS';
-    private static $containing = [self::CONTAINS, self::NOT_CONTAINS];
+    private static array $containing = [self::CONTAINS, self::NOT_CONTAINS];
 
     public static function equal(): self
     {

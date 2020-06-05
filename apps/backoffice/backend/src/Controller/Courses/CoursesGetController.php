@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Apps\Backoffice\Backend\Controller\Courses;
 
@@ -35,20 +35,16 @@ final class CoursesGetController
         );
 
         return new JsonResponse(
-            map($this->toArray(), $response->courses()),
+            map(
+                fn(BackofficeCourseResponse $course) => [
+                    'id'       => $course->id(),
+                    'name'     => $course->name(),
+                    'duration' => $course->duration(),
+                ],
+                $response->courses()
+            ),
             200,
             ['Access-Control-Allow-Origin' => '*']
         );
-    }
-
-    private function toArray(): callable
-    {
-        return static function (BackofficeCourseResponse $course) {
-            return [
-                'id'       => $course->id(),
-                'name'     => $course->name(),
-                'duration' => $course->duration(),
-            ];
-        };
     }
 }

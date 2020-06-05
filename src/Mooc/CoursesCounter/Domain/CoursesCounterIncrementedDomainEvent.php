@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Mooc\CoursesCounter\Domain;
 
@@ -22,13 +22,6 @@ final class CoursesCounterIncrementedDomainEvent extends DomainEvent
         return 'courses_counter.incremented';
     }
 
-    public function toPrimitives(): array
-    {
-        return [
-            'total' => $this->total,
-        ];
-    }
-
     public static function fromPrimitives(
         string $aggregateId,
         array $body,
@@ -36,5 +29,12 @@ final class CoursesCounterIncrementedDomainEvent extends DomainEvent
         string $occurredOn
     ): DomainEvent {
         return new self($aggregateId, $body['total'], $eventId, $occurredOn);
+    }
+
+    public function toPrimitives(): array
+    {
+        return [
+            'total' => $this->total,
+        ];
     }
 }

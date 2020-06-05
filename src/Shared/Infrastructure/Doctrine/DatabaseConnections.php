@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Shared\Infrastructure\Doctrine;
 
@@ -11,7 +11,7 @@ use function Lambdish\Phunctional\each;
 
 final class DatabaseConnections
 {
-    private array $connections = [];
+    private array $connections;
 
     public function __construct(iterable $connections)
     {
@@ -20,25 +20,11 @@ final class DatabaseConnections
 
     public function clear(): void
     {
-        each($this->clearer(), $this->connections);
-    }
-
-    public function allConnectionsClearer(): callable
-    {
-        return function (): void {
-            $this->clear();
-        };
+        each(fn(EntityManager $entityManager) => $entityManager->clear(), $this->connections);
     }
 
     public function truncate(): void
     {
         apply(new DatabaseCleaner(), array_values($this->connections));
-    }
-
-    private function clearer(): callable
-    {
-        return static function (EntityManager $entityManager) {
-            $entityManager->clear();
-        };
     }
 }

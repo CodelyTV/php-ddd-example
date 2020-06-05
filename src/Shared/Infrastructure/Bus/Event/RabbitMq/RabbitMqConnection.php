@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq;
 
@@ -11,15 +11,13 @@ use AMQPQueue;
 
 final class RabbitMqConnection
 {
-    /** @var AMQPConnection */
-    private static $connection;
-    /** @var AMQPChannel */
-    private static $channel;
+    private static ?AMQPConnection $connection = null;
+    private static ?AMQPChannel    $channel    = null;
     /** @var AMQPExchange[] */
-    private static $exchanges = [];
+    private static array $exchanges = [];
     /** @var AMQPQueue[] */
-    private static $queues = [];
-    private $configuration;
+    private static array $queues = [];
+    private array        $configuration;
 
     public function __construct(array $configuration)
     {

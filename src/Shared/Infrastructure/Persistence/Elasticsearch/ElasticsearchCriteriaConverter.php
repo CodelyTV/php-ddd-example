@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Shared\Infrastructure\Persistence\Elasticsearch;
 
@@ -23,8 +23,6 @@ final class ElasticsearchCriteriaConverter
     private function formatQuery(Criteria $criteria): array
     {
         if ($criteria->hasFilters()) {
-            $multipleFilters = 1 < $criteria->filters()->count();
-
             return [
                 'query' => [
                     'bool' => reduce(new ElasticQueryGenerator(), $criteria->filters(), []),

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Shared\Domain;
 
@@ -22,17 +22,5 @@ final class Assert
                 sprintf('The object <%s> is not an instance of <%s>', $class, get_class($item))
             );
         }
-    }
-
-    public static function money($value): void
-    {
-        if (!self::isValidMoneyAmount($value)) {
-            throw new InvalidArgumentException(sprintf('The value <%s> is not a valid money amount', $value));
-        }
-    }
-
-    private static function isValidMoneyAmount($value): bool
-    {
-        return is_numeric($value) && $value >= 0;
     }
 }

@@ -11,7 +11,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           xs_max_size: '10'
-          s_max_size: '100'
-          m_max_size: '350'
-          l_max_size: '700'
+          s_max_size: '300'
+          m_max_size: '600'
+          l_max_size: '1400'
           fail_if_xl: 'true'

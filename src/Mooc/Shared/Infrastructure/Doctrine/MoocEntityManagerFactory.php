@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Shared\Infrastructure\Doctrine;
 
@@ -9,7 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 final class MoocEntityManagerFactory
 {
-    private const SCHEMA_PATH = __DIR__ . '/../../../../../databases/mooc.sql';
+    private const SCHEMA_PATH = __DIR__ . '/../../../../../etc/databases/mooc.sql';
 
     public static function create(array $parameters, string $environment): EntityManagerInterface
     {

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace CodelyTv\Shared\Infrastructure\Doctrine\Dbal;
 
@@ -11,10 +11,10 @@ final class DbalCustomTypesRegistrar
 {
     private static bool $initialized = false;
 
-    public static function register(array $dbalCustomTypesClasses): void
+    public static function register(array $customTypeClassNames): void
     {
         if (!self::$initialized) {
-            each(self::registerType(), $dbalCustomTypesClasses);
+            each(self::registerType(), $customTypeClassNames);
 
             self::$initialized = true;
         }
@@ -22,8 +22,8 @@ final class DbalCustomTypesRegistrar
 
     private static function registerType(): callable
     {
-        return static function ($dbalCustomTypesClasses): void {
-            Type::addType($dbalCustomTypesClasses::customTypeName(), $dbalCustomTypesClasses);
+        return static function (string $customTypeClassName): void {
+            Type::addType($customTypeClassName::customTypeName(), $customTypeClassName);
         };
     }
 }

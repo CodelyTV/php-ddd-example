@@ -1,0 +1,29 @@
+mooc_backend:
+  extensions:
+    FriendsOfBehat\SymfonyExtension:
+      kernel:
+        class: CodelyTv\Apps\Mooc\Backend\MoocBackendKernel
+      bootstrap: apps/bootstrap.php
+    Behat\MinkExtension:
+      sessions:
+        symfony:
+          symfony: ~
+      base_url: ''
+
+  suites:
+    health_check:
+      paths: [ apps/mooc/backend/tests/features/health_check ]
+      contexts:
+        - CodelyTv\Tests\Shared\Infrastructure\Behat\ApiContext
+
+    courses:
+      paths: [ apps/mooc/backend/tests/features/courses ]
+      contexts:
+        - CodelyTv\Tests\Shared\Infrastructure\Behat\ApplicationFeatureContext
+        - CodelyTv\Tests\Shared\Infrastructure\Behat\ApiContext
+
+    courses_counter:
+      paths: [ apps/mooc/backend/tests/features/courses_counter ]
+      contexts:
+        - CodelyTv\Tests\Shared\Infrastructure\Behat\ApplicationFeatureContext
+        - CodelyTv\Tests\Shared\Infrastructure\Behat\ApiContext
