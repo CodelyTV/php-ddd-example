@@ -1,4 +1,4 @@
-.PHONY: build deps composer-install composer-update composer reload test run-tests start stop destroy doco rebuild start-local ping-mysql require-composer-module
+.PHONY: build deps composer-install composer-update composer reload test run-tests start stop destroy doco rebuild start-local ping-mysql
 
 current-dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
@@ -12,16 +12,16 @@ composer-env-file:
 
 composer-install: CMD=install
 composer-update: CMD=update
-require-composer-module: CMD=require $(module)
-require-composer-module: INTERACTIVE=-ti --interactive
-composer composer-install composer-update require-composer-module: composer-env-file
+composer-require: CMD=require
+composer composer-install composer-update composer-require: composer-env-file
 	@docker run --rm --interactive --volume $(current-dir):/app --user $(id -u):$(id -g) \
 		clevyr/prestissimo $(CMD) \
 			--ignore-platform-reqs \
-			--no-ansi
+			--no-ansi \
+			--no-interaction
 
 reload: composer-env-file
-	@docker-compose exec php kill -USR2 1
+	@docker-compose exec php-fpm kill -USR2 1
 	@docker-compose exec nginx nginx -s reload
 
 test: composer-env-file
@@ -59,7 +59,7 @@ stop-local:
 	symfony server:stop --dir=apps/mooc/backend/public
 	symfony server:stop --dir=apps/backoffice/frontend/public
 	symfony server:stop --dir=apps/backoffice/backend/public
-
+	
 ping-mysql:
 	@docker exec codelytv-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
 
