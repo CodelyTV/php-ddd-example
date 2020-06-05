@@ -1,5 +1,0 @@
-swiftmailer:
-  disable_delivery: true
-  transport: gmail
-  username: bertamini.matteo@gmail.com
-  password: zmqexnsukpjxapls

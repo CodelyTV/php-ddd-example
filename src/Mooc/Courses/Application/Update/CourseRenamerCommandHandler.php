@@ -19,11 +19,8 @@ final class CourseRenamerCommandHandler implements CommandHandler
     {
         $id       = new CourseId($command->id());
         $name     = new CourseName($command->name());
-        try {
-            $this->courseRenamer->__invoke($id, $name);
-        } catch (\Throwable $e) {
-            die($e->getMessage());
-        }
+
+        $this->courseRenamer->__invoke($id, $name);
     }
 }
 

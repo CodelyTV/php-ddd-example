@@ -2,3 +2,7 @@ courses_put:
     path: /courses/{id}
     controller: CodelyTv\Apps\Mooc\Backend\Controller\Courses\CoursesPutController
     methods:  [PUT]
+courses_patch:
+    path: /courses/{id}
+    controller: CodelyTv\Apps\Mooc\Backend\Controller\Courses\CoursesPatchController
+    methods:  [PATCH]

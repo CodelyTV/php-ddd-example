@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36d016d3964f43eaae650522e3866b52",
+    "content-hash": "7ba5c93ba8e5840cb557e4dbf8854365",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1435,6 +1435,36 @@
                 }
             ],
             "time": "2020-05-20T16:45:56+00:00"
+        },
+        {
+            "name": "mikemccabe/json-patch-php",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mikemccabe/json-patch-php.git",
+                "reference": "b3af30a6aec7f6467c773cd49b2d974a70f7c0d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mikemccabe/json-patch-php/zipball/b3af30a6aec7f6467c773cd49b2d974a70f7c0d4",
+                "reference": "b3af30a6aec7f6467c773cd49b2d974a70f7c0d4",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "mikemccabe\\JsonPatch\\": "src"
+                }
+            },
+            "license": [
+                "LGPL-3.0"
+            ],
+            "description": "Produce and apply json-patch objects",
+            "support": {
+                "source": "https://github.com/mikemccabe/json-patch-php/tree/0.1.0",
+                "issues": "https://github.com/mikemccabe/json-patch-php/issues"
+            },
+            "time": "2015-01-05T21:19:54+00:00"
         },
         {
             "name": "monolog/monolog",

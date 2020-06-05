@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Courses\Application\Update;
 
-use CodelyTv\Mooc\Courses\Application\Find\CourseFinder;
+use CodelyTv\Mooc\Courses\Domain\CourseFinder;
 use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseName;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
@@ -20,6 +20,7 @@ final class CourseRenamer
     public function __construct (CourseRepository $repository, EventBus $bus)
     {
         $this->repository = $repository;
+        // is it ok like this, or is it recommendable explicit it depends from the courseFinder by declaring it as a param?
         $this->finder     = new CourseFinder($repository);
         $this->bus        = $bus;
     }

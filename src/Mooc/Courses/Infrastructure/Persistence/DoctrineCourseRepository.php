@@ -18,6 +18,8 @@ final class DoctrineCourseRepository extends DoctrineRepository implements Cours
 
     public function search(CourseId $id): ?Course
     {
+        $this->entityManager()->flush();
         return $this->repository(Course::class)->find($id);
     }
+
 }

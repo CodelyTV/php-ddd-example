@@ -29,6 +29,12 @@ final class CourseRepositoryTest extends CoursesModuleInfrastructureTestCase
     }
 
     /** @test */
+    public function it_should_update_an_existing_course(): void
+    {
+        // todo continue here
+    }
+
+    /** @test */
     public function it_should_not_return_a_non_existing_course(): void
     {
         $this->assertNull($this->repository()->search(CourseIdMother::random()));
