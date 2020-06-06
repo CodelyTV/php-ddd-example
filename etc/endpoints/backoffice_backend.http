@@ -1,9 +1,0 @@
-PUT http://api.codelytv.localhost:8030/courses/5
-Content-Type: application/json
-
-{
-  "name": "This is a test",
-  "duration": "40"
-}
-
-###
