@@ -4,17 +4,45 @@ declare(strict_types = 1);
 
 namespace CodelyTv\Apps\Mooc\Backend\Controller\Courses;
 
-use CodelyTv\Mooc\Courses\Application\Create\CreateCourseCommand;
 use CodelyTv\Mooc\Courses\Application\Update\CourseRenamerCommand;
+use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
+use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use CodelyTv\Shared\Infrastructure\PatchParser;
 use CodelyTv\Shared\Infrastructure\Symfony\ApiController;
+use CodelyTv\Shared\Infrastructure\Symfony\ApiExceptionsHttpStatusCodeMapping;
 use mikemccabe\JsonPatch\JsonPatch;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 final class CoursesPatchController extends ApiController
 {
+    private array $supportedPatches;
+
+    public function __construct(QueryBus $queryBus, CommandBus $commandBus, ApiExceptionsHttpStatusCodeMapping $exceptionHandler)
+    {
+        parent::__construct($queryBus, $commandBus, $exceptionHandler);
+
+        // todo a class defining this patch handling structure, probably into a shared/infrastructure for reuse
+        $this->supportedPatches =  [
+            [
+                PatchParser::QUERY_SECTION_KEY => [
+                    PatchParser::OP_KEY     => 'replace',
+                    PatchParser::PATH_KEY   => '/name',
+                    PatchParser::VALUE_KEY  => '/.*/'
+                ],
+                PatchParser::EXECUTION_SECTION_KEY => function($id, $value): bool {
+                    $this->dispatch(
+                        new CourseRenamerCommand(
+                            $id,
+                            $value
+                        )
+                    );
+                    return true;
+                }
+            ]
+        ];
+    }
+
     protected function exceptions(): array
     {
         return [];
@@ -24,32 +52,13 @@ final class CoursesPatchController extends ApiController
     {
         $patches = JsonPatch::get(json_decode($request->getContent(), true), '');
 
-        $supportedPatches = [
-            [
-                'query' => [
-                    'op' => 'replace',
-                    'path' => '/name',
-                    'value' => '/value'
-                ],
-                'execution' => function($id, $value): bool {
-                    $this->dispatch(
-                        new CourseRenamerCommand(
-                            $id,
-                            $value
-                        )
-                    );
-                    return true;
-                },
-                'failure' => function(): bool {
-                    return false;
-                }
-            ]
-        ];
-
         foreach ($patches as $patch) {
-            $execution = PatchParser::parse($patch, $supportedPatches);
+            $execution = PatchParser::parse($patch, $this->supportedPatches);
             if ($execution === null) {
-                return new Response('Operation not supported', Response::HTTP_BAD_REQUEST);
+                return new Response(
+                    'One of the specified patch is not supported',
+                    Response::HTTP_BAD_REQUEST
+                );
             }
 
             $execution($id);
