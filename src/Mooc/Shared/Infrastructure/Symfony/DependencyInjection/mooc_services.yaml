@@ -16,7 +16,7 @@ services:
 
 
   # Courses
-  CodelyTv\Mooc\Courses\Domain\CourseRepository: '@CodelyTv\Mooc\Courses\Infrastructure\Persistence\DoctrineCourseRepository'
+  CodelyTv\Mooc\Courses\Domain\CourseRepository: 'CodelyTv\Mooc\Courses\Infrastructure\Persistence\DoctrineCourseRepository'
 
   # Notifiers
   codelytv.notifier.twitter:
@@ -28,9 +28,8 @@ services:
       - '%env(TWITTER_CONSUMER_SECRET)%'
 
   codelytv.course.twitter_notifier_listener:
-    class: CodelyTv\Mooc\Courses\Application\Notify\CourseTwitterNotifierListener
+    class: CodelyTv\Mooc\Notifications\Application\TweetNewCourse\PublishNotificationOnCourseCreated
     tags:
       - { name: codelytv.course.create_twitter_listener, event: codelytv.course.created, method: onCourseCreated, priority: 1 }
     arguments:
       - '@codelytv.notifier.twitter'
-
