@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Courses\Application\Find;
 
-use CodelyTv\Mooc\CoursesCounter\Application\Find\FindAllCoursesResponse;
+use CodelyTv\Mooc\CoursesCounter\Application\Find\CourseResponse;
 use CodelyTv\Shared\Domain\Bus\Query\QueryHandler;
 
 final class FindAllCoursesQueryHandler implements QueryHandler
@@ -15,7 +15,7 @@ final class FindAllCoursesQueryHandler implements QueryHandler
         $this->courseFinder = $courseFinder;
     }
 
-    public function __invoke(FindAllCoursesQuery $findAllCoursesQuery): FindAllCoursesResponse
+    public function __invoke(FindAllCoursesQuery $findAllCoursesQuery): CourseResponse
     {
         return $this->courseFinder->__invoke();
     }
