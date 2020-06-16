@@ -8,8 +8,10 @@ use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseDuration;
 use CodelyTv\Mooc\Courses\Domain\CourseName;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
+use CodelyTv\Mooc\Courses\Domain\CourseDuplicated;
 use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
 use CodelyTv\Shared\Domain\Bus\Event\EventBus;
+
 
 final class CourseCreator
 {
@@ -22,11 +24,18 @@ final class CourseCreator
         $this->bus        = $bus;
     }
 
-    public function __invoke(CourseId $id, CourseName $name, CourseDuration $duration): void
+    public function __invoke(CourseId $id, CourseName $name, CourseDuration $duration)
     {
         $course = Course::create($id, $name, $duration);
+        $courseFound = $this->repository->search($id);
+        if(null === $courseFound)
+        {
+            $this->repository->save($course);
+            $this->bus->publish(...$course->pullDomainEvents());
+            
+        }else{
+            throw new CourseDuplicated($id);
+        }
 
-        $this->repository->save($course);
-        $this->bus->publish(...$course->pullDomainEvents());
     }
 }
