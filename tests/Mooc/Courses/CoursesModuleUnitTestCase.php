@@ -6,7 +6,7 @@ namespace CodelyTv\Tests\Mooc\Courses;
 
 use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
-use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
+use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
 use Mockery\MockInterface;
 

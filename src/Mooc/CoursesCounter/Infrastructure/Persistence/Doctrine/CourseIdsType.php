@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CodelyTv\Mooc\CoursesCounter\Infrastructure\Persistence\Doctrine;
 
-use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
+use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Shared\Infrastructure\Doctrine\Dbal\DoctrineCustomType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\JsonType;

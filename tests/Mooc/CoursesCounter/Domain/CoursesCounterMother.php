@@ -7,7 +7,7 @@ namespace CodelyTv\Tests\Mooc\CoursesCounter\Domain;
 use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounter;
 use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterId;
 use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterTotal;
-use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
+use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseIdMother;
 use CodelyTv\Tests\Shared\Domain\Repeater;
 

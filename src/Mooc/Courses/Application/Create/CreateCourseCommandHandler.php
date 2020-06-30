@@ -6,7 +6,7 @@ namespace CodelyTv\Mooc\Courses\Application\Create;
 
 use CodelyTv\Mooc\Courses\Domain\CourseDuration;
 use CodelyTv\Mooc\Courses\Domain\CourseName;
-use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
+use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Shared\Domain\Bus\Command\CommandHandler;
 
 final class CreateCourseCommandHandler implements CommandHandler

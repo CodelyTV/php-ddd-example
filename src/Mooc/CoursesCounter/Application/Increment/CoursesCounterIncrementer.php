@@ -7,7 +7,7 @@ namespace CodelyTv\Mooc\CoursesCounter\Application\Increment;
 use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounter;
 use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterId;
 use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterRepository;
-use CodelyTv\Mooc\Shared\Domain\Course\CourseId;
+use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 use CodelyTv\Shared\Domain\UuidGenerator;
 
