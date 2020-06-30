@@ -18,6 +18,11 @@ abstract class IntValueObject
         return $this->value;
     }
 
+    public function isBiggerThan(IntValueObject $other): bool
+    {
+        return $this->value() > $other->value();
+    }
+
     public function __toString(): string
     {
         return (string) $this->value();

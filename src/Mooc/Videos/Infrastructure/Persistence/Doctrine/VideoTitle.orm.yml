@@ -1,0 +1,7 @@
+CodelyTv\Mooc\Videos\Domain\VideoTitle:
+  type: embeddable
+
+  fields:
+    value:
+      type: string
+      column: title
