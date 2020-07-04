@@ -26,6 +26,11 @@ final class CourseMother
         );
     }
 
+    public static function nullCourse(): ?Course
+    {
+        return null;
+    }
+
     public static function random(): Course
     {
         return self::create(CourseIdMother::random(), CourseNameMother::random(), CourseDurationMother::random());
