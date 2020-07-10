@@ -6,7 +6,6 @@ namespace CodelyTv\Tests\Backoffice\Courses;
 
 use CodelyTv\Backoffice\Courses\Infrastructure\Persistence\ElasticsearchBackofficeCourseRepository;
 use CodelyTv\Backoffice\Courses\Infrastructure\Persistence\MySqlBackofficeCourseRepository;
-use CodelyTv\Shared\Infrastructure\Elasticsearch\ElasticsearchClient;
 use CodelyTv\Tests\Mooc\Shared\Infrastructure\PhpUnit\MoocContextInfrastructureTestCase;
 use Doctrine\ORM\EntityManager;
 
@@ -19,6 +18,6 @@ abstract class BackofficeCoursesModuleInfrastructureTestCase extends MoocContext
 
     protected function elasticRepository(): ElasticsearchBackofficeCourseRepository
     {
-        return new ElasticsearchBackofficeCourseRepository($this->service(ElasticsearchClient::class));
+        return $this->service(ElasticsearchBackofficeCourseRepository::class);
     }
 }
