@@ -20,7 +20,7 @@ final class DomainEventSubscriberLocator
         $this->mapping = iterator_to_array($mapping);
     }
 
-    public function allSubscribedTo(string $eventClass): callable
+    public function allSubscribedTo(string $eventClass): array
     {
         $formatted = CallableFirstParameterExtractor::forPipedCallables($this->mapping);
 
