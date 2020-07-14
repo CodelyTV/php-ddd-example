@@ -35,6 +35,10 @@ abstract class UuidType extends StringType implements DoctrineCustomType
     /** @var Uuid $value */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        return $value->value();
+        if ($value instanceof Uuid) {
+            return $value->value();
+        }
+        
+        return $value === null ? null : (string) $value;
     }
 }
