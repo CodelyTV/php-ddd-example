@@ -9,12 +9,12 @@ use CodelyTv\Tests\Backoffice\Courses\Domain\BackofficeCourseCriteriaMother;
 use CodelyTv\Tests\Backoffice\Courses\Domain\BackofficeCourseMother;
 use CodelyTv\Tests\Shared\Domain\Criteria\CriteriaMother;
 
-final class MySqlBackofficeCourseRepositoryTest extends BackofficeCoursesModuleInfrastructureTestCase
+final class ElasticsearchBackofficeCourseRepositoryTest extends BackofficeCoursesModuleInfrastructureTestCase
 {
     /** @test */
     public function it_should_save_a_valid_course(): void
     {
-        $this->mySqlRepository()->save(BackofficeCourseMother::random());
+        $this->elasticRepository()->save(BackofficeCourseMother::random());
     }
 
     /** @test */
@@ -24,10 +24,10 @@ final class MySqlBackofficeCourseRepositoryTest extends BackofficeCoursesModuleI
         $anotherExistingCourse = BackofficeCourseMother::random();
         $existingCourses       = [$existingCourse, $anotherExistingCourse];
 
-        $this->mySqlRepository()->save($existingCourse);
-        $this->mySqlRepository()->save($anotherExistingCourse);
+        $this->elasticRepository()->save($existingCourse);
+        $this->elasticRepository()->save($anotherExistingCourse);
 
-        $this->assertSimilar($existingCourses, $this->mySqlRepository()->searchAll());
+        $this->eventually(fn() => $this->assertSimilar($existingCourses, $this->elasticRepository()->searchAll()));
     }
 
     /** @test */
@@ -37,11 +37,15 @@ final class MySqlBackofficeCourseRepositoryTest extends BackofficeCoursesModuleI
         $anotherExistingCourse = BackofficeCourseMother::random();
         $existingCourses       = [$existingCourse, $anotherExistingCourse];
 
-        $this->mySqlRepository()->save($existingCourse);
-        $this->mySqlRepository()->save($anotherExistingCourse);
-        $this->clearUnitOfWork();
+        $this->elasticRepository()->save($existingCourse);
+        $this->elasticRepository()->save($anotherExistingCourse);
 
-        $this->assertSimilar($existingCourses, $this->mySqlRepository()->matching(CriteriaMother::empty()));
+        $this->eventually(
+            fn() => $this->assertSimilar(
+                $existingCourses,
+                $this->elasticRepository()->matching(CriteriaMother::empty())
+            )
+        );
     }
 
     /** @test */
@@ -54,11 +58,12 @@ final class MySqlBackofficeCourseRepositoryTest extends BackofficeCoursesModuleI
 
         $nameContainsDddCriteria = BackofficeCourseCriteriaMother::nameContains('DDD');
 
-        $this->mySqlRepository()->save($dddInJavaCourse);
-        $this->mySqlRepository()->save($dddInPhpCourse);
-        $this->mySqlRepository()->save($intellijCourse);
-        $this->clearUnitOfWork();
+        $this->elasticRepository()->save($dddInJavaCourse);
+        $this->elasticRepository()->save($dddInPhpCourse);
+        $this->elasticRepository()->save($intellijCourse);
 
-        $this->assertSimilar($dddCourses, $this->mySqlRepository()->matching($nameContainsDddCriteria));
+        $this->eventually(
+            fn() => $this->assertSimilar($dddCourses, $this->elasticRepository()->matching($nameContainsDddCriteria))
+        );
     }
 }

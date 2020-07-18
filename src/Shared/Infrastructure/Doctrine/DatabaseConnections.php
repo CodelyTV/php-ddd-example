@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CodelyTv\Shared\Infrastructure\Doctrine;
 
-use CodelyTv\Tests\Shared\Infrastructure\Doctrine\DatabaseCleaner;
+use CodelyTv\Tests\Shared\Infrastructure\Doctrine\MySqlDatabaseCleaner;
 use Doctrine\ORM\EntityManager;
 use function Lambdish\Phunctional\apply;
 use function Lambdish\Phunctional\each;
@@ -25,6 +25,6 @@ final class DatabaseConnections
 
     public function truncate(): void
     {
-        apply(new DatabaseCleaner(), array_values($this->connections));
+        apply(new MySqlDatabaseCleaner(), array_values($this->connections));
     }
 }

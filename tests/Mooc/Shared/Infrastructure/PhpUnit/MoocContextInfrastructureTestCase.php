@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace CodelyTv\Tests\Mooc\Shared\Infrastructure\PhpUnit;
 
+use CodelyTv\Apps\Mooc\Backend\MoocBackendKernel;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\InfrastructureTestCase;
 use Doctrine\ORM\EntityManager;
 
@@ -27,8 +28,8 @@ abstract class MoocContextInfrastructureTestCase extends InfrastructureTestCase
         parent::tearDown();
     }
 
-    protected function clearUnitOfWork(): void
+    protected function kernelClass(): string
     {
-        $this->service(EntityManager::class)->clear();
+        return MoocBackendKernel::class;
     }
 }

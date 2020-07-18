@@ -31,7 +31,9 @@ test: composer-env-file
 
 run-tests: composer-env-file
 	mkdir -p build/test_results/phpunit
-	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml tests
+	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml --testsuite backoffice
+	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml --testsuite mooc
+	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml --testsuite shared
 	./vendor/bin/behat -p mooc_backend --format=progress -v
 
 # 🐳 Docker Compose
@@ -61,7 +63,10 @@ stop-local:
 	symfony server:stop --dir=apps/mooc/backend/public
 	symfony server:stop --dir=apps/backoffice/frontend/public
 	symfony server:stop --dir=apps/backoffice/backend/public
-	
+
 ping-mysql:
 	@docker exec codelytv-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
+
+clean-cache:
+	@rm -rf apps/*/*/var
 
