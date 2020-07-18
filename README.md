@@ -129,6 +129,9 @@ The [Event Bus](src/Shared/Infrastructure/Bus/Event/InMemory/InMemorySymfonyEven
 The [MySql Bus](src/Shared/Infrastructure/Bus/Event/MySql/MySqlDoctrineEventBus.php) uses a MySql+Pulling as a bus.
 The [RabbitMQ Bus](src/Shared/Infrastructure/Bus/Event/RabbitMq/RabbitMqEventBus.php) uses RabbitMQ C extension.
 
+## 📱 Monitoring
+Every time a domain event is published it's exported to Prometheus. You can access to the Prometheus panel [here](http://localhost:9999/)
+
 ## 🤔 Contributing
 There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want
 some guidelines feel free to contact us :)
