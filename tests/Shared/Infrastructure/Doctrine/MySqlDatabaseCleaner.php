@@ -9,7 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use function Lambdish\Phunctional\first;
 use function Lambdish\Phunctional\map;
 
-final class DatabaseCleaner
+final class MySqlDatabaseCleaner
 {
     public function __invoke(EntityManagerInterface $entityManager): void
     {
