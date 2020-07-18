@@ -88,6 +88,11 @@ services:
       - '%env(APP_ENV)%'
     public: true
 
+  CodelyTv\Shared\Infrastructure\Bus\Event\WithMonitoring\WithPrometheusMonitoringEventBus:
+    arguments: ['@CodelyTv\Shared\Infrastructure\Monitoring\PrometheusMonitor', 'backoffice_backend', '@CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqEventBus']
+
   # -- IMPLEMENTATIONS SELECTOR --
-  CodelyTv\Shared\Domain\Bus\Event\EventBus: '@CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqEventBus'
+
+  # -- IMPLEMENTATIONS SELECTOR --
+  CodelyTv\Shared\Domain\Bus\Event\EventBus: '@CodelyTv\Shared\Infrastructure\Bus\Event\WithMonitoring\WithPrometheusMonitoringEventBus'
   CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository: '@CodelyTv\Backoffice\Courses\Infrastructure\Persistence\ElasticsearchBackofficeCourseRepository'
