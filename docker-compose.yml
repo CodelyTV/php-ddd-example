@@ -1,19 +1,6 @@
 version: '3'
 
 services:
-  shared_php:
-    container_name: codelytv-php_ddd_skeleton-php
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    ports:
-      - "9090:9001"
-    volumes:
-      - .:/app:delegated
-    depends_on:
-      - shared_rabbitmq
-
   shared_rabbitmq:
     container_name: codelytv-php_ddd_skeleton-rabbitmq
     image: 'rabbitmq:3.7-management'
@@ -58,6 +45,21 @@ services:
       - xpack.security.enabled=false
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
 
+  backoffice_backend_php:
+    container_name: codelytv-php_ddd_skeleton-backoffice_backend-php
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "9040:9001"
+    volumes:
+      - .:/app:delegated
+    depends_on:
+      - shared_rabbitmq
+      - shared_prometheus
+      - backoffice_elasticsearch
+
   backoffice_backend_nginx:
     container_name: codelytv-php_ddd_skeleton-backoffice_backend-nginx
     image: nginx:1.19-alpine
@@ -68,8 +70,21 @@ services:
       - .:/app:delegated
       - ./etc/infrastructure/nginx/backoffice_backend.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
-      - shared_php
-      - backoffice_elasticsearch
+      - backoffice_backend_php
+
+  backoffice_frontend_php:
+    container_name: codelytv-php_ddd_skeleton-backoffice_frontend-php
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "9041:9001"
+    volumes:
+      - .:/app:delegated
+    depends_on:
+      - shared_rabbitmq
+      - shared_prometheus
 
   backoffice_frontend_nginx:
     container_name: codelytv-php_ddd_skeleton-backoffice_frontend-nginx
@@ -81,7 +96,22 @@ services:
       - .:/app:delegated
       - ./etc/infrastructure/nginx/backoffice_frontend.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
-      - shared_php
+      - backoffice_frontend_php
+
+  mooc_backend_php:
+    container_name: codelytv-php_ddd_skeleton-mooc_backend-php
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "9030:9001"
+    volumes:
+      - .:/app:delegated
+    depends_on:
+      - shared_rabbitmq
+      - shared_prometheus
+      - mooc_mysql
 
   mooc_backend_nginx:
     container_name: codelytv-php_ddd_skeleton-mooc_backend-nginx
@@ -93,5 +123,4 @@ services:
       - .:/app:delegated
       - ./etc/infrastructure/nginx/mooc_backend.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
-      - shared_php
-      - mooc_mysql
+      - mooc_backend_php

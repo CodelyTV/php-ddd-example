@@ -27,7 +27,10 @@ reload: composer-env-file
 	@docker-compose exec nginx nginx -s reload
 
 test: composer-env-file
-	@docker exec codelytv-php_ddd_skeleton-php make run-tests
+	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpunit --testsuite mooc
+	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpunit --testsuite shared
+	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/behat -p mooc_backend --format=progress -v
+	docker exec codelytv-php_ddd_skeleton-backoffice_backend-php ./vendor/bin/phpunit --testsuite backoffice
 
 run-tests: composer-env-file
 	mkdir -p build/test_results/phpunit
@@ -69,4 +72,6 @@ ping-mysql:
 
 clean-cache:
 	@rm -rf apps/*/*/var
-
+	@docker exec codelytv-php_ddd_skeleton-backoffice_backend-php ./apps/backoffice/backend/bin/console cache:warmup
+	@docker exec codelytv-php_ddd_skeleton-backoffice_frontend-php ./apps/backoffice/frontend/bin/console cache:warmup
+	@docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./apps/mooc/backend/bin/console cache:warmup
