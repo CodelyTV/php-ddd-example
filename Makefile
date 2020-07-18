@@ -18,7 +18,7 @@ composer-require-module: CMD=require $(module)
 composer-require-module: INTERACTIVE=-ti --interactive
 composer composer-install composer-update composer-require composer-require-module: composer-env-file
 	@docker run --rm $(INTERACTIVE) --volume $(current-dir):/app --user $(id -u):$(id -g) \
-		clevyr/prestissimo $(CMD) \
+		composer:2 $(CMD) \
 			--ignore-platform-reqs \
 			--no-ansi
 
