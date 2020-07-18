@@ -12,6 +12,8 @@ CREATE TABLE `courses_counter` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO `courses_counter` VALUES ("cdf26d7d-3deb-4e8c-9f73-4ac085a8d6f3", 0, "[]");
+
 CREATE TABLE `domain_events` (
   `id` CHAR(36) NOT NULL,
   `aggregate_id` CHAR(36) NOT NULL,
