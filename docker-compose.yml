@@ -13,14 +13,14 @@ services:
 
   elasticsearch:
     container_name: codelytv-php_ddd_skeleton-mooc-elastic
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.8.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.8.10
     ports:
       - 9200:9200
       - 9300:9300
     environment:
       - discovery.type=single-node
+      - xpack.security.enabled=false
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    command: ["--default-authentication-plugin=mysql_native_password"]
 
   rabbitmq:
     container_name: codelytv-php_ddd_skeleton-rabbitmq
@@ -55,9 +55,6 @@ services:
       - "9090:9001"
     volumes:
       - .:/app:delegated
-    env_file:
-      - .env
-      - .env.local
     depends_on:
       - mysql
       - rabbitmq

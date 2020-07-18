@@ -6,10 +6,10 @@ namespace CodelyTv\Tests\Backoffice\Courses;
 
 use CodelyTv\Backoffice\Courses\Infrastructure\Persistence\ElasticsearchBackofficeCourseRepository;
 use CodelyTv\Backoffice\Courses\Infrastructure\Persistence\MySqlBackofficeCourseRepository;
-use CodelyTv\Tests\Mooc\Shared\Infrastructure\PhpUnit\MoocContextInfrastructureTestCase;
+use CodelyTv\Tests\Backoffice\Shared\Infraestructure\PhpUnit\BackofficeContextInfrastructureTestCase;
 use Doctrine\ORM\EntityManager;
 
-abstract class BackofficeCoursesModuleInfrastructureTestCase extends MoocContextInfrastructureTestCase
+abstract class BackofficeCoursesModuleInfrastructureTestCase extends BackofficeContextInfrastructureTestCase
 {
     protected function mySqlRepository(): MySqlBackofficeCourseRepository
     {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace CodelyTv\Tests\Shared\Infrastructure\Bus\Event\RabbitMq;
 
+use CodelyTv\Apps\Mooc\Backend\MoocBackendKernel;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventJsonDeserializer;
 use CodelyTv\Shared\Infrastructure\Bus\Event\MySql\MySqlDoctrineEventBus;
@@ -174,5 +175,10 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
         }
 
         $this->assertSame($expectedNumberOfEvents, $totalEventsInDeadLetter);
+    }
+
+    protected function kernelClass(): string
+    {
+        return MoocBackendKernel::class;
     }
 }
