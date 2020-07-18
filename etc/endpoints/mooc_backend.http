@@ -1,0 +1,10 @@
+# Create a course
+PUT localhost:8030/courses/{{$uuid}}
+Content-Type: application/json
+
+{
+  "name": "The best course",
+  "duration": "5 hours"
+}
+
+###

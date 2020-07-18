@@ -25,10 +25,12 @@
 
     "doctrine/dbal": "^2.10",
     "doctrine/orm": "^2.7",
-    "ocramius/proxy-manager": "^2.9",
+    "ocramius/proxy-manager": "2.8.1",
 
     "elasticsearch/elasticsearch": "^7.3",
-    "monolog/monolog": "^2.1"
+    "monolog/monolog": "^2.1",
+
+    "endclothing/prometheus_client_php": "^1.0"
   },
   "require-dev": {
     "ext-xdebug": "*",
