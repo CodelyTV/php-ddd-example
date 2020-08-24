@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Courses\Application\Update;
 
-use CodelyTv\Mooc\Courses\Application\Find\CourseFinder;
+use CodelyTv\Mooc\Courses\Domain\CourseFinder;
 use CodelyTv\Mooc\Courses\Domain\CourseName;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;

@@ -2,16 +2,13 @@
 
 declare(strict_types=1);
 
-namespace CodelyTv\Mooc\Courses\Application\Find;
+namespace CodelyTv\Mooc\Courses\Domain;
 
-use CodelyTv\Mooc\Courses\Domain\Course;
-use CodelyTv\Mooc\Courses\Domain\CourseNotExist;
-use CodelyTv\Mooc\Courses\Domain\CourseRepository;
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 
 final class CourseFinder
 {
-    private CourseRepository $repository;
+    private $repository;
 
     public function __construct(CourseRepository $repository)
     {
@@ -22,7 +19,7 @@ final class CourseFinder
     {
         $course = $this->repository->search($id);
 
-        if (null === $course) {
+        if ($course === null) {
             throw new CourseNotExist($id);
         }
 
