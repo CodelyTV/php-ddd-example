@@ -1,17 +1,7 @@
 version: '3'
 
 services:
-  mysql:
-    container_name: codelytv-php_ddd_skeleton-mooc-mysql
-    image: mysql:8
-    ports:
-      - "3360:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-    command: ["--default-authentication-plugin=mysql_native_password"]
-
-  rabbitmq:
+  shared_rabbitmq:
     container_name: codelytv-php_ddd_skeleton-rabbitmq
     image: 'rabbitmq:3.7-management'
     restart: unless-stopped
@@ -22,31 +12,93 @@ services:
       - RABBITMQ_DEFAULT_USER=codelytv
       - RABBITMQ_DEFAULT_PASS=c0d3ly
 
-  nginx:
-    container_name: codelytv-ddd-skeleton-nginx
-    image: nginx:1.15-alpine
-    restart: unless-stopped
-    ports:
-      - "8030:80"
+  shared_prometheus:
+    container_name: codelytv-php_ddd_skeleton-prometheus
+    image: prom/prometheus:v2.1.0
     volumes:
-      - .:/app:delegated
-      - ./etc/infrastructure/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
-    depends_on:
-      - php
+      - ./etc/prometheus/:/etc/prometheus/
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - 9999:9090
 
-  php:
-    container_name: codelytv-php_ddd_skeleton-php
+  mooc_mysql:
+    container_name: codelytv-php_ddd_skeleton-mooc-mysql
+    image: mysql:8.0
+    ports:
+      - 3360:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    healthcheck:
+      test: ["CMD", "mysqladmin", "--user=root", "--password=", "--host=127.0.0.1", "ping", "--silent"]
+      interval: 2s
+      timeout: 10s
+      retries: 10
+    command: ["--default-authentication-plugin=mysql_native_password"]
+
+  backoffice_elasticsearch:
+    container_name: codelytv-php_ddd_skeleton-backoffice-elastic
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.8.10
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+
+  backoffice_backend_php:
+    container_name: codelytv-php_ddd_skeleton-backoffice_backend-php
     build:
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:
-      - "9090:9001"
+      - "8040:8040"
+      - "9040:9001"
     volumes:
       - .:/app:delegated
-    env_file:
-      - .env
-      - .env.local
     depends_on:
-      - mysql
-      - rabbitmq
+      - shared_rabbitmq
+      - shared_prometheus
+      - backoffice_elasticsearch
+    command: symfony serve --dir=apps/backoffice/backend/public --port=8040 --force-php-discovery
+
+  backoffice_frontend_php:
+    container_name: codelytv-php_ddd_skeleton-backoffice_frontend-php
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8041:8041"
+      - "9041:9001"
+    volumes:
+      - .:/app:delegated
+    depends_on:
+      - shared_rabbitmq
+      - shared_prometheus
+      - backoffice_elasticsearch
+      - mooc_mysql
+    command: symfony serve --dir=apps/backoffice/frontend/public --port=8041 --force-php-discovery
+
+  mooc_backend_php:
+    container_name: codelytv-php_ddd_skeleton-mooc_backend-php
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8030:8030"
+      - "9030:9001"
+    volumes:
+      - .:/app:delegated
+    depends_on:
+      - shared_rabbitmq
+      - shared_prometheus
+      - mooc_mysql
+    command: symfony serve --dir=apps/mooc/backend/public --port=8030 --force-php-discovery

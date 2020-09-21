@@ -24,14 +24,19 @@
 
     <php>
         <ini name="error_reporting" value="-1" />
-        <server name="KERNEL_CLASS" value="CodelyTv\Apps\Mooc\Backend\MoocBackendKernel" />
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak" />
         <env name="APP_ENV" value="test"/>
     </php>
 
     <testsuites>
-        <testsuite name="Contexts">
-            <directory>./tests</directory>
+        <testsuite name="backoffice">
+            <directory>./tests/Backoffice</directory>
+        </testsuite>
+        <testsuite name="mooc">
+            <directory>./tests/Mooc</directory>
+        </testsuite>
+        <testsuite name="shared">
+            <directory>./tests/Shared</directory>
         </testsuite>
     </testsuites>
 </phpunit>

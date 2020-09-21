@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center">
-  🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP Symfony
+  🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP
 </h1>
 
 <p align="center">
@@ -16,44 +16,22 @@
 </p>
 
 <p align="center">
-  Example of a PHP application following Domain-Driven Design (DDD) and
-  Command Query Responsibility Segregation (CQRS) principles keeping the code as simple as possible.
+  Example of a <strong>PHP application using Domain-Driven Design (DDD) and Command Query Responsibility Segregation
+  (CQRS) principles</strong> keeping the code as simple as possible.
   <br />
   <br />
   Take a look, play and have fun with this.
   <a href="https://github.com/CodelyTV/php-ddd-example/stargazers">Stars are welcomed 😊</a>
   <br />
   <br />
-  <a href="#table-of-contents"><strong>Explore the docs »</strong></a>
-  <br />
-  <br />
   <a href="https://www.youtube.com/watch?v=1kaP39W80zQ">View Demo</a>
   ·
-  <a href="https://github.com/CodelyTV/php-ddd-example/issues">Report Bug</a>
+  <a href="https://github.com/CodelyTV/php-ddd-example/issues">Report a bug</a>
   ·
-  <a href="https://github.com/CodelyTV/php-ddd-example/issues">Request Feature</a>
+  <a href="https://github.com/CodelyTV/php-ddd-example/issues">Request a feature</a>
 </p>
 
-
-<!-- TABLE OF CONTENTS -->
-## Table of Contents
-
-* [🚀 Environment setup](#-environment-setup)
-  * [🐳 Needed tools](#-needed-tools)
-  * [🛠️ Environment configuration](#-environment-configuration)
-  * [🌍 Application execution](#-application-execution)
-  * [✅ Tests execution](#-tests-execution)
-* [🤔 Project explanation](#-project-explanation)
-  * [Bounded Contexts](#-bounded-contexts)
-  * [Hexagonal Architecture](#-hexagonal-architecture)
-  * [Aggregates](#aggregates)
-  * [Command Bus](#command-bus)
-  * [Query Bus](#query-bus)
-  * [Event Bus](#event-bus)
-* [🤝 Contributing](#-contributing)
-* [🤩 Extra](#-extra)
-
-## 🚀 Environment setup
+## 🚀 Environment Setup
 
 ### 🐳 Needed tools
 
@@ -63,24 +41,25 @@
 
 ### 🛠️ Environment configuration
 
-1. Create a local environment file if needed: `cp .env .env.local`
-3. Add `api.codelytv.localhost` domain to your local hosts: `echo "127.0.0.1 api.codelytv.localhost"| sudo tee -a /etc/hosts > /dev/null`
+1. Create a local environment file (`cp .env .env.local`) if you want to modify any parameter
 
-### 🌍 Application execution
+### 🔥 Application execution
 
-1. Install PHP dependencies and bring up the project Docker containers with Docker Compose: `make build`
-2. Go to [the API health check page](http://api.codelytv.localhost:8030/health-check)
+1. Install all the dependencies and bring up the project with Docker executing: `make build`
+2. Then you'll have 3 apps available (2 APIs and 1 Frontend):
+   1. [Mooc Backend](apps/mooc/backend): http://localhost:8030/health-check
+   2. [Backoffice Backend](apps/backoffice/backend): http://localhost:8040/health-check
+   3. [Backoffice Frontend](apps/backoffice/frontend): http://localhost:8041/health-check
 
 ### ✅ Tests execution
 
-1. Install PHP dependencies if you haven't done so: `make deps`
-2. Execute Behat and PHP Unit tests: `make test`
+1. Install the dependencies if you haven't done it previously: `make deps`
+2. Execute PHPUnit and Behat tests: `make test`
 
-## 🤔 Project explanation
+## 👩‍💻 Project explanation
 
-This project tries to be a MOOC (Massive Open Online Course) platform.
-It has a [Web](apps/backoffice/frontend/src/Controller), an [API](apps/mooc/backend/src/Controller) and
-some [Consumers](apps/mooc/backend/src/Command).
+This project tries to be a MOOC (Massive Open Online Course) platform. It's decoupled from any framework, but it has
+some Symfony and Laravel implementations.
 
 ### ⛱️ Bounded Contexts
 
@@ -89,7 +68,7 @@ some [Consumers](apps/mooc/backend/src/Command).
 
 ### 🎯 Hexagonal Architecture
 
-This repository follow the Hexagonal Architecture pattern. Also is structured using `modules`.
+This repository follow the Hexagonal Architecture pattern. Also, it's structured using `modules`.
 With this, we can see that the current structure of a Bounded Context is:
 
 ```scala
@@ -149,6 +128,9 @@ The [Query Bus](src/Shared/Infrastructure/Bus/Query/InMemorySymfonyQueryBus.php)
 The [Event Bus](src/Shared/Infrastructure/Bus/Event/InMemory/InMemorySymfonyEventBus.php) uses the Symfony Message Bus.
 The [MySql Bus](src/Shared/Infrastructure/Bus/Event/MySql/MySqlDoctrineEventBus.php) uses a MySql+Pulling as a bus.
 The [RabbitMQ Bus](src/Shared/Infrastructure/Bus/Event/RabbitMq/RabbitMqEventBus.php) uses RabbitMQ C extension.
+
+## 📱 Monitoring
+Every time a domain event is published it's exported to Prometheus. You can access to the Prometheus panel [here](http://localhost:9999/)
 
 ## 🤔 Contributing
 There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want
