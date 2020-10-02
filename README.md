@@ -107,7 +107,7 @@ src
 
 #### Repository pattern
 Our repositories try to be as simple as possible usually only containing 2 methods `search` and `save`.
-If we need some query with more filters we use the `Strategy` pattern also known as `Criteria` pattern. So we add a
+If we need some query with more filters we use the `Specification` pattern also known as `Criteria` pattern. So we add a
 `searchByCriteria` method.
 
 You can see an example [here](src/Mooc/Courses/Domain/CourseRepository.php)
