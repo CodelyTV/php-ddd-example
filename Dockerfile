@@ -1,16 +1,20 @@
 FROM php:8.0.0RC3-fpm-alpine
 WORKDIR /app
 
+RUN wget https://github.com/FriendsOfPHP/pickle/releases/download/v0.6.0/pickle.phar \
+    && mv pickle.phar /usr/local/bin/pickle \
+    && chmod +x /usr/local/bin/pickle
+
 RUN apk --update upgrade \
-    && apk add --no-cache autoconf automake make gcc g++ bash icu-dev rabbitmq-c rabbitmq-c-dev \
-    && pecl install amqp-1.9.4 \
-    && pecl install apcu-5.1.18 \
-    && pecl install xdebug-2.9.1 \
+    && apk add --no-cache autoconf automake make gcc g++ bash icu-dev libzip-dev rabbitmq-c rabbitmq-c-dev \
     && docker-php-ext-install -j$(nproc) \
         bcmath \
         opcache \
         intl \
+        zip \
         pdo_mysql \
+        && pickle install amqp-1.10.2 \
+    && pickle install apcu-5.1.19 \
     && docker-php-ext-enable \
         amqp \
         apcu \
