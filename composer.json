@@ -4,7 +4,7 @@
   "type": "project",
   "description": "An example project applying Domain-Driven Design, Hexagonal Architecture and CQRS in a Monorepository",
   "require": {
-    "php": "^7.4",
+    "php": "^8.0",
 
     "ext-amqp": "*",
     "ext-apcu": "*",
