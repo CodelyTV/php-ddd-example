@@ -50,14 +50,18 @@ final class RabbitMqConnection
 
     private function channel(): AMQPChannel
     {
-        return self::$channel = self::$channel && self::$channel->isConnected()
-            ? self::$channel
-            : new AMQPChannel($this->connection());
+        if (!self::$channel?->isConnected()) {
+            self::$channel = new AMQPChannel($this->connection());
+        }
+
+        return self::$channel;
     }
 
     private function connection(): AMQPConnection
     {
-        self::$connection = self::$connection ?: new AMQPConnection($this->configuration);
+        if (null === self::$connection) {
+            self::$connection = new AMQPConnection($this->configuration);
+        }
 
         if (!self::$connection->isConnected()) {
             self::$connection->pconnect();
