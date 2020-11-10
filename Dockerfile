@@ -12,10 +12,15 @@ RUN apk --update upgrade \
         opcache \
         intl \
         zip \
-        pdo_mysql \
-        && pickle install amqp-1.10.2 \
-    && pickle install apcu-5.1.19 \
-    && docker-php-ext-enable \
+        pdo_mysql
+
+RUN pickle install apcu-5.1.19
+
+ADD etc/infrastructure/php/extensions/amqp.sh /root/install-amqp.sh
+RUN apk add git
+RUN sh /root/install-amqp.sh
+
+RUN docker-php-ext-enable \
         amqp \
         apcu \
         opcache
