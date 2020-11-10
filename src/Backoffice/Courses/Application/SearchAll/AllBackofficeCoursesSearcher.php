@@ -12,11 +12,8 @@ use function Lambdish\Phunctional\map;
 
 final class AllBackofficeCoursesSearcher
 {
-    private BackofficeCourseRepository $repository;
-
-    public function __construct(BackofficeCourseRepository $repository)
+    public function __construct(private BackofficeCourseRepository $repository)
     {
-        $this->repository = $repository;
     }
 
     public function searchAll(): BackofficeCoursesResponse

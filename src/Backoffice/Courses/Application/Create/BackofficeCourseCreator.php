@@ -9,11 +9,8 @@ use CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository;
 
 final class BackofficeCourseCreator
 {
-    private BackofficeCourseRepository $repository;
-
-    public function __construct(BackofficeCourseRepository $repository)
+    public function __construct(private BackofficeCourseRepository $repository)
     {
-        $this->repository = $repository;
     }
 
     public function create(string $id, string $name, string $duration): void

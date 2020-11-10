@@ -8,11 +8,8 @@ use CodelyTv\Shared\Domain\Bus\Query\QueryHandler;
 
 final class FindCoursesCounterQueryHandler implements QueryHandler
 {
-    private CoursesCounterFinder $finder;
-
-    public function __construct(CoursesCounterFinder $finder)
+    public function __construct(private CoursesCounterFinder $finder)
     {
-        $this->finder = $finder;
     }
 
     public function __invoke(FindCoursesCounterQuery $query): CoursesCounterResponse

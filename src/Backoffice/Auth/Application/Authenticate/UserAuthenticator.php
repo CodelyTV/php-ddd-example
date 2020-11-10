@@ -13,11 +13,8 @@ use CodelyTv\Backoffice\Auth\Domain\InvalidAuthUsername;
 
 final class UserAuthenticator
 {
-    private AuthRepository $repository;
-
-    public function __construct(AuthRepository $repository)
+    public function __construct(private AuthRepository $repository)
     {
-        $this->repository = $repository;
     }
 
     public function authenticate(AuthUsername $username, AuthPassword $password): void

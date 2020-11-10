@@ -12,11 +12,8 @@ use function Lambdish\Phunctional\map;
 
 abstract class ElasticsearchRepository
 {
-    private ElasticsearchClient $client;
-
-    public function __construct(ElasticsearchClient $client)
+    public function __construct(private ElasticsearchClient $client)
     {
-        $this->client = $client;
     }
 
     abstract protected function aggregateName(): string;
@@ -48,7 +45,7 @@ abstract class ElasticsearchRepository
             $hits = get_in(['hits', 'hits'], $result, []);
 
             return map($this->elasticValuesExtractor(), $hits);
-        } catch (Missing404Exception $unused) {
+        } catch (Missing404Exception) {
             return [];
         }
     }

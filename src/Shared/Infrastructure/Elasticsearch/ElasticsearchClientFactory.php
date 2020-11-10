@@ -49,7 +49,7 @@ final class ElasticsearchClientFactory
             $client->indices()->getSettings(['index' => $indexName]);
 
             return true;
-        } catch (Missing404Exception $unused) {
+        } catch (Missing404Exception) {
             return false;
         }
     }

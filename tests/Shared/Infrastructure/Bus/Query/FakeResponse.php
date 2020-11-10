@@ -8,11 +8,8 @@ use CodelyTv\Shared\Domain\Bus\Query\Response;
 
 final class FakeResponse implements Response
 {
-    private int $number;
-
-    public function __construct(int $number)
+    public function __construct(private int $number)
     {
-        $this->number = $number;
     }
 
     public function number(): int

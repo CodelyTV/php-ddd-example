@@ -13,11 +13,8 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 
 final class StoreDomainEventOnOccurred implements DomainEventSubscriber
 {
-    private DomainEventStorer $storer;
-
-    public function __construct(DomainEventStorer $storer)
+    public function __construct(private DomainEventStorer $storer)
     {
-        $this->storer = $storer;
     }
 
     public static function subscribedTo(): array

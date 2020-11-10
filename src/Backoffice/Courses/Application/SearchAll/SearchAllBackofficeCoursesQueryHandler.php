@@ -9,11 +9,8 @@ use CodelyTv\Shared\Domain\Bus\Query\QueryHandler;
 
 final class SearchAllBackofficeCoursesQueryHandler implements QueryHandler
 {
-    private AllBackofficeCoursesSearcher $searcher;
-
-    public function __construct(AllBackofficeCoursesSearcher $searcher)
+    public function __construct(private AllBackofficeCoursesSearcher $searcher)
     {
-        $this->searcher = $searcher;
     }
 
     public function __invoke(SearchAllBackofficeCoursesQuery $query): BackofficeCoursesResponse

@@ -9,12 +9,8 @@ use CodelyTv\Shared\Domain\DomainError;
 
 final class CourseNotExist extends DomainError
 {
-    private CourseId $id;
-
-    public function __construct(CourseId $id)
+    public function __construct(private CourseId $id)
     {
-        $this->id = $id;
-
         parent::__construct();
     }
 

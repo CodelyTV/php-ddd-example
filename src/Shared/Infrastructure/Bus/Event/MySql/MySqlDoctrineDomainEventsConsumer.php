@@ -17,12 +17,10 @@ use function Lambdish\Phunctional\map;
 final class MySqlDoctrineDomainEventsConsumer
 {
     private Connection         $connection;
-    private DomainEventMapping $eventMapping;
 
-    public function __construct(EntityManager $entityManager, DomainEventMapping $eventMapping)
+    public function __construct(EntityManager $entityManager, private DomainEventMapping $eventMapping)
     {
         $this->connection   = $entityManager->getConnection();
-        $this->eventMapping = $eventMapping;
     }
 
     public function consume(callable $subscribers, int $eventsToConsume): void
@@ -53,7 +51,7 @@ final class MySqlDoctrineDomainEventsConsumer
                 );
 
                 $subscribers($domainEvent);
-            } catch (RuntimeException $error) {
+            } catch (RuntimeException) {
             }
         };
     }

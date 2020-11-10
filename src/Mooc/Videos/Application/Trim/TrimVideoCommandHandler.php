@@ -9,11 +9,8 @@ use CodelyTv\Shared\Domain\SecondsInterval;
 
 final class TrimVideoCommandHandler
 {
-    private VideoTrimmer $trimmer;
-
-    public function __construct(VideoTrimmer $trimmer)
+    public function __construct(private VideoTrimmer $trimmer)
     {
-        $this->trimmer = $trimmer;
     }
 
     public function __invoke(TrimVideoCommand $command)

@@ -8,12 +8,8 @@ use CodelyTv\Shared\Domain\DomainError;
 
 final class VideoNotFound extends DomainError
 {
-    private VideoId $id;
-
-    public function __construct(VideoId $id)
+    public function __construct(private VideoId $id)
     {
-        $this->id = $id;
-
         parent::__construct();
     }
 

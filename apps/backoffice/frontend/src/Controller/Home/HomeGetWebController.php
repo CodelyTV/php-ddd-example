@@ -10,11 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class HomeGetWebController extends WebController
 {
-    protected function exceptions(): array
-    {
-        return [];
-    }
-
     public function __invoke(Request $request): Response
     {
         return $this->render(
@@ -24,5 +19,10 @@ final class HomeGetWebController extends WebController
                 'description' => 'CodelyTV - Backoffice',
             ]
         );
+    }
+
+    protected function exceptions(): array
+    {
+        return [];
     }
 }

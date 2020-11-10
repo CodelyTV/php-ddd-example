@@ -12,11 +12,8 @@ use Throwable;
 
 final class ApiExceptionListener
 {
-    private ApiExceptionsHttpStatusCodeMapping $exceptionHandler;
-
-    public function __construct(ApiExceptionsHttpStatusCodeMapping $exceptionHandler)
+    public function __construct(private ApiExceptionsHttpStatusCodeMapping $exceptionHandler)
     {
-        $this->exceptionHandler = $exceptionHandler;
     }
 
     public function onException(ExceptionEvent $event): void

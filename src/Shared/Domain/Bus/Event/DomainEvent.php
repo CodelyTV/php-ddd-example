@@ -10,15 +10,13 @@ use DateTimeImmutable;
 
 abstract class DomainEvent
 {
-    private string $aggregateId;
     private string $eventId;
     private string $occurredOn;
 
-    public function __construct(string $aggregateId, string $eventId = null, string $occurredOn = null)
+    public function __construct(private string $aggregateId, string $eventId = null, string $occurredOn = null)
     {
-        $this->aggregateId = $aggregateId;
-        $this->eventId     = $eventId ?: Uuid::random()->value();
-        $this->occurredOn  = $occurredOn ?: Utils::dateToString(new DateTimeImmutable());
+        $this->eventId    = $eventId ?: Uuid::random()->value();
+        $this->occurredOn = $occurredOn ?: Utils::dateToString(new DateTimeImmutable());
     }
 
     abstract public static function fromPrimitives(

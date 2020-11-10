@@ -8,15 +8,8 @@ use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 
 final class BackofficeCourse extends AggregateRoot
 {
-    private string $id;
-    private string $name;
-    private string $duration;
-
-    public function __construct(string $id, string $name, string $duration)
+    public function __construct(private string $id, private string $name, private string $duration)
     {
-        $this->id       = $id;
-        $this->name     = $name;
-        $this->duration = $duration;
     }
 
     public static function fromPrimitives(array $primitives): BackofficeCourse

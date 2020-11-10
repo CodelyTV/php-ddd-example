@@ -14,12 +14,10 @@ use RuntimeException;
 final class ApiContext extends RawMinkContext
 {
     private $sessionHelper;
-    private $minkSession;
     private $request;
 
-    public function __construct(Session $minkSession)
+    public function __construct(private Session $minkSession)
     {
-        $this->minkSession   = $minkSession;
         $this->sessionHelper = new MinkHelper($this->minkSession);
         $this->request       = new MinkSessionRequestHelper(new MinkHelper($minkSession));
     }

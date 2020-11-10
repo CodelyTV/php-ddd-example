@@ -8,26 +8,16 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 
 final class VideoCreatedDomainEvent extends DomainEvent
 {
-    private string $type;
-    private string $title;
-    private string $url;
-    private string $courseId;
-
     public function __construct(
         string $id,
-        string $type,
-        string $title,
-        string $url,
-        string $courseId,
+        private string $type,
+        private string $title,
+        private string $url,
+        private string $courseId,
         string $eventId = null,
         string $occurredOn = null
     ) {
         parent::__construct($id, $eventId, $occurredOn);
-
-        $this->type     = $type;
-        $this->title    = $title;
-        $this->url      = $url;
-        $this->courseId = $courseId;
     }
 
     public static function eventName(): string

@@ -14,15 +14,8 @@ use Doctrine\Common\Collections\Expr\CompositeExpression;
 
 final class DoctrineCriteriaConverter
 {
-    private Criteria $criteria;
-    private array    $criteriaToDoctrineFields;
-    private array    $hydrators;
-
-    public function __construct(Criteria $criteria, array $criteriaToDoctrineFields = [], array $hydrators = [])
+    public function __construct(private Criteria $criteria, private array $criteriaToDoctrineFields = [], private array $hydrators = [])
     {
-        $this->criteria                 = $criteria;
-        $this->criteriaToDoctrineFields = $criteriaToDoctrineFields;
-        $this->hydrators                = $hydrators;
     }
 
     public static function convert(

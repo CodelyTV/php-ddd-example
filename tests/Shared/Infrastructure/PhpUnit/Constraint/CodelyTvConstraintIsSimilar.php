@@ -16,18 +16,12 @@ use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\Factory;
 use function is_string;
 use function sprintf;
-use function strpos;
 
 // Based on \PHPUnit\Framework\Constraint\IsEqual
 final class CodelyTvConstraintIsSimilar extends Constraint
 {
-    private $value;
-    private $delta;
-
-    public function __construct($value, float $delta = 0.0)
+    public function __construct(private $value, private float $delta = 0.0)
     {
-        $this->value = $value;
-        $this->delta = $delta;
     }
 
     public function evaluate($other, $description = '', $returnResult = false): bool
@@ -69,7 +63,7 @@ final class CodelyTvConstraintIsSimilar extends Constraint
         $delta = '';
 
         if (is_string($this->value)) {
-            if (strpos($this->value, "\n") !== false) {
+            if (str_contains($this->value, "\n")) {
                 return 'is equal to <text>';
             }
 

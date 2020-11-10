@@ -11,11 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class MetricsController
 {
-    private PrometheusMonitor $monitor;
-
-    public function __construct(PrometheusMonitor $monitor)
+    public function __construct(private PrometheusMonitor $monitor)
     {
-        $this->monitor = $monitor;
     }
 
     public function __invoke(Request $request): Response

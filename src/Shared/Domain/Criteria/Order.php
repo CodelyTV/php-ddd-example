@@ -6,13 +6,8 @@ namespace CodelyTv\Shared\Domain\Criteria;
 
 final class Order
 {
-    private OrderBy   $orderBy;
-    private OrderType $orderType;
-
-    public function __construct(OrderBy $orderBy, OrderType $orderType)
+    public function __construct(private OrderBy $orderBy, private OrderType $orderType)
     {
-        $this->orderBy   = $orderBy;
-        $this->orderType = $orderType;
     }
 
     public static function createDesc(OrderBy $orderBy): Order

@@ -11,13 +11,9 @@ use function Lambdish\Phunctional\each;
 
 abstract class Collection implements Countable, IteratorAggregate
 {
-    private array $items;
-
-    public function __construct(array $items)
+    public function __construct(private array $items)
     {
         Assert::arrayOf($this->type(), $items);
-
-        $this->items = $items;
     }
 
     abstract protected function type(): string;

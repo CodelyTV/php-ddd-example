@@ -47,7 +47,8 @@
 
     "fzaninotto/faker": "^1.9",
 
-    "symfony/debug": "^4.4"
+    "symfony/debug": "^4.4",
+    "rector/rector": "^0.8.48"
   },
   "autoload": {
     "psr-4": {

@@ -16,23 +16,15 @@ use Twig\Environment;
 
 abstract class WebController extends ApiController
 {
-    private Environment      $twig;
-    private RouterInterface  $router;
-    private SessionInterface $session;
-
     public function __construct(
-        Environment $twig,
-        RouterInterface $router,
-        SessionInterface $session,
+        private Environment $twig,
+        private RouterInterface $router,
+        private SessionInterface $session,
         QueryBus $queryBus,
         CommandBus $commandBus,
         ApiExceptionsHttpStatusCodeMapping $exceptionHandler
     ) {
         parent::__construct($queryBus, $commandBus, $exceptionHandler);
-
-        $this->twig    = $twig;
-        $this->router  = $router;
-        $this->session = $session;
     }
 
     public function render(string $templatePath, array $arguments = []): SymfonyResponse

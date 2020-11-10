@@ -9,11 +9,8 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 
 final class CreateBackofficeCourseOnCourseCreated implements DomainEventSubscriber
 {
-    private BackofficeCourseCreator $creator;
-
-    public function __construct(BackofficeCourseCreator $creator)
+    public function __construct(private BackofficeCourseCreator $creator)
     {
-        $this->creator = $creator;
     }
 
     public static function subscribedTo(): array

@@ -16,11 +16,11 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
 {
     public function accepts($expected, $actual): bool
     {
-        return (null !== $actual) &&
-               is_string($expected) &&
-               is_string($actual) &&
-               $this->isValidDateTimeString($expected) &&
-               $this->isValidDateTimeString($actual);
+        return (null !== $actual)
+               && is_string($expected)
+               && is_string($actual)
+               && $this->isValidDateTimeString($expected)
+               && $this->isValidDateTimeString($actual);
     }
 
     public function assertEquals(
@@ -37,8 +37,8 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
         $normalizedDelta   = $delta === 0.0 ? 10 : $delta;
         $intervalWithDelta = new DateInterval(sprintf('PT%sS', abs($normalizedDelta)));
 
-        if ($actualDate < $expectedDate->sub($intervalWithDelta) ||
-            $actualDate > $expectedDate->add($intervalWithDelta)) {
+        if ($actualDate < $expectedDate->sub($intervalWithDelta)
+            || $actualDate > $expectedDate->add($intervalWithDelta)) {
             throw new ComparisonFailure(
                 $expectedDate,
                 $actualDate,
@@ -63,7 +63,7 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
 
         try {
             new DateTimeImmutable($expected);
-        } catch (Throwable $throwable) {
+        } catch (Throwable) {
             $isValid = false;
         }
 

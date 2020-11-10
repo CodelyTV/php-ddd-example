@@ -129,6 +129,11 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
         $this->assertDeadLetterContainsEvent(1);
     }
 
+    protected function kernelClass(): string
+    {
+        return MoocBackendKernel::class;
+    }
+
     private function assertConsumer(DomainEvent ...$expectedDomainEvents): callable
     {
         return function (DomainEvent $domainEvent) use ($expectedDomainEvents): void {
@@ -175,10 +180,5 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
         }
 
         $this->assertSame($expectedNumberOfEvents, $totalEventsInDeadLetter);
-    }
-
-    protected function kernelClass(): string
-    {
-        return MoocBackendKernel::class;
     }
 }

@@ -11,11 +11,8 @@ use CodelyTv\Shared\Domain\Bus\Command\CommandHandler;
 
 final class CreateCourseCommandHandler implements CommandHandler
 {
-    private CourseCreator $creator;
-
-    public function __construct(CourseCreator $creator)
+    public function __construct(private CourseCreator $creator)
     {
-        $this->creator = $creator;
     }
 
     public function __invoke(CreateCourseCommand $command): void

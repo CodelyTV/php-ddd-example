@@ -10,7 +10,7 @@ require $rootPath . '/vendor/autoload.php';
 // Run "composer dump-env prod" to create it (requires symfony/flex >=1.2)
 if (is_array($env = @include $rootPath . '/.env.local.php')) {
     foreach ($env as $k => $v) {
-        $_ENV[$k] = $_ENV[$k] ?? (isset($_SERVER[$k]) && 0 !== strpos($k, 'HTTP_') ? $_SERVER[$k] : $v);
+        $_ENV[$k] = $_ENV[$k] ?? (isset($_SERVER[$k]) && str_starts_with($k, 'HTTP_') ? $_SERVER[$k] : $v);
     }
 } elseif (!class_exists(Dotenv::class)) {
     throw new RuntimeException(
