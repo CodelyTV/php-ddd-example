@@ -11,11 +11,8 @@ use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 
 final class CourseFinder
 {
-    private CourseRepository $repository;
-
-    public function __construct(CourseRepository $repository)
+    public function __construct(private CourseRepository $repository)
     {
-        $this->repository = $repository;
     }
 
     public function __invoke(CourseId $id): Course

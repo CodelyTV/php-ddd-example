@@ -8,13 +8,9 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 
 final class CoursesCounterIncrementedDomainEvent extends DomainEvent
 {
-    private int $total;
-
-    public function __construct(string $aggregateId, int $total, string $eventId = null, string $occurredOn = null)
+    public function __construct(string $aggregateId, private int $total, string $eventId = null, string $occurredOn = null)
     {
         parent::__construct($aggregateId, $eventId, $occurredOn);
-
-        $this->total = $total;
     }
 
     public static function eventName(): string

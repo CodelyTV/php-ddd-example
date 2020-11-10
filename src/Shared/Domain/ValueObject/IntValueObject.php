@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace CodelyTv\Shared\Domain\ValueObject;
 
-abstract class IntValueObject
+abstract class IntValueObject implements \Stringable
 {
-    protected int $value;
-
-    public function __construct(int $value)
+    public function __construct(protected int $value)
     {
-        $this->value = $value;
     }
 
     public function value(): int

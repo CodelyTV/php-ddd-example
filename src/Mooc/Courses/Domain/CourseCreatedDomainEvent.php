@@ -8,20 +8,14 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 
 final class CourseCreatedDomainEvent extends DomainEvent
 {
-    private string $name;
-    private string $duration;
-
     public function __construct(
         string $id,
-        string $name,
-        string $duration,
+        private string $name,
+        private string $duration,
         string $eventId = null,
         string $occurredOn = null
     ) {
         parent::__construct($id, $eventId, $occurredOn);
-
-        $this->name     = $name;
-        $this->duration = $duration;
     }
 
     public static function eventName(): string

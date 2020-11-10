@@ -12,12 +12,10 @@ use CodelyTv\Mooc\Videos\Domain\VideoTitle;
 final class VideoTitleUpdater
 {
     private VideoFinder $finder;
-    private VideoRepository $repository;
 
-    public function __construct(VideoRepository $repository)
+    public function __construct(private VideoRepository $repository)
     {
         $this->finder     = new VideoFinder($repository);
-        $this->repository = $repository;
     }
 
     public function __invoke(VideoId $id, VideoTitle $newTitle): void

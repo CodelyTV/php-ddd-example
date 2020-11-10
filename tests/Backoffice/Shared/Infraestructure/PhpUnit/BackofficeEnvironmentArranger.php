@@ -13,13 +13,8 @@ use function Lambdish\Phunctional\apply;
 
 final class BackofficeEnvironmentArranger implements EnvironmentArranger
 {
-    private ElasticsearchClient $elasticsearchClient;
-    private EntityManager       $entityManager;
-
-    public function __construct(ElasticsearchClient $elasticsearchClient, EntityManager $entityManager)
+    public function __construct(private ElasticsearchClient $elasticsearchClient, private EntityManager $entityManager)
     {
-        $this->elasticsearchClient = $elasticsearchClient;
-        $this->entityManager       = $entityManager;
     }
 
     public function arrange(): void

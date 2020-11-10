@@ -10,19 +10,8 @@ use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 
 final class Video extends AggregateRoot
 {
-    private VideoId    $id;
-    private VideoType  $type;
-    private VideoTitle $title;
-    private VideoUrl   $url;
-    private CourseId   $courseId;
-
-    public function __construct(VideoId $id, VideoType $type, VideoTitle $title, VideoUrl $url, CourseId $courseId)
+    public function __construct(private VideoId $id, private VideoType $type, private VideoTitle $title, private VideoUrl $url, private CourseId $courseId)
     {
-        $this->id       = $id;
-        $this->type     = $type;
-        $this->title    = $title;
-        $this->url      = $url;
-        $this->courseId = $courseId;
     }
 
     public static function create(

@@ -12,18 +12,8 @@ use CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections;
 
 final class ApplicationFeatureContext implements Context
 {
-    private $connections;
-    private $bus;
-    private $deserializer;
-
-    public function __construct(
-        DatabaseConnections $connections,
-        InMemorySymfonyEventBus $bus,
-        DomainEventJsonDeserializer $deserializer
-    ) {
-        $this->connections  = $connections;
-        $this->bus          = $bus;
-        $this->deserializer = $deserializer;
+    public function __construct(private DatabaseConnections $connections, private InMemorySymfonyEventBus $bus, private DomainEventJsonDeserializer $deserializer)
+    {
     }
 
     /** @BeforeScenario */

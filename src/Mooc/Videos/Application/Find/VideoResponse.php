@@ -8,19 +8,8 @@ use CodelyTv\Shared\Domain\Bus\Query\Response;
 
 final class VideoResponse implements Response
 {
-    private string $id;
-    private string $type;
-    private string $title;
-    private string $url;
-    private string $courseId;
-
-    public function __construct(string $id, string $type, string $title, string $url, string $courseId)
+    public function __construct(private string $id, private string $type, private string $title, private string $url, private string $courseId)
     {
-        $this->id       = $id;
-        $this->type     = $type;
-        $this->title    = $title;
-        $this->url      = $url;
-        $this->courseId = $courseId;
     }
 
     public function id(): string

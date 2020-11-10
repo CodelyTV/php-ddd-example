@@ -13,17 +13,11 @@ use function Lambdish\Phunctional\each;
 
 abstract class ApiController
 {
-    private QueryBus                           $queryBus;
-    private CommandBus                         $commandBus;
-
     public function __construct(
-        QueryBus $queryBus,
-        CommandBus $commandBus,
+        private QueryBus $queryBus,
+        private CommandBus $commandBus,
         ApiExceptionsHttpStatusCodeMapping $exceptionHandler
     ) {
-        $this->queryBus   = $queryBus;
-        $this->commandBus = $commandBus;
-
         each(
             fn(int $httpCode, string $exceptionClass) => $exceptionHandler->register($exceptionClass, $httpCode),
             $this->exceptions()

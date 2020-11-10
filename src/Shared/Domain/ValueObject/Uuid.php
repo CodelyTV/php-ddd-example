@@ -7,15 +7,11 @@ namespace CodelyTv\Shared\Domain\ValueObject;
 use InvalidArgumentException;
 use Ramsey\Uuid\Uuid as RamseyUuid;
 
-class Uuid
+class Uuid implements \Stringable
 {
-    protected string $value;
-
-    public function __construct(string $value)
+    public function __construct(protected string $value)
     {
         $this->ensureIsValidUuid($value);
-
-        $this->value = $value;
     }
 
     public static function random(): self

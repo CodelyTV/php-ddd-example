@@ -35,6 +35,6 @@ final class AddJsonBodyToRequestListener
 
     private function containsHeader(Request $request, $name, $value): bool
     {
-        return 0 === strpos($request->headers->get($name), $value);
+        return str_starts_with($request->headers->get($name), $value);
     }
 }

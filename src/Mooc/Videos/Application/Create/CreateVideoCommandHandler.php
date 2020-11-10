@@ -13,11 +13,8 @@ use CodelyTv\Shared\Domain\Bus\Command\CommandHandler;
 
 final class CreateVideoCommandHandler implements CommandHandler
 {
-    private VideoCreator $creator;
-
-    public function __construct(VideoCreator $creator)
+    public function __construct(private VideoCreator $creator)
     {
-        $this->creator = $creator;
     }
 
     public function __invoke(CreateVideoCommand $command)

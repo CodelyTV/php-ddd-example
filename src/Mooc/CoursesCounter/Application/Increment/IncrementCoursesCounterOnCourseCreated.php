@@ -11,11 +11,8 @@ use function Lambdish\Phunctional\apply;
 
 final class IncrementCoursesCounterOnCourseCreated implements DomainEventSubscriber
 {
-    private CoursesCounterIncrementer $incrementer;
-
-    public function __construct(CoursesCounterIncrementer $incrementer)
+    public function __construct(private CoursesCounterIncrementer $incrementer)
     {
-        $this->incrementer = $incrementer;
     }
 
     public static function subscribedTo(): array

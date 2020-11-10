@@ -9,16 +9,13 @@ use ReflectionClass;
 use function in_array;
 use function Lambdish\Phunctional\reindex;
 
-abstract class Enum
+abstract class Enum implements \Stringable
 {
     protected static array $cache = [];
-    protected              $value;
 
-    public function __construct($value)
+    public function __construct(protected $value)
     {
         $this->ensureIsBetweenAcceptedValues($value);
-
-        $this->value = $value;
     }
 
     abstract protected function throwExceptionForInvalidValue($value);

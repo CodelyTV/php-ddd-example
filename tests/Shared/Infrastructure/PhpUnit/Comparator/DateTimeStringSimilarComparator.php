@@ -63,7 +63,7 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
 
         try {
             new DateTimeImmutable($expected);
-        } catch (Throwable $throwable) {
+        } catch (Throwable) {
             $isValid = false;
         }
 

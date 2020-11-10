@@ -14,11 +14,8 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 final class BasicHttpAuthMiddleware
 {
-    private CommandBus $bus;
-
-    public function __construct(CommandBus $bus)
+    public function __construct(private CommandBus $bus)
     {
-        $this->bus = $bus;
     }
 
     public function onKernelRequest(RequestEvent $event): void
@@ -46,7 +43,7 @@ final class BasicHttpAuthMiddleware
             $this->bus->dispatch(new AuthenticateUserCommand($user, $pass));
 
             $this->addUserDataToRequest($user, $event);
-        } catch (InvalidAuthUsername | InvalidAuthCredentials $error) {
+        } catch (InvalidAuthUsername | InvalidAuthCredentials) {
             $event->setResponse(new JsonResponse(['error' => 'Invalid credentials'], Response::HTTP_FORBIDDEN));
         }
     }

@@ -8,24 +8,8 @@ use CodelyTv\Shared\Domain\Bus\Query\Query;
 
 final class SearchBackofficeCoursesByCriteriaQuery implements Query
 {
-    private array   $filters;
-    private ?string $orderBy;
-    private ?string $order;
-    private ?int    $limit;
-    private ?int    $offset;
-
-    public function __construct(
-        array $filters,
-        string $orderBy = null,
-        string $order = null,
-        int $limit = null,
-        int $offset = null
-    ) {
-        $this->filters = $filters;
-        $this->orderBy = $orderBy;
-        $this->order   = $order;
-        $this->limit   = $limit;
-        $this->offset  = $offset;
+    public function __construct(private array $filters, private string $orderBy = null, private string $order = null, private int $limit = null, private int $offset = null)
+    {
     }
 
     public function filters(): array

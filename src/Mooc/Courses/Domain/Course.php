@@ -9,15 +9,8 @@ use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 
 final class Course extends AggregateRoot
 {
-    private CourseId       $id;
-    private CourseName     $name;
-    private CourseDuration $duration;
-
-    public function __construct(CourseId $id, CourseName $name, CourseDuration $duration)
+    public function __construct(private CourseId $id, private CourseName $name, private CourseDuration $duration)
     {
-        $this->id       = $id;
-        $this->name     = $name;
-        $this->duration = $duration;
     }
 
     public static function create(CourseId $id, CourseName $name, CourseDuration $duration): self

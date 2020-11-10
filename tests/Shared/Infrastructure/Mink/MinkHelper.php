@@ -11,11 +11,8 @@ use Symfony\Component\DomCrawler\Crawler;
 
 final class MinkHelper
 {
-    private Session $session;
-
-    public function __construct(Session $session)
+    public function __construct(private Session $session)
     {
-        $this->session = $session;
     }
 
     public function sendRequest($method, $url, array $optionalParams = []): Crawler

@@ -6,11 +6,8 @@ namespace CodelyTv\Mooc\Videos\Domain;
 
 final class VideoFinder
 {
-    private VideoRepository $repository;
-
-    public function __construct(VideoRepository $repository)
+    public function __construct(private VideoRepository $repository)
     {
-        $this->repository = $repository;
     }
 
     public function __invoke(VideoId $id): Video

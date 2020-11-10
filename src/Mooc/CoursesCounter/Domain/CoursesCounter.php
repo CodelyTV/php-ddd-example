@@ -10,15 +10,8 @@ use function Lambdish\Phunctional\search;
 
 final class CoursesCounter extends AggregateRoot
 {
-    private CoursesCounterTotal $total;
-    private array               $existingCourses;
-    private CoursesCounterId    $id;
-
-    public function __construct(CoursesCounterId $id, CoursesCounterTotal $total, CourseId ...$existingCourses)
+    public function __construct(private CoursesCounterId $id, private CoursesCounterTotal $total, private CourseId ...$existingCourses)
     {
-        $this->id              = $id;
-        $this->total           = $total;
-        $this->existingCourses = $existingCourses;
     }
 
     public static function initialize(CoursesCounterId $id): self

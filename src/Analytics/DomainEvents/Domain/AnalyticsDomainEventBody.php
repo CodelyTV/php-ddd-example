@@ -6,11 +6,8 @@ namespace CodelyTv\Analytics\DomainEvents\Domain;
 
 final class AnalyticsDomainEventBody
 {
-    private array $value;
-
-    public function __construct(array $value)
+    public function __construct(private array $value)
     {
-        $this->value = $value;
     }
 
     public function value(): array

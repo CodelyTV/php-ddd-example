@@ -9,11 +9,8 @@ use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterRepository;
 
 final class CoursesCounterFinder
 {
-    private CoursesCounterRepository $repository;
-
-    public function __construct(CoursesCounterRepository $repository)
+    public function __construct(private CoursesCounterRepository $repository)
     {
-        $this->repository = $repository;
     }
 
     public function __invoke(): CoursesCounterResponse
