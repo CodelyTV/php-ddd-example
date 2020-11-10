@@ -6,10 +6,11 @@ namespace CodelyTv\Shared\Domain\ValueObject;
 
 use CodelyTv\Shared\Domain\Utils;
 use ReflectionClass;
+use Stringable;
 use function in_array;
 use function Lambdish\Phunctional\reindex;
 
-abstract class Enum implements \Stringable
+abstract class Enum implements Stringable
 {
     protected static array $cache = [];
 

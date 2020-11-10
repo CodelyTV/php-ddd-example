@@ -8,8 +8,13 @@ use CodelyTv\Shared\Domain\Bus\Command\Command;
 
 final class CreateVideoCommand implements Command
 {
-    public function __construct(private string $id, private string $type, private string $title, private string $url, private string $courseId)
-    {
+    public function __construct(
+        private string $id,
+        private string $type,
+        private string $title,
+        private string $url,
+        private string $courseId
+    ) {
     }
 
     public function id(): string

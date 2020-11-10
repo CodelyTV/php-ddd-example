@@ -8,8 +8,11 @@ use CodelyTv\Shared\Domain\Bus\Query\Response;
 
 final class BackofficeCoursesResponse implements Response
 {
-    public function __construct(private BackofficeCourseResponse ...$courses)
+    private array $courses;
+
+    public function __construct(BackofficeCourseResponse ...$courses)
     {
+        $this->courses = $courses;
     }
 
     public function courses(): array

@@ -6,8 +6,12 @@ namespace CodelyTv\Shared\Domain\Criteria;
 
 final class Criteria
 {
-    public function __construct(private Filters $filters, private Order $order, private ?int $offset, private ?int $limit)
-    {
+    public function __construct(
+        private Filters $filters,
+        private Order $order,
+        private ?int $offset,
+        private ?int $limit
+    ) {
     }
 
     public function hasFilters(): bool

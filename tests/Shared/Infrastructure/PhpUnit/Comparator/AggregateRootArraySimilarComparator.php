@@ -16,10 +16,10 @@ final class AggregateRootArraySimilarComparator extends Comparator
 {
     public function accepts($expected, $actual): bool
     {
-        return is_array($expected) &&
-               is_array($actual) &&
-               (all(instance_of(AggregateRoot::class), $expected) &&
-                all(instance_of(AggregateRoot::class), $actual));
+        return is_array($expected)
+               && is_array($actual)
+               && (all(instance_of(AggregateRoot::class), $expected)
+                   && all(instance_of(AggregateRoot::class), $actual));
     }
 
     public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void

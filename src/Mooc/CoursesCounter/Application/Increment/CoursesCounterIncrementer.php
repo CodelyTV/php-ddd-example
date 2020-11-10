@@ -13,8 +13,11 @@ use CodelyTv\Shared\Domain\UuidGenerator;
 
 final class CoursesCounterIncrementer
 {
-    public function __construct(private CoursesCounterRepository $repository, private UuidGenerator $uuidGenerator, private EventBus $bus)
-    {
+    public function __construct(
+        private CoursesCounterRepository $repository,
+        private UuidGenerator $uuidGenerator,
+        private EventBus $bus
+    ) {
     }
 
     public function __invoke(CourseId $courseId): void

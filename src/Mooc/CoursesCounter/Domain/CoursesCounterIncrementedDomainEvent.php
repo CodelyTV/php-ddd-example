@@ -8,8 +8,12 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 
 final class CoursesCounterIncrementedDomainEvent extends DomainEvent
 {
-    public function __construct(string $aggregateId, private int $total, string $eventId = null, string $occurredOn = null)
-    {
+    public function __construct(
+        string $aggregateId,
+        private int $total,
+        string $eventId = null,
+        string $occurredOn = null
+    ) {
         parent::__construct($aggregateId, $eventId, $occurredOn);
     }
 

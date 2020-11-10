@@ -13,11 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class CoursesGetWebController extends WebController
 {
-    protected function exceptions(): array
-    {
-        return [];
-    }
-
     public function __invoke(Request $request): Response
     {
         /** @var CoursesCounterResponse $coursesCounterResponse */
@@ -32,5 +27,10 @@ final class CoursesGetWebController extends WebController
                 'new_course_id'   => Uuid::random()->value(),
             ]
         );
+    }
+
+    protected function exceptions(): array
+    {
+        return [];
     }
 }

@@ -15,7 +15,7 @@ final class VideoTitleUpdater
 
     public function __construct(private VideoRepository $repository)
     {
-        $this->finder     = new VideoFinder($repository);
+        $this->finder = new VideoFinder($repository);
     }
 
     public function __invoke(VideoId $id, VideoTitle $newTitle): void

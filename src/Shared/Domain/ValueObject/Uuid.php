@@ -6,8 +6,9 @@ namespace CodelyTv\Shared\Domain\ValueObject;
 
 use InvalidArgumentException;
 use Ramsey\Uuid\Uuid as RamseyUuid;
+use Stringable;
 
-class Uuid implements \Stringable
+class Uuid implements Stringable
 {
     public function __construct(protected string $value)
     {

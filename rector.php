@@ -21,6 +21,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             __DIR__ . '/apps/backoffice/frontend/src',
             __DIR__ . '/apps/mooc/backend/src',
             __DIR__ . '/apps/mooc/frontend/src',
+            __DIR__ . '/apps/bootstrap.php',
         ]
     );
 

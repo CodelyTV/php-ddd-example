@@ -16,7 +16,6 @@ use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\Factory;
 use function is_string;
 use function sprintf;
-use function strpos;
 
 // Based on \PHPUnit\Framework\Constraint\IsEqual
 final class CodelyTvConstraintIsSimilar extends Constraint

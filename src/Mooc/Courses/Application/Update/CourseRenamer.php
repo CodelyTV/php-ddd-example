@@ -16,7 +16,7 @@ final class CourseRenamer
 
     public function __construct(private CourseRepository $repository, private EventBus $bus)
     {
-        $this->finder     = new CourseFinder($repository);
+        $this->finder = new CourseFinder($repository);
     }
 
     public function __invoke(CourseId $id, CourseName $newName): void

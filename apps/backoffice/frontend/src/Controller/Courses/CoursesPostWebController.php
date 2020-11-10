@@ -14,11 +14,6 @@ use Symfony\Component\Validator\Validation;
 
 final class CoursesPostWebController extends WebController
 {
-    protected function exceptions(): array
-    {
-        return [];
-    }
-
     public function __invoke(Request $request): RedirectResponse
     {
         $validationErrors = $this->validateRequest($request);
@@ -26,6 +21,11 @@ final class CoursesPostWebController extends WebController
         return $validationErrors->count()
             ? $this->redirectWithErrors('courses_get', $validationErrors, $request)
             : $this->createCourse($request);
+    }
+
+    protected function exceptions(): array
+    {
+        return [];
     }
 
     private function validateRequest(Request $request): ConstraintViolationListInterface
