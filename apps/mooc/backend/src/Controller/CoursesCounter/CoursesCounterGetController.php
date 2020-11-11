@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class CoursesCounterGetController extends ApiController
 {
-    public function __invoke()
+    public function __invoke(): JsonResponse
     {
         /** @var CoursesCounterResponse $response */
         $response = $this->ask(new FindCoursesCounterQuery());

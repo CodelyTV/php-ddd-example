@@ -47,9 +47,9 @@ final class MySqlBackofficeCourseRepositoryTest extends BackofficeCoursesModuleI
     /** @test */
     public function it_should_filter_by_criteria(): void
     {
-        $dddInPhpCourse  = BackofficeCourseMother::withName('DDD en PHP');
-        $dddInJavaCourse = BackofficeCourseMother::withName('DDD en Java');
-        $intellijCourse  = BackofficeCourseMother::withName('Exprimiendo Intellij');
+        $dddInPhpCourse  = BackofficeCourseMother::create(name: 'DDD en PHP');
+        $dddInJavaCourse = BackofficeCourseMother::create(name: 'DDD en Java');
+        $intellijCourse  = BackofficeCourseMother::create(name: 'Exprimiendo Intellij');
         $dddCourses      = [$dddInPhpCourse, $dddInJavaCourse];
 
         $nameContainsDddCriteria = BackofficeCourseCriteriaMother::nameContains('DDD');
