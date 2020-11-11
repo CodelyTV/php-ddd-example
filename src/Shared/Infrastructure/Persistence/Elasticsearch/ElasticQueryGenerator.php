@@ -6,7 +6,7 @@ namespace CodelyTv\Shared\Infrastructure\Persistence\Elasticsearch;
 
 use CodelyTv\Shared\Domain\Criteria\Filter;
 use CodelyTv\Shared\Domain\Criteria\FilterOperator;
-use function Lambdish\Phunctional\get;
+use Exception;
 
 final class ElasticQueryGenerator
 {
@@ -15,14 +15,7 @@ final class ElasticQueryGenerator
     private const TERM_TERM     = 'term';
     private const TERM_RANGE    = 'range';
     private const TERM_WILDCARD = 'wildcard';
-    private static array $termMapping   = [
-        FilterOperator::EQUAL        => self::TERM_TERM,
-        FilterOperator::NOT_EQUAL    => '!=',
-        FilterOperator::GT           => self::TERM_RANGE,
-        FilterOperator::LT           => self::TERM_RANGE,
-        FilterOperator::CONTAINS     => self::TERM_WILDCARD,
-        FilterOperator::NOT_CONTAINS => self::TERM_WILDCARD,
-    ];
+
     private static array $mustNotFields = [FilterOperator::NOT_EQUAL, FilterOperator::NOT_CONTAINS];
 
     public function __invoke(array $query, Filter $filter): array
@@ -53,6 +46,12 @@ final class ElasticQueryGenerator
 
     private function termLevelFor(FilterOperator $operator): string
     {
-        return get($operator->value(), self::$termMapping);
+        return match ($operator->value()) {
+            FilterOperator::EQUAL                                  => self::TERM_TERM,
+            FilterOperator::NOT_EQUAL                              => '!=',
+            FilterOperator::GT, FilterOperator::LT                 => self::TERM_RANGE,
+            FilterOperator::CONTAINS, FilterOperator::NOT_CONTAINS => self::TERM_WILDCARD,
+            default => throw new Exception("Unexpected match value {$operator->value()}"),
+        };
     }
 }
