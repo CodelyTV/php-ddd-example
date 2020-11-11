@@ -11,17 +11,12 @@ use CodelyTv\Tests\Mooc\Courses\Domain\CourseNameMother;
 
 final class BackofficeCourseMother
 {
-    public static function create(string $id, string $name, string $duration): BackofficeCourse
+    public static function create(?string $id = null, ?string $name = null, ?string $duration = null): BackofficeCourse
     {
-        return new BackofficeCourse($id, $name, $duration);
-    }
-
-    public static function withName(string $name): BackofficeCourse
-    {
-        return self::create(
-            CourseIdMother::random()->value(),
-            $name,
-            CourseDurationMother::random()->value()
+        return new BackofficeCourse(
+            $id ?? CourseIdMother::random()->value(),
+            $name ?? CourseNameMother::random()->value(),
+            $duration ?? CourseDurationMother::random()->value()
         );
     }
 
