@@ -6,7 +6,11 @@ namespace CodelyTv\Analytics\DomainEvents\Domain;
 
 final class AnalyticsDomainEvent
 {
-    public function __construct(private AnalyticsDomainEventId $id, private AnalyticsDomainEventAggregateId $aggregateId, private AnalyticsDomainEventName $name, private AnalyticsDomainEventBody $body)
-    {
+    public function __construct(
+        private AnalyticsDomainEventId $id,
+        private AnalyticsDomainEventAggregateId $aggregateId,
+        private AnalyticsDomainEventName $name,
+        private AnalyticsDomainEventBody $body
+    ) {
     }
 }

@@ -15,14 +15,14 @@ abstract class UuidType extends StringType implements DoctrineCustomType
 {
     abstract protected function typeClassName(): string;
 
-    public function getName(): string
-    {
-        return self::customTypeName();
-    }
-
     public static function customTypeName(): string
     {
         return Utils::toSnakeCase(str_replace('Type', '', last(explode('\\', static::class))));
+    }
+
+    public function getName(): string
+    {
+        return self::customTypeName();
     }
 
     public function convertToPHPValue($value, AbstractPlatform $platform)

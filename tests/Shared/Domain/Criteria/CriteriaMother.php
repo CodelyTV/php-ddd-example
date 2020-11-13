@@ -7,7 +7,6 @@ namespace CodelyTv\Tests\Shared\Domain\Criteria;
 use CodelyTv\Shared\Domain\Criteria\Criteria;
 use CodelyTv\Shared\Domain\Criteria\Filters;
 use CodelyTv\Shared\Domain\Criteria\Order;
-use CodelyTv\Tests\Shared\Domain\IntegerMother;
 
 final class CriteriaMother
 {
