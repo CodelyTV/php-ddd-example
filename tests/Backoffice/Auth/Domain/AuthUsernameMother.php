@@ -9,13 +9,8 @@ use CodelyTv\Tests\Shared\Domain\WordMother;
 
 final class AuthUsernameMother
 {
-    public static function create(string $value): AuthUsername
+    public static function create(?string $value = null): AuthUsername
     {
-        return new AuthUsername($value);
-    }
-
-    public static function random(): AuthUsername
-    {
-        return self::create(WordMother::random());
+        return new AuthUsername($value ?? WordMother::create());
     }
 }

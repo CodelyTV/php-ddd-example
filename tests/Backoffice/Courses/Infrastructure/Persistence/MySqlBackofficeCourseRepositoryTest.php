@@ -14,14 +14,14 @@ final class MySqlBackofficeCourseRepositoryTest extends BackofficeCoursesModuleI
     /** @test */
     public function it_should_save_a_valid_course(): void
     {
-        $this->mySqlRepository()->save(BackofficeCourseMother::random());
+        $this->mySqlRepository()->save(BackofficeCourseMother::create());
     }
 
     /** @test */
     public function it_should_search_all_existing_courses(): void
     {
-        $existingCourse        = BackofficeCourseMother::random();
-        $anotherExistingCourse = BackofficeCourseMother::random();
+        $existingCourse        = BackofficeCourseMother::create();
+        $anotherExistingCourse = BackofficeCourseMother::create();
         $existingCourses       = [$existingCourse, $anotherExistingCourse];
 
         $this->mySqlRepository()->save($existingCourse);
@@ -33,8 +33,8 @@ final class MySqlBackofficeCourseRepositoryTest extends BackofficeCoursesModuleI
     /** @test */
     public function it_should_search_all_existing_courses_with_an_empty_criteria(): void
     {
-        $existingCourse        = BackofficeCourseMother::random();
-        $anotherExistingCourse = BackofficeCourseMother::random();
+        $existingCourse        = BackofficeCourseMother::create();
+        $anotherExistingCourse = BackofficeCourseMother::create();
         $existingCourses       = [$existingCourse, $anotherExistingCourse];
 
         $this->mySqlRepository()->save($existingCourse);

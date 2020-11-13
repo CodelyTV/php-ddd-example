@@ -12,13 +12,13 @@ use CodelyTv\Tests\Backoffice\Auth\Domain\AuthUsernameMother;
 
 final class AuthenticateUserCommandMother
 {
-    public static function create(AuthUsername $username, AuthPassword $password): AuthenticateUserCommand
-    {
-        return new AuthenticateUserCommand($username->value(), $password->value());
-    }
-
-    public static function random(): AuthenticateUserCommand
-    {
-        return self::create(AuthUsernameMother::random(), AuthPasswordMother::random());
+    public static function create(
+        ?AuthUsername $username = null,
+        ?AuthPassword $password = null
+    ): AuthenticateUserCommand {
+        return new AuthenticateUserCommand(
+            $username?->value() ?? AuthUsernameMother::create()->value(),
+            $password?->value() ?? AuthPasswordMother::create()->value()
+        );
     }
 }

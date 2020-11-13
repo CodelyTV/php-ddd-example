@@ -9,13 +9,8 @@ use CodelyTv\Tests\Shared\Domain\WordMother;
 
 final class CourseNameMother
 {
-    public static function create(string $value): CourseName
+    public static function create(?string $value = null): CourseName
     {
-        return new CourseName($value);
-    }
-
-    public static function random(): CourseName
-    {
-        return self::create(WordMother::random());
+        return new CourseName($value ?? WordMother::create());
     }
 }

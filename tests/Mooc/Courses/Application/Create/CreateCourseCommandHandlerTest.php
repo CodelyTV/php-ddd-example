@@ -24,7 +24,7 @@ final class CreateCourseCommandHandlerTest extends CoursesModuleUnitTestCase
     /** @test */
     public function it_should_create_a_valid_course(): void
     {
-        $command = CreateCourseCommandMother::random();
+        $command = CreateCourseCommandMother::create();
 
         $course      = CourseMother::fromRequest($command);
         $domainEvent = CourseCreatedDomainEventMother::fromCourse($course);

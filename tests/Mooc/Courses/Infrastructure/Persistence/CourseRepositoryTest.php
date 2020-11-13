@@ -13,7 +13,7 @@ final class CourseRepositoryTest extends CoursesModuleInfrastructureTestCase
     /** @test */
     public function it_should_save_a_course(): void
     {
-        $course = CourseMother::random();
+        $course = CourseMother::create();
 
         $this->repository()->save($course);
     }
@@ -21,7 +21,7 @@ final class CourseRepositoryTest extends CoursesModuleInfrastructureTestCase
     /** @test */
     public function it_should_return_an_existing_course(): void
     {
-        $course = CourseMother::random();
+        $course = CourseMother::create();
 
         $this->repository()->save($course);
 
@@ -31,6 +31,6 @@ final class CourseRepositoryTest extends CoursesModuleInfrastructureTestCase
     /** @test */
     public function it_should_not_return_a_non_existing_course(): void
     {
-        $this->assertNull($this->repository()->search(CourseIdMother::random()));
+        $this->assertNull($this->repository()->search(CourseIdMother::create()));
     }
 }

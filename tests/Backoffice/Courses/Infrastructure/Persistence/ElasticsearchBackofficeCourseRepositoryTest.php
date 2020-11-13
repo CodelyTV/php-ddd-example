@@ -14,14 +14,14 @@ final class ElasticsearchBackofficeCourseRepositoryTest extends BackofficeCourse
     /** @test */
     public function it_should_save_a_valid_course(): void
     {
-        $this->elasticRepository()->save(BackofficeCourseMother::random());
+        $this->elasticRepository()->save(BackofficeCourseMother::create());
     }
 
     /** @test */
     public function it_should_search_all_existing_courses(): void
     {
-        $existingCourse        = BackofficeCourseMother::random();
-        $anotherExistingCourse = BackofficeCourseMother::random();
+        $existingCourse        = BackofficeCourseMother::create();
+        $anotherExistingCourse = BackofficeCourseMother::create();
         $existingCourses       = [$existingCourse, $anotherExistingCourse];
 
         $this->elasticRepository()->save($existingCourse);
@@ -33,8 +33,8 @@ final class ElasticsearchBackofficeCourseRepositoryTest extends BackofficeCourse
     /** @test */
     public function it_should_search_all_existing_courses_with_an_empty_criteria(): void
     {
-        $existingCourse        = BackofficeCourseMother::random();
-        $anotherExistingCourse = BackofficeCourseMother::random();
+        $existingCourse        = BackofficeCourseMother::create();
+        $anotherExistingCourse = BackofficeCourseMother::create();
         $existingCourses       = [$existingCourse, $anotherExistingCourse];
 
         $this->elasticRepository()->save($existingCourse);

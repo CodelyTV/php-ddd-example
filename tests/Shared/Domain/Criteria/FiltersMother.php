@@ -24,9 +24,4 @@ final class FiltersMother
     {
         return self::create([]);
     }
-
-    public static function random(): Filters
-    {
-        return self::create([FilterMother::random()]);
-    }
 }

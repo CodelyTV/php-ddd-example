@@ -32,7 +32,7 @@ final class IncrementCoursesCounterOnCourseCreatedTest extends CoursesCounterMod
     /** @test */
     public function it_should_initialize_a_new_counter(): void
     {
-        $event = CourseCreatedDomainEventMother::random();
+        $event = CourseCreatedDomainEventMother::create();
 
         $courseId    = CourseIdMother::create($event->aggregateId());
         $newCounter  = CoursesCounterMother::withOne($courseId);
@@ -49,10 +49,10 @@ final class IncrementCoursesCounterOnCourseCreatedTest extends CoursesCounterMod
     /** @test */
     public function it_should_increment_an_existing_counter(): void
     {
-        $event = CourseCreatedDomainEventMother::random();
+        $event = CourseCreatedDomainEventMother::create();
 
         $courseId           = CourseIdMother::create($event->aggregateId());
-        $existingCounter    = CoursesCounterMother::random();
+        $existingCounter    = CoursesCounterMother::create();
         $incrementedCounter = CoursesCounterMother::incrementing($existingCounter, $courseId);
         $domainEvent        = CoursesCounterIncrementedDomainEventMother::fromCounter($incrementedCounter);
 
@@ -66,7 +66,7 @@ final class IncrementCoursesCounterOnCourseCreatedTest extends CoursesCounterMod
     /** @test */
     public function it_should_not_increment_an_already_incremented_course(): void
     {
-        $event = CourseCreatedDomainEventMother::random();
+        $event = CourseCreatedDomainEventMother::create();
 
         $courseId        = CourseIdMother::create($event->aggregateId());
         $existingCounter = CoursesCounterMother::withOne($courseId);

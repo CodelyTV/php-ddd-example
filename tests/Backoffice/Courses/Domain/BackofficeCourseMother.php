@@ -14,18 +14,9 @@ final class BackofficeCourseMother
     public static function create(?string $id = null, ?string $name = null, ?string $duration = null): BackofficeCourse
     {
         return new BackofficeCourse(
-            $id ?? CourseIdMother::random()->value(),
-            $name ?? CourseNameMother::random()->value(),
-            $duration ?? CourseDurationMother::random()->value()
-        );
-    }
-
-    public static function random(): BackofficeCourse
-    {
-        return self::create(
-            CourseIdMother::random()->value(),
-            CourseNameMother::random()->value(),
-            CourseDurationMother::random()->value()
+            $id ?? CourseIdMother::create()->value(),
+            $name ?? CourseNameMother::create()->value(),
+            $duration ?? CourseDurationMother::create()->value()
         );
     }
 }

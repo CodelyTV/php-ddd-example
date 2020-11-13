@@ -12,19 +12,17 @@ use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterTotal;
 final class CoursesCounterIncrementedDomainEventMother
 {
     public static function create(
-        CoursesCounterId $id,
-        CoursesCounterTotal $total
+        ?CoursesCounterId $id = null,
+        ?CoursesCounterTotal $total = null
     ): CoursesCounterIncrementedDomainEvent {
-        return new CoursesCounterIncrementedDomainEvent($id->value(), $total->value());
+        return new CoursesCounterIncrementedDomainEvent(
+            $id?->value() ?? CoursesCounterIdMother::create()->value(),
+            $total?->value() ?? CoursesCounterTotalMother::create()->value()
+        );
     }
 
     public static function fromCounter(CoursesCounter $counter): CoursesCounterIncrementedDomainEvent
     {
         return self::create($counter->id(), $counter->total());
-    }
-
-    public static function random(): CoursesCounterIncrementedDomainEvent
-    {
-        return self::create(CoursesCounterIdMother::random(), CoursesCounterTotalMother::random());
     }
 }
