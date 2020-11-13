@@ -18,8 +18,8 @@ use Mockery\MockInterface;
 
 abstract class UnitTestCase extends MockeryTestCase
 {
-    private $eventBus;
-    private $uuidGenerator;
+    private EventBus|MockInterface|null      $eventBus;
+    private UuidGenerator|MockInterface|null $uuidGenerator;
 
     protected function mock(string $className): MockInterface
     {
@@ -42,10 +42,9 @@ abstract class UnitTestCase extends MockeryTestCase
             ->andReturnNull();
     }
 
-    /** @return EventBus|MockInterface */
-    protected function eventBus(): MockInterface
+    protected function eventBus(): EventBus|MockInterface
     {
-        return $this->eventBus = $this->eventBus ?: $this->mock(EventBus::class);
+        return $this->eventBus = $this->eventBus ?? $this->mock(EventBus::class);
     }
 
     protected function shouldGenerateUuid(string $uuid): void
@@ -57,10 +56,9 @@ abstract class UnitTestCase extends MockeryTestCase
             ->andReturn($uuid);
     }
 
-    /** @return UuidGenerator|MockInterface */
-    protected function uuidGenerator(): MockInterface
+    protected function uuidGenerator(): UuidGenerator|MockInterface
     {
-        return $this->uuidGenerator = $this->uuidGenerator ?: $this->mock(UuidGenerator::class);
+        return $this->uuidGenerator = $this->uuidGenerator ?? $this->mock(UuidGenerator::class);
     }
 
     protected function notify(DomainEvent $event, callable $subscriber): void

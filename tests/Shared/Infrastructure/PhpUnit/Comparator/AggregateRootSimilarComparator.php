@@ -19,10 +19,6 @@ final class AggregateRootSimilarComparator extends Comparator
         return $expected instanceof $aggregateRootClass && $actual instanceof $aggregateRootClass;
     }
 
-    /**
-     * @param AggregateRoot $expected
-     * @param AggregateRoot $actual
-     */
     public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void
     {
         $actualEntity = clone $actual;
