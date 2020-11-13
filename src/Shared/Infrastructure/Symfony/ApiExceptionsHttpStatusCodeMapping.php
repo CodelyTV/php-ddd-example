@@ -29,6 +29,12 @@ final class ApiExceptionsHttpStatusCodeMapping
 
     public function statusCodeFor($exceptionClass): int
     {
-        return get($exceptionClass, $this->exceptions, self::DEFAULT_STATUS_CODE);
+        $statusCode = get($exceptionClass, $this->exceptions, self::DEFAULT_STATUS_CODE);
+
+        if (null === $statusCode) {
+            throw new InvalidArgumentException("There are no status code mapping for <$exceptionClass>");
+        }
+
+        return $statusCode;
     }
 }
