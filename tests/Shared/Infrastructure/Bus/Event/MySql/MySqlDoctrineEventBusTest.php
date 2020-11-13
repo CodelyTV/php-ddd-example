@@ -33,8 +33,8 @@ final class MySqlDoctrineEventBusTest extends InfrastructureTestCase
     /** @test */
     public function it_should_publish_and_consume_domain_events_from_msql(): void
     {
-        $domainEvent        = CourseCreatedDomainEventMother::random();
-        $anotherDomainEvent = CoursesCounterIncrementedDomainEventMother::random();
+        $domainEvent        = CourseCreatedDomainEventMother::create();
+        $anotherDomainEvent = CoursesCounterIncrementedDomainEventMother::create();
 
         $this->bus->publish($domainEvent, $anotherDomainEvent);
 

@@ -11,9 +11,9 @@ use CodelyTv\Backoffice\Auth\Domain\AuthUsername;
 
 final class AuthUserMother
 {
-    public static function create(AuthUsername $username, AuthPassword $password): AuthUser
+    public static function create(?AuthUsername $username = null, ?AuthPassword $password = null): AuthUser
     {
-        return new AuthUser($username, $password);
+        return new AuthUser($username ?? AuthUsernameMother::create(), $password ?? AuthPasswordMother::create());
     }
 
     public static function fromCommand(AuthenticateUserCommand $command): AuthUser
@@ -22,10 +22,5 @@ final class AuthUserMother
             AuthUsernameMother::create($command->username()),
             AuthPasswordMother::create($command->password())
         );
-    }
-
-    public static function withUsername(AuthUsername $username): AuthUser
-    {
-        return self::create($username, AuthPasswordMother::random());
     }
 }

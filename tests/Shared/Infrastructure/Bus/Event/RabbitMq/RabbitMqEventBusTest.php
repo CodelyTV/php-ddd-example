@@ -57,7 +57,7 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
     /** @test */
     public function it_should_publish_and_consume_domain_events_from_rabbitmq(): void
     {
-        $domainEvent = CourseCreatedDomainEventMother::random();
+        $domainEvent = CourseCreatedDomainEventMother::create();
 
         $this->configurer->configure($this->exchangeName, $this->fakeSubscriber);
 
@@ -76,7 +76,7 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
     {
         $this->expectException(RuntimeException::class);
 
-        $domainEvent = CoursesCounterIncrementedDomainEventMother::random();
+        $domainEvent = CoursesCounterIncrementedDomainEventMother::create();
 
         $this->configurer->configure($this->exchangeName, $this->fakeSubscriber);
 
@@ -93,7 +93,7 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
     /** @test */
     public function it_should_retry_failed_domain_events(): void
     {
-        $domainEvent = CourseCreatedDomainEventMother::random();
+        $domainEvent = CourseCreatedDomainEventMother::create();
 
         $this->configurer->configure($this->exchangeName, $this->fakeSubscriber);
 
@@ -114,7 +114,7 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
     /** @test */
     public function it_should_send_events_to_dead_letter_after_retry_failed_domain_events(): void
     {
-        $domainEvent = CourseCreatedDomainEventMother::random();
+        $domainEvent = CourseCreatedDomainEventMother::create();
 
         $this->configurer->configure($this->exchangeName, $this->fakeSubscriber);
 

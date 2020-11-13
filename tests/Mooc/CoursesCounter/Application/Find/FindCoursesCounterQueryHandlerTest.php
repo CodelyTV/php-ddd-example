@@ -25,7 +25,7 @@ final class FindCoursesCounterQueryHandlerTest extends CoursesCounterModuleUnitT
     /** @test */
     public function it_should_find_an_existing_courses_counter(): void
     {
-        $counter  = CoursesCounterMother::random();
+        $counter  = CoursesCounterMother::create();
         $query    = new FindCoursesCounterQuery();
         $response = CoursesCounterResponseMother::create($counter->total());
 

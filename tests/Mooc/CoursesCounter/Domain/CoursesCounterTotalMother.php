@@ -9,9 +9,9 @@ use CodelyTv\Tests\Shared\Domain\IntegerMother;
 
 final class CoursesCounterTotalMother
 {
-    public static function create(int $value): CoursesCounterTotal
+    public static function create(?int $value = null): CoursesCounterTotal
     {
-        return new CoursesCounterTotal($value);
+        return new CoursesCounterTotal($value ?? IntegerMother::create());
     }
 
     public static function one(): CoursesCounterTotal
@@ -21,6 +21,6 @@ final class CoursesCounterTotalMother
 
     public static function random(): CoursesCounterTotal
     {
-        return self::create(IntegerMother::random());
+        return self::create(IntegerMother::create());
     }
 }

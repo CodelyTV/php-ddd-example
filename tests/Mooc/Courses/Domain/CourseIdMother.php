@@ -9,18 +9,8 @@ use CodelyTv\Tests\Shared\Domain\UuidMother;
 
 final class CourseIdMother
 {
-    public static function create(string $value): CourseId
+    public static function create(?string $value = null): CourseId
     {
-        return new CourseId($value);
-    }
-
-    public static function creator(): callable
-    {
-        return static fn() => self::random();
-    }
-
-    public static function random(): CourseId
-    {
-        return self::create(UuidMother::random());
+        return new CourseId($value ?? UuidMother::create());
     }
 }

@@ -48,7 +48,7 @@ abstract class Enum implements Stringable
         return self::values()[array_rand(self::values())];
     }
 
-    public static function random(): self
+    public static function random(): static
     {
         return new static(self::randomValue());
     }

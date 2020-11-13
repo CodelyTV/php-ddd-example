@@ -26,8 +26,8 @@ final class CourseRenamerTest extends CoursesModuleUnitTestCase
     /** @test */
     public function it_should_rename_an_existing_course(): void
     {
-        $course        = CourseMother::random();
-        $newName       = CourseNameMother::random();
+        $course        = CourseMother::create();
+        $newName       = CourseNameMother::create();
         $renamedCourse = DuplicatorMother::with($course, ['name' => $newName]);
 
         $this->shouldSearch($course->id(), $course);
@@ -42,10 +42,10 @@ final class CourseRenamerTest extends CoursesModuleUnitTestCase
     {
         $this->expectException(CourseNotExist::class);
 
-        $id = CourseIdMother::random();
+        $id = CourseIdMother::create();
 
         $this->shouldSearch($id, null);
 
-        $this->renamer->__invoke($id, CourseNameMother::random());
+        $this->renamer->__invoke($id, CourseNameMother::create());
     }
 }

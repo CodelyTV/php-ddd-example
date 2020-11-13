@@ -6,6 +6,11 @@ namespace CodelyTv\Tests\Shared\Domain;
 
 final class IntegerMother
 {
+    public static function create(): int
+    {
+        return self::between(1);
+    }
+
     public static function between(int $min, $max = PHP_INT_MAX): int
     {
         return MotherCreator::random()->numberBetween($min, $max);
@@ -14,10 +19,5 @@ final class IntegerMother
     public static function lessThan(int $max): int
     {
         return self::between(1, $max);
-    }
-
-    public static function random(): int
-    {
-        return self::between(1);
     }
 }

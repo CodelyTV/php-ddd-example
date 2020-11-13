@@ -10,19 +10,17 @@ use CodelyTv\Tests\Shared\Domain\RandomElementPicker;
 
 final class CourseDurationMother
 {
-    public static function create(string $value): CourseDuration
+    public static function create(?string $value = null): CourseDuration
     {
-        return new CourseDuration($value);
+        return new CourseDuration($value ?? self::random());
     }
 
-    public static function random(): CourseDuration
+    private static function random(): string
     {
-        return self::create(
-            sprintf(
-                '%s %s',
-                IntegerMother::lessThan(100),
-                RandomElementPicker::from('months', 'years', 'days', 'hours', 'minutes', 'seconds')
-            )
+        return sprintf(
+            '%s %s',
+            IntegerMother::lessThan(100),
+            RandomElementPicker::from('months', 'years', 'days', 'hours', 'minutes', 'seconds')
         );
     }
 }
