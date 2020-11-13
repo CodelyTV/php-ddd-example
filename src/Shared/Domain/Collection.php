@@ -7,7 +7,6 @@ namespace CodelyTv\Shared\Domain;
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
-use function Lambdish\Phunctional\each;
 
 abstract class Collection implements Countable, IteratorAggregate
 {

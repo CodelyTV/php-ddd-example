@@ -6,7 +6,6 @@ namespace CodelyTv\Tests\Mooc\CoursesCounter\Application\Find;
 
 use CodelyTv\Mooc\CoursesCounter\Application\Find\CoursesCounterResponse;
 use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterTotal;
-use CodelyTv\Tests\Mooc\CoursesCounter\Domain\CoursesCounterTotalMother;
 
 final class CoursesCounterResponseMother
 {

@@ -35,8 +35,8 @@ final class FlashSession
 
     public function has(string $key): bool
     {
-        return array_key_exists($key, self::$flashes) ||
-               array_key_exists($key . '.0', self::$flashes) ||
-               array_key_exists($key . '.0.0', self::$flashes);
+        return array_key_exists($key, self::$flashes)
+               || array_key_exists($key . '.0', self::$flashes)
+               || array_key_exists($key . '.0.0', self::$flashes);
     }
 }

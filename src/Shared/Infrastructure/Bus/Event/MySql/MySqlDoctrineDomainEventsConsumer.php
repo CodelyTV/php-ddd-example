@@ -20,7 +20,7 @@ final class MySqlDoctrineDomainEventsConsumer
 
     public function __construct(EntityManager $entityManager, private DomainEventMapping $eventMapping)
     {
-        $this->connection   = $entityManager->getConnection();
+        $this->connection = $entityManager->getConnection();
     }
 
     public function consume(callable $subscribers, int $eventsToConsume): void
