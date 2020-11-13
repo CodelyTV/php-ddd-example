@@ -15,7 +15,7 @@ final class DatabaseConnections
 
     public function __construct(iterable $connections)
     {
-        $this->connections = iterator_to_array($connections);
+        $this->connections = iterator_to_array(yield from $connections);
     }
 
     public function clear(): void

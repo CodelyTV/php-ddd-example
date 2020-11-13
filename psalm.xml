@@ -10,6 +10,7 @@
         <directory name="src" />
         <ignoreFiles>
             <directory name="vendor" />
+            <directory name="src/Shared/Infrastructure/Bus/Event/RabbitMq" />
         </ignoreFiles>
     </projectFiles>
 </psalm>
