@@ -16,8 +16,8 @@ use Doctrine\ORM\EntityManager;
 
 final class MySqlDoctrineEventBusTest extends InfrastructureTestCase
 {
-    private $bus;
-    private $consumer;
+    private MySqlDoctrineEventBus|null             $bus;
+    private MySqlDoctrineDomainEventsConsumer|null $consumer;
 
     protected function setUp(): void
     {

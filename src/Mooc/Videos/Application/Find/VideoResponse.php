@@ -16,29 +16,4 @@ final class VideoResponse implements Response
         private string $courseId
     ) {
     }
-
-    public function id(): string
-    {
-        return $this->id;
-    }
-
-    public function type(): string
-    {
-        return $this->type;
-    }
-
-    public function title(): string
-    {
-        return $this->title;
-    }
-
-    public function url(): string
-    {
-        return $this->url;
-    }
-
-    public function courseId(): string
-    {
-        return $this->courseId;
-    }
 }

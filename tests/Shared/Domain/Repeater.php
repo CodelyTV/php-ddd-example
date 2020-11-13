@@ -8,14 +8,9 @@ use function Lambdish\Phunctional\repeat;
 
 final class Repeater
 {
-    public static function repeat(callable $function, $quantity): array
+    public static function repeat(callable $function, int $quantity): array
     {
         return repeat($function, $quantity);
-    }
-
-    public static function repeatLessThan(callable $function, $max): array
-    {
-        return self::repeat($function, IntegerMother::lessThan($max));
     }
 
     public static function random(callable $function): array

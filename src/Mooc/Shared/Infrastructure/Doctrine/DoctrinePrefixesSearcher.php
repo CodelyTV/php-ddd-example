@@ -45,7 +45,7 @@ final class DoctrinePrefixesSearcher
         return static fn(string $path) => !empty($path);
     }
 
-    private static function namespaceFormatter($baseNamespace): callable
+    private static function namespaceFormatter(string $baseNamespace): callable
     {
         return static fn(string $path, string $module) => "$baseNamespace\\$module\Domain";
     }

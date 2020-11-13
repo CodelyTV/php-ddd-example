@@ -17,17 +17,12 @@ final class ApiExceptionsHttpStatusCodeMapping
         NotFoundHttpException::class    => Response::HTTP_NOT_FOUND,
     ];
 
-    public function register($exceptionClass, $statusCode): void
+    public function register(string $exceptionClass, int $statusCode): void
     {
         $this->exceptions[$exceptionClass] = $statusCode;
     }
 
-    public function exists($exceptionClass): bool
-    {
-        return array_key_exists($exceptionClass, $this->exceptions);
-    }
-
-    public function statusCodeFor($exceptionClass): int
+    public function statusCodeFor(string $exceptionClass): int
     {
         $statusCode = get($exceptionClass, $this->exceptions, self::DEFAULT_STATUS_CODE);
 

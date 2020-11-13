@@ -90,7 +90,7 @@ final class DoctrineCriteriaConverter
         return array_key_exists($field, $this->hydrators);
     }
 
-    private function hydrate($field, $value)
+    private function hydrate($field, string $value)
     {
         return $this->hydrators[$field]($value);
     }

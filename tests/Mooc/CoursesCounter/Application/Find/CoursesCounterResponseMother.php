@@ -14,9 +14,4 @@ final class CoursesCounterResponseMother
     {
         return new CoursesCounterResponse($total->value());
     }
-
-    public static function random(): CoursesCounterResponse
-    {
-        return self::create(CoursesCounterTotalMother::random());
-    }
 }

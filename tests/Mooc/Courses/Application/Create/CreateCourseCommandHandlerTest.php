@@ -12,7 +12,7 @@ use CodelyTv\Tests\Mooc\Courses\Domain\CourseMother;
 
 final class CreateCourseCommandHandlerTest extends CoursesModuleUnitTestCase
 {
-    private $handler;
+    private CreateCourseCommandHandler|null $handler;
 
     protected function setUp(): void
     {

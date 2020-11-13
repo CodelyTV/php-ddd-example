@@ -14,7 +14,7 @@ use CodelyTv\Tests\Shared\Domain\DuplicatorMother;
 
 final class CourseRenamerTest extends CoursesModuleUnitTestCase
 {
-    private $renamer;
+    private CourseRenamer|null $renamer;
 
     protected function setUp(): void
     {

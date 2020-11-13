@@ -24,14 +24,4 @@ final class CriteriaMother
     {
         return self::create(FiltersMother::blank(), OrderMother::none());
     }
-
-    public static function random(): Criteria
-    {
-        return self::create(
-            FiltersMother::random(),
-            OrderMother::random(),
-            IntegerMother::random(),
-            IntegerMother::random()
-        );
-    }
 }

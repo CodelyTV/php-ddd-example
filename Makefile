@@ -44,7 +44,7 @@ test: composer-env-file
 	docker exec codelytv-php_ddd_skeleton-backoffice_backend-php ./vendor/bin/phpunit --testsuite backoffice
 
 .PHONY: static-analysis
-test: composer-env-file
+static-analysis: composer-env-file
 	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/psalm
 
 .PHONY: run-tests

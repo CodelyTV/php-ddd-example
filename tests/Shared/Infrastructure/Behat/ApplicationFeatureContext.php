@@ -29,7 +29,7 @@ final class ApplicationFeatureContext implements Context
     /**
      * @Given /^I send an event to the event bus:$/
      */
-    public function iSendAnEventToTheEventBus(PyStringNode $event)
+    public function iSendAnEventToTheEventBus(PyStringNode $event): void
     {
         $domainEvent = $this->deserializer->deserialize($event->getRaw());
 

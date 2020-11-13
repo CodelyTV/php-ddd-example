@@ -22,11 +22,6 @@ final class FilterOperator extends Enum
     public const NOT_CONTAINS = 'NOT_CONTAINS';
     private static array $containing = [self::CONTAINS, self::NOT_CONTAINS];
 
-    public static function equal(): self
-    {
-        return new self('=');
-    }
-
     public function isContaining(): bool
     {
         return in_array($this->value(), self::$containing, true);

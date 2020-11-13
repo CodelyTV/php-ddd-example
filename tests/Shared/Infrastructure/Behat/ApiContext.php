@@ -13,8 +13,8 @@ use RuntimeException;
 
 final class ApiContext extends RawMinkContext
 {
-    private $sessionHelper;
-    private $request;
+    private MinkHelper               $sessionHelper;
+    private MinkSessionRequestHelper $request;
 
     public function __construct(private Session $minkSession)
     {
@@ -99,7 +99,7 @@ final class ApiContext extends RawMinkContext
         }
     }
 
-    private function sanitizeOutput(string $output)
+    private function sanitizeOutput(string $output): false|string
     {
         return json_encode(json_decode(trim($output), true));
     }
