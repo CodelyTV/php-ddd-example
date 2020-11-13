@@ -27,8 +27,10 @@ final class ConfigureRabbitMqCommand extends Command
         $this->setDescription('Configure the RabbitMQ to allow publish & consume domain events');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->configurer->configure($this->exchangeName, ...iterator_to_array($this->subscribers));
+
+        return 0;
     }
 }

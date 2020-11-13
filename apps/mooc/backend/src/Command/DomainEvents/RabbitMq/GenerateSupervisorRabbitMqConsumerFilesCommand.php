@@ -32,11 +32,13 @@ final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
             ->addArgument('command-path', InputArgument::OPTIONAL, 'Path on this is gonna be deployed', '/var/www');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $path = (string) $input->getArgument('command-path');
 
         each($this->configCreator($path), $this->locator->all());
+
+        return 0;
     }
 
     private function configCreator(string $path): callable

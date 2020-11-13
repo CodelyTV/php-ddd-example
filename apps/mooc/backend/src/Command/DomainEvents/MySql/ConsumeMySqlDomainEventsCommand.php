@@ -33,13 +33,15 @@ final class ConsumeMySqlDomainEventsCommand extends Command
             ->addArgument('quantity', InputArgument::REQUIRED, 'Quantity of events to process');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $quantityEventsToProcess = (int) $input->getArgument('quantity');
 
         $consumer = pipe($this->consumer(), fn() => $this->connections->clear());
 
         $this->consumer->consume($consumer, $quantityEventsToProcess);
+
+        return 0;
     }
 
     private function consumer(): callable
