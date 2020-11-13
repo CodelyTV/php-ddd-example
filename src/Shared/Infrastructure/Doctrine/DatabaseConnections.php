@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace CodelyTv\Shared\Infrastructure\Doctrine;
 
+use CodelyTv\Shared\Domain\Utils;
 use CodelyTv\Tests\Shared\Infrastructure\Doctrine\MySqlDatabaseCleaner;
 use Doctrine\ORM\EntityManager;
 use function Lambdish\Phunctional\apply;
@@ -15,7 +16,7 @@ final class DatabaseConnections
 
     public function __construct(iterable $connections)
     {
-        $this->connections = iterator_to_array(yield from $connections);
+        $this->connections = Utils::iterableToArray($connections);
     }
 
     public function clear(): void

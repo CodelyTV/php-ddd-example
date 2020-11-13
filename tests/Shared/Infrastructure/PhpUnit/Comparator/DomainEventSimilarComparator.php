@@ -12,7 +12,7 @@ use SebastianBergmann\Comparator\ComparisonFailure;
 
 final class DomainEventSimilarComparator extends Comparator
 {
-    private static $ignoredAttributes = ['eventId', 'occurredOn'];
+    private static array $ignoredAttributes = ['eventId', 'occurredOn'];
 
     public function accepts($expected, $actual): bool
     {

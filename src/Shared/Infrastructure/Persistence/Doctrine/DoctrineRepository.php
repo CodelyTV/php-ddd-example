@@ -31,7 +31,7 @@ abstract class DoctrineRepository
         $this->entityManager()->flush($entity);
     }
 
-    protected function repository($entityClass): EntityRepository
+    protected function repository(string $entityClass): EntityRepository
     {
         return $this->entityManager->getRepository($entityClass);
     }

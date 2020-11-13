@@ -13,7 +13,7 @@ use CodelyTv\Tests\Mooc\CoursesCounter\Domain\CoursesCounterMother;
 
 final class FindCoursesCounterQueryHandlerTest extends CoursesCounterModuleUnitTestCase
 {
-    private $handler;
+    private FindCoursesCounterQueryHandler|null $handler;
 
     protected function setUp(): void
     {

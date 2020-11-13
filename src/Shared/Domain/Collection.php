@@ -28,11 +28,6 @@ abstract class Collection implements Countable, IteratorAggregate
         return count($this->items());
     }
 
-    protected function each(callable $fn): void
-    {
-        each($fn, $this->items());
-    }
-
     protected function items(): array
     {
         return $this->items;

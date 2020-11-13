@@ -9,7 +9,7 @@ use CodelyTv\Tests\Shared\Domain\WordMother;
 
 final class OrderByMother
 {
-    public static function create($fieldName): OrderBy
+    public static function create(string $fieldName): OrderBy
     {
         return new OrderBy($fieldName);
     }

@@ -27,14 +27,12 @@ abstract class InfrastructureTestCase extends KernelTestCase
         TestUtils::assertSimilar($expected, $actual);
     }
 
-    /** @return mixed */
-    protected function service($id)
+    protected function service(string $id): mixed
     {
         return self::$container->get($id);
     }
 
-    /** @return mixed */
-    protected function parameter($parameter)
+    protected function parameter($parameter): mixed
     {
         return self::$container->getParameter($parameter);
     }

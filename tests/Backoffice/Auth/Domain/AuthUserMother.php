@@ -28,9 +28,4 @@ final class AuthUserMother
     {
         return self::create($username, AuthPasswordMother::random());
     }
-
-    public static function random(): AuthUser
-    {
-        return self::create(AuthUsernameMother::random(), AuthPasswordMother::random());
-    }
 }

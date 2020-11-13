@@ -57,7 +57,7 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
         return $string ?: 'Invalid DateTime object';
     }
 
-    private function isValidDateTimeString($expected): bool
+    private function isValidDateTimeString(string $expected): bool
     {
         $isValid = true;
 

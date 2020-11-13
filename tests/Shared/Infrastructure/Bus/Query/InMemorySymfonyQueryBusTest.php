@@ -8,11 +8,12 @@ use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Shared\Infrastructure\Bus\Query\InMemorySymfonyQueryBus;
 use CodelyTv\Shared\Infrastructure\Bus\Query\QueryNotRegisteredError;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
+use Mockery\MockInterface;
 use RuntimeException;
 
 final class InMemorySymfonyQueryBusTest extends UnitTestCase
 {
-    private $queryBus;
+    private InMemorySymfonyQueryBus|null $queryBus;
 
     protected function setUp(): void
     {
@@ -34,10 +35,10 @@ final class InMemorySymfonyQueryBusTest extends UnitTestCase
     {
         $this->expectException(QueryNotRegisteredError::class);
 
-        $this->queryBus->ask($this->mock(Query::class));
+        $this->queryBus->ask($this->query());
     }
 
-    private function queryHandler()
+    private function queryHandler(): object
     {
         return new class {
             public function __invoke(FakeQuery $query)
@@ -45,5 +46,10 @@ final class InMemorySymfonyQueryBusTest extends UnitTestCase
                 throw new RuntimeException('This works fine!');
             }
         };
+    }
+
+    private function query(): Query|MockInterface
+    {
+        return $this->mock(Query::class);
     }
 }

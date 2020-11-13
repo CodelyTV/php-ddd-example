@@ -16,7 +16,8 @@ final class FilterMother
         return new Filter($field, $operator, $value);
     }
 
-    public static function fromValues($values): Filter
+    /** @param string[] $values */
+    public static function fromValues(array $values): Filter
     {
         return Filter::fromValues($values);
     }

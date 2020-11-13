@@ -27,11 +27,6 @@ final class DomainEventMapping
         return $this->mapping[$name];
     }
 
-    public function all()
-    {
-        return $this->mapping;
-    }
-
     private function eventsExtractor(): callable
     {
         return fn(array $mapping, DomainEventSubscriber $subscriber) => array_merge(

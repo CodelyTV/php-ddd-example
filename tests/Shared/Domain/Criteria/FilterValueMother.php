@@ -9,7 +9,7 @@ use CodelyTv\Tests\Shared\Domain\WordMother;
 
 final class FilterValueMother
 {
-    public static function create($value): FilterValue
+    public static function create(string $value): FilterValue
     {
         return new FilterValue($value);
     }

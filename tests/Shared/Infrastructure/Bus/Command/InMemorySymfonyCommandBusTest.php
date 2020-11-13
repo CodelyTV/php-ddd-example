@@ -8,11 +8,12 @@ use CodelyTv\Shared\Domain\Bus\Command\Command;
 use CodelyTv\Shared\Infrastructure\Bus\Command\CommandNotRegisteredError;
 use CodelyTv\Shared\Infrastructure\Bus\Command\InMemorySymfonyCommandBus;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
+use Mockery\MockInterface;
 use RuntimeException;
 
 final class InMemorySymfonyCommandBusTest extends UnitTestCase
 {
-    private $commandBus;
+    private InMemorySymfonyCommandBus|null $commandBus;
 
     protected function setUp(): void
     {
@@ -34,10 +35,10 @@ final class InMemorySymfonyCommandBusTest extends UnitTestCase
     {
         $this->expectException(CommandNotRegisteredError::class);
 
-        $this->commandBus->dispatch($this->mock(Command::class));
+        $this->commandBus->dispatch($this->command());
     }
 
-    private function commandHandler()
+    private function commandHandler(): object
     {
         return new class {
             public function __invoke(FakeCommand $command)
@@ -45,5 +46,10 @@ final class InMemorySymfonyCommandBusTest extends UnitTestCase
                 throw new RuntimeException('This works fine!');
             }
         };
+    }
+
+    private function command(): Command|MockInterface
+    {
+        return $this->mock(Command::class);
     }
 }

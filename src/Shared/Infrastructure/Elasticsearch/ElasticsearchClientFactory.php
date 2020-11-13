@@ -28,7 +28,7 @@ final class ElasticsearchClientFactory
         Client $client,
         string $indexPrefix,
         string $schemasFolder,
-        $environment
+        string $environment
     ): void {
         $indexes = Utils::filesIn($schemasFolder, '.json');
 

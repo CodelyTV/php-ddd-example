@@ -14,7 +14,7 @@ use CodelyTv\Tests\Backoffice\Auth\Domain\AuthUsernameMother;
 
 final class AuthenticateUserCommandHandlerTest extends AuthModuleUnitTestCase
 {
-    private $handler;
+    private AuthenticateUserCommandHandler|null $handler;
 
     protected function setUp(): void
     {
