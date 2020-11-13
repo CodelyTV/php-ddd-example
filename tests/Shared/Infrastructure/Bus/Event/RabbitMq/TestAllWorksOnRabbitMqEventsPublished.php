@@ -18,8 +18,7 @@ final class TestAllWorksOnRabbitMqEventsPublished implements DomainEventSubscrib
         ];
     }
 
-    /** @param CourseCreatedDomainEvent|CoursesCounterIncrementedDomainEvent $event */
-    public function __invoke($event)
+    public function __invoke(CourseCreatedDomainEvent|CoursesCounterIncrementedDomainEvent $event)
     {
     }
 }

@@ -20,14 +20,17 @@ final class CoursesGetController
 
     public function __invoke(Request $request): JsonResponse
     {
+        $limit  = $request->query->get('limit');
+        $offset = $request->query->get('offset');
+
         /** @var BackofficeCoursesResponse $response */
         $response = $this->queryBus->ask(
             new SearchBackofficeCoursesByCriteriaQuery(
-                $request->query->get('filters', []),
+                (array) $request->query->get('filters'),
                 $request->query->get('order_by'),
                 $request->query->get('order'),
-                $request->query->get('limit'),
-                $request->query->get('offset')
+                null === $limit ? null : (int) $limit,
+                null === $offset ? null : (int) $offset
             )
         );
 

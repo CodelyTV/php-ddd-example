@@ -15,7 +15,6 @@
         <directory name="tests" />
         <ignoreFiles>
             <directory name="vendor" />
-            <directory name="apps/backoffice/backend/src/Controller/Courses" />
             <directory name="src/Shared/Infrastructure/Bus/Event/RabbitMq" />
             <directory name="tests/Shared/Infrastructure/Bus/Event/RabbitMq" />
             <directory name="tests/Shared/Infrastructure/Mink" />
