@@ -21,10 +21,6 @@ final class DomainEventSimilarComparator extends Comparator
         return $expected instanceof $domainEventRootClass && $actual instanceof $domainEventRootClass;
     }
 
-    /**
-     * @param DomainEvent $expected
-     * @param DomainEvent $actual
-     */
     public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void
     {
         if (!$this->areSimilar($expected, $actual)) {

@@ -12,7 +12,7 @@ use Mockery\MockInterface;
 
 abstract class AuthModuleUnitTestCase extends UnitTestCase
 {
-    private $repository;
+    private AuthRepository|MockInterface|null $repository;
 
     protected function shouldSearch(AuthUsername $username, AuthUser $authUser = null): void
     {
@@ -23,9 +23,8 @@ abstract class AuthModuleUnitTestCase extends UnitTestCase
             ->andReturn($authUser);
     }
 
-    /** @return AuthRepository|MockInterface */
-    protected function repository(): MockInterface
+    protected function repository(): AuthRepository|MockInterface
     {
-        return $this->repository = $this->repository ?: $this->mock(AuthRepository::class);
+        return $this->repository = $this->repository ?? $this->mock(AuthRepository::class);
     }
 }
