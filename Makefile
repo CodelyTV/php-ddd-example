@@ -57,7 +57,7 @@ run-tests: composer-env-file
 
 # 🐳 Docker Compose
 .PHONY: start
-start: CMD=up -d
+start: CMD=up --build -d
 
 .PHONY: stop
 stop: CMD=stop
