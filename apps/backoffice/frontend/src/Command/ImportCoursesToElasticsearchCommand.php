@@ -19,12 +19,14 @@ final class ImportCoursesToElasticsearchCommand extends Command
         parent::__construct();
     }
 
-    public function execute(InputInterface $input, OutputInterface $output): void
+    public function execute(InputInterface $input, OutputInterface $output): int
     {
         $courses = $this->mySqlRepository->searchAll();
 
         foreach ($courses as $course) {
             $this->elasticRepository->save($course);
         }
+
+        return 0;
     }
 }

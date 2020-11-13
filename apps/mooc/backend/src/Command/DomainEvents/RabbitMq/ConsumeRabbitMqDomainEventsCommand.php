@@ -33,12 +33,14 @@ final class ConsumeRabbitMqDomainEventsCommand extends Command
             ->addArgument('quantity', InputArgument::REQUIRED, 'Quantity of events to process');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $queueName       = (string) $input->getArgument('queue');
         $eventsToProcess = (int) $input->getArgument('quantity');
 
         repeat($this->consumer($queueName), $eventsToProcess);
+
+        return 0;
     }
 
     private function consumer(string $queueName): callable
