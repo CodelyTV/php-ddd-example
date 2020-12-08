@@ -24,6 +24,13 @@ final class FileCourseRepository implements CourseRepository
             : null;
     }
 
+    public function findAll(): ?array
+    {
+        return file_exists($this->fileName())
+            ? unserialize(file_get_contents($this->fileName()))
+            : null;
+    }
+
     private function fileName(string $id): string
     {
         return sprintf('%s.%s.repo', self::FILE_PATH, $id);
