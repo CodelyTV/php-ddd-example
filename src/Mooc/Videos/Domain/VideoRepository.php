@@ -13,7 +13,4 @@ interface VideoRepository
     public function search(VideoId $id): ?Video;
 
     public function searchByCriteria(Criteria $criteria): Videos;
-
-    public function searchLastPublishedVideo(): ?Video;
-
 }
