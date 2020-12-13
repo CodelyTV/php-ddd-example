@@ -8,6 +8,7 @@
         <id name="id" type="video_id" column="id" length="36" />
 
         <field name="courseId" column="course_id" type="course_id" />
+        <field name="createdAt" column="created_at" type="datetime_immutable" />
 
         <embedded name="type" class="CodelyTv\Mooc\Videos\Domain\VideoType" use-column-prefix="false" />
         <embedded name="title" class="CodelyTv\Mooc\Videos\Domain\VideoTitle" use-column-prefix="false" />

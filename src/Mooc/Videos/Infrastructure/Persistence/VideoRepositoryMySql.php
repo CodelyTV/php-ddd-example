@@ -20,6 +20,7 @@ final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepo
         'title'     => 'title',
         'url'       => 'url',
         'course_id' => 'courseId',
+        'created_at'=> 'createdAt'
     ];
 
     public function save(Video $video): void
@@ -38,5 +39,12 @@ final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepo
         $videos           = $this->repository(Video::class)->matching($doctrineCriteria)->toArray();
 
         return new Videos($videos);
+    }
+
+    public function searchLastPublishedVideo(): ?Video
+    {
+        $videoRepository = $this->repository(Video::class);
+
+        return $videoRepository->findOneBy([], ['created_at' => 'DESC']);
     }
 }
