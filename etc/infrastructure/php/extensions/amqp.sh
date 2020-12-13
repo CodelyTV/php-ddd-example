@@ -1,4 +1,4 @@
-git clone --branch issue-php8 https://github.com/remicollet/php-amqp.git
+git clone https://github.com/php-amqp/php-amqp.git
 cd php-amqp
 phpize
 ./configure
