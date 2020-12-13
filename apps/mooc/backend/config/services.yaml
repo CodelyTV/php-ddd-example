@@ -96,3 +96,12 @@ services:
 
   # -- IMPLEMENTATIONS SELECTOR --
   CodelyTv\Shared\Domain\Bus\Event\EventBus: '@CodelyTv\Shared\Infrastructure\Bus\Event\WithMonitoring\WithPrometheusMonitoringEventBus'
+
+  CodelyTv\Mooc\Videos\Application\Create\VideoCreator:
+    arguments:
+      - '@CodelyTv\Mooc\Videos\Infrastructure\Persistence\VideoRepositoryMySql'
+      - '@CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqEventBus'
+
+  CodelyTv\Mooc\Videos\Application\Find\VideoFinder:
+    arguments:
+      - '@CodelyTv\Mooc\Videos\Infrastructure\Persistence\VideoRepositoryMySql'
