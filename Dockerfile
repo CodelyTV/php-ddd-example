@@ -16,10 +16,10 @@ RUN apk --update upgrade \
 
 RUN pickle install apcu-5.1.19
 
-ADD etc/infrastructure/php/extensions/amqp.sh /root/install-amqp.sh
+ADD etc/infrastructure/php/extensions/rabbitmq.sh /root/install-rabbitmq.sh
 ADD etc/infrastructure/php/extensions/xdebug.sh /root/install-xdebug.sh
 RUN apk add git
-RUN sh /root/install-amqp.sh
+RUN sh /root/install-rabbitmq.sh
 RUN sh /root/install-xdebug.sh
 
 RUN docker-php-ext-enable \
