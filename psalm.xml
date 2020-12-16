@@ -16,6 +16,7 @@
         <ignoreFiles>
             <directory name="vendor" />
             <directory name="src/Shared/Infrastructure/Bus/Event/RabbitMq" />
+            <directory name="src/Shared/Infrastructure/Symfony" />
             <directory name="tests/Shared/Infrastructure/Bus/Event/RabbitMq" />
             <directory name="tests/Shared/Infrastructure/Mink" />
             <directory name="tests/Shared/Infrastructure/PhpUnit/Constraint" />
