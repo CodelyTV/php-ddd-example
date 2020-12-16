@@ -16,9 +16,12 @@ jobs:
 
       - run: docker-compose pull
 
-      - uses: satackey/action-docker-layer-caching@v0.0.8
+      - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
-
+        with:
+          key: php_ddd_example-cache-${{ secrets.CACHE_VERSION }}-{hash}
+          restore-keys: |
+            php_ddd_example-cache-${{ secrets.CACHE_VERSION }}-
       - name: Install dependencies
         run: make composer-install
 
