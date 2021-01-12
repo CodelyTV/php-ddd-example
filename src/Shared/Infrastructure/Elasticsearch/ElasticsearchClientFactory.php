@@ -30,12 +30,16 @@ final class ElasticsearchClientFactory
         string $schemasFolder,
         string $environment
     ): void {
+        if ('prod' !== $environment) {
+            return;
+        }
+
         $indexes = Utils::filesIn($schemasFolder, '.json');
 
         foreach ($indexes as $index) {
             $indexName = str_replace('.json', '', sprintf('%s_%s', $indexPrefix, $index));
 
-            if ('prod' !== $environment && !$this->indexExists($client, $indexName)) {
+            if (!$this->indexExists($client, $indexName)) {
                 $indexBody = Utils::jsonDecode(file_get_contents("$schemasFolder/$index"));
 
                 $client->indices()->create(['index' => $indexName, 'body' => $indexBody]);
