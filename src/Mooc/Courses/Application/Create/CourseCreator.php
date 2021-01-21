@@ -17,8 +17,11 @@ final class CourseCreator
     {
     }
 
-    public function __invoke(CourseId $id, CourseName $name, CourseDuration $duration): void
-    {
+    public function __invoke(
+        CourseId $id,
+        CourseName $name,
+        CourseDuration $duration,
+    ): void {
         $course = Course::create($id, $name, $duration);
 
         $this->repository->save($course);

@@ -6,6 +6,7 @@ namespace CodelyTv\Tests\Mooc\Courses\Domain;
 
 use CodelyTv\Mooc\Courses\Application\Create\CreateCourseCommand;
 use CodelyTv\Mooc\Courses\Domain\Course;
+use CodelyTv\Mooc\Courses\Domain\CourseCreatedAt;
 use CodelyTv\Mooc\Courses\Domain\CourseDuration;
 use CodelyTv\Mooc\Courses\Domain\CourseName;
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
@@ -15,12 +16,14 @@ final class CourseMother
     public static function create(
         ?CourseId $id = null,
         ?CourseName $name = null,
-        ?CourseDuration $duration = null
+        ?CourseDuration $duration = null,
+        ?CourseCreatedAt $createdAt = null,
     ): Course {
         return new Course(
             $id ?? CourseIdMother::create(),
             $name ?? CourseNameMother::create(),
-            $duration ?? CourseDurationMother::create()
+            $duration ?? CourseDurationMother::create(),
+            $createdAt ?? CourseCreatedAtMother::create()
         );
     }
 

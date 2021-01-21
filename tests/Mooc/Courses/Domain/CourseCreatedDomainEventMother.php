@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Tests\Mooc\Courses\Domain;
 
 use CodelyTv\Mooc\Courses\Domain\Course;
+use CodelyTv\Mooc\Courses\Domain\CourseCreatedAt;
 use CodelyTv\Mooc\Courses\Domain\CourseCreatedDomainEvent;
 use CodelyTv\Mooc\Courses\Domain\CourseDuration;
 use CodelyTv\Mooc\Courses\Domain\CourseName;
@@ -15,17 +16,19 @@ final class CourseCreatedDomainEventMother
     public static function create(
         ?CourseId $id = null,
         ?CourseName $name = null,
-        ?CourseDuration $duration = null
+        ?CourseDuration $duration = null,
+        ?CourseCreatedAt $createdAt = null,
     ): CourseCreatedDomainEvent {
         return new CourseCreatedDomainEvent(
             $id?->value() ?? CourseIdMother::create()->value(),
             $name?->value() ?? CourseNameMother::create()->value(),
-            $duration?->value() ?? CourseDurationMother::create()->value()
+            $duration?->value() ?? CourseDurationMother::create()->value(),
+            $createdAt?->value() ?? CourseCreatedAtMother::create()->value(),
         );
     }
 
     public static function fromCourse(Course $course): CourseCreatedDomainEvent
     {
-        return self::create($course->id(), $course->name(), $course->duration());
+        return self::create($course->id(), $course->name(), $course->duration(), $course->createdAt());
     }
 }

@@ -13,6 +13,10 @@
         "duration": {
           "type": "text",
           "index": true
+        },
+        "created_at": {
+          "type": "datetime",
+          "index": true
         }
       }
     }
