@@ -17,9 +17,6 @@ final class LatestCourseFinder
     {
         $course = $this->repository->searchLatest();
 
-        var_dump($course);
-        die();
-
         if (null === $course) {
             throw new NotExistCourseException();
         }
