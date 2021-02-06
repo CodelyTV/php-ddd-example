@@ -45,17 +45,21 @@ final class CoursesPostWebController extends WebController
 
     private function createCourse(Request $request): RedirectResponse
     {
+        $id = $request->request->get('id');
+        $name = $request->request->get('name');
+        $duration = $request->request->get('duration');
+
         $this->dispatch(
             new CreateCourseCommand(
-                $request->request->getAlpha('id'),
-                $request->request->getAlpha('name'),
-                $request->request->getAlpha('duration')
+                $id,
+                $name,
+                $duration
             )
         );
 
         return $this->redirectWithMessage(
             'courses_get',
-            sprintf('Feliciades, el curso %s ha sido creado!', $request->request->getAlpha('name'))
+            sprintf('Feliciades, el curso %s ha sido creado!', $name)
         );
     }
 }

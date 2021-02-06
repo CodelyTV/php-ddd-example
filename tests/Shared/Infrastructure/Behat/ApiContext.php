@@ -99,6 +99,31 @@ final class ApiContext extends RawMinkContext
         }
     }
 
+    /**
+     * @Then the current url should be :currentUrl
+     */
+    public function theCurrentUrlShouldBe(string $currentUrl): void
+    {
+        $path = parse_url($this->minkSession->getCurrentUrl(), PHP_URL_PATH);
+        if ($path !== $currentUrl) {
+            throw new RuntimeException(
+                sprintf(
+                    'The current url <%s> does not match the expected <%s>',
+                    $path,
+                    $currentUrl
+                )
+            );
+        }
+    }
+
+    /**
+     * @Then I should see :someText
+     */
+    public function iShouldSee(string $someText)
+    {
+        $this->assertSession()->pageTextContains($someText);
+    }
+
     private function sanitizeOutput(string $output): false|string
     {
         return json_encode(json_decode(trim($output), true));

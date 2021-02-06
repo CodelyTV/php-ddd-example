@@ -1,0 +1,23 @@
+backoffice_frontend:
+  extensions:
+    FriendsOfBehat\SymfonyExtension:
+      kernel:
+        class: CodelyTv\Apps\Backoffice\Frontend\BackofficeFrontendKernel
+      bootstrap: apps/bootstrap.php
+    Behat\MinkExtension:
+      sessions:
+        symfony:
+          symfony: ~
+      base_url: ''
+
+  suites:
+    health_check:
+      paths: [ apps/backoffice/frontend/tests/features/health_check ]
+      contexts:
+        - CodelyTv\Tests\Shared\Infrastructure\Behat\ApiContext
+
+    courses:
+      paths: [ apps/backoffice/frontend/tests/features/courses ]
+      contexts:
+        - CodelyTv\Tests\Shared\Infrastructure\Behat\ApplicationFeatureContext
+        - CodelyTv\Tests\Shared\Infrastructure\Behat\ApiContext

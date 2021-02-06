@@ -42,6 +42,7 @@ test: composer-env-file
 	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpunit --testsuite shared
 	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/behat -p mooc_backend --format=progress -v
 	docker exec codelytv-php_ddd_skeleton-backoffice_backend-php ./vendor/bin/phpunit --testsuite backoffice
+	docker exec codelytv-php_ddd_skeleton-backoffice_frontend-php ./vendor/bin/behat -p backoffice_frontend --format=progress -v
 
 .PHONY: static-analysis
 static-analysis: composer-env-file
