@@ -21,7 +21,7 @@
   <br />
   <br />
   Take a look, play and have fun with this.
-  <a href="https://github.com/CodelyTV/php-ddd-example/stargazers">Stars are welcomed 😊</a>
+  <a href="https://github.com/CodelyTV/php-ddd-example/stargazers">Stars are welcome 😊</a>
   <br />
   <br />
   <a href="https://www.youtube.com/watch?v=1kaP39W80zQ">View Demo</a>
@@ -63,12 +63,12 @@ some Symfony and Laravel implementations.
 
 ### ⛱️ Bounded Contexts
 
-* [Mooc](src/Mooc): Place to look in if you wanna see some code 🙂. Massive Open Online Courses public platform with users, videos, notifications, and so on
+* [Mooc](src/Mooc): Place to look in if you wanna see some code 🙂. Massive Open Online Courses public platform with users, videos, notifications, and so on.
 * [Backoffice](src/Backoffice): Here you'll find the use cases needed by the Customer Support department in order to manage users, courses, videos, and so on.
 
 ### 🎯 Hexagonal Architecture
 
-This repository follow the Hexagonal Architecture pattern. Also, it's structured using `modules`.
+This repository follows the Hexagonal Architecture pattern. Also, it's structured using `modules`.
 With this, we can see that the current structure of a Bounded Context is:
 
 ```scala
@@ -115,7 +115,7 @@ and its implementation [here](src/Mooc/Courses/Infrastructure/Persistence/Doctri
 
 ### Aggregates
 You can see an example of an aggregate [here](src/Mooc/Courses/Domain/Course.php). All aggregates should
-extends the [AggregateRoot](src/Shared/Domain/Aggregate/AggregateRoot.php).
+extend the [AggregateRoot](src/Shared/Domain/Aggregate/AggregateRoot.php).
 
 ### Command Bus
 There is 1 implementations of the [command bus](src/Shared/Domain/Bus/Command/CommandBus.php).
@@ -130,14 +130,14 @@ The [MySql Bus](src/Shared/Infrastructure/Bus/Event/MySql/MySqlDoctrineEventBus.
 The [RabbitMQ Bus](src/Shared/Infrastructure/Bus/Event/RabbitMq/RabbitMqEventBus.php) uses RabbitMQ C extension.
 
 ## 📱 Monitoring
-Every time a domain event is published it's exported to Prometheus. You can access to the Prometheus panel [here](http://localhost:9999/)
+Every time a domain event is published it's exported to Prometheus. You can access to the Prometheus panel [here](http://localhost:9999/).
 
 ## 🤔 Contributing
 There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want
 some guidelines feel free to contact us :)
 
 ## 🤩 Extra
-This code was show in the [From framework coupled code to #microservices through #DDD](http://codely.tv/screencasts/codigo-acoplado-framework-microservicios-ddd) talk and doubts where answered in [DDD y CQRS: Preguntas Frecuentes](http://codely.tv/screencasts/ddd-cqrs-preguntas-frecuentes/) video.
+This code was shown in the [From framework coupled code to #microservices through #DDD](http://codely.tv/screencasts/codigo-acoplado-framework-microservicios-ddd) talk and doubts where answered in the [DDD y CQRS: Preguntas Frecuentes](http://codely.tv/screencasts/ddd-cqrs-preguntas-frecuentes/) video.
 
 🎥 Used in the CodelyTV Pro courses:
 * [🇪🇸 DDD in PHP](https://pro.codely.tv/library/ddd-en-php/about/)
