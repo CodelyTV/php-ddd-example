@@ -6,5 +6,5 @@ namespace CodelyTv\Mooc\Courses\Domain;
 
 interface ShareRepository
 {
-    public function share(Course $course): void;
+    public function share(CourseName $courseName): void;
 }
