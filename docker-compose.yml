@@ -45,7 +45,7 @@ services:
 
   backoffice_elasticsearch:
     container_name: codelytv-php_ddd_skeleton-backoffice-elastic
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.8.10
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
     ports:
       - 9200:9200
       - 9300:9300
