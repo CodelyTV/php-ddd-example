@@ -1,4 +1,0 @@
-health-check_get:
-  path: /health-check
-  controller: CodelyTv\Apps\Backoffice\Frontend\Controller\HealthCheck\HealthCheckGetController
-  methods:  [GET]

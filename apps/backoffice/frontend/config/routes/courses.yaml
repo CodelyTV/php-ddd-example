@@ -1,9 +1,0 @@
-courses_get:
-  path: /courses
-  controller: CodelyTv\Apps\Backoffice\Frontend\Controller\Courses\CoursesGetWebController
-  methods:  [GET]
-
-courses_post:
-  path: /courses
-  controller: CodelyTv\Apps\Backoffice\Frontend\Controller\Courses\CoursesPostWebController
-  methods:  [POST]

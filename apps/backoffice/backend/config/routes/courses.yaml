@@ -1,5 +1,0 @@
-courses_get:
-  path: /courses
-  controller: CodelyTv\Apps\Backoffice\Backend\Controller\Courses\CoursesGetController
-  defaults: { auth: false }
-  methods:  [GET]

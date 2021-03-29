@@ -40,51 +40,6 @@ services:
       retries: 10
     command: ["--default-authentication-plugin=mysql_native_password"]
 
-  backoffice_elasticsearch:
-    container_name: codelytv-php_ddd_skeleton-backoffice-elastic
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.8.10
-    ports:
-      - 9200:9200
-      - 9300:9300
-    environment:
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-
-  backoffice_backend_php:
-    container_name: codelytv-php_ddd_skeleton-backoffice_backend-php
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    ports:
-      - "8040:8040"
-      - "9040:9001"
-    volumes:
-      - .:/app:delegated
-    depends_on:
-      - shared_rabbitmq
-      - shared_prometheus
-      - backoffice_elasticsearch
-    command: symfony serve --dir=apps/backoffice/backend/public --port=8040 --force-php-discovery
-
-  backoffice_frontend_php:
-    container_name: codelytv-php_ddd_skeleton-backoffice_frontend-php
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    ports:
-      - "8041:8041"
-      - "9041:9001"
-    volumes:
-      - .:/app:delegated
-    depends_on:
-      - shared_rabbitmq
-      - shared_prometheus
-      - backoffice_elasticsearch
-      - mooc_mysql
-    command: symfony serve --dir=apps/backoffice/frontend/public --port=8041 --force-php-discovery
 
   mooc_backend_php:
     container_name: codelytv-php_ddd_skeleton-mooc_backend-php
