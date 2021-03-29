@@ -47,7 +47,7 @@
 
 1. Install all the dependencies and bring up the project with Docker executing: `make build`
 2. Then you'll have 3 apps available (2 APIs and 1 Frontend):
-   1. [Mooc Backend](apps/mooc/backend): http://localhost:8030/health-check
+   1. [Mooc Backend](apps/openflight/backend): http://localhost:8030/health-check
    
 ### ✅ Tests execution
 
@@ -61,7 +61,7 @@ some Symfony and Laravel implementations.
 
 ### ⛱️ Bounded Contexts
 
-* [Mooc](src/Mooc): Place to look in if you wanna see some code 🙂. Massive Open Online Courses public platform with users, videos, notifications, and so on.
+* [Mooc](src/OpenFlight): Place to look in if you wanna see some code 🙂. Massive Open Online Courses public platform with users, videos, notifications, and so on.
 * [Backoffice](src/Backoffice): Here you'll find the use cases needed by the Customer Support department in order to manage users, courses, videos, and so on.
 
 ### 🎯 Hexagonal Architecture
@@ -108,11 +108,11 @@ Our repositories try to be as simple as possible usually only containing 2 metho
 If we need some query with more filters we use the `Specification` pattern also known as `Criteria` pattern. So we add a
 `searchByCriteria` method.
 
-You can see an example [here](src/Mooc/Courses/Domain/CourseRepository.php)
-and its implementation [here](src/Mooc/Courses/Infrastructure/Persistence/DoctrineCourseRepository.php).
+You can see an example [here](src/OpenFlight/Courses/Domain/CourseRepository.php)
+and its implementation [here](src/OpenFlight/Courses/Infrastructure/Persistence/DoctrineCourseRepository.php).
 
 ### Aggregates
-You can see an example of an aggregate [here](src/Mooc/Courses/Domain/Course.php). All aggregates should
+You can see an example of an aggregate [here](src/OpenFlight/Courses/Domain/Course.php). All aggregates should
 extend the [AggregateRoot](src/Shared/Domain/Aggregate/AggregateRoot.php).
 
 ### Command Bus

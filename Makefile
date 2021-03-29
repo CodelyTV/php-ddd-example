@@ -38,9 +38,9 @@ reload: composer-env-file
 
 .PHONY: test
 test: composer-env-file
-	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpunit --testsuite mooc
+	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpunit --testsuite openflight
 	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpunit --testsuite shared
-	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/behat -p mooc_backend --format=progress -v
+	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/behat -p openflight_backend --format=progress -v
 
 .PHONY: static-analysis
 static-analysis: composer-env-file
@@ -49,9 +49,9 @@ static-analysis: composer-env-file
 .PHONY: run-tests
 run-tests: composer-env-file
 	mkdir -p build/test_results/phpunit
-	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml --testsuite mooc
+	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml --testsuite openflight
 	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml --testsuite shared
-	./vendor/bin/behat -p mooc_backend --format=progress -v
+	./vendor/bin/behat -p openflight_backend --format=progress -v
 
 # 🐳 Docker Compose
 .PHONY: start
@@ -77,8 +77,8 @@ rebuild: composer-env-file
 
 .PHONY: ping-mysql
 ping-mysql:
-	@docker exec codelytv-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
+	@docker exec codelytv-php_ddd_skeleton-openflight-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
 
 clean-cache:
 	@rm -rf apps/*/*/var
-	@docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./apps/mooc/backend/bin/console cache:warmup
+	@docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./apps/openflight/backend/bin/console cache:warmup

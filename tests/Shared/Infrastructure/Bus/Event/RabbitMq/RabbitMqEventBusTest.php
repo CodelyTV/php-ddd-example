@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace CodelyTv\Tests\Shared\Infrastructure\Bus\Event\RabbitMq;
 
-use CodelyTv\Apps\Mooc\Backend\MoocBackendKernel;
+use CodelyTv\Apps\OpenFlight\Backend\MoocBackendKernel;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventJsonDeserializer;
 use CodelyTv\Shared\Infrastructure\Bus\Event\MySql\MySqlDoctrineEventBus;
@@ -13,8 +13,8 @@ use CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqConnection;
 use CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqDomainEventsConsumer;
 use CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqEventBus;
 use CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqQueueNameFormatter;
-use CodelyTv\Tests\Mooc\Courses\Domain\CourseCreatedDomainEventMother;
-use CodelyTv\Tests\Mooc\CoursesCounter\Domain\CoursesCounterIncrementedDomainEventMother;
+use CodelyTv\Tests\OpenFlight\Courses\Domain\CourseCreatedDomainEventMother;
+use CodelyTv\Tests\OpenFlight\CoursesCounter\Domain\CoursesCounterIncrementedDomainEventMother;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\InfrastructureTestCase;
 use RuntimeException;
 use Throwable;

@@ -26,7 +26,7 @@ services:
       - 9999:9090
 
   mooc_mysql:
-    container_name: codelytv-php_ddd_skeleton-mooc-mysql
+    container_name: codelytv-php_ddd_skeleton-openflight-mysql
     image: mysql:8.0
     ports:
       - 3360:3306
@@ -56,4 +56,4 @@ services:
       - shared_rabbitmq
       - shared_prometheus
       - mooc_mysql
-    command: symfony serve --dir=apps/mooc/backend/public --port=8030 --force-php-discovery
+    command: symfony serve --dir=apps/openflight/backend/public --port=8030 --force-php-discovery

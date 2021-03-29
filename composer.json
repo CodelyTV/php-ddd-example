@@ -52,11 +52,8 @@
   },
   "autoload": {
     "psr-4": {
-      "CodelyTv\\Apps\\Mooc\\Backend\\": "apps/mooc/backend/src",
-      "CodelyTv\\Apps\\Mooc\\Frontend\\": "apps/mooc/frontend/src",
-
-      "CodelyTv\\Apps\\Backoffice\\Backend\\": "apps/backoffice/backend/src",
-      "CodelyTv\\Apps\\Backoffice\\Frontend\\": "apps/backoffice/frontend/src",
+      "CodelyTv\\Apps\\OpenFlight\\Backend\\": "apps/openflight/backend/src",
+      "CodelyTv\\Apps\\OpenFlight\\Frontend\\": "apps/openflight/frontend/src",
 
       "CodelyTv\\": ["src"]
     }

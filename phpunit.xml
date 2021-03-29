@@ -32,7 +32,7 @@
         <testsuite name="backoffice">
             <directory>./tests/Backoffice</directory>
         </testsuite>
-        <testsuite name="mooc">
+        <testsuite name="openflight">
             <directory>./tests/Mooc</directory>
         </testsuite>
         <testsuite name="shared">

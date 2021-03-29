@@ -9,8 +9,8 @@
     <projectFiles>
         <directory name="apps/backoffice/backend/src" />
         <directory name="apps/backoffice/frontend/src" />
-        <directory name="apps/mooc/backend/src" />
-        <directory name="apps/mooc/frontend/src" />
+        <directory name="apps/openflight/backend/src" />
+        <directory name="apps/openflight/frontend/src" />
         <directory name="src" />
         <directory name="tests" />
         <ignoreFiles>
