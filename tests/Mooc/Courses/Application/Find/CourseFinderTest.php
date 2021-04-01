@@ -3,6 +3,7 @@
 namespace CodelyTv\Tests\Mooc\Courses\Application\Find;
 
 use CodelyTv\Mooc\Courses\Application\Find\CourseFinder;
+use CodelyTv\Mooc\Courses\Domain\CourseNotExist;
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Tests\Mooc\Courses\CoursesModuleUnitTestCase;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseMother;
@@ -21,12 +22,18 @@ class CourseFinderTest extends CoursesModuleUnitTestCase
     
     public function testCourseFinderShouldFindAnExistingCourse()
     {
-        $course = $this->givenAnExistingCourse();
+        $course = $this->givenACourse();
         $actual = $this->whenFinderIsInvoked($course->id(), $course);
         $this->thenTheCourseShouldBeTheExpected($course, $actual);
     }
+
+    public function testCourseFinderShouldThrowExceptionWhenCourseNotFound()
+    {
+        $course = $this->givenACourse();
+        $this->whenFinderIsInvokedThenShouldThrowCourseNotFoundException($course->id());
+    }
     
-    private function givenAnExistingCourse(): Course
+    private function givenACourse(): Course
     {
         return CourseMother::create();
     }
@@ -40,5 +47,12 @@ class CourseFinderTest extends CoursesModuleUnitTestCase
     private function thenTheCourseShouldBeTheExpected(Course $course, Course $actual): void
     {
         $this->assertSimilar($course, $actual);
+    }
+
+    private function whenFinderIsInvokedThenShouldThrowCourseNotFoundException(CourseId $courseId)
+    {
+        $this->expectException(CourseNotExist::class);
+        $this->searchShouldThrowException($courseId, new CourseNotExist($courseId));
+        $this->courseFinder->__invoke($courseId);
     }
 }
