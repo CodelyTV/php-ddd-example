@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 use function dirname;
 
-final class MoocBackendKernel extends Kernel
+final class OpenFlightBackendKernel extends Kernel
 {
     use MicroKernelTrait;
 

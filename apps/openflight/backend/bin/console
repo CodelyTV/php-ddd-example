@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use CodelyTv\Apps\OpenFlight\Backend\MoocBackendKernel;
+use CodelyTv\Apps\OpenFlight\Backend\OpenFlightBackendKernel;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Debug\Debug;
@@ -37,6 +37,6 @@ if ($_SERVER['APP_DEBUG']) {
     }
 }
 
-$kernel      = new MoocBackendKernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
+$kernel = new OpenFlightBackendKernel($_SERVER['APP_ENV'], (bool)$_SERVER['APP_DEBUG']);
 $application = new Application($kernel);
 $application->run($input);

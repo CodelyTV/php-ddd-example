@@ -57,16 +57,5 @@ services:
   CodelyTv\Shared\Infrastructure\Bus\Query\InMemorySymfonyQueryBus:
     arguments: [ !tagged codely.query_handler ]
 
-  #  CodelyTv\Shared\Infrastructure\Persistence\Mysql:
-  #    arguments: [ '%env(DATABASE_NAME)%','%env(DATABASE_USER)%' ]
-  # RabbitMQ
-  CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqConnection:
-    arguments:
-      - host: '%env(RABBITMQ_HOST)%'
-        port: '%env(RABBITMQ_PORT)%'
-        vhost: '%env(RABBITMQ_MOOC_VHOST)%'
-        login: '%env(RABBITMQ_LOGIN)%'
-        password: '%env(RABBITMQ_PASSWORD)%'
-        read_timeout: 2
-        write_timeout: 2
-        connect_timeout: 5
+  CodelyTv\Shared\Infrastructure\Persistence\Mysql:
+    arguments: [ '%env(DATABASE_HOST)%','%env(DATABASE_NAME)%','%env(DATABASE_USER)%' ]

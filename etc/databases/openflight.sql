@@ -4,8 +4,8 @@ CREATE
     DATABASE IF NOT EXISTS `open_flight`;
 USE `open_flight`;
 
-DROP TABLE IF EXISTS `User`;
-CREATE TABLE `User`
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`
 (
     `Id`       CHAR(36) NOT NULL,
     `Name`     TEXT     NOT NULL,
