@@ -38,12 +38,16 @@ reload: composer-env-file
 
 .PHONY: static-analysis
 static-analysis: composer-env-file
-	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/psalm
+	docker exec openflight-php ./vendor/bin/psalm
 
 
 # 🐳 Docker Compose
 .PHONY: start
 start: CMD=up --build -d
+
+.PHONY: start-service
+start-service:
+	docker exec -i openflight-mysql mysql < ./etc/databases/openflight.sql
 
 .PHONY: stop
 stop: CMD=stop
@@ -65,8 +69,8 @@ rebuild: composer-env-file
 
 .PHONY: ping-mysql
 ping-mysql:
-	@docker exec codelytv-php_ddd_skeleton-openflight-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
+	@docker exec openflight-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
 
 clean-cache:
 	@rm -rf apps/*/*/var
-	@docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./apps/openflight/backend/bin/console cache:warmup
+	@docker exec openflight-php ./apps/openflight/backend/bin/console cache:warmup

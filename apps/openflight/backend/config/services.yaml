@@ -6,42 +6,39 @@ services:
   # Configure
   _instanceof:
     CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber:
-      tags: ['codely.domain_event_subscriber']
+      tags: [ 'codely.domain_event_subscriber' ]
 
     CodelyTv\Shared\Domain\Bus\Command\CommandHandler:
-      tags: ['codely.command_handler']
+      tags: [ 'codely.command_handler' ]
 
     CodelyTv\Shared\Domain\Bus\Query\QueryHandler:
-      tags: ['codely.query_handler']
+      tags: [ 'codely.query_handler' ]
 
   CodelyTv\Apps\OpenFlight\Backend\Controller\:
     resource: '../src/Controller'
-    tags: ['controller.service_arguments']
+    tags: [ 'controller.service_arguments' ]
 
   CodelyTv\Apps\OpenFlight\Backend\Command\:
     resource: '../src/Command'
-    tags: ['console.command']
+    tags: [ 'console.command' ]
 
   # Wire
   CodelyTv\Shared\:
     resource: '../../../../src/Shared'
 
-  CodelyTv\OpenFlight\:
-    resource: '../../../../src/OpenFlight'
-
   # -- TAGGING --
   CodelyTv\Shared\Infrastructure\Bus\Event\InMemory\InMemorySymfonyEventBus:
-    arguments: [!tagged codely.domain_event_subscriber]
+    arguments: [ !tagged codely.domain_event_subscriber ]
     lazy: true
 
   CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventMapping:
-    arguments: [!tagged codely.domain_event_subscriber]
+    arguments: [ !tagged codely.domain_event_subscriber ]
 
   CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventSubscriberLocator:
-    arguments: [!tagged codely.domain_event_subscriber]
+    arguments: [ !tagged codely.domain_event_subscriber ]
 
   CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections:
-    arguments: [!tagged codely.database_connection]
+    arguments: [ !tagged codely.database_connection ]
 
   CodelyTv\Shared\Infrastructure\Symfony\AddJsonBodyToRequestListener:
     tags:
@@ -55,11 +52,13 @@ services:
   # -- APP DEFINITIONS --
   # Command/Query Handlers
   CodelyTv\Shared\Infrastructure\Bus\Command\InMemorySymfonyCommandBus:
-    arguments: [!tagged codely.command_handler]
+    arguments: [ !tagged codely.command_handler ]
 
   CodelyTv\Shared\Infrastructure\Bus\Query\InMemorySymfonyQueryBus:
-    arguments: [!tagged codely.query_handler]
+    arguments: [ !tagged codely.query_handler ]
 
+  #  CodelyTv\Shared\Infrastructure\Persistence\Mysql:
+  #    arguments: [ '%env(DATABASE_NAME)%','%env(DATABASE_USER)%' ]
   # RabbitMQ
   CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqConnection:
     arguments:

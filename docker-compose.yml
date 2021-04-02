@@ -1,32 +1,9 @@
 version: '3'
 
 services:
-  shared_rabbitmq:
-    container_name: codelytv-php_ddd_skeleton-rabbitmq
-    image: 'rabbitmq:3.7-management'
-    restart: unless-stopped
-    ports:
-      - 5630:5672
-      - 8090:15672
-    environment:
-      - RABBITMQ_DEFAULT_USER=codelytv
-      - RABBITMQ_DEFAULT_PASS=c0d3ly
 
-  shared_prometheus:
-    container_name: codelytv-php_ddd_skeleton-prometheus
-    image: prom/prometheus:v2.1.0
-    volumes:
-      - ./etc/prometheus/:/etc/prometheus/
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
-      - '--web.console.templates=/usr/share/prometheus/consoles'
-    ports:
-      - 9999:9090
-
-  mooc_mysql:
-    container_name: codelytv-php_ddd_skeleton-openflight-mysql
+  openflight_mysql:
+    container_name: openflight-mysql
     image: mysql:8.0
     ports:
       - 3360:3306
@@ -34,15 +11,15 @@ services:
       - MYSQL_ROOT_PASSWORD=
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     healthcheck:
-      test: ["CMD", "mysqladmin", "--user=root", "--password=", "--host=127.0.0.1", "ping", "--silent"]
+      test: [ "CMD", "mysqladmin", "--user=root", "--password=", "--host=127.0.0.1", "ping", "--silent" ]
       interval: 2s
       timeout: 10s
       retries: 10
-    command: ["--default-authentication-plugin=mysql_native_password"]
+    command: [ "--default-authentication-plugin=mysql_native_password" ]
 
 
-  mooc_backend_php:
-    container_name: codelytv-php_ddd_skeleton-mooc_backend-php
+  openflight_php:
+    container_name: openflight-php
     build:
       context: .
       dockerfile: Dockerfile
@@ -53,7 +30,5 @@ services:
     volumes:
       - .:/app:delegated
     depends_on:
-      - shared_rabbitmq
-      - shared_prometheus
-      - mooc_mysql
+      - openflight_mysql
     command: symfony serve --dir=apps/openflight/backend/public --port=8030 --force-php-discovery

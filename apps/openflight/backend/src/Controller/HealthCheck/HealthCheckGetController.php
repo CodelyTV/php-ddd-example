@@ -18,8 +18,8 @@ final class HealthCheckGetController
     {
         return new JsonResponse(
             [
-                'openflight-backend' => 'ok',
-                'rand'         => $this->generator->generate(),
+                'openflight-backend' => 'hol2a que tal 2',
+                'rand' => $this->generator->generate(),
             ]
         );
     }
