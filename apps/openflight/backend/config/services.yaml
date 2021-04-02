@@ -1,6 +1,3 @@
-imports:
-  - { resource: ../../../../src/OpenFlight/Shared/Infrastructure/Symfony/DependencyInjection/mooc_services.yaml }
-
 services:
   _defaults:
     autoconfigure: true
@@ -74,26 +71,3 @@ services:
         read_timeout: 2
         write_timeout: 2
         connect_timeout: 5
-
-  CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqEventBus:
-    arguments: ['@CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqConnection', '%env(RABBITMQ_EXCHANGE)%']
-
-  CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqDomainEventsConsumer:
-    arguments:
-      - '@CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqConnection'
-      - '@CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventJsonDeserializer'
-      - '%env(RABBITMQ_EXCHANGE)%'
-      - '%env(RABBITMQ_MAX_RETRIES)%'
-
-  CodelyTv\Apps\OpenFlight\Backend\Command\DomainEvents\RabbitMq\ConfigureRabbitMqCommand:
-    arguments:
-      - '@CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqConfigurer'
-      - '%env(RABBITMQ_EXCHANGE)%'
-      - !tagged codely.domain_event_subscriber
-
-  CodelyTv\Shared\Infrastructure\Bus\Event\WithMonitoring\WithPrometheusMonitoringEventBus:
-    arguments: ['@CodelyTv\Shared\Infrastructure\Monitoring\PrometheusMonitor', 'mooc_backend', '@CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqEventBus']
-
-  # -- IMPLEMENTATIONS SELECTOR --
-  CodelyTv\Shared\Domain\Bus\Event\EventBus: '@CodelyTv\Shared\Infrastructure\Bus\Event\WithMonitoring\WithPrometheusMonitoringEventBus'
-  CodelyTv\OpenFlight\Courses\Domain\CourseRepository: '@CodelyTv\OpenFlight\Courses\Infrastructure\Persistence\FileCourseRepository'

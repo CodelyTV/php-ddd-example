@@ -36,22 +36,10 @@ reload: composer-env-file
 	@docker-compose exec php-fpm kill -USR2 1
 	@docker-compose exec nginx nginx -s reload
 
-.PHONY: test
-test: composer-env-file
-	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpunit --testsuite openflight
-	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpunit --testsuite shared
-	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/behat -p openflight_backend --format=progress -v
-
 .PHONY: static-analysis
 static-analysis: composer-env-file
 	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/psalm
 
-.PHONY: run-tests
-run-tests: composer-env-file
-	mkdir -p build/test_results/phpunit
-	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml --testsuite openflight
-	./vendor/bin/phpunit --exclude-group='disabled' --log-junit build/test_results/phpunit/junit.xml --testsuite shared
-	./vendor/bin/behat -p openflight_backend --format=progress -v
 
 # 🐳 Docker Compose
 .PHONY: start

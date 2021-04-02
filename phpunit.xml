@@ -18,7 +18,6 @@
         stopOnError="true"
         stopOnFailure="true"
         stopOnIncomplete="false"
-        stopOnSkipped="false"
         stopOnRisky="true"
         verbose="false">
 
@@ -29,12 +28,6 @@
     </php>
 
     <testsuites>
-        <testsuite name="backoffice">
-            <directory>./tests/Backoffice</directory>
-        </testsuite>
-        <testsuite name="openflight">
-            <directory>./tests/Mooc</directory>
-        </testsuite>
         <testsuite name="shared">
             <directory>./tests/Shared</directory>
         </testsuite>
