@@ -139,7 +139,7 @@ some guidelines feel free to contact us :)
 ## 🤩 Extra
 This code was shown in the [From framework coupled code to #microservices through #DDD](http://codely.tv/screencasts/codigo-acoplado-framework-microservicios-ddd) talk and doubts where answered in the [DDD y CQRS: Preguntas Frecuentes](http://codely.tv/screencasts/ddd-cqrs-preguntas-frecuentes/) video.
 
-## 🤩 Extra2 for codely.tv GIT course.
+## 🤩 Extra2 for codely.tv GIT course!!
 
 🎥 Used in the CodelyTV Pro courses:
 * [🇪🇸 DDD in PHP](https://pro.codely.tv/library/ddd-en-php/about/)
