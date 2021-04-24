@@ -22,6 +22,11 @@ class UpdateVideoTitleCommandMother extends TestCase
         );
     }
 
+    public static function withId(VideoId $id): UpdateVideoTitleCommand
+    {
+        return self::create($id, VideoTitleMother::create());
+    }
+
     public static function withIdAndTitle(VideoId $id, VideoTitle $title): UpdateVideoTitleCommand
     {
         return self::create($id, $title);

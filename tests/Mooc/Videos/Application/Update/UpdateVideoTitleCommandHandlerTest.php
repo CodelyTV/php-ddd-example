@@ -4,6 +4,8 @@ namespace CodelyTv\Tests\Mooc\Videos\Application\Update;
 
 use CodelyTv\Mooc\Videos\Application\Update\UpdateVideoTitleCommandHandler;
 use CodelyTv\Mooc\Videos\Application\Update\VideoTitleUpdater;
+use CodelyTv\Mooc\Videos\Domain\VideoNotFound;
+use CodelyTv\Tests\Mooc\Videos\Domain\VideoIdMother;
 use CodelyTv\Tests\Mooc\Videos\Domain\VideoMother;
 use CodelyTv\Tests\Mooc\Videos\Domain\VideoTitleMother;
 use CodelyTv\Tests\Mooc\Videos\Infrastructure\VideosModuleUnitTestCase;
@@ -30,6 +32,20 @@ final class UpdateVideoTitleCommandHandlerTest extends VideosModuleUnitTestCase
 
         $this->shouldSearch($video->id(), $video);
         $this->shouldSave($renamedVideo);
+
+        $this->handler->__invoke($command);
+    }
+
+
+    /** @test */
+    public function it_should_throw_an_exception_when_the_video_does_not_exist(): void
+    {
+        $this->expectException(VideoNotFound::class);
+
+        $id      = VideoIdMother::create();
+        $command = UpdateVideoTitleCommandMother::withId($id);
+
+        $this->shouldSearch($id, null);
 
         $this->handler->__invoke($command);
     }
