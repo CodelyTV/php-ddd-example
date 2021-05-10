@@ -32,6 +32,14 @@ abstract class CoursesModuleUnitTestCase extends UnitTestCase
             ->andReturn($course);
     }
 
+    protected function shouldFindAll(?array $courses): void
+    {
+        $this->repository()
+            ->shouldReceive('findAll')
+            ->once()
+            ->andReturn($courses);
+    }
+
     protected function repository(): CourseRepository|MockInterface
     {
         return $this->repository = $this->repository ?? $this->mock(CourseRepository::class);
