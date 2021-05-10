@@ -14,7 +14,7 @@ RUN apk --update upgrade \
         zip \
         pdo_mysql
 
-RUN pickle install apcu-5.1.20
+RUN pickle install apcu@5.1.20
 
 ADD etc/infrastructure/php/extensions/rabbitmq.sh /root/install-rabbitmq.sh
 ADD etc/infrastructure/php/extensions/xdebug.sh /root/install-xdebug.sh
