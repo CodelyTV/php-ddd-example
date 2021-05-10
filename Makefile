@@ -81,6 +81,10 @@ rebuild: composer-env-file
 ping-mysql:
 	@docker exec codelytv-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
 
+.PHONY: ping-rabbitmq
+ping-rabbitmq:
+	@docker exec codelytv-php_ddd_skeleton-rabbitmq rabbitmqctl ping --silent
+
 clean-cache:
 	@rm -rf apps/*/*/var
 	@docker exec codelytv-php_ddd_skeleton-backoffice_backend-php ./apps/backoffice/backend/bin/console cache:warmup
