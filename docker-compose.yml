@@ -27,7 +27,7 @@ services:
 
   mooc_mysql:
     container_name: codelytv-php_ddd_skeleton-mooc-mysql
-    image: mysql:8.0
+    image: mariadb:10.6
     ports:
       - 3360:3306
     environment:
