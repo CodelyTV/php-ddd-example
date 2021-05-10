@@ -15,7 +15,7 @@ RUN apk --update upgrade \
         pdo_mysql
 
 RUN pickle install apcu@5.1.20
-RUN pickle install amqp@1.11.0beta
+RUN pickle install amqp@1.10.2
 
 ADD etc/infrastructure/php/extensions/xdebug.sh /root/install-xdebug.sh
 RUN apk add git
