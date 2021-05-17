@@ -1,7 +1,7 @@
-FROM php:8.0.0RC3-fpm-alpine
+FROM php:8.0-fpm-alpine
 WORKDIR /app
 
-RUN wget https://github.com/FriendsOfPHP/pickle/releases/download/v0.6.0/pickle.phar \
+RUN wget https://github.com/FriendsOfPHP/pickle/releases/download/v0.7.2/pickle.phar \
     && mv pickle.phar /usr/local/bin/pickle \
     && chmod +x /usr/local/bin/pickle
 
@@ -14,7 +14,7 @@ RUN apk --update upgrade \
         zip \
         pdo_mysql
 
-RUN pickle install apcu-5.1.19
+RUN pickle install apcu@5.1.20
 
 ADD etc/infrastructure/php/extensions/rabbitmq.sh /root/install-rabbitmq.sh
 ADD etc/infrastructure/php/extensions/xdebug.sh /root/install-xdebug.sh

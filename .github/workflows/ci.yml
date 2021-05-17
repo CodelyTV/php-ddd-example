@@ -16,27 +16,28 @@ jobs:
 
       - run: docker-compose pull
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
-        continue-on-error: true
-        with:
-          key: php_ddd_example-cache-${{ secrets.CACHE_VERSION }}-{hash}
-          restore-keys: |
-            php_ddd_example-cache-${{ secrets.CACHE_VERSION }}-
-      - name: Install dependencies
+      - name: 🎻 Install dependencies
         run: make composer-install
 
-      - name: Start all the environment
+      - name: 🐳 Start all the environment
         run: make start
 
-      - name: Wait for the environment to get up
+      - name: 🏁 Static analysis
+        run: make static-analysis
+
+      - name: 🦭 Wait for the database to get up
         run: |
           while ! make ping-mysql &>/dev/null; do
               echo "Waiting for database connection..."
               sleep 2
           done
 
-      - name: Run the tests
-        run: make test
+      - name: 🐰 Wait for the message broker to get up
+        run: |
+          while ! make ping-rabbitmq &>/dev/null; do
+              echo "Waiting for RabbitMQ connection..."
+              sleep 2
+          done
 
-      - name: Static analysis
-        run: make static-analysis
+      - name: ✅ Run the tests
+        run: make test
