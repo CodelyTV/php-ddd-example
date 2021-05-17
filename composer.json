@@ -30,7 +30,8 @@
     "elasticsearch/elasticsearch": "^7.3",
     "monolog/monolog": "^2.1",
 
-    "endclothing/prometheus_client_php": "^1.0"
+    "endclothing/prometheus_client_php": "^1.0",
+    "abraham/twitteroauth": "^2.0"    
   },
   "require-dev": {
     "ext-xdebug": "*",
