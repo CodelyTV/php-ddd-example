@@ -27,7 +27,7 @@ final class CoursesPutController extends ApiController
         );
 
         $loggerMessage = new MonologLogger($logger);
-        $loggerMessage->info('Created Course: '.$request->request->getAlpha('name'), 'syslog');
+        $loggerMessage->info('Created Course: '.$request->request->getAlpha('name'), 'info');
 
         return new Response('', Response::HTTP_CREATED);
     }
