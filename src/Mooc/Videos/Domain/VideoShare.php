@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Mooc\Videos\Domain;
 
-interface SocialMediaVideoPublished
+interface VideoShare
 {
     public function post(string $status);
 }
