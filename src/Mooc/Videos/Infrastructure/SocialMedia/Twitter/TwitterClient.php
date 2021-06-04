@@ -12,10 +12,10 @@ class TwitterClient implements SocialMediaVideoPublished
 
     public function __construct()
     {
-        $twitter_consumer_key = getenv('TWITTER_CONSUMER_KEY');
-        $twitter_consumer_secret = getenv('TWITTER_CONSUMER_SECRET');
-        $twitter_access_token = getenv('TWITTER_ACCESS_TOKEN');
-        $twitter_access_token_secret = getenv('TWITTER_ACCESS_TOKEN_SECRET');
+        $twitter_consumer_key = $_SERVER['TWITTER_CONSUMER_KEY'];
+        $twitter_consumer_secret = $_SERVER['TWITTER_CONSUMER_SECRET'];
+        $twitter_access_token = $_SERVER['TWITTER_ACCESS_TOKEN'];
+        $twitter_access_token_secret = $_SERVER['TWITTER_ACCESS_TOKEN_SECRET'];
 
         $this->connection = new TwitterOAuth (
             $twitter_consumer_key,
