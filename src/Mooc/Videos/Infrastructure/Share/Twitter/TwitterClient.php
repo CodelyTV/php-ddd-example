@@ -1,6 +1,6 @@
 <?php
 
-namespace CodelyTv\Mooc\Videos\Infrastructure\SocialMedia\Twitter;
+namespace CodelyTv\Mooc\Videos\Infrastructure\Share\Twitter;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 use CodelyTv\Mooc\Videos\Domain\SocialMediaVideoPublished;
