@@ -13,5 +13,6 @@ class TwitterClientTest extends TestCase
         $twitter_client = new TwitterClient();
         $twitter_response = $twitter_client->post($status);
         $this->assertIsObject($twitter_response);
+        $this->assertEquals("Hola mundo", $twitter_response->text);
     }
 }
