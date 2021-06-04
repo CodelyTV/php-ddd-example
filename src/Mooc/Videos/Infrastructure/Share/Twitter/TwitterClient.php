@@ -3,9 +3,9 @@
 namespace CodelyTv\Mooc\Videos\Infrastructure\Share\Twitter;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
-use CodelyTv\Mooc\Videos\Domain\SocialMediaVideoPublished;
+use CodelyTv\Mooc\Videos\Domain\VideoShare;
 
-class TwitterClient implements SocialMediaVideoPublished
+class TwitterClient implements VideoShare
 {
 
     private TwitterOAuth $connection;
