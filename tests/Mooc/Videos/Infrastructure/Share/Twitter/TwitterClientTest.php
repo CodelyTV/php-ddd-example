@@ -2,7 +2,7 @@
 
 namespace CodelyTv\Tests\Mooc\Videos\Infrastructure\Share\Twitter;
 
-use CodelyTv\Mooc\Videos\Infrastructure\SocialMedia\Twitter\TwitterClient;
+use CodelyTv\Mooc\Videos\Infrastructure\Share\Twitter\TwitterClient;
 use PHPUnit\Framework\TestCase;
 
 class TwitterClientTest extends TestCase
