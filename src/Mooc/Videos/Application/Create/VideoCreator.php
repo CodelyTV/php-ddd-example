@@ -9,13 +9,14 @@ use CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl;
 use CodelyTv\Mooc\Videos\Domain\Video;
 use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Mooc\Videos\Domain\VideoRepository;
+use CodelyTv\Mooc\Videos\Domain\VideoShare;
 use CodelyTv\Mooc\Videos\Domain\VideoTitle;
 use CodelyTv\Mooc\Videos\Domain\VideoType;
 use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 
 final class VideoCreator
 {
-    public function __construct(private VideoRepository $repository, private EventBus $bus)
+    public function __construct(private VideoRepository $repository, private VideoShare $videoShare, private EventBus $bus)
     {
     }
 
@@ -24,6 +25,8 @@ final class VideoCreator
         $video = Video::create($id, $type, $title, $url, $courseId);
 
         $this->repository->save($video);
+
+        $this->videoShare->post('New video '.$video->title()->value(). ' has been published. Check it out!');
 
         $this->bus->publish(...$video->pullDomainEvents());
     }
