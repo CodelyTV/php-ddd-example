@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace CodelyTv\Shared\Infrastructure\Doctrine;
 
 use CodelyTv\Shared\Infrastructure\Doctrine\Dbal\DbalCustomTypesRegistrar;
-use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Schema\MySqlSchemaManager;
 use Doctrine\ORM\Configuration;
@@ -13,6 +12,8 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver;
 use Doctrine\ORM\Tools\Setup;
 use RuntimeException;
+use Symfony\Component\Cache\Adapter\ArrayAdapter;
+use Symfony\Component\Cache\DoctrineProvider;
 use function Lambdish\Phunctional\dissoc;
 
 final class DoctrineEntityManagerFactory
@@ -69,7 +70,7 @@ final class DoctrineEntityManagerFactory
 
     private static function createConfiguration(array $contextPrefixes, bool $isDevMode): Configuration
     {
-        $config = Setup::createConfiguration($isDevMode, null, new ArrayCache());
+        $config = Setup::createConfiguration($isDevMode, null, new DoctrineProvider(new ArrayAdapter()));
 
         $config->setMetadataDriverImpl(new SimplifiedXmlDriver(array_merge(self::$sharedPrefixes, $contextPrefixes)));
 
