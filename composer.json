@@ -12,12 +12,12 @@
     "ext-zend-opcache": "*",
     "ext-pdo": "*",
 
-    "symfony/framework-bundle": "^v5.2",
-    "symfony/messenger": "^v5.2",
-    "symfony/dotenv": "^v5.2",
-    "symfony/yaml": "^v5.2",
-    "symfony/twig-bundle": "^v5.2",
-    "symfony/validator": "^v5.2",
+    "symfony/framework-bundle": "^5.3",
+    "symfony/messenger": "^5.3",
+    "symfony/dotenv": "^5.3",
+    "symfony/yaml": "^5.3",
+    "symfony/twig-bundle": "^5.3",
+    "symfony/validator": "^5.3",
 
     "lambdish/phunctional": "^2.0",
 
