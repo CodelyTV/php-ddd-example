@@ -21,9 +21,9 @@ final class MySqlDoctrineEventBus implements EventBus
         $this->connection = $entityManager->getConnection();
     }
 
-    public function publish(DomainEvent ...$domainEvents): void
+    public function publish(DomainEvent ...$events): void
     {
-        each($this->publisher(), $domainEvents);
+        each($this->publisher(), $events);
     }
 
     private function publisher(): callable

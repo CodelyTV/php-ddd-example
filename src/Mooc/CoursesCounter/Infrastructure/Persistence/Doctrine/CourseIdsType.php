@@ -22,7 +22,6 @@ final class CourseIdsType extends JsonType implements DoctrineCustomType
         return self::customTypeName();
     }
 
-    /** @var CourseId[] $value */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
         return parent::convertToDatabaseValue(map(fn(CourseId $id) => $id->value(), $value), $platform);
