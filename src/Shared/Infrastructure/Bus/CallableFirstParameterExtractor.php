@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace CodelyTv\Shared\Infrastructure\Bus;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
+use LogicException;
 use ReflectionClass;
 use ReflectionMethod;
+use ReflectionNamedType;
 use function Lambdish\Phunctional\map;
 use function Lambdish\Phunctional\reduce;
 use function Lambdish\Phunctional\reindex;
@@ -60,7 +62,14 @@ final class CallableFirstParameterExtractor
 
     private function firstParameterClassFrom(ReflectionMethod $method): string
     {
-        return $method->getParameters()[0]->getType()->getName();
+        /** @var ReflectionNamedType $fistParameterType */
+        $fistParameterType = $method->getParameters()[0]->getType();
+
+        if (null === $fistParameterType) {
+            throw new LogicException('Missing type hint for the first parameter of __invoke');
+        }
+
+        return $fistParameterType->getName();
     }
 
     private function hasOnlyOneParameter(ReflectionMethod $method): bool
