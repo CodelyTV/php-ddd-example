@@ -18,7 +18,8 @@ final class CreateCourseCommandHandlerTest extends CoursesModuleUnitTestCase
     {
         parent::setUp();
 
-        $this->handler = new CreateCourseCommandHandler(new CourseCreator($this->repository(), $this->eventBus()));
+         /*Falta pasarli per parametre el repositori, mirar com pasarli el repositori. PREGUNTA: Es podri apasar directament el TweeterRepository o com alternativa, pasarli directament un CourseNotifier i que en algun fitxer de configuració poguem especificar quina de les implementacions del CourseNotifier utilitzar?*/
+        $this->handler = new CreateCourseCommandHandler(new CourseCreator($this->repository(), $this->eventBus(),$this->notifier() ));
     }
 
     /** @test */

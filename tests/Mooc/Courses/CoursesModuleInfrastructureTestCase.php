@@ -13,4 +13,11 @@ abstract class CoursesModuleInfrastructureTestCase extends MoocContextInfrastruc
     {
         return $this->service(CourseRepository::class);
     }
+
+
+    protected function notifier(): CourseRepository
+    {
+        return $this->service(NotifierRepository::class);
+    }
+
 }

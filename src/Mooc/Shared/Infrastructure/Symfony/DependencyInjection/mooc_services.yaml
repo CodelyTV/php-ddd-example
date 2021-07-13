@@ -17,3 +17,4 @@ services:
 
   # Courses
   CodelyTv\Mooc\Courses\Domain\CourseRepository: '@CodelyTv\Mooc\Courses\Infrastructure\Persistence\DoctrineCourseRepository'
+  CodelyTv\Mooc\Courses\Domain\CourseNotifier: '@CodelyTv\Mooc\Courses\Infrastructure\TweeterRepository'
