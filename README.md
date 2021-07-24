@@ -21,7 +21,7 @@
   <br />
   <br />
   Take a look, play and have fun with this.
-  <a href="https://github.com/CodelyTV/php-ddd-example/stargazers">Stars are welcome 😊</a>
+  <a href="https://github.com/CodelyTV/php-ddd-example/stargazers">Stars are welcome ⭐</a>
   <br />
   <br />
   <a href="https://www.youtube.com/watch?v=1kaP39W80zQ">View Demo</a>
