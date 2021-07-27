@@ -10,6 +10,6 @@ final class CoursesCounterNotExist extends RuntimeException
 {
     public function __construct()
     {
-        parent::__construct('The courses counter not exist');
+        parent::__construct('The courses counter does not exist');
     }
 }

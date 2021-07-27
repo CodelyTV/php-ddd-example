@@ -41,7 +41,7 @@
 
 ### 🛠️ Environment configuration
 
-1. Create a local environment file (`cp .env .env.local`) if you want to modify any parameter
+1. Create a local environment file (`cp .env .env.local`) if you want to modify any parameter.
 
 ### 🔥 Application execution
 
