@@ -43,7 +43,7 @@
 
 1. Create a local environment file (`cp .env .env.local`) if you want to modify any parameter
 
-### 🔥 Application execution
+### 💚 Application execution
 
 1. Install all the dependencies and bring up the project with Docker executing: `make build`
 2. Then you'll have 3 apps available (2 APIs and 1 Frontend):
