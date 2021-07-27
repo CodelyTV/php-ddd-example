@@ -12,3 +12,6 @@ services:
   # Instance selector
   CodelyTv\Shared\Domain\RandomNumberGenerator: '@CodelyTv\Tests\Shared\Infrastructure\ConstantRandomNumberGenerator'
 #  CodelyTv\Shared\Domain\Bus\Event\EventBus: '@CodelyTv\Shared\Infrastructure\Bus\Event\InMemory\InMemorySymfonyEventBus'
+  CodelyTv\Mooc\Videos\Application\Find\VideoFinder:
+    arguments:
+      - '@CodelyTv\Mooc\Videos\Infrastructure\Persistence\VideoRepositoryMySql'

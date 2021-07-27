@@ -7,6 +7,7 @@ namespace CodelyTv\Mooc\Videos\Domain;
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl;
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
+use DateTimeImmutable;
 
 final class Video extends AggregateRoot
 {
@@ -15,7 +16,8 @@ final class Video extends AggregateRoot
         private VideoType $type,
         private VideoTitle $title,
         private VideoUrl $url,
-        private CourseId $courseId
+        private CourseId $courseId,
+        private DateTimeImmutable $createdAt
     ) {
     }
 
@@ -26,7 +28,7 @@ final class Video extends AggregateRoot
         VideoUrl $url,
         CourseId $courseId
     ): Video {
-        $video = new self($id, $type, $title, $url, $courseId);
+        $video = new self($id, $type, $title, $url, $courseId, new DateTimeImmutable());
 
         $video->record(
             new VideoCreatedDomainEvent(
