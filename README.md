@@ -16,8 +16,8 @@
 </p>
 
 <p align="center">
-  Example of a <strong>PHP application using Domain-Driven Design (DDD) and Command Query Responsibility Segregation
-  (CQRS) principles</strong> keeping the code as simple as possible.
+  Example of a <em>PHP application using <strong>Domain-Driven Design (DDD)</strong> and <strong>Command Query Responsibility Segregation
+  (CQRS)</strong> principles</em> keeping the code as simple as possible.
   <br />
   <br />
   Take a look, play and have fun with this.
