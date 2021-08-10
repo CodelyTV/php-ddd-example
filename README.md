@@ -20,7 +20,7 @@
   (CQRS) principles</strong> keeping the code as simple as possible.
   <br />
   <br />
-  Take a look, play and have fun with this.
+  Take a look, play and have fu.
   <a href="https://github.com/CodelyTV/php-ddd-example/stargazers">Stars are welcome 😊</a>
   <br />
   <br />
