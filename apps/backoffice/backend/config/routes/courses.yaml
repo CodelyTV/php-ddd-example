@@ -3,3 +3,9 @@ courses_get:
   controller: CodelyTv\Apps\Backoffice\Backend\Controller\Courses\CoursesGetController
   defaults: { auth: false }
   methods:  [GET]
+
+course_last:
+  path: /last-course
+  controller: CodelyTv\Apps\Backoffice\Backend\Controller\Courses\LastVideoController
+  defaults: { auth: false }
+  methods:  [GET]

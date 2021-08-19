@@ -96,3 +96,4 @@ services:
   # -- IMPLEMENTATIONS SELECTOR --
   CodelyTv\Shared\Domain\Bus\Event\EventBus: '@CodelyTv\Shared\Infrastructure\Bus\Event\WithMonitoring\WithPrometheusMonitoringEventBus'
   CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository: '@CodelyTv\Backoffice\Courses\Infrastructure\Persistence\ElasticsearchBackofficeCourseRepository'
+  CodelyTv\Shared\Domain\Bus\Query\QueryHandler: '@CodelyTv\Backoffice\Courses\Application\LastVideo\SearchLastBackofficeCoursesQueryHandler'
