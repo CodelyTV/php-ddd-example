@@ -32,9 +32,15 @@ abstract class ElasticsearchRepository
         $this->client->persist($this->aggregateName(), $id, $plainBody);
     }
 
-    protected function searchAllInElastic(): array
+    protected function searchlastInelastic(): array
     {
-        return $this->searchRawElasticsearchQuery([]);
+        $courses = $this->searchRawElasticsearchQuery([
+            'body' => [
+                'size' => 1
+            ]
+        ]);
+
+        return $courses ? end($courses): [];
     }
 
     protected function searchRawElasticsearchQuery(array $params): array

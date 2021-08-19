@@ -6,6 +6,7 @@ namespace CodelyTv\Backoffice\Courses\Infrastructure\Persistence;
 
 use CodelyTv\Backoffice\Courses\Domain\BackofficeCourse;
 use CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository;
+use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Shared\Domain\Criteria\Criteria;
 use function Lambdish\Phunctional\get;
 
@@ -31,6 +32,14 @@ final class InMemoryCacheBackofficeCourseRepository implements BackofficeCourseR
     public function matching(Criteria $criteria): array
     {
         return get($criteria->serialize(), self::$matchingCache) ?: $this->searchMatchingAndFillCache($criteria);
+    }
+
+    public function lastCourse(): Course
+    {
+        $lastCourse = end(self::$allCoursesCache);
+        reset(self::$allCoursesCache);
+
+        return $lastCourse;
     }
 
     private function searchAllAndFillCache(): array
