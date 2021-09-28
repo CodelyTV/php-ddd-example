@@ -48,7 +48,7 @@
     "fzaninotto/faker": "^1.9",
 
     "symfony/debug": "^4.4",
-    "vimeo/psalm": "^4.1"
+    "vimeo/psalm": "^4.10"
   },
   "autoload": {
     "psr-4": {
