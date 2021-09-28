@@ -1,7 +1,7 @@
 FROM php:8.1.0RC2-fpm-alpine
 WORKDIR /app
 
-RUN wget https://github.com/FriendsOfPHP/pickle/releases/download/v0.7.2/pickle.phar \
+RUN wget https://github.com/FriendsOfPHP/pickle/releases/download/v0.7.7/pickle.phar \
     && mv pickle.phar /usr/local/bin/pickle \
     && chmod +x /usr/local/bin/pickle
 
