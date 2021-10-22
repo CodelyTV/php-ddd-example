@@ -3,7 +3,9 @@
 namespace CodelyTv\Tests\Mooc\Courses\Application\Find;
 
 use CodelyTv\Mooc\Courses\Application\Find\CourseFinder;
+use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseNotExist;
+use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Tests\Mooc\Courses\Application\Create\CreateCourseCommandMother;
 use CodelyTv\Tests\Mooc\Courses\CoursesModuleUnitTestCase;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseMother;
@@ -26,7 +28,7 @@ class CourseFinderTest extends CoursesModuleUnitTestCase
         $course = CourseMother::fromRequest($command);
 
         $this->shouldSearch($course->id(), $course);
-        $actual = ($this->courseFinder)($course->id());
+        $actual = $this->executeFinder($this->courseFinder, $course->id());
         self::assertEquals($course, $actual);
     }
 
@@ -38,7 +40,12 @@ class CourseFinderTest extends CoursesModuleUnitTestCase
         $course = CourseMother::fromRequest($command);
 
         $this->shouldSearch($course->id(), null);
-        ($this->courseFinder)($course->id());
+        $this->executeFinder($this->courseFinder, $course->id());
+    }
+
+    private function executeFinder(CourseFinder $finder, CourseId $courseId): Course
+    {
+        return ($finder)($courseId);
     }
 }
 
