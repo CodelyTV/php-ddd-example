@@ -22,15 +22,15 @@ class DetectSeasonUseCase
     public function __invoke(): DetectSeasonResponse
     {
         $response = new DetectSeasonResponse();
-        $date = $this->clock->getDate();
         $seasons = [new FallSeason(), new SpringSeason(), new WinterSeason(), new SummerSeason()];
 
         /** @var Season $season */
         foreach ($seasons as $season)
         {
-            if ($season->isDateInSeason($date))
+            if ($season->isDateInSeason($this->clock))
             {
-                return $response->setSeason($season);
+                $response->setSeason($season);
+                return $response;
             }
         }
 

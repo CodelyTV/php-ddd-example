@@ -10,11 +10,11 @@ class FallSeason extends Season
 {
     public function start(): ClockInterface
     {
-        return new CustomClock(DateTime::setDate(self::getYear(), 9, 22));
+        return new CustomClock((new DateTime())->setDate(self::getYear(), 9, 22));
     }
 
     public function ends(): ClockInterface
     {
-        return new CustomClock(DateTime::setDate(self::getYear(), 12, 21));
+        return new CustomClock((new DateTime())->setDate(self::getYear(), 12, 21));
     }
 }
