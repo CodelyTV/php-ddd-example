@@ -14,6 +14,6 @@ class WinterSeason extends Season
 
     public function ends(): ClockInterface
     {
-        return new CustomClock((new DateTime())->setDate(self::getYear(), 3, 20));
+        return new CustomClock((new DateTime())->setDate(self::getYear() + 1, 3, 20));
     }
 }

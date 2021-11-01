@@ -24,20 +24,17 @@ abstract class Season
     {
         $start = $this->start()->getDate();
         $end = $this->ends()->getDate();
-        $startMonth = (int)$start->format('m');
-        $endMonth = (int)$end->format('m');
         $currentMonth = (int)$date->getDate()->format('m');
-        $changeYear = $startMonth > (int)$end->format('m');
+        $changeYear = (int)$start->format('Y') < (int)$end->format('Y');
 
-        if ($changeYear && $currentMonth <= $endMonth && $currentMonth >= 1) {
+        // Si estamos en la estación de cambio de año y el mes actual está entre
+        // Enero y la final de dicha estación, el año actual será uno más.
+        if ($changeYear && $currentMonth >= 1 && $currentMonth <= (int)$end->format('m')) {
             $dateCurrentYear = self::changeYear($date->getDate(), self::getYear() + 1);
         } else {
             $dateCurrentYear = self::changeYear($date->getDate(), self::getYear());
         }
 
-        if ($changeYear) {
-            $end = self::changeYear($end, $end->format('Y') + 1);
-        }
         return $dateCurrentYear >= $start
             && $dateCurrentYear <= $end;
     }
