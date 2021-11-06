@@ -1,0 +1,8 @@
+tasks:
+  - init: | 
+      make build
+      sudo chmod -R o+rw *
+  - command: docker-compose up 
+vscode:
+  extensions:
+    - https://github.com/jimmygc/linenote-codelens/releases/download/1.0.1/linenote-codelens-1.0.1.vsix
