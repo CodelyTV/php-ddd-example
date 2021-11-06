@@ -4,6 +4,7 @@ tasks:
   - init: | 
       make deps
       docker-compose build
+      docker-compose pull
       sudo chmod o+rwx . 
       sudo chmod -R o+rw *
   - command: docker-compose up 
