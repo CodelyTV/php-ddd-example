@@ -1,7 +1,9 @@
 tasks:
 # just this directory is different from wildcard zzgosh  zz-_44-_y21-1106-1822
+# seems make build will start dc up, which prebuild will just hang, now try only do dc build zz-_44-_y21-1106-1846
   - init: | 
-      make build
+      make deps
+      docker-compose build
       sudo chmod o+rwx . 
       sudo chmod -R o+rw *
   - command: docker-compose up 
