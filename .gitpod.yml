@@ -1,6 +1,8 @@
 tasks:
+# just this directory is different from wildcard zzgosh  zz-_44-_y21-1106-1822
   - init: | 
       make build
+      sudo chmod o+rwx . 
       sudo chmod -R o+rw *
   - command: docker-compose up 
 vscode:
