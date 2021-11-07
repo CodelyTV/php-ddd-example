@@ -7,7 +7,14 @@ tasks:
       docker-compose pull
       sudo chmod o+rwx . 
       sudo chmod -R o+rw *
-  - command: docker-compose up 
+    command: docker-compose up 
+# split right so normal terminal can be seen  zz-_44-_y21-1107-0714
+    openMode: split-right
+# direct open preview   
+ports:
+  - port: 8041
+    visibility: private
+    onOpen: open-preview
 vscode:
   extensions:
     - https://github.com/jimmygc/linenote-codelens/releases/download/1.0.1/linenote-codelens-1.0.1.vsix
