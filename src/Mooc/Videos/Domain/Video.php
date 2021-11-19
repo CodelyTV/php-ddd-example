@@ -14,6 +14,7 @@ final class Video extends AggregateRoot
         private VideoId $id,
         private VideoType $type,
         private VideoTitle $title,
+        private VideoDescription $description,
         private VideoUrl $url,
         private CourseId $courseId
     ) {
@@ -23,14 +24,15 @@ final class Video extends AggregateRoot
         VideoId $id,
         VideoType $type,
         VideoTitle $title,
+        VideoDescription $description,
         VideoUrl $url,
         CourseId $courseId
     ): Video {
-        $video = new self($id, $type, $title, $url, $courseId);
+        $video = new self($id, $type, $title, $description, $url, $courseId);
 
         $video->record(
             new VideoCreatedDomainEvent(
-                $id->value(), $type->value(), $title->value(), $url->value(), $courseId->value()
+                $id->value(), $type->value(), $title->value(), $description->value(), $url->value(), $courseId->value()
             )
         );
 
@@ -40,6 +42,11 @@ final class Video extends AggregateRoot
     public function updateTitle(VideoTitle $newTitle): void
     {
         $this->title = $newTitle;
+    }
+
+    public function updateDescription(VideoDescription $newDescription): void
+    {
+        $this->description = $newDescription;
     }
 
     public function id(): VideoId
@@ -55,6 +62,11 @@ final class Video extends AggregateRoot
     public function title(): VideoTitle
     {
         return $this->title;
+    }
+
+    public function description(): VideoDescription
+    {
+        return $this->description;
     }
 
     public function url(): VideoUrl

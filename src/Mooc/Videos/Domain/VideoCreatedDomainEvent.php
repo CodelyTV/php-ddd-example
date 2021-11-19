@@ -12,6 +12,7 @@ final class VideoCreatedDomainEvent extends DomainEvent
         string $id,
         private string $type,
         private string $title,
+        private string $description,
         private string $url,
         private string $courseId,
         string $eventId = null,
@@ -30,11 +31,13 @@ final class VideoCreatedDomainEvent extends DomainEvent
         array $body,
         string $eventId,
         string $occurredOn
-    ): VideoCreatedDomainEvent {
+    ): VideoCreatedDomainEvent
+    {
         return new self(
             $aggregateId,
             $body['type'],
             $body['title'],
+            $body['description'],
             $body['url'],
             $body['course_id'],
             $eventId,
@@ -45,9 +48,10 @@ final class VideoCreatedDomainEvent extends DomainEvent
     public function toPrimitives(): array
     {
         return [
-            'type'      => $this->type,
-            'title'     => $this->title,
-            'url'       => $this->url,
+            'type' => $this->type,
+            'title' => $this->title,
+            'description' => $this->description,
+            'url' => $this->url,
             'course_id' => $this->courseId,
         ];
     }

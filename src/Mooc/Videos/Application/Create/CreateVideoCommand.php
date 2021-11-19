@@ -12,6 +12,7 @@ final class CreateVideoCommand implements Command
         private string $id,
         private string $type,
         private string $title,
+        private string $description,
         private string $url,
         private string $courseId
     ) {
@@ -30,6 +31,11 @@ final class CreateVideoCommand implements Command
     public function title(): string
     {
         return $this->title;
+    }
+
+    public function description(): string
+    {
+        return $this->description;
     }
 
     public function url(): string
