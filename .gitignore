@@ -10,4 +10,5 @@
 .phpunit.result.cache
 
 /build
-.vscode/linenote.db
+# need to check in so the note stays 
+# .vscode/linenote.db
