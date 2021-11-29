@@ -24,3 +24,4 @@ vscode:
     - ms-azuretools.vscode-docker
     - felixfbecker.php-debug
     - alexcvzz.vscode-sqlite
+    - humao.rest-client
