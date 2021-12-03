@@ -10,7 +10,7 @@ use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 
 final class Video extends AggregateRoot
 {
-    public function __construct(
+    private function __construct(
         private VideoId $id,
         private VideoType $type,
         private VideoTitle $title,
