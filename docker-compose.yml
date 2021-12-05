@@ -53,6 +53,7 @@ services:
 
   backoffice_backend_php:
     container_name: codelytv-php_ddd_skeleton-backoffice_backend-php
+    user: "${UID}:${GID}"
     build:
       context: .
       dockerfile: Dockerfile
@@ -70,6 +71,7 @@ services:
 
   backoffice_frontend_php:
     container_name: codelytv-php_ddd_skeleton-backoffice_frontend-php
+    user: "${UID}:${GID}"
     build:
       context: .
       dockerfile: Dockerfile
@@ -88,6 +90,7 @@ services:
 
   mooc_backend_php:
     container_name: codelytv-php_ddd_skeleton-mooc_backend-php
+    user: "${UID}:${GID}"
     build:
       context: .
       dockerfile: Dockerfile
