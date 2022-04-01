@@ -8,14 +8,14 @@ scrape_configs:
   - job_name: 'backoffice_backend'
     scrape_interval: 5s
     static_configs:
-      - targets: ['codelytv-php_ddd_skeleton-backoffice_backend-nginx:80']
+      - targets: ['codelytv-php_ddd_skeleton-backoffice_backend-php:8040']
 
   - job_name: 'backoffice_frontend'
     scrape_interval: 5s
     static_configs:
-      - targets: ['codelytv-php_ddd_skeleton-backoffice_frontend-nginx:80']
+      - targets: ['codelytv-php_ddd_skeleton-backoffice_frontend-php:8041']
 
   - job_name: 'mooc_backend'
     scrape_interval: 5s
     static_configs:
-      - targets: ['codelytv-php_ddd_skeleton-mooc_backend-nginx:80']
+      - targets: ['codelytv-php_ddd_skeleton-mooc_backend-php:8030']
