@@ -10,3 +10,6 @@
 .phpunit.result.cache
 
 /build
+
+/.idea
+/.vscode
