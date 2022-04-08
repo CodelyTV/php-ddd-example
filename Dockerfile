@@ -27,6 +27,11 @@ RUN docker-php-ext-enable \
         apcu \
         opcache
 
-RUN curl -sS https://get.symfony.com/cli/installer | bash && mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+RUN curl -sS https://get.symfony.com/cli/installer | bash -s - --install-dir /usr/local/bin
 
 COPY etc/infrastructure/php/ /usr/local/etc/php/
+
+# allow non-root users have home
+RUN mkdir -p /opt/home
+RUN chmod 777 /opt/home
+ENV HOME /opt/home
