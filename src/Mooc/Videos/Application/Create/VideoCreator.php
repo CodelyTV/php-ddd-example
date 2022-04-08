@@ -7,6 +7,7 @@ namespace CodelyTv\Mooc\Videos\Application\Create;
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl;
 use CodelyTv\Mooc\Videos\Domain\Video;
+use CodelyTv\Mooc\Videos\Domain\VideoDescription;
 use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Mooc\Videos\Domain\VideoRepository;
 use CodelyTv\Mooc\Videos\Domain\VideoTitle;
@@ -19,9 +20,16 @@ final class VideoCreator
     {
     }
 
-    public function create(VideoId $id, VideoType $type, VideoTitle $title, VideoUrl $url, CourseId $courseId): void
+    public function create(
+        VideoId $id,
+        VideoType $type,
+        VideoTitle $title,
+        VideoDescription $description,
+        VideoUrl $url,
+        CourseId $courseId
+    ): void
     {
-        $video = Video::create($id, $type, $title, $url, $courseId);
+        $video = Video::create($id, $type, $title, $description, $url, $courseId);
 
         $this->repository->save($video);
 

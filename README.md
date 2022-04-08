@@ -85,6 +85,10 @@ src
 |       |   |-- Find
 |       |   |-- Trim
 |       |   `-- Update
+|       |   |   |-- UpdateVideoDescriptionCommnad.php
+|       |   |   |-- UpdateVideoDescriptionCommnadHandler.php
+|       |   |   |-- VideoDescriptionUpdater.php
+|       |   |   `-- VideoTitleUpdater.php
 |       |-- Domain
 |       |   |-- Video.php // The Aggregate of the Module
 |       |   |-- VideoCreatedDomainEvent.php // A Domain Event
@@ -93,6 +97,7 @@ src
 |       |   |-- VideoNotFound.php
 |       |   |-- VideoRepository.php // The `Interface` of the repository is inside Domain
 |       |   |-- VideoTitle.php
+|       |   |-- VideoDescription.php
 |       |   |-- VideoType.php
 |       |   |-- VideoUrl.php
 |       |   `-- Videos.php // A collection of our Aggregate
