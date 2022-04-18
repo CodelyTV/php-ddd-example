@@ -12,6 +12,7 @@ final class CourseCreatedDomainEvent extends DomainEvent
         string $id,
         private string $name,
         private string $duration,
+        private string $createdAt,
         string $eventId = null,
         string $occurredOn = null
     ) {
@@ -29,14 +30,15 @@ final class CourseCreatedDomainEvent extends DomainEvent
         string $eventId,
         string $occurredOn
     ): DomainEvent {
-        return new self($aggregateId, $body['name'], $body['duration'], $eventId, $occurredOn);
+        return new self($aggregateId, $body['name'], $body['duration'], $body['createdAt'], $eventId, $occurredOn);
     }
 
     public function toPrimitives(): array
     {
         return [
-            'name'     => $this->name,
-            'duration' => $this->duration,
+            'name'      => $this->name,
+            'duration'  => $this->duration,
+            'createdAt' => $this->createdAt,
         ];
     }
 
@@ -48,5 +50,10 @@ final class CourseCreatedDomainEvent extends DomainEvent
     public function duration(): string
     {
         return $this->duration;
+    }
+
+    public function createdAt(): string
+    {
+        return $this->createdAt;
     }
 }
