@@ -56,7 +56,7 @@
 1. Install the dependencies if you haven't done it previously: `make deps`
 2. Execute PHPUnit and Behat tests: `make test`
 
-## 👩‍💻 Project explanation
+## 🤔 Project explanation
 
 This project tries to be a MOOC (Massive Open Online Course) platform. It's decoupled from any framework, but it has
 some Symfony and Laravel implementations.
