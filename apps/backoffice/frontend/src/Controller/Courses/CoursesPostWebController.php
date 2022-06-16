@@ -47,9 +47,9 @@ final class CoursesPostWebController extends WebController
     {
         $this->dispatch(
             new CreateCourseCommand(
-                $request->request->getAlpha('id'),
-                $request->request->getAlpha('name'),
-                $request->request->getAlpha('duration')
+                (string) $request->request->get('id'),
+                (string) $request->request->get('name'),
+                (string) $request->request->get('duration')
             )
         );
 

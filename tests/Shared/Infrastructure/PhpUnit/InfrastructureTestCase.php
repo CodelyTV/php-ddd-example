@@ -29,12 +29,12 @@ abstract class InfrastructureTestCase extends KernelTestCase
 
     protected function service(string $id): mixed
     {
-        return self::$container->get($id);
+        return self::getContainer()->get($id);
     }
 
     protected function parameter($parameter): mixed
     {
-        return self::$container->getParameter($parameter);
+        return self::getContainer()->getParameter($parameter);
     }
 
     protected function clearUnitOfWork(): void

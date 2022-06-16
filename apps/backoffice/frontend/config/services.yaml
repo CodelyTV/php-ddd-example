@@ -2,6 +2,10 @@ imports:
   - { resource: ../../../../src/Backoffice/Shared/Infrastructure/Symfony/DependencyInjection/backoffice_services.yaml }
   - { resource: ../../../../src/Mooc/Shared/Infrastructure/Symfony/DependencyInjection/mooc_services.yaml }
 
+framework:
+  session:
+    handler_id: null
+
 services:
   _defaults:
     autoconfigure: true

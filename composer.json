@@ -12,46 +12,46 @@
     "ext-zend-opcache": "*",
     "ext-pdo": "*",
 
-    "symfony/framework-bundle": "^5.4",
-    "symfony/messenger": "^5.4",
-    "symfony/dotenv": "^5.4",
-    "symfony/yaml": "^5.4",
-    "symfony/twig-bundle": "^5.4",
-    "symfony/validator": "^5.4",
-    "symfony/cache": "^5.4",
+    "symfony/framework-bundle": "^6",
+    "symfony/messenger": "^6",
+    "symfony/dotenv": "^6",
+    "symfony/yaml": "^6",
+    "symfony/twig-bundle": "^6",
+    "symfony/validator": "^6",
+    "symfony/cache": "^6",
 
-    "lambdish/phunctional": "^2.0",
+    "lambdish/phunctional": "^2",
 
-    "ramsey/uuid": "^4.2",
+    "ramsey/uuid": "^4",
 
-    "doctrine/dbal": "^2.10",
-    "doctrine/orm": "^2.7",
+    "doctrine/dbal": "^3",
+    "doctrine/orm": "^2",
 
-    "ocramius/proxy-manager": "^2.13",
-    "laminas/laminas-zendframework-bridge": "^1.4",
+    "ocramius/proxy-manager": "^2",
+    "laminas/laminas-zendframework-bridge": "^1",
 
-    "elasticsearch/elasticsearch": "^7.3",
-    "monolog/monolog": "^2.1",
+    "elasticsearch/elasticsearch": "^7",
+    "monolog/monolog": "^3",
 
-    "endclothing/prometheus_client_php": "^1.0"
+    "endclothing/prometheus_client_php": "^1"
   },
   "require-dev": {
     "ext-xdebug": "*",
 
     "roave/security-advisories": "dev-master",
 
-    "behat/behat": "^3.10",
-    "friends-of-behat/mink-extension": "^2.6",
-    "friends-of-behat/symfony-extension": "^2.3",
-    "behat/mink-browserkit-driver": "^2.0",
+    "behat/behat": "^3",
+    "friends-of-behat/mink-extension": "^2",
+    "friends-of-behat/symfony-extension": "^2",
+    "behat/mink-browserkit-driver": "^2",
 
-    "phpunit/phpunit": "^9.2",
-    "mockery/mockery": "^1.4",
+    "phpunit/phpunit": "^9",
+    "mockery/mockery": "^1",
 
-    "fzaninotto/faker": "^1.9",
+    "fakerphp/faker": "^1",
 
-    "symfony/debug": "^4.4",
-    "vimeo/psalm": "^4.10"
+    "symfony/error-handler": "^6",
+    "vimeo/psalm": "^4"
   },
   "autoload": {
     "psr-4": {

@@ -8,8 +8,8 @@ use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
 use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Twig\Environment;
@@ -17,11 +17,11 @@ use Twig\Environment;
 abstract class WebController extends ApiController
 {
     public function __construct(
-        private Environment $twig,
-        private RouterInterface $router,
-        private SessionInterface $session,
-        QueryBus $queryBus,
-        CommandBus $commandBus,
+        private Environment                $twig,
+        private RouterInterface            $router,
+        private RequestStack               $requestStack,
+        QueryBus                           $queryBus,
+        CommandBus                         $commandBus,
         ApiExceptionsHttpStatusCodeMapping $exceptionHandler
     ) {
         parent::__construct($queryBus, $commandBus, $exceptionHandler);
@@ -68,7 +68,7 @@ abstract class WebController extends ApiController
     private function addFlashFor(string $prefix, array $messages): void
     {
         foreach ($messages as $key => $message) {
-            $this->session->getFlashBag()->set($prefix . '.' . $key, $message);
+            $this->requestStack->getSession()->getFlashBag()->set($prefix . '.' . $key, $message);
         }
     }
 }
