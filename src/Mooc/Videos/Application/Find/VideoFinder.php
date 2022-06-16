@@ -4,21 +4,26 @@ declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Videos\Application\Find;
 
-use CodelyTv\Mooc\Videos\Domain\VideoFinder as DomainVideoFinder;
 use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Mooc\Videos\Domain\VideoRepository;
+use CodelyTv\Mooc\Videos\Domain\Video;
+use CodelyTv\Mooc\Videos\Domain\VideoNotFound;
 
 final class VideoFinder
 {
-    private DomainVideoFinder $finder;
 
-    public function __construct(VideoRepository $repository)
+    public function __construct(private VideoRepository $repository)
     {
-        $this->finder = new DomainVideoFinder($repository);
     }
 
-    public function __invoke(VideoId $id)
+    public function __invoke(VideoId $id): Video
     {
-        return $this->finder->__invoke($id);
+        $video = $this->repository->search($id);
+
+        if (null === $video) {
+            throw new VideoNotFound($id);
+        }
+
+        return $video;
     }
 }
