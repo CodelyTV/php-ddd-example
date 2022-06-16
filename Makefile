@@ -38,14 +38,14 @@ reload: composer-env-file
 
 .PHONY: test
 test: composer-env-file
-	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpunit --testsuite mooc
-	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpunit --testsuite shared
-	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/behat -p mooc_backend --format=progress -v
-	docker exec codelytv-php_ddd_skeleton-backoffice_backend-php ./vendor/bin/phpunit --testsuite backoffice
+	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpunit --testsuite mooc
+	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpunit --testsuite shared
+	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/behat -p mooc_backend --format=progress -v
+	docker exec codely-php_ddd_skeleton-backoffice_backend-php ./vendor/bin/phpunit --testsuite backoffice
 
 .PHONY: static-analysis
 static-analysis: composer-env-file
-	docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./vendor/bin/psalm
+	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/psalm
 
 .PHONY: run-tests
 run-tests: composer-env-file
@@ -79,14 +79,14 @@ rebuild: composer-env-file
 
 .PHONY: ping-mysql
 ping-mysql:
-	@docker exec codelytv-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
+	@docker exec codely-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
 
 .PHONY: ping-rabbitmq
 ping-rabbitmq:
-	@docker exec codelytv-php_ddd_skeleton-rabbitmq rabbitmqctl ping --silent
+	@docker exec codely-php_ddd_skeleton-rabbitmq rabbitmqctl ping --silent
 
 clean-cache:
 	@rm -rf apps/*/*/var
-	@docker exec codelytv-php_ddd_skeleton-backoffice_backend-php ./apps/backoffice/backend/bin/console cache:warmup
-	@docker exec codelytv-php_ddd_skeleton-backoffice_frontend-php ./apps/backoffice/frontend/bin/console cache:warmup
-	@docker exec codelytv-php_ddd_skeleton-mooc_backend-php ./apps/mooc/backend/bin/console cache:warmup
+	@docker exec codely-php_ddd_skeleton-backoffice_backend-php ./apps/backoffice/backend/bin/console cache:warmup
+	@docker exec codely-php_ddd_skeleton-backoffice_frontend-php ./apps/backoffice/frontend/bin/console cache:warmup
+	@docker exec codely-php_ddd_skeleton-mooc_backend-php ./apps/mooc/backend/bin/console cache:warmup
