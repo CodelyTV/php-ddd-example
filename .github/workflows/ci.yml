@@ -32,6 +32,13 @@ jobs:
               sleep 2
           done
 
+      - name: 🧪 Wait for the elasticsearch to get up
+        run: |
+          while ! make ping-elasticsearch &>/dev/null; do
+              echo "Waiting for elasticsearch connection..."
+              sleep 2
+          done
+
       - name: 🐰 Wait for the message broker to get up
         run: |
           while ! make ping-rabbitmq &>/dev/null; do

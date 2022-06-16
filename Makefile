@@ -27,7 +27,7 @@ composer-require-module: INTERACTIVE=-ti --interactive
 .PHONY: composer
 composer composer-install composer-update composer-require composer-require-module: composer-env-file
 	@docker run --rm $(INTERACTIVE) --volume $(current-dir):/app --user $(id -u):$(id -g) \
-		composer:2.2 $(CMD) \
+		composer:2.3.7 $(CMD) \
 			--ignore-platform-reqs \
 			--no-ansi
 
@@ -80,6 +80,10 @@ rebuild: composer-env-file
 .PHONY: ping-mysql
 ping-mysql:
 	@docker exec codely-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
+
+.PHONY: ping-elasticsearch
+ping-elasticsearch:
+	@curl -I -XHEAD localhost:9200
 
 .PHONY: ping-rabbitmq
 ping-rabbitmq:
