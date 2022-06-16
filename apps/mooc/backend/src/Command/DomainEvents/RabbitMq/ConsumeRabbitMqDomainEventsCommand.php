@@ -45,7 +45,7 @@ final class ConsumeRabbitMqDomainEventsCommand extends Command
 
     private function consumer(string $queueName): callable
     {
-        return function () use ($queueName) {
+        return function () use ($queueName): void {
             $subscriber = $this->locator->withRabbitMqQueueNamed($queueName);
 
             $this->consumer->consume($subscriber, $queueName);

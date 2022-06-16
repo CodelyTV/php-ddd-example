@@ -8,7 +8,7 @@ use DomainException;
 
 final class SecondsInterval
 {
-    public function __construct(private Second $from, private Second $to)
+    public function __construct(private readonly Second $from, private readonly Second $to)
     {
         $this->ensureIntervalEndsAfterStart($from, $to);
     }

@@ -40,8 +40,8 @@ final class InMemorySymfonyQueryBusTest extends UnitTestCase
 
     private function queryHandler(): object
     {
-        return new class {
-            public function __invoke(FakeQuery $query)
+        return new class () {
+            public function __invoke(FakeQuery $query): void
             {
                 throw new RuntimeException('This works fine!');
             }

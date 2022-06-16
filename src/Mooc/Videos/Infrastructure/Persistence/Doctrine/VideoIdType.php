@@ -14,4 +14,3 @@ final class VideoIdType extends UuidType
         return VideoId::class;
     }
 }
-

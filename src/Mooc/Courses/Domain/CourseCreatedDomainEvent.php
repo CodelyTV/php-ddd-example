@@ -10,8 +10,8 @@ final class CourseCreatedDomainEvent extends DomainEvent
 {
     public function __construct(
         string $id,
-        private string $name,
-        private string $duration,
+        private readonly string $name,
+        private readonly string $duration,
         string $eventId = null,
         string $occurredOn = null
     ) {

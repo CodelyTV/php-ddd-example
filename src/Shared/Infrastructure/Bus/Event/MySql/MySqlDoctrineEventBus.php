@@ -14,7 +14,7 @@ use function Lambdish\Phunctional\each;
 final class MySqlDoctrineEventBus implements EventBus
 {
     private const DATABASE_TIMESTAMP_FORMAT = 'Y-m-d H:i:s';
-    private Connection $connection;
+    private readonly Connection $connection;
 
     public function __construct(EntityManager $entityManager)
     {
@@ -39,9 +39,9 @@ final class MySqlDoctrineEventBus implements EventBus
 
             $this->connection->executeUpdate(
                 <<<SQL
-                INSERT INTO domain_events (id,  aggregate_id, name,  body,  occurred_on) 
-                                   VALUES ($id, $aggregateId, $name, $body, $occurredOn);
-SQL
+                                    INSERT INTO domain_events (id,  aggregate_id, name,  body,  occurred_on) 
+                                                       VALUES ($id, $aggregateId, $name, $body, $occurredOn);
+                    SQL
             );
         };
     }

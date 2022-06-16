@@ -14,12 +14,12 @@ use function Lambdish\Phunctional\each;
 abstract class ApiController
 {
     public function __construct(
-        private QueryBus $queryBus,
-        private CommandBus $commandBus,
+        private readonly QueryBus $queryBus,
+        private readonly CommandBus $commandBus,
         ApiExceptionsHttpStatusCodeMapping $exceptionHandler
     ) {
         each(
-            fn(int $httpCode, string $exceptionClass) => $exceptionHandler->register($exceptionClass, $httpCode),
+            fn (int $httpCode, string $exceptionClass) => $exceptionHandler->register($exceptionClass, $httpCode),
             $this->exceptions()
         );
     }

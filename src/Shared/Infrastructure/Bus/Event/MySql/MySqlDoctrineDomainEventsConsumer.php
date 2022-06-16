@@ -16,9 +16,9 @@ use function Lambdish\Phunctional\map;
 
 final class MySqlDoctrineDomainEventsConsumer
 {
-    private Connection         $connection;
+    private readonly Connection         $connection;
 
-    public function __construct(EntityManager $entityManager, private DomainEventMapping $eventMapping)
+    public function __construct(EntityManager $entityManager, private readonly DomainEventMapping $eventMapping)
     {
         $this->connection = $entityManager->getConnection();
     }
@@ -63,6 +63,6 @@ final class MySqlDoctrineDomainEventsConsumer
 
     private function idExtractor(): callable
     {
-        return static fn(array $event): string => "'${event['id']}'";
+        return static fn (array $event): string => "'${event['id']}'";
     }
 }

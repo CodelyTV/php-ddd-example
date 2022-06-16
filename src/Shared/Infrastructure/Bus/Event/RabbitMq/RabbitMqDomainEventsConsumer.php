@@ -14,35 +14,22 @@ use function Lambdish\Phunctional\get;
 
 final class RabbitMqDomainEventsConsumer
 {
-    private RabbitMqConnection          $connection;
-    private DomainEventJsonDeserializer $deserializer;
-    private string                      $exchangeName;
-    private int                         $maxRetries;
-
-    public function __construct(
-        RabbitMqConnection $connection,
-        DomainEventJsonDeserializer $deserializer,
-        string $exchangeName,
-        int $maxRetries
-    ) {
-        $this->connection   = $connection;
-        $this->deserializer = $deserializer;
-        $this->exchangeName = $exchangeName;
-        $this->maxRetries   = $maxRetries;
+    public function __construct(private readonly RabbitMqConnection $connection, private readonly DomainEventJsonDeserializer $deserializer, private readonly string $exchangeName, private readonly int $maxRetries)
+    {
     }
 
     public function consume(callable $subscriber, string $queueName): void
     {
         try {
             $this->connection->queue($queueName)->consume($this->consumer($subscriber));
-        } catch (AMQPQueueException $error) {
+        } catch (AMQPQueueException) {
             // We don't want to raise an error if there are no messages in the queue
         }
     }
 
     private function consumer(callable $subscriber): callable
     {
-        return function (AMQPEnvelope $envelope, AMQPQueue $queue) use ($subscriber) {
+        return function (AMQPEnvelope $envelope, AMQPQueue $queue) use ($subscriber): void {
             $event = $this->deserializer->deserialize($envelope->getBody());
 
             try {

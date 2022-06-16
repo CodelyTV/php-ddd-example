@@ -15,8 +15,9 @@ $config = new PhpCsFixer\Config();
 
 return $config->setRules(
     [
-        '@PSR12'       => true,
+        '@PSR12' => true,
         'strict_param' => true,
+        'modernize_strpos' => true,
         'array_syntax' => ['syntax' => 'short'],
     ]
 )->setFinder($finder);

@@ -27,8 +27,7 @@ final class DoctrineEntityManagerFactory
         bool   $isDevMode,
         string $schemaFile,
         array  $dbalCustomTypesClasses
-    ): EntityManager
-    {
+    ): EntityManager {
         if ($isDevMode) {
             static::generateDatabaseIfNotExists($parameters, $schemaFile);
         }

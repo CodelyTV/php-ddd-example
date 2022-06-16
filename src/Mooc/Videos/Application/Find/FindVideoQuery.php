@@ -8,7 +8,7 @@ use CodelyTv\Shared\Domain\Bus\Query\Query;
 
 final class FindVideoQuery implements Query
 {
-    public function __construct(private string $id)
+    public function __construct(private readonly string $id)
     {
     }
 

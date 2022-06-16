@@ -12,7 +12,7 @@ use function Lambdish\Phunctional\map;
 
 abstract class ElasticsearchRepository
 {
-    public function __construct(private ElasticsearchClient $client)
+    public function __construct(private readonly ElasticsearchClient $client)
     {
     }
 
@@ -57,6 +57,6 @@ abstract class ElasticsearchRepository
 
     private function elasticValuesExtractor(): callable
     {
-        return static fn(array $elasticValues): array => $elasticValues['_source'];
+        return static fn (array $elasticValues): array => $elasticValues['_source'];
     }
 }

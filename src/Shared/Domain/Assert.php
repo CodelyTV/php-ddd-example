@@ -19,7 +19,7 @@ final class Assert
     {
         if (!$item instanceof $class) {
             throw new InvalidArgumentException(
-                sprintf('The object <%s> is not an instance of <%s>', $class, get_class($item))
+                sprintf('The object <%s> is not an instance of <%s>', $class, $item::class)
             );
         }
     }

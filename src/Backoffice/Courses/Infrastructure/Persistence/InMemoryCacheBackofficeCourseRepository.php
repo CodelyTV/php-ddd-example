@@ -14,7 +14,7 @@ final class InMemoryCacheBackofficeCourseRepository implements BackofficeCourseR
     private static array               $allCoursesCache = [];
     private static array               $matchingCache   = [];
 
-    public function __construct(private BackofficeCourseRepository $repository)
+    public function __construct(private readonly BackofficeCourseRepository $repository)
     {
     }
 

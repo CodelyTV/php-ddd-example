@@ -11,9 +11,9 @@ use CodelyTv\Mooc\Videos\Domain\VideoTitle;
 
 final class VideoTitleUpdater
 {
-    private VideoFinder $finder;
+    private readonly VideoFinder $finder;
 
-    public function __construct(private VideoRepository $repository)
+    public function __construct(private readonly VideoRepository $repository)
     {
         $this->finder = new VideoFinder($repository);
     }

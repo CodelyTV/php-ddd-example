@@ -10,7 +10,7 @@ use IteratorAggregate;
 
 abstract class Collection implements Countable, IteratorAggregate
 {
-    public function __construct(private array $items)
+    public function __construct(private readonly array $items)
     {
         Assert::arrayOf($this->type(), $items);
     }

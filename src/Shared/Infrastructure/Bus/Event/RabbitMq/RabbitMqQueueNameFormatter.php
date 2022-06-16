@@ -13,7 +13,7 @@ final class RabbitMqQueueNameFormatter
 {
     public static function format(DomainEventSubscriber $subscriber): string
     {
-        $subscriberClassPaths = explode('\\', str_replace('CodelyTv', 'codelytv', get_class($subscriber)));
+        $subscriberClassPaths = explode('\\', str_replace('CodelyTv', 'codelytv', $subscriber::class));
 
         $queueNameParts = [
             $subscriberClassPaths[0],
@@ -41,13 +41,13 @@ final class RabbitMqQueueNameFormatter
 
     public static function shortFormat(DomainEventSubscriber $subscriber): string
     {
-        $subscriberCamelCaseName = (string) last(explode('\\', get_class($subscriber)));
+        $subscriberCamelCaseName = (string) last(explode('\\', $subscriber::class));
 
         return Utils::toSnakeCase($subscriberCamelCaseName);
     }
 
     private static function toSnakeCase(): callable
     {
-        return static fn(string $text) => Utils::toSnakeCase($text);
+        return static fn (string $text) => Utils::toSnakeCase($text);
     }
 }

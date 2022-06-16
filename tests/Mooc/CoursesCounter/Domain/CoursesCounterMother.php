@@ -21,7 +21,7 @@ final class CoursesCounterMother
         return new CoursesCounter(
             $id ?? CoursesCounterIdMother::create(),
             $total ?? CoursesCounterTotalMother::create(),
-            ...count($existingCourses) ? $existingCourses : Repeater::random(fn() => CourseIdMother::create())
+            ...count($existingCourses) ? $existingCourses : Repeater::random(fn () => CourseIdMother::create())
         );
     }
 

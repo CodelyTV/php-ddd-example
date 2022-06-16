@@ -9,7 +9,7 @@ use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterRepository;
 
 final class CoursesCounterFinder
 {
-    public function __construct(private CoursesCounterRepository $repository)
+    public function __construct(private readonly CoursesCounterRepository $repository)
     {
     }
 

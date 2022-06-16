@@ -12,7 +12,7 @@ use Throwable;
 
 final class ApiExceptionListener
 {
-    public function __construct(private ApiExceptionsHttpStatusCodeMapping $exceptionHandler)
+    public function __construct(private readonly ApiExceptionsHttpStatusCodeMapping $exceptionHandler)
     {
     }
 
@@ -26,7 +26,7 @@ final class ApiExceptionListener
                     'code'    => $this->exceptionCodeFor($exception),
                     'message' => $exception->getMessage(),
                 ],
-                $this->exceptionHandler->statusCodeFor(get_class($exception))
+                $this->exceptionHandler->statusCodeFor($exception::class)
             )
         );
     }
