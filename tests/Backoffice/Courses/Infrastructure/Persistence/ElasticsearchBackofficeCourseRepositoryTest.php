@@ -27,7 +27,7 @@ final class ElasticsearchBackofficeCourseRepositoryTest extends BackofficeCourse
         $this->elasticRepository()->save($existingCourse);
         $this->elasticRepository()->save($anotherExistingCourse);
 
-        $this->eventually(fn() => $this->assertSimilar($existingCourses, $this->elasticRepository()->searchAll()));
+        $this->eventually(fn () => $this->assertSimilar($existingCourses, $this->elasticRepository()->searchAll()));
     }
 
     /** @test */
@@ -41,7 +41,7 @@ final class ElasticsearchBackofficeCourseRepositoryTest extends BackofficeCourse
         $this->elasticRepository()->save($anotherExistingCourse);
 
         $this->eventually(
-            fn() => $this->assertSimilar(
+            fn () => $this->assertSimilar(
                 $existingCourses,
                 $this->elasticRepository()->matching(CriteriaMother::empty())
             )
@@ -63,7 +63,7 @@ final class ElasticsearchBackofficeCourseRepositoryTest extends BackofficeCourse
         $this->elasticRepository()->save($intellijCourse);
 
         $this->eventually(
-            fn() => $this->assertSimilar($dddCourses, $this->elasticRepository()->matching($nameContainsDddCriteria))
+            fn () => $this->assertSimilar($dddCourses, $this->elasticRepository()->matching($nameContainsDddCriteria))
         );
     }
 }

@@ -22,6 +22,9 @@ jobs:
       - name: 🐳 Start all the environment
         run: make start
 
+      - name: 🔦 Lint
+        run: make lint
+
       - name: 🏁 Static analysis
         run: make static-analysis
 

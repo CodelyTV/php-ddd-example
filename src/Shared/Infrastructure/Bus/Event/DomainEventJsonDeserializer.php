@@ -10,7 +10,7 @@ use RuntimeException;
 
 final class DomainEventJsonDeserializer
 {
-    public function __construct(private DomainEventMapping $mapping)
+    public function __construct(private readonly DomainEventMapping $mapping)
     {
     }
 

@@ -39,8 +39,8 @@ final class MySqlDoctrineEventBusTest extends InfrastructureTestCase
         $this->bus->publish($domainEvent, $anotherDomainEvent);
 
         $this->consumer->consume(
-            fn(DomainEvent ...$expectedEvents) => $this->assertContainsEquals($domainEvent, $expectedEvents),
-            $eventsToConsume = 2
+            subscribers: fn (DomainEvent ...$expectedEvents) => $this->assertContainsEquals($domainEvent, $expectedEvents),
+            eventsToConsume:  2
         );
     }
 

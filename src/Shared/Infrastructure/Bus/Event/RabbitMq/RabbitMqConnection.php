@@ -17,11 +17,9 @@ final class RabbitMqConnection
     private static array $exchanges = [];
     /** @var AMQPQueue[] */
     private static array $queues = [];
-    private array        $configuration;
 
-    public function __construct(array $configuration)
+    public function __construct(private readonly array $configuration)
     {
-        $this->configuration = $configuration;
     }
 
     public function queue(string $name): AMQPQueue

@@ -46,7 +46,7 @@ final class DomainEventSimilarComparator extends Comparator
 
     private function areTheSameClass(DomainEvent $expected, DomainEvent $actual): bool
     {
-        return get_class($expected) === get_class($actual);
+        return $expected::class === $actual::class;
     }
 
     private function propertiesAreSimilar(DomainEvent $expected, DomainEvent $actual): bool

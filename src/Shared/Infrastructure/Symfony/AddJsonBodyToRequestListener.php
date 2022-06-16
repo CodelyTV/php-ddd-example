@@ -17,7 +17,7 @@ final class AddJsonBodyToRequestListener
         $requestContents = $request->getContent();
 
         if (!empty($requestContents) && $this->containsHeader($request, 'Content-Type', 'application/json')) {
-            $jsonData = json_decode($requestContents, true);
+            $jsonData = json_decode($requestContents, true, 512, JSON_THROW_ON_ERROR);
             if (!$jsonData) {
                 throw new HttpException(Response::HTTP_BAD_REQUEST, 'Invalid json data');
             }
@@ -25,7 +25,7 @@ final class AddJsonBodyToRequestListener
             foreach ($jsonData as $key => $value) {
                 $jsonDataLowerCase[preg_replace_callback(
                     '/_(.)/',
-                    static fn($matches) => strtoupper($matches[1]),
+                    static fn ($matches) => strtoupper($matches[1]),
                     $key
                 )] = $value;
             }
@@ -35,6 +35,6 @@ final class AddJsonBodyToRequestListener
 
     private function containsHeader(Request $request, string $name, string $value): bool
     {
-        return str_starts_with($request->headers->get($name), $value);
+        return str_starts_with((string) $request->headers->get($name), $value);
     }
 }

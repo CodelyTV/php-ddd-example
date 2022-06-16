@@ -16,7 +16,7 @@ use Symfony\Component\Messenger\Stamp\HandledStamp;
 
 final class InMemorySymfonyQueryBus implements QueryBus
 {
-    private MessageBus $bus;
+    private readonly MessageBus $bus;
 
     public function __construct(iterable $queryHandlers)
     {

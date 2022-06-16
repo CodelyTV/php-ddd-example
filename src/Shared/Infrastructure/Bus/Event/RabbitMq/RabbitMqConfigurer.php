@@ -10,11 +10,8 @@ use function Lambdish\Phunctional\each;
 
 final class RabbitMqConfigurer
 {
-    private RabbitMqConnection $connection;
-
-    public function __construct(RabbitMqConnection $connection)
+    public function __construct(private readonly RabbitMqConnection $connection)
     {
-        $this->connection = $connection;
     }
 
     public function configure(string $exchangeName, DomainEventSubscriber ...$subscribers): void
@@ -55,7 +52,7 @@ final class RabbitMqConfigurer
             $exchangeName,
             $retryExchangeName,
             $deadLetterExchangeName
-        ) {
+        ): void {
             $queueName           = RabbitMqQueueNameFormatter::format($subscriber);
             $retryQueueName      = RabbitMqQueueNameFormatter::formatRetry($subscriber);
             $deadLetterQueueName = RabbitMqQueueNameFormatter::formatDeadLetter($subscriber);

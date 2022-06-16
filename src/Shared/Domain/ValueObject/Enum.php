@@ -55,7 +55,7 @@ abstract class Enum implements Stringable
 
     private static function keysFormatter(): callable
     {
-        return static fn($unused, string $key): string => Utils::toCamelCase(strtolower($key));
+        return static fn ($unused, string $key): string => Utils::toCamelCase(strtolower($key));
     }
 
     public function value()

@@ -10,7 +10,7 @@ use CodelyTv\Mooc\Videos\Domain\VideoRepository;
 
 final class VideoFinder
 {
-    private DomainVideoFinder $finder;
+    private readonly DomainVideoFinder $finder;
 
     public function __construct(VideoRepository $repository)
     {

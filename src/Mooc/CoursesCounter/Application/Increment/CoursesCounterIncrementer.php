@@ -14,9 +14,9 @@ use CodelyTv\Shared\Domain\UuidGenerator;
 final class CoursesCounterIncrementer
 {
     public function __construct(
-        private CoursesCounterRepository $repository,
-        private UuidGenerator $uuidGenerator,
-        private EventBus $bus
+        private readonly CoursesCounterRepository $repository,
+        private readonly UuidGenerator $uuidGenerator,
+        private readonly EventBus $bus
     ) {
     }
 

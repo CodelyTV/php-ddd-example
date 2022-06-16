@@ -13,7 +13,7 @@ use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 
 final class CourseCreator
 {
-    public function __construct(private CourseRepository $repository, private EventBus $bus)
+    public function __construct(private readonly CourseRepository $repository, private readonly EventBus $bus)
     {
     }
 

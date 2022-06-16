@@ -11,7 +11,7 @@ final class QueryNotRegisteredError extends RuntimeException
 {
     public function __construct(Query $query)
     {
-        $queryClass = get_class($query);
+        $queryClass = $query::class;
 
         parent::__construct("The query <$queryClass> hasn't a query handler associated");
     }

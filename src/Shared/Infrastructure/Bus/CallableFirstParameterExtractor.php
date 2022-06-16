@@ -27,7 +27,7 @@ final class CallableFirstParameterExtractor
 
     private static function classExtractor(CallableFirstParameterExtractor $parameterExtractor): callable
     {
-        return static fn(callable $handler): ?string => $parameterExtractor->extract($handler);
+        return static fn (callable $handler): ?string => $parameterExtractor->extract($handler);
     }
 
     private static function pipedCallablesReducer(): callable
@@ -45,7 +45,7 @@ final class CallableFirstParameterExtractor
 
     private static function unflatten(): callable
     {
-        return static fn($value) => [$value];
+        return static fn ($value) => [$value];
     }
 
     public function extract($class): ?string

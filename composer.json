@@ -51,7 +51,8 @@
     "fakerphp/faker": "^1",
 
     "symfony/error-handler": "^6",
-    "vimeo/psalm": "^4"
+    "vimeo/psalm": "^4",
+    "friendsofphp/php-cs-fixer": "^3.8"
   },
   "autoload": {
     "psr-4": {

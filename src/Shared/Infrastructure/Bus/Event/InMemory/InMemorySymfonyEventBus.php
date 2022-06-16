@@ -14,7 +14,7 @@ use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 
 class InMemorySymfonyEventBus implements EventBus
 {
-    private MessageBus $bus;
+    private readonly MessageBus $bus;
 
     public function __construct(iterable $subscribers)
     {

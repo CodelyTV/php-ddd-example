@@ -47,6 +47,10 @@ test: composer-env-file
 static-analysis: composer-env-file
 	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/psalm
 
+.PHONY: lint
+lint:
+	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/php-cs-fixer fix --config .php-cs-fixer.dist.php --allow-risky=yes --dry-run
+
 .PHONY: run-tests
 run-tests: composer-env-file
 	mkdir -p build/test_results/phpunit

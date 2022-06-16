@@ -47,7 +47,7 @@ final class AggregateRootSimilarComparator extends Comparator
 
     private function aggregateRootsAreTheSameClass(AggregateRoot $expected, AggregateRoot $actual): bool
     {
-        return get_class($expected) === get_class($actual);
+        return $expected::class === $actual::class;
     }
 
     private function aggregateRootPropertiesAreSimilar(AggregateRoot $expected, AggregateRoot $actual): bool

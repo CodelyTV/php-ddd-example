@@ -27,7 +27,7 @@ final class FilterOperator extends Enum
         return in_array($this->value(), self::$containing, true);
     }
 
-    protected function throwExceptionForInvalidValue($value): void
+    protected function throwExceptionForInvalidValue($value): never
     {
         throw new InvalidArgumentException(sprintf('The filter <%s> is invalid', $value));
     }

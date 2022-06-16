@@ -13,7 +13,7 @@ use CodelyTv\Analytics\DomainEvents\Domain\DomainEventsRepository;
 
 final class DomainEventStorer
 {
-    public function __construct(private DomainEventsRepository $repository)
+    public function __construct(private readonly DomainEventsRepository $repository)
     {
     }
 

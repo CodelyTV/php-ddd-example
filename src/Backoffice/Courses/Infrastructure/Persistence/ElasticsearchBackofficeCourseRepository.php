@@ -34,6 +34,6 @@ final class ElasticsearchBackofficeCourseRepository extends ElasticsearchReposit
 
     private function toCourse(): callable
     {
-        return static fn(array $primitives) => BackofficeCourse::fromPrimitives($primitives);
+        return static fn (array $primitives) => BackofficeCourse::fromPrimitives($primitives);
     }
 }
