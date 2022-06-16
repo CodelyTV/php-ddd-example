@@ -14,8 +14,12 @@ use function Lambdish\Phunctional\get;
 
 final class RabbitMqDomainEventsConsumer
 {
-    public function __construct(private readonly RabbitMqConnection $connection, private readonly DomainEventJsonDeserializer $deserializer, private readonly string $exchangeName, private readonly int $maxRetries)
-    {
+    public function __construct(
+        private readonly RabbitMqConnection $connection,
+        private readonly DomainEventJsonDeserializer $deserializer,
+        private readonly string $exchangeName,
+        private readonly int $maxRetries
+    ) {
     }
 
     public function consume(callable $subscriber, string $queueName): void

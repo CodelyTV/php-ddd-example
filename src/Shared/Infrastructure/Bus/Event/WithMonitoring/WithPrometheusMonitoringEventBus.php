@@ -11,8 +11,11 @@ use function Lambdish\Phunctional\each;
 
 final class WithPrometheusMonitoringEventBus implements EventBus
 {
-    public function __construct(private readonly PrometheusMonitor $monitor, private readonly string $appName, private readonly EventBus $bus)
-    {
+    public function __construct(
+        private readonly PrometheusMonitor $monitor,
+        private readonly string $appName,
+        private readonly EventBus $bus
+    ) {
     }
 
     public function publish(DomainEvent ...$events): void
