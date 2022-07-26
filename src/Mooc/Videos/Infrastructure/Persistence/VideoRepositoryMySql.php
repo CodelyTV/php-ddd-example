@@ -39,4 +39,9 @@ final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepo
 
         return new Videos($videos);
     }
+
+    public function delete(Video $video): void
+    {
+        $this->remove($video);
+    }
 }
