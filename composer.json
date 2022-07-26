@@ -33,7 +33,8 @@
     "elasticsearch/elasticsearch": "^7",
     "monolog/monolog": "^3",
 
-    "endclothing/prometheus_client_php": "^1"
+    "endclothing/prometheus_client_php": "^1",
+    "abraham/twitteroauth": "^4.0"
   },
   "require-dev": {
     "ext-xdebug": "*",

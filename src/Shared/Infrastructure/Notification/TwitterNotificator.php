@@ -2,14 +2,23 @@
 
 declare(strict_types=1);
 
-namespace CodelyTv\Shared\Infrastructure;
+namespace CodelyTv\Shared\Infrastructure\Notification;
 
-use CodelyTv\Shared\Domain\RandomNumberGenerator;
+use Abraham\TwitterOAuth\TwitterOAuth;
+use CodelyTv\Shared\Domain\Notification\Notification;
+use CodelyTv\Shared\Domain\Notification\Notificator;
 
-final class PhpRandomNumberGenerator implements RandomNumberGenerator
+final class TwitterNotificator implements Notificator
 {
-    public function generate(): int
+    private readonly TwitterOAuth $client;
+
+    public function __construct(string $key, string $secret, string $accessToken, string $accessTokenSecret)
     {
-        return random_int(1, 5);
+        $this->client = new TwitterOAuth($key, $secret, $accessToken, $accessTokenSecret);
+    }
+
+    public function notify(Notification $notification): void
+    {
+        $this->client->post("statuses/update", ["status" => $notification->getText()]);
     }
 }
