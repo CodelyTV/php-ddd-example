@@ -7,9 +7,12 @@ namespace CodelyTv\Mooc\Videos\Domain;
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl;
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
+use DateTimeImmutable;
 
 final class Video extends AggregateRoot
 {
+    private DateTimeImmutable $created;
+
     public function __construct(
         private readonly VideoId $id,
         private readonly VideoType $type,
@@ -17,6 +20,7 @@ final class Video extends AggregateRoot
         private readonly VideoUrl $url,
         private readonly CourseId $courseId
     ) {
+        $this->created = new DateTimeImmutable();
     }
 
     public static function create(

@@ -12,4 +12,13 @@ final class Videos extends Collection
     {
         return Video::class;
     }
+
+    public function first(): ?Video
+    {
+        if (0 === $this->count()) {
+            return null;
+        }
+
+        return $this->items()[0];
+    }
 }
