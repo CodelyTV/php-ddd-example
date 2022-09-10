@@ -67,7 +67,7 @@ services:
       - shared_rabbitmq
       - shared_prometheus
       - backoffice_elasticsearch
-    command: symfony serve --dir=apps/backoffice/backend/public --port=8040 --force-php-discovery
+    command: symfony serve --dir=apps/backoffice/backend/public --port=8040
 
   backoffice_frontend_php:
     container_name: codely-php_ddd_skeleton-backoffice_frontend-php
@@ -86,7 +86,7 @@ services:
       - shared_prometheus
       - backoffice_elasticsearch
       - mooc_mysql
-    command: symfony serve --dir=apps/backoffice/frontend/public --port=8041 --force-php-discovery
+    command: symfony serve --dir=apps/backoffice/frontend/public --port=8041
 
   mooc_backend_php:
     container_name: codely-php_ddd_skeleton-mooc_backend-php
@@ -104,4 +104,4 @@ services:
       - shared_rabbitmq
       - shared_prometheus
       - mooc_mysql
-    command: symfony serve --dir=apps/mooc/backend/public --port=8030 --force-php-discovery
+    command: symfony serve --dir=apps/mooc/backend/public --port=8030
