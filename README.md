@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center">
-   Hexagonal Architecture, DDD & CQRS in PHPP
+   Hexagonal Architecture, DDD & CQRS in PHPPP
 </h1>
 
 <p align="center">
