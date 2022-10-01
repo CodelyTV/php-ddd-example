@@ -17,7 +17,7 @@
 
 <p align="center">
   Example of a <strong>PHP application using Domain-Driven Design (DDD) and Command Query Responsibility Segregation
-  (CQRS) principles</strong> keeping the code as simple as possible.
+  (CQRS) principles</strong> keeping the code as simple as possible. 
   <br />
   <br />
   Take a look, play and have fun with this.
@@ -26,7 +26,7 @@
   <br />
   <a href="https://www.youtube.com/watch?v=1kaP39W80zQ">View Demo</a>
   ·
-  <a href="https://github.com/CodelyTV/php-ddd-example/issues">Report a bug</a>
+  <a href="https://github.com/CodelyTV/php-ddd-example/issues">Report a bug 🐛</a>
   ·
   <a href="https://github.com/CodelyTV/php-ddd-example/issues">Request a feature</a>
 </p>
