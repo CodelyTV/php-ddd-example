@@ -7,10 +7,6 @@ use Abraham\TwitterOAuth\TwitterOAuthException;
 use CodelyTv\Mooc\Notifications\Domain\SocialMediaPost;
 use CodelyTv\Mooc\Notifications\Domain\SocialMediaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\FrameworkExtension;
-use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
-use Symfony\Contracts\HttpClient\ResponseInterface;
 
 class TwitterRepository extends AbstractController implements SocialMediaRepository
 {

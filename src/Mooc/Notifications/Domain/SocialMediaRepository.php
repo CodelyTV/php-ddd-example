@@ -8,6 +8,5 @@ use HttpRequest;
 
 interface SocialMediaRepository
 {
-    public function __construct();
     public function newPost(SocialMediaPost $socialMediaPost);
 }
