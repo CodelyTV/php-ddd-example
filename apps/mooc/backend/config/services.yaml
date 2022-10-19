@@ -96,3 +96,7 @@ services:
 
   # -- IMPLEMENTATIONS SELECTOR --
   CodelyTv\Shared\Domain\Bus\Event\EventBus: '@CodelyTv\Shared\Infrastructure\Bus\Event\WithMonitoring\WithPrometheusMonitoringEventBus'
+
+  CodelyTv\Mooc\Notifications\Application\PublishInSocialMediaOnNewVideo:
+    arguments:
+      courseRepository: '@CodelyTv\Mooc\Courses\Infrastructure\Persistence'

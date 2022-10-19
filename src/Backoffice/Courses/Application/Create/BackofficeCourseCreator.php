@@ -6,6 +6,9 @@ namespace CodelyTv\Backoffice\Courses\Application\Create;
 
 use CodelyTv\Backoffice\Courses\Domain\BackofficeCourse;
 use CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository;
+use CodelyTv\Mooc\Courses\Domain\CourseDuration;
+use CodelyTv\Mooc\Courses\Domain\CourseName;
+use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 
 final class BackofficeCourseCreator
 {
@@ -13,8 +16,8 @@ final class BackofficeCourseCreator
     {
     }
 
-    public function create(string $id, string $name, string $duration): void
+    public function create(CourseId $id, CourseName $name, CourseDuration $duration): void
     {
-        $this->repository->save(new BackofficeCourse($id, $name, $duration));
+        $this->repository->save(BackofficeCourse::create($id, $name, $duration));
     }
 }

@@ -8,16 +8,20 @@ use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseNotExist;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
+use CodelyTv\Mooc\Courses\Domain\CourseFinder as DomainCourseFinder;
 
 final class CourseFinder
 {
-    public function __construct(private readonly CourseRepository $repository)
+    private DomainCourseFinder $finder;
+
+    public function __construct(CourseRepository $repository)
     {
+        $this->finder = new DomainCourseFinder($repository);
     }
 
     public function __invoke(CourseId $id): Course
     {
-        $course = $this->repository->search($id);
+        $course = $this->finder->__invoke($id);
 
         if (null === $course) {
             throw new CourseNotExist($id);
