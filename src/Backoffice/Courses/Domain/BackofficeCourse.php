@@ -4,12 +4,31 @@ declare(strict_types=1);
 
 namespace CodelyTv\Backoffice\Courses\Domain;
 
+use CodelyTv\Mooc\Courses\Domain\CourseDuration;
+use CodelyTv\Mooc\Courses\Domain\CourseName;
+use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 
 final class BackofficeCourse extends AggregateRoot
 {
-    public function __construct(private readonly string $id, private readonly string $name, private readonly string $duration)
+    private CourseId $id;
+    private CourseName $name;
+    private CourseDuration $duration;
+
+    public function __construct(CourseId $id, CourseName $name, CourseDuration $duration)
     {
+        $this->id = $id;
+        $this->name = $name;
+        $this->duration = $duration;
+    }
+
+    public static function create(
+        CourseId $id,
+        CourseName $name,
+        CourseDuration $duration,
+    ): BackofficeCourse
+    {
+        return new self($id, $name, $duration);
     }
 
     public static function fromPrimitives(array $primitives): BackofficeCourse
