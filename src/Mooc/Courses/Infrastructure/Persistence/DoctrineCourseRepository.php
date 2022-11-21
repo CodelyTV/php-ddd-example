@@ -20,4 +20,9 @@ final class DoctrineCourseRepository extends DoctrineRepository implements Cours
     {
         return $this->repository(Course::class)->find($id);
     }
+
+    public function all(): ?array
+    {
+        return $this->repository(Course::class)->findAll();
+    }
 }

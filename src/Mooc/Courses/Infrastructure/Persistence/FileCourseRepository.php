@@ -24,6 +24,12 @@ final class FileCourseRepository implements CourseRepository
             : null;
     }
 
+    public function all(): ?array
+    {
+        // TODO
+        return [];
+    }
+
     private function fileName(string $id): string
     {
         return sprintf('%s.%s.repo', self::FILE_PATH, $id);
