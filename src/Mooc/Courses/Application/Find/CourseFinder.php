@@ -11,7 +11,7 @@ use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 
 final class CourseFinder
 {
-    public function __construct(private CourseRepository $repository)
+    public function __construct(private readonly CourseRepository $repository)
     {
     }
 

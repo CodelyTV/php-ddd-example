@@ -10,7 +10,7 @@ final class CoursesCounterIncrementedDomainEvent extends DomainEvent
 {
     public function __construct(
         string $aggregateId,
-        private int $total,
+        private readonly int $total,
         string $eventId = null,
         string $occurredOn = null
     ) {

@@ -6,14 +6,13 @@ namespace CodelyTv\Shared\Infrastructure\Doctrine;
 
 use CodelyTv\Shared\Infrastructure\Doctrine\Dbal\DbalCustomTypesRegistrar;
 use Doctrine\DBAL\DriverManager;
-use Doctrine\DBAL\Schema\MySqlSchemaManager;
+use Doctrine\DBAL\Schema\MySQLSchemaManager;
 use Doctrine\ORM\Configuration;
+use Doctrine\DBAL\Platforms\MariaDBPlatform;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver;
-use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\ORMSetup;
 use RuntimeException;
-use Symfony\Component\Cache\Adapter\ArrayAdapter;
-use Symfony\Component\Cache\DoctrineProvider;
 use function Lambdish\Phunctional\dissoc;
 
 final class DoctrineEntityManagerFactory
@@ -23,11 +22,11 @@ final class DoctrineEntityManagerFactory
     ];
 
     public static function create(
-        array $parameters,
-        array $contextPrefixes,
-        bool $isDevMode,
+        array  $parameters,
+        array  $contextPrefixes,
+        bool   $isDevMode,
         string $schemaFile,
-        array $dbalCustomTypesClasses
+        array  $dbalCustomTypesClasses
     ): EntityManager {
         if ($isDevMode) {
             static::generateDatabaseIfNotExists($parameters, $schemaFile);
@@ -45,10 +44,12 @@ final class DoctrineEntityManagerFactory
         $databaseName                  = $parameters['dbname'];
         $parametersWithoutDatabaseName = dissoc($parameters, 'dbname');
         $connection                    = DriverManager::getConnection($parametersWithoutDatabaseName);
-        $schemaManager                 = new MySqlSchemaManager($connection);
+        $platform                      = new MariaDBPlatform();
+        $schemaManager                 = new MySQLSchemaManager($connection, $platform);
 
         if (!self::databaseExists($databaseName, $schemaManager)) {
             $schemaManager->createDatabase($databaseName);
+
             $connection->exec(sprintf('USE %s', $databaseName));
             $connection->exec(file_get_contents(realpath($schemaFile)));
         }
@@ -70,7 +71,7 @@ final class DoctrineEntityManagerFactory
 
     private static function createConfiguration(array $contextPrefixes, bool $isDevMode): Configuration
     {
-        $config = Setup::createConfiguration($isDevMode, null, new DoctrineProvider(new ArrayAdapter()));
+        $config = ORMSetup::createConfiguration($isDevMode);
 
         $config->setMetadataDriverImpl(new SimplifiedXmlDriver(array_merge(self::$sharedPrefixes, $contextPrefixes)));
 

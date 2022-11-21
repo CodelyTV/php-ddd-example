@@ -15,9 +15,9 @@ use Doctrine\Common\Collections\Expr\CompositeExpression;
 final class DoctrineCriteriaConverter
 {
     public function __construct(
-        private Criteria $criteria,
-        private array $criteriaToDoctrineFields = [],
-        private array $hydrators = []
+        private readonly Criteria $criteria,
+        private readonly array $criteriaToDoctrineFields = [],
+        private readonly array $hydrators = []
     ) {
     }
 

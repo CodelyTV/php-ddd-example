@@ -43,7 +43,7 @@ final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
 
     private function configCreator(string $path): callable
     {
-        return function (DomainEventSubscriber $subscriber) use ($path) {
+        return function (DomainEventSubscriber $subscriber) use ($path): void {
             $queueName      = RabbitMqQueueNameFormatter::format($subscriber);
             $subscriberName = RabbitMqQueueNameFormatter::shortFormat($subscriber);
 
@@ -72,16 +72,16 @@ final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
     private function template(): string
     {
         return <<<EOF
-[program:codelytv_{queue_name}]
-command      = {path}/apps/mooc/backend/bin/console codelytv:domain-events:rabbitmq:consume --env=prod {queue_name} {events_to_process}
-process_name = %(program_name)s_%(process_num)02d
-numprocs     = {processes}
-startsecs    = 1
-startretries = 10
-exitcodes    = 2
-stopwaitsecs = 300
-autostart    = true
-EOF;
+            [program:codelytv_{queue_name}]
+            command      = {path}/apps/mooc/backend/bin/console codelytv:domain-events:rabbitmq:consume --env=prod {queue_name} {events_to_process}
+            process_name = %(program_name)s_%(process_num)02d
+            numprocs     = {processes}
+            startsecs    = 1
+            startretries = 10
+            exitcodes    = 2
+            stopwaitsecs = 300
+            autostart    = true
+            EOF;
     }
 
     private function fileName(string $queue): string

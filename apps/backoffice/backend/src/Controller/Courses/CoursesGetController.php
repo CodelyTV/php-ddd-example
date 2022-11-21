@@ -30,7 +30,7 @@ final class CoursesGetController
             new SearchBackofficeCoursesByCriteriaQuery(
                 (array) $request->query->get('filters'),
                 null === $orderBy ? null : (string) $orderBy,
-                null === $order ? null: (string) $order,
+                null === $order ? null : (string) $order,
                 null === $limit ? null : (int) $limit,
                 null === $offset ? null : (int) $offset
             )
@@ -38,7 +38,7 @@ final class CoursesGetController
 
         return new JsonResponse(
             map(
-                fn(BackofficeCourseResponse $course) => [
+                fn (BackofficeCourseResponse $course) => [
                     'id'       => $course->id(),
                     'name'     => $course->name(),
                     'duration' => $course->duration(),

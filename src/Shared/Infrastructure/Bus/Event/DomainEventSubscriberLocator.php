@@ -13,7 +13,7 @@ use function Lambdish\Phunctional\search;
 
 final class DomainEventSubscriberLocator
 {
-    private array $mapping;
+    private readonly array $mapping;
 
     public function __construct(Traversable $mapping)
     {
@@ -30,7 +30,7 @@ final class DomainEventSubscriberLocator
     public function withRabbitMqQueueNamed(string $queueName): DomainEventSubscriber|callable
     {
         $subscriber = search(
-            static fn(DomainEventSubscriber $subscriber) => RabbitMqQueueNameFormatter::format($subscriber) ===
+            static fn (DomainEventSubscriber $subscriber) => RabbitMqQueueNameFormatter::format($subscriber) ===
                                                             $queueName,
             $this->mapping
         );

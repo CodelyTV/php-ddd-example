@@ -10,7 +10,7 @@ use CodelyTv\Shared\Domain\Bus\Command\CommandHandler;
 
 final class AuthenticateUserCommandHandler implements CommandHandler
 {
-    public function __construct(private UserAuthenticator $authenticator)
+    public function __construct(private readonly UserAuthenticator $authenticator)
     {
     }
 

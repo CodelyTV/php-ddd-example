@@ -6,7 +6,7 @@ namespace CodelyTv\Analytics\DomainEvents\Domain;
 
 final class AnalyticsDomainEventBody
 {
-    public function __construct(private array $value)
+    public function __construct(private readonly array $value)
     {
     }
 

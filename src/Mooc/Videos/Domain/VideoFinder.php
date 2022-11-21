@@ -6,7 +6,7 @@ namespace CodelyTv\Mooc\Videos\Domain;
 
 final class VideoFinder
 {
-    public function __construct(private VideoRepository $repository)
+    public function __construct(private readonly VideoRepository $repository)
     {
     }
 

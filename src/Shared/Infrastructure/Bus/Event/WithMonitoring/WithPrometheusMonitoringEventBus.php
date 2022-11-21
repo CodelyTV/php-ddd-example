@@ -11,8 +11,11 @@ use function Lambdish\Phunctional\each;
 
 final class WithPrometheusMonitoringEventBus implements EventBus
 {
-    public function __construct(private PrometheusMonitor $monitor, private string $appName, private EventBus $bus)
-    {
+    public function __construct(
+        private readonly PrometheusMonitor $monitor,
+        private readonly string $appName,
+        private readonly EventBus $bus
+    ) {
     }
 
     public function publish(DomainEvent ...$events): void
@@ -24,7 +27,7 @@ final class WithPrometheusMonitoringEventBus implements EventBus
             ['name']
         );
 
-        each(fn(DomainEvent $event) => $counter->inc(['name' => $event::eventName()]), $events);
+        each(fn (DomainEvent $event) => $counter->inc(['name' => $event::eventName()]), $events);
 
         $this->bus->publish(...$events);
     }

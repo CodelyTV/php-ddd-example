@@ -16,7 +16,7 @@ final class VideoType extends Enum
     public const SCREENCAST = 'screencast';
     public const INTERVIEW  = 'interview';
 
-    protected function throwExceptionForInvalidValue($value): void
+    protected function throwExceptionForInvalidValue($value): never
     {
         throw new InvalidArgumentException(sprintf('The <%s> value is not a valid video type', $value));
     }

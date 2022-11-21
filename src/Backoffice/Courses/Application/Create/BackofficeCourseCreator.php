@@ -9,7 +9,7 @@ use CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository;
 
 final class BackofficeCourseCreator
 {
-    public function __construct(private BackofficeCourseRepository $repository)
+    public function __construct(private readonly BackofficeCourseRepository $repository)
     {
     }
 

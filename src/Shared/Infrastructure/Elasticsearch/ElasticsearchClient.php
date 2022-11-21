@@ -8,7 +8,7 @@ use Elasticsearch\Client;
 
 final class ElasticsearchClient
 {
-    public function __construct(private Client $client, private string $indexPrefix)
+    public function __construct(private readonly Client $client, private readonly string $indexPrefix)
     {
     }
 

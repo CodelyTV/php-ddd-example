@@ -15,7 +15,7 @@ use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 
 final class VideoCreator
 {
-    public function __construct(private VideoRepository $repository, private EventBus $bus)
+    public function __construct(private readonly VideoRepository $repository, private readonly EventBus $bus)
     {
     }
 

@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace CodelyTv\Shared\Infrastructure\Symfony;
 
 use CodelyTv\Shared\Domain\Utils;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 final class FlashSession
 {
     private static array $flashes = [];
 
-    public function __construct(SessionInterface $session)
+    public function __construct(RequestStack $requestStack)
     {
-        self::$flashes = Utils::dot($session->getFlashBag()->all());
+        self::$flashes = Utils::dot($requestStack->getSession()->getFlashBag()->all());
     }
 
     public function get(string $key, $default = null)

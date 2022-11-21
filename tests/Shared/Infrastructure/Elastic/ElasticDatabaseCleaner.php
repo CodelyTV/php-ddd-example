@@ -9,12 +9,12 @@ use function Lambdish\Phunctional\each;
 
 final class ElasticDatabaseCleaner
 {
-    public function __invoke(ElasticsearchClient $client)
+    public function __invoke(ElasticsearchClient $client): void
     {
         $indices = $client->client()->cat()->indices();
 
         each(
-            static function (array $index) use ($client) {
+            static function (array $index) use ($client): void {
                 $indexName = $index['index'];
 
                 $client->client()->indices()->delete(['index' => $indexName]);

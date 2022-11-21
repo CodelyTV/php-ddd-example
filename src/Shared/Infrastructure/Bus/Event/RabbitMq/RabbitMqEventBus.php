@@ -13,18 +13,11 @@ use function Lambdish\Phunctional\each;
 
 final class RabbitMqEventBus implements EventBus
 {
-    private RabbitMqConnection    $connection;
-    private string                $exchangeName;
-    private MySqlDoctrineEventBus $failoverPublisher;
-
     public function __construct(
-        RabbitMqConnection $connection,
-        string $exchangeName,
-        MySqlDoctrineEventBus $failoverPublisher
+        private readonly RabbitMqConnection $connection,
+        private readonly string $exchangeName,
+        private readonly MySqlDoctrineEventBus $failoverPublisher
     ) {
-        $this->connection        = $connection;
-        $this->exchangeName      = $exchangeName;
-        $this->failoverPublisher = $failoverPublisher;
     }
 
     public function publish(DomainEvent ...$events): void
@@ -34,10 +27,10 @@ final class RabbitMqEventBus implements EventBus
 
     private function publisher(): callable
     {
-        return function (DomainEvent $event) {
+        return function (DomainEvent $event): void {
             try {
                 $this->publishEvent($event);
-            } catch (AMQPException $error) {
+            } catch (AMQPException) {
                 $this->failoverPublisher->publish($event);
             }
         };

@@ -8,7 +8,7 @@ use CodelyTv\Shared\Domain\Bus\Command\Command;
 
 final class CreateCourseCommand implements Command
 {
-    public function __construct(private string $id, private string $name, private string $duration)
+    public function __construct(private readonly string $id, private readonly string $name, private readonly string $duration)
     {
     }
 

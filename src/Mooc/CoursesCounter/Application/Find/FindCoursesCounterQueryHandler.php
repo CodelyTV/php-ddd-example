@@ -8,7 +8,7 @@ use CodelyTv\Shared\Domain\Bus\Query\QueryHandler;
 
 final class FindCoursesCounterQueryHandler implements QueryHandler
 {
-    public function __construct(private CoursesCounterFinder $finder)
+    public function __construct(private readonly CoursesCounterFinder $finder)
     {
     }
 

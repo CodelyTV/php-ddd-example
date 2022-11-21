@@ -7,10 +7,10 @@ namespace CodelyTv\Shared\Domain\Criteria;
 final class Criteria
 {
     public function __construct(
-        private Filters $filters,
-        private Order $order,
-        private ?int $offset,
-        private ?int $limit
+        private readonly Filters $filters,
+        private readonly Order $order,
+        private readonly ?int $offset,
+        private readonly ?int $limit
     ) {
     }
 

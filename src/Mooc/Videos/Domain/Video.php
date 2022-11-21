@@ -11,11 +11,11 @@ use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 final class Video extends AggregateRoot
 {
     public function __construct(
-        private VideoId $id,
-        private VideoType $type,
+        private readonly VideoId $id,
+        private readonly VideoType $type,
         private VideoTitle $title,
-        private VideoUrl $url,
-        private CourseId $courseId
+        private readonly VideoUrl $url,
+        private readonly CourseId $courseId
     ) {
     }
 
@@ -30,7 +30,11 @@ final class Video extends AggregateRoot
 
         $video->record(
             new VideoCreatedDomainEvent(
-                $id->value(), $type->value(), $title->value(), $url->value(), $courseId->value()
+                $id->value(),
+                $type->value(),
+                $title->value(),
+                $url->value(),
+                $courseId->value()
             )
         );
 

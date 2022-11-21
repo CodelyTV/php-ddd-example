@@ -10,10 +10,10 @@ final class VideoCreatedDomainEvent extends DomainEvent
 {
     public function __construct(
         string $id,
-        private string $type,
-        private string $title,
-        private string $url,
-        private string $courseId,
+        private readonly string $type,
+        private readonly string $title,
+        private readonly string $url,
+        private readonly string $courseId,
         string $eventId = null,
         string $occurredOn = null
     ) {

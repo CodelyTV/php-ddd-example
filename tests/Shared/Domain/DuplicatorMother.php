@@ -16,7 +16,7 @@ final class DuplicatorMother
         $reflection = new ReflectionObject($duplicated);
 
         each(
-            static function (ReflectionProperty $property) use ($duplicated, $newParams) {
+            static function (ReflectionProperty $property) use ($duplicated, $newParams): void {
                 if (isset($newParams[$property->getName()])) {
                     $property->setAccessible(true);
                     $property->setValue($duplicated, $newParams[$property->getName()]);

@@ -12,7 +12,7 @@ use function Lambdish\Phunctional\each;
 
 final class DatabaseConnections
 {
-    private array $connections;
+    private readonly array $connections;
 
     public function __construct(iterable $connections)
     {
@@ -21,7 +21,7 @@ final class DatabaseConnections
 
     public function clear(): void
     {
-        each(fn(EntityManager $entityManager) => $entityManager->clear(), $this->connections);
+        each(fn (EntityManager $entityManager) => $entityManager->clear(), $this->connections);
     }
 
     public function truncate(): void

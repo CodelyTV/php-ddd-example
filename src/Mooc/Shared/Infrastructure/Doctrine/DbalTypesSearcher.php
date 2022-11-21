@@ -24,7 +24,7 @@ final class DbalTypesSearcher
     private static function modulesInPath(string $path): array
     {
         return filter(
-            static fn(string $possibleModule) => !in_array($possibleModule, ['.', '..']),
+            static fn (string $possibleModule) => !in_array($possibleModule, ['.', '..'], true),
             scandir($path)
         );
     }
@@ -43,7 +43,7 @@ final class DbalTypesSearcher
 
     private static function isExistingDbalPath(): callable
     {
-        return static fn(string $path) => !empty($path);
+        return static fn (string $path) => !empty($path);
     }
 
     private static function dbalClassesSearcher(string $contextName): callable
@@ -51,7 +51,7 @@ final class DbalTypesSearcher
         return static function (array $totalNamespaces, string $path) use ($contextName) {
             $possibleFiles = scandir($path);
             $files         = filter(
-                static fn($file) => Utils::endsWith('Type.php', $file),
+                static fn ($file) => Utils::endsWith('Type.php', $file),
                 $possibleFiles
             );
 

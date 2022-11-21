@@ -22,6 +22,9 @@ jobs:
       - name: 🐳 Start all the environment
         run: make start
 
+      - name: 🔦 Lint
+        run: make lint
+
       - name: 🏁 Static analysis
         run: make static-analysis
 
@@ -29,6 +32,13 @@ jobs:
         run: |
           while ! make ping-mysql &>/dev/null; do
               echo "Waiting for database connection..."
+              sleep 2
+          done
+
+      - name: 🧪 Wait for the elasticsearch to get up
+        run: |
+          while ! make ping-elasticsearch &>/dev/null; do
+              echo "Waiting for elasticsearch connection..."
               sleep 2
           done
 

@@ -9,7 +9,7 @@ use Prometheus\Storage\APC;
 
 final class PrometheusMonitor
 {
-    private CollectorRegistry $registry;
+    private readonly CollectorRegistry $registry;
 
     public function __construct()
     {

@@ -34,7 +34,7 @@ final class Utils
 
     public static function jsonEncode(array $values): string
     {
-        return json_encode($values);
+        return json_encode($values, JSON_THROW_ON_ERROR);
     }
 
     public static function jsonDecode(string $json): array
@@ -50,7 +50,7 @@ final class Utils
 
     public static function toSnakeCase(string $text): string
     {
-        return ctype_lower($text) ? $text : strtolower(preg_replace('/([^A-Z\s])([A-Z])/', "$1_$2", $text));
+        return ctype_lower($text) ? $text : strtolower((string) preg_replace('/([^A-Z\s])([A-Z])/', "$1_$2", $text));
     }
 
     public static function toCamelCase(string $text): string
@@ -75,7 +75,7 @@ final class Utils
     public static function filesIn(string $path, string $fileType): array
     {
         return filter(
-            static fn(string $possibleModule) => strstr($possibleModule, $fileType),
+            static fn (string $possibleModule) => strstr($possibleModule, $fileType),
             scandir($path)
         );
     }

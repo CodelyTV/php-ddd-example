@@ -13,7 +13,7 @@ final class CoursesCounter extends AggregateRoot
     private array $existingCourses;
 
     public function __construct(
-        private CoursesCounterId $id,
+        private readonly CoursesCounterId $id,
         private CoursesCounterTotal $total,
         CourseId ...$existingCourses
     ) {
@@ -57,6 +57,6 @@ final class CoursesCounter extends AggregateRoot
 
     private function courseIdComparator(CourseId $courseId): callable
     {
-        return static fn(CourseId $other) => $courseId->equals($other);
+        return static fn (CourseId $other) => $courseId->equals($other);
     }
 }

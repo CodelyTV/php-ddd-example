@@ -16,8 +16,8 @@ final class CoursesPutController extends ApiController
         $this->dispatch(
             new CreateCourseCommand(
                 $id,
-                $request->request->getAlpha('name'),
-                $request->request->getAlpha('duration')
+                (string) $request->request->get('name'),
+                (string) $request->request->get('duration')
             )
         );
 
