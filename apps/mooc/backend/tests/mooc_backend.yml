@@ -33,3 +33,9 @@ mooc_backend:
       contexts:
         - CodelyTv\Tests\Shared\Infrastructure\Behat\ApplicationFeatureContext
         - CodelyTv\Tests\Shared\Infrastructure\Behat\ApiContext
+
+    last_video:
+      paths: [ apps/mooc/backend/tests/features/last_video ]
+      contexts:
+        - CodelyTv\Tests\Shared\Infrastructure\Behat\ApplicationFeatureContext
+        - CodelyTv\Tests\Shared\Infrastructure\Behat\ApiContext
