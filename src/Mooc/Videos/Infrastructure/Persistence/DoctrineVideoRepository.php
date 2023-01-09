@@ -12,7 +12,7 @@ use CodelyTv\Shared\Domain\Criteria\Criteria;
 use CodelyTv\Shared\Infrastructure\Persistence\Doctrine\DoctrineCriteriaConverter;
 use CodelyTv\Shared\Infrastructure\Persistence\Doctrine\DoctrineRepository;
 
-final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepository
+final class DoctrineVideoRepository extends DoctrineRepository implements VideoRepository
 {
     private static array $criteriaToDoctrineFields = [
         'id'        => 'id',
