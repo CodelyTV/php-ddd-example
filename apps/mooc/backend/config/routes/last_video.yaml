@@ -1,0 +1,4 @@
+last_video_get:
+  path: /last-video
+  controller: CodelyTv\Apps\Mooc\Backend\Controller\LastVideo\LastVideoGetController
+  methods:  [GET]

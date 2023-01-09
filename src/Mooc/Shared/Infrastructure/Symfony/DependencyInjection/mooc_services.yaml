@@ -23,3 +23,6 @@ services:
 
   # CoursesCounter
   CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterRepository: '@CodelyTv\Mooc\CoursesCounter\Infrastructure\Persistence\DoctrineCoursesCounterRepository'
+
+  # LastVideo
+  CodelyTv\Mooc\LastVideo\Domain\LastVideoRepository: '@CodelyTv\Mooc\LastVideo\Infrastructure\Persistence\DoctrineLastVideoRepository'
