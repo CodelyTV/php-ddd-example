@@ -55,7 +55,7 @@ final class CoursesPostWebController extends WebController
 
         return $this->redirectWithMessage(
             'courses_get',
-            sprintf('Feliciades, el curso %s ha sido creado!', $request->request->getAlpha('name'))
+            sprintf('Felicidades, el curso %s ha sido creado!', $request->request->getAlpha('name'))
         );
     }
 }
