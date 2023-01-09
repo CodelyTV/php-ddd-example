@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CodelyTv\Mooc\Shared\Domain\Videos;
+namespace CodelyTv\Mooc\Videos\Domain;
 
 use CodelyTv\Shared\Domain\ValueObject\StringValueObject;
 use InvalidArgumentException;

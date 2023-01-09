@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Videos\Domain;
 
+use CodelyTv\Mooc\Shared\Domain\Videos\VideoId;
 use CodelyTv\Shared\Domain\DomainError;
 
 final class VideoNotFound extends DomainError

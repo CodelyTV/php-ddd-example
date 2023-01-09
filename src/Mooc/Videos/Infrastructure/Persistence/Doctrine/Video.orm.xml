@@ -11,7 +11,7 @@
 
         <embedded name="type" class="CodelyTv\Mooc\Videos\Domain\VideoType" use-column-prefix="false" />
         <embedded name="title" class="CodelyTv\Mooc\Videos\Domain\VideoTitle" use-column-prefix="false" />
-        <embedded name="url" class="CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl" use-column-prefix="false" />
+        <embedded name="url" class="CodelyTv\Mooc\Videos\Domain\VideoUrl" use-column-prefix="false" />
     </entity>
 
 </doctrine-mapping>

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Videos\Domain;
 
+use CodelyTv\Mooc\Shared\Domain\Videos\VideoId;
+
 final class VideoFinder
 {
     public function __construct(private readonly VideoRepository $repository)

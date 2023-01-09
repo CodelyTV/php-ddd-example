@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Videos\Application\Update;
 
+use CodelyTv\Mooc\Shared\Domain\Videos\VideoId;
 use CodelyTv\Mooc\Videos\Domain\VideoFinder;
-use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Mooc\Videos\Domain\VideoRepository;
 use CodelyTv\Mooc\Videos\Domain\VideoTitle;
 
