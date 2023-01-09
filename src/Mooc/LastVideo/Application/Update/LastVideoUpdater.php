@@ -22,17 +22,17 @@ final class LastVideoUpdater
     public function __construct(
         private readonly LastVideoRepository $repository,
         private readonly UuidGenerator $uuidGenerator,
-    ) {}
+    ) {
+    }
 
     public function __invoke(VideoId $videoId, LastVideoType $videoType, LastVideoTitle $videoTitle, LastVideoUrl $videoUrl, CourseId $videoCourseId, LastVideoCreatedAt $videoCreatedAt): void
     {
         $lastVideo = $this->repository->search();
         $isNewLastVideo = null === $lastVideo || $lastVideo->isOutdated($videoCreatedAt);
 
-        if(!$lastVideo) {
+        if (!$lastVideo) {
             $lastVideo = $this->initializeLastVideo($videoId, $videoType, $videoTitle, $videoUrl, $videoCourseId, $videoCreatedAt);
-        }
-        else{
+        } else {
             $lastVideo->updateVideoData($videoId, $videoType, $videoTitle, $videoUrl, $videoCourseId, $videoCreatedAt);
         }
 

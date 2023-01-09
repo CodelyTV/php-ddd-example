@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace CodelyTv\Tests\Mooc\Videos\Application\Find;
 
-
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Mooc\Shared\Domain\Videos\VideoId;
 use CodelyTv\Mooc\Videos\Application\Find\VideoResponse;

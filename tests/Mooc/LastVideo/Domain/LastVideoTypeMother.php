@@ -8,10 +8,8 @@ use CodelyTv\Mooc\LastVideo\Domain\LastVideoType;
 
 final class LastVideoTypeMother
 {
-
     public static function create(?string $value = null): LastVideoType
     {
         return new LastVideoType($value ??  LastVideoType::randomValue());
     }
-
 }

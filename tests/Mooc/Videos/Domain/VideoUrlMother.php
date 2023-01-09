@@ -13,5 +13,4 @@ final class VideoUrlMother
     {
         return new VideoUrl($value ?? UrlMother::create());
     }
-
 }

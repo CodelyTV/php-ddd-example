@@ -9,7 +9,6 @@ abstract class DateValueObject
     public function __construct(protected string $value)
     {
         $this->ensureIsValidDate($value);
-
     }
 
     public function value(): string

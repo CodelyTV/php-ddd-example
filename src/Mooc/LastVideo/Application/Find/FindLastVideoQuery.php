@@ -6,4 +6,6 @@ namespace CodelyTv\Mooc\LastVideo\Application\Find;
 
 use CodelyTv\Shared\Domain\Bus\Query\Query;
 
-final class FindLastVideoQuery implements Query{}
+final class FindLastVideoQuery implements Query
+{
+}

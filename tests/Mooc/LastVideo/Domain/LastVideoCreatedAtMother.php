@@ -13,5 +13,4 @@ final class LastVideoCreatedAtMother
     {
         return new LastVideoCreatedAt($value ?? DateMother::create());
     }
-
 }

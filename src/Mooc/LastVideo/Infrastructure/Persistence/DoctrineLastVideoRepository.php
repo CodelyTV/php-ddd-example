@@ -11,14 +11,13 @@ use CodelyTv\Shared\Infrastructure\Persistence\Doctrine\DoctrineRepository;
 
 final class DoctrineLastVideoRepository extends DoctrineRepository implements LastVideoRepository
 {
-
     public function save(LastVideo $lastVideo): void
     {
         $this->persist($lastVideo);
     }
 
-    public function search(): ?LastVideo{
+    public function search(): ?LastVideo
+    {
         return $this->repository(LastVideo::class)->findOneBy([]);
     }
-
 }

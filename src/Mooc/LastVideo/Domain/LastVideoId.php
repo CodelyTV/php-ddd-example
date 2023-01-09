@@ -8,5 +8,4 @@ use CodelyTv\Shared\Domain\ValueObject\Uuid;
 
 final class LastVideoId extends Uuid
 {
-
 }

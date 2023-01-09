@@ -18,7 +18,6 @@ use CodelyTv\Tests\Mooc\Videos\Domain\VideoUrlMother;
 
 final class CreateVideoCommandMother
 {
-
     public static function create(
         ?VideoId $id = null,
         ?VideoType $type = null,

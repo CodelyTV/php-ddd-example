@@ -9,7 +9,6 @@ use CodelyTv\Shared\Infrastructure\Persistence\Doctrine\UuidType;
 
 final class LastVideoIdType extends UuidType
 {
-
     protected function typeClassName(): string
     {
         return LastVideoId::class;

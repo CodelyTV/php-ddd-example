@@ -18,13 +18,13 @@ use CodelyTv\Tests\Mooc\Videos\Domain\VideoIdMother;
 
 final class LastVideoResponseMother
 {
-    public static function create(?VideoId $videoId = null,
-                                  ?LastVideoType $type = null,
-                                  ?LastVideoTitle $title = null,
-                                  ?LastVideoUrl $url = null,
-                                  ?CourseId $courseId = null,
-    ): LastVideoResponse
-    {
+    public static function create(
+        ?VideoId $videoId = null,
+        ?LastVideoType $type = null,
+        ?LastVideoTitle $title = null,
+        ?LastVideoUrl $url = null,
+        ?CourseId $courseId = null,
+    ): LastVideoResponse {
         return new LastVideoResponse(
             $videoId?->value() ?? VideoIdMother::create()->value(),
             $type?->value() ?? LastVideoTypeMother::create()->value(),

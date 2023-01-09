@@ -6,11 +6,10 @@ namespace CodelyTv\Mooc\LastVideo\Domain;
 
 use CodelyTv\Shared\Domain\ValueObject\DateValueObject;
 
-final class LastVideoCreatedAt extends DateValueObject{
-
+final class LastVideoCreatedAt extends DateValueObject
+{
     public function isBefore(LastVideoCreatedAt $date): bool
     {
         return $this->isSmallerThan($date);
     }
-
 }
