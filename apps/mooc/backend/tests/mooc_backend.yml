@@ -22,6 +22,12 @@ mooc_backend:
         - CodelyTv\Tests\Shared\Infrastructure\Behat\ApplicationFeatureContext
         - CodelyTv\Tests\Shared\Infrastructure\Behat\ApiContext
 
+    videos:
+      paths: [ apps/mooc/backend/tests/features/videos ]
+      contexts:
+        - CodelyTv\Tests\Shared\Infrastructure\Behat\ApplicationFeatureContext
+        - CodelyTv\Tests\Shared\Infrastructure\Behat\ApiContext
+
     courses_counter:
       paths: [ apps/mooc/backend/tests/features/courses_counter ]
       contexts:

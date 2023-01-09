@@ -17,3 +17,9 @@ services:
 
   # Courses
   CodelyTv\Mooc\Courses\Domain\CourseRepository: '@CodelyTv\Mooc\Courses\Infrastructure\Persistence\DoctrineCourseRepository'
+
+  # Videos
+  CodelyTv\Mooc\Videos\Domain\VideoRepository: '@CodelyTv\Mooc\Videos\Infrastructure\Persistence\DoctrineVideoRepository'
+
+  # CoursesCounter
+  CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterRepository: '@CodelyTv\Mooc\CoursesCounter\Infrastructure\Persistence\DoctrineCoursesCounterRepository'

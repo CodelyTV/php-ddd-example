@@ -5,6 +5,15 @@ CREATE TABLE `courses` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE `videos` (
+    `id` CHAR(36) NOT NULL,
+    `course_id` CHAR(36) NOT NULL,
+    `type` VARCHAR(255) NOT NULL,
+    `title` VARCHAR(255) NOT NULL,
+    `url` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE `courses_counter` (
   `id` CHAR(36) NOT NULL,
   `total` INT NOT NULL,
