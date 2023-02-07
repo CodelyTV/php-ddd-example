@@ -14,7 +14,7 @@ final class Video extends AggregateRoot
         private readonly VideoId $id,
         private readonly VideoType $type,
         private VideoTitle $title,
-        private readonly VideoUrl $url,
+        private VideoUrl $url,
         private readonly CourseId $courseId
     ) {
     }
@@ -44,6 +44,11 @@ final class Video extends AggregateRoot
     public function updateTitle(VideoTitle $newTitle): void
     {
         $this->title = $newTitle;
+    }
+
+    public function updateUrl(VideoUrl $newUrl): void
+    {
+        $this->url = $newUrl;
     }
 
     public function id(): VideoId
