@@ -118,7 +118,7 @@ You can see an example of an aggregate [here](src/Mooc/Courses/Domain/Course.php
 extend the [AggregateRoot](src/Shared/Domain/Aggregate/AggregateRoot.php).
 
 ### Command Bus
-There is 1 implementations of the [command bus](src/Shared/Domain/Bus/Command/CommandBus.php).
+There is One implementations of the [command bus](src/Shared/Domain/Bus/Command/CommandBus.php).
 1. [Sync](src/Shared/Infrastructure/Bus/Command/InMemorySymfonyCommandBus.php) using the Symfony Message Bus
 
 ### Query Bus
