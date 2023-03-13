@@ -1561,13 +1561,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/PromPHP/prometheus_client_php/zipball/918b9962f0d5f2ecf401aa99b334a1620b6aeffe",
                 "reference": "918b9962f0d5f2ecf401aa99b334a1620b6aeffe",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
