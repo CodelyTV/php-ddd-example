@@ -33,7 +33,7 @@
     "elasticsearch/elasticsearch": "^7",
     "monolog/monolog": "^3",
 
-    "endclothing/prometheus_client_php": "^1"
+    "promphp/prometheus_client_php": "^2"
   },
   "require-dev": {
     "ext-xdebug": "*",
