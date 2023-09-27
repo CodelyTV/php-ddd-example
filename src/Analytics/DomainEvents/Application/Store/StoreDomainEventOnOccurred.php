@@ -11,11 +11,9 @@ use CodelyTv\Analytics\DomainEvents\Domain\AnalyticsDomainEventName;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 
-final class StoreDomainEventOnOccurred implements DomainEventSubscriber
+final readonly class StoreDomainEventOnOccurred implements DomainEventSubscriber
 {
-    public function __construct(private readonly DomainEventStorer $storer)
-    {
-    }
+    public function __construct(private DomainEventStorer $storer) {}
 
     public static function subscribedTo(): array
     {
@@ -24,10 +22,10 @@ final class StoreDomainEventOnOccurred implements DomainEventSubscriber
 
     public function __invoke(DomainEvent $event): void
     {
-        $id          = new AnalyticsDomainEventId($event->eventId());
+        $id = new AnalyticsDomainEventId($event->eventId());
         $aggregateId = new AnalyticsDomainEventAggregateId($event->aggregateId());
-        $name        = new AnalyticsDomainEventName($event::eventName());
-        $body        = new AnalyticsDomainEventBody($event->toPrimitives());
+        $name = new AnalyticsDomainEventName($event::eventName());
+        $body = new AnalyticsDomainEventBody($event->toPrimitives());
 
         $this->storer->store($id, $aggregateId, $name, $body);
     }

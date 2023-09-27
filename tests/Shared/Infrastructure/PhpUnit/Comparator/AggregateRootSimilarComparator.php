@@ -53,7 +53,7 @@ final class AggregateRootSimilarComparator extends Comparator
     private function aggregateRootPropertiesAreSimilar(AggregateRoot $expected, AggregateRoot $actual): bool
     {
         $expectedReflected = new ReflectionObject($expected);
-        $actualReflected   = new ReflectionObject($actual);
+        $actualReflected = new ReflectionObject($actual);
 
         foreach ($expectedReflected->getProperties() as $expectedReflectedProperty) {
             $actualReflectedProperty = $actualReflected->getProperty($expectedReflectedProperty->getName());
@@ -62,7 +62,7 @@ final class AggregateRootSimilarComparator extends Comparator
             $actualReflectedProperty->setAccessible(true);
 
             $expectedProperty = $expectedReflectedProperty->getValue($expected);
-            $actualProperty   = $actualReflectedProperty->getValue($actual);
+            $actualProperty = $actualReflectedProperty->getValue($actual);
 
             if (!TestUtils::isSimilar($expectedProperty, $actualProperty)) {
                 return false;

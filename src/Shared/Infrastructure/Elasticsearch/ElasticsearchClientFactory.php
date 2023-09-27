@@ -30,7 +30,7 @@ final class ElasticsearchClientFactory
         string $schemasFolder,
         string $environment
     ): void {
-        if ('prod' !== $environment) {
+        if ($environment !== 'prod') {
             return;
         }
 

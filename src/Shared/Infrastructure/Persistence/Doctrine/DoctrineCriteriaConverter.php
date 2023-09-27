@@ -12,14 +12,13 @@ use Doctrine\Common\Collections\Criteria as DoctrineCriteria;
 use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\Common\Collections\Expr\CompositeExpression;
 
-final class DoctrineCriteriaConverter
+final readonly class DoctrineCriteriaConverter
 {
     public function __construct(
-        private readonly Criteria $criteria,
-        private readonly array $criteriaToDoctrineFields = [],
-        private readonly array $hydrators = []
-    ) {
-    }
+        private Criteria $criteria,
+        private array $criteriaToDoctrineFields = [],
+        private array $hydrators = []
+    ) {}
 
     public static function convert(
         Criteria $criteria,

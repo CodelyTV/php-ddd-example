@@ -11,11 +11,9 @@ use CodelyTv\Backoffice\Auth\Domain\AuthUsername;
 use CodelyTv\Backoffice\Auth\Domain\InvalidAuthCredentials;
 use CodelyTv\Backoffice\Auth\Domain\InvalidAuthUsername;
 
-final class UserAuthenticator
+final readonly class UserAuthenticator
 {
-    public function __construct(private readonly AuthRepository $repository)
-    {
-    }
+    public function __construct(private AuthRepository $repository) {}
 
     public function authenticate(AuthUsername $username, AuthPassword $password): void
     {
@@ -27,7 +25,7 @@ final class UserAuthenticator
 
     private function ensureUserExist(?AuthUser $auth, AuthUsername $username): void
     {
-        if (null === $auth) {
+        if ($auth === null) {
             throw new InvalidAuthUsername($username);
         }
     }

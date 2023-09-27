@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Shared\Domain\Bus\Event;
 
 use CodelyTv\Shared\Domain\Utils;
-use CodelyTv\Shared\Domain\ValueObject\Uuid;
+use CodelyTv\Shared\Domain\ValueObject\SimpleUuid;
 use DateTimeImmutable;
 
 abstract class DomainEvent
@@ -15,7 +15,7 @@ abstract class DomainEvent
 
     public function __construct(private readonly string $aggregateId, string $eventId = null, string $occurredOn = null)
     {
-        $this->eventId    = $eventId ?: Uuid::random()->value();
+        $this->eventId = $eventId ?: SimpleUuid::random()->value();
         $this->occurredOn = $occurredOn ?: Utils::dateToString(new DateTimeImmutable());
     }
 
@@ -30,17 +30,17 @@ abstract class DomainEvent
 
     abstract public function toPrimitives(): array;
 
-    public function aggregateId(): string
+    final public function aggregateId(): string
     {
         return $this->aggregateId;
     }
 
-    public function eventId(): string
+    final public function eventId(): string
     {
         return $this->eventId;
     }
 
-    public function occurredOn(): string
+    final public function occurredOn(): string
     {
         return $this->occurredOn;
     }

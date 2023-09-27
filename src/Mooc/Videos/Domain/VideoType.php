@@ -14,7 +14,7 @@ use InvalidArgumentException;
 final class VideoType extends Enum
 {
     public const SCREENCAST = 'screencast';
-    public const INTERVIEW  = 'interview';
+    public const INTERVIEW = 'interview';
 
     protected function throwExceptionForInvalidValue($value): never
     {

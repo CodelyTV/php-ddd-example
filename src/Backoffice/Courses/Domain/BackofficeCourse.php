@@ -8,11 +8,9 @@ use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 
 final class BackofficeCourse extends AggregateRoot
 {
-    public function __construct(private readonly string $id, private readonly string $name, private readonly string $duration)
-    {
-    }
+    public function __construct(private readonly string $id, private readonly string $name, private readonly string $duration) {}
 
-    public static function fromPrimitives(array $primitives): BackofficeCourse
+    public static function fromPrimitives(array $primitives): self
     {
         return new self($primitives['id'], $primitives['name'], $primitives['duration']);
     }
@@ -20,8 +18,8 @@ final class BackofficeCourse extends AggregateRoot
     public function toPrimitives(): array
     {
         return [
-            'id'       => $this->id,
-            'name'     => $this->name,
+            'id' => $this->id,
+            'name' => $this->name,
             'duration' => $this->duration,
         ];
     }

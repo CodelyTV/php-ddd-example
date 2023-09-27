@@ -9,6 +9,7 @@ use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 use CodelyTv\Shared\Domain\Utils;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManager;
+
 use function Lambdish\Phunctional\each;
 
 final class MySqlDoctrineEventBus implements EventBus
@@ -29,11 +30,11 @@ final class MySqlDoctrineEventBus implements EventBus
     private function publisher(): callable
     {
         return function (DomainEvent $domainEvent): void {
-            $id          = $this->connection->quote($domainEvent->eventId());
+            $id = $this->connection->quote($domainEvent->eventId());
             $aggregateId = $this->connection->quote($domainEvent->aggregateId());
-            $name        = $this->connection->quote($domainEvent::eventName());
-            $body        = $this->connection->quote(Utils::jsonEncode($domainEvent->toPrimitives()));
-            $occurredOn  = $this->connection->quote(
+            $name = $this->connection->quote($domainEvent::eventName());
+            $body = $this->connection->quote(Utils::jsonEncode($domainEvent->toPrimitives()));
+            $occurredOn = $this->connection->quote(
                 Utils::stringToDate($domainEvent->occurredOn())->format(self::DATABASE_TIMESTAMP_FORMAT)
             );
 

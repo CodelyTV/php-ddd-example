@@ -9,6 +9,7 @@ use LogicException;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionNamedType;
+
 use function Lambdish\Phunctional\map;
 use function Lambdish\Phunctional\reduce;
 use function Lambdish\Phunctional\reindex;
@@ -25,7 +26,7 @@ final class CallableFirstParameterExtractor
         return reduce(self::pipedCallablesReducer(), $callables, []);
     }
 
-    private static function classExtractor(CallableFirstParameterExtractor $parameterExtractor): callable
+    private static function classExtractor(self $parameterExtractor): callable
     {
         return static fn (callable $handler): ?string => $parameterExtractor->extract($handler);
     }
@@ -51,7 +52,7 @@ final class CallableFirstParameterExtractor
     public function extract($class): ?string
     {
         $reflector = new ReflectionClass($class);
-        $method    = $reflector->getMethod('__invoke');
+        $method = $reflector->getMethod('__invoke');
 
         if ($this->hasOnlyOneParameter($method)) {
             return $this->firstParameterClassFrom($method);
@@ -65,7 +66,7 @@ final class CallableFirstParameterExtractor
         /** @var ReflectionNamedType $fistParameterType */
         $fistParameterType = $method->getParameters()[0]->getType();
 
-        if (null === $fistParameterType) {
+        if ($fistParameterType === null) {
             throw new LogicException('Missing type hint for the first parameter of __invoke');
         }
 

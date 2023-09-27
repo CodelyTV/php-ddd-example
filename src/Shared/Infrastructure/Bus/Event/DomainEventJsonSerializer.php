@@ -13,10 +13,10 @@ final class DomainEventJsonSerializer
         return json_encode(
             [
                 'data' => [
-                    'id'          => $domainEvent->eventId(),
-                    'type'        => $domainEvent::eventName(),
+                    'id' => $domainEvent->eventId(),
+                    'type' => $domainEvent::eventName(),
                     'occurred_on' => $domainEvent->occurredOn(),
-                    'attributes'  => array_merge($domainEvent->toPrimitives(), ['id' => $domainEvent->aggregateId()]),
+                    'attributes' => array_merge($domainEvent->toPrimitives(), ['id' => $domainEvent->aggregateId()]),
                 ],
                 'meta' => [],
             ]

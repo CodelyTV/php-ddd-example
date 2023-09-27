@@ -7,11 +7,9 @@ namespace CodelyTv\Backoffice\Courses\Application\SearchAll;
 use CodelyTv\Backoffice\Courses\Application\BackofficeCoursesResponse;
 use CodelyTv\Shared\Domain\Bus\Query\QueryHandler;
 
-final class SearchAllBackofficeCoursesQueryHandler implements QueryHandler
+final readonly class SearchAllBackofficeCoursesQueryHandler implements QueryHandler
 {
-    public function __construct(private readonly AllBackofficeCoursesSearcher $searcher)
-    {
-    }
+    public function __construct(private AllBackofficeCoursesSearcher $searcher) {}
 
     public function __invoke(SearchAllBackofficeCoursesQuery $query): BackofficeCoursesResponse
     {

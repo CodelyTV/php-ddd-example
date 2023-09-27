@@ -11,14 +11,15 @@ use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\FetchMode;
 use Doctrine\ORM\EntityManager;
 use RuntimeException;
+
 use function Lambdish\Phunctional\each;
 use function Lambdish\Phunctional\map;
 
-final class MySqlDoctrineDomainEventsConsumer
+final readonly class MySqlDoctrineDomainEventsConsumer
 {
-    private readonly Connection         $connection;
+    private Connection $connection;
 
-    public function __construct(EntityManager $entityManager, private readonly DomainEventMapping $eventMapping)
+    public function __construct(EntityManager $entityManager, private DomainEventMapping $eventMapping)
     {
         $this->connection = $entityManager->getConnection();
     }
@@ -43,7 +44,7 @@ final class MySqlDoctrineDomainEventsConsumer
         return function (array $rawEvent) use ($subscribers): void {
             try {
                 $domainEventClass = $this->eventMapping->for($rawEvent['name']);
-                $domainEvent      = $domainEventClass::fromPrimitives(
+                $domainEvent = $domainEventClass::fromPrimitives(
                     $rawEvent['aggregate_id'],
                     Utils::jsonDecode($rawEvent['body']),
                     $rawEvent['id'],
@@ -63,6 +64,6 @@ final class MySqlDoctrineDomainEventsConsumer
 
     private function idExtractor(): callable
     {
-        return static fn (array $event): string => "'${event['id']}'";
+        return static fn (array $event): string => "'{$event['id']}'";
     }
 }

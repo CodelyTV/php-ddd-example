@@ -6,6 +6,7 @@ namespace CodelyTv\Mooc\CoursesCounter\Domain;
 
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
+
 use function Lambdish\Phunctional\search;
 
 final class CoursesCounter extends AggregateRoot
@@ -42,7 +43,7 @@ final class CoursesCounter extends AggregateRoot
 
     public function increment(CourseId $courseId): void
     {
-        $this->total             = $this->total->increment();
+        $this->total = $this->total->increment();
         $this->existingCourses[] = $courseId;
 
         $this->record(new CoursesCounterIncrementedDomainEvent($this->id()->value(), $this->total()->value()));
@@ -52,7 +53,7 @@ final class CoursesCounter extends AggregateRoot
     {
         $existingCourse = search($this->courseIdComparator($courseId), $this->existingCourses());
 
-        return null !== $existingCourse;
+        return $existingCourse !== null;
     }
 
     private function courseIdComparator(CourseId $courseId): callable

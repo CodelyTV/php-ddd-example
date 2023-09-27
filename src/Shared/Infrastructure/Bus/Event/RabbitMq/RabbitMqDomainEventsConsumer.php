@@ -9,18 +9,18 @@ use AMQPQueue;
 use AMQPQueueException;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventJsonDeserializer;
 use Throwable;
+
 use function Lambdish\Phunctional\assoc;
 use function Lambdish\Phunctional\get;
 
-final class RabbitMqDomainEventsConsumer
+final readonly class RabbitMqDomainEventsConsumer
 {
     public function __construct(
-        private readonly RabbitMqConnection $connection,
-        private readonly DomainEventJsonDeserializer $deserializer,
-        private readonly string $exchangeName,
-        private readonly int $maxRetries
-    ) {
-    }
+        private RabbitMqConnection $connection,
+        private DomainEventJsonDeserializer $deserializer,
+        private string $exchangeName,
+        private int $maxRetries
+    ) {}
 
     public function consume(callable $subscriber, string $queueName): void
     {
@@ -81,11 +81,11 @@ final class RabbitMqDomainEventsConsumer
             $queue->getName(),
             AMQP_NOPARAM,
             [
-                'message_id'       => $envelope->getMessageId(),
-                'content_type'     => $envelope->getContentType(),
+                'message_id' => $envelope->getMessageId(),
+                'content_type' => $envelope->getContentType(),
                 'content_encoding' => $envelope->getContentEncoding(),
-                'priority'         => $envelope->getPriority(),
-                'headers'          => assoc($headers, 'redelivery_count', get('redelivery_count', $headers, 0) + 1),
+                'priority' => $envelope->getPriority(),
+                'headers' => assoc($headers, 'redelivery_count', get('redelivery_count', $headers, 0) + 1),
             ]
         );
     }

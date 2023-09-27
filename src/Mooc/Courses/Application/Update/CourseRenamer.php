@@ -10,11 +10,11 @@ use CodelyTv\Mooc\Courses\Domain\CourseRepository;
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 
-final class CourseRenamer
+final readonly class CourseRenamer
 {
-    private readonly CourseFinder     $finder;
+    private CourseFinder $finder;
 
-    public function __construct(private readonly CourseRepository $repository, private readonly EventBus $bus)
+    public function __construct(private CourseRepository $repository, private EventBus $bus)
     {
         $this->finder = new CourseFinder($repository);
     }

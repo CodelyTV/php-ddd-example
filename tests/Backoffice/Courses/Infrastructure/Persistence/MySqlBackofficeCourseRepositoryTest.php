@@ -20,9 +20,9 @@ final class MySqlBackofficeCourseRepositoryTest extends BackofficeCoursesModuleI
     /** @test */
     public function it_should_search_all_existing_courses(): void
     {
-        $existingCourse        = BackofficeCourseMother::create();
+        $existingCourse = BackofficeCourseMother::create();
         $anotherExistingCourse = BackofficeCourseMother::create();
-        $existingCourses       = [$existingCourse, $anotherExistingCourse];
+        $existingCourses = [$existingCourse, $anotherExistingCourse];
 
         $this->mySqlRepository()->save($existingCourse);
         $this->mySqlRepository()->save($anotherExistingCourse);
@@ -33,9 +33,9 @@ final class MySqlBackofficeCourseRepositoryTest extends BackofficeCoursesModuleI
     /** @test */
     public function it_should_search_all_existing_courses_with_an_empty_criteria(): void
     {
-        $existingCourse        = BackofficeCourseMother::create();
+        $existingCourse = BackofficeCourseMother::create();
         $anotherExistingCourse = BackofficeCourseMother::create();
-        $existingCourses       = [$existingCourse, $anotherExistingCourse];
+        $existingCourses = [$existingCourse, $anotherExistingCourse];
 
         $this->mySqlRepository()->save($existingCourse);
         $this->mySqlRepository()->save($anotherExistingCourse);
@@ -47,10 +47,10 @@ final class MySqlBackofficeCourseRepositoryTest extends BackofficeCoursesModuleI
     /** @test */
     public function it_should_filter_by_criteria(): void
     {
-        $dddInPhpCourse  = BackofficeCourseMother::create(name: 'DDD en PHP');
+        $dddInPhpCourse = BackofficeCourseMother::create(name: 'DDD en PHP');
         $dddInJavaCourse = BackofficeCourseMother::create(name: 'DDD en Java');
-        $intellijCourse  = BackofficeCourseMother::create(name: 'Exprimiendo Intellij');
-        $dddCourses      = [$dddInPhpCourse, $dddInJavaCourse];
+        $intellijCourse = BackofficeCourseMother::create(name: 'Exprimiendo Intellij');
+        $dddCourses = [$dddInPhpCourse, $dddInJavaCourse];
 
         $nameContainsDddCriteria = BackofficeCourseCriteriaMother::nameContains('DDD');
 

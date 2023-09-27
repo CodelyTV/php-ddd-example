@@ -6,14 +6,13 @@ namespace CodelyTv\Mooc\Videos\Application\Find;
 
 use CodelyTv\Shared\Domain\Bus\Query\Response;
 
-final class VideoResponse implements Response
+final readonly class VideoResponse implements Response
 {
     public function __construct(
-        private readonly string $id,
-        private readonly string $type,
-        private readonly string $title,
-        private readonly string $url,
-        private readonly string $courseId
-    ) {
-    }
+        private string $id,
+        private string $type,
+        private string $title,
+        private string $url,
+        private string $courseId
+    ) {}
 }

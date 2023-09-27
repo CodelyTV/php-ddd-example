@@ -6,11 +6,9 @@ namespace CodelyTv\Shared\Infrastructure\Logger;
 
 use CodelyTv\Shared\Domain\Logger;
 
-final class MonologLogger implements Logger
+final readonly class MonologLogger implements Logger
 {
-    public function __construct(private readonly \Monolog\Logger $logger)
-    {
-    }
+    public function __construct(private \Monolog\Logger $logger) {}
 
     public function info(string $message, array $context = []): void
     {

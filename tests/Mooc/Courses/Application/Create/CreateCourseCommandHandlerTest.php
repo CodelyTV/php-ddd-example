@@ -26,7 +26,7 @@ final class CreateCourseCommandHandlerTest extends CoursesModuleUnitTestCase
     {
         $command = CreateCourseCommandMother::create();
 
-        $course      = CourseMother::fromRequest($command);
+        $course = CourseMother::fromRequest($command);
         $domainEvent = CourseCreatedDomainEventMother::fromCourse($course);
 
         $this->shouldSave($course);

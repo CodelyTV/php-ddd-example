@@ -6,16 +6,15 @@ namespace CodelyTv\Backoffice\Courses\Application\SearchByCriteria;
 
 use CodelyTv\Shared\Domain\Bus\Query\Query;
 
-final class SearchBackofficeCoursesByCriteriaQuery implements Query
+final readonly class SearchBackofficeCoursesByCriteriaQuery implements Query
 {
     public function __construct(
-        private readonly array $filters,
-        private readonly ?string $orderBy,
-        private readonly ?string $order,
-        private readonly ?int $limit,
-        private readonly ?int $offset
-    ) {
-    }
+        private array $filters,
+        private ?string $orderBy,
+        private ?string $order,
+        private ?int $limit,
+        private ?int $offset
+    ) {}
 
     public function filters(): array
     {

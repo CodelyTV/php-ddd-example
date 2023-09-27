@@ -6,6 +6,7 @@ namespace CodelyTv\Shared\Infrastructure\Bus\Event;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 use RuntimeException;
+
 use function Lambdish\Phunctional\reduce;
 use function Lambdish\Phunctional\reindex;
 
@@ -31,10 +32,7 @@ final class DomainEventMapping
     {
         return fn (array $mapping, DomainEventSubscriber $subscriber) => array_merge(
             $mapping,
-            reindex(
-                $this->eventNameExtractor(),
-                $subscriber::subscribedTo()
-            )
+            reindex($this->eventNameExtractor(), $subscriber::subscribedTo())
         );
     }
 

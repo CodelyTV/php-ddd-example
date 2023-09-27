@@ -6,6 +6,4 @@ namespace CodelyTv\Tests\Shared\Infrastructure\Bus\Query;
 
 use CodelyTv\Shared\Domain\Bus\Query\Query;
 
-final class FakeQuery implements Query
-{
-}
+final class FakeQuery implements Query {}

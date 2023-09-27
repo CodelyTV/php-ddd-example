@@ -9,6 +9,7 @@ use CodelyTv\Shared\Domain\Bus\Command\CommandBus;
 use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use CodelyTv\Shared\Domain\Bus\Query\Response;
+
 use function Lambdish\Phunctional\each;
 
 abstract class ApiController
