@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f318d5d2d363b8849e9a6204ba96af5",
+    "content-hash": "edaf2180f50e9c9bd8f7524b0844e9ee",
     "packages": [
         {
             "name": "brick/math",
@@ -6549,16 +6549,16 @@
         },
         {
             "name": "friends-of-behat/mink-extension",
-            "version": "v2.7.3",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfBehat/MinkExtension.git",
-                "reference": "b1ccaef9136f62c8efaad88b966345dd68374fa9"
+                "reference": "df04efb3e88833208c3a99a3efa3f7e9f03854db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfBehat/MinkExtension/zipball/b1ccaef9136f62c8efaad88b966345dd68374fa9",
-                "reference": "b1ccaef9136f62c8efaad88b966345dd68374fa9",
+                "url": "https://api.github.com/repos/FriendsOfBehat/MinkExtension/zipball/df04efb3e88833208c3a99a3efa3f7e9f03854db",
+                "reference": "df04efb3e88833208c3a99a3efa3f7e9f03854db",
                 "shasum": ""
             },
             "require": {
@@ -6571,7 +6571,7 @@
                 "behat/mink-extension": "self.version"
             },
             "require-dev": {
-                "behat/mink-goutte-driver": "^1.1 || ^2.0",
+                "behat/mink-goutte-driver": "^1.1",
                 "phpspec/phpspec": "^6.0 || ^7.0 || 7.1.x-dev"
             },
             "type": "behat-extension",
@@ -6608,22 +6608,22 @@
                 "web"
             ],
             "support": {
-                "source": "https://github.com/FriendsOfBehat/MinkExtension/tree/v2.7.3"
+                "source": "https://github.com/FriendsOfBehat/MinkExtension/tree/v2.6.1"
             },
-            "time": "2023-09-12T09:50:10+00:00"
+            "time": "2021-12-24T13:19:26+00:00"
         },
         {
             "name": "friends-of-behat/symfony-extension",
-            "version": "v2.4.1",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfBehat/SymfonyExtension.git",
-                "reference": "c25f3f374f8f789f7df6bd83a79dd62efee2e776"
+                "reference": "572c34e6483e70db0afd45111553332f95bc06ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfBehat/SymfonyExtension/zipball/c25f3f374f8f789f7df6bd83a79dd62efee2e776",
-                "reference": "c25f3f374f8f789f7df6bd83a79dd62efee2e776",
+                "url": "https://api.github.com/repos/FriendsOfBehat/SymfonyExtension/zipball/572c34e6483e70db0afd45111553332f95bc06ca",
+                "reference": "572c34e6483e70db0afd45111553332f95bc06ca",
                 "shasum": ""
             },
             "require": {
@@ -6640,12 +6640,12 @@
                 "friends-of-behat/mink-extension": "^2.5",
                 "friends-of-behat/page-object-extension": "^0.3.2",
                 "friends-of-behat/service-container-extension": "^1.1",
-                "sylius-labs/coding-standard": ">=4.1.1, <=4.2.1",
+                "sylius-labs/coding-standard": "^4.1.1",
                 "symfony/browser-kit": "^4.4 || ^5.3 || ^6.0",
                 "symfony/framework-bundle": "^4.4 || ^5.3 || ^6.0",
                 "symfony/process": "^4.4 || ^5.3 || ^6.0",
                 "symfony/yaml": "^4.4 || ^5.3 || ^6.0",
-                "vimeo/psalm": "4.30.0"
+                "vimeo/psalm": "4.15.0"
             },
             "suggest": {
                 "friends-of-behat/mink": "^1.9",
@@ -6677,9 +6677,9 @@
             "description": "Integrates Behat with Symfony.",
             "support": {
                 "issues": "https://github.com/FriendsOfBehat/SymfonyExtension/issues",
-                "source": "https://github.com/FriendsOfBehat/SymfonyExtension/tree/v2.4.1"
+                "source": "https://github.com/FriendsOfBehat/SymfonyExtension/tree/v2.3.1"
             },
-            "time": "2023-09-12T09:36:17+00:00"
+            "time": "2021-12-24T13:14:59+00:00"
         },
         {
             "name": "friendsofphp/php-cs-fixer",
