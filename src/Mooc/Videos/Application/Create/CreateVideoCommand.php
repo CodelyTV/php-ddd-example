@@ -6,16 +6,15 @@ namespace CodelyTv\Mooc\Videos\Application\Create;
 
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 
-final class CreateVideoCommand implements Command
+final readonly class CreateVideoCommand implements Command
 {
     public function __construct(
-        private readonly string $id,
-        private readonly string $type,
-        private readonly string $title,
-        private readonly string $url,
-        private readonly string $courseId
-    ) {
-    }
+        private string $id,
+        private string $type,
+        private string $title,
+        private string $url,
+        private string $courseId
+    ) {}
 
     public function id(): string
     {

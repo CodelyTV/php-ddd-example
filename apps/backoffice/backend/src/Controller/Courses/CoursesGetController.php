@@ -10,37 +10,36 @@ use CodelyTv\Backoffice\Courses\Application\SearchByCriteria\SearchBackofficeCou
 use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+
 use function Lambdish\Phunctional\map;
 
-final class CoursesGetController
+final readonly class CoursesGetController
 {
-    public function __construct(private QueryBus $queryBus)
-    {
-    }
+    public function __construct(private QueryBus $queryBus) {}
 
     public function __invoke(Request $request): JsonResponse
     {
         $orderBy = $request->query->get('order_by');
         $order = $request->query->get('order');
-        $limit  = $request->query->get('limit');
+        $limit = $request->query->get('limit');
         $offset = $request->query->get('offset');
 
         /** @var BackofficeCoursesResponse $response */
         $response = $this->queryBus->ask(
             new SearchBackofficeCoursesByCriteriaQuery(
                 (array) $request->query->get('filters'),
-                null === $orderBy ? null : (string) $orderBy,
-                null === $order ? null : (string) $order,
-                null === $limit ? null : (int) $limit,
-                null === $offset ? null : (int) $offset
+                $orderBy === null ? null : (string) $orderBy,
+                $order === null ? null : (string) $order,
+                $limit === null ? null : (int) $limit,
+                $offset === null ? null : (int) $offset
             )
         );
 
         return new JsonResponse(
             map(
                 fn (BackofficeCourseResponse $course) => [
-                    'id'       => $course->id(),
-                    'name'     => $course->name(),
+                    'id' => $course->id(),
+                    'name' => $course->name(),
                     'duration' => $course->duration(),
                 ],
                 $response->courses()

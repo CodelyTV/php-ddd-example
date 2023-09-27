@@ -52,7 +52,7 @@ final class DomainEventSimilarComparator extends Comparator
     private function propertiesAreSimilar(DomainEvent $expected, DomainEvent $actual): bool
     {
         $expectedReflected = new ReflectionObject($expected);
-        $actualReflected   = new ReflectionObject($actual);
+        $actualReflected = new ReflectionObject($actual);
 
         foreach ($expectedReflected->getProperties() as $expectedReflectedProperty) {
             if (!in_array($expectedReflectedProperty->getName(), self::$ignoredAttributes, false)) {
@@ -62,7 +62,7 @@ final class DomainEventSimilarComparator extends Comparator
                 $actualReflectedProperty->setAccessible(true);
 
                 $expectedProperty = $expectedReflectedProperty->getValue($expected);
-                $actualProperty   = $actualReflectedProperty->getValue($actual);
+                $actualProperty = $actualReflectedProperty->getValue($actual);
 
                 if (!TestUtils::isSimilar($expectedProperty, $actualProperty)) {
                     return false;

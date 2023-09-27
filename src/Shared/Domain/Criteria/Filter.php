@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace CodelyTv\Shared\Domain\Criteria;
 
-final class Filter
+final readonly class Filter
 {
     public function __construct(
-        private readonly FilterField $field,
-        private readonly FilterOperator $operator,
-        private readonly FilterValue $value
-    ) {
-    }
+        private FilterField $field,
+        private FilterOperator $operator,
+        private FilterValue $value
+    ) {}
 
     public static function fromValues(array $values): self
     {

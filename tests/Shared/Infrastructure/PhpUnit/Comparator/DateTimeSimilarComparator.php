@@ -25,7 +25,7 @@ final class DateTimeSimilarComparator extends ObjectComparator
         $ignoreCase = false,
         array &$processed = []
     ): void {
-        $normalizedDelta   = $delta === 0.0 ? 10 : $delta;
+        $normalizedDelta = $delta === 0.0 ? 10 : $delta;
         $intervalWithDelta = new DateInterval(sprintf('PT%sS', abs($normalizedDelta)));
 
         $expectedLower = clone $expected;

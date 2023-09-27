@@ -7,6 +7,7 @@ namespace CodelyTv\Shared\Domain\ValueObject;
 use CodelyTv\Shared\Domain\Utils;
 use ReflectionClass;
 use Stringable;
+
 use function in_array;
 use function Lambdish\Phunctional\reindex;
 
@@ -26,29 +27,29 @@ abstract class Enum implements Stringable
         return new static(self::values()[$name]);
     }
 
-    public static function fromString(string $value): Enum
+    final public static function fromString(string $value): self
     {
         return new static($value);
     }
 
-    public static function values(): array
+    final public static function values(): array
     {
         $class = static::class;
 
         if (!isset(self::$cache[$class])) {
-            $reflected           = new ReflectionClass($class);
+            $reflected = new ReflectionClass($class);
             self::$cache[$class] = reindex(self::keysFormatter(), $reflected->getConstants());
         }
 
         return self::$cache[$class];
     }
 
-    public static function randomValue()
+    final public static function randomValue()
     {
         return self::values()[array_rand(self::values())];
     }
 
-    public static function random(): static
+    final public static function random(): static
     {
         return new static(self::randomValue());
     }
@@ -58,14 +59,14 @@ abstract class Enum implements Stringable
         return static fn ($unused, string $key): string => Utils::toCamelCase(strtolower($key));
     }
 
-    public function value()
+    final public function value()
     {
         return $this->value;
     }
 
-    public function equals(Enum $other): bool
+    final public function equals(self $other): bool
     {
-        return $other == $this;
+        return $other->value() === $this->value();
     }
 
     public function __toString(): string

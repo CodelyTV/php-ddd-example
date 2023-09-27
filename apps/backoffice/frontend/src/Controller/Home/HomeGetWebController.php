@@ -15,7 +15,7 @@ final class HomeGetWebController extends WebController
         return $this->render(
             'pages/home.html.twig',
             [
-                'title'       => 'Welcome',
+                'title' => 'Welcome',
                 'description' => 'CodelyTV - Backoffice',
             ]
         );

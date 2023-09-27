@@ -8,6 +8,7 @@ use CodelyTv\Backoffice\Auth\Domain\AuthPassword;
 use CodelyTv\Backoffice\Auth\Domain\AuthRepository;
 use CodelyTv\Backoffice\Auth\Domain\AuthUser;
 use CodelyTv\Backoffice\Auth\Domain\AuthUsername;
+
 use function Lambdish\Phunctional\get;
 
 final class InMemoryAuthRepository implements AuthRepository
@@ -21,6 +22,6 @@ final class InMemoryAuthRepository implements AuthRepository
     {
         $password = get($username->value(), self::USERS);
 
-        return null !== $password ? new AuthUser($username, new AuthPassword($password)) : null;
+        return $password !== null ? new AuthUser($username, new AuthPassword($password)) : null;
     }
 }

@@ -16,8 +16,7 @@ final class Video extends AggregateRoot
         private VideoTitle $title,
         private readonly VideoUrl $url,
         private readonly CourseId $courseId
-    ) {
-    }
+    ) {}
 
     public static function create(
         VideoId $id,
@@ -25,7 +24,7 @@ final class Video extends AggregateRoot
         VideoTitle $title,
         VideoUrl $url,
         CourseId $courseId
-    ): Video {
+    ): self {
         $video = new self($id, $type, $title, $url, $courseId);
 
         $video->record(

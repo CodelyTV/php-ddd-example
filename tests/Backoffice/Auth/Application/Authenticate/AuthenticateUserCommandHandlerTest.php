@@ -26,7 +26,7 @@ final class AuthenticateUserCommandHandlerTest extends AuthModuleUnitTestCase
     /** @test */
     public function it_should_authenticate_a_valid_user(): void
     {
-        $command  = AuthenticateUserCommandMother::create();
+        $command = AuthenticateUserCommandMother::create();
         $authUser = AuthUserMother::fromCommand($command);
 
         $this->shouldSearch($authUser->username(), $authUser);
@@ -39,7 +39,7 @@ final class AuthenticateUserCommandHandlerTest extends AuthModuleUnitTestCase
     {
         $this->expectException(InvalidAuthUsername::class);
 
-        $command  = AuthenticateUserCommandMother::create();
+        $command = AuthenticateUserCommandMother::create();
         $username = AuthUsernameMother::create($command->username());
 
         $this->shouldSearch($username);
@@ -52,7 +52,7 @@ final class AuthenticateUserCommandHandlerTest extends AuthModuleUnitTestCase
     {
         $this->expectException(InvalidAuthCredentials::class);
 
-        $command  = AuthenticateUserCommandMother::create();
+        $command = AuthenticateUserCommandMother::create();
         $authUser = AuthUserMother::create(username: AuthUsernameMother::create($command->username()));
 
         $this->shouldSearch($authUser->username(), $authUser);

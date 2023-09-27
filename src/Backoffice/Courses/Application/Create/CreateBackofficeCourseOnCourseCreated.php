@@ -7,11 +7,9 @@ namespace CodelyTv\Backoffice\Courses\Application\Create;
 use CodelyTv\Mooc\Courses\Domain\CourseCreatedDomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 
-final class CreateBackofficeCourseOnCourseCreated implements DomainEventSubscriber
+final readonly class CreateBackofficeCourseOnCourseCreated implements DomainEventSubscriber
 {
-    public function __construct(private readonly BackofficeCourseCreator $creator)
-    {
-    }
+    public function __construct(private BackofficeCourseCreator $creator) {}
 
     public static function subscribedTo(): array
     {

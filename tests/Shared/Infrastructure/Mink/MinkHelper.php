@@ -9,19 +9,17 @@ use Behat\Mink\Session;
 use Symfony\Component\BrowserKit\AbstractBrowser;
 use Symfony\Component\DomCrawler\Crawler;
 
-final class MinkHelper
+final readonly class MinkHelper
 {
-    public function __construct(private Session $session)
-    {
-    }
+    public function __construct(private Session $session) {}
 
     public function sendRequest($method, $url, array $optionalParams = []): Crawler
     {
         $defaultOptionalParams = [
-            'parameters'    => [],
-            'files'         => [],
-            'server'        => ['HTTP_ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json'],
-            'content'       => null,
+            'parameters' => [],
+            'files' => [],
+            'server' => ['HTTP_ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json'],
+            'content' => null,
             'changeHistory' => true,
         ];
 

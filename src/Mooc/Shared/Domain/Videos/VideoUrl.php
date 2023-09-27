@@ -18,7 +18,7 @@ final class VideoUrl extends StringValueObject
 
     private function ensureIsValidUrl(string $url): void
     {
-        if (false === filter_var($url, FILTER_VALIDATE_URL)) {
+        if (filter_var($url, FILTER_VALIDATE_URL) === false) {
             throw new InvalidArgumentException(sprintf('The url <%s> is not well formatted', $url));
         }
     }

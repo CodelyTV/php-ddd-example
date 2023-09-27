@@ -11,7 +11,7 @@ use Mockery\MockInterface;
 
 abstract class CoursesCounterModuleUnitTestCase extends UnitTestCase
 {
-    private CoursesCounterRepository|MockInterface|null $repository;
+    private CoursesCounterRepository|MockInterface|null $repository = null;
 
     protected function shouldSave(CoursesCounter $course): void
     {
@@ -32,6 +32,6 @@ abstract class CoursesCounterModuleUnitTestCase extends UnitTestCase
 
     protected function repository(): CoursesCounterRepository|MockInterface
     {
-        return $this->repository = $this->repository ?? $this->mock(CoursesCounterRepository::class);
+        return $this->repository ??= $this->mock(CoursesCounterRepository::class);
     }
 }

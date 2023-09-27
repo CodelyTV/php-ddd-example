@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Shared\Infrastructure\Persistence\Elasticsearch;
 
 use CodelyTv\Shared\Domain\Criteria\Criteria;
+
 use function Lambdish\Phunctional\reduce;
 
 final class ElasticsearchCriteriaConverter
@@ -38,7 +39,13 @@ final class ElasticsearchCriteriaConverter
         if ($criteria->hasOrder()) {
             $order = $criteria->order();
 
-            return ['sort' => [$order->orderBy()->value() => ['order' => $order->orderType()->value()]]];
+            return [
+                'sort' => [
+                    $order->orderBy()->value() => [
+                        'order' => $order->orderType()->value(),
+                    ],
+                ],
+            ];
         }
 
         return [];

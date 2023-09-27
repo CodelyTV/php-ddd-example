@@ -11,13 +11,12 @@ use CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository;
 use CodelyTv\Shared\Domain\Criteria\Criteria;
 use CodelyTv\Shared\Domain\Criteria\Filters;
 use CodelyTv\Shared\Domain\Criteria\Order;
+
 use function Lambdish\Phunctional\map;
 
-final class BackofficeCoursesByCriteriaSearcher
+final readonly class BackofficeCoursesByCriteriaSearcher
 {
-    public function __construct(private readonly BackofficeCourseRepository $repository)
-    {
-    }
+    public function __construct(private BackofficeCourseRepository $repository) {}
 
     public function search(Filters $filters, Order $order, ?int $limit, ?int $offset): BackofficeCoursesResponse
     {

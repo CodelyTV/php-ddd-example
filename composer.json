@@ -4,7 +4,7 @@
   "type": "project",
   "description": "An example project applying Domain-Driven Design, Hexagonal Architecture and CQRS in a Monorepository",
   "require": {
-    "php": "^8.1",
+    "php": "^8.2",
 
     "ext-amqp": "*",
     "ext-apcu": "*",
@@ -40,10 +40,10 @@
 
     "roave/security-advisories": "dev-master",
 
-    "behat/behat": "^3",
-    "friends-of-behat/mink-extension": "^2",
-    "friends-of-behat/symfony-extension": "^2",
-    "behat/mink-browserkit-driver": "^2",
+    "behat/behat": "^3.13",
+    "friends-of-behat/mink-extension": "2.6.1",
+    "friends-of-behat/symfony-extension": "2.3.1",
+    "behat/mink-browserkit-driver": "2.1.0",
 
     "phpunit/phpunit": "^9",
     "mockery/mockery": "^1",
@@ -51,8 +51,10 @@
     "fakerphp/faker": "^1",
 
     "symfony/error-handler": "^6",
-    "vimeo/psalm": "^4",
-    "friendsofphp/php-cs-fixer": "^3.8"
+
+    "symplify/easy-coding-standard": "^12.0",
+    "vimeo/psalm": "^5.15",
+    "rector/rector": "^0.18.4"
   },
   "autoload": {
     "psr-4": {

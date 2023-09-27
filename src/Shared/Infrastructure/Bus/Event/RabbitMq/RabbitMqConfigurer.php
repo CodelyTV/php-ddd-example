@@ -6,17 +6,16 @@ namespace CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq;
 
 use AMQPQueue;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
+
 use function Lambdish\Phunctional\each;
 
-final class RabbitMqConfigurer
+final readonly class RabbitMqConfigurer
 {
-    public function __construct(private readonly RabbitMqConnection $connection)
-    {
-    }
+    public function __construct(private RabbitMqConnection $connection) {}
 
     public function configure(string $exchangeName, DomainEventSubscriber ...$subscribers): void
     {
-        $retryExchangeName      = RabbitMqExchangeNameFormatter::retry($exchangeName);
+        $retryExchangeName = RabbitMqExchangeNameFormatter::retry($exchangeName);
         $deadLetterExchangeName = RabbitMqExchangeNameFormatter::deadLetter($exchangeName);
 
         $this->declareExchange($exchangeName);
@@ -53,12 +52,12 @@ final class RabbitMqConfigurer
             $retryExchangeName,
             $deadLetterExchangeName
         ): void {
-            $queueName           = RabbitMqQueueNameFormatter::format($subscriber);
-            $retryQueueName      = RabbitMqQueueNameFormatter::formatRetry($subscriber);
+            $queueName = RabbitMqQueueNameFormatter::format($subscriber);
+            $retryQueueName = RabbitMqQueueNameFormatter::formatRetry($subscriber);
             $deadLetterQueueName = RabbitMqQueueNameFormatter::formatDeadLetter($subscriber);
 
-            $queue           = $this->declareQueue($queueName);
-            $retryQueue      = $this->declareQueue($retryQueueName, $exchangeName, $queueName, 1000);
+            $queue = $this->declareQueue($queueName);
+            $retryQueue = $this->declareQueue($retryQueueName, $exchangeName, $queueName, 1000);
             $deadLetterQueue = $this->declareQueue($deadLetterQueueName);
 
             $queue->bind($exchangeName, $queueName);
@@ -79,15 +78,15 @@ final class RabbitMqConfigurer
     ): AMQPQueue {
         $queue = $this->connection->queue($name);
 
-        if (null !== $deadLetterExchange) {
+        if ($deadLetterExchange !== null) {
             $queue->setArgument('x-dead-letter-exchange', $deadLetterExchange);
         }
 
-        if (null !== $deadLetterRoutingKey) {
+        if ($deadLetterRoutingKey !== null) {
             $queue->setArgument('x-dead-letter-routing-key', $deadLetterRoutingKey);
         }
 
-        if (null !== $messageTtl) {
+        if ($messageTtl !== null) {
             $queue->setArgument('x-message-ttl', $messageTtl);
         }
 

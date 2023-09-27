@@ -6,6 +6,4 @@ namespace CodelyTv\Mooc\Shared\Domain\Courses;
 
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
 
-final class CourseId extends Uuid
-{
-}
+final class CourseId extends Uuid {}

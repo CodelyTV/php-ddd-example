@@ -10,11 +10,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Throwable;
 
-final class ApiExceptionListener
+final readonly class ApiExceptionListener
 {
-    public function __construct(private readonly ApiExceptionsHttpStatusCodeMapping $exceptionHandler)
-    {
-    }
+    public function __construct(private ApiExceptionsHttpStatusCodeMapping $exceptionHandler) {}
 
     public function onException(ExceptionEvent $event): void
     {
@@ -23,7 +21,7 @@ final class ApiExceptionListener
         $event->setResponse(
             new JsonResponse(
                 [
-                    'code'    => $this->exceptionCodeFor($exception),
+                    'code' => $this->exceptionCodeFor($exception),
                     'message' => $exception->getMessage(),
                 ],
                 $this->exceptionHandler->statusCodeFor($exception::class)

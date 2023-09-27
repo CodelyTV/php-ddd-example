@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace CodelyTv\Shared\Domain\Criteria;
 
-final class Criteria
+final readonly class Criteria
 {
     public function __construct(
-        private readonly Filters $filters,
-        private readonly Order $order,
-        private readonly ?int $offset,
-        private readonly ?int $limit
-    ) {
-    }
+        private Filters $filters,
+        private Order $order,
+        private ?int $offset,
+        private ?int $limit
+    ) {}
 
     public function hasFilters(): bool
     {

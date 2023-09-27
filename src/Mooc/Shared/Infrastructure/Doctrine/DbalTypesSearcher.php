@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Mooc\Shared\Infrastructure\Doctrine;
 
 use CodelyTv\Shared\Domain\Utils;
+
 use function Lambdish\Phunctional\filter;
 use function Lambdish\Phunctional\map;
 use function Lambdish\Phunctional\reduce;
@@ -16,7 +17,7 @@ final class DbalTypesSearcher
     public static function inPath(string $path, string $contextName): array
     {
         $possibleDbalDirectories = self::possibleDbalPaths($path);
-        $dbalDirectories         = filter(self::isExistingDbalPath(), $possibleDbalDirectories);
+        $dbalDirectories = filter(self::isExistingDbalPath(), $possibleDbalDirectories);
 
         return reduce(self::dbalClassesSearcher($contextName), $dbalDirectories, []);
     }
@@ -50,14 +51,11 @@ final class DbalTypesSearcher
     {
         return static function (array $totalNamespaces, string $path) use ($contextName) {
             $possibleFiles = scandir($path);
-            $files         = filter(
-                static fn ($file) => Utils::endsWith('Type.php', $file),
-                $possibleFiles
-            );
+            $files = filter(static fn ($file) => Utils::endsWith('Type.php', $file), $possibleFiles);
 
             $namespaces = map(
                 static function (string $file) use ($path, $contextName) {
-                    $fullPath     = "$path/$file";
+                    $fullPath = "$path/$file";
                     $splittedPath = explode("/src/$contextName/", $fullPath);
 
                     $classWithoutPrefix = str_replace(['.php', '/'], ['', '\\'], $splittedPath[1]);

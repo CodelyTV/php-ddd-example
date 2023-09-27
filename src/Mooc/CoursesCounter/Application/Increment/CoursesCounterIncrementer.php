@@ -11,14 +11,13 @@ use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 use CodelyTv\Shared\Domain\UuidGenerator;
 
-final class CoursesCounterIncrementer
+final readonly class CoursesCounterIncrementer
 {
     public function __construct(
-        private readonly CoursesCounterRepository $repository,
-        private readonly UuidGenerator $uuidGenerator,
-        private readonly EventBus $bus
-    ) {
-    }
+        private CoursesCounterRepository $repository,
+        private UuidGenerator $uuidGenerator,
+        private EventBus $bus
+    ) {}
 
     public function __invoke(CourseId $courseId): void
     {

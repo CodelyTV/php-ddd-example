@@ -8,11 +8,9 @@ use CodelyTv\Backoffice\Auth\Domain\AuthPassword;
 use CodelyTv\Backoffice\Auth\Domain\AuthUsername;
 use CodelyTv\Shared\Domain\Bus\Command\CommandHandler;
 
-final class AuthenticateUserCommandHandler implements CommandHandler
+final readonly class AuthenticateUserCommandHandler implements CommandHandler
 {
-    public function __construct(private readonly UserAuthenticator $authenticator)
-    {
-    }
+    public function __construct(private UserAuthenticator $authenticator) {}
 
     public function __invoke(AuthenticateUserCommand $command): void
     {
