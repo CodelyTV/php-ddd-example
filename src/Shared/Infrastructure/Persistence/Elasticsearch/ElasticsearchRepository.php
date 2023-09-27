@@ -13,13 +13,11 @@ use function Lambdish\Phunctional\map;
 
 abstract class ElasticsearchRepository
 {
-    public function __construct(private readonly ElasticsearchClient $client)
-    {
-    }
+    public function __construct(private readonly ElasticsearchClient $client) {}
 
     abstract protected function aggregateName(): string;
 
-    public function searchByCriteria(Criteria $criteria): array
+    final public function searchByCriteria(Criteria $criteria): array
     {
         $converter = new ElasticsearchCriteriaConverter();
 

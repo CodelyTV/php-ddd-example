@@ -14,6 +14,5 @@ final readonly class VideoResponse implements Response
         private string $title,
         private string $url,
         private string $courseId
-    ) {
-    }
+    ) {}
 }

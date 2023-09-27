@@ -39,7 +39,13 @@ final class ElasticsearchCriteriaConverter
         if ($criteria->hasOrder()) {
             $order = $criteria->order();
 
-            return ['sort' => [$order->orderBy()->value() => ['order' => $order->orderType()->value()]]];
+            return [
+                'sort' => [
+                    $order->orderBy()->value() => [
+                        'order' => $order->orderType()->value(),
+                    ],
+                ],
+            ];
         }
 
         return [];

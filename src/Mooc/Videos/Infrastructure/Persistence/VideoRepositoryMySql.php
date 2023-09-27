@@ -15,10 +15,10 @@ use CodelyTv\Shared\Infrastructure\Persistence\Doctrine\DoctrineRepository;
 final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepository
 {
     private static array $criteriaToDoctrineFields = [
-        'id'        => 'id',
-        'type'      => 'type',
-        'title'     => 'title',
-        'url'       => 'url',
+        'id' => 'id',
+        'type' => 'type',
+        'title' => 'title',
+        'url' => 'url',
         'course_id' => 'courseId',
     ];
 
@@ -35,7 +35,7 @@ final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepo
     public function searchByCriteria(Criteria $criteria): Videos
     {
         $doctrineCriteria = DoctrineCriteriaConverter::convert($criteria, self::$criteriaToDoctrineFields);
-        $videos           = $this->repository(Video::class)->matching($doctrineCriteria)->toArray();
+        $videos = $this->repository(Video::class)->matching($doctrineCriteria)->toArray();
 
         return new Videos($videos);
     }

@@ -15,7 +15,7 @@ final class ApiExceptionsHttpStatusCodeMapping
     private const DEFAULT_STATUS_CODE = Response::HTTP_INTERNAL_SERVER_ERROR;
     private array $exceptions = [
         InvalidArgumentException::class => Response::HTTP_BAD_REQUEST,
-        NotFoundHttpException::class    => Response::HTTP_NOT_FOUND,
+        NotFoundHttpException::class => Response::HTTP_NOT_FOUND,
     ];
 
     public function register(string $exceptionClass, int $statusCode): void
@@ -27,7 +27,7 @@ final class ApiExceptionsHttpStatusCodeMapping
     {
         $statusCode = get($exceptionClass, $this->exceptions, self::DEFAULT_STATUS_CODE);
 
-        if (null === $statusCode) {
+        if ($statusCode === null) {
             throw new InvalidArgumentException("There are no status code mapping for <$exceptionClass>");
         }
 

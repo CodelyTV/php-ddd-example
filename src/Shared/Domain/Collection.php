@@ -19,12 +19,12 @@ abstract class Collection implements Countable, IteratorAggregate
 
     abstract protected function type(): string;
 
-    public function getIterator(): Traversable
+    final public function getIterator(): Traversable
     {
         return new ArrayIterator($this->items());
     }
 
-    public function count(): int
+    final public function count(): int
     {
         return count($this->items());
     }

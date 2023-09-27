@@ -9,7 +9,5 @@ use CodelyTv\Shared\Domain\SecondsInterval;
 
 final class VideoTrimmer
 {
-    public function trim(VideoId $id, SecondsInterval $interval): void
-    {
-    }
+    public function trim(VideoId $id, SecondsInterval $interval): void {}
 }

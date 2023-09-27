@@ -6,6 +6,4 @@ namespace CodelyTv\Analytics\DomainEvents\Domain;
 
 use CodelyTv\Shared\Domain\ValueObject\Uuid;
 
-final class AnalyticsDomainEventId extends Uuid
-{
-}
+final class AnalyticsDomainEventId extends Uuid {}

@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Kernel;
 
 use function dirname;
 
-final class MoocBackendKernel extends Kernel
+class MoocBackendKernel extends Kernel
 {
     use MicroKernelTrait;
 

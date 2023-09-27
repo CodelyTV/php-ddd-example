@@ -6,6 +6,4 @@ namespace CodelyTv\Analytics\DomainEvents\Domain;
 
 use CodelyTv\Shared\Domain\ValueObject\StringValueObject;
 
-final class AnalyticsDomainEventName extends StringValueObject
-{
-}
+final class AnalyticsDomainEventName extends StringValueObject {}

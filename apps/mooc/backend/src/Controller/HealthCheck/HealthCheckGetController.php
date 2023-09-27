@@ -10,16 +10,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 final readonly class HealthCheckGetController
 {
-    public function __construct(private RandomNumberGenerator $generator)
-    {
-    }
+    public function __construct(private RandomNumberGenerator $generator) {}
 
     public function __invoke(Request $request): JsonResponse
     {
         return new JsonResponse(
             [
                 'mooc-backend' => 'ok',
-                'rand'         => $this->generator->generate(),
+                'rand' => $this->generator->generate(),
             ]
         );
     }

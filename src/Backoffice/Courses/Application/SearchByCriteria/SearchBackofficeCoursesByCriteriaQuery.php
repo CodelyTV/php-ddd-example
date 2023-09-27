@@ -14,8 +14,7 @@ final readonly class SearchBackofficeCoursesByCriteriaQuery implements Query
         private ?string $order,
         private ?int $limit,
         private ?int $offset
-    ) {
-    }
+    ) {}
 
     public function filters(): array
     {

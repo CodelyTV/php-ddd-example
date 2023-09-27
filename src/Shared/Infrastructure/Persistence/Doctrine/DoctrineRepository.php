@@ -10,9 +10,7 @@ use Doctrine\ORM\EntityRepository;
 
 abstract class DoctrineRepository
 {
-    public function __construct(private readonly EntityManager $entityManager)
-    {
-    }
+    public function __construct(private readonly EntityManager $entityManager) {}
 
     protected function entityManager(): EntityManager
     {

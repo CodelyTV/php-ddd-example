@@ -14,11 +14,11 @@ use InvalidArgumentException;
  */
 final class FilterOperator extends Enum
 {
-    public const EQUAL        = '=';
-    public const NOT_EQUAL    = '!=';
-    public const GT           = '>';
-    public const LT           = '<';
-    public const CONTAINS     = 'CONTAINS';
+    public const EQUAL = '=';
+    public const NOT_EQUAL = '!=';
+    public const GT = '>';
+    public const LT = '<';
+    public const CONTAINS = 'CONTAINS';
     public const NOT_CONTAINS = 'NOT_CONTAINS';
     private static array $containing = [self::CONTAINS, self::NOT_CONTAINS];
 

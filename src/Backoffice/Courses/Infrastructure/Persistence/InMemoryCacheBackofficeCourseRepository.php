@@ -12,12 +12,10 @@ use function Lambdish\Phunctional\get;
 
 final class InMemoryCacheBackofficeCourseRepository implements BackofficeCourseRepository
 {
-    private static array               $allCoursesCache = [];
-    private static array               $matchingCache   = [];
+    private static array $allCoursesCache = [];
+    private static array $matchingCache = [];
 
-    public function __construct(private readonly BackofficeCourseRepository $repository)
-    {
-    }
+    public function __construct(private readonly BackofficeCourseRepository $repository) {}
 
     public function save(BackofficeCourse $course): void
     {

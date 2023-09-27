@@ -18,8 +18,8 @@ use Mockery\MockInterface;
 
 abstract class UnitTestCase extends MockeryTestCase
 {
-    private EventBus|MockInterface|null      $eventBus = null;
-    private UuidGenerator|MockInterface|null $uuidGenerator = null;
+    private EventBus|MockInterface|null $eventBus = null;
+    private MockInterface|UuidGenerator|null $uuidGenerator = null;
 
     protected function mock(string $className): MockInterface
     {
@@ -56,7 +56,7 @@ abstract class UnitTestCase extends MockeryTestCase
             ->andReturn($uuid);
     }
 
-    protected function uuidGenerator(): UuidGenerator|MockInterface
+    protected function uuidGenerator(): MockInterface|UuidGenerator
     {
         return $this->uuidGenerator ??= $this->mock(UuidGenerator::class);
     }

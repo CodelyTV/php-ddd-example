@@ -12,7 +12,7 @@ use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 
 final readonly class CourseRenamer
 {
-    private CourseFinder     $finder;
+    private CourseFinder $finder;
 
     public function __construct(private CourseRepository $repository, private EventBus $bus)
     {

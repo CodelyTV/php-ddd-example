@@ -11,6 +11,5 @@ final readonly class AnalyticsDomainEvent
         private AnalyticsDomainEventAggregateId $aggregateId,
         private AnalyticsDomainEventName $name,
         private AnalyticsDomainEventBody $body
-    ) {
-    }
+    ) {}
 }

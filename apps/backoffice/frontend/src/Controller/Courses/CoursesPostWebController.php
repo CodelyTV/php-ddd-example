@@ -32,8 +32,8 @@ final class CoursesPostWebController extends WebController
     {
         $constraint = new Assert\Collection(
             [
-                'id'       => new Assert\Uuid(),
-                'name'     => [new Assert\NotBlank(), new Assert\Length(['min' => 1, 'max' => 255])],
+                'id' => new Assert\Uuid(),
+                'name' => [new Assert\NotBlank(), new Assert\Length(['min' => 1, 'max' => 255])],
                 'duration' => [new Assert\NotBlank(), new Assert\Length(['min' => 4, 'max' => 100])],
             ]
         );

@@ -13,7 +13,7 @@ final class MoocEntityManagerFactory
 
     public static function create(array $parameters, string $environment): EntityManagerInterface
     {
-        $isDevMode = 'prod' !== $environment;
+        $isDevMode = $environment !== 'prod';
 
         $prefixes = array_merge(
             DoctrinePrefixesSearcher::inPath(__DIR__ . '/../../../../Mooc', 'CodelyTv\Mooc'),

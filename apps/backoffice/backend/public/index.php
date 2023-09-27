@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use CodelyTv\Apps\Backoffice\Backend\BackofficeBackendKernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,8 +25,8 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false
     Request::setTrustedHosts([$trustedHosts]);
 }
 
-$kernel   = new BackofficeBackendKernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
-$request  = Request::createFromGlobals();
+$kernel = new BackofficeBackendKernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
+$request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);

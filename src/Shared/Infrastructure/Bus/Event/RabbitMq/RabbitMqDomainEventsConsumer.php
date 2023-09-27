@@ -20,8 +20,7 @@ final readonly class RabbitMqDomainEventsConsumer
         private DomainEventJsonDeserializer $deserializer,
         private string $exchangeName,
         private int $maxRetries
-    ) {
-    }
+    ) {}
 
     public function consume(callable $subscriber, string $queueName): void
     {
@@ -82,11 +81,11 @@ final readonly class RabbitMqDomainEventsConsumer
             $queue->getName(),
             AMQP_NOPARAM,
             [
-                'message_id'       => $envelope->getMessageId(),
-                'content_type'     => $envelope->getContentType(),
+                'message_id' => $envelope->getMessageId(),
+                'content_type' => $envelope->getContentType(),
                 'content_encoding' => $envelope->getContentEncoding(),
-                'priority'         => $envelope->getPriority(),
-                'headers'          => assoc($headers, 'redelivery_count', get('redelivery_count', $headers, 0) + 1),
+                'priority' => $envelope->getPriority(),
+                'headers' => assoc($headers, 'redelivery_count', get('redelivery_count', $headers, 0) + 1),
             ]
         );
     }

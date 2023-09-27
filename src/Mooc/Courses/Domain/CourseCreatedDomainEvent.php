@@ -35,7 +35,7 @@ final class CourseCreatedDomainEvent extends DomainEvent
     public function toPrimitives(): array
     {
         return [
-            'name'     => $this->name,
+            'name' => $this->name,
             'duration' => $this->duration,
         ];
     }

@@ -17,7 +17,7 @@ use function Lambdish\Phunctional\map;
 
 final readonly class MySqlDoctrineDomainEventsConsumer
 {
-    private Connection         $connection;
+    private Connection $connection;
 
     public function __construct(EntityManager $entityManager, private DomainEventMapping $eventMapping)
     {
@@ -44,7 +44,7 @@ final readonly class MySqlDoctrineDomainEventsConsumer
         return function (array $rawEvent) use ($subscribers): void {
             try {
                 $domainEventClass = $this->eventMapping->for($rawEvent['name']);
-                $domainEvent      = $domainEventClass::fromPrimitives(
+                $domainEvent = $domainEventClass::fromPrimitives(
                     $rawEvent['aggregate_id'],
                     Utils::jsonDecode($rawEvent['body']),
                     $rawEvent['id'],

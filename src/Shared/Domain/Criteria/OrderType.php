@@ -14,7 +14,7 @@ use InvalidArgumentException;
  */
 final class OrderType extends Enum
 {
-    public const ASC  = 'asc';
+    public const ASC = 'asc';
     public const DESC = 'desc';
     public const NONE = 'none';
 

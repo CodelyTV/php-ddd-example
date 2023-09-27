@@ -17,8 +17,7 @@ final readonly class CoursesCounterIncrementer
         private CoursesCounterRepository $repository,
         private UuidGenerator $uuidGenerator,
         private EventBus $bus
-    ) {
-    }
+    ) {}
 
     public function __invoke(CourseId $courseId): void
     {

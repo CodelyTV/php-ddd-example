@@ -16,9 +16,9 @@ use function Lambdish\Phunctional\each;
 
 final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
 {
-    private const EVENTS_TO_PROCESS_AT_TIME           = 200;
+    private const EVENTS_TO_PROCESS_AT_TIME = 200;
     private const NUMBERS_OF_PROCESSES_PER_SUBSCRIBER = 1;
-    private const SUPERVISOR_PATH                     = __DIR__ . '/../../../../build/supervisor';
+    private const SUPERVISOR_PATH = __DIR__ . '/../../../../build/supervisor';
     protected static $defaultName = 'codelytv:domain-events:rabbitmq:generate-supervisor-files';
 
     public function __construct(private readonly DomainEventSubscriberLocator $locator)
@@ -45,17 +45,11 @@ final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
     private function configCreator(string $path): callable
     {
         return function (DomainEventSubscriber $subscriber) use ($path): void {
-            $queueName      = RabbitMqQueueNameFormatter::format($subscriber);
+            $queueName = RabbitMqQueueNameFormatter::format($subscriber);
             $subscriberName = RabbitMqQueueNameFormatter::shortFormat($subscriber);
 
             $fileContent = str_replace(
-                [
-                    '{subscriber_name}',
-                    '{queue_name}',
-                    '{path}',
-                    '{processes}',
-                    '{events_to_process}',
-                ],
+                ['{subscriber_name}', '{queue_name}', '{path}', '{processes}', '{events_to_process}', ],
                 [
                     $subscriberName,
                     $queueName,

@@ -13,9 +13,7 @@ use function Lambdish\Phunctional\map;
 
 final readonly class AllBackofficeCoursesSearcher
 {
-    public function __construct(private BackofficeCourseRepository $repository)
-    {
-    }
+    public function __construct(private BackofficeCourseRepository $repository) {}
 
     public function searchAll(): BackofficeCoursesResponse
     {

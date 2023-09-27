@@ -15,7 +15,7 @@ final class DoctrinePrefixesSearcher
     public static function inPath(string $path, string $baseNamespace): array
     {
         $possibleMappingDirectories = self::possibleMappingPaths($path);
-        $mappingDirectories         = filter(self::isExistingMappingPath(), $possibleMappingDirectories);
+        $mappingDirectories = filter(self::isExistingMappingPath(), $possibleMappingDirectories);
 
         return array_flip(reindex(self::namespaceFormatter($baseNamespace), $mappingDirectories));
     }

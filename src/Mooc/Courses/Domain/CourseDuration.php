@@ -6,6 +6,4 @@ namespace CodelyTv\Mooc\Courses\Domain;
 
 use CodelyTv\Shared\Domain\ValueObject\StringValueObject;
 
-final class CourseDuration extends StringValueObject
-{
-}
+final class CourseDuration extends StringValueObject {}

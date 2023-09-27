@@ -13,9 +13,7 @@ use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 
 final readonly class CourseCreator
 {
-    public function __construct(private CourseRepository $repository, private EventBus $bus)
-    {
-    }
+    public function __construct(private CourseRepository $repository, private EventBus $bus) {}
 
     public function __invoke(CourseId $id, CourseName $name, CourseDuration $duration): void
     {

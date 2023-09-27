@@ -10,8 +10,7 @@ final readonly class Filter
         private FilterField $field,
         private FilterOperator $operator,
         private FilterValue $value
-    ) {
-    }
+    ) {}
 
     public static function fromValues(array $values): self
     {
