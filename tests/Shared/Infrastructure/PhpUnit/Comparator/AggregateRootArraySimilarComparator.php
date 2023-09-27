@@ -25,7 +25,7 @@ final class AggregateRootArraySimilarComparator extends Comparator
 
     public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void
     {
-        if (!$this->contains($expected, $actual) || (is_countable($expected) ? count($expected) : 0) !== (is_countable($actual) ? count($actual) : 0)) {
+        if (!$this->contains($expected, $actual) || count($expected) !== count($actual)) {
             throw new ComparisonFailure(
                 $expected,
                 $actual,
@@ -39,7 +39,7 @@ final class AggregateRootArraySimilarComparator extends Comparator
 
     private function contains(array $expectedArray, array $actualArray): bool
     {
-        $exists = fn (AggregateRoot $expected) => any(
+        $exists = fn (AggregateRoot $expected): bool => any(
             fn (AggregateRoot $actual) => TestUtils::isSimilar($expected, $actual),
             $actualArray
         );

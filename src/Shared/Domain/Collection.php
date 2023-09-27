@@ -7,7 +7,9 @@ namespace CodelyTv\Shared\Domain;
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
+use Traversable;
 
+/** @template-implements IteratorAggregate<mixed>*/
 abstract class Collection implements Countable, IteratorAggregate
 {
     public function __construct(private readonly array $items)
@@ -17,7 +19,7 @@ abstract class Collection implements Countable, IteratorAggregate
 
     abstract protected function type(): string;
 
-    public function getIterator(): ArrayIterator
+    public function getIterator(): Traversable
     {
         return new ArrayIterator($this->items());
     }
