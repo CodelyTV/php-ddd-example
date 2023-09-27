@@ -16,7 +16,7 @@ final class MySqlDatabaseCleaner
     {
         $connection = $entityManager->getConnection();
 
-        $tables            = $this->tables($connection);
+        $tables = $this->tables($connection);
         $truncateTablesSql = $this->truncateDatabaseSql($tables);
 
         $connection->exec($truncateTablesSql);

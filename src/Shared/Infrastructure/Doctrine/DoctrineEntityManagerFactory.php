@@ -6,9 +6,9 @@ namespace CodelyTv\Shared\Infrastructure\Doctrine;
 
 use CodelyTv\Shared\Infrastructure\Doctrine\Dbal\DbalCustomTypesRegistrar;
 use Doctrine\DBAL\DriverManager;
+use Doctrine\DBAL\Platforms\MariaDBPlatform;
 use Doctrine\DBAL\Schema\MySQLSchemaManager;
 use Doctrine\ORM\Configuration;
-use Doctrine\DBAL\Platforms\MariaDBPlatform;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver;
 use Doctrine\ORM\ORMSetup;
@@ -42,11 +42,11 @@ final class DoctrineEntityManagerFactory
     {
         self::ensureSchemaFileExists($schemaFile);
 
-        $databaseName                  = $parameters['dbname'];
+        $databaseName = $parameters['dbname'];
         $parametersWithoutDatabaseName = dissoc($parameters, 'dbname');
-        $connection                    = DriverManager::getConnection($parametersWithoutDatabaseName);
-        $platform                      = new MariaDBPlatform();
-        $schemaManager                 = new MySQLSchemaManager($connection, $platform);
+        $connection = DriverManager::getConnection($parametersWithoutDatabaseName);
+        $platform = new MariaDBPlatform();
+        $schemaManager = new MySQLSchemaManager($connection, $platform);
 
         if (!self::databaseExists($databaseName, $schemaManager)) {
             $schemaManager->createDatabase($databaseName);

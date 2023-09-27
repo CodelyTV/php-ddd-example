@@ -23,7 +23,7 @@ final readonly class CoursesGetController
     {
         $orderBy = $request->query->get('order_by');
         $order = $request->query->get('order');
-        $limit  = $request->query->get('limit');
+        $limit = $request->query->get('limit');
         $offset = $request->query->get('offset');
 
         /** @var BackofficeCoursesResponse $response */
@@ -40,8 +40,8 @@ final readonly class CoursesGetController
         return new JsonResponse(
             map(
                 fn (BackofficeCourseResponse $course) => [
-                    'id'       => $course->id(),
-                    'name'     => $course->name(),
+                    'id' => $course->id(),
+                    'name' => $course->name(),
                     'duration' => $course->duration(),
                 ],
                 $response->courses()

@@ -26,8 +26,8 @@ final class CourseRenamerTest extends CoursesModuleUnitTestCase
     /** @test */
     public function it_should_rename_an_existing_course(): void
     {
-        $course        = CourseMother::create();
-        $newName       = CourseNameMother::create();
+        $course = CourseMother::create();
+        $newName = CourseNameMother::create();
         $renamedCourse = DuplicatorMother::with($course, ['name' => $newName]);
 
         $this->shouldSearch($course->id(), $course);

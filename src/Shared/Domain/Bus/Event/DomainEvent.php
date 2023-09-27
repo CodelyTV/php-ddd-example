@@ -15,7 +15,7 @@ abstract class DomainEvent
 
     public function __construct(private readonly string $aggregateId, string $eventId = null, string $occurredOn = null)
     {
-        $this->eventId    = $eventId ?: Uuid::random()->value();
+        $this->eventId = $eventId ?: Uuid::random()->value();
         $this->occurredOn = $occurredOn ?: Utils::dateToString(new DateTimeImmutable());
     }
 

@@ -31,7 +31,7 @@ final class CodelyTvConstraintIsSimilar extends Constraint
             return true;
         }
 
-        $isValid           = true;
+        $isValid = true;
         $comparatorFactory = new Factory();
 
         $comparatorFactory->register(new AggregateRootArraySimilarComparator());

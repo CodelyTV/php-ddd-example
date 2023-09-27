@@ -18,7 +18,7 @@ final readonly class SearchBackofficeCoursesByCriteriaQueryHandler implements Qu
     public function __invoke(SearchBackofficeCoursesByCriteriaQuery $query): BackofficeCoursesResponse
     {
         $filters = Filters::fromValues($query->filters());
-        $order   = Order::fromValues($query->orderBy(), $query->order());
+        $order = Order::fromValues($query->orderBy(), $query->order());
 
         return $this->searcher->search($filters, $order, $query->limit(), $query->offset());
     }

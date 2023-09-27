@@ -17,8 +17,8 @@ final readonly class CreateCourseCommandHandler implements CommandHandler
 
     public function __invoke(CreateCourseCommand $command): void
     {
-        $id       = new CourseId($command->id());
-        $name     = new CourseName($command->name());
+        $id = new CourseId($command->id());
+        $name = new CourseName($command->name());
         $duration = new CourseDuration($command->duration());
 
         $this->creator->__invoke($id, $name, $duration);

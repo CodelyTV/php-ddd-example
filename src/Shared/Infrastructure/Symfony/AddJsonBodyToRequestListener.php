@@ -13,7 +13,7 @@ final class AddJsonBodyToRequestListener
 {
     public function onKernelRequest(RequestEvent $event): void
     {
-        $request         = $event->getRequest();
+        $request = $event->getRequest();
         $requestContents = $request->getContent();
 
         if (!empty($requestContents) && $this->containsHeader($request, 'Content-Type', 'application/json')) {

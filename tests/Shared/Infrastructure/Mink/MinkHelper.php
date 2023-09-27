@@ -18,10 +18,10 @@ final readonly class MinkHelper
     public function sendRequest($method, $url, array $optionalParams = []): Crawler
     {
         $defaultOptionalParams = [
-            'parameters'    => [],
-            'files'         => [],
-            'server'        => ['HTTP_ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json'],
-            'content'       => null,
+            'parameters' => [],
+            'files' => [],
+            'server' => ['HTTP_ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json'],
+            'content' => null,
             'changeHistory' => true,
         ];
 

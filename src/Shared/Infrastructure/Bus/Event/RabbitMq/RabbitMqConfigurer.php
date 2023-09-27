@@ -17,7 +17,7 @@ final readonly class RabbitMqConfigurer
 
     public function configure(string $exchangeName, DomainEventSubscriber ...$subscribers): void
     {
-        $retryExchangeName      = RabbitMqExchangeNameFormatter::retry($exchangeName);
+        $retryExchangeName = RabbitMqExchangeNameFormatter::retry($exchangeName);
         $deadLetterExchangeName = RabbitMqExchangeNameFormatter::deadLetter($exchangeName);
 
         $this->declareExchange($exchangeName);
@@ -54,12 +54,12 @@ final readonly class RabbitMqConfigurer
             $retryExchangeName,
             $deadLetterExchangeName
         ): void {
-            $queueName           = RabbitMqQueueNameFormatter::format($subscriber);
-            $retryQueueName      = RabbitMqQueueNameFormatter::formatRetry($subscriber);
+            $queueName = RabbitMqQueueNameFormatter::format($subscriber);
+            $retryQueueName = RabbitMqQueueNameFormatter::formatRetry($subscriber);
             $deadLetterQueueName = RabbitMqQueueNameFormatter::formatDeadLetter($subscriber);
 
-            $queue           = $this->declareQueue($queueName);
-            $retryQueue      = $this->declareQueue($retryQueueName, $exchangeName, $queueName, 1000);
+            $queue = $this->declareQueue($queueName);
+            $retryQueue = $this->declareQueue($retryQueueName, $exchangeName, $queueName, 1000);
             $deadLetterQueue = $this->declareQueue($deadLetterQueueName);
 
             $queue->bind($exchangeName, $queueName);

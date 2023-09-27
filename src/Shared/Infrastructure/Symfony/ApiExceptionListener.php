@@ -23,7 +23,7 @@ final readonly class ApiExceptionListener
         $event->setResponse(
             new JsonResponse(
                 [
-                    'code'    => $this->exceptionCodeFor($exception),
+                    'code' => $this->exceptionCodeFor($exception),
                     'message' => $exception->getMessage(),
                 ],
                 $this->exceptionHandler->statusCodeFor($exception::class)

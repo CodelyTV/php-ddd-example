@@ -37,7 +37,7 @@ abstract class Enum implements Stringable
         $class = static::class;
 
         if (!isset(self::$cache[$class])) {
-            $reflected           = new ReflectionClass($class);
+            $reflected = new ReflectionClass($class);
             self::$cache[$class] = reindex(self::keysFormatter(), $reflected->getConstants());
         }
 

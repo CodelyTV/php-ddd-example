@@ -21,10 +21,10 @@ final class CoursesGetWebController extends WebController
         return $this->render(
             'pages/courses/courses.html.twig',
             [
-                'title'           => 'Courses',
-                'description'     => 'Courses CodelyTV - Backoffice',
+                'title' => 'Courses',
+                'description' => 'Courses CodelyTV - Backoffice',
                 'courses_counter' => $coursesCounterResponse->total(),
-                'new_course_id'   => Uuid::random()->value(),
+                'new_course_id' => Uuid::random()->value(),
             ]
         );
     }

@@ -19,7 +19,7 @@ final class ApiContext extends RawMinkContext
     public function __construct(private readonly Session $minkSession)
     {
         $this->sessionHelper = new MinkHelper($this->minkSession);
-        $this->request       = new MinkSessionRequestHelper(new MinkHelper($minkSession));
+        $this->request = new MinkSessionRequestHelper(new MinkHelper($minkSession));
     }
 
     /**
@@ -44,7 +44,7 @@ final class ApiContext extends RawMinkContext
     public function theResponseContentShouldBe(PyStringNode $expectedResponse): void
     {
         $expected = $this->sanitizeOutput($expectedResponse->getRaw());
-        $actual   = $this->sanitizeOutput($this->sessionHelper->getResponse());
+        $actual = $this->sanitizeOutput($this->sessionHelper->getResponse());
 
         if ($expected !== $actual) {
             throw new RuntimeException(

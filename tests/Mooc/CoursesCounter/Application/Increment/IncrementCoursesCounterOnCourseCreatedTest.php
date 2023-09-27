@@ -34,8 +34,8 @@ final class IncrementCoursesCounterOnCourseCreatedTest extends CoursesCounterMod
     {
         $event = CourseCreatedDomainEventMother::create();
 
-        $courseId    = CourseIdMother::create($event->aggregateId());
-        $newCounter  = CoursesCounterMother::withOne($courseId);
+        $courseId = CourseIdMother::create($event->aggregateId());
+        $newCounter = CoursesCounterMother::withOne($courseId);
         $domainEvent = CoursesCounterIncrementedDomainEventMother::fromCounter($newCounter);
 
         $this->shouldSearch(null);
@@ -51,10 +51,10 @@ final class IncrementCoursesCounterOnCourseCreatedTest extends CoursesCounterMod
     {
         $event = CourseCreatedDomainEventMother::create();
 
-        $courseId           = CourseIdMother::create($event->aggregateId());
-        $existingCounter    = CoursesCounterMother::create();
+        $courseId = CourseIdMother::create($event->aggregateId());
+        $existingCounter = CoursesCounterMother::create();
         $incrementedCounter = CoursesCounterMother::incrementing($existingCounter, $courseId);
-        $domainEvent        = CoursesCounterIncrementedDomainEventMother::fromCounter($incrementedCounter);
+        $domainEvent = CoursesCounterIncrementedDomainEventMother::fromCounter($incrementedCounter);
 
         $this->shouldSearch($existingCounter);
         $this->shouldSave($incrementedCounter);
@@ -68,7 +68,7 @@ final class IncrementCoursesCounterOnCourseCreatedTest extends CoursesCounterMod
     {
         $event = CourseCreatedDomainEventMother::create();
 
-        $courseId        = CourseIdMother::create($event->aggregateId());
+        $courseId = CourseIdMother::create($event->aggregateId());
         $existingCounter = CoursesCounterMother::withOne($courseId);
 
         $this->shouldSearch($existingCounter);

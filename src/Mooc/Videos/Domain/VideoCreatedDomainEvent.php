@@ -45,9 +45,9 @@ final class VideoCreatedDomainEvent extends DomainEvent
     public function toPrimitives(): array
     {
         return [
-            'type'      => $this->type,
-            'title'     => $this->title,
-            'url'       => $this->url,
+            'type' => $this->type,
+            'title' => $this->title,
+            'url' => $this->url,
             'course_id' => $this->courseId,
         ];
     }

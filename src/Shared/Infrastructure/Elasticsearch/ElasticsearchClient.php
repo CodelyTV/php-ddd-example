@@ -17,8 +17,8 @@ final readonly class ElasticsearchClient
         $this->client->index(
             [
                 'index' => sprintf('%s_%s', $this->indexPrefix, $aggregateName),
-                'id'    => $identifier,
-                'body'  => $plainBody,
+                'id' => $identifier,
+                'body' => $plainBody,
             ]
         );
     }

@@ -19,7 +19,7 @@ final readonly class HealthCheckGetController
         return new JsonResponse(
             [
                 'mooc-backend' => 'ok',
-                'rand'         => $this->generator->generate(),
+                'rand' => $this->generator->generate(),
             ]
         );
     }

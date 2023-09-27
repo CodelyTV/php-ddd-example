@@ -20,8 +20,8 @@ final class BackofficeCourse extends AggregateRoot
     public function toPrimitives(): array
     {
         return [
-            'id'       => $this->id,
-            'name'     => $this->name,
+            'id' => $this->id,
+            'name' => $this->name,
             'duration' => $this->duration,
         ];
     }
