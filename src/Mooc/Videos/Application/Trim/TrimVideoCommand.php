@@ -8,9 +8,7 @@ use CodelyTv\Shared\Domain\Bus\Command\Command;
 
 final readonly class TrimVideoCommand implements Command
 {
-    public function __construct(private string $videoId, private int $keepFromSecond, private int $keepToSecond)
-    {
-    }
+    public function __construct(private string $videoId, private int $keepFromSecond, private int $keepToSecond) {}
 
     public function videoId(): string
     {

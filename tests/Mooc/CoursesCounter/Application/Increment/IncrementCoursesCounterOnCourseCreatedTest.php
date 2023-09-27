@@ -21,11 +21,7 @@ final class IncrementCoursesCounterOnCourseCreatedTest extends CoursesCounterMod
         parent::setUp();
 
         $this->subscriber = new IncrementCoursesCounterOnCourseCreated(
-            new CoursesCounterIncrementer(
-                $this->repository(),
-                $this->uuidGenerator(),
-                $this->eventBus()
-            )
+            new CoursesCounterIncrementer($this->repository(), $this->uuidGenerator(), $this->eventBus())
         );
     }
 

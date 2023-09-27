@@ -14,8 +14,7 @@ final readonly class CreateVideoCommand implements Command
         private string $title,
         private string $url,
         private string $courseId
-    ) {
-    }
+    ) {}
 
     public function id(): string
     {

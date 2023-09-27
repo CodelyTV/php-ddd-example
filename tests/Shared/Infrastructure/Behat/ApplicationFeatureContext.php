@@ -16,8 +16,7 @@ final readonly class ApplicationFeatureContext implements Context
         private DatabaseConnections $connections,
         private InMemorySymfonyEventBus $bus,
         private DomainEventJsonDeserializer $deserializer
-    ) {
-    }
+    ) {}
 
     /** @BeforeScenario */
     public function cleanEnvironment(): void

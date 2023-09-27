@@ -48,7 +48,7 @@ final class InMemorySymfonyQueryBusTest extends UnitTestCase
         };
     }
 
-    private function query(): Query|MockInterface
+    private function query(): MockInterface|Query
     {
         return $this->mock(Query::class);
     }

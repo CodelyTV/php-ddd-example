@@ -12,9 +12,7 @@ use Throwable;
 
 final readonly class ApiExceptionListener
 {
-    public function __construct(private ApiExceptionsHttpStatusCodeMapping $exceptionHandler)
-    {
-    }
+    public function __construct(private ApiExceptionsHttpStatusCodeMapping $exceptionHandler) {}
 
     public function onException(ExceptionEvent $event): void
     {

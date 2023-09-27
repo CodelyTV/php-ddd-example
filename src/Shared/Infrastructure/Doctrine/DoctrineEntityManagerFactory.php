@@ -23,14 +23,14 @@ final class DoctrineEntityManagerFactory
     ];
 
     public static function create(
-        array  $parameters,
-        array  $contextPrefixes,
-        bool   $isDevMode,
+        array $parameters,
+        array $contextPrefixes,
+        bool $isDevMode,
         string $schemaFile,
-        array  $dbalCustomTypesClasses
+        array $dbalCustomTypesClasses
     ): EntityManager {
         if ($isDevMode) {
-            static::generateDatabaseIfNotExists($parameters, $schemaFile);
+            self::generateDatabaseIfNotExists($parameters, $schemaFile);
         }
 
         DbalCustomTypesRegistrar::register($dbalCustomTypesClasses);

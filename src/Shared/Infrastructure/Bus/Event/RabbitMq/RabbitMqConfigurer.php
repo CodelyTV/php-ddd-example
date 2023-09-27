@@ -11,9 +11,7 @@ use function Lambdish\Phunctional\each;
 
 final readonly class RabbitMqConfigurer
 {
-    public function __construct(private RabbitMqConnection $connection)
-    {
-    }
+    public function __construct(private RabbitMqConnection $connection) {}
 
     public function configure(string $exchangeName, DomainEventSubscriber ...$subscribers): void
     {
@@ -80,15 +78,15 @@ final readonly class RabbitMqConfigurer
     ): AMQPQueue {
         $queue = $this->connection->queue($name);
 
-        if (null !== $deadLetterExchange) {
+        if ($deadLetterExchange !== null) {
             $queue->setArgument('x-dead-letter-exchange', $deadLetterExchange);
         }
 
-        if (null !== $deadLetterRoutingKey) {
+        if ($deadLetterRoutingKey !== null) {
             $queue->setArgument('x-dead-letter-routing-key', $deadLetterRoutingKey);
         }
 
-        if (null !== $messageTtl) {
+        if ($messageTtl !== null) {
             $queue->setArgument('x-message-ttl', $messageTtl);
         }
 

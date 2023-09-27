@@ -15,9 +15,7 @@ use function Lambdish\Phunctional\map;
 
 final readonly class CoursesGetController
 {
-    public function __construct(private QueryBus $queryBus)
-    {
-    }
+    public function __construct(private QueryBus $queryBus) {}
 
     public function __invoke(Request $request): JsonResponse
     {
@@ -30,10 +28,10 @@ final readonly class CoursesGetController
         $response = $this->queryBus->ask(
             new SearchBackofficeCoursesByCriteriaQuery(
                 (array) $request->query->get('filters'),
-                null === $orderBy ? null : (string) $orderBy,
-                null === $order ? null : (string) $order,
-                null === $limit ? null : (int) $limit,
-                null === $offset ? null : (int) $offset
+                $orderBy === null ? null : (string) $orderBy,
+                $order === null ? null : (string) $order,
+                $limit === null ? null : (int) $limit,
+                $offset === null ? null : (int) $offset
             )
         );
 

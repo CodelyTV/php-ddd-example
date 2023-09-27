@@ -20,8 +20,7 @@ final readonly class RabbitMqDomainEventsConsumer
         private DomainEventJsonDeserializer $deserializer,
         private string $exchangeName,
         private int $maxRetries
-    ) {
-    }
+    ) {}
 
     public function consume(callable $subscriber, string $queueName): void
     {

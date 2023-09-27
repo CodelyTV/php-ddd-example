@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use CodelyTv\Apps\Mooc\Backend\MoocBackendKernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;

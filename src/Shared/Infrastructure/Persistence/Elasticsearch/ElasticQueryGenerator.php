@@ -29,10 +29,7 @@ final class ElasticQueryGenerator
             [
                 $type => [
                     $termLevel => [
-                        $filter->field()->value() => sprintf(
-                            $valueTemplate,
-                            strtolower($filter->value()->value())
-                        ),
+                        $filter->field()->value() => sprintf($valueTemplate, strtolower($filter->value()->value())),
                     ],
                 ],
             ]

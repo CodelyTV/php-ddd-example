@@ -22,6 +22,6 @@ final class InMemoryAuthRepository implements AuthRepository
     {
         $password = get($username->value(), self::USERS);
 
-        return null !== $password ? new AuthUser($username, new AuthPassword($password)) : null;
+        return $password !== null ? new AuthUser($username, new AuthPassword($password)) : null;
     }
 }

@@ -17,7 +17,7 @@ use function Lambdish\Phunctional\map;
 
 final readonly class MySqlDoctrineDomainEventsConsumer
 {
-    private Connection         $connection;
+    private Connection $connection;
 
     public function __construct(EntityManager $entityManager, private DomainEventMapping $eventMapping)
     {

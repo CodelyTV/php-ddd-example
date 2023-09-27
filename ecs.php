@@ -45,12 +45,11 @@ use PhpCsFixer\Fixer\PhpUnit\PhpUnitExpectationFixer;
 use PhpCsFixer\Fixer\PhpUnit\PhpUnitMethodCasingFixer;
 use PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer;
 use PhpCsFixer\Fixer\Strict\StrictComparisonFixer;
-use PhpCsFixer\Fixer\Strict\StrictParamFixer;
 use PhpCsFixer\Fixer\StringNotation\SingleQuoteFixer;
-use Symplify\CodingStandard\Fixer\ArrayNotation\ArrayListItemNewlineFixer;
-use Symplify\CodingStandard\Fixer\ArrayNotation\ArrayOpenerAndCloserNewlineFixer;
+use PhpCsFixer\Fixer\Whitespace\StatementIndentationFixer;
+use PhpCsFixer\Fixer\Whitespace\TypeDeclarationSpacesFixer;
+use PhpCsFixer\Fixer\Whitespace\TypesSpacesFixer;
 use Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer;
-use Symplify\CodingStandard\Fixer\Spacing\MethodChainingNewlineFixer;
 use Symplify\CodingStandard\Fixer\Strict\BlankLineAfterStrictTypesFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
@@ -71,24 +70,21 @@ return function (ECSConfig $ecsConfig): void {
         GlobalNamespaceImportFixer::class,
         NoLeadingImportSlashFixer::class,
         // Arrays
-        ArrayListItemNewlineFixer::class,
-        ArrayOpenerAndCloserNewlineFixer::class,
         TrimArraySpacesFixer::class,
         // Blank lines
         BlankLineAfterStrictTypesFixer::class,
         NoBlankLinesAfterClassOpeningFixer::class,
         // Spacing
-        MethodChainingNewlineFixer::class,
         SingleLineEmptyBodyFixer::class,
         CastSpacesFixer::class,
+        TypeDeclarationSpacesFixer::class,
+        TypesSpacesFixer::class,
         // Casing
         ClassReferenceNameCasingFixer::class,
         LowercaseStaticReferenceFixer::class,
         MagicMethodCasingFixer::class,
         NativeFunctionCasingFixer::class,
         NativeFunctionTypeDeclarationCasingFixer::class,
-        // Order
-        OrderedTypesFixer::class,
         // Architecture
         FinalClassFixer::class,
         FinalPublicMethodForAbstractClassFixer::class,
@@ -121,10 +117,12 @@ return function (ECSConfig $ecsConfig): void {
         DeclareStrictTypesFixer::class,
         StrictComparisonFixer::class,
         SingleQuoteFixer::class,
+        StatementIndentationFixer::class,
     ]);
 
     $ecsConfig->ruleWithConfiguration(ArraySyntaxFixer::class, ['syntax' => 'short']);
     $ecsConfig->ruleWithConfiguration(LineLengthFixer::class, [LineLengthFixer::LINE_LENGTH => 120]);
     $ecsConfig->ruleWithConfiguration(YodaStyleFixer::class, ['equal' => false, 'identical' => false, 'less_and_greater' => false]);
     $ecsConfig->ruleWithConfiguration(PhpUnitMethodCasingFixer::class, ['case' => PhpUnitMethodCasingFixer::SNAKE_CASE]);
+    $ecsConfig->ruleWithConfiguration(OrderedTypesFixer::class, ['null_adjustment' => 'always_last']);
 };

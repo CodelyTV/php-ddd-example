@@ -6,9 +6,7 @@ namespace CodelyTv\Backoffice\Courses\Application;
 
 final readonly class BackofficeCourseResponse
 {
-    public function __construct(private string $id, private string $name, private string $duration)
-    {
-    }
+    public function __construct(private string $id, private string $name, private string $duration) {}
 
     public function id(): string
     {

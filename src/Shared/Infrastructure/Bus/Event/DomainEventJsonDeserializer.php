@@ -10,9 +10,7 @@ use RuntimeException;
 
 final readonly class DomainEventJsonDeserializer
 {
-    public function __construct(private DomainEventMapping $mapping)
-    {
-    }
+    public function __construct(private DomainEventMapping $mapping) {}
 
     public function deserialize(string $domainEvent): DomainEvent
     {
@@ -20,7 +18,7 @@ final readonly class DomainEventJsonDeserializer
         $eventName = $eventData['data']['type'];
         $eventClass = $this->mapping->for($eventName);
 
-        if (null === $eventClass) {
+        if ($eventClass === null) {
             throw new RuntimeException("The event <$eventName> doesn't exist or has no subscribers");
         }
 

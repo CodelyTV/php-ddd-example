@@ -16,7 +16,7 @@ use Doctrine\ORM\EntityManager;
 
 final class MySqlDoctrineEventBusTest extends InfrastructureTestCase
 {
-    private MySqlDoctrineEventBus|null             $bus;
+    private MySqlDoctrineEventBus|null $bus;
     private MySqlDoctrineDomainEventsConsumer|null $consumer;
 
     protected function setUp(): void
@@ -39,7 +39,10 @@ final class MySqlDoctrineEventBusTest extends InfrastructureTestCase
         $this->bus->publish($domainEvent, $anotherDomainEvent);
 
         $this->consumer->consume(
-            subscribers: fn (DomainEvent ...$expectedEvents) => $this->assertContainsEquals($domainEvent, $expectedEvents),
+            subscribers: fn (DomainEvent ...$expectedEvents) => $this->assertContainsEquals(
+                $domainEvent,
+                $expectedEvents
+            ),
             eventsToConsume: 2
         );
     }

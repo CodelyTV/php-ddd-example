@@ -13,9 +13,7 @@ use CodelyTv\Shared\Domain\Bus\Command\CommandHandler;
 
 final readonly class CreateVideoCommandHandler implements CommandHandler
 {
-    public function __construct(private VideoCreator $creator)
-    {
-    }
+    public function __construct(private VideoCreator $creator) {}
 
     public function __invoke(CreateVideoCommand $command): void
     {

@@ -26,7 +26,7 @@ final class CallableFirstParameterExtractor
         return reduce(self::pipedCallablesReducer(), $callables, []);
     }
 
-    private static function classExtractor(CallableFirstParameterExtractor $parameterExtractor): callable
+    private static function classExtractor(self $parameterExtractor): callable
     {
         return static fn (callable $handler): ?string => $parameterExtractor->extract($handler);
     }
@@ -66,7 +66,7 @@ final class CallableFirstParameterExtractor
         /** @var ReflectionNamedType $fistParameterType */
         $fistParameterType = $method->getParameters()[0]->getType();
 
-        if (null === $fistParameterType) {
+        if ($fistParameterType === null) {
             throw new LogicException('Missing type hint for the first parameter of __invoke');
         }
 

@@ -51,10 +51,7 @@ final class DbalTypesSearcher
     {
         return static function (array $totalNamespaces, string $path) use ($contextName) {
             $possibleFiles = scandir($path);
-            $files = filter(
-                static fn ($file) => Utils::endsWith('Type.php', $file),
-                $possibleFiles
-            );
+            $files = filter(static fn ($file) => Utils::endsWith('Type.php', $file), $possibleFiles);
 
             $namespaces = map(
                 static function (string $file) use ($path, $contextName) {

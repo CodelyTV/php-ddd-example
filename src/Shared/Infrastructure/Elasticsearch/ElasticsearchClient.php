@@ -8,9 +8,7 @@ use Elasticsearch\Client;
 
 final readonly class ElasticsearchClient
 {
-    public function __construct(private Client $client, private string $indexPrefix)
-    {
-    }
+    public function __construct(private Client $client, private string $indexPrefix) {}
 
     public function persist(string $aggregateName, string $identifier, array $plainBody): void
     {

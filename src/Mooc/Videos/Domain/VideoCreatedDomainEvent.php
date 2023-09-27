@@ -30,7 +30,7 @@ final class VideoCreatedDomainEvent extends DomainEvent
         array $body,
         string $eventId,
         string $occurredOn
-    ): VideoCreatedDomainEvent {
+    ): self {
         return new self(
             $aggregateId,
             $body['type'],

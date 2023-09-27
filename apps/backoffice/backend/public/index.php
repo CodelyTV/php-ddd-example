@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use CodelyTv\Apps\Backoffice\Backend\BackofficeBackendKernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;

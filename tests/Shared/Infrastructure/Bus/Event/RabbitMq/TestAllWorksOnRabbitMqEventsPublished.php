@@ -12,13 +12,8 @@ final class TestAllWorksOnRabbitMqEventsPublished implements DomainEventSubscrib
 {
     public static function subscribedTo(): array
     {
-        return [
-            CourseCreatedDomainEvent::class,
-            CoursesCounterIncrementedDomainEvent::class,
-        ];
+        return [CourseCreatedDomainEvent::class, CoursesCounterIncrementedDomainEvent::class, ];
     }
 
-    public function __invoke(CourseCreatedDomainEvent|CoursesCounterIncrementedDomainEvent $event): void
-    {
-    }
+    public function __invoke(CourseCreatedDomainEvent|CoursesCounterIncrementedDomainEvent $event): void {}
 }

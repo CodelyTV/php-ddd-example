@@ -13,7 +13,7 @@ final readonly class SecondsInterval
         $this->ensureIntervalEndsAfterStart($from, $to);
     }
 
-    public static function fromValues(int $from, int $to): SecondsInterval
+    public static function fromValues(int $from, int $to): self
     {
         return new self(new Second($from), new Second($to));
     }

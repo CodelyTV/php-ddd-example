@@ -13,7 +13,7 @@ use RuntimeException;
 
 final class ApiContext extends RawMinkContext
 {
-    private readonly MinkHelper               $sessionHelper;
+    private readonly MinkHelper $sessionHelper;
     private readonly MinkSessionRequestHelper $request;
 
     public function __construct(private readonly Session $minkSession)
@@ -61,9 +61,7 @@ final class ApiContext extends RawMinkContext
         $actual = trim($this->sessionHelper->getResponse());
 
         if (!empty($actual)) {
-            throw new RuntimeException(
-                sprintf("The outputs is not empty, Actual:\n%s", $actual)
-            );
+            throw new RuntimeException(sprintf("The outputs is not empty, Actual:\n%s", $actual));
         }
     }
 

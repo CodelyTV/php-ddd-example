@@ -9,15 +9,13 @@ use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterRepository;
 
 final readonly class CoursesCounterFinder
 {
-    public function __construct(private CoursesCounterRepository $repository)
-    {
-    }
+    public function __construct(private CoursesCounterRepository $repository) {}
 
     public function __invoke(): CoursesCounterResponse
     {
         $counter = $this->repository->search();
 
-        if (null === $counter) {
+        if ($counter === null) {
             throw new CoursesCounterNotExist();
         }
 

@@ -15,13 +15,11 @@ final class BackofficeCourseCriteriaMother
     {
         return CriteriaMother::create(
             FiltersMother::createOne(
-                FilterMother::fromValues(
-                    [
+                FilterMother::fromValues([
                         'field' => 'name',
                         'operator' => 'CONTAINS',
                         'value' => $text,
-                    ]
-                )
+                    ])
             )
         );
     }

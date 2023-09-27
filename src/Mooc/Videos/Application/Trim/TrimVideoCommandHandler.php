@@ -9,9 +9,7 @@ use CodelyTv\Shared\Domain\SecondsInterval;
 
 final readonly class TrimVideoCommandHandler
 {
-    public function __construct(private VideoTrimmer $trimmer)
-    {
-    }
+    public function __construct(private VideoTrimmer $trimmer) {}
 
     public function __invoke(TrimVideoCommand $command): void
     {

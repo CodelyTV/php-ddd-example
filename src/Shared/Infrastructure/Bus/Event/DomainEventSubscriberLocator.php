@@ -28,7 +28,7 @@ final class DomainEventSubscriberLocator
         return $formatted[$eventClass];
     }
 
-    public function withRabbitMqQueueNamed(string $queueName): DomainEventSubscriber|callable
+    public function withRabbitMqQueueNamed(string $queueName): callable|DomainEventSubscriber
     {
         $subscriber = search(
             static fn (DomainEventSubscriber $subscriber) => RabbitMqQueueNameFormatter::format($subscriber) ===
@@ -36,7 +36,7 @@ final class DomainEventSubscriberLocator
             $this->mapping
         );
 
-        if (null === $subscriber) {
+        if ($subscriber === null) {
             throw new RuntimeException("There are no subscribers for the <$queueName> queue");
         }
 

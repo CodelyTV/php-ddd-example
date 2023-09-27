@@ -32,10 +32,7 @@ final class DomainEventMapping
     {
         return fn (array $mapping, DomainEventSubscriber $subscriber) => array_merge(
             $mapping,
-            reindex(
-                $this->eventNameExtractor(),
-                $subscriber::subscribedTo()
-            )
+            reindex($this->eventNameExtractor(), $subscriber::subscribedTo())
         );
     }
 

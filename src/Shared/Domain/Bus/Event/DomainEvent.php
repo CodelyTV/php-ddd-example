@@ -30,17 +30,17 @@ abstract class DomainEvent
 
     abstract public function toPrimitives(): array;
 
-    public function aggregateId(): string
+    final public function aggregateId(): string
     {
         return $this->aggregateId;
     }
 
-    public function eventId(): string
+    final public function eventId(): string
     {
         return $this->eventId;
     }
 
-    public function occurredOn(): string
+    final public function occurredOn(): string
     {
         return $this->occurredOn;
     }

@@ -16,7 +16,7 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
 {
     public function accepts($expected, $actual): bool
     {
-        return (null !== $actual)
+        return ($actual !== null)
                && is_string($expected)
                && is_string($actual)
                && $this->isValidDateTimeString($expected)

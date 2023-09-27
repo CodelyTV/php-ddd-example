@@ -9,9 +9,7 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 
 final readonly class CreateBackofficeCourseOnCourseCreated implements DomainEventSubscriber
 {
-    public function __construct(private BackofficeCourseCreator $creator)
-    {
-    }
+    public function __construct(private BackofficeCourseCreator $creator) {}
 
     public static function subscribedTo(): array
     {

@@ -18,8 +18,7 @@ final readonly class RabbitMqEventBus implements EventBus
         private RabbitMqConnection $connection,
         private string $exchangeName,
         private MySqlDoctrineEventBus $failoverPublisher
-    ) {
-    }
+    ) {}
 
     public function publish(DomainEvent ...$events): void
     {

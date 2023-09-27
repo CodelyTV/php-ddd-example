@@ -16,8 +16,7 @@ final readonly class WithPrometheusMonitoringEventBus implements EventBus
         private PrometheusMonitor $monitor,
         private string $appName,
         private EventBus $bus
-    ) {
-    }
+    ) {}
 
     public function publish(DomainEvent ...$events): void
     {

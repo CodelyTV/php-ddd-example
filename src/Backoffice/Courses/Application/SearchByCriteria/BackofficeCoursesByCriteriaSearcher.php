@@ -16,9 +16,7 @@ use function Lambdish\Phunctional\map;
 
 final readonly class BackofficeCoursesByCriteriaSearcher
 {
-    public function __construct(private BackofficeCourseRepository $repository)
-    {
-    }
+    public function __construct(private BackofficeCourseRepository $repository) {}
 
     public function search(Filters $filters, Order $order, ?int $limit, ?int $offset): BackofficeCoursesResponse
     {

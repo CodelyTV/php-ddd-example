@@ -21,9 +21,7 @@ use function sprintf;
 // Based on \PHPUnit\Framework\Constraint\IsEqual
 final class CodelyTvConstraintIsSimilar extends Constraint
 {
-    public function __construct(private $value, private readonly float $delta = 0.0)
-    {
-    }
+    public function __construct(private $value, private readonly float $delta = 0.0) {}
 
     public function evaluate($other, $description = '', $returnResult = false): bool
     {
@@ -47,10 +45,7 @@ final class CodelyTvConstraintIsSimilar extends Constraint
             $comparator->assertEquals($this->value, $other, $this->delta);
         } catch (ComparisonFailure $f) {
             if (!$returnResult) {
-                throw new ExpectationFailedException(
-                    trim($description . "\n" . $f->getMessage()),
-                    $f
-                );
+                throw new ExpectationFailedException(trim($description . "\n" . $f->getMessage()), $f);
             }
 
             $isValid = false;
@@ -68,23 +63,13 @@ final class CodelyTvConstraintIsSimilar extends Constraint
                 return 'is equal to <text>';
             }
 
-            return sprintf(
-                "is equal to '%s'",
-                $this->value
-            );
+            return sprintf("is equal to '%s'", $this->value);
         }
 
         if ($this->delta !== 0) {
-            $delta = sprintf(
-                ' with delta <%F>',
-                $this->delta
-            );
+            $delta = sprintf(' with delta <%F>', $this->delta);
         }
 
-        return sprintf(
-            'is equal to %s%s',
-            $this->exporter()->export($this->value),
-            $delta
-        );
+        return sprintf('is equal to %s%s', $this->exporter()->export($this->value), $delta);
     }
 }

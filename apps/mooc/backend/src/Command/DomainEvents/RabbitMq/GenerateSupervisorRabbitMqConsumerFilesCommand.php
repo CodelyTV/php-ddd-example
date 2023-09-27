@@ -49,13 +49,7 @@ final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
             $subscriberName = RabbitMqQueueNameFormatter::shortFormat($subscriber);
 
             $fileContent = str_replace(
-                [
-                    '{subscriber_name}',
-                    '{queue_name}',
-                    '{path}',
-                    '{processes}',
-                    '{events_to_process}',
-                ],
+                ['{subscriber_name}', '{queue_name}', '{path}', '{processes}', '{events_to_process}', ],
                 [
                     $subscriberName,
                     $queueName,

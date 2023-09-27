@@ -12,7 +12,7 @@ use Symfony\Component\Messenger\Handler\HandlersLocator;
 use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 
-class InMemorySymfonyEventBus implements EventBus
+final class InMemorySymfonyEventBus implements EventBus
 {
     private readonly MessageBus $bus;
 
@@ -21,9 +21,7 @@ class InMemorySymfonyEventBus implements EventBus
         $this->bus = new MessageBus(
             [
                 new HandleMessageMiddleware(
-                    new HandlersLocator(
-                        CallableFirstParameterExtractor::forPipedCallables($subscribers)
-                    )
+                    new HandlersLocator(CallableFirstParameterExtractor::forPipedCallables($subscribers))
                 ),
             ]
         );

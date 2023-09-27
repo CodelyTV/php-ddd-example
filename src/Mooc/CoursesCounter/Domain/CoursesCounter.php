@@ -53,7 +53,7 @@ final class CoursesCounter extends AggregateRoot
     {
         $existingCourse = search($this->courseIdComparator($courseId), $this->existingCourses());
 
-        return null !== $existingCourse;
+        return $existingCourse !== null;
     }
 
     private function courseIdComparator(CourseId $courseId): callable

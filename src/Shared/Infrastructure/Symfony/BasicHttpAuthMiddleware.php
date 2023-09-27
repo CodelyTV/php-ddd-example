@@ -14,9 +14,7 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 final readonly class BasicHttpAuthMiddleware
 {
-    public function __construct(private CommandBus $bus)
-    {
-    }
+    public function __construct(private CommandBus $bus) {}
 
     public function onKernelRequest(RequestEvent $event): void
     {
@@ -34,7 +32,7 @@ final readonly class BasicHttpAuthMiddleware
 
     private function hasIntroducedCredentials(?string $user): bool
     {
-        return null !== $user;
+        return $user !== null;
     }
 
     private function authenticate(string $user, string $pass, RequestEvent $event): void
@@ -43,7 +41,7 @@ final readonly class BasicHttpAuthMiddleware
             $this->bus->dispatch(new AuthenticateUserCommand($user, $pass));
 
             $this->addUserDataToRequest($user, $event);
-        } catch (InvalidAuthUsername | InvalidAuthCredentials) {
+        } catch (InvalidAuthCredentials|InvalidAuthUsername) {
             $event->setResponse(new JsonResponse(['error' => 'Invalid credentials'], Response::HTTP_FORBIDDEN));
         }
     }
@@ -56,7 +54,9 @@ final readonly class BasicHttpAuthMiddleware
     private function askForCredentials(RequestEvent $event): void
     {
         $event->setResponse(
-            new Response('', Response::HTTP_UNAUTHORIZED, ['WWW-Authenticate' => 'Basic realm="CodelyTV"'])
+            new Response('', Response::HTTP_UNAUTHORIZED, [
+'WWW-Authenticate' => 'Basic realm="CodelyTV"',
+])
         );
     }
 }
