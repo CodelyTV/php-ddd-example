@@ -66,7 +66,7 @@ abstract class Enum implements Stringable
 
     final public function equals(self $other): bool
     {
-        return $other === $this;
+        return $other->value() === $this->value();
     }
 
     public function __toString(): string

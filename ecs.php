@@ -125,4 +125,13 @@ return function (ECSConfig $ecsConfig): void {
     $ecsConfig->ruleWithConfiguration(YodaStyleFixer::class, ['equal' => false, 'identical' => false, 'less_and_greater' => false]);
     $ecsConfig->ruleWithConfiguration(PhpUnitMethodCasingFixer::class, ['case' => PhpUnitMethodCasingFixer::SNAKE_CASE]);
     $ecsConfig->ruleWithConfiguration(OrderedTypesFixer::class, ['null_adjustment' => 'always_last']);
+
+    $ecsConfig->skip([
+        FinalClassFixer::class => [
+            __DIR__ . '/apps/backoffice/backend/src/BackofficeBackendKernel.php',
+            __DIR__ . '/apps/backoffice/frontend/src/BackofficeFrontendKernel.php',
+            __DIR__ . '/apps/mooc/backend/src/MoocBackendKernel.php',
+            __DIR__ . '/src/Shared/Infrastructure/Bus/Event/InMemory/InMemorySymfonyEventBus.php',
+        ]
+    ]);
 };

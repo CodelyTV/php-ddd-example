@@ -6,7 +6,7 @@ namespace CodelyTv\Apps\Backoffice\Frontend\Controller\Courses;
 
 use CodelyTv\Mooc\CoursesCounter\Application\Find\CoursesCounterResponse;
 use CodelyTv\Mooc\CoursesCounter\Application\Find\FindCoursesCounterQuery;
-use CodelyTv\Shared\Domain\ValueObject\Uuid;
+use CodelyTv\Shared\Domain\ValueObject\SimpleUuid;
 use CodelyTv\Shared\Infrastructure\Symfony\WebController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,7 +24,7 @@ final class CoursesGetWebController extends WebController
                 'title' => 'Courses',
                 'description' => 'Courses CodelyTV - Backoffice',
                 'courses_counter' => $coursesCounterResponse->total(),
-                'new_course_id' => Uuid::random()->value(),
+                'new_course_id' => SimpleUuid::random()->value(),
             ]
         );
     }

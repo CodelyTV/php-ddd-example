@@ -20,7 +20,7 @@ if (is_array($env = @include $rootPath . '/.env.local.php')) {
     );
 } else {
     // load all the .env files
-    (new Dotenv(false))->loadEnv($rootPath . '/.env');
+    (new Dotenv())->loadEnv($rootPath . '/.env');
 }
 
 $_SERVER += $_ENV;
