@@ -24,7 +24,7 @@ final class DomainEventArraySimilarComparator extends Comparator
 
     public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void
     {
-        if (!$this->contains($expected, $actual) || count($expected) !== count($actual)) {
+        if (!$this->contains($expected, $actual) || (is_countable($expected) ? count($expected) : 0) !== (is_countable($actual) ? count($actual) : 0)) {
             throw new ComparisonFailure(
                 $expected,
                 $actual,

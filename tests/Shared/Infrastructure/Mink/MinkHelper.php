@@ -9,7 +9,7 @@ use Behat\Mink\Session;
 use Symfony\Component\BrowserKit\AbstractBrowser;
 use Symfony\Component\DomCrawler\Crawler;
 
-final class MinkHelper
+final readonly class MinkHelper
 {
     public function __construct(private Session $session)
     {

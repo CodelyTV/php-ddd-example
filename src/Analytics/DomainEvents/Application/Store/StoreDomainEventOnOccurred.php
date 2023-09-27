@@ -11,9 +11,9 @@ use CodelyTv\Analytics\DomainEvents\Domain\AnalyticsDomainEventName;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 
-final class StoreDomainEventOnOccurred implements DomainEventSubscriber
+final readonly class StoreDomainEventOnOccurred implements DomainEventSubscriber
 {
-    public function __construct(private readonly DomainEventStorer $storer)
+    public function __construct(private DomainEventStorer $storer)
     {
     }
 

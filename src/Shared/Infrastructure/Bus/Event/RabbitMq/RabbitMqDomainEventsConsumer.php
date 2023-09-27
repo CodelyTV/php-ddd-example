@@ -12,13 +12,13 @@ use Throwable;
 use function Lambdish\Phunctional\assoc;
 use function Lambdish\Phunctional\get;
 
-final class RabbitMqDomainEventsConsumer
+final readonly class RabbitMqDomainEventsConsumer
 {
     public function __construct(
-        private readonly RabbitMqConnection $connection,
-        private readonly DomainEventJsonDeserializer $deserializer,
-        private readonly string $exchangeName,
-        private readonly int $maxRetries
+        private RabbitMqConnection $connection,
+        private DomainEventJsonDeserializer $deserializer,
+        private string $exchangeName,
+        private int $maxRetries
     ) {
     }
 

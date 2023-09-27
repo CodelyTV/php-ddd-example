@@ -13,9 +13,9 @@ use CodelyTv\Shared\Domain\Criteria\Filters;
 use CodelyTv\Shared\Domain\Criteria\Order;
 use function Lambdish\Phunctional\map;
 
-final class BackofficeCoursesByCriteriaSearcher
+final readonly class BackofficeCoursesByCriteriaSearcher
 {
-    public function __construct(private readonly BackofficeCourseRepository $repository)
+    public function __construct(private BackofficeCourseRepository $repository)
     {
     }
 

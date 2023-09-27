@@ -9,9 +9,9 @@ use CodelyTv\Mooc\Courses\Domain\CourseName;
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Shared\Domain\Bus\Command\CommandHandler;
 
-final class CreateCourseCommandHandler implements CommandHandler
+final readonly class CreateCourseCommandHandler implements CommandHandler
 {
-    public function __construct(private readonly CourseCreator $creator)
+    public function __construct(private CourseCreator $creator)
     {
     }
 

@@ -7,9 +7,9 @@ namespace CodelyTv\Mooc\Videos\Application\Trim;
 use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Shared\Domain\SecondsInterval;
 
-final class TrimVideoCommandHandler
+final readonly class TrimVideoCommandHandler
 {
-    public function __construct(private readonly VideoTrimmer $trimmer)
+    public function __construct(private VideoTrimmer $trimmer)
     {
     }
 

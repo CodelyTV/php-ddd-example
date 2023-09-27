@@ -18,9 +18,9 @@ final class ConsumeRabbitMqDomainEventsCommand extends Command
     protected static $defaultName = 'codelytv:domain-events:rabbitmq:consume';
 
     public function __construct(
-        private RabbitMqDomainEventsConsumer $consumer,
-        private DatabaseConnections $connections,
-        private DomainEventSubscriberLocator $locator
+        private readonly RabbitMqDomainEventsConsumer $consumer,
+        private readonly DatabaseConnections $connections,
+        private readonly DomainEventSubscriberLocator $locator
     ) {
         parent::__construct();
     }

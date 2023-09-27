@@ -19,9 +19,9 @@ final class ConsumeMySqlDomainEventsCommand extends Command
     protected static $defaultName = 'codelytv:domain-events:mysql:consume';
 
     public function __construct(
-        private MySqlDoctrineDomainEventsConsumer $consumer,
-        private DatabaseConnections $connections,
-        private DomainEventSubscriberLocator $subscriberLocator
+        private readonly MySqlDoctrineDomainEventsConsumer $consumer,
+        private readonly DatabaseConnections $connections,
+        private readonly DomainEventSubscriberLocator $subscriberLocator
     ) {
         parent::__construct();
     }

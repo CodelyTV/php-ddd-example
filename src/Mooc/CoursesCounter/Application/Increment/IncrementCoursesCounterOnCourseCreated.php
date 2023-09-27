@@ -9,9 +9,9 @@ use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 use function Lambdish\Phunctional\apply;
 
-final class IncrementCoursesCounterOnCourseCreated implements DomainEventSubscriber
+final readonly class IncrementCoursesCounterOnCourseCreated implements DomainEventSubscriber
 {
-    public function __construct(private readonly CoursesCounterIncrementer $incrementer)
+    public function __construct(private CoursesCounterIncrementer $incrementer)
     {
     }
 

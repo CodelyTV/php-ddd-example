@@ -7,9 +7,9 @@ namespace CodelyTv\Shared\Infrastructure\Monitoring;
 use Prometheus\CollectorRegistry;
 use Prometheus\Storage\APC;
 
-final class PrometheusMonitor
+final readonly class PrometheusMonitor
 {
-    private readonly CollectorRegistry $registry;
+    private CollectorRegistry $registry;
 
     public function __construct()
     {

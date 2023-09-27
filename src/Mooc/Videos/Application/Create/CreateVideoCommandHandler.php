@@ -11,9 +11,9 @@ use CodelyTv\Mooc\Videos\Domain\VideoTitle;
 use CodelyTv\Mooc\Videos\Domain\VideoType;
 use CodelyTv\Shared\Domain\Bus\Command\CommandHandler;
 
-final class CreateVideoCommandHandler implements CommandHandler
+final readonly class CreateVideoCommandHandler implements CommandHandler
 {
-    public function __construct(private readonly VideoCreator $creator)
+    public function __construct(private VideoCreator $creator)
     {
     }
 

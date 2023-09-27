@@ -11,7 +11,7 @@ use CodelyTv\Tests\Shared\Infrastructure\Elastic\ElasticDatabaseCleaner;
 use Doctrine\ORM\EntityManager;
 use function Lambdish\Phunctional\apply;
 
-final class BackofficeEnvironmentArranger implements EnvironmentArranger
+final readonly class BackofficeEnvironmentArranger implements EnvironmentArranger
 {
     public function __construct(private ElasticsearchClient $elasticsearchClient, private EntityManager $entityManager)
     {

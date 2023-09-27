@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace CodelyTv\Shared\Domain\Criteria;
 
-final class Order
+final readonly class Order
 {
-    public function __construct(private readonly OrderBy $orderBy, private readonly OrderType $orderType)
+    public function __construct(private OrderBy $orderBy, private OrderType $orderType)
     {
     }
 

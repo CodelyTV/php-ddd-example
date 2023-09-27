@@ -6,9 +6,9 @@ namespace CodelyTv\Shared\Infrastructure\Elasticsearch;
 
 use Elasticsearch\Client;
 
-final class ElasticsearchClient
+final readonly class ElasticsearchClient
 {
-    public function __construct(private readonly Client $client, private readonly string $indexPrefix)
+    public function __construct(private Client $client, private string $indexPrefix)
     {
     }
 
