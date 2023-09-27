@@ -13,7 +13,7 @@ final class AddJsonBodyToRequestListener
 {
     public function onKernelRequest(RequestEvent $event): void
     {
-        $request         = $event->getRequest();
+        $request = $event->getRequest();
         $requestContents = $request->getContent();
 
         if (!empty($requestContents) && $this->containsHeader($request, 'Content-Type', 'application/json')) {
@@ -26,7 +26,7 @@ final class AddJsonBodyToRequestListener
                 $jsonDataLowerCase[preg_replace_callback(
                     '/_(.)/',
                     static fn ($matches) => strtoupper($matches[1]),
-                    $key
+                    (string) $key
                 )] = $value;
             }
             $request->request->replace($jsonDataLowerCase);

@@ -9,16 +9,16 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventJsonSerializer;
 use CodelyTv\Shared\Infrastructure\Bus\Event\MySql\MySqlDoctrineEventBus;
+
 use function Lambdish\Phunctional\each;
 
-final class RabbitMqEventBus implements EventBus
+final readonly class RabbitMqEventBus implements EventBus
 {
     public function __construct(
-        private readonly RabbitMqConnection $connection,
-        private readonly string $exchangeName,
-        private readonly MySqlDoctrineEventBus $failoverPublisher
-    ) {
-    }
+        private RabbitMqConnection $connection,
+        private string $exchangeName,
+        private MySqlDoctrineEventBus $failoverPublisher
+    ) {}
 
     public function publish(DomainEvent ...$events): void
     {
@@ -38,17 +38,17 @@ final class RabbitMqEventBus implements EventBus
 
     private function publishEvent(DomainEvent $event): void
     {
-        $body       = DomainEventJsonSerializer::serialize($event);
+        $body = DomainEventJsonSerializer::serialize($event);
         $routingKey = $event::eventName();
-        $messageId  = $event->eventId();
+        $messageId = $event->eventId();
 
         $this->connection->exchange($this->exchangeName)->publish(
             $body,
             $routingKey,
             AMQP_NOPARAM,
             [
-                'message_id'       => $messageId,
-                'content_type'     => 'application/json',
+                'message_id' => $messageId,
+                'content_type' => 'application/json',
                 'content_encoding' => 'utf-8',
             ]
         );

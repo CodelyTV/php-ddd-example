@@ -6,6 +6,4 @@ namespace CodelyTv\Mooc\CoursesCounter\Application\Find;
 
 use CodelyTv\Shared\Domain\Bus\Query\Query;
 
-final class FindCoursesCounterQuery implements Query
-{
-}
+final class FindCoursesCounterQuery implements Query {}

@@ -6,11 +6,9 @@ namespace CodelyTv\Backoffice\Auth\Application\Authenticate;
 
 use CodelyTv\Shared\Domain\Bus\Command\Command;
 
-final class AuthenticateUserCommand implements Command
+final readonly class AuthenticateUserCommand implements Command
 {
-    public function __construct(private readonly string $username, private readonly string $password)
-    {
-    }
+    public function __construct(private string $username, private string $password) {}
 
     public function username(): string
     {

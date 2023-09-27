@@ -6,16 +6,14 @@ namespace CodelyTv\Shared\Domain\ValueObject;
 
 abstract class IntValueObject
 {
-    public function __construct(protected int $value)
-    {
-    }
+    public function __construct(protected int $value) {}
 
-    public function value(): int
+    final public function value(): int
     {
         return $this->value;
     }
 
-    public function isBiggerThan(IntValueObject $other): bool
+    final public function isBiggerThan(self $other): bool
     {
         return $this->value() > $other->value();
     }

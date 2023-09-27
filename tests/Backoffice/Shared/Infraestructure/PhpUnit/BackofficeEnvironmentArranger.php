@@ -9,13 +9,12 @@ use CodelyTv\Tests\Shared\Infrastructure\Arranger\EnvironmentArranger;
 use CodelyTv\Tests\Shared\Infrastructure\Doctrine\MySqlDatabaseCleaner;
 use CodelyTv\Tests\Shared\Infrastructure\Elastic\ElasticDatabaseCleaner;
 use Doctrine\ORM\EntityManager;
+
 use function Lambdish\Phunctional\apply;
 
-final class BackofficeEnvironmentArranger implements EnvironmentArranger
+final readonly class BackofficeEnvironmentArranger implements EnvironmentArranger
 {
-    public function __construct(private ElasticsearchClient $elasticsearchClient, private EntityManager $entityManager)
-    {
-    }
+    public function __construct(private ElasticsearchClient $elasticsearchClient, private EntityManager $entityManager) {}
 
     public function arrange(): void
     {
@@ -23,7 +22,5 @@ final class BackofficeEnvironmentArranger implements EnvironmentArranger
         apply(new MySqlDatabaseCleaner(), [$this->entityManager]);
     }
 
-    public function close(): void
-    {
-    }
+    public function close(): void {}
 }

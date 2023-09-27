@@ -16,14 +16,14 @@ use Doctrine\ORM\EntityManager;
 
 final class MySqlDoctrineEventBusTest extends InfrastructureTestCase
 {
-    private MySqlDoctrineEventBus|null             $bus;
+    private MySqlDoctrineEventBus|null $bus;
     private MySqlDoctrineDomainEventsConsumer|null $consumer;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->bus      = new MySqlDoctrineEventBus($this->service(EntityManager::class));
+        $this->bus = new MySqlDoctrineEventBus($this->service(EntityManager::class));
         $this->consumer = new MySqlDoctrineDomainEventsConsumer(
             $this->service(EntityManager::class),
             $this->service(DomainEventMapping::class)
@@ -33,14 +33,17 @@ final class MySqlDoctrineEventBusTest extends InfrastructureTestCase
     /** @test */
     public function it_should_publish_and_consume_domain_events_from_msql(): void
     {
-        $domainEvent        = CourseCreatedDomainEventMother::create();
+        $domainEvent = CourseCreatedDomainEventMother::create();
         $anotherDomainEvent = CoursesCounterIncrementedDomainEventMother::create();
 
         $this->bus->publish($domainEvent, $anotherDomainEvent);
 
         $this->consumer->consume(
-            subscribers: fn (DomainEvent ...$expectedEvents) => $this->assertContainsEquals($domainEvent, $expectedEvents),
-            eventsToConsume:  2
+            subscribers: fn (DomainEvent ...$expectedEvents) => $this->assertContainsEquals(
+                $domainEvent,
+                $expectedEvents
+            ),
+            eventsToConsume: 2
         );
     }
 

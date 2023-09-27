@@ -11,11 +11,9 @@ use CodelyTv\Analytics\DomainEvents\Domain\AnalyticsDomainEventId;
 use CodelyTv\Analytics\DomainEvents\Domain\AnalyticsDomainEventName;
 use CodelyTv\Analytics\DomainEvents\Domain\DomainEventsRepository;
 
-final class DomainEventStorer
+final readonly class DomainEventStorer
 {
-    public function __construct(private readonly DomainEventsRepository $repository)
-    {
-    }
+    public function __construct(private DomainEventsRepository $repository) {}
 
     public function store(
         AnalyticsDomainEventId $id,

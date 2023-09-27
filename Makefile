@@ -49,7 +49,7 @@ static-analysis: composer-env-file
 
 .PHONY: lint
 lint:
-	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/php-cs-fixer fix --config .php-cs-fixer.dist.php --allow-risky=yes --dry-run
+	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/ecs check
 
 .PHONY: run-tests
 run-tests: composer-env-file

@@ -22,12 +22,12 @@ use Throwable;
 final class RabbitMqEventBusTest extends InfrastructureTestCase
 {
     private $connection;
-    private $exchangeName;
-    private $configurer;
-    private $publisher;
-    private $consumer;
-    private $fakeSubscriber;
-    private $consumerHasBeenExecuted;
+    private string $exchangeName;
+    private RabbitMqConfigurer $configurer;
+    private RabbitMqEventBus $publisher;
+    private RabbitMqDomainEventsConsumer $consumer;
+    private TestAllWorksOnRabbitMqEventsPublished $fakeSubscriber;
+    private bool $consumerHasBeenExecuted;
 
     protected function setUp(): void
     {
@@ -35,20 +35,20 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
 
         $this->connection = $this->service(RabbitMqConnection::class);
 
-        $this->exchangeName            = 'test_domain_events';
-        $this->configurer              = new RabbitMqConfigurer($this->connection);
-        $this->publisher               = new RabbitMqEventBus(
+        $this->exchangeName = 'test_domain_events';
+        $this->configurer = new RabbitMqConfigurer($this->connection);
+        $this->publisher = new RabbitMqEventBus(
             $this->connection,
             $this->exchangeName,
             $this->service(MySqlDoctrineEventBus::class)
         );
-        $this->consumer                = new RabbitMqDomainEventsConsumer(
+        $this->consumer = new RabbitMqDomainEventsConsumer(
             $this->connection,
             $this->service(DomainEventJsonDeserializer::class),
             $this->exchangeName,
             $maxRetries = 1
         );
-        $this->fakeSubscriber          = new TestAllWorksOnRabbitMqEventsPublished();
+        $this->fakeSubscriber = new TestAllWorksOnRabbitMqEventsPublished();
         $this->consumerHasBeenExecuted = false;
 
         $this->cleanEnvironment($this->connection);
@@ -145,7 +145,7 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
 
     private function failingConsumer(): callable
     {
-        return static function (DomainEvent $domainEvent): void {
+        return static function (DomainEvent $domainEvent): never {
             throw new RuntimeException('To test');
         };
     }

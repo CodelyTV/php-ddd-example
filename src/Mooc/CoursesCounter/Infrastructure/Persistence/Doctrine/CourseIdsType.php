@@ -8,6 +8,7 @@ use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Shared\Infrastructure\Doctrine\Dbal\DoctrineCustomType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\JsonType;
+
 use function Lambdish\Phunctional\map;
 
 final class CourseIdsType extends JsonType implements DoctrineCustomType

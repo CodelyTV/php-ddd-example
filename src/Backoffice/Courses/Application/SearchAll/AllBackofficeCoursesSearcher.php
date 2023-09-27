@@ -8,13 +8,12 @@ use CodelyTv\Backoffice\Courses\Application\BackofficeCourseResponse;
 use CodelyTv\Backoffice\Courses\Application\BackofficeCoursesResponse;
 use CodelyTv\Backoffice\Courses\Domain\BackofficeCourse;
 use CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository;
+
 use function Lambdish\Phunctional\map;
 
-final class AllBackofficeCoursesSearcher
+final readonly class AllBackofficeCoursesSearcher
 {
-    public function __construct(private readonly BackofficeCourseRepository $repository)
-    {
-    }
+    public function __construct(private BackofficeCourseRepository $repository) {}
 
     public function searchAll(): BackofficeCoursesResponse
     {

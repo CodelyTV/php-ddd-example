@@ -17,34 +17,34 @@ use Twig\Environment;
 abstract class WebController extends ApiController
 {
     public function __construct(
-        private readonly Environment                $twig,
-        private readonly RouterInterface            $router,
-        private readonly RequestStack               $requestStack,
-        QueryBus                           $queryBus,
-        CommandBus                         $commandBus,
+        private readonly Environment $twig,
+        private readonly RouterInterface $router,
+        private readonly RequestStack $requestStack,
+        QueryBus $queryBus,
+        CommandBus $commandBus,
         ApiExceptionsHttpStatusCodeMapping $exceptionHandler
     ) {
         parent::__construct($queryBus, $commandBus, $exceptionHandler);
     }
 
-    public function render(string $templatePath, array $arguments = []): SymfonyResponse
+    final public function render(string $templatePath, array $arguments = []): SymfonyResponse
     {
         return new SymfonyResponse($this->twig->render($templatePath, $arguments));
     }
 
-    public function redirect(string $routeName): RedirectResponse
+    final public function redirect(string $routeName): RedirectResponse
     {
         return new RedirectResponse($this->router->generate($routeName), 302);
     }
 
-    public function redirectWithMessage(string $routeName, string $message): RedirectResponse
+    final public function redirectWithMessage(string $routeName, string $message): RedirectResponse
     {
         $this->addFlashFor('message', [$message]);
 
         return $this->redirect($routeName);
     }
 
-    public function redirectWithErrors(
+    final public function redirectWithErrors(
         string $routeName,
         ConstraintViolationListInterface $errors,
         Request $request

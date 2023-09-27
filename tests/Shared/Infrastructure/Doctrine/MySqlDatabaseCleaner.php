@@ -6,6 +6,7 @@ namespace CodelyTv\Tests\Shared\Infrastructure\Doctrine;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManagerInterface;
+
 use function Lambdish\Phunctional\first;
 use function Lambdish\Phunctional\map;
 
@@ -15,7 +16,7 @@ final class MySqlDatabaseCleaner
     {
         $connection = $entityManager->getConnection();
 
-        $tables            = $this->tables($connection);
+        $tables = $this->tables($connection);
         $truncateTablesSql = $this->truncateDatabaseSql($tables);
 
         $connection->exec($truncateTablesSql);

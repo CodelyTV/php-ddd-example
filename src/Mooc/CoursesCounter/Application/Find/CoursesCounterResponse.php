@@ -6,11 +6,9 @@ namespace CodelyTv\Mooc\CoursesCounter\Application\Find;
 
 use CodelyTv\Shared\Domain\Bus\Query\Response;
 
-final class CoursesCounterResponse implements Response
+final readonly class CoursesCounterResponse implements Response
 {
-    public function __construct(private readonly int $total)
-    {
-    }
+    public function __construct(private int $total) {}
 
     public function total(): int
     {

@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace CodelyTv\Backoffice\Auth\Domain;
 
-final class AuthUser
+final readonly class AuthUser
 {
-    public function __construct(private readonly AuthUsername $username, private readonly AuthPassword $password)
-    {
-    }
+    public function __construct(private AuthUsername $username, private AuthPassword $password) {}
 
     public function passwordMatches(AuthPassword $password): bool
     {

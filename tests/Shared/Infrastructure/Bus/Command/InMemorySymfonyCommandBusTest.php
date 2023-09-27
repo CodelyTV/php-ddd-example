@@ -40,8 +40,8 @@ final class InMemorySymfonyCommandBusTest extends UnitTestCase
 
     private function commandHandler(): object
     {
-        return new class () {
-            public function __invoke(FakeCommand $command): void
+        return new class() {
+            public function __invoke(FakeCommand $command): never
             {
                 throw new RuntimeException('This works fine!');
             }

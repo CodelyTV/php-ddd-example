@@ -11,6 +11,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+
 use function Lambdish\Phunctional\repeat;
 
 final class ConsumeRabbitMqDomainEventsCommand extends Command
@@ -18,9 +19,9 @@ final class ConsumeRabbitMqDomainEventsCommand extends Command
     protected static $defaultName = 'codelytv:domain-events:rabbitmq:consume';
 
     public function __construct(
-        private RabbitMqDomainEventsConsumer $consumer,
-        private DatabaseConnections $connections,
-        private DomainEventSubscriberLocator $locator
+        private readonly RabbitMqDomainEventsConsumer $consumer,
+        private readonly DatabaseConnections $connections,
+        private readonly DomainEventSubscriberLocator $locator
     ) {
         parent::__construct();
     }
@@ -35,7 +36,7 @@ final class ConsumeRabbitMqDomainEventsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $queueName       = (string) $input->getArgument('queue');
+        $queueName = (string) $input->getArgument('queue');
         $eventsToProcess = (int) $input->getArgument('quantity');
 
         repeat($this->consumer($queueName), $eventsToProcess);
