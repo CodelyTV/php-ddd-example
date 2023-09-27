@@ -6,6 +6,7 @@ namespace CodelyTv\Tests\Shared\Domain;
 
 use ReflectionObject;
 use ReflectionProperty;
+
 use function Lambdish\Phunctional\each;
 
 final class DuplicatorMother

@@ -11,6 +11,7 @@ use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\FetchMode;
 use Doctrine\ORM\EntityManager;
 use RuntimeException;
+
 use function Lambdish\Phunctional\each;
 use function Lambdish\Phunctional\map;
 

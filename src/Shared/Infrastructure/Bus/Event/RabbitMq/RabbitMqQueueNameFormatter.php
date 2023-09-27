@@ -6,6 +6,7 @@ namespace CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 use CodelyTv\Shared\Domain\Utils;
+
 use function Lambdish\Phunctional\last;
 use function Lambdish\Phunctional\map;
 

@@ -9,6 +9,7 @@ use LogicException;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionNamedType;
+
 use function Lambdish\Phunctional\map;
 use function Lambdish\Phunctional\reduce;
 use function Lambdish\Phunctional\reindex;

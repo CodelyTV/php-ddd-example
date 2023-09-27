@@ -11,6 +11,7 @@ use CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository;
 use CodelyTv\Shared\Domain\Criteria\Criteria;
 use CodelyTv\Shared\Domain\Criteria\Filters;
 use CodelyTv\Shared\Domain\Criteria\Order;
+
 use function Lambdish\Phunctional\map;
 
 final readonly class BackofficeCoursesByCriteriaSearcher

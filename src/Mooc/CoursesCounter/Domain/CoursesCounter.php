@@ -6,6 +6,7 @@ namespace CodelyTv\Mooc\CoursesCounter\Domain;
 
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
+
 use function Lambdish\Phunctional\search;
 
 final class CoursesCounter extends AggregateRoot

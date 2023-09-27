@@ -7,6 +7,7 @@ namespace CodelyTv\Shared\Infrastructure\Persistence\Elasticsearch;
 use CodelyTv\Shared\Domain\Criteria\Criteria;
 use CodelyTv\Shared\Infrastructure\Elasticsearch\ElasticsearchClient;
 use Elasticsearch\Common\Exceptions\Missing404Exception;
+
 use function Lambdish\Phunctional\get_in;
 use function Lambdish\Phunctional\map;
 

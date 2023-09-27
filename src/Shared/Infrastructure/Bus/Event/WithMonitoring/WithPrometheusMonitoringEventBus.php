@@ -7,6 +7,7 @@ namespace CodelyTv\Shared\Infrastructure\Bus\Event\WithMonitoring;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 use CodelyTv\Shared\Infrastructure\Monitoring\PrometheusMonitor;
+
 use function Lambdish\Phunctional\each;
 
 final readonly class WithPrometheusMonitoringEventBus implements EventBus

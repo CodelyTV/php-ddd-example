@@ -8,6 +8,7 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Tests\Shared\Domain\TestUtils;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
+
 use function Lambdish\Phunctional\all;
 use function Lambdish\Phunctional\any;
 use function Lambdish\Phunctional\instance_of;

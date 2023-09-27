@@ -9,6 +9,7 @@ use AMQPQueue;
 use AMQPQueueException;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventJsonDeserializer;
 use Throwable;
+
 use function Lambdish\Phunctional\assoc;
 use function Lambdish\Phunctional\get;
 

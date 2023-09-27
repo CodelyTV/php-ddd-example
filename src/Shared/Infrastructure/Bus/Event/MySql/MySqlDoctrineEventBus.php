@@ -9,6 +9,7 @@ use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 use CodelyTv\Shared\Domain\Utils;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManager;
+
 use function Lambdish\Phunctional\each;
 
 final class MySqlDoctrineEventBus implements EventBus

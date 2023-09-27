@@ -9,6 +9,7 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventJsonSerializer;
 use CodelyTv\Shared\Infrastructure\Bus\Event\MySql\MySqlDoctrineEventBus;
+
 use function Lambdish\Phunctional\each;
 
 final readonly class RabbitMqEventBus implements EventBus

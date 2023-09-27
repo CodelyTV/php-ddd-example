@@ -8,6 +8,7 @@ use CodelyTv\Backoffice\Courses\Application\BackofficeCourseResponse;
 use CodelyTv\Backoffice\Courses\Application\BackofficeCoursesResponse;
 use CodelyTv\Backoffice\Courses\Domain\BackofficeCourse;
 use CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository;
+
 use function Lambdish\Phunctional\map;
 
 final readonly class AllBackofficeCoursesSearcher

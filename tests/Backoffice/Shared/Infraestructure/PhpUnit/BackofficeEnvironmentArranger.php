@@ -9,6 +9,7 @@ use CodelyTv\Tests\Shared\Infrastructure\Arranger\EnvironmentArranger;
 use CodelyTv\Tests\Shared\Infrastructure\Doctrine\MySqlDatabaseCleaner;
 use CodelyTv\Tests\Shared\Infrastructure\Elastic\ElasticDatabaseCleaner;
 use Doctrine\ORM\EntityManager;
+
 use function Lambdish\Phunctional\apply;
 
 final readonly class BackofficeEnvironmentArranger implements EnvironmentArranger
