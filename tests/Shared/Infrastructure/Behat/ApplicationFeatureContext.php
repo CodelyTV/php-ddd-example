@@ -10,7 +10,7 @@ use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventJsonDeserializer;
 use CodelyTv\Shared\Infrastructure\Bus\Event\InMemory\InMemorySymfonyEventBus;
 use CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections;
 
-final class ApplicationFeatureContext implements Context
+final readonly class ApplicationFeatureContext implements Context
 {
     public function __construct(
         private DatabaseConnections $connections,

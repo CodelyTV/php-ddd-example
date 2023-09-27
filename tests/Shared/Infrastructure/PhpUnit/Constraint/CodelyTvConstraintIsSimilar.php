@@ -14,13 +14,14 @@ use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\ExpectationFailedException;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\Factory;
+
 use function is_string;
 use function sprintf;
 
 // Based on \PHPUnit\Framework\Constraint\IsEqual
 final class CodelyTvConstraintIsSimilar extends Constraint
 {
-    public function __construct(private $value, private float $delta = 0.0)
+    public function __construct(private $value, private readonly float $delta = 0.0)
     {
     }
 

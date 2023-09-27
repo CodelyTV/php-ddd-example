@@ -7,9 +7,9 @@ namespace CodelyTv\Mooc\CoursesCounter\Application\Find;
 use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterNotExist;
 use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterRepository;
 
-final class CoursesCounterFinder
+final readonly class CoursesCounterFinder
 {
-    public function __construct(private readonly CoursesCounterRepository $repository)
+    public function __construct(private CoursesCounterRepository $repository)
     {
     }
 

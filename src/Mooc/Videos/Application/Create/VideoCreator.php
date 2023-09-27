@@ -13,9 +13,9 @@ use CodelyTv\Mooc\Videos\Domain\VideoTitle;
 use CodelyTv\Mooc\Videos\Domain\VideoType;
 use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 
-final class VideoCreator
+final readonly class VideoCreator
 {
-    public function __construct(private readonly VideoRepository $repository, private readonly EventBus $bus)
+    public function __construct(private VideoRepository $repository, private EventBus $bus)
     {
     }
 

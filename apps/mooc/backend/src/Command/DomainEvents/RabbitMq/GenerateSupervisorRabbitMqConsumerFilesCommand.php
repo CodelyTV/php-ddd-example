@@ -11,6 +11,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+
 use function Lambdish\Phunctional\each;
 
 final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
@@ -20,7 +21,7 @@ final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
     private const SUPERVISOR_PATH                     = __DIR__ . '/../../../../build/supervisor';
     protected static $defaultName = 'codelytv:domain-events:rabbitmq:generate-supervisor-files';
 
-    public function __construct(private DomainEventSubscriberLocator $locator)
+    public function __construct(private readonly DomainEventSubscriberLocator $locator)
     {
         parent::__construct();
     }

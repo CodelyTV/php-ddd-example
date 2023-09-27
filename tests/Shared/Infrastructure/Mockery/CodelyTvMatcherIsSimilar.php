@@ -7,9 +7,9 @@ namespace CodelyTv\Tests\Shared\Infrastructure\Mockery;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Constraint\CodelyTvConstraintIsSimilar;
 use Mockery\Matcher\MatcherAbstract;
 
-final class CodelyTvMatcherIsSimilar extends MatcherAbstract
+final class CodelyTvMatcherIsSimilar extends MatcherAbstract implements \Stringable
 {
-    private CodelyTvConstraintIsSimilar $constraint;
+    private readonly CodelyTvConstraintIsSimilar $constraint;
 
     public function __construct($value, $delta = 0.0)
     {

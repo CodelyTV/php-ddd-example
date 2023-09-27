@@ -8,9 +8,9 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Utils;
 use RuntimeException;
 
-final class DomainEventJsonDeserializer
+final readonly class DomainEventJsonDeserializer
 {
-    public function __construct(private readonly DomainEventMapping $mapping)
+    public function __construct(private DomainEventMapping $mapping)
     {
     }
 

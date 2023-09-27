@@ -9,6 +9,7 @@ use CodelyTv\Shared\Infrastructure\Bus\CallableFirstParameterExtractor;
 use CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqQueueNameFormatter;
 use RuntimeException;
 use Traversable;
+
 use function Lambdish\Phunctional\search;
 
 final class DomainEventSubscriberLocator

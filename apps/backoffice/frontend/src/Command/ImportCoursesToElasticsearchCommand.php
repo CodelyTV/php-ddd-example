@@ -13,8 +13,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 final class ImportCoursesToElasticsearchCommand extends Command
 {
     public function __construct(
-        private MySqlBackofficeCourseRepository $mySqlRepository,
-        private ElasticsearchBackofficeCourseRepository $elasticRepository
+        private readonly MySqlBackofficeCourseRepository $mySqlRepository,
+        private readonly ElasticsearchBackofficeCourseRepository $elasticRepository
     ) {
         parent::__construct();
     }

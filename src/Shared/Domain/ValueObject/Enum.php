@@ -7,6 +7,7 @@ namespace CodelyTv\Shared\Domain\ValueObject;
 use CodelyTv\Shared\Domain\Utils;
 use ReflectionClass;
 use Stringable;
+
 use function in_array;
 use function Lambdish\Phunctional\reindex;
 

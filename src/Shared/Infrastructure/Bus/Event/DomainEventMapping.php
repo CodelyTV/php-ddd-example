@@ -6,6 +6,7 @@ namespace CodelyTv\Shared\Infrastructure\Bus\Event;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 use RuntimeException;
+
 use function Lambdish\Phunctional\reduce;
 use function Lambdish\Phunctional\reindex;
 

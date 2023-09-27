@@ -22,7 +22,7 @@ abstract class InfrastructureTestCase extends KernelTestCase
         parent::setUp();
     }
 
-    protected function assertSimilar($expected, $actual): void
+    protected function assertSimilar(mixed $expected, mixed $actual): void
     {
         TestUtils::assertSimilar($expected, $actual);
     }

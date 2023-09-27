@@ -10,9 +10,10 @@ use CodelyTv\Backoffice\Courses\Application\SearchByCriteria\SearchBackofficeCou
 use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+
 use function Lambdish\Phunctional\map;
 
-final class CoursesGetController
+final readonly class CoursesGetController
 {
     public function __construct(private QueryBus $queryBus)
     {

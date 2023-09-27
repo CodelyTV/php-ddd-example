@@ -7,14 +7,15 @@ namespace CodelyTv\Shared\Infrastructure\Bus\Event\WithMonitoring;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 use CodelyTv\Shared\Infrastructure\Monitoring\PrometheusMonitor;
+
 use function Lambdish\Phunctional\each;
 
-final class WithPrometheusMonitoringEventBus implements EventBus
+final readonly class WithPrometheusMonitoringEventBus implements EventBus
 {
     public function __construct(
-        private readonly PrometheusMonitor $monitor,
-        private readonly string $appName,
-        private readonly EventBus $bus
+        private PrometheusMonitor $monitor,
+        private string $appName,
+        private EventBus $bus
     ) {
     }
 

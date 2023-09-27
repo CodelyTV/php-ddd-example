@@ -12,7 +12,7 @@ use Mockery\MockInterface;
 
 abstract class CoursesModuleUnitTestCase extends UnitTestCase
 {
-    private CourseRepository|MockInterface|null $repository;
+    private CourseRepository|MockInterface|null $repository = null;
 
     protected function shouldSave(Course $course): void
     {
@@ -34,6 +34,6 @@ abstract class CoursesModuleUnitTestCase extends UnitTestCase
 
     protected function repository(): CourseRepository|MockInterface
     {
-        return $this->repository = $this->repository ?? $this->mock(CourseRepository::class);
+        return $this->repository ??= $this->mock(CourseRepository::class);
     }
 }

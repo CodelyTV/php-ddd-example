@@ -13,6 +13,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver;
 use Doctrine\ORM\ORMSetup;
 use RuntimeException;
+
 use function Lambdish\Phunctional\dissoc;
 
 final class DoctrineEntityManagerFactory

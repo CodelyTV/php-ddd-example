@@ -9,11 +9,11 @@ use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Mooc\Videos\Domain\VideoRepository;
 use CodelyTv\Mooc\Videos\Domain\VideoTitle;
 
-final class VideoTitleUpdater
+final readonly class VideoTitleUpdater
 {
-    private readonly VideoFinder $finder;
+    private VideoFinder $finder;
 
-    public function __construct(private readonly VideoRepository $repository)
+    public function __construct(private VideoRepository $repository)
     {
         $this->finder = new VideoFinder($repository);
     }

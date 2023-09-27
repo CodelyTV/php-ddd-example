@@ -11,7 +11,7 @@ final class IntegerMother
         return self::between(1);
     }
 
-    public static function between(int $min, $max = PHP_INT_MAX): int
+    public static function between(int $min, int $max = PHP_INT_MAX): int
     {
         return MotherCreator::random()->numberBetween($min, $max);
     }

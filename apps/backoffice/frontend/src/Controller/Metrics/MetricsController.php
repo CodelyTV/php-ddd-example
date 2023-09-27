@@ -9,7 +9,7 @@ use Prometheus\RenderTextFormat;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-final class MetricsController
+final readonly class MetricsController
 {
     public function __construct(private PrometheusMonitor $monitor)
     {

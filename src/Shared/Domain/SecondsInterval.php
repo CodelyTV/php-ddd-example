@@ -6,9 +6,9 @@ namespace CodelyTv\Shared\Domain;
 
 use DomainException;
 
-final class SecondsInterval
+final readonly class SecondsInterval
 {
-    public function __construct(private readonly Second $from, private readonly Second $to)
+    public function __construct(private Second $from, private Second $to)
     {
         $this->ensureIntervalEndsAfterStart($from, $to);
     }

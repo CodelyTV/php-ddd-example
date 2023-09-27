@@ -22,12 +22,12 @@ use Throwable;
 final class RabbitMqEventBusTest extends InfrastructureTestCase
 {
     private $connection;
-    private $exchangeName;
-    private $configurer;
-    private $publisher;
-    private $consumer;
-    private $fakeSubscriber;
-    private $consumerHasBeenExecuted;
+    private string $exchangeName;
+    private RabbitMqConfigurer $configurer;
+    private RabbitMqEventBus $publisher;
+    private RabbitMqDomainEventsConsumer $consumer;
+    private TestAllWorksOnRabbitMqEventsPublished $fakeSubscriber;
+    private bool $consumerHasBeenExecuted;
 
     protected function setUp(): void
     {
@@ -145,7 +145,7 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
 
     private function failingConsumer(): callable
     {
-        return static function (DomainEvent $domainEvent): void {
+        return static function (DomainEvent $domainEvent): never {
             throw new RuntimeException('To test');
         };
     }

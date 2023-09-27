@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Shared\Infrastructure\Persistence\Elasticsearch;
 
 use CodelyTv\Shared\Domain\Criteria\Criteria;
+
 use function Lambdish\Phunctional\reduce;
 
 final class ElasticsearchCriteriaConverter

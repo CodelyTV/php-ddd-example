@@ -6,11 +6,12 @@ namespace CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq;
 
 use AMQPQueue;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
+
 use function Lambdish\Phunctional\each;
 
-final class RabbitMqConfigurer
+final readonly class RabbitMqConfigurer
 {
-    public function __construct(private readonly RabbitMqConnection $connection)
+    public function __construct(private RabbitMqConnection $connection)
     {
     }
 

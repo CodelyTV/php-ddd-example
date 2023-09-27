@@ -12,9 +12,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 
-final class BasicHttpAuthMiddleware
+final readonly class BasicHttpAuthMiddleware
 {
-    public function __construct(private readonly CommandBus $bus)
+    public function __construct(private CommandBus $bus)
     {
     }
 

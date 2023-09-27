@@ -7,6 +7,7 @@ namespace CodelyTv\Shared\Infrastructure\Doctrine;
 use CodelyTv\Shared\Domain\Utils;
 use CodelyTv\Tests\Shared\Infrastructure\Doctrine\MySqlDatabaseCleaner;
 use Doctrine\ORM\EntityManager;
+
 use function Lambdish\Phunctional\apply;
 use function Lambdish\Phunctional\each;
 

@@ -7,6 +7,7 @@ namespace CodelyTv\Backoffice\Courses\Infrastructure\Persistence;
 use CodelyTv\Backoffice\Courses\Domain\BackofficeCourse;
 use CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository;
 use CodelyTv\Shared\Domain\Criteria\Criteria;
+
 use function Lambdish\Phunctional\get;
 
 final class InMemoryCacheBackofficeCourseRepository implements BackofficeCourseRepository
