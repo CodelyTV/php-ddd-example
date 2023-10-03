@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: docker-compose pull
+      - run: docker compose pull
 
       - name: 🎻 Install dependencies
         run: make composer-install
