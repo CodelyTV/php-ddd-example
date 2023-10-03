@@ -10,6 +10,8 @@
     <exclude-pattern>src/Shared/Infrastructure/Symfony/AddJsonBodyToRequestListener.php</exclude-pattern>
     <!-- Fix ExcessiveClassLength -->
     <exclude-pattern>tests/Shared/Infrastructure/Bus/Event/RabbitMq/RabbitMqEventBusTest.php</exclude-pattern>
+    <!-- Fix TooManyMethods -->
+    <exclude-pattern>tests/Shared/Infrastructure/PhpUnit/UnitTestCase.php</exclude-pattern>
 
     <rule ref="rulesets/cleancode.xml/BooleanArgumentFlag"/>
 
@@ -31,6 +33,11 @@
     <rule ref="rulesets/codesize.xml/ExcessiveParameterList">
         <properties>
             <property name="minimum" value="10"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/TooManyMethods">
+        <properties>
+            <property name="maxmethods" value="10"/>
         </properties>
     </rule>
 </ruleset>
