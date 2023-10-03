@@ -42,8 +42,13 @@ abstract class InfrastructureTestCase extends KernelTestCase
         $this->service(EntityManager::class)->clear();
     }
 
-    protected function eventually(callable $fn, $totalRetries = 3, $timeToWaitOnErrorInSeconds = 1, $attempt = 0): void
-    {
+    /** @param int<0, max> $timeToWaitOnErrorInSeconds */
+    protected function eventually(
+        callable $fn,
+        int $totalRetries = 3,
+        int $timeToWaitOnErrorInSeconds = 1,
+        int $attempt = 0
+    ): void {
         try {
             $fn();
         } catch (Throwable $error) {

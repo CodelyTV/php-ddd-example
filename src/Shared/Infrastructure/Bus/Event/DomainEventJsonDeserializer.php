@@ -6,7 +6,6 @@ namespace CodelyTv\Shared\Infrastructure\Bus\Event;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Domain\Utils;
-use RuntimeException;
 
 final readonly class DomainEventJsonDeserializer
 {
@@ -17,10 +16,6 @@ final readonly class DomainEventJsonDeserializer
         $eventData = Utils::jsonDecode($domainEvent);
         $eventName = $eventData['data']['type'];
         $eventClass = $this->mapping->for($eventName);
-
-        if ($eventClass === null) {
-            throw new RuntimeException("The event <$eventName> doesn't exist or has no subscribers");
-        }
 
         return $eventClass::fromPrimitives(
             $eventData['data']['attributes']['id'],

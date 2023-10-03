@@ -12,14 +12,14 @@ use function Lambdish\Phunctional\reindex;
 
 final class DomainEventMapping
 {
-    private $mapping;
+    private array $mapping;
 
     public function __construct(iterable $mapping)
     {
         $this->mapping = reduce($this->eventsExtractor(), $mapping, []);
     }
 
-    public function for(string $name)
+    public function for(string $name): string
     {
         if (!isset($this->mapping[$name])) {
             throw new RuntimeException("The Domain Event Class for <$name> doesn't exists or have no subscribers");

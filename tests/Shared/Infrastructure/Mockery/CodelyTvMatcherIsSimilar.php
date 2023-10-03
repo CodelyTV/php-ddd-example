@@ -12,7 +12,7 @@ final class CodelyTvMatcherIsSimilar extends MatcherAbstract implements Stringab
 {
     private readonly CodelyTvConstraintIsSimilar $constraint;
 
-    public function __construct($value, $delta = 0.0)
+    public function __construct(mixed $value, float $delta = 0.0)
     {
         parent::__construct($value);
 

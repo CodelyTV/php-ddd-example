@@ -28,8 +28,8 @@ final readonly class CoursesGetController
         $response = $this->queryBus->ask(
             new SearchBackofficeCoursesByCriteriaQuery(
                 (array) $request->query->get('filters'),
-                $orderBy === null ? null : (string) $orderBy,
-                $order === null ? null : (string) $order,
+                $orderBy === null ? null : $orderBy,
+                $order === null ? null : $order,
                 $limit === null ? null : (int) $limit,
                 $offset === null ? null : (int) $offset
             )

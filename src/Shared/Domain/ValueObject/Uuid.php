@@ -10,7 +10,7 @@ use Stringable;
 
 abstract class Uuid implements Stringable
 {
-    public function __construct(protected string $value)
+    final public function __construct(protected string $value)
     {
         $this->ensureIsValidUuid($value);
     }

@@ -38,7 +38,7 @@ final class MySqlDoctrineEventBus implements EventBus
                 Utils::stringToDate($domainEvent->occurredOn())->format(self::DATABASE_TIMESTAMP_FORMAT)
             );
 
-            $this->connection->executeUpdate(
+            $this->connection->executeStatement(
                 <<<SQL
                                     INSERT INTO domain_events (id,  aggregate_id, name,  body,  occurred_on) 
                                                        VALUES ($id, $aggregateId, $name, $body, $occurredOn);

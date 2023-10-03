@@ -3,10 +3,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
-    errorLevel="3"
+    errorLevel="2"
     resolveFromConfigFile="true"
     findUnusedBaselineEntry="false"
     findUnusedCode="false"
+    allowStringToStandInForClass="true"
 >
     <projectFiles>
         <directory name="apps"/>
@@ -44,15 +45,26 @@
                 <directory name="tests"/>
             </errorLevel>
         </PossiblyNullArgument>
+        <PropertyNotSetInConstructor>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </PropertyNotSetInConstructor>
         <MoreSpecificReturnType>
             <errorLevel type="suppress">
                 <file name="apps/*/*/src/*Kernel.php"/>
             </errorLevel>
         </MoreSpecificReturnType>
+        <UnresolvableInclude>
+            <errorLevel type="suppress">
+                <file name="apps/*/*/src/*Kernel.php"/>
+            </errorLevel>
+        </UnresolvableInclude>
     </issueHandlers>
 
     <plugins>
         <pluginClass class="Psalm\MockeryPlugin\Plugin"/>
         <pluginClass class="Psalm\SymfonyPsalmPlugin\Plugin"/>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
     </plugins>
 </psalm>

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Shared\Infrastructure\Doctrine;
 
 use CodelyTv\Shared\Infrastructure\Doctrine\Dbal\DbalCustomTypesRegistrar;
+use Doctrine\Common\EventManager;
 use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Platforms\MariaDBPlatform;
 use Doctrine\DBAL\Schema\MySQLSchemaManager;
@@ -35,7 +36,9 @@ final class DoctrineEntityManagerFactory
 
         DbalCustomTypesRegistrar::register($dbalCustomTypesClasses);
 
-        return EntityManager::create($parameters, self::createConfiguration($contextPrefixes, $isDevMode));
+        $config = self::createConfiguration($contextPrefixes, $isDevMode);
+
+        return new EntityManager(DriverManager::getConnection($parameters, $config, new EventManager()), $config);
     }
 
     private static function generateDatabaseIfNotExists(array $parameters, string $schemaFile): void
@@ -51,14 +54,14 @@ final class DoctrineEntityManagerFactory
         if (!self::databaseExists($databaseName, $schemaManager)) {
             $schemaManager->createDatabase($databaseName);
 
-            $connection->exec(sprintf('USE %s', $databaseName));
-            $connection->exec(file_get_contents(realpath($schemaFile)));
+            $connection->executeStatement(sprintf('USE %s', $databaseName));
+            $connection->executeStatement(file_get_contents(realpath($schemaFile)));
         }
 
         $connection->close();
     }
 
-    private static function databaseExists($databaseName, MySqlSchemaManager $schemaManager): bool
+    private static function databaseExists(string $databaseName, MySqlSchemaManager $schemaManager): bool
     {
         return in_array($databaseName, $schemaManager->listDatabases(), true);
     }

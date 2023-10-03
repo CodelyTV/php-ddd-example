@@ -87,17 +87,17 @@ abstract class UnitTestCase extends MockeryTestCase
         $queryHandler($query);
     }
 
-    protected function isSimilar($expected, $actual): bool
+    protected function isSimilar(mixed $expected, mixed $actual): bool
     {
         return TestUtils::isSimilar($expected, $actual);
     }
 
-    protected function assertSimilar($expected, $actual): void
+    protected function assertSimilar(mixed $expected, mixed $actual): void
     {
         TestUtils::assertSimilar($expected, $actual);
     }
 
-    protected function similarTo($value, $delta = 0.0): MatcherAbstract
+    protected function similarTo(mixed $value, float $delta = 0.0): MatcherAbstract
     {
         return TestUtils::similarTo($value, $delta);
     }
