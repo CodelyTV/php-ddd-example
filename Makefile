@@ -13,16 +13,16 @@ test:
 	docker exec codely-php_ddd_skeleton-backoffice_backend-php ./vendor/bin/phpunit --testsuite backoffice
 
 static-analysis:
-	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/psalm
+	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/psalm --output-format=github
 
 lint:
 	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/ecs check
 
 test-architecture:
-	docker exec codely-php_ddd_skeleton-mooc_backend-php php -d memory_limit=4G ./vendor/bin/phpstan analyse
+	docker exec codely-php_ddd_skeleton-mooc_backend-php php -d memory_limit=4G ./vendor/bin/phpstan analyse --error-format=github
 
 mess-detector:
-	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpmd apps,src,tests text phpmd.xml
+	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpmd apps,src,tests github phpmd.xml
 
 start:
 	@if [ ! -f .env.local ]; then echo '' > .env.local; fi
