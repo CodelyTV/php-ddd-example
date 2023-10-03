@@ -78,6 +78,7 @@ abstract class UnitTestCase extends MockeryTestCase
         $this->assertEquals($expected, $actual);
     }
 
+    /** @param class-string<\Throwable> $expectedErrorClass */
     protected function assertAskThrowsException(string $expectedErrorClass, Query $query, callable $queryHandler): void
     {
         $this->expectException($expectedErrorClass);
