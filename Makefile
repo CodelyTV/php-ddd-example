@@ -13,7 +13,7 @@ test:
 	docker exec codely-php_ddd_skeleton-backoffice_backend-php ./vendor/bin/phpunit --testsuite backoffice
 
 static-analysis:
-	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/psalm -c psalm.xml
+	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/psalm
 
 lint:
 	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/ecs check
@@ -21,6 +21,7 @@ lint:
 start:
 	@if [ ! -f .env.local ]; then echo '' > .env.local; fi
 	UID=${shell id -u} GID=${shell id -g} docker compose up --build -d
+	make clean-cache
 
 stop:
 	UID=${shell id -u} GID=${shell id -g} docker compose stop
