@@ -21,7 +21,7 @@ final class OrderMother
         return Order::none();
     }
 
-    private static function randomOrderType(): Order
+    private static function randomOrderType(): OrderType
     {
         return RandomElementPicker::from(OrderType::ASC, OrderType::DESC, OrderType::NONE);
     }

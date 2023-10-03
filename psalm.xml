@@ -50,6 +50,26 @@
                 <directory name="tests"/>
             </errorLevel>
         </PropertyNotSetInConstructor>
+        <MixedMethodCall>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </MixedMethodCall>
+        <MixedAssignment>
+            <errorLevel type="suppress">
+                <file name="tests/Shared/Infrastructure/PhpUnit/Comparator/*SimilarComparator.php"/>
+            </errorLevel>
+        </MixedAssignment>
+        <MixedArgument>
+            <errorLevel type="suppress">
+                <file name="tests/Shared/Infrastructure/PhpUnit/Comparator/*SimilarComparator.php"/>
+            </errorLevel>
+        </MixedArgument>
+        <MixedClone>
+            <errorLevel type="suppress">
+                <file name="tests/Shared/Infrastructure/PhpUnit/Comparator/*SimilarComparator.php"/>
+            </errorLevel>
+        </MixedClone>
         <MoreSpecificReturnType>
             <errorLevel type="suppress">
                 <file name="apps/*/*/src/*Kernel.php"/>

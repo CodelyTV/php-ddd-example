@@ -16,6 +16,7 @@ final class ElasticDatabaseCleaner
 
         each(
             static function (array $index) use ($client): void {
+                /** @var string $indexName */
                 $indexName = $index['index'];
 
                 $client->client()->indices()->delete(['index' => $indexName]);

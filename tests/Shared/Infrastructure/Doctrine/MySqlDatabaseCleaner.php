@@ -24,6 +24,7 @@ final class MySqlDatabaseCleaner
 
     private function truncateDatabaseSql(array $tables): string
     {
+        /** @var array<int, string> $truncateTables */
         $truncateTables = map($this->truncateTableSql(), $tables);
 
         return sprintf('SET FOREIGN_KEY_CHECKS = 0; %s SET FOREIGN_KEY_CHECKS = 1;', implode(' ', $truncateTables));

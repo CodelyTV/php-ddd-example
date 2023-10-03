@@ -6,8 +6,18 @@ namespace CodelyTv\Tests\Shared\Domain;
 
 final class RandomElementPicker
 {
+    /**
+     * @template T
+     *
+     * @psalm-param T ...$elements
+     *
+     * @psalm-return T
+     */
     public static function from(mixed ...$elements): mixed
     {
-        return MotherCreator::random()->randomElement($elements);
+        /** @var T $randomElement */
+        $randomElement = MotherCreator::random()->randomElement($elements);
+
+        return $randomElement;
     }
 }

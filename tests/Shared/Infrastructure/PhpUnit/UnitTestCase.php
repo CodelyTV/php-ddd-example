@@ -74,6 +74,7 @@ abstract class UnitTestCase extends MockeryTestCase
 
     protected function assertAskResponse(Response $expected, Query $query, callable $queryHandler): void
     {
+        /** @var Response $actual */
         $actual = $queryHandler($query);
 
         $this->assertEquals($expected, $actual);
