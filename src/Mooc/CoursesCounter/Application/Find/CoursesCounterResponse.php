@@ -10,7 +10,7 @@ final readonly class CoursesCounterResponse implements Response
 {
     public function __construct(private int $total) {}
 
-    public function total()
+    public function total(): int
     {
         return $this->total;
     }
