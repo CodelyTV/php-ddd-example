@@ -33,5 +33,6 @@
 
     <plugins>
         <pluginClass class="Psalm\MockeryPlugin\Plugin"/>
+        <pluginClass class="Psalm\SymfonyPsalmPlugin\Plugin"/>
     </plugins>
 </psalm>
