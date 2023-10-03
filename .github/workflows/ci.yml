@@ -28,6 +28,9 @@ jobs:
       - name: 🏁 Static analysis
         run: make static-analysis
 
+      - name: 🏗️ Architecture
+        run: make test-architecture
+
       - name: 🦭 Wait for the database to get up
         run: |
           while ! make ping-mysql &>/dev/null; do
