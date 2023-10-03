@@ -4,7 +4,7 @@
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
     errorLevel="4"
-    resolveFromConfigFile="false"
+    resolveFromConfigFile="true"
     findUnusedBaselineEntry="false"
     findUnusedCode="false"
 >
@@ -13,7 +13,7 @@
         <directory name="src" />
         <directory name="tests" />
         <ignoreFiles>
-            <directory name="apps/**/**/var" />
+            <directory name="apps/*/*/var" />
             <directory name="vendor" />
             <directory name="src/Shared/Infrastructure/Bus/Event/RabbitMq" />
             <directory name="src/Shared/Infrastructure/Symfony" />

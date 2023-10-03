@@ -45,6 +45,4 @@ ping-rabbitmq:
 
 clean-cache:
 	@rm -rf apps/*/*/var
-	@docker exec codely-php_ddd_skeleton-backoffice_backend-php ./apps/backoffice/backend/bin/console cache:warmup
-	@docker exec codely-php_ddd_skeleton-backoffice_frontend-php ./apps/backoffice/frontend/bin/console cache:warmup
 	@docker exec codely-php_ddd_skeleton-mooc_backend-php ./apps/mooc/backend/bin/console cache:warmup
