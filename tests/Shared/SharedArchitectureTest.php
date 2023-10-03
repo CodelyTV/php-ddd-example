@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace CodelyTv\Tests\Shared;
 
 use CodelyTv\Backoffice\Auth\Application\Authenticate\AuthenticateUserCommand;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
+use CodelyTv\Shared\Domain\Bus\Query\Response;
 use CodelyTv\Tests\Shared\Infrastructure\ArchitectureTest;
 use CodelyTv\Tests\Shared\Infrastructure\Doctrine\MySqlDatabaseCleaner;
 use PHPat\Selector\Selector;
@@ -41,5 +43,19 @@ final class SharedArchitectureTest
                 Selector::classname(MySqlDatabaseCleaner::class),
                 Selector::classname(AuthenticateUserCommand::class),
             );
+    }
+
+    public function test_all_use_cases_can_only_have_one_public_method(): Rule
+    {
+        return PHPat::rule()
+            ->classes(
+                Selector::classname('/^CodelyTv\\\\.+\\\\.+\\\\Application\\\\.+\\\\(?!.*(?:Command|Query)$).*$/', true)
+            )
+            ->excluding(
+                Selector::implements(Response::class),
+                Selector::implements(DomainEventSubscriber::class),
+                Selector::inNamespace('/.*\\\\Tests\\\\.*/', true)
+            )
+            ->shouldHaveOnlyOnePublicMethod();
     }
 }
