@@ -3,23 +3,56 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
-    errorLevel="4"
+    errorLevel="3"
     resolveFromConfigFile="true"
     findUnusedBaselineEntry="false"
     findUnusedCode="false"
 >
     <projectFiles>
-        <directory name="apps" />
-        <directory name="src" />
-        <directory name="tests" />
+        <directory name="apps"/>
+        <directory name="src"/>
+        <directory name="tests"/>
         <ignoreFiles>
-            <directory name="apps/*/*/var" />
-            <directory name="vendor" />
-            <directory name="src/Shared/Infrastructure/Bus/Event/RabbitMq" />
-            <directory name="src/Shared/Infrastructure/Symfony" />
-            <directory name="tests/Shared/Infrastructure/Bus/Event/RabbitMq" />
-            <directory name="tests/Shared/Infrastructure/Mink" />
-            <directory name="tests/Shared/Infrastructure/PhpUnit/Constraint" />
+            <directory name="apps/*/*/var"/>
+            <directory name="vendor"/>
+            <directory name="src/Shared/Infrastructure/Bus/Event/RabbitMq"/>
+            <directory name="src/Shared/Infrastructure/Symfony"/>
+            <directory name="tests/Shared/Infrastructure/Bus/Event/RabbitMq"/>
+            <directory name="tests/Shared/Infrastructure/Mink"/>
+            <directory name="tests/Shared/Infrastructure/PhpUnit/Constraint"/>
         </ignoreFiles>
     </projectFiles>
+
+    <issueHandlers>
+        <PossiblyUndefinedMethod>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </PossiblyUndefinedMethod>
+        <PossiblyInvalidArgument>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </PossiblyInvalidArgument>
+        <PossiblyNullReference>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </PossiblyNullReference>
+        <PossiblyNullArgument>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </PossiblyNullArgument>
+        <MoreSpecificReturnType>
+            <errorLevel type="suppress">
+                <file name="apps/*/*/src/*Kernel.php"/>
+            </errorLevel>
+        </MoreSpecificReturnType>
+    </issueHandlers>
+
+    <plugins>
+        <pluginClass class="Psalm\MockeryPlugin\Plugin"/>
+        <pluginClass class="Psalm\SymfonyPsalmPlugin\Plugin"/>
+    </plugins>
 </psalm>

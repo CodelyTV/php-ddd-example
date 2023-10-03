@@ -19,15 +19,11 @@ final readonly class UserAuthenticator
     {
         $auth = $this->repository->search($username);
 
-        $this->ensureUserExist($auth, $username);
-        $this->ensureCredentialsAreValid($auth, $password);
-    }
-
-    private function ensureUserExist(?AuthUser $auth, AuthUsername $username): void
-    {
         if ($auth === null) {
             throw new InvalidAuthUsername($username);
         }
+
+        $this->ensureCredentialsAreValid($auth, $password);
     }
 
     private function ensureCredentialsAreValid(AuthUser $auth, AuthPassword $password): void

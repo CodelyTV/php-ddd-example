@@ -37,7 +37,7 @@ final readonly class CoursesGetController
 
         return new JsonResponse(
             map(
-                fn (BackofficeCourseResponse $course) => [
+                fn (BackofficeCourseResponse $course): array => [
                     'id' => $course->id(),
                     'name' => $course->name(),
                     'duration' => $course->duration(),

@@ -40,7 +40,7 @@ final class AggregateRootArraySimilarComparator extends Comparator
     private function contains(array $expectedArray, array $actualArray): bool
     {
         $exists = fn (AggregateRoot $expected): bool => any(
-            fn (AggregateRoot $actual) => TestUtils::isSimilar($expected, $actual),
+            fn (AggregateRoot $actual): bool => TestUtils::isSimilar($expected, $actual),
             $actualArray
         );
 

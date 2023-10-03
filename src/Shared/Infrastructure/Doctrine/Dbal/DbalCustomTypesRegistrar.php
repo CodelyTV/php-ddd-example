@@ -23,8 +23,10 @@ final class DbalCustomTypesRegistrar
 
     private static function registerType(): callable
     {
-        return static function (string $customTypeClassName): void {
-            Type::addType($customTypeClassName::customTypeName(), $customTypeClassName);
+        return static function (mixed $customTypeClassName): void {
+            $name = $customTypeClassName::customTypeName();
+
+            Type::addType($name, $customTypeClassName);
         };
     }
 }

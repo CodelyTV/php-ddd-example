@@ -36,7 +36,7 @@ final class ConsumeRabbitMqDomainEventsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $queueName = (string) $input->getArgument('queue');
+        $queueName = $input->getArgument('queue');
         $eventsToProcess = (int) $input->getArgument('quantity');
 
         repeat($this->consumer($queueName), $eventsToProcess);

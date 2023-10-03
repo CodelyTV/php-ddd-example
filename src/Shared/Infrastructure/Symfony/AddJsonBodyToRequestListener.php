@@ -25,7 +25,7 @@ final class AddJsonBodyToRequestListener
             foreach ($jsonData as $key => $value) {
                 $jsonDataLowerCase[preg_replace_callback(
                     '/_(.)/',
-                    static fn ($matches) => strtoupper($matches[1]),
+                    static fn ($matches): string => strtoupper((string) $matches[1]),
                     (string) $key
                 )] = $value;
             }

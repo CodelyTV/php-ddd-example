@@ -7,6 +7,7 @@ namespace CodelyTv\Shared\Infrastructure\Persistence\Doctrine;
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Exception\NotSupported;
 
 abstract class DoctrineRepository
 {
@@ -29,6 +30,15 @@ abstract class DoctrineRepository
         $this->entityManager()->flush($entity);
     }
 
+    /**
+     * @template T of object
+     *
+     * @psalm-param class-string<T> $entityClass
+     *
+     * @psalm-return EntityRepository<T>
+     *
+     * @throws NotSupported
+     */
     protected function repository(string $entityClass): EntityRepository
     {
         return $this->entityManager->getRepository($entityClass);

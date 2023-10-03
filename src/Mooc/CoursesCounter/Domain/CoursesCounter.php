@@ -58,6 +58,6 @@ final class CoursesCounter extends AggregateRoot
 
     private function courseIdComparator(CourseId $courseId): callable
     {
-        return static fn (CourseId $other) => $courseId->equals($other);
+        return static fn (CourseId $other): bool => $courseId->equals($other);
     }
 }

@@ -21,7 +21,7 @@ use Throwable;
 
 final class RabbitMqEventBusTest extends InfrastructureTestCase
 {
-    private $connection;
+    private mixed $connection;
     private string $exchangeName;
     private RabbitMqConfigurer $configurer;
     private RabbitMqEventBus $publisher;

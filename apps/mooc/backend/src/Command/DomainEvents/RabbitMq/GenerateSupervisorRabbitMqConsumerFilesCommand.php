@@ -35,7 +35,7 @@ final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $path = (string) $input->getArgument('command-path');
+        $path = $input->getArgument('command-path');
 
         each($this->configCreator($path), $this->locator->all());
 
