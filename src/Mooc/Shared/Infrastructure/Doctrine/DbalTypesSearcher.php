@@ -25,7 +25,7 @@ final class DbalTypesSearcher
     private static function modulesInPath(string $path): array
     {
         return filter(
-            static fn (string $possibleModule) => !in_array($possibleModule, ['.', '..'], true),
+            static fn (string $possibleModule): bool => !in_array($possibleModule, ['.', '..'], true),
             scandir($path)
         );
     }
@@ -44,17 +44,17 @@ final class DbalTypesSearcher
 
     private static function isExistingDbalPath(): callable
     {
-        return static fn (string $path) => !empty($path);
+        return static fn (string $path): bool => !empty($path);
     }
 
     private static function dbalClassesSearcher(string $contextName): callable
     {
-        return static function (array $totalNamespaces, string $path) use ($contextName) {
+        return static function (array $totalNamespaces, string $path) use ($contextName): array {
             $possibleFiles = scandir($path);
-            $files = filter(static fn ($file) => Utils::endsWith('Type.php', $file), $possibleFiles);
+            $files = filter(static fn ($file): bool => Utils::endsWith('Type.php', $file), $possibleFiles);
 
             $namespaces = map(
-                static function (string $file) use ($path, $contextName) {
+                static function (string $file) use ($path, $contextName): string {
                     $fullPath = "$path/$file";
                     $splittedPath = explode("/src/$contextName/", $fullPath);
 

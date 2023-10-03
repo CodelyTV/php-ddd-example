@@ -23,7 +23,7 @@ final class DoctrinePrefixesSearcher
     private static function modulesInPath(string $path): array
     {
         return filter(
-            static fn (string $possibleModule) => !in_array($possibleModule, ['.', '..'], true),
+            static fn (string $possibleModule): bool => !in_array($possibleModule, ['.', '..'], true),
             scandir($path)
         );
     }
@@ -42,11 +42,11 @@ final class DoctrinePrefixesSearcher
 
     private static function isExistingMappingPath(): callable
     {
-        return static fn (string $path) => !empty($path);
+        return static fn (string $path): bool => !empty($path);
     }
 
     private static function namespaceFormatter(string $baseNamespace): callable
     {
-        return static fn (string $path, string $module) => "$baseNamespace\\$module\Domain";
+        return static fn (string $path, string $module): string => "$baseNamespace\\$module\Domain";
     }
 }

@@ -54,8 +54,8 @@ final readonly class Criteria
             '%s~~%s~~%s~~%s',
             $this->filters->serialize(),
             $this->order->serialize(),
-            $this->offset,
-            $this->limit
+            $this->offset ?? 'none',
+            $this->limit ?? 'none'
         );
     }
 }

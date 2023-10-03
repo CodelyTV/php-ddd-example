@@ -22,7 +22,7 @@ final readonly class AllBackofficeCoursesSearcher
 
     private function toResponse(): callable
     {
-        return static fn (BackofficeCourse $course) => new BackofficeCourseResponse(
+        return static fn (BackofficeCourse $course): BackofficeCourseResponse => new BackofficeCourseResponse(
             $course->id(),
             $course->name(),
             $course->duration()

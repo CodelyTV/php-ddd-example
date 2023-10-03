@@ -30,7 +30,7 @@ final class DomainEventMapping
 
     private function eventsExtractor(): callable
     {
-        return fn (array $mapping, DomainEventSubscriber $subscriber) => array_merge(
+        return fn (array $mapping, DomainEventSubscriber $subscriber): array => array_merge(
             $mapping,
             reindex($this->eventNameExtractor(), $subscriber::subscribedTo())
         );

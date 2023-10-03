@@ -33,7 +33,7 @@ final class CallableFirstParameterExtractor
 
     private static function pipedCallablesReducer(): callable
     {
-        return static function ($subscribers, DomainEventSubscriber $subscriber): array {
+        return static function (array $subscribers, DomainEventSubscriber $subscriber): array {
             $subscribedEvents = $subscriber::subscribedTo();
 
             foreach ($subscribedEvents as $subscribedEvent) {
@@ -46,7 +46,7 @@ final class CallableFirstParameterExtractor
 
     private static function unflatten(): callable
     {
-        return static fn ($value) => [$value];
+        return static fn ($value): array => [$value];
     }
 
     public function extract($class): ?string

@@ -41,7 +41,7 @@ abstract class ElasticsearchRepository
         try {
             $result = $this->client->client()->search(array_merge(['index' => $this->indexName()], $params));
 
-            $hits = get_in(['hits', 'hits'], $result, []);
+            $hits = (array) get_in(['hits', 'hits'], $result, []);
 
             return map($this->elasticValuesExtractor(), $hits);
         } catch (Missing404Exception) {

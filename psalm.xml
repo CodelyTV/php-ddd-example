@@ -29,6 +29,26 @@
                 <directory name="tests"/>
             </errorLevel>
         </PossiblyUndefinedMethod>
+        <PossiblyInvalidArgument>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </PossiblyInvalidArgument>
+        <PossiblyNullReference>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </PossiblyNullReference>
+        <PossiblyNullArgument>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </PossiblyNullArgument>
+        <MoreSpecificReturnType>
+            <errorLevel type="suppress">
+                <file name="apps/*/*/src/*Kernel.php"/>
+            </errorLevel>
+        </MoreSpecificReturnType>
     </issueHandlers>
 
     <plugins>

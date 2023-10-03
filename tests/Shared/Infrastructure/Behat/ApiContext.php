@@ -46,6 +46,10 @@ final class ApiContext extends RawMinkContext
         $expected = $this->sanitizeOutput($expectedResponse->getRaw());
         $actual = $this->sanitizeOutput($this->sessionHelper->getResponse());
 
+        if ($expected === false || $actual === false) {
+            throw new RuntimeException('The outputs could not be parsed as JSON');
+        }
+
         if ($expected !== $actual) {
             throw new RuntimeException(
                 sprintf("The outputs does not match!\n\n-- Expected:\n%s\n\n-- Actual:\n%s", $expected, $actual)
