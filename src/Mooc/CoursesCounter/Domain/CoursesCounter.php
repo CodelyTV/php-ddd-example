@@ -21,7 +21,7 @@ final class CoursesCounter extends AggregateRoot
         $this->existingCourses = $existingCourses;
     }
 
-    public static function initialize(CoursesCounterId $id): self
+    public static function initialize(CoursesCounterId $id)
     {
         return new self($id, CoursesCounterTotal::initialize());
     }
