@@ -60,7 +60,7 @@ final readonly class DoctrineCriteriaConverter
                 ? $this->hydrate($field, $filter->value()->value())
                 : $filter->value()->value();
 
-            return new Comparison($field, $filter->operator()->value(), $value);
+            return new Comparison($field, $filter->operator()->value, $value);
         };
     }
 

@@ -4,20 +4,8 @@ declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Videos\Domain;
 
-use CodelyTv\Shared\Domain\ValueObject\Enum;
-use InvalidArgumentException;
-
-/**
- * @method static VideoType screencast()
- * @method static VideoType interview()
- */
-final class VideoType extends Enum
+enum VideoType: string
 {
-    public const SCREENCAST = 'screencast';
-    public const INTERVIEW = 'interview';
-
-    protected function throwExceptionForInvalidValue($value): never
-    {
-        throw new InvalidArgumentException(sprintf('The <%s> value is not a valid video type', $value));
-    }
+    case SCREENCAST = 'screencast';
+    case INTERVIEW = 'interview';
 }

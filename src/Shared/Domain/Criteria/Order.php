@@ -10,17 +10,17 @@ final readonly class Order
 
     public static function createDesc(OrderBy $orderBy): self
     {
-        return new self($orderBy, OrderType::desc());
+        return new self($orderBy, OrderType::DESC);
     }
 
     public static function fromValues(?string $orderBy, ?string $order): self
     {
-        return $orderBy === null ? self::none() : new self(new OrderBy($orderBy), new OrderType($order));
+        return $orderBy === null ? self::none() : new self(new OrderBy($orderBy), OrderType::from($order));
     }
 
     public static function none(): self
     {
-        return new self(new OrderBy(''), OrderType::none());
+        return new self(new OrderBy(''), OrderType::NONE);
     }
 
     public function orderBy(): OrderBy
@@ -40,6 +40,6 @@ final readonly class Order
 
     public function serialize(): string
     {
-        return sprintf('%s.%s', $this->orderBy->value(), $this->orderType->value());
+        return sprintf('%s.%s', $this->orderBy->value(), $this->orderType->value);
     }
 }
