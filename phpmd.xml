@@ -16,4 +16,9 @@
             <property name="reportLevel" value="5"/>
         </properties>
     </rule>
+    <rule ref="rulesets/codesize.xml/ExcessiveMethodLength">
+        <properties>
+            <property name="minimum" value="35"/>
+        </properties>
+    </rule>
 </ruleset>
