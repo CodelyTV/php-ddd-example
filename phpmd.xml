@@ -40,4 +40,9 @@
             <property name="maxmethods" value="10"/>
         </properties>
     </rule>
+    <rule ref="rulesets/codesize.xml/ExcessiveClassComplexity">
+        <properties>
+            <property name="maximum" value="20"/>
+        </properties>
+    </rule>
 </ruleset>
