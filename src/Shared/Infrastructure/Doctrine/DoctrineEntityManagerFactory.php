@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Shared\Infrastructure\Doctrine;
 
 use CodelyTv\Shared\Infrastructure\Doctrine\Dbal\DbalCustomTypesRegistrar;
+use Doctrine\Common\EventManager;
 use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Platforms\MariaDBPlatform;
 use Doctrine\DBAL\Schema\MySQLSchemaManager;
@@ -35,7 +36,9 @@ final class DoctrineEntityManagerFactory
 
         DbalCustomTypesRegistrar::register($dbalCustomTypesClasses);
 
-        return EntityManager::create($parameters, self::createConfiguration($contextPrefixes, $isDevMode));
+        $config = self::createConfiguration($contextPrefixes, $isDevMode);
+
+        return new EntityManager(DriverManager::getConnection($parameters, $config, new EventManager()), $config);
     }
 
     private static function generateDatabaseIfNotExists(array $parameters, string $schemaFile): void

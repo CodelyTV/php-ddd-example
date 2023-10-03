@@ -65,5 +65,6 @@
     <plugins>
         <pluginClass class="Psalm\MockeryPlugin\Plugin"/>
         <pluginClass class="Psalm\SymfonyPsalmPlugin\Plugin"/>
-    <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/></plugins>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
+    </plugins>
 </psalm>
