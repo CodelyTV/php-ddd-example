@@ -15,6 +15,7 @@ use Mockery;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 use Mockery\Matcher\MatcherAbstract;
 use Mockery\MockInterface;
+use Throwable;
 
 abstract class UnitTestCase extends MockeryTestCase
 {
@@ -78,6 +79,7 @@ abstract class UnitTestCase extends MockeryTestCase
         $this->assertEquals($expected, $actual);
     }
 
+    /** @param class-string<Throwable> $expectedErrorClass */
     protected function assertAskThrowsException(string $expectedErrorClass, Query $query, callable $queryHandler): void
     {
         $this->expectException($expectedErrorClass);

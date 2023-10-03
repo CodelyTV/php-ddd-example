@@ -12,7 +12,7 @@ if (false === in_array(PHP_SAPI, ['cli', 'phpdbg', 'embed'], true)) {
 
 set_time_limit(0);
 
-require dirname(__DIR__) . '../../../vendor/autoload.php';
+require dirname(__DIR__) . '/../../../vendor/autoload.php';
 
 if (!class_exists(Application::class)) {
     throw new RuntimeException('You need to add "symfony/framework-bundle" as a Composer dependency.');

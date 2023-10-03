@@ -7,6 +7,7 @@ namespace CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq;
 use AMQPEnvelope;
 use AMQPQueue;
 use AMQPQueueException;
+use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventJsonDeserializer;
 use Throwable;
 
@@ -22,7 +23,7 @@ final readonly class RabbitMqDomainEventsConsumer
         private int $maxRetries
     ) {}
 
-    public function consume(callable $subscriber, string $queueName): void
+    public function consume(callable|DomainEventSubscriber $subscriber, string $queueName): void
     {
         try {
             $this->connection->queue($queueName)->consume($this->consumer($subscriber));
