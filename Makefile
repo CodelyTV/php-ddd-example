@@ -13,7 +13,7 @@ test:
 	docker exec codely-php_ddd_skeleton-backoffice_backend-php ./vendor/bin/phpunit --testsuite backoffice
 
 static-analysis:
-	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/psalm --output-format=github
+	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/psalm --output-format=github --shepherd
 
 lint:
 	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/ecs check
