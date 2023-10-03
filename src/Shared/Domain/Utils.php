@@ -6,9 +6,7 @@ namespace CodelyTv\Shared\Domain;
 
 use DateTimeImmutable;
 use DateTimeInterface;
-use ReflectionClass;
 use RuntimeException;
-
 use function Lambdish\Phunctional\filter;
 
 final class Utils
@@ -79,13 +77,6 @@ final class Utils
             static fn (string $possibleModule): false|string => strstr($possibleModule, $fileType),
             scandir($path)
         );
-    }
-
-    public static function extractClassName(object $object): string
-    {
-        $reflect = new ReflectionClass($object);
-
-        return $reflect->getShortName();
     }
 
     public static function iterableToArray(iterable $iterable): array

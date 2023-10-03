@@ -57,7 +57,9 @@
     "rector/rector": "^0.18.4",
     "psalm/plugin-mockery": "^1.1",
     "psalm/plugin-symfony": "^5.0",
-    "psalm/plugin-phpunit": "^0.18.4"
+    "psalm/plugin-phpunit": "^0.18.4",
+    "phpstan/phpstan": "^1.10",
+    "phpat/phpat": "dev-add-has_one_public_method"
   },
   "autoload": {
     "psr-4": {
@@ -80,5 +82,11 @@
     "allow-plugins": {
       "ocramius/package-versions": true
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/CodelyTV/phpat"
+    }
+  ]
 }

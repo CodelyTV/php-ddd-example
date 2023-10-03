@@ -18,6 +18,9 @@ static-analysis:
 lint:
 	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/ecs check
 
+test-architecture:
+	docker exec codely-php_ddd_skeleton-mooc_backend-php php -d memory_limit=4G ./vendor/bin/phpstan analyse
+
 start:
 	@if [ ! -f .env.local ]; then echo '' > .env.local; fi
 	UID=${shell id -u} GID=${shell id -g} docker compose up --build -d
