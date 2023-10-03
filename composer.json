@@ -59,7 +59,8 @@
     "psalm/plugin-symfony": "^5.0",
     "psalm/plugin-phpunit": "^0.18.4",
     "phpstan/phpstan": "^1.10",
-    "phpat/phpat": "dev-add-has_one_public_method"
+    "phpat/phpat": "dev-add-has_one_public_method",
+    "phpmd/phpmd": "^2.14"
   },
   "autoload": {
     "psr-4": {

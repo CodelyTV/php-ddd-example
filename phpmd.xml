@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<ruleset xmlns="https://pmd.sf.net/ruleset/1.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://pmd.sf.net/ruleset_xml_schema.xsd">
+
+    <exclude-pattern>apps/*/*/var/*</exclude-pattern>
+    <exclude-pattern>*SimilarComparator*</exclude-pattern>
+    <exclude-pattern>*IsSimilar*</exclude-pattern>
+    <!-- Fix CyclomaticComplexity -->
+    <exclude-pattern>src/Shared/Infrastructure/Symfony/AddJsonBodyToRequestListener.php</exclude-pattern>
+    <!-- Fix ExcessiveClassLength -->
+    <exclude-pattern>tests/Shared/Infrastructure/Bus/Event/RabbitMq/RabbitMqEventBusTest.php</exclude-pattern>
+    <!-- Fix TooManyMethods -->
+    <exclude-pattern>tests/Shared/Infrastructure/PhpUnit/UnitTestCase.php</exclude-pattern>
+
+    <rule ref="rulesets/cleancode.xml/BooleanArgumentFlag"/>
+
+    <rule ref="rulesets/codesize.xml/CyclomaticComplexity">
+        <properties>
+            <property name="reportLevel" value="5"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/ExcessiveMethodLength">
+        <properties>
+            <property name="minimum" value="35"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/ExcessiveClassLength">
+        <properties>
+            <property name="minimum" value="100"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/ExcessiveParameterList">
+        <properties>
+            <property name="minimum" value="10"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/TooManyMethods">
+        <properties>
+            <property name="maxmethods" value="10"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/ExcessiveClassComplexity">
+        <properties>
+            <property name="maximum" value="20"/>
+        </properties>
+    </rule>
+</ruleset>
