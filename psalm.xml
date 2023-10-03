@@ -23,6 +23,14 @@
         </ignoreFiles>
     </projectFiles>
 
+    <issueHandlers>
+        <PossiblyUndefinedMethod>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </PossiblyUndefinedMethod>
+    </issueHandlers>
+
     <plugins>
         <pluginClass class="Psalm\MockeryPlugin\Plugin"/>
     </plugins>
