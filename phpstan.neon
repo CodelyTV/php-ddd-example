@@ -1,0 +1,5 @@
+services:
+    -
+        class: Tests\Architecture\MyFirstTest
+        tags:
+            - phpat.test
