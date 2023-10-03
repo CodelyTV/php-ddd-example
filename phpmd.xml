@@ -6,6 +6,14 @@
     <exclude-pattern>apps/*/*/var/*</exclude-pattern>
     <exclude-pattern>*SimilarComparator*</exclude-pattern>
     <exclude-pattern>*IsSimilar*</exclude-pattern>
+    <!-- Fix CyclomaticComplexity -->
+    <exclude-pattern>src/Shared/Infrastructure/Symfony/AddJsonBodyToRequestListener.php</exclude-pattern>
 
     <rule ref="rulesets/cleancode.xml/BooleanArgumentFlag"/>
+
+    <rule ref="rulesets/codesize.xml/CyclomaticComplexity">
+        <properties>
+            <property name="reportLevel" value="5"/>
+        </properties>
+    </rule>
 </ruleset>
