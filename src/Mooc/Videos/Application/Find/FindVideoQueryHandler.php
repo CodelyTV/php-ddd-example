@@ -8,21 +8,22 @@ use CodelyTv\Mooc\Videos\Domain\VideoId;
 use CodelyTv\Shared\Domain\Bus\Query\QueryHandler;
 
 use function Lambdish\Phunctional\apply;
-use function Lambdish\Phunctional\pipe;
 
-final class FindVideoQueryHandler implements QueryHandler
+final readonly class FindVideoQueryHandler implements QueryHandler
 {
-    private $finder;
+    private VideoResponseConverter $responseConverter;
 
-    public function __construct(VideoFinder $finder)
+    public function __construct(private VideoFinder $finder)
     {
-        $this->finder = pipe($finder, new VideoResponseConverter());
+        $this->responseConverter = new VideoResponseConverter();
     }
 
     public function __invoke(FindVideoQuery $query): VideoResponse
     {
         $id = new VideoId($query->id());
 
-        return apply($this->finder, [$id]);
+        $video = apply($this->finder, [$id]);
+
+        return apply($this->responseConverter, [$video]);
     }
 }

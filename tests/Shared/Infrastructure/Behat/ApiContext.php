@@ -25,7 +25,7 @@ final class ApiContext extends RawMinkContext
     /**
      * @Given I send a :method request to :url
      */
-    public function iSendARequestTo($method, $url): void
+    public function iSendARequestTo(string $method, string $url): void
     {
         $this->request->sendRequest($method, $this->locatePath($url));
     }
@@ -33,7 +33,7 @@ final class ApiContext extends RawMinkContext
     /**
      * @Given I send a :method request to :url with body:
      */
-    public function iSendARequestToWithBody($method, $url, PyStringNode $body): void
+    public function iSendARequestToWithBody(string $method, string $url, PyStringNode $body): void
     {
         $this->request->sendRequestWithPyStringNode($method, $this->locatePath($url), $body);
     }
@@ -88,7 +88,7 @@ final class ApiContext extends RawMinkContext
     /**
      * @Then the response status code should be :expectedResponseCode
      */
-    public function theResponseStatusCodeShouldBe($expectedResponseCode): void
+    public function theResponseStatusCodeShouldBe(mixed $expectedResponseCode): void
     {
         if ($this->minkSession->getStatusCode() !== (int) $expectedResponseCode) {
             throw new RuntimeException(

@@ -9,21 +9,21 @@ use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Constraint\CodelyTvConstraintIs
 
 final class TestUtils
 {
-    public static function isSimilar($expected, $actual): bool
+    public static function isSimilar(mixed $expected, mixed $actual): bool
     {
         $constraint = new CodelyTvConstraintIsSimilar($expected);
 
         return $constraint->evaluate($actual, '', true);
     }
 
-    public static function assertSimilar($expected, $actual): void
+    public static function assertSimilar(mixed $expected, mixed $actual): void
     {
         $constraint = new CodelyTvConstraintIsSimilar($expected);
 
         $constraint->evaluate($actual);
     }
 
-    public static function similarTo($value, $delta = 0.0): CodelyTvMatcherIsSimilar
+    public static function similarTo(mixed $value, float $delta = 0.0): CodelyTvMatcherIsSimilar
     {
         return new CodelyTvMatcherIsSimilar($value, $delta);
     }

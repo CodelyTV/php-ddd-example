@@ -11,7 +11,7 @@ use function Lambdish\Phunctional\each;
 
 final class DuplicatorMother
 {
-    public static function with($object, array $newParams): mixed
+    public static function with(mixed $object, array $newParams): mixed
     {
         $duplicated = clone $object;
         $reflection = new ReflectionObject($duplicated);

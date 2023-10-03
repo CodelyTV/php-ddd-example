@@ -28,7 +28,7 @@ final class CallableFirstParameterExtractor
 
     private static function classExtractor(self $parameterExtractor): callable
     {
-        return static fn (callable $handler): ?string => $parameterExtractor->extract($handler);
+        return static fn (object $handler): ?string => $parameterExtractor->extract($handler);
     }
 
     private static function pipedCallablesReducer(): callable
@@ -46,10 +46,10 @@ final class CallableFirstParameterExtractor
 
     private static function unflatten(): callable
     {
-        return static fn ($value): array => [$value];
+        return static fn (mixed $value): array => [$value];
     }
 
-    public function extract($class): ?string
+    public function extract(object $class): ?string
     {
         $reflector = new ReflectionClass($class);
         $method = $reflector->getMethod('__invoke');
@@ -63,7 +63,7 @@ final class CallableFirstParameterExtractor
 
     private function firstParameterClassFrom(ReflectionMethod $method): string
     {
-        /** @var ReflectionNamedType $fistParameterType */
+        /** @var ReflectionNamedType|null $fistParameterType */
         $fistParameterType = $method->getParameters()[0]->getType();
 
         if ($fistParameterType === null) {

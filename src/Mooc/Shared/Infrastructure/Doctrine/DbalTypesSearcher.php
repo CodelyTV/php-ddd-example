@@ -33,7 +33,7 @@ final class DbalTypesSearcher
     private static function possibleDbalPaths(string $path): array
     {
         return map(
-            static function ($unused, string $module) use ($path) {
+            static function (mixed $_unused, string $module) use ($path) {
                 $mappingsPath = self::MAPPINGS_PATH;
 
                 return realpath("$path/$module/$mappingsPath");
@@ -51,7 +51,7 @@ final class DbalTypesSearcher
     {
         return static function (array $totalNamespaces, string $path) use ($contextName): array {
             $possibleFiles = scandir($path);
-            $files = filter(static fn ($file): bool => Utils::endsWith('Type.php', $file), $possibleFiles);
+            $files = filter(static fn (string $file): bool => Utils::endsWith('Type.php', $file), $possibleFiles);
 
             $namespaces = map(
                 static function (string $file) use ($path, $contextName): string {

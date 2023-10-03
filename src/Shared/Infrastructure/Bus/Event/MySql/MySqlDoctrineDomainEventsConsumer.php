@@ -8,7 +8,6 @@ use CodelyTv\Shared\Domain\Utils;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventMapping;
 use DateTimeImmutable;
 use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\FetchMode;
 use Doctrine\ORM\EntityManager;
 use RuntimeException;
 
@@ -28,14 +27,14 @@ final readonly class MySqlDoctrineDomainEventsConsumer
     {
         $events = $this->connection
             ->executeQuery("SELECT * FROM domain_events ORDER BY occurred_on ASC LIMIT $eventsToConsume")
-            ->fetchAll(FetchMode::ASSOCIATIVE);
+            ->fetchAllAssociative();
 
         each($this->executeSubscribers($subscribers), $events);
 
         $ids = implode(', ', map($this->idExtractor(), $events));
 
         if (!empty($ids)) {
-            $this->connection->executeUpdate("DELETE FROM domain_events WHERE id IN ($ids)");
+            $this->connection->executeStatement("DELETE FROM domain_events WHERE id IN ($ids)");
         }
     }
 
@@ -57,7 +56,7 @@ final readonly class MySqlDoctrineDomainEventsConsumer
         };
     }
 
-    private function formatDate($stringDate): string
+    private function formatDate(mixed $stringDate): string
     {
         return Utils::dateToString(new DateTimeImmutable($stringDate));
     }

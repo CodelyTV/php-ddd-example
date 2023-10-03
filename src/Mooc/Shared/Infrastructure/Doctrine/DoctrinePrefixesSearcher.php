@@ -31,7 +31,7 @@ final class DoctrinePrefixesSearcher
     private static function possibleMappingPaths(string $path): array
     {
         return map(
-            static function ($unused, string $module) use ($path) {
+            static function (mixed $_unused, string $module) use ($path) {
                 $mappingsPath = self::MAPPINGS_PATH;
 
                 return realpath("$path/$module/$mappingsPath");

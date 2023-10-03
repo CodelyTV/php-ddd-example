@@ -51,14 +51,14 @@ final class DoctrineEntityManagerFactory
         if (!self::databaseExists($databaseName, $schemaManager)) {
             $schemaManager->createDatabase($databaseName);
 
-            $connection->exec(sprintf('USE %s', $databaseName));
-            $connection->exec(file_get_contents(realpath($schemaFile)));
+            $connection->executeStatement(sprintf('USE %s', $databaseName));
+            $connection->executeStatement(file_get_contents(realpath($schemaFile)));
         }
 
         $connection->close();
     }
 
-    private static function databaseExists($databaseName, MySqlSchemaManager $schemaManager): bool
+    private static function databaseExists(string $databaseName, MySqlSchemaManager $schemaManager): bool
     {
         return in_array($databaseName, $schemaManager->listDatabases(), true);
     }
