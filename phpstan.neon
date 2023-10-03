@@ -14,6 +14,6 @@ parameters:
 		- ./apps/mooc/frontend/var
 services:
 	-
-		class: CodelyTv\Tests\Shared\ArchitectureTest
+		class: CodelyTv\Tests\Shared\SharedArchitectureTest
 		tags:
 			- phpat.test
