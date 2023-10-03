@@ -42,7 +42,7 @@ final class ElasticsearchCriteriaConverter
             return [
                 'sort' => [
                     $order->orderBy()->value() => [
-                        'order' => $order->orderType()->value(),
+                        'order' => $order->orderType()->value,
                     ],
                 ],
             ];

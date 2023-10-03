@@ -16,7 +16,7 @@ final readonly class Filter
     {
         return new self(
             new FilterField($values['field']),
-            new FilterOperator($values['operator']),
+            FilterOperator::from($values['operator']),
             new FilterValue($values['value'])
         );
     }
@@ -38,6 +38,6 @@ final readonly class Filter
 
     public function serialize(): string
     {
-        return sprintf('%s.%s.%s', $this->field->value(), $this->operator->value(), $this->value->value());
+        return sprintf('%s.%s.%s', $this->field->value(), $this->operator->value, $this->value->value());
     }
 }

@@ -6,7 +6,6 @@ namespace CodelyTv\Shared\Infrastructure\Persistence\Elasticsearch;
 
 use CodelyTv\Shared\Domain\Criteria\Filter;
 use CodelyTv\Shared\Domain\Criteria\FilterOperator;
-use Exception;
 
 final class ElasticQueryGenerator
 {
@@ -38,17 +37,16 @@ final class ElasticQueryGenerator
 
     private function typeFor(FilterOperator $operator): string
     {
-        return in_array($operator->value(), self::$mustNotFields, true) ? self::MUST_NOT_TYPE : self::MUST_TYPE;
+        return in_array($operator->value, self::$mustNotFields, true) ? self::MUST_NOT_TYPE : self::MUST_TYPE;
     }
 
     private function termLevelFor(FilterOperator $operator): string
     {
-        return match ($operator->value()) {
+        return match ($operator) {
             FilterOperator::EQUAL => self::TERM_TERM,
             FilterOperator::NOT_EQUAL => '!=',
             FilterOperator::GT, FilterOperator::LT => self::TERM_RANGE,
             FilterOperator::CONTAINS, FilterOperator::NOT_CONTAINS => self::TERM_WILDCARD,
-            default => throw new Exception("Unexpected match value {$operator->value()}"),
         };
     }
 }

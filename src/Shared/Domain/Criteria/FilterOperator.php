@@ -4,31 +4,17 @@ declare(strict_types=1);
 
 namespace CodelyTv\Shared\Domain\Criteria;
 
-use CodelyTv\Shared\Domain\ValueObject\Enum;
-use InvalidArgumentException;
-
-/**
- * @method static FilterOperator gt()
- * @method static FilterOperator lt()
- * @method static FilterOperator like()
- */
-final class FilterOperator extends Enum
+enum FilterOperator: string
 {
-    public const EQUAL = '=';
-    public const NOT_EQUAL = '!=';
-    public const GT = '>';
-    public const LT = '<';
-    public const CONTAINS = 'CONTAINS';
-    public const NOT_CONTAINS = 'NOT_CONTAINS';
-    private static array $containing = [self::CONTAINS, self::NOT_CONTAINS];
+    case EQUAL = '=';
+    case NOT_EQUAL = '!=';
+    case GT = '>';
+    case LT = '<';
+    case CONTAINS = 'CONTAINS';
+    case NOT_CONTAINS = 'NOT_CONTAINS';
 
     public function isContaining(): bool
     {
-        return in_array($this->value(), self::$containing, true);
-    }
-
-    protected function throwExceptionForInvalidValue($value): never
-    {
-        throw new InvalidArgumentException(sprintf('The filter <%s> is invalid', $value));
+        return in_array($this->value, [self::CONTAINS->value, self::NOT_CONTAINS->value], true);
     }
 }
