@@ -1,5 +1,19 @@
+includes:
+	- vendor/phpat/phpat/extension.neon
+
+parameters:
+	level: 0
+	paths:
+		- ./apps
+		- ./src
+		- ./tests
+	excludePaths:
+		- ./apps/backoffice/backend/var
+		- ./apps/backoffice/frontend/var
+		- ./apps/mooc/backend/var
+		- ./apps/mooc/frontend/var
 services:
-    -
-        class: Tests\Architecture\MyFirstTest
-        tags:
-            - phpat.test
+	-
+		class: CodelyTv\Tests\Shared\ArchitectureTest
+		tags:
+			- phpat.test
