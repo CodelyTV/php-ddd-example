@@ -22,4 +22,9 @@ final readonly class CourseCreator
         $this->repository->save($course);
         $this->bus->publish(...$course->pullDomainEvents());
     }
+
+    public function hello(): bool
+    {
+        return true;
+    }
 }
