@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b0709ec7581260bbd652ead9e882dbe",
+    "content-hash": "c4ef93baa380c9d0dc5e2107e7a37d90",
     "packages": [
         {
             "name": "brick/math",
@@ -7299,16 +7299,16 @@
         },
         {
             "name": "phpat/phpat",
-            "version": "dev-add-has_one_public_method",
+            "version": "0.10.10",
             "source": {
                 "type": "git",
-                "url": "https://github.com/CodelyTV/phpat.git",
-                "reference": "5d530db9735aa52ca702db9e6d91493b1e06c990"
+                "url": "https://github.com/carlosas/phpat.git",
+                "reference": "80004c07ba5972c36758e942a95d11cc9c298e98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CodelyTV/phpat/zipball/5d530db9735aa52ca702db9e6d91493b1e06c990",
-                "reference": "5d530db9735aa52ca702db9e6d91493b1e06c990",
+                "url": "https://api.github.com/repos/carlosas/phpat/zipball/80004c07ba5972c36758e942a95d11cc9c298e98",
+                "reference": "80004c07ba5972c36758e942a95d11cc9c298e98",
                 "shasum": ""
             },
             "require": {
@@ -7330,18 +7330,14 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "PHPat\\": "src/"
-                },
                 "files": [
                     "helpers.php"
-                ]
-            },
-            "autoload-dev": {
+                ],
                 "psr-4": {
-                    "Tests\\PHPat\\": "tests/"
+                    "PHPat\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -7353,9 +7349,10 @@
             ],
             "description": "PHP Architecture Tester",
             "support": {
-                "source": "https://github.com/CodelyTV/phpat/tree/add-has_one_public_method"
+                "issues": "https://github.com/carlosas/phpat/issues",
+                "source": "https://github.com/carlosas/phpat/tree/0.10.10"
             },
-            "time": "2023-10-03T14:53:59+00:00"
+            "time": "2023-10-05T14:16:47+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -10723,8 +10720,7 @@
     "aliases": [],
     "minimum-stability": "RC",
     "stability-flags": {
-        "roave/security-advisories": 20,
-        "phpat/phpat": 20
+        "roave/security-advisories": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
