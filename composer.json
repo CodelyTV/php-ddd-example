@@ -59,7 +59,7 @@
     "psalm/plugin-symfony": "^5.0",
     "psalm/plugin-phpunit": "^0.18.4",
     "phpstan/phpstan": "^1.10",
-    "phpat/phpat": "dev-add-has_one_public_method",
+    "phpat/phpat": "^0.10.10",
     "phpmd/phpmd": "^2.14"
   },
   "autoload": {
@@ -83,11 +83,5 @@
     "allow-plugins": {
       "ocramius/package-versions": true
     }
-  },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/CodelyTV/phpat"
-    }
-  ]
+  }
 }
