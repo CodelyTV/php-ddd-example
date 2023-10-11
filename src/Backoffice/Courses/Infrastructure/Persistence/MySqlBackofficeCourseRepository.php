@@ -6,6 +6,7 @@ namespace CodelyTv\Backoffice\Courses\Infrastructure\Persistence;
 
 use CodelyTv\Backoffice\Courses\Domain\BackofficeCourse;
 use CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository;
+use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Shared\Domain\Criteria\Criteria;
 use CodelyTv\Shared\Infrastructure\Persistence\Doctrine\DoctrineCriteriaConverter;
 use CodelyTv\Shared\Infrastructure\Persistence\Doctrine\DoctrineRepository;
@@ -27,5 +28,11 @@ final class MySqlBackofficeCourseRepository extends DoctrineRepository implement
         $doctrineCriteria = DoctrineCriteriaConverter::convert($criteria);
 
         return $this->repository(BackofficeCourse::class)->matching($doctrineCriteria)->toArray();
+    }
+
+    public function lastCourse(): ?Course
+    {
+        return $this->repository(BackofficeCourse::class)
+            ->findOneBy([],  ['id' => 'DESC']);
     }
 }

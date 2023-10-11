@@ -6,6 +6,7 @@ namespace CodelyTv\Backoffice\Courses\Infrastructure\Persistence;
 
 use CodelyTv\Backoffice\Courses\Domain\BackofficeCourse;
 use CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository;
+use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Shared\Domain\Criteria\Criteria;
 use CodelyTv\Shared\Infrastructure\Persistence\Elasticsearch\ElasticsearchRepository;
 
@@ -26,6 +27,12 @@ final class ElasticsearchBackofficeCourseRepository extends ElasticsearchReposit
     public function matching(Criteria $criteria): array
     {
         return map($this->toCourse(), $this->searchByCriteria($criteria));
+    }
+
+    public function lastCourse(): ?Course
+    {
+        $courseInPrimitive = $this->searchlastInelastic();
+        return $courseInPrimitive ? BackofficeCourse::fromPrimitives($courseInPrimitive) : null;
     }
 
     protected function aggregateName(): string
