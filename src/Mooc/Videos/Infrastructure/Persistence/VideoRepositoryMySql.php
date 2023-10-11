@@ -32,6 +32,12 @@ final class VideoRepositoryMySql extends DoctrineRepository implements VideoRepo
         return $this->repository(Video::class)->find($id);
     }
 
+    public function findLastVideo(): ?Video
+    {
+        return $this->repository(Video::class)->findOneBy([], ['id' => 'DESC']);
+    }
+
+
     public function searchByCriteria(Criteria $criteria): Videos
     {
         $doctrineCriteria = DoctrineCriteriaConverter::convert($criteria, self::$criteriaToDoctrineFields);
