@@ -15,5 +15,11 @@ services:
     public: true
 
 
+  monolog:
+    handlers:
+      actions_log:
+        type: info
+        path: "%kernel.logs_dir%/%kernel.environment%_actions.log"
+
   # Courses
   CodelyTv\Mooc\Courses\Domain\CourseRepository: '@CodelyTv\Mooc\Courses\Infrastructure\Persistence\DoctrineCourseRepository'
