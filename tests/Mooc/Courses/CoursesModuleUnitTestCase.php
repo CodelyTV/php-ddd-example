@@ -7,6 +7,7 @@ namespace CodelyTv\Tests\Mooc\Courses;
 use CodelyTv\Mooc\Courses\Domain\Course;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
+use CodelyTv\Shared\Domain\DomainError;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
 use Mockery\MockInterface;
 
@@ -35,5 +36,14 @@ abstract class CoursesModuleUnitTestCase extends UnitTestCase
     protected function repository(): CourseRepository|MockInterface
     {
         return $this->repository ??= $this->mock(CourseRepository::class);
+    }
+
+    protected function searchShouldThrowException(CourseId $id, DomainError $exception)
+    {
+        $this->repository()
+            ->shouldReceive('search')
+            ->with($this->similarTo($id))
+            ->once()
+            ->andThrow($exception);
     }
 }
