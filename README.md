@@ -147,7 +147,7 @@ some guidelines feel free to contact us :)
 
 ## 🤩 Extra
 
-This code was shown in the [From framework coupled code to #microservices through #DDD](http://codely.tv/blog/screencasts/codigo-acoplado-framework-microservicios-ddd) talk and doubts where answered in the [DDD y CQRS: Preguntas Frecuentes](http://codely.tv/screencasts/ddd-cqrs-preguntas-frecuentes/) video.
+This code was shown in the [From framework coupled code to #microservices through #DDD](http://codely.tv/blog/screencasts/codigo-acoplado-framework-microservicios-ddd) talk and doubts where answered in the [DDD y CQRS: Preguntas Frecuentes](https://www.youtube.com/watch?v=auEhX4WfCRA) video.
 
 
 🎥 Used in the CodelyTV Pro courses:
