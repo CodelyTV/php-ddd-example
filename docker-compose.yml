@@ -56,7 +56,7 @@ services:
     user: "${UID}:${GID}"
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: tools/Dockerfile
     restart: unless-stopped
     ports:
       - "8040:8040"
@@ -74,7 +74,7 @@ services:
     user: "${UID}:${GID}"
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: tools/Dockerfile
     restart: unless-stopped
     ports:
       - "8041:8041"
@@ -93,7 +93,7 @@ services:
     user: "${UID}:${GID}"
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: tools/Dockerfile
     restart: unless-stopped
     ports:
       - "8030:8030"
