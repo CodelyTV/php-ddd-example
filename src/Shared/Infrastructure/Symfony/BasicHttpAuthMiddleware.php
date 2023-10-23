@@ -55,8 +55,8 @@ final readonly class BasicHttpAuthMiddleware
 	{
 		$event->setResponse(
 			new Response('', Response::HTTP_UNAUTHORIZED, [
-'WWW-Authenticate' => 'Basic realm="CodelyTV"',
-])
+				'WWW-Authenticate' => 'Basic realm="CodelyTV"',
+			])
 		);
 	}
 }

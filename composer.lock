@@ -6064,16 +6064,16 @@
         },
         {
             "name": "codelytv/coding-style",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CodelyTV/php-coding_style-codely.git",
-                "reference": "9178d43b9b8996e6b04108f102dac358fe642df1"
+                "reference": "2e00fde930bb1a51d6e7494bfc3a44cb60196fff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CodelyTV/php-coding_style-codely/zipball/9178d43b9b8996e6b04108f102dac358fe642df1",
-                "reference": "9178d43b9b8996e6b04108f102dac358fe642df1",
+                "url": "https://api.github.com/repos/CodelyTV/php-coding_style-codely/zipball/2e00fde930bb1a51d6e7494bfc3a44cb60196fff",
+                "reference": "2e00fde930bb1a51d6e7494bfc3a44cb60196fff",
                 "shasum": ""
             },
             "require": {
@@ -6102,7 +6102,7 @@
             ],
             "support": {
                 "issues": "https://github.com/CodelyTV/php-coding_style-codely/issues",
-                "source": "https://github.com/CodelyTV/php-coding_style-codely/tree/1.1.1"
+                "source": "https://github.com/CodelyTV/php-coding_style-codely/tree/1.1.2"
             },
             "funding": [
                 {
@@ -6110,7 +6110,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2023-10-23T10:56:55+00:00"
+            "time": "2023-10-23T11:29:20+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",
