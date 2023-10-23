@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4ef93baa380c9d0dc5e2107e7a37d90",
+    "content-hash": "672d40e7ce6751fab2f182692aa96f94",
     "packages": [
         {
             "name": "brick/math",
@@ -6061,6 +6061,41 @@
                 "source": "https://github.com/Behat/Transliterator/tree/v1.5.0"
             },
             "time": "2022-03-30T09:27:43+00:00"
+        },
+        {
+            "name": "codelytv/coding-style",
+            "version": "0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CodelyTV/php-coding_style-codely.git",
+                "reference": "521ca89d79d0182cf14b4a3cc46f0a6a69b1a7ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CodelyTV/php-coding_style-codely/zipball/521ca89d79d0182cf14b4a3cc46f0a6a69b1a7ae",
+                "reference": "521ca89d79d0182cf14b4a3cc46f0a6a69b1a7ae",
+                "shasum": ""
+            },
+            "require": {
+                "symplify/easy-coding-standard": "^12.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Codelytv\\CodingStyle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "PHP Coding Style rules we use in Codely",
+            "keywords": [
+                "Code style",
+                "static analysis"
+            ],
+            "support": {
+                "issues": "https://github.com/CodelyTV/php-coding_style-codely/issues",
+                "source": "https://github.com/CodelyTV/php-coding_style-codely/tree/0.9.0"
+            },
+            "time": "2023-10-23T09:08:28+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",

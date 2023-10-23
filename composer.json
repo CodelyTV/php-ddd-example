@@ -60,7 +60,8 @@
     "psalm/plugin-phpunit": "^0.18.4",
     "phpstan/phpstan": "^1.10",
     "phpat/phpat": "^0.10.10",
-    "phpmd/phpmd": "^2.14"
+    "phpmd/phpmd": "^2.14",
+    "codelytv/coding-style": "^0.9.0"
   },
   "autoload": {
     "psr-4": {
