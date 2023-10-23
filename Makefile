@@ -7,22 +7,22 @@ composer-install:
 			--no-ansi
 
 test:
-	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpunit --testsuite mooc
-	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpunit --testsuite shared
-	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/behat -p mooc_backend --format=progress -v
-	docker exec codely-php_ddd_skeleton-backoffice_backend-php ./vendor/bin/phpunit --testsuite backoffice
+	docker exec codely-php_ddd_example-mooc_backend-php ./vendor/bin/phpunit --testsuite mooc -c tools/phpunit.xml
+	docker exec codely-php_ddd_example-mooc_backend-php ./vendor/bin/phpunit --testsuite shared -c tools/phpunit.xml
+	docker exec codely-php_ddd_example-backoffice_backend-php ./vendor/bin/phpunit --testsuite backoffice -c tools/phpunit.xml
+	docker exec codely-php_ddd_example-mooc_backend-php ./vendor/bin/behat -p mooc_backend --format=progress -v -c tools/behat.yml
 
 static-analysis:
-	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/psalm --output-format=github --shepherd -c tools/psalm.xml
+	docker exec codely-php_ddd_example-mooc_backend-php ./vendor/bin/psalm --output-format=github --shepherd -c tools/psalm.xml
 
 lint:
-	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/ecs check -c ./tools/ecs.php
+	docker exec codely-php_ddd_example-mooc_backend-php ./vendor/bin/ecs check -c ./tools/ecs.php
 
 test-architecture:
-	docker exec codely-php_ddd_skeleton-mooc_backend-php php -d memory_limit=4G ./vendor/bin/phpstan analyse --error-format github -c tools/phpstan.neon
+	docker exec codely-php_ddd_example-mooc_backend-php php -d memory_limit=4G ./vendor/bin/phpstan analyse --error-format github -c tools/phpstan.neon
 
 mess-detector:
-	docker exec codely-php_ddd_skeleton-mooc_backend-php ./vendor/bin/phpmd apps,src,tests github tools/phpmd.xml
+	docker exec codely-php_ddd_example-mooc_backend-php ./vendor/bin/phpmd apps,src,tests github tools/phpmd.xml
 
 start:
 	@if [ ! -f .env.local ]; then echo '' > .env.local; fi
@@ -41,14 +41,14 @@ rebuild:
 	make start
 
 ping-mysql:
-	@docker exec codely-php_ddd_skeleton-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
+	@docker exec codely-php_ddd_example-mooc-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
 
 ping-elasticsearch:
 	@curl -I -XHEAD localhost:9200
 
 ping-rabbitmq:
-	@docker exec codely-php_ddd_skeleton-rabbitmq rabbitmqctl ping --silent
+	@docker exec codely-php_ddd_example-rabbitmq rabbitmqctl ping --silent
 
 clean-cache:
 	@rm -rf apps/*/*/var
-	@docker exec codely-php_ddd_skeleton-mooc_backend-php ./apps/mooc/backend/bin/console cache:warmup
+	@docker exec codely-php_ddd_example-mooc_backend-php ./apps/mooc/backend/bin/console cache:warmup

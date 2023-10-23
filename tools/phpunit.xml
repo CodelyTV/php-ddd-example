@@ -9,7 +9,7 @@
         beStrictAboutChangesToGlobalState="true"
         beStrictAboutTestsThatDoNotTestAnything="false"
         beStrictAboutTodoAnnotatedTests="true"
-        bootstrap="./apps/bootstrap.php"
+        bootstrap="./../apps/bootstrap.php"
         colors="true"
         convertErrorsToExceptions="true"
         convertNoticesToExceptions="true"
@@ -30,13 +30,13 @@
 
     <testsuites>
         <testsuite name="backoffice">
-            <directory>./tests/Backoffice</directory>
+            <directory>./../tests/Backoffice</directory>
         </testsuite>
         <testsuite name="mooc">
-            <directory>./tests/Mooc</directory>
+            <directory>./../tests/Mooc</directory>
         </testsuite>
         <testsuite name="shared">
-            <directory>./tests/Shared</directory>
+            <directory>./../tests/Shared</directory>
         </testsuite>
     </testsuites>
 </phpunit>

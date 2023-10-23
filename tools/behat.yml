@@ -1,0 +1,2 @@
+imports:
+  - ../apps/mooc/backend/tests/mooc_backend.yml

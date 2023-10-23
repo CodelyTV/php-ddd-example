@@ -2,7 +2,7 @@ version: '3'
 
 services:
   shared_rabbitmq:
-    container_name: codely-php_ddd_skeleton-rabbitmq
+    container_name: codely-php_ddd_example-rabbitmq
     image: 'rabbitmq:3.10.5-management'
     restart: unless-stopped
     ports:
@@ -13,7 +13,7 @@ services:
       - RABBITMQ_DEFAULT_PASS=c0d3ly
 
   shared_prometheus:
-    container_name: codely-php_ddd_skeleton-prometheus
+    container_name: codely-php_ddd_example-prometheus
     image: prom/prometheus:v2.36.1
     volumes:
       - ./etc/prometheus/:/etc/prometheus/
@@ -26,7 +26,7 @@ services:
       - "9999:9090"
 
   mooc_mysql:
-    container_name: codely-php_ddd_skeleton-mooc-mysql
+    container_name: codely-php_ddd_example-mooc-mysql
     image: mariadb:10.7.4
     ports:
       - "3360:3306"
@@ -41,7 +41,7 @@ services:
     command: ["--default-authentication-plugin=mysql_native_password"]
 
   backoffice_elasticsearch:
-    container_name: codely-php_ddd_skeleton-backoffice-elastic
+    container_name: codely-php_ddd_example-backoffice-elastic
     image: docker.elastic.co/elasticsearch/elasticsearch:8.2.3
     ports:
       - "9200:9200"
@@ -52,7 +52,7 @@ services:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
 
   backoffice_backend_php:
-    container_name: codely-php_ddd_skeleton-backoffice_backend-php
+    container_name: codely-php_ddd_example-backoffice_backend-php
     user: "${UID}:${GID}"
     build:
       context: .
@@ -70,7 +70,7 @@ services:
     command: symfony serve --dir=apps/backoffice/backend/public --port=8040
 
   backoffice_frontend_php:
-    container_name: codely-php_ddd_skeleton-backoffice_frontend-php
+    container_name: codely-php_ddd_example-backoffice_frontend-php
     user: "${UID}:${GID}"
     build:
       context: .
@@ -89,7 +89,7 @@ services:
     command: symfony serve --dir=apps/backoffice/frontend/public --port=8041
 
   mooc_backend_php:
-    container_name: codely-php_ddd_skeleton-mooc_backend-php
+    container_name: codely-php_ddd_example-mooc_backend-php
     user: "${UID}:${GID}"
     build:
       context: .
