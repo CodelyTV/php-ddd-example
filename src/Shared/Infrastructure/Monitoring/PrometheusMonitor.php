@@ -9,15 +9,15 @@ use Prometheus\Storage\APC;
 
 final readonly class PrometheusMonitor
 {
-    private CollectorRegistry $registry;
+	private CollectorRegistry $registry;
 
-    public function __construct()
-    {
-        $this->registry = new CollectorRegistry(new APC());
-    }
+	public function __construct()
+	{
+		$this->registry = new CollectorRegistry(new APC());
+	}
 
-    public function registry(): CollectorRegistry
-    {
-        return $this->registry;
-    }
+	public function registry(): CollectorRegistry
+	{
+		return $this->registry;
+	}
 }

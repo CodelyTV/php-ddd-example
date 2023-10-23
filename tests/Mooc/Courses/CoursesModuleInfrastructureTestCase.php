@@ -9,8 +9,8 @@ use CodelyTv\Tests\Mooc\Shared\Infrastructure\PhpUnit\MoocContextInfrastructureT
 
 abstract class CoursesModuleInfrastructureTestCase extends MoocContextInfrastructureTestCase
 {
-    protected function repository(): CourseRepository
-    {
-        return $this->service(CourseRepository::class);
-    }
+	protected function repository(): CourseRepository
+	{
+		return $this->service(CourseRepository::class);
+	}
 }

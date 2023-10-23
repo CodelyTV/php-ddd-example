@@ -11,16 +11,16 @@ use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 
 final readonly class CourseFinder
 {
-    public function __construct(private CourseRepository $repository) {}
+	public function __construct(private CourseRepository $repository) {}
 
-    public function __invoke(CourseId $id): Course
-    {
-        $course = $this->repository->search($id);
+	public function __invoke(CourseId $id): Course
+	{
+		$course = $this->repository->search($id);
 
-        if ($course === null) {
-            throw new CourseNotExist($id);
-        }
+		if ($course === null) {
+			throw new CourseNotExist($id);
+		}
 
-        return $course;
-    }
+		return $course;
+	}
 }

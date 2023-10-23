@@ -9,15 +9,15 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 
 final readonly class CreateBackofficeCourseOnCourseCreated implements DomainEventSubscriber
 {
-    public function __construct(private BackofficeCourseCreator $creator) {}
+	public function __construct(private BackofficeCourseCreator $creator) {}
 
-    public static function subscribedTo(): array
-    {
-        return [CourseCreatedDomainEvent::class];
-    }
+	public static function subscribedTo(): array
+	{
+		return [CourseCreatedDomainEvent::class];
+	}
 
-    public function __invoke(CourseCreatedDomainEvent $event): void
-    {
-        $this->creator->create($event->aggregateId(), $event->name(), $event->duration());
-    }
+	public function __invoke(CourseCreatedDomainEvent $event): void
+	{
+		$this->creator->create($event->aggregateId(), $event->name(), $event->duration());
+	}
 }

@@ -6,5 +6,5 @@ namespace CodelyTv\Shared\Domain;
 
 interface UuidGenerator
 {
-    public function generate(): string;
+	public function generate(): string;
 }

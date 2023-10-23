@@ -16,28 +16,26 @@ use Symfony\Component\Messenger\Stamp\HandledStamp;
 
 final readonly class InMemorySymfonyQueryBus implements QueryBus
 {
-    private MessageBus $bus;
+	private MessageBus $bus;
 
-    public function __construct(iterable $queryHandlers)
-    {
-        $this->bus = new MessageBus(
-            [
-                new HandleMessageMiddleware(
-                    new HandlersLocator(CallableFirstParameterExtractor::forCallables($queryHandlers))
-                ),
-            ]
-        );
-    }
+	public function __construct(iterable $queryHandlers)
+	{
+		$this->bus = new MessageBus(
+			[
+				new HandleMessageMiddleware(new HandlersLocator(CallableFirstParameterExtractor::forCallables($queryHandlers))),
+			]
+		);
+	}
 
-    public function ask(Query $query): ?Response
-    {
-        try {
-            /** @var HandledStamp $stamp */
-            $stamp = $this->bus->dispatch($query)->last(HandledStamp::class);
+	public function ask(Query $query): ?Response
+	{
+		try {
+			/** @var HandledStamp $stamp */
+			$stamp = $this->bus->dispatch($query)->last(HandledStamp::class);
 
-            return $stamp->getResult();
-        } catch (NoHandlerForMessageException) {
-            throw new QueryNotRegisteredError($query);
-        }
-    }
+			return $stamp->getResult();
+		} catch (NoHandlerForMessageException) {
+			throw new QueryNotRegisteredError($query);
+		}
+	}
 }

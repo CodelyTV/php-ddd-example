@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "672d40e7ce6751fab2f182692aa96f94",
+    "content-hash": "ba195cf69db5f97d61146955643ca749",
     "packages": [
         {
             "name": "brick/math",
@@ -6064,16 +6064,16 @@
         },
         {
             "name": "codelytv/coding-style",
-            "version": "0.9.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CodelyTV/php-coding_style-codely.git",
-                "reference": "521ca89d79d0182cf14b4a3cc46f0a6a69b1a7ae"
+                "reference": "6aa1ff99eb1ac817dbf2be6bf3288b7925784e9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CodelyTV/php-coding_style-codely/zipball/521ca89d79d0182cf14b4a3cc46f0a6a69b1a7ae",
-                "reference": "521ca89d79d0182cf14b4a3cc46f0a6a69b1a7ae",
+                "url": "https://api.github.com/repos/CodelyTV/php-coding_style-codely/zipball/6aa1ff99eb1ac817dbf2be6bf3288b7925784e9d",
+                "reference": "6aa1ff99eb1ac817dbf2be6bf3288b7925784e9d",
                 "shasum": ""
             },
             "require": {
@@ -6086,6 +6086,9 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0-or-later"
+            ],
             "description": "PHP Coding Style rules we use in Codely",
             "keywords": [
                 "Code style",
@@ -6093,9 +6096,15 @@
             ],
             "support": {
                 "issues": "https://github.com/CodelyTV/php-coding_style-codely/issues",
-                "source": "https://github.com/CodelyTV/php-coding_style-codely/tree/0.9.0"
+                "source": "https://github.com/CodelyTV/php-coding_style-codely/tree/1.0.0"
             },
-            "time": "2023-10-23T09:08:28+00:00"
+            "funding": [
+                {
+                    "url": "https://bit.ly/CodelyTvPro",
+                    "type": "custom"
+                }
+            ],
+            "time": "2023-10-23T09:55:18+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",

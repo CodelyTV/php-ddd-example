@@ -13,15 +13,15 @@ use function Lambdish\Phunctional\get;
 
 final class InMemoryAuthRepository implements AuthRepository
 {
-    private const USERS = [
-        'javi' => 'barbitas',
-        'rafa' => 'pelazo',
-    ];
+	private const USERS = [
+		'javi' => 'barbitas',
+		'rafa' => 'pelazo',
+	];
 
-    public function search(AuthUsername $username): ?AuthUser
-    {
-        $password = get($username->value(), self::USERS);
+	public function search(AuthUsername $username): ?AuthUser
+	{
+		$password = get($username->value(), self::USERS);
 
-        return $password !== null ? new AuthUser($username, new AuthPassword($password)) : null;
-    }
+		return $password !== null ? new AuthUser($username, new AuthPassword($password)) : null;
+	}
 }

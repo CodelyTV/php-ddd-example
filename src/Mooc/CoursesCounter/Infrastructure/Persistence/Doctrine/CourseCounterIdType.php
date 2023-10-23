@@ -9,8 +9,8 @@ use CodelyTv\Shared\Infrastructure\Persistence\Doctrine\UuidType;
 
 final class CourseCounterIdType extends UuidType
 {
-    protected function typeClassName(): string
-    {
-        return CoursesCounterId::class;
-    }
+	protected function typeClassName(): string
+	{
+		return CoursesCounterId::class;
+	}
 }

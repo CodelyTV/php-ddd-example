@@ -13,24 +13,24 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class CoursesGetWebController extends WebController
 {
-    public function __invoke(Request $request): Response
-    {
-        /** @var CoursesCounterResponse $coursesCounterResponse */
-        $coursesCounterResponse = $this->ask(new FindCoursesCounterQuery());
+	public function __invoke(Request $request): Response
+	{
+		/** @var CoursesCounterResponse $coursesCounterResponse */
+		$coursesCounterResponse = $this->ask(new FindCoursesCounterQuery());
 
-        return $this->render(
-            'pages/courses/courses.html.twig',
-            [
-                'title' => 'Courses',
-                'description' => 'Courses CodelyTV - Backoffice',
-                'courses_counter' => $coursesCounterResponse->total(),
-                'new_course_id' => SimpleUuid::random()->value(),
-            ]
-        );
-    }
+		return $this->render(
+			'pages/courses/courses.html.twig',
+			[
+				'title' => 'Courses',
+				'description' => 'Courses CodelyTV - Backoffice',
+				'courses_counter' => $coursesCounterResponse->total(),
+				'new_course_id' => SimpleUuid::random()->value(),
+			]
+		);
+	}
 
-    protected function exceptions(): array
-    {
-        return [];
-    }
+	protected function exceptions(): array
+	{
+		return [];
+	}
 }

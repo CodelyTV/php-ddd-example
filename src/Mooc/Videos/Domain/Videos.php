@@ -8,8 +8,8 @@ use CodelyTv\Shared\Domain\Collection;
 
 final class Videos extends Collection
 {
-    protected function type(): string
-    {
-        return Video::class;
-    }
+	protected function type(): string
+	{
+		return Video::class;
+	}
 }

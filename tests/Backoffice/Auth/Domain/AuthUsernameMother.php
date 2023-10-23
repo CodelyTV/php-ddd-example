@@ -9,8 +9,8 @@ use CodelyTv\Tests\Shared\Domain\WordMother;
 
 final class AuthUsernameMother
 {
-    public static function create(?string $value = null): AuthUsername
-    {
-        return new AuthUsername($value ?? WordMother::create());
-    }
+	public static function create(?string $value = null): AuthUsername
+	{
+		return new AuthUsername($value ?? WordMother::create());
+	}
 }

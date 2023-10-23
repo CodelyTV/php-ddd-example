@@ -14,28 +14,28 @@ use function Lambdish\Phunctional\last;
 
 abstract class UuidType extends StringType implements DoctrineCustomType
 {
-    abstract protected function typeClassName(): string;
+	abstract protected function typeClassName(): string;
 
-    final public static function customTypeName(): string
-    {
-        return Utils::toSnakeCase(str_replace('Type', '', (string) last(explode('\\', static::class))));
-    }
+	final public static function customTypeName(): string
+	{
+		return Utils::toSnakeCase(str_replace('Type', '', (string) last(explode('\\', static::class))));
+	}
 
-    final public function getName(): string
-    {
-        return self::customTypeName();
-    }
+	final public function getName(): string
+	{
+		return self::customTypeName();
+	}
 
-    final public function convertToPHPValue($value, AbstractPlatform $platform)
-    {
-        $className = $this->typeClassName();
+	final public function convertToPHPValue($value, AbstractPlatform $platform)
+	{
+		$className = $this->typeClassName();
 
-        return new $className($value);
-    }
+		return new $className($value);
+	}
 
-    final public function convertToDatabaseValue($value, AbstractPlatform $platform)
-    {
-        /** @var Uuid $value */
-        return $value->value();
-    }
+	final public function convertToDatabaseValue($value, AbstractPlatform $platform)
+	{
+		/** @var Uuid $value */
+		return $value->value();
+	}
 }

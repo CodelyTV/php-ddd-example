@@ -12,20 +12,20 @@ use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 
 final class CourseCreatedDomainEventMother
 {
-    public static function create(
-        ?CourseId $id = null,
-        ?CourseName $name = null,
-        ?CourseDuration $duration = null
-    ): CourseCreatedDomainEvent {
-        return new CourseCreatedDomainEvent(
-            $id?->value() ?? CourseIdMother::create()->value(),
-            $name?->value() ?? CourseNameMother::create()->value(),
-            $duration?->value() ?? CourseDurationMother::create()->value()
-        );
-    }
+	public static function create(
+		?CourseId $id = null,
+		?CourseName $name = null,
+		?CourseDuration $duration = null
+	): CourseCreatedDomainEvent {
+		return new CourseCreatedDomainEvent(
+			$id?->value() ?? CourseIdMother::create()->value(),
+			$name?->value() ?? CourseNameMother::create()->value(),
+			$duration?->value() ?? CourseDurationMother::create()->value()
+		);
+	}
 
-    public static function fromCourse(Course $course): CourseCreatedDomainEvent
-    {
-        return self::create($course->id(), $course->name(), $course->duration());
-    }
+	public static function fromCourse(Course $course): CourseCreatedDomainEvent
+	{
+		return self::create($course->id(), $course->name(), $course->duration());
+	}
 }

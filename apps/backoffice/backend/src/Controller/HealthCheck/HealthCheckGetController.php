@@ -9,12 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class HealthCheckGetController
 {
-    public function __invoke(Request $request): JsonResponse
-    {
-        return new JsonResponse(
-            [
-                'backoffice-backend' => 'ok',
-            ]
-        );
-    }
+	public function __invoke(Request $request): JsonResponse
+	{
+		return new JsonResponse(
+			[
+				'backoffice-backend' => 'ok',
+			]
+		);
+	}
 }

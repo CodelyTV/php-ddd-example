@@ -15,27 +15,27 @@ use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 
 final class InMemorySymfonyCommandBus implements CommandBus
 {
-    private readonly MessageBus $bus;
+	private readonly MessageBus $bus;
 
-    public function __construct(iterable $commandHandlers)
-    {
-        $this->bus = new MessageBus(
-            [
-                new HandleMessageMiddleware(
-                    new HandlersLocator(CallableFirstParameterExtractor::forCallables($commandHandlers))
-                ),
-            ]
-        );
-    }
+	public function __construct(iterable $commandHandlers)
+	{
+		$this->bus = new MessageBus(
+			[
+				new HandleMessageMiddleware(
+					new HandlersLocator(CallableFirstParameterExtractor::forCallables($commandHandlers))
+				),
+			]
+		);
+	}
 
-    public function dispatch(Command $command): void
-    {
-        try {
-            $this->bus->dispatch($command);
-        } catch (NoHandlerForMessageException) {
-            throw new CommandNotRegisteredError($command);
-        } catch (HandlerFailedException $error) {
-            throw $error->getPrevious() ?? $error;
-        }
-    }
+	public function dispatch(Command $command): void
+	{
+		try {
+			$this->bus->dispatch($command);
+		} catch (NoHandlerForMessageException) {
+			throw new CommandNotRegisteredError($command);
+		} catch (HandlerFailedException $error) {
+			throw $error->getPrevious() ?? $error;
+		}
+	}
 }

@@ -12,28 +12,28 @@ use Mockery\MockInterface;
 
 abstract class CoursesModuleUnitTestCase extends UnitTestCase
 {
-    private CourseRepository|MockInterface|null $repository = null;
+	private CourseRepository|MockInterface|null $repository = null;
 
-    protected function shouldSave(Course $course): void
-    {
-        $this->repository()
-            ->shouldReceive('save')
-            ->with($this->similarTo($course))
-            ->once()
-            ->andReturnNull();
-    }
+	protected function shouldSave(Course $course): void
+	{
+		$this->repository()
+			->shouldReceive('save')
+			->with($this->similarTo($course))
+			->once()
+			->andReturnNull();
+	}
 
-    protected function shouldSearch(CourseId $id, ?Course $course): void
-    {
-        $this->repository()
-            ->shouldReceive('search')
-            ->with($this->similarTo($id))
-            ->once()
-            ->andReturn($course);
-    }
+	protected function shouldSearch(CourseId $id, ?Course $course): void
+	{
+		$this->repository()
+			->shouldReceive('search')
+			->with($this->similarTo($id))
+			->once()
+			->andReturn($course);
+	}
 
-    protected function repository(): CourseRepository|MockInterface
-    {
-        return $this->repository ??= $this->mock(CourseRepository::class);
-    }
+	protected function repository(): CourseRepository|MockInterface
+	{
+		return $this->repository ??= $this->mock(CourseRepository::class);
+	}
 }

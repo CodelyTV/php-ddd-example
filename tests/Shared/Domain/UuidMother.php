@@ -6,8 +6,8 @@ namespace CodelyTv\Tests\Shared\Domain;
 
 final class UuidMother
 {
-    public static function create(): string
-    {
-        return MotherCreator::random()->unique()->uuid;
-    }
+	public static function create(): string
+	{
+		return MotherCreator::random()->unique()->uuid;
+	}
 }

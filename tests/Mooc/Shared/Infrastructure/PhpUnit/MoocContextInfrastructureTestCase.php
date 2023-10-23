@@ -10,26 +10,26 @@ use Doctrine\ORM\EntityManager;
 
 abstract class MoocContextInfrastructureTestCase extends InfrastructureTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
+	protected function setUp(): void
+	{
+		parent::setUp();
 
-        $arranger = new MoocEnvironmentArranger($this->service(EntityManager::class));
+		$arranger = new MoocEnvironmentArranger($this->service(EntityManager::class));
 
-        $arranger->arrange();
-    }
+		$arranger->arrange();
+	}
 
-    protected function tearDown(): void
-    {
-        $arranger = new MoocEnvironmentArranger($this->service(EntityManager::class));
+	protected function tearDown(): void
+	{
+		$arranger = new MoocEnvironmentArranger($this->service(EntityManager::class));
 
-        $arranger->close();
+		$arranger->close();
 
-        parent::tearDown();
-    }
+		parent::tearDown();
+	}
 
-    protected function kernelClass(): string
-    {
-        return MoocBackendKernel::class;
-    }
+	protected function kernelClass(): string
+	{
+		return MoocBackendKernel::class;
+	}
 }

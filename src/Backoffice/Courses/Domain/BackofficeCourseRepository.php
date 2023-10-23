@@ -8,9 +8,9 @@ use CodelyTv\Shared\Domain\Criteria\Criteria;
 
 interface BackofficeCourseRepository
 {
-    public function save(BackofficeCourse $course): void;
+	public function save(BackofficeCourse $course): void;
 
-    public function searchAll(): array;
+	public function searchAll(): array;
 
-    public function matching(Criteria $criteria): array;
+	public function matching(Criteria $criteria): array;
 }

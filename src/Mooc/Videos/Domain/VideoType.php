@@ -6,6 +6,6 @@ namespace CodelyTv\Mooc\Videos\Domain;
 
 enum VideoType: string
 {
-    case SCREENCAST = 'screencast';
-    case INTERVIEW = 'interview';
+	case SCREENCAST = 'screencast';
+	case INTERVIEW = 'interview';
 }

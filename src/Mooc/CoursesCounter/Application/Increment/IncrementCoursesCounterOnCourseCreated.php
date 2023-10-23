@@ -12,17 +12,17 @@ use function Lambdish\Phunctional\apply;
 
 final readonly class IncrementCoursesCounterOnCourseCreated implements DomainEventSubscriber
 {
-    public function __construct(private CoursesCounterIncrementer $incrementer) {}
+	public function __construct(private CoursesCounterIncrementer $incrementer) {}
 
-    public static function subscribedTo(): array
-    {
-        return [CourseCreatedDomainEvent::class];
-    }
+	public static function subscribedTo(): array
+	{
+		return [CourseCreatedDomainEvent::class];
+	}
 
-    public function __invoke(CourseCreatedDomainEvent $event): void
-    {
-        $courseId = new CourseId($event->aggregateId());
+	public function __invoke(CourseCreatedDomainEvent $event): void
+	{
+		$courseId = new CourseId($event->aggregateId());
 
-        apply($this->incrementer, [$courseId]);
-    }
+		apply($this->incrementer, [$courseId]);
+	}
 }

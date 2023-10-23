@@ -14,13 +14,13 @@ use function Lambdish\Phunctional\apply;
 
 final readonly class BackofficeEnvironmentArranger implements EnvironmentArranger
 {
-    public function __construct(private ElasticsearchClient $elasticsearchClient, private EntityManager $entityManager) {}
+	public function __construct(private ElasticsearchClient $elasticsearchClient, private EntityManager $entityManager) {}
 
-    public function arrange(): void
-    {
-        apply(new ElasticDatabaseCleaner(), [$this->elasticsearchClient]);
-        apply(new MySqlDatabaseCleaner(), [$this->entityManager]);
-    }
+	public function arrange(): void
+	{
+		apply(new ElasticDatabaseCleaner(), [$this->elasticsearchClient]);
+		apply(new MySqlDatabaseCleaner(), [$this->entityManager]);
+	}
 
-    public function close(): void {}
+	public function close(): void {}
 }

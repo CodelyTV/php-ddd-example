@@ -16,39 +16,36 @@ use Doctrine\ORM\EntityManager;
 
 final class MySqlDoctrineEventBusTest extends InfrastructureTestCase
 {
-    private MySqlDoctrineEventBus|null $bus;
-    private MySqlDoctrineDomainEventsConsumer|null $consumer;
+	private MySqlDoctrineEventBus|null $bus;
+	private MySqlDoctrineDomainEventsConsumer|null $consumer;
 
-    protected function setUp(): void
-    {
-        parent::setUp();
+	protected function setUp(): void
+	{
+		parent::setUp();
 
-        $this->bus = new MySqlDoctrineEventBus($this->service(EntityManager::class));
-        $this->consumer = new MySqlDoctrineDomainEventsConsumer(
-            $this->service(EntityManager::class),
-            $this->service(DomainEventMapping::class)
-        );
-    }
+		$this->bus = new MySqlDoctrineEventBus($this->service(EntityManager::class));
+		$this->consumer = new MySqlDoctrineDomainEventsConsumer(
+			$this->service(EntityManager::class),
+			$this->service(DomainEventMapping::class)
+		);
+	}
 
-    /** @test */
-    public function it_should_publish_and_consume_domain_events_from_msql(): void
-    {
-        $domainEvent = CourseCreatedDomainEventMother::create();
-        $anotherDomainEvent = CoursesCounterIncrementedDomainEventMother::create();
+	/** @test */
+	public function it_should_publish_and_consume_domain_events_from_msql(): void
+	{
+		$domainEvent = CourseCreatedDomainEventMother::create();
+		$anotherDomainEvent = CoursesCounterIncrementedDomainEventMother::create();
 
-        $this->bus->publish($domainEvent, $anotherDomainEvent);
+		$this->bus->publish($domainEvent, $anotherDomainEvent);
 
-        $this->consumer->consume(
-            subscribers: fn (DomainEvent ...$expectedEvents) => $this->assertContainsEquals(
-                $domainEvent,
-                $expectedEvents
-            ),
-            eventsToConsume: 2
-        );
-    }
+		$this->consumer->consume(
+			subscribers: fn (DomainEvent ...$expectedEvents) => $this->assertContainsEquals($domainEvent, $expectedEvents),
+			eventsToConsume: 2
+		);
+	}
 
-    protected function kernelClass(): string
-    {
-        return MoocBackendKernel::class;
-    }
+	protected function kernelClass(): string
+	{
+		return MoocBackendKernel::class;
+	}
 }

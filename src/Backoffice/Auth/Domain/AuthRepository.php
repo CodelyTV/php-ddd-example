@@ -6,5 +6,5 @@ namespace CodelyTv\Backoffice\Auth\Domain;
 
 interface AuthRepository
 {
-    public function search(AuthUsername $username): ?AuthUser;
+	public function search(AuthUsername $username): ?AuthUser;
 }

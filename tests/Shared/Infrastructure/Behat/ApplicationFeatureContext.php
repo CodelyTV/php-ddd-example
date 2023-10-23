@@ -12,26 +12,26 @@ use CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections;
 
 final readonly class ApplicationFeatureContext implements Context
 {
-    public function __construct(
-        private DatabaseConnections $connections,
-        private InMemorySymfonyEventBus $bus,
-        private DomainEventJsonDeserializer $deserializer
-    ) {}
+	public function __construct(
+		private DatabaseConnections $connections,
+		private InMemorySymfonyEventBus $bus,
+		private DomainEventJsonDeserializer $deserializer
+	) {}
 
-    /** @BeforeScenario */
-    public function cleanEnvironment(): void
-    {
-        $this->connections->clear();
-        $this->connections->truncate();
-    }
+	/** @BeforeScenario */
+	public function cleanEnvironment(): void
+	{
+		$this->connections->clear();
+		$this->connections->truncate();
+	}
 
-    /**
-     * @Given /^I send an event to the event bus:$/
-     */
-    public function iSendAnEventToTheEventBus(PyStringNode $event): void
-    {
-        $domainEvent = $this->deserializer->deserialize($event->getRaw());
+	/**
+	 * @Given /^I send an event to the event bus:$/
+	 */
+	public function iSendAnEventToTheEventBus(PyStringNode $event): void
+	{
+		$domainEvent = $this->deserializer->deserialize($event->getRaw());
 
-        $this->bus->publish($domainEvent);
-    }
+		$this->bus->publish($domainEvent);
+	}
 }

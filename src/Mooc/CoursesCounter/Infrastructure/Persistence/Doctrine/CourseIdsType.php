@@ -13,25 +13,25 @@ use function Lambdish\Phunctional\map;
 
 final class CourseIdsType extends JsonType implements DoctrineCustomType
 {
-    public static function customTypeName(): string
-    {
-        return 'course_ids';
-    }
+	public static function customTypeName(): string
+	{
+		return 'course_ids';
+	}
 
-    public function getName(): string
-    {
-        return self::customTypeName();
-    }
+	public function getName(): string
+	{
+		return self::customTypeName();
+	}
 
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
-    {
-        return parent::convertToDatabaseValue(map(fn (CourseId $id): string => $id->value(), $value), $platform);
-    }
+	public function convertToDatabaseValue($value, AbstractPlatform $platform)
+	{
+		return parent::convertToDatabaseValue(map(fn (CourseId $id): string => $id->value(), $value), $platform);
+	}
 
-    public function convertToPHPValue($value, AbstractPlatform $platform)
-    {
-        $scalars = parent::convertToPHPValue($value, $platform);
+	public function convertToPHPValue($value, AbstractPlatform $platform)
+	{
+		$scalars = parent::convertToPHPValue($value, $platform);
 
-        return map(fn (string $value): CourseId => new CourseId($value), $scalars);
-    }
+		return map(fn (string $value): CourseId => new CourseId($value), $scalars);
+	}
 }

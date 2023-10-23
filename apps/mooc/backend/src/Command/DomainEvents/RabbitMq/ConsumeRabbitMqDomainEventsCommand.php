@@ -16,42 +16,42 @@ use function Lambdish\Phunctional\repeat;
 
 final class ConsumeRabbitMqDomainEventsCommand extends Command
 {
-    protected static $defaultName = 'codelytv:domain-events:rabbitmq:consume';
+	protected static $defaultName = 'codelytv:domain-events:rabbitmq:consume';
 
-    public function __construct(
-        private readonly RabbitMqDomainEventsConsumer $consumer,
-        private readonly DatabaseConnections $connections,
-        private readonly DomainEventSubscriberLocator $locator
-    ) {
-        parent::__construct();
-    }
+	public function __construct(
+		private readonly RabbitMqDomainEventsConsumer $consumer,
+		private readonly DatabaseConnections $connections,
+		private readonly DomainEventSubscriberLocator $locator
+	) {
+		parent::__construct();
+	}
 
-    protected function configure(): void
-    {
-        $this
-            ->setDescription('Consume domain events from the RabbitMQ')
-            ->addArgument('queue', InputArgument::REQUIRED, 'Queue name')
-            ->addArgument('quantity', InputArgument::REQUIRED, 'Quantity of events to process');
-    }
+	protected function configure(): void
+	{
+		$this
+			->setDescription('Consume domain events from the RabbitMQ')
+			->addArgument('queue', InputArgument::REQUIRED, 'Queue name')
+			->addArgument('quantity', InputArgument::REQUIRED, 'Quantity of events to process');
+	}
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
-        $queueName = $input->getArgument('queue');
-        $eventsToProcess = (int) $input->getArgument('quantity');
+	protected function execute(InputInterface $input, OutputInterface $output): int
+	{
+		$queueName = $input->getArgument('queue');
+		$eventsToProcess = (int) $input->getArgument('quantity');
 
-        repeat($this->consumer($queueName), $eventsToProcess);
+		repeat($this->consumer($queueName), $eventsToProcess);
 
-        return 0;
-    }
+		return 0;
+	}
 
-    private function consumer(string $queueName): callable
-    {
-        return function () use ($queueName): void {
-            $subscriber = $this->locator->withRabbitMqQueueNamed($queueName);
+	private function consumer(string $queueName): callable
+	{
+		return function () use ($queueName): void {
+			$subscriber = $this->locator->withRabbitMqQueueNamed($queueName);
 
-            $this->consumer->consume($subscriber, $queueName);
+			$this->consumer->consume($subscriber, $queueName);
 
-            $this->connections->clear();
-        };
-    }
+			$this->connections->clear();
+		};
+	}
 }

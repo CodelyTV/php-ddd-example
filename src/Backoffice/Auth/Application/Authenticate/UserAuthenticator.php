@@ -13,23 +13,23 @@ use CodelyTv\Backoffice\Auth\Domain\InvalidAuthUsername;
 
 final readonly class UserAuthenticator
 {
-    public function __construct(private AuthRepository $repository) {}
+	public function __construct(private AuthRepository $repository) {}
 
-    public function authenticate(AuthUsername $username, AuthPassword $password): void
-    {
-        $auth = $this->repository->search($username);
+	public function authenticate(AuthUsername $username, AuthPassword $password): void
+	{
+		$auth = $this->repository->search($username);
 
-        if ($auth === null) {
-            throw new InvalidAuthUsername($username);
-        }
+		if ($auth === null) {
+			throw new InvalidAuthUsername($username);
+		}
 
-        $this->ensureCredentialsAreValid($auth, $password);
-    }
+		$this->ensureCredentialsAreValid($auth, $password);
+	}
 
-    private function ensureCredentialsAreValid(AuthUser $auth, AuthPassword $password): void
-    {
-        if (!$auth->passwordMatches($password)) {
-            throw new InvalidAuthCredentials($auth->username());
-        }
-    }
+	private function ensureCredentialsAreValid(AuthUser $auth, AuthPassword $password): void
+	{
+		if (!$auth->passwordMatches($password)) {
+			throw new InvalidAuthCredentials($auth->username());
+		}
+	}
 }
