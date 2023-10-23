@@ -10,54 +10,54 @@
     allowStringToStandInForClass="true"
 >
     <projectFiles>
-        <directory name="apps"/>
-        <directory name="src"/>
-        <directory name="tests"/>
+        <directory name="../apps"/>
+        <directory name="../src"/>
+        <directory name="../tests"/>
         <ignoreFiles>
-            <directory name="apps/*/*/var"/>
-            <directory name="vendor"/>
-            <directory name="src/Shared/Infrastructure/Bus/Event/RabbitMq"/>
-            <directory name="src/Shared/Infrastructure/Symfony"/>
-            <directory name="tests/Shared/Infrastructure/Bus/Event/RabbitMq"/>
-            <directory name="tests/Shared/Infrastructure/Mink"/>
-            <directory name="tests/Shared/Infrastructure/PhpUnit/Constraint"/>
+            <directory name="../apps/*/*/var"/>
+            <directory name="../vendor"/>
+            <directory name="../src/Shared/Infrastructure/Bus/Event/RabbitMq"/>
+            <directory name="../src/Shared/Infrastructure/Symfony"/>
+            <directory name="../tests/Shared/Infrastructure/Bus/Event/RabbitMq"/>
+            <directory name="../tests/Shared/Infrastructure/Mink"/>
+            <directory name="../tests/Shared/Infrastructure/PhpUnit/Constraint"/>
         </ignoreFiles>
     </projectFiles>
 
     <issueHandlers>
         <PossiblyUndefinedMethod>
             <errorLevel type="suppress">
-                <directory name="tests"/>
+                <directory name="../tests"/>
             </errorLevel>
         </PossiblyUndefinedMethod>
         <PossiblyInvalidArgument>
             <errorLevel type="suppress">
-                <directory name="tests"/>
+                <directory name="../tests"/>
             </errorLevel>
         </PossiblyInvalidArgument>
         <PossiblyNullReference>
             <errorLevel type="suppress">
-                <directory name="tests"/>
+                <directory name="../tests"/>
             </errorLevel>
         </PossiblyNullReference>
         <PossiblyNullArgument>
             <errorLevel type="suppress">
-                <directory name="tests"/>
+                <directory name="../tests"/>
             </errorLevel>
         </PossiblyNullArgument>
         <PropertyNotSetInConstructor>
             <errorLevel type="suppress">
-                <directory name="tests"/>
+                <directory name="../tests"/>
             </errorLevel>
         </PropertyNotSetInConstructor>
         <MoreSpecificReturnType>
             <errorLevel type="suppress">
-                <file name="apps/*/*/src/*Kernel.php"/>
+                <file name="../apps/*/*/src/*Kernel.php"/>
             </errorLevel>
         </MoreSpecificReturnType>
         <UnresolvableInclude>
             <errorLevel type="suppress">
-                <file name="apps/*/*/src/*Kernel.php"/>
+                <file name="../apps/*/*/src/*Kernel.php"/>
             </errorLevel>
         </UnresolvableInclude>
     </issueHandlers>
