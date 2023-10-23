@@ -11,12 +11,12 @@ use CodelyTv\Tests\Mooc\Courses\Domain\CourseNameMother;
 
 final class BackofficeCourseMother
 {
-    public static function create(?string $id = null, ?string $name = null, ?string $duration = null): BackofficeCourse
-    {
-        return new BackofficeCourse(
-            $id ?? CourseIdMother::create()->value(),
-            $name ?? CourseNameMother::create()->value(),
-            $duration ?? CourseDurationMother::create()->value()
-        );
-    }
+	public static function create(?string $id = null, ?string $name = null, ?string $duration = null): BackofficeCourse
+	{
+		return new BackofficeCourse(
+			$id ?? CourseIdMother::create()->value(),
+			$name ?? CourseNameMother::create()->value(),
+			$duration ?? CourseDurationMother::create()->value()
+		);
+	}
 }

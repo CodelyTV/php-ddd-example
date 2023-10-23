@@ -8,13 +8,13 @@ use function Lambdish\Phunctional\repeat;
 
 final class Repeater
 {
-    public static function repeat(callable $function, int $quantity): array
-    {
-        return repeat($function, $quantity);
-    }
+	public static function repeat(callable $function, int $quantity): array
+	{
+		return repeat($function, $quantity);
+	}
 
-    public static function random(callable $function): array
-    {
-        return self::repeat($function, IntegerMother::lessThan(5));
-    }
+	public static function random(callable $function): array
+	{
+		return self::repeat($function, IntegerMother::lessThan(5));
+	}
 }

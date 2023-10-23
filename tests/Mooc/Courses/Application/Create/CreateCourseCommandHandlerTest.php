@@ -12,26 +12,26 @@ use CodelyTv\Tests\Mooc\Courses\Domain\CourseMother;
 
 final class CreateCourseCommandHandlerTest extends CoursesModuleUnitTestCase
 {
-    private CreateCourseCommandHandler|null $handler;
+	private CreateCourseCommandHandler|null $handler;
 
-    protected function setUp(): void
-    {
-        parent::setUp();
+	protected function setUp(): void
+	{
+		parent::setUp();
 
-        $this->handler = new CreateCourseCommandHandler(new CourseCreator($this->repository(), $this->eventBus()));
-    }
+		$this->handler = new CreateCourseCommandHandler(new CourseCreator($this->repository(), $this->eventBus()));
+	}
 
-    /** @test */
-    public function it_should_create_a_valid_course(): void
-    {
-        $command = CreateCourseCommandMother::create();
+	/** @test */
+	public function it_should_create_a_valid_course(): void
+	{
+		$command = CreateCourseCommandMother::create();
 
-        $course = CourseMother::fromRequest($command);
-        $domainEvent = CourseCreatedDomainEventMother::fromCourse($course);
+		$course = CourseMother::fromRequest($command);
+		$domainEvent = CourseCreatedDomainEventMother::fromCourse($course);
 
-        $this->shouldSave($course);
-        $this->shouldPublishDomainEvent($domainEvent);
+		$this->shouldSave($course);
+		$this->shouldPublishDomainEvent($domainEvent);
 
-        $this->dispatch($command, $this->handler);
-    }
+		$this->dispatch($command, $this->handler);
+	}
 }

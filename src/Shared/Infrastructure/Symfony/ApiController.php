@@ -14,26 +14,26 @@ use function Lambdish\Phunctional\each;
 
 abstract class ApiController
 {
-    public function __construct(
-        private readonly QueryBus $queryBus,
-        private readonly CommandBus $commandBus,
-        ApiExceptionsHttpStatusCodeMapping $exceptionHandler
-    ) {
-        each(
-            fn (int $httpCode, string $exceptionClass) => $exceptionHandler->register($exceptionClass, $httpCode),
-            $this->exceptions()
-        );
-    }
+	public function __construct(
+		private readonly QueryBus $queryBus,
+		private readonly CommandBus $commandBus,
+		ApiExceptionsHttpStatusCodeMapping $exceptionHandler
+	) {
+		each(
+			fn (int $httpCode, string $exceptionClass) => $exceptionHandler->register($exceptionClass, $httpCode),
+			$this->exceptions()
+		);
+	}
 
-    abstract protected function exceptions(): array;
+	abstract protected function exceptions(): array;
 
-    protected function ask(Query $query): ?Response
-    {
-        return $this->queryBus->ask($query);
-    }
+	protected function ask(Query $query): ?Response
+	{
+		return $this->queryBus->ask($query);
+	}
 
-    protected function dispatch(Command $command): void
-    {
-        $this->commandBus->dispatch($command);
-    }
+	protected function dispatch(Command $command): void
+	{
+		$this->commandBus->dispatch($command);
+	}
 }

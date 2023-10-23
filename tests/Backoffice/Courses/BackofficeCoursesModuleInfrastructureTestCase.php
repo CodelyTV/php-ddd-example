@@ -11,13 +11,13 @@ use Doctrine\ORM\EntityManager;
 
 abstract class BackofficeCoursesModuleInfrastructureTestCase extends BackofficeContextInfrastructureTestCase
 {
-    protected function mySqlRepository(): MySqlBackofficeCourseRepository
-    {
-        return new MySqlBackofficeCourseRepository($this->service(EntityManager::class));
-    }
+	protected function mySqlRepository(): MySqlBackofficeCourseRepository
+	{
+		return new MySqlBackofficeCourseRepository($this->service(EntityManager::class));
+	}
 
-    protected function elasticRepository(): ElasticsearchBackofficeCourseRepository
-    {
-        return $this->service(ElasticsearchBackofficeCourseRepository::class);
-    }
+	protected function elasticRepository(): ElasticsearchBackofficeCourseRepository
+	{
+		return $this->service(ElasticsearchBackofficeCourseRepository::class);
+	}
 }

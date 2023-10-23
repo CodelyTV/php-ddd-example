@@ -11,19 +11,19 @@ use function Lambdish\Phunctional\apply;
 
 final readonly class FindVideoQueryHandler implements QueryHandler
 {
-    private VideoResponseConverter $responseConverter;
+	private VideoResponseConverter $responseConverter;
 
-    public function __construct(private VideoFinder $finder)
-    {
-        $this->responseConverter = new VideoResponseConverter();
-    }
+	public function __construct(private VideoFinder $finder)
+	{
+		$this->responseConverter = new VideoResponseConverter();
+	}
 
-    public function __invoke(FindVideoQuery $query): VideoResponse
-    {
-        $id = new VideoId($query->id());
+	public function __invoke(FindVideoQuery $query): VideoResponse
+	{
+		$id = new VideoId($query->id());
 
-        $video = apply($this->finder, [$id]);
+		$video = apply($this->finder, [$id]);
 
-        return apply($this->responseConverter, [$video]);
-    }
+		return apply($this->responseConverter, [$video]);
+	}
 }

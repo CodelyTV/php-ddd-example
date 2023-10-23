@@ -12,43 +12,43 @@ use function Lambdish\Phunctional\map;
 
 final class RabbitMqQueueNameFormatter
 {
-    public static function format(DomainEventSubscriber $subscriber): string
-    {
-        $subscriberClassPaths = explode('\\', str_replace('CodelyTv', 'codelytv', $subscriber::class));
+	public static function format(DomainEventSubscriber $subscriber): string
+	{
+		$subscriberClassPaths = explode('\\', str_replace('CodelyTv', 'codelytv', $subscriber::class));
 
-        $queueNameParts = [
-            $subscriberClassPaths[0],
-            $subscriberClassPaths[1],
-            $subscriberClassPaths[2],
-            last($subscriberClassPaths),
-        ];
+		$queueNameParts = [
+			$subscriberClassPaths[0],
+			$subscriberClassPaths[1],
+			$subscriberClassPaths[2],
+			last($subscriberClassPaths),
+		];
 
-        return implode('.', map(self::toSnakeCase(), $queueNameParts));
-    }
+		return implode('.', map(self::toSnakeCase(), $queueNameParts));
+	}
 
-    public static function formatRetry(DomainEventSubscriber $subscriber): string
-    {
-        $queueName = self::format($subscriber);
+	public static function formatRetry(DomainEventSubscriber $subscriber): string
+	{
+		$queueName = self::format($subscriber);
 
-        return "retry.$queueName";
-    }
+		return "retry.$queueName";
+	}
 
-    public static function formatDeadLetter(DomainEventSubscriber $subscriber): string
-    {
-        $queueName = self::format($subscriber);
+	public static function formatDeadLetter(DomainEventSubscriber $subscriber): string
+	{
+		$queueName = self::format($subscriber);
 
-        return "dead_letter.$queueName";
-    }
+		return "dead_letter.$queueName";
+	}
 
-    public static function shortFormat(DomainEventSubscriber $subscriber): string
-    {
-        $subscriberCamelCaseName = (string) last(explode('\\', $subscriber::class));
+	public static function shortFormat(DomainEventSubscriber $subscriber): string
+	{
+		$subscriberCamelCaseName = (string) last(explode('\\', $subscriber::class));
 
-        return Utils::toSnakeCase($subscriberCamelCaseName);
-    }
+		return Utils::toSnakeCase($subscriberCamelCaseName);
+	}
 
-    private static function toSnakeCase(): callable
-    {
-        return static fn (string $text): string => Utils::toSnakeCase($text);
-    }
+	private static function toSnakeCase(): callable
+	{
+		return static fn (string $text): string => Utils::toSnakeCase($text);
+	}
 }

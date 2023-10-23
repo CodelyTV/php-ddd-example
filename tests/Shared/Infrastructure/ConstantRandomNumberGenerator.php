@@ -8,8 +8,8 @@ use CodelyTv\Shared\Domain\RandomNumberGenerator;
 
 final class ConstantRandomNumberGenerator implements RandomNumberGenerator
 {
-    public function generate(): int
-    {
-        return 1;
-    }
+	public function generate(): int
+	{
+		return 1;
+	}
 }

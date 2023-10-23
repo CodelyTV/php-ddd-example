@@ -10,10 +10,10 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 
 final class TestAllWorksOnRabbitMqEventsPublished implements DomainEventSubscriber
 {
-    public static function subscribedTo(): array
-    {
-        return [CourseCreatedDomainEvent::class, CoursesCounterIncrementedDomainEvent::class, ];
-    }
+	public static function subscribedTo(): array
+	{
+		return [CourseCreatedDomainEvent::class, CoursesCounterIncrementedDomainEvent::class, ];
+	}
 
-    public function __invoke(CourseCreatedDomainEvent|CoursesCounterIncrementedDomainEvent $event): void {}
+	public function __invoke(CourseCreatedDomainEvent|CoursesCounterIncrementedDomainEvent $event): void {}
 }

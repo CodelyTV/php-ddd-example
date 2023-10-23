@@ -11,15 +11,15 @@ use CodelyTv\Mooc\Videos\Domain\VideoRepository;
 
 final class VideoFinder
 {
-    private readonly DomainVideoFinder $finder;
+	private readonly DomainVideoFinder $finder;
 
-    public function __construct(VideoRepository $repository)
-    {
-        $this->finder = new DomainVideoFinder($repository);
-    }
+	public function __construct(VideoRepository $repository)
+	{
+		$this->finder = new DomainVideoFinder($repository);
+	}
 
-    public function __invoke(VideoId $id): Video
-    {
-        return $this->finder->__invoke($id);
-    }
+	public function __invoke(VideoId $id): Video
+	{
+		return $this->finder->__invoke($id);
+	}
 }

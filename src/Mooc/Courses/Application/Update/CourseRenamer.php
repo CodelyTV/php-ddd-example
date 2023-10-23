@@ -12,20 +12,20 @@ use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 
 final readonly class CourseRenamer
 {
-    private CourseFinder $finder;
+	private CourseFinder $finder;
 
-    public function __construct(private CourseRepository $repository, private EventBus $bus)
-    {
-        $this->finder = new CourseFinder($repository);
-    }
+	public function __construct(private CourseRepository $repository, private EventBus $bus)
+	{
+		$this->finder = new CourseFinder($repository);
+	}
 
-    public function __invoke(CourseId $id, CourseName $newName): void
-    {
-        $course = $this->finder->__invoke($id);
+	public function __invoke(CourseId $id, CourseName $newName): void
+	{
+		$course = $this->finder->__invoke($id);
 
-        $course->rename($newName);
+		$course->rename($newName);
 
-        $this->repository->save($course);
-        $this->bus->publish(...$course->pullDomainEvents());
-    }
+		$this->repository->save($course);
+		$this->bus->publish(...$course->pullDomainEvents());
+	}
 }

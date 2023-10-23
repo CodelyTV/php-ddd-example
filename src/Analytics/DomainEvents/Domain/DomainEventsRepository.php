@@ -6,5 +6,5 @@ namespace CodelyTv\Analytics\DomainEvents\Domain;
 
 interface DomainEventsRepository
 {
-    public function save(AnalyticsDomainEvent $event): void;
+	public function save(AnalyticsDomainEvent $event): void;
 }

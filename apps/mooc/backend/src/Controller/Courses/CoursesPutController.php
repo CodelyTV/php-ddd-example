@@ -11,21 +11,21 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class CoursesPutController extends ApiController
 {
-    public function __invoke(string $id, Request $request): Response
-    {
-        $this->dispatch(
-            new CreateCourseCommand(
-                $id,
-                (string) $request->request->get('name'),
-                (string) $request->request->get('duration')
-            )
-        );
+	public function __invoke(string $id, Request $request): Response
+	{
+		$this->dispatch(
+			new CreateCourseCommand(
+				$id,
+				(string) $request->request->get('name'),
+				(string) $request->request->get('duration')
+			)
+		);
 
-        return new Response('', Response::HTTP_CREATED);
-    }
+		return new Response('', Response::HTTP_CREATED);
+	}
 
-    protected function exceptions(): array
-    {
-        return [];
-    }
+	protected function exceptions(): array
+	{
+		return [];
+	}
 }

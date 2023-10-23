@@ -9,8 +9,8 @@ use CodelyTv\Tests\Shared\Domain\UuidMother;
 
 final class CoursesCounterIdMother
 {
-    public static function create(?string $value = null): CoursesCounterId
-    {
-        return new CoursesCounterId($value ?? UuidMother::create());
-    }
+	public static function create(?string $value = null): CoursesCounterId
+	{
+		return new CoursesCounterId($value ?? UuidMother::create());
+	}
 }

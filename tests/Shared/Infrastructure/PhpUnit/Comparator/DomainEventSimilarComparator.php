@@ -12,64 +12,64 @@ use SebastianBergmann\Comparator\ComparisonFailure;
 
 final class DomainEventSimilarComparator extends Comparator
 {
-    private static array $ignoredAttributes = ['eventId', 'occurredOn'];
+	private static array $ignoredAttributes = ['eventId', 'occurredOn'];
 
-    public function accepts($expected, $actual): bool
-    {
-        $domainEventRootClass = DomainEvent::class;
+	public function accepts($expected, $actual): bool
+	{
+		$domainEventRootClass = DomainEvent::class;
 
-        return $expected instanceof $domainEventRootClass && $actual instanceof $domainEventRootClass;
-    }
+		return $expected instanceof $domainEventRootClass && $actual instanceof $domainEventRootClass;
+	}
 
-    public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void
-    {
-        if (!$this->areSimilar($expected, $actual)) {
-            throw new ComparisonFailure(
-                $expected,
-                $actual,
-                $this->exporter->export($expected),
-                $this->exporter->export($actual),
-                false,
-                'Failed asserting the events are equal.'
-            );
-        }
-    }
+	public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void
+	{
+		if (!$this->areSimilar($expected, $actual)) {
+			throw new ComparisonFailure(
+				$expected,
+				$actual,
+				$this->exporter->export($expected),
+				$this->exporter->export($actual),
+				false,
+				'Failed asserting the events are equal.'
+			);
+		}
+	}
 
-    private function areSimilar(DomainEvent $expected, DomainEvent $actual): bool
-    {
-        if (!$this->areTheSameClass($expected, $actual)) {
-            return false;
-        }
+	private function areSimilar(DomainEvent $expected, DomainEvent $actual): bool
+	{
+		if (!$this->areTheSameClass($expected, $actual)) {
+			return false;
+		}
 
-        return $this->propertiesAreSimilar($expected, $actual);
-    }
+		return $this->propertiesAreSimilar($expected, $actual);
+	}
 
-    private function areTheSameClass(DomainEvent $expected, DomainEvent $actual): bool
-    {
-        return $expected::class === $actual::class;
-    }
+	private function areTheSameClass(DomainEvent $expected, DomainEvent $actual): bool
+	{
+		return $expected::class === $actual::class;
+	}
 
-    private function propertiesAreSimilar(DomainEvent $expected, DomainEvent $actual): bool
-    {
-        $expectedReflected = new ReflectionObject($expected);
-        $actualReflected = new ReflectionObject($actual);
+	private function propertiesAreSimilar(DomainEvent $expected, DomainEvent $actual): bool
+	{
+		$expectedReflected = new ReflectionObject($expected);
+		$actualReflected = new ReflectionObject($actual);
 
-        foreach ($expectedReflected->getProperties() as $expectedReflectedProperty) {
-            if (!in_array($expectedReflectedProperty->getName(), self::$ignoredAttributes, false)) {
-                $actualReflectedProperty = $actualReflected->getProperty($expectedReflectedProperty->getName());
+		foreach ($expectedReflected->getProperties() as $expectedReflectedProperty) {
+			if (!in_array($expectedReflectedProperty->getName(), self::$ignoredAttributes, false)) {
+				$actualReflectedProperty = $actualReflected->getProperty($expectedReflectedProperty->getName());
 
-                $expectedReflectedProperty->setAccessible(true);
-                $actualReflectedProperty->setAccessible(true);
+				$expectedReflectedProperty->setAccessible(true);
+				$actualReflectedProperty->setAccessible(true);
 
-                $expectedProperty = $expectedReflectedProperty->getValue($expected);
-                $actualProperty = $actualReflectedProperty->getValue($actual);
+				$expectedProperty = $expectedReflectedProperty->getValue($expected);
+				$actualProperty = $actualReflectedProperty->getValue($actual);
 
-                if (!TestUtils::isSimilar($expectedProperty, $actualProperty)) {
-                    return false;
-                }
-            }
-        }
+				if (!TestUtils::isSimilar($expectedProperty, $actualProperty)) {
+					return false;
+				}
+			}
+		}
 
-        return true;
-    }
+		return true;
+	}
 }

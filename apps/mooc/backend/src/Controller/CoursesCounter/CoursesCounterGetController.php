@@ -13,22 +13,22 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class CoursesCounterGetController extends ApiController
 {
-    public function __invoke(): JsonResponse
-    {
-        /** @var CoursesCounterResponse $response */
-        $response = $this->ask(new FindCoursesCounterQuery());
+	public function __invoke(): JsonResponse
+	{
+		/** @var CoursesCounterResponse $response */
+		$response = $this->ask(new FindCoursesCounterQuery());
 
-        return new JsonResponse(
-            [
-                'total' => $response->total(),
-            ]
-        );
-    }
+		return new JsonResponse(
+			[
+				'total' => $response->total(),
+			]
+		);
+	}
 
-    protected function exceptions(): array
-    {
-        return [
-            CoursesCounterNotExist::class => Response::HTTP_NOT_FOUND,
-        ];
-    }
+	protected function exceptions(): array
+	{
+		return [
+			CoursesCounterNotExist::class => Response::HTTP_NOT_FOUND,
+		];
+	}
 }

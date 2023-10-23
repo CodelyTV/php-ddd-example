@@ -11,54 +11,54 @@ use CodelyTv\Tests\Shared\Domain\Criteria\CriteriaMother;
 
 final class MySqlBackofficeCourseRepositoryTest extends BackofficeCoursesModuleInfrastructureTestCase
 {
-    /** @test */
-    public function it_should_save_a_valid_course(): void
-    {
-        $this->mySqlRepository()->save(BackofficeCourseMother::create());
-    }
+	/** @test */
+	public function it_should_save_a_valid_course(): void
+	{
+		$this->mySqlRepository()->save(BackofficeCourseMother::create());
+	}
 
-    /** @test */
-    public function it_should_search_all_existing_courses(): void
-    {
-        $existingCourse = BackofficeCourseMother::create();
-        $anotherExistingCourse = BackofficeCourseMother::create();
-        $existingCourses = [$existingCourse, $anotherExistingCourse];
+	/** @test */
+	public function it_should_search_all_existing_courses(): void
+	{
+		$existingCourse = BackofficeCourseMother::create();
+		$anotherExistingCourse = BackofficeCourseMother::create();
+		$existingCourses = [$existingCourse, $anotherExistingCourse];
 
-        $this->mySqlRepository()->save($existingCourse);
-        $this->mySqlRepository()->save($anotherExistingCourse);
+		$this->mySqlRepository()->save($existingCourse);
+		$this->mySqlRepository()->save($anotherExistingCourse);
 
-        $this->assertSimilar($existingCourses, $this->mySqlRepository()->searchAll());
-    }
+		$this->assertSimilar($existingCourses, $this->mySqlRepository()->searchAll());
+	}
 
-    /** @test */
-    public function it_should_search_all_existing_courses_with_an_empty_criteria(): void
-    {
-        $existingCourse = BackofficeCourseMother::create();
-        $anotherExistingCourse = BackofficeCourseMother::create();
-        $existingCourses = [$existingCourse, $anotherExistingCourse];
+	/** @test */
+	public function it_should_search_all_existing_courses_with_an_empty_criteria(): void
+	{
+		$existingCourse = BackofficeCourseMother::create();
+		$anotherExistingCourse = BackofficeCourseMother::create();
+		$existingCourses = [$existingCourse, $anotherExistingCourse];
 
-        $this->mySqlRepository()->save($existingCourse);
-        $this->mySqlRepository()->save($anotherExistingCourse);
-        $this->clearUnitOfWork();
+		$this->mySqlRepository()->save($existingCourse);
+		$this->mySqlRepository()->save($anotherExistingCourse);
+		$this->clearUnitOfWork();
 
-        $this->assertSimilar($existingCourses, $this->mySqlRepository()->matching(CriteriaMother::empty()));
-    }
+		$this->assertSimilar($existingCourses, $this->mySqlRepository()->matching(CriteriaMother::empty()));
+	}
 
-    /** @test */
-    public function it_should_filter_by_criteria(): void
-    {
-        $dddInPhpCourse = BackofficeCourseMother::create(name: 'DDD en PHP');
-        $dddInJavaCourse = BackofficeCourseMother::create(name: 'DDD en Java');
-        $intellijCourse = BackofficeCourseMother::create(name: 'Exprimiendo Intellij');
-        $dddCourses = [$dddInPhpCourse, $dddInJavaCourse];
+	/** @test */
+	public function it_should_filter_by_criteria(): void
+	{
+		$dddInPhpCourse = BackofficeCourseMother::create(name: 'DDD en PHP');
+		$dddInJavaCourse = BackofficeCourseMother::create(name: 'DDD en Java');
+		$intellijCourse = BackofficeCourseMother::create(name: 'Exprimiendo Intellij');
+		$dddCourses = [$dddInPhpCourse, $dddInJavaCourse];
 
-        $nameContainsDddCriteria = BackofficeCourseCriteriaMother::nameContains('DDD');
+		$nameContainsDddCriteria = BackofficeCourseCriteriaMother::nameContains('DDD');
 
-        $this->mySqlRepository()->save($dddInJavaCourse);
-        $this->mySqlRepository()->save($dddInPhpCourse);
-        $this->mySqlRepository()->save($intellijCourse);
-        $this->clearUnitOfWork();
+		$this->mySqlRepository()->save($dddInJavaCourse);
+		$this->mySqlRepository()->save($dddInPhpCourse);
+		$this->mySqlRepository()->save($intellijCourse);
+		$this->clearUnitOfWork();
 
-        $this->assertSimilar($dddCourses, $this->mySqlRepository()->matching($nameContainsDddCriteria));
-    }
+		$this->assertSimilar($dddCourses, $this->mySqlRepository()->matching($nameContainsDddCriteria));
+	}
 }

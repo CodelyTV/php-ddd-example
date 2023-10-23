@@ -10,8 +10,8 @@ use CodelyTv\Tests\Mooc\CoursesCounter\Domain\CoursesCounterTotalMother;
 
 final class CoursesCounterResponseMother
 {
-    public static function create(?CoursesCounterTotal $total = null): CoursesCounterResponse
-    {
-        return new CoursesCounterResponse($total?->value() ?? CoursesCounterTotalMother::create()->value());
-    }
+	public static function create(?CoursesCounterTotal $total = null): CoursesCounterResponse
+	{
+		return new CoursesCounterResponse($total?->value() ?? CoursesCounterTotalMother::create()->value());
+	}
 }

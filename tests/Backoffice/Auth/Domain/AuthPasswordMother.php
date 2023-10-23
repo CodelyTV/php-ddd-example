@@ -9,8 +9,8 @@ use CodelyTv\Tests\Shared\Domain\UuidMother;
 
 final class AuthPasswordMother
 {
-    public static function create(?string $value = null): AuthPassword
-    {
-        return new AuthPassword($value ?? UuidMother::create());
-    }
+	public static function create(?string $value = null): AuthPassword
+	{
+		return new AuthPassword($value ?? UuidMother::create());
+	}
 }

@@ -14,49 +14,49 @@ use CodelyTv\Tests\Backoffice\Auth\Domain\AuthUsernameMother;
 
 final class AuthenticateUserCommandHandlerTest extends AuthModuleUnitTestCase
 {
-    private AuthenticateUserCommandHandler|null $handler;
+	private AuthenticateUserCommandHandler|null $handler;
 
-    protected function setUp(): void
-    {
-        parent::setUp();
+	protected function setUp(): void
+	{
+		parent::setUp();
 
-        $this->handler = new AuthenticateUserCommandHandler(new UserAuthenticator($this->repository()));
-    }
+		$this->handler = new AuthenticateUserCommandHandler(new UserAuthenticator($this->repository()));
+	}
 
-    /** @test */
-    public function it_should_authenticate_a_valid_user(): void
-    {
-        $command = AuthenticateUserCommandMother::create();
-        $authUser = AuthUserMother::fromCommand($command);
+	/** @test */
+	public function it_should_authenticate_a_valid_user(): void
+	{
+		$command = AuthenticateUserCommandMother::create();
+		$authUser = AuthUserMother::fromCommand($command);
 
-        $this->shouldSearch($authUser->username(), $authUser);
+		$this->shouldSearch($authUser->username(), $authUser);
 
-        $this->dispatch($command, $this->handler);
-    }
+		$this->dispatch($command, $this->handler);
+	}
 
-    /** @test */
-    public function it_should_throw_an_exception_when_the_user_does_not_exist(): void
-    {
-        $this->expectException(InvalidAuthUsername::class);
+	/** @test */
+	public function it_should_throw_an_exception_when_the_user_does_not_exist(): void
+	{
+		$this->expectException(InvalidAuthUsername::class);
 
-        $command = AuthenticateUserCommandMother::create();
-        $username = AuthUsernameMother::create($command->username());
+		$command = AuthenticateUserCommandMother::create();
+		$username = AuthUsernameMother::create($command->username());
 
-        $this->shouldSearch($username);
+		$this->shouldSearch($username);
 
-        $this->dispatch($command, $this->handler);
-    }
+		$this->dispatch($command, $this->handler);
+	}
 
-    /** @test */
-    public function it_should_throw_an_exception_when_the_password_does_not_math(): void
-    {
-        $this->expectException(InvalidAuthCredentials::class);
+	/** @test */
+	public function it_should_throw_an_exception_when_the_password_does_not_math(): void
+	{
+		$this->expectException(InvalidAuthCredentials::class);
 
-        $command = AuthenticateUserCommandMother::create();
-        $authUser = AuthUserMother::create(username: AuthUsernameMother::create($command->username()));
+		$command = AuthenticateUserCommandMother::create();
+		$authUser = AuthUserMother::create(username: AuthUsernameMother::create($command->username()));
 
-        $this->shouldSearch($authUser->username(), $authUser);
+		$this->shouldSearch($authUser->username(), $authUser);
 
-        $this->dispatch($command, $this->handler);
-    }
+		$this->dispatch($command, $this->handler);
+	}
 }

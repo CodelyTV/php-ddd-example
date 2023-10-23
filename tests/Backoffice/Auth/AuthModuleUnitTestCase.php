@@ -12,19 +12,19 @@ use Mockery\MockInterface;
 
 abstract class AuthModuleUnitTestCase extends UnitTestCase
 {
-    private AuthRepository|MockInterface|null $repository = null;
+	private AuthRepository|MockInterface|null $repository = null;
 
-    protected function shouldSearch(AuthUsername $username, AuthUser $authUser = null): void
-    {
-        $this->repository()
-            ->shouldReceive('search')
-            ->with($this->similarTo($username))
-            ->once()
-            ->andReturn($authUser);
-    }
+	protected function shouldSearch(AuthUsername $username, AuthUser $authUser = null): void
+	{
+		$this->repository()
+			->shouldReceive('search')
+			->with($this->similarTo($username))
+			->once()
+			->andReturn($authUser);
+	}
 
-    protected function repository(): AuthRepository|MockInterface
-    {
-        return $this->repository ??= $this->mock(AuthRepository::class);
-    }
+	protected function repository(): AuthRepository|MockInterface
+	{
+		return $this->repository ??= $this->mock(AuthRepository::class);
+	}
 }

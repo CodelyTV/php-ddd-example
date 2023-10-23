@@ -11,20 +11,20 @@ use Doctrine\ORM\EntityManager;
 
 abstract class BackofficeContextInfrastructureTestCase extends InfrastructureTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
+	protected function setUp(): void
+	{
+		parent::setUp();
 
-        $arranger = new BackofficeEnvironmentArranger(
-            $this->service(ElasticsearchClient::class),
-            $this->service(EntityManager::class)
-        );
+		$arranger = new BackofficeEnvironmentArranger(
+			$this->service(ElasticsearchClient::class),
+			$this->service(EntityManager::class)
+		);
 
-        $arranger->arrange();
-    }
+		$arranger->arrange();
+	}
 
-    protected function kernelClass(): string
-    {
-        return BackofficeBackendKernel::class;
-    }
+	protected function kernelClass(): string
+	{
+		return BackofficeBackendKernel::class;
+	}
 }

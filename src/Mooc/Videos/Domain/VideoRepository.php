@@ -8,9 +8,9 @@ use CodelyTv\Shared\Domain\Criteria\Criteria;
 
 interface VideoRepository
 {
-    public function save(Video $video): void;
+	public function save(Video $video): void;
 
-    public function search(VideoId $id): ?Video;
+	public function search(VideoId $id): ?Video;
 
-    public function searchByCriteria(Criteria $criteria): Videos;
+	public function searchByCriteria(Criteria $criteria): Videos;
 }

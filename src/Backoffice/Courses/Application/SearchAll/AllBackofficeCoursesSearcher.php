@@ -13,19 +13,19 @@ use function Lambdish\Phunctional\map;
 
 final readonly class AllBackofficeCoursesSearcher
 {
-    public function __construct(private BackofficeCourseRepository $repository) {}
+	public function __construct(private BackofficeCourseRepository $repository) {}
 
-    public function searchAll(): BackofficeCoursesResponse
-    {
-        return new BackofficeCoursesResponse(...map($this->toResponse(), $this->repository->searchAll()));
-    }
+	public function searchAll(): BackofficeCoursesResponse
+	{
+		return new BackofficeCoursesResponse(...map($this->toResponse(), $this->repository->searchAll()));
+	}
 
-    private function toResponse(): callable
-    {
-        return static fn (BackofficeCourse $course): BackofficeCourseResponse => new BackofficeCourseResponse(
-            $course->id(),
-            $course->name(),
-            $course->duration()
-        );
-    }
+	private function toResponse(): callable
+	{
+		return static fn (BackofficeCourse $course): BackofficeCourseResponse => new BackofficeCourseResponse(
+			$course->id(),
+			$course->name(),
+			$course->duration()
+		);
+	}
 }

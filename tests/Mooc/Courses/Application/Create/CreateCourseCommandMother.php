@@ -14,15 +14,15 @@ use CodelyTv\Tests\Mooc\Courses\Domain\CourseNameMother;
 
 final class CreateCourseCommandMother
 {
-    public static function create(
-        ?CourseId $id = null,
-        ?CourseName $name = null,
-        ?CourseDuration $duration = null
-    ): CreateCourseCommand {
-        return new CreateCourseCommand(
-            $id?->value() ?? CourseIdMother::create()->value(),
-            $name?->value() ?? CourseNameMother::create()->value(),
-            $duration?->value() ?? CourseDurationMother::create()->value()
-        );
-    }
+	public static function create(
+		?CourseId $id = null,
+		?CourseName $name = null,
+		?CourseDuration $duration = null
+	): CreateCourseCommand {
+		return new CreateCourseCommand(
+			$id?->value() ?? CourseIdMother::create()->value(),
+			$name?->value() ?? CourseNameMother::create()->value(),
+			$duration?->value() ?? CourseDurationMother::create()->value()
+		);
+	}
 }

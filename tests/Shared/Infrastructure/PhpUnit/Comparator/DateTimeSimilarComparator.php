@@ -12,39 +12,39 @@ use SebastianBergmann\Comparator\ObjectComparator;
 
 final class DateTimeSimilarComparator extends ObjectComparator
 {
-    public function accepts($expected, $actual): bool
-    {
-        return $expected instanceof DateTimeInterface && $actual instanceof DateTimeInterface;
-    }
+	public function accepts($expected, $actual): bool
+	{
+		return $expected instanceof DateTimeInterface && $actual instanceof DateTimeInterface;
+	}
 
-    public function assertEquals(
-        $expected,
-        $actual,
-        $delta = 0.0,
-        $canonicalize = false,
-        $ignoreCase = false,
-        array &$processed = []
-    ): void {
-        $normalizedDelta = $delta === 0.0 ? 10 : $delta;
-        $intervalWithDelta = new DateInterval(sprintf('PT%sS', abs($normalizedDelta)));
+	public function assertEquals(
+		$expected,
+		$actual,
+		$delta = 0.0,
+		$canonicalize = false,
+		$ignoreCase = false,
+		array &$processed = []
+	): void {
+		$normalizedDelta = $delta === 0.0 ? 10 : $delta;
+		$intervalWithDelta = new DateInterval(sprintf('PT%sS', abs($normalizedDelta)));
 
-        $expectedLower = clone $expected;
-        $expectedUpper = clone $expected;
+		$expectedLower = clone $expected;
+		$expectedUpper = clone $expected;
 
-        if ($actual < $expectedLower->sub($intervalWithDelta) || $actual > $expectedUpper->add($intervalWithDelta)) {
-            throw new ComparisonFailure(
-                $expected,
-                $actual,
-                $this->dateTimeToString($expected),
-                $this->dateTimeToString($actual),
-                false,
-                'Failed asserting that two DateTime objects are equal.'
-            );
-        }
-    }
+		if ($actual < $expectedLower->sub($intervalWithDelta) || $actual > $expectedUpper->add($intervalWithDelta)) {
+			throw new ComparisonFailure(
+				$expected,
+				$actual,
+				$this->dateTimeToString($expected),
+				$this->dateTimeToString($actual),
+				false,
+				'Failed asserting that two DateTime objects are equal.'
+			);
+		}
+	}
 
-    protected function dateTimeToString(DateTimeInterface $datetime): string
-    {
-        return $datetime->format(DateTime::ATOM) ?: 'Invalid DateTime object';
-    }
+	protected function dateTimeToString(DateTimeInterface $datetime): string
+	{
+		return $datetime->format(DateTime::ATOM) ?: 'Invalid DateTime object';
+	}
 }

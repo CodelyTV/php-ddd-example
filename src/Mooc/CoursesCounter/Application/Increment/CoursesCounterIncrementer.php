@@ -13,26 +13,26 @@ use CodelyTv\Shared\Domain\UuidGenerator;
 
 final readonly class CoursesCounterIncrementer
 {
-    public function __construct(
-        private CoursesCounterRepository $repository,
-        private UuidGenerator $uuidGenerator,
-        private EventBus $bus
-    ) {}
+	public function __construct(
+		private CoursesCounterRepository $repository,
+		private UuidGenerator $uuidGenerator,
+		private EventBus $bus
+	) {}
 
-    public function __invoke(CourseId $courseId): void
-    {
-        $counter = $this->repository->search() ?: $this->initializeCounter();
+	public function __invoke(CourseId $courseId): void
+	{
+		$counter = $this->repository->search() ?: $this->initializeCounter();
 
-        if (!$counter->hasIncremented($courseId)) {
-            $counter->increment($courseId);
+		if (!$counter->hasIncremented($courseId)) {
+			$counter->increment($courseId);
 
-            $this->repository->save($counter);
-            $this->bus->publish(...$counter->pullDomainEvents());
-        }
-    }
+			$this->repository->save($counter);
+			$this->bus->publish(...$counter->pullDomainEvents());
+		}
+	}
 
-    private function initializeCounter(): CoursesCounter
-    {
-        return CoursesCounter::initialize(new CoursesCounterId($this->uuidGenerator->generate()));
-    }
+	private function initializeCounter(): CoursesCounter
+	{
+		return CoursesCounter::initialize(new CoursesCounterId($this->uuidGenerator->generate()));
+	}
 }

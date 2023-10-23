@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 final readonly class MetricsController
 {
-    public function __construct(private PrometheusMonitor $monitor) {}
+	public function __construct(private PrometheusMonitor $monitor) {}
 
-    public function __invoke(Request $request): Response
-    {
-        $renderer = new RenderTextFormat();
-        $result = $renderer->render($this->monitor->registry()->getMetricFamilySamples());
+	public function __invoke(Request $request): Response
+	{
+		$renderer = new RenderTextFormat();
+		$result = $renderer->render($this->monitor->registry()->getMetricFamilySamples());
 
-        return new Response($result, 200, ['Content-Type' => RenderTextFormat::MIME_TYPE]);
-    }
+		return new Response($result, 200, ['Content-Type' => RenderTextFormat::MIME_TYPE]);
+	}
 }

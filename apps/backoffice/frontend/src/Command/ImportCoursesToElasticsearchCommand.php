@@ -12,21 +12,21 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class ImportCoursesToElasticsearchCommand extends Command
 {
-    public function __construct(
-        private readonly MySqlBackofficeCourseRepository $mySqlRepository,
-        private readonly ElasticsearchBackofficeCourseRepository $elasticRepository
-    ) {
-        parent::__construct();
-    }
+	public function __construct(
+		private readonly MySqlBackofficeCourseRepository $mySqlRepository,
+		private readonly ElasticsearchBackofficeCourseRepository $elasticRepository
+	) {
+		parent::__construct();
+	}
 
-    public function execute(InputInterface $input, OutputInterface $output): int
-    {
-        $courses = $this->mySqlRepository->searchAll();
+	public function execute(InputInterface $input, OutputInterface $output): int
+	{
+		$courses = $this->mySqlRepository->searchAll();
 
-        foreach ($courses as $course) {
-            $this->elasticRepository->save($course);
-        }
+		foreach ($courses as $course) {
+			$this->elasticRepository->save($course);
+		}
 
-        return 0;
-    }
+		return 0;
+	}
 }
