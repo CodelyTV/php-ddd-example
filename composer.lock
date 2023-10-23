@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba195cf69db5f97d61146955643ca749",
+    "content-hash": "9718b84494ae39b585647c5eb80984df",
     "packages": [
         {
             "name": "brick/math",
@@ -6064,16 +6064,16 @@
         },
         {
             "name": "codelytv/coding-style",
-            "version": "1.0.1",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CodelyTV/php-coding_style-codely.git",
-                "reference": "2d350ba91ba0f56a4d159d81f5f193410dd7484c"
+                "reference": "9178d43b9b8996e6b04108f102dac358fe642df1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CodelyTV/php-coding_style-codely/zipball/2d350ba91ba0f56a4d159d81f5f193410dd7484c",
-                "reference": "2d350ba91ba0f56a4d159d81f5f193410dd7484c",
+                "url": "https://api.github.com/repos/CodelyTV/php-coding_style-codely/zipball/9178d43b9b8996e6b04108f102dac358fe642df1",
+                "reference": "9178d43b9b8996e6b04108f102dac358fe642df1",
                 "shasum": ""
             },
             "require": {
@@ -6082,12 +6082,18 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "CodelyTv\\CodingStyle\\": "src/"
+                    "CodelyTv\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "AGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Codely",
+                    "homepage": "https://codely.com"
+                }
             ],
             "description": "PHP Coding Style rules we use in Codely",
             "keywords": [
@@ -6096,7 +6102,7 @@
             ],
             "support": {
                 "issues": "https://github.com/CodelyTV/php-coding_style-codely/issues",
-                "source": "https://github.com/CodelyTV/php-coding_style-codely/tree/1.0.1"
+                "source": "https://github.com/CodelyTV/php-coding_style-codely/tree/1.1.1"
             },
             "funding": [
                 {
@@ -6104,7 +6110,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2023-10-23T10:16:47+00:00"
+            "time": "2023-10-23T10:56:55+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",

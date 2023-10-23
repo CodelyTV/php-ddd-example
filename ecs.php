@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use CodelyTv\CodingStyle\CodelyRules;
+use CodelyTv\CodingStyle;
 use PhpCsFixer\Fixer\ClassNotation\FinalClassFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 
@@ -13,7 +13,7 @@ return function (ECSConfig $ecsConfig): void {
         __DIR__ . '/tests',
     ]);
 
-    $ecsConfig->sets([CodelyRules::CODING_STYLE]);
+    $ecsConfig->sets([CodingStyle::DEFAULT]);
 
     $ecsConfig->skip([
         FinalClassFixer::class => [
