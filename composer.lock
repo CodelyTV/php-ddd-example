@@ -6064,16 +6064,16 @@
         },
         {
             "name": "codelytv/coding-style",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CodelyTV/php-coding_style-codely.git",
-                "reference": "6aa1ff99eb1ac817dbf2be6bf3288b7925784e9d"
+                "reference": "2d350ba91ba0f56a4d159d81f5f193410dd7484c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CodelyTV/php-coding_style-codely/zipball/6aa1ff99eb1ac817dbf2be6bf3288b7925784e9d",
-                "reference": "6aa1ff99eb1ac817dbf2be6bf3288b7925784e9d",
+                "url": "https://api.github.com/repos/CodelyTV/php-coding_style-codely/zipball/2d350ba91ba0f56a4d159d81f5f193410dd7484c",
+                "reference": "2d350ba91ba0f56a4d159d81f5f193410dd7484c",
                 "shasum": ""
             },
             "require": {
@@ -6082,7 +6082,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Codelytv\\CodingStyle\\": "src/"
+                    "CodelyTv\\CodingStyle\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -6096,7 +6096,7 @@
             ],
             "support": {
                 "issues": "https://github.com/CodelyTV/php-coding_style-codely/issues",
-                "source": "https://github.com/CodelyTV/php-coding_style-codely/tree/1.0.0"
+                "source": "https://github.com/CodelyTV/php-coding_style-codely/tree/1.0.1"
             },
             "funding": [
                 {
@@ -6104,7 +6104,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2023-10-23T09:55:18+00:00"
+            "time": "2023-10-23T10:16:47+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",
