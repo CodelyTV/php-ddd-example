@@ -2,6 +2,7 @@
 /.env.*.local
 
 /apps/*/*/var/
+!/apps/*/*/var/.gitkeep
 
 /apps/*/*/build/
 !/apps/*/*/build/supervisor/.gitkeep
