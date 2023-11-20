@@ -7,6 +7,7 @@ namespace CodelyTv\Apps\Mooc\Backend\Command\DomainEvents\RabbitMq;
 use CodelyTv\Shared\Domain\Bus\Event\DomainEventSubscriber;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventSubscriberLocator;
 use CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqQueueNameFormatter;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,12 +15,15 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use function Lambdish\Phunctional\each;
 
+#[AsCommand(
+	name: 'codely:domain-events:rabbitmq:generate-supervisor-files',
+	description: 'Generate the supervisor configuration for every RabbitMQ subscriber',
+)]
 final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
 {
 	private const EVENTS_TO_PROCESS_AT_TIME = 200;
 	private const NUMBERS_OF_PROCESSES_PER_SUBSCRIBER = 1;
 	private const SUPERVISOR_PATH = __DIR__ . '/../../../../build/supervisor';
-	protected static $defaultName = 'codely:domain-events:rabbitmq:generate-supervisor-files';
 
 	public function __construct(private readonly DomainEventSubscriberLocator $locator)
 	{
@@ -28,9 +32,7 @@ final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
 
 	protected function configure(): void
 	{
-		$this
-			->setDescription('Generate the supervisor configuration for every RabbitMQ subscriber')
-			->addArgument('command-path', InputArgument::OPTIONAL, 'Path on this is gonna be deployed', '/var/www');
+		$this->addArgument('command-path', InputArgument::OPTIONAL, 'Path on this is gonna be deployed', '/var/www');
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output): int
