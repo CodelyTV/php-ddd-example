@@ -83,6 +83,7 @@ final class PublishDomainEventsFromMutationsCommand extends Command
 			throw new RuntimeException("Transformer not found for table $tableName and operation $operation");
 		}
 
+		/** @var class-string<DatabaseMutationToDomainEvent>|null $class */
 		$class = $this->transformers[$tableName][$operation];
 
 		return $class ? new $class() : null;
