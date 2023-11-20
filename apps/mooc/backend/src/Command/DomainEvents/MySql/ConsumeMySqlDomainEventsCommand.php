@@ -8,6 +8,7 @@ use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventSubscriberLocator;
 use CodelyTv\Shared\Infrastructure\Bus\Event\MySql\MySqlDoctrineDomainEventsConsumer;
 use CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -15,10 +16,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use function Lambdish\Phunctional\pipe;
 
+#[AsCommand(name: 'codely:domain-events:mysql:consume', description: 'Consume domain events from MySql',)]
 final class ConsumeMySqlDomainEventsCommand extends Command
 {
-	protected static $defaultName = 'codelytv:domain-events:mysql:consume';
-
 	public function __construct(
 		private readonly MySqlDoctrineDomainEventsConsumer $consumer,
 		private readonly DatabaseConnections $connections,
@@ -29,9 +29,7 @@ final class ConsumeMySqlDomainEventsCommand extends Command
 
 	protected function configure(): void
 	{
-		$this
-			->setDescription('Consume domain events from MySql')
-			->addArgument('quantity', InputArgument::REQUIRED, 'Quantity of events to process');
+		$this->addArgument('quantity', InputArgument::REQUIRED, 'Quantity of events to process');
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output): int
