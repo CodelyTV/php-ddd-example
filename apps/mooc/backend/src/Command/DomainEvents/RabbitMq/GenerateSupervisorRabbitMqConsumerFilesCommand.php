@@ -19,7 +19,7 @@ final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
 	private const EVENTS_TO_PROCESS_AT_TIME = 200;
 	private const NUMBERS_OF_PROCESSES_PER_SUBSCRIBER = 1;
 	private const SUPERVISOR_PATH = __DIR__ . '/../../../../build/supervisor';
-	protected static $defaultName = 'codelytv:domain-events:rabbitmq:generate-supervisor-files';
+	protected static $defaultName = 'codely:domain-events:rabbitmq:generate-supervisor-files';
 
 	public function __construct(private readonly DomainEventSubscriberLocator $locator)
 	{
@@ -68,7 +68,7 @@ final class GenerateSupervisorRabbitMqConsumerFilesCommand extends Command
 	{
 		return <<<EOF
             [program:codelytv_{queue_name}]
-            command      = {path}/apps/mooc/backend/bin/console codelytv:domain-events:rabbitmq:consume --env=prod {queue_name} {events_to_process}
+            command      = {path}/apps/mooc/backend/bin/console codely:domain-events:rabbitmq:consume --env=prod {queue_name} {events_to_process}
             process_name = %(program_name)s_%(process_num)02d
             numprocs     = {processes}
             startsecs    = 1

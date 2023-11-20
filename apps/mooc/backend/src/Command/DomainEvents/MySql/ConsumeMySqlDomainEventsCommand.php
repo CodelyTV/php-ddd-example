@@ -17,7 +17,7 @@ use function Lambdish\Phunctional\pipe;
 
 final class ConsumeMySqlDomainEventsCommand extends Command
 {
-	protected static $defaultName = 'codelytv:domain-events:mysql:consume';
+	protected static $defaultName = 'codely:domain-events:mysql:consume';
 
 	public function __construct(
 		private readonly MySqlDoctrineDomainEventsConsumer $consumer,
