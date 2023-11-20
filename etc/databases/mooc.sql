@@ -46,7 +46,6 @@ BEGIN
 	VALUES ('courses', 'INSERT', JSON_OBJECT('id', new.id, 'name', new.name, 'duration', new.duration), NOW());
 END;
 
-
 CREATE TRIGGER after_courses_update
 	AFTER UPDATE
 	ON courses
@@ -59,7 +58,6 @@ BEGIN
 			JSON_OBJECT('id', new.id, 'name', new.name, 'duration', new.duration),
 			NOW());
 END;
-
 
 CREATE TRIGGER after_courses_delete
 	AFTER DELETE

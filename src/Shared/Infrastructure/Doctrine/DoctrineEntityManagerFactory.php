@@ -8,6 +8,7 @@ use CodelyTv\Shared\Infrastructure\Doctrine\Dbal\DbalCustomTypesRegistrar;
 use Doctrine\Common\EventManager;
 use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Platforms\MariaDBPlatform;
+use Doctrine\DBAL\Schema\DefaultSchemaManagerFactory;
 use Doctrine\DBAL\Schema\MySQLSchemaManager;
 use Doctrine\ORM\Configuration;
 use Doctrine\ORM\EntityManager;
@@ -37,8 +38,13 @@ final class DoctrineEntityManagerFactory
 		DbalCustomTypesRegistrar::register($dbalCustomTypesClasses);
 
 		$config = self::createConfiguration($contextPrefixes, $isDevMode);
+		$eventManager = new EventManager();
 
-		return new EntityManager(DriverManager::getConnection($parameters, $config, new EventManager()), $config);
+		return new EntityManager(
+			DriverManager::getConnection($parameters, $config, $eventManager),
+			$config,
+			$eventManager
+		);
 	}
 
 	private static function generateDatabaseIfNotExists(array $parameters, string $schemaFile): void
@@ -78,6 +84,7 @@ final class DoctrineEntityManagerFactory
 		$config = ORMSetup::createConfiguration($isDevMode);
 
 		$config->setMetadataDriverImpl(new SimplifiedXmlDriver(array_merge(self::$sharedPrefixes, $contextPrefixes)));
+		$config->setSchemaManagerFactory(new DefaultSchemaManagerFactory());
 
 		return $config;
 	}
