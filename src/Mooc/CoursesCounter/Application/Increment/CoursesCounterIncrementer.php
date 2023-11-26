@@ -27,7 +27,7 @@ final readonly class CoursesCounterIncrementer
 			$counter->increment($courseId);
 
 			$this->repository->save($counter);
-			$this->bus->publish(...$counter->pullDomainEvents());
+			$this->bus->publish(...$counter->pullDomainEventsToIterator());
 		}
 	}
 

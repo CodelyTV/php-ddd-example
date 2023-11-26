@@ -23,6 +23,6 @@ final readonly class VideoCreator
 
 		$this->repository->save($video);
 
-		$this->bus->publish(...$video->pullDomainEvents());
+		$this->bus->publish(...$video->pullDomainEventsToIterator());
 	}
 }
