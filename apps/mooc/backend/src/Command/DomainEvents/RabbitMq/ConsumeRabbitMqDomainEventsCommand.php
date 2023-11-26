@@ -7,6 +7,7 @@ namespace CodelyTv\Apps\Mooc\Backend\Command\DomainEvents\RabbitMq;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventSubscriberLocator;
 use CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqDomainEventsConsumer;
 use CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,10 +15,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use function Lambdish\Phunctional\repeat;
 
+#[AsCommand(
+	name: 'codely:domain-events:rabbitmq:consume',
+	description: 'Consume domain events from the RabbitMQ',
+)]
 final class ConsumeRabbitMqDomainEventsCommand extends Command
 {
-	protected static $defaultName = 'codelytv:domain-events:rabbitmq:consume';
-
 	public function __construct(
 		private readonly RabbitMqDomainEventsConsumer $consumer,
 		private readonly DatabaseConnections $connections,
@@ -29,7 +32,6 @@ final class ConsumeRabbitMqDomainEventsCommand extends Command
 	protected function configure(): void
 	{
 		$this
-			->setDescription('Consume domain events from the RabbitMQ')
 			->addArgument('queue', InputArgument::REQUIRED, 'Queue name')
 			->addArgument('quantity', InputArgument::REQUIRED, 'Quantity of events to process');
 	}
