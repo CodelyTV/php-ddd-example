@@ -8,6 +8,7 @@ use CodelyTv\Mooc\CoursesCounter\Application\Find\CoursesCounterResponse;
 use CodelyTv\Mooc\CoursesCounter\Application\Find\FindCoursesCounterQuery;
 use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterNotExist;
 use CodelyTv\Shared\Infrastructure\Symfony\ApiController;
+use Override;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -25,6 +26,7 @@ final class CoursesCounterGetController extends ApiController
 		);
 	}
 
+	#[Override]
 	protected function exceptions(): array
 	{
 		return [

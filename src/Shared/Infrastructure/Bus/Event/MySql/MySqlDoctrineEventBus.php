@@ -14,7 +14,7 @@ use function Lambdish\Phunctional\each;
 
 final class MySqlDoctrineEventBus implements EventBus
 {
-	private const DATABASE_TIMESTAMP_FORMAT = 'Y-m-d H:i:s';
+	private const string DATABASE_TIMESTAMP_FORMAT = 'Y-m-d H:i:s';
 	private readonly Connection $connection;
 
 	public function __construct(EntityManager $entityManager)

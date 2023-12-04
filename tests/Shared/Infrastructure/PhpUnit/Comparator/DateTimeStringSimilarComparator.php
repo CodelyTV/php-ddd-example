@@ -8,12 +8,14 @@ use DateInterval;
 use DateTime;
 use DateTimeImmutable;
 use DateTimeInterface;
+use Override;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\ObjectComparator;
 use Throwable;
 
 final class DateTimeStringSimilarComparator extends ObjectComparator
 {
+	#[Override]
 	public function accepts($expected, $actual): bool
 	{
 		return is_string($expected)
@@ -22,6 +24,7 @@ final class DateTimeStringSimilarComparator extends ObjectComparator
 			   && $this->isValidDateTimeString($actual);
 	}
 
+	#[Override]
 	public function assertEquals(
 		$expected,
 		$actual,

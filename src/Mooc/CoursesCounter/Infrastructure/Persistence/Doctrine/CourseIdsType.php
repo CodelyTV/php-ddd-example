@@ -9,6 +9,7 @@ use CodelyTv\Shared\Infrastructure\Doctrine\Dbal\DoctrineCustomType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\JsonType;
 
+use Override;
 use function Lambdish\Phunctional\map;
 
 final class CourseIdsType extends JsonType implements DoctrineCustomType
@@ -18,16 +19,19 @@ final class CourseIdsType extends JsonType implements DoctrineCustomType
 		return 'course_ids';
 	}
 
+	#[Override]
 	public function getName(): string
 	{
 		return self::customTypeName();
 	}
 
+	#[Override]
 	public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
 	{
 		return parent::convertToDatabaseValue(map(fn (CourseId $id): string => $id->value(), $value), $platform);
 	}
 
+	#[Override]
 	public function convertToPHPValue($value, AbstractPlatform $platform): array
 	{
 		$scalars = parent::convertToPHPValue($value, $platform);

@@ -9,12 +9,14 @@ use CodelyTv\Shared\Infrastructure\Bus\Query\InMemorySymfonyQueryBus;
 use CodelyTv\Shared\Infrastructure\Bus\Query\QueryNotRegisteredError;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
 use Mockery\MockInterface;
+use Override;
 use RuntimeException;
 
 final class InMemorySymfonyQueryBusTest extends UnitTestCase
 {
 	private InMemorySymfonyQueryBus|null $queryBus;
 
+	#[Override]
 	protected function setUp(): void
 	{
 		parent::setUp();

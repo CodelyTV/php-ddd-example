@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Mooc\CoursesCounter\Domain;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
+use Override;
 
 final class CoursesCounterIncrementedDomainEvent extends DomainEvent
 {
@@ -17,11 +18,13 @@ final class CoursesCounterIncrementedDomainEvent extends DomainEvent
 		parent::__construct($aggregateId, $eventId, $occurredOn);
 	}
 
+	#[Override]
 	public static function eventName(): string
 	{
 		return 'courses_counter.incremented';
 	}
 
+	#[Override]
 	public static function fromPrimitives(
 		string $aggregateId,
 		array $body,
@@ -31,6 +34,7 @@ final class CoursesCounterIncrementedDomainEvent extends DomainEvent
 		return new self($aggregateId, $body['total'], $eventId, $occurredOn);
 	}
 
+	#[Override]
 	public function toPrimitives(): array
 	{
 		return [

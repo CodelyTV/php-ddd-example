@@ -6,6 +6,7 @@ namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnit;
 
 use CodelyTv\Tests\Shared\Domain\TestUtils;
 use Doctrine\ORM\EntityManager;
+use Override;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Throwable;
 
@@ -13,6 +14,7 @@ abstract class InfrastructureTestCase extends KernelTestCase
 {
 	abstract protected function kernelClass(): string;
 
+	#[Override]
 	protected function setUp(): void
 	{
 		$_SERVER['KERNEL_CLASS'] = $this->kernelClass();

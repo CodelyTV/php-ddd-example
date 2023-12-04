@@ -11,11 +11,13 @@ use CodelyTv\Tests\Mooc\Courses\Domain\CourseIdMother;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseMother;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseNameMother;
 use CodelyTv\Tests\Shared\Domain\DuplicatorMother;
+use Override;
 
 final class CourseRenamerTest extends CoursesModuleUnitTestCase
 {
 	private CourseRenamer|null $renamer;
 
+	#[Override]
 	protected function setUp(): void
 	{
 		parent::setUp();

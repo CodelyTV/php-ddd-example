@@ -6,6 +6,7 @@ namespace CodelyTv\Tests\Shared\Infrastructure\Mockery;
 
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Constraint\CodelyTvConstraintIsSimilar;
 use Mockery\Matcher\MatcherAbstract;
+use Override;
 use Stringable;
 
 final class CodelyTvMatcherIsSimilar extends MatcherAbstract implements Stringable
@@ -19,11 +20,13 @@ final class CodelyTvMatcherIsSimilar extends MatcherAbstract implements Stringab
 		$this->constraint = new CodelyTvConstraintIsSimilar($value, $delta);
 	}
 
+	#[Override]
 	public function match(&$actual): bool
 	{
 		return $this->constraint->evaluate($actual, '', true);
 	}
 
+	#[Override]
 	public function __toString(): string
 	{
 		return 'Is similar';

@@ -6,6 +6,7 @@ namespace CodelyTv\Apps\Backoffice\Frontend\Command;
 
 use CodelyTv\Backoffice\Courses\Infrastructure\Persistence\ElasticsearchBackofficeCourseRepository;
 use CodelyTv\Backoffice\Courses\Infrastructure\Persistence\MySqlBackofficeCourseRepository;
+use Override;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -19,6 +20,7 @@ final class ImportCoursesToElasticsearchCommand extends Command
 		parent::__construct();
 	}
 
+	#[Override]
 	public function execute(InputInterface $input, OutputInterface $output): int
 	{
 		$courses = $this->mySqlRepository->searchAll();

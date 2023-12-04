@@ -11,11 +11,13 @@ use CodelyTv\Tests\Mooc\Courses\Domain\CourseIdMother;
 use CodelyTv\Tests\Mooc\CoursesCounter\CoursesCounterModuleUnitTestCase;
 use CodelyTv\Tests\Mooc\CoursesCounter\Domain\CoursesCounterIncrementedDomainEventMother;
 use CodelyTv\Tests\Mooc\CoursesCounter\Domain\CoursesCounterMother;
+use Override;
 
 final class IncrementCoursesCounterOnCourseCreatedTest extends CoursesCounterModuleUnitTestCase
 {
 	private IncrementCoursesCounterOnCourseCreated|null $subscriber;
 
+	#[Override]
 	protected function setUp(): void
 	{
 		parent::setUp();

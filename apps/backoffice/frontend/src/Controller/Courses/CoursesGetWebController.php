@@ -8,6 +8,7 @@ use CodelyTv\Mooc\CoursesCounter\Application\Find\CoursesCounterResponse;
 use CodelyTv\Mooc\CoursesCounter\Application\Find\FindCoursesCounterQuery;
 use CodelyTv\Shared\Domain\ValueObject\SimpleUuid;
 use CodelyTv\Shared\Infrastructure\Symfony\WebController;
+use Override;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -29,6 +30,7 @@ final class CoursesGetWebController extends WebController
 		);
 	}
 
+	#[Override]
 	protected function exceptions(): array
 	{
 		return [];

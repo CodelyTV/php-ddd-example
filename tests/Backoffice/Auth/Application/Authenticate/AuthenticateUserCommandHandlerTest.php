@@ -11,11 +11,13 @@ use CodelyTv\Backoffice\Auth\Domain\InvalidAuthUsername;
 use CodelyTv\Tests\Backoffice\Auth\AuthModuleUnitTestCase;
 use CodelyTv\Tests\Backoffice\Auth\Domain\AuthUserMother;
 use CodelyTv\Tests\Backoffice\Auth\Domain\AuthUsernameMother;
+use Override;
 
 final class AuthenticateUserCommandHandlerTest extends AuthModuleUnitTestCase
 {
 	private AuthenticateUserCommandHandler|null $handler;
 
+	#[Override]
 	protected function setUp(): void
 	{
 		parent::setUp();

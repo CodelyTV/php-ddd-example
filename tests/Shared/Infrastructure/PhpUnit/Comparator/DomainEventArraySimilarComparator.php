@@ -6,15 +6,17 @@ namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Tests\Shared\Domain\TestUtils;
+use Override;
 use SebastianBergmann\Comparator\Comparator;
-use SebastianBergmann\Comparator\ComparisonFailure;
 
+use SebastianBergmann\Comparator\ComparisonFailure;
 use function Lambdish\Phunctional\all;
 use function Lambdish\Phunctional\any;
 use function Lambdish\Phunctional\instance_of;
 
 final class DomainEventArraySimilarComparator extends Comparator
 {
+	#[Override]
 	public function accepts($expected, $actual): bool
 	{
 		return is_array($expected)
@@ -23,6 +25,7 @@ final class DomainEventArraySimilarComparator extends Comparator
 				   && all(instance_of(DomainEvent::class), $actual));
 	}
 
+	#[Override]
 	public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void
 	{
 		if (!$this->contains($expected, $actual) || count($expected) !== count($actual)) {

@@ -9,11 +9,13 @@ use CodelyTv\Mooc\Courses\Application\Create\CreateCourseCommandHandler;
 use CodelyTv\Tests\Mooc\Courses\CoursesModuleUnitTestCase;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseCreatedDomainEventMother;
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseMother;
+use Override;
 
 final class CreateCourseCommandHandlerTest extends CoursesModuleUnitTestCase
 {
 	private CreateCourseCommandHandler|null $handler;
 
+	#[Override]
 	protected function setUp(): void
 	{
 		parent::setUp();

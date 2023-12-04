@@ -10,11 +10,13 @@ use CodelyTv\Mooc\CoursesCounter\Application\Find\FindCoursesCounterQueryHandler
 use CodelyTv\Mooc\CoursesCounter\Domain\CoursesCounterNotExist;
 use CodelyTv\Tests\Mooc\CoursesCounter\CoursesCounterModuleUnitTestCase;
 use CodelyTv\Tests\Mooc\CoursesCounter\Domain\CoursesCounterMother;
+use Override;
 
 final class FindCoursesCounterQueryHandlerTest extends CoursesCounterModuleUnitTestCase
 {
 	private FindCoursesCounterQueryHandler|null $handler;
 
+	#[Override]
 	protected function setUp(): void
 	{
 		parent::setUp();

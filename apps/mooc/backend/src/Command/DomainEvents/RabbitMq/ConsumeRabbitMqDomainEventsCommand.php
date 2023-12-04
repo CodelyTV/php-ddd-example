@@ -7,12 +7,13 @@ namespace CodelyTv\Apps\Mooc\Backend\Command\DomainEvents\RabbitMq;
 use CodelyTv\Shared\Infrastructure\Bus\Event\DomainEventSubscriberLocator;
 use CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqDomainEventsConsumer;
 use CodelyTv\Shared\Infrastructure\Doctrine\DatabaseConnections;
+use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
+use Symfony\Component\Console\Output\OutputInterface;
 use function Lambdish\Phunctional\repeat;
 
 #[AsCommand(
@@ -29,6 +30,7 @@ final class ConsumeRabbitMqDomainEventsCommand extends Command
 		parent::__construct();
 	}
 
+	#[Override]
 	protected function configure(): void
 	{
 		$this
@@ -36,6 +38,7 @@ final class ConsumeRabbitMqDomainEventsCommand extends Command
 			->addArgument('quantity', InputArgument::REQUIRED, 'Quantity of events to process');
 	}
 
+	#[Override]
 	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		$queueName = $input->getArgument('queue');

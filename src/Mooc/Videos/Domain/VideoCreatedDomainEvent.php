@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Mooc\Videos\Domain;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
+use Override;
 
 final class VideoCreatedDomainEvent extends DomainEvent
 {
@@ -20,11 +21,13 @@ final class VideoCreatedDomainEvent extends DomainEvent
 		parent::__construct($id, $eventId, $occurredOn);
 	}
 
+	#[Override]
 	public static function eventName(): string
 	{
 		return 'video.created';
 	}
 
+	#[Override]
 	public static function fromPrimitives(
 		string $aggregateId,
 		array $body,
@@ -42,6 +45,7 @@ final class VideoCreatedDomainEvent extends DomainEvent
 		);
 	}
 
+	#[Override]
 	public function toPrimitives(): array
 	{
 		return [

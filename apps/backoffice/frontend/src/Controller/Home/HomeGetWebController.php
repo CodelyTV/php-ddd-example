@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Apps\Backoffice\Frontend\Controller\Home;
 
 use CodelyTv\Shared\Infrastructure\Symfony\WebController;
+use Override;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -18,6 +19,7 @@ final class HomeGetWebController extends WebController
 		]);
 	}
 
+	#[Override]
 	protected function exceptions(): array
 	{
 		return [];

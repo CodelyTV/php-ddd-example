@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Mooc\Courses\Domain;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
+use Override;
 
 final class CourseCreatedDomainEvent extends DomainEvent
 {
@@ -18,11 +19,13 @@ final class CourseCreatedDomainEvent extends DomainEvent
 		parent::__construct($id, $eventId, $occurredOn);
 	}
 
+	#[Override]
 	public static function eventName(): string
 	{
 		return 'course.created';
 	}
 
+	#[Override]
 	public static function fromPrimitives(
 		string $aggregateId,
 		array $body,
@@ -32,6 +35,7 @@ final class CourseCreatedDomainEvent extends DomainEvent
 		return new self($aggregateId, $body['name'], $body['duration'], $eventId, $occurredOn);
 	}
 
+	#[Override]
 	public function toPrimitives(): array
 	{
 		return [

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Apps\Mooc\Backend\Command\DomainEvents\RabbitMq;
 
 use CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqConfigurer;
+use Override;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -25,6 +26,7 @@ final class ConfigureRabbitMqCommand extends Command
 		parent::__construct();
 	}
 
+	#[Override]
 	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		$this->configurer->configure($this->exchangeName, ...iterator_to_array($this->subscribers));

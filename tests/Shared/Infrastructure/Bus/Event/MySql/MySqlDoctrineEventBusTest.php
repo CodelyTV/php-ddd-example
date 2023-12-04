@@ -13,12 +13,14 @@ use CodelyTv\Tests\Mooc\Courses\Domain\CourseCreatedDomainEventMother;
 use CodelyTv\Tests\Mooc\CoursesCounter\Domain\CoursesCounterIncrementedDomainEventMother;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\InfrastructureTestCase;
 use Doctrine\ORM\EntityManager;
+use Override;
 
 final class MySqlDoctrineEventBusTest extends InfrastructureTestCase
 {
 	private MySqlDoctrineEventBus|null $bus;
 	private MySqlDoctrineDomainEventsConsumer|null $consumer;
 
+	#[Override]
 	protected function setUp(): void
 	{
 		parent::setUp();
@@ -44,6 +46,7 @@ final class MySqlDoctrineEventBusTest extends InfrastructureTestCase
 		);
 	}
 
+	#[Override]
 	protected function kernelClass(): string
 	{
 		return MoocBackendKernel::class;

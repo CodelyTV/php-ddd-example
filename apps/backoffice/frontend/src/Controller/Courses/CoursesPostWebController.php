@@ -6,6 +6,7 @@ namespace CodelyTv\Apps\Backoffice\Frontend\Controller\Courses;
 
 use CodelyTv\Mooc\Courses\Application\Create\CreateCourseCommand;
 use CodelyTv\Shared\Infrastructure\Symfony\WebController;
+use Override;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -23,6 +24,7 @@ final class CoursesPostWebController extends WebController
 			: $this->createCourse($request);
 	}
 
+	#[Override]
 	protected function exceptions(): array
 	{
 		return [];

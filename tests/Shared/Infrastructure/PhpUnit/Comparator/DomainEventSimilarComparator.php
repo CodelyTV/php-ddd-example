@@ -6,6 +6,7 @@ namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator;
 
 use CodelyTv\Shared\Domain\Bus\Event\DomainEvent;
 use CodelyTv\Tests\Shared\Domain\TestUtils;
+use Override;
 use ReflectionObject;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
@@ -14,6 +15,7 @@ final class DomainEventSimilarComparator extends Comparator
 {
 	private static array $ignoredAttributes = ['eventId', 'occurredOn'];
 
+	#[Override]
 	public function accepts($expected, $actual): bool
 	{
 		$domainEventRootClass = DomainEvent::class;
@@ -21,6 +23,7 @@ final class DomainEventSimilarComparator extends Comparator
 		return $expected instanceof $domainEventRootClass && $actual instanceof $domainEventRootClass;
 	}
 
+	#[Override]
 	public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void
 	{
 		if (!$this->areSimilar($expected, $actual)) {

@@ -11,12 +11,12 @@ final readonly class MinkSessionRequestHelper
 {
 	public function __construct(private MinkHelper $sessionHelper) {}
 
-	public function sendRequest($method, $url, array $optionalParams = []): void
+	public function sendRequest(string $method, string $url, array $optionalParams = []): void
 	{
 		$this->request($method, $url, $optionalParams);
 	}
 
-	public function sendRequestWithPyStringNode($method, $url, PyStringNode $body): void
+	public function sendRequestWithPyStringNode(string $method, string $url, PyStringNode $body): void
 	{
 		$this->request($method, $url, ['content' => $body->getRaw()]);
 	}

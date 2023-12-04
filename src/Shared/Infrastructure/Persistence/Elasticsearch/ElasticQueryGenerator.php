@@ -9,11 +9,11 @@ use CodelyTv\Shared\Domain\Criteria\FilterOperator;
 
 final class ElasticQueryGenerator
 {
-	private const MUST_TYPE = 'must';
-	private const MUST_NOT_TYPE = 'must_not';
-	private const TERM_TERM = 'term';
-	private const TERM_RANGE = 'range';
-	private const TERM_WILDCARD = 'wildcard';
+	private const string MUST_TYPE = 'must';
+	private const string MUST_NOT_TYPE = 'must_not';
+	private const string TERM_TERM = 'term';
+	private const string TERM_RANGE = 'range';
+	private const string TERM_WILDCARD = 'wildcard';
 
 	private static array $mustNotFields = [FilterOperator::NOT_EQUAL, FilterOperator::NOT_CONTAINS];
 

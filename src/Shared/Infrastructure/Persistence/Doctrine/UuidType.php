@@ -10,6 +10,7 @@ use CodelyTv\Shared\Infrastructure\Doctrine\Dbal\DoctrineCustomType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
 
+use Override;
 use function Lambdish\Phunctional\last;
 
 abstract class UuidType extends StringType implements DoctrineCustomType
@@ -21,11 +22,13 @@ abstract class UuidType extends StringType implements DoctrineCustomType
 		return Utils::toSnakeCase(str_replace('Type', '', (string) last(explode('\\', static::class))));
 	}
 
+	#[Override]
 	final public function getName(): string
 	{
 		return self::customTypeName();
 	}
 
+	#[Override]
 	final public function convertToPHPValue($value, AbstractPlatform $platform): mixed
 	{
 		$className = $this->typeClassName();
@@ -33,6 +36,7 @@ abstract class UuidType extends StringType implements DoctrineCustomType
 		return new $className($value);
 	}
 
+	#[Override]
 	final public function convertToDatabaseValue($value, AbstractPlatform $platform): string
 	{
 		/** @var Uuid $value */

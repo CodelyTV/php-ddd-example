@@ -7,16 +7,19 @@ namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator;
 use DateInterval;
 use DateTime;
 use DateTimeInterface;
+use Override;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\ObjectComparator;
 
 final class DateTimeSimilarComparator extends ObjectComparator
 {
+	#[Override]
 	public function accepts($expected, $actual): bool
 	{
 		return $expected instanceof DateTimeInterface && $actual instanceof DateTimeInterface;
 	}
 
+	#[Override]
 	public function assertEquals(
 		$expected,
 		$actual,
