@@ -38,13 +38,7 @@ final class Utils
 
 	public static function jsonDecode(string $json): array
 	{
-		$data = json_decode($json, true);
-
-		if (json_last_error() !== JSON_ERROR_NONE) {
-			throw new RuntimeException('Unable to parse response body into JSON: ' . json_last_error());
-		}
-
-		return $data;
+		return json_decode($json, true, flags: JSON_THROW_ON_ERROR);
 	}
 
 	public static function toSnakeCase(string $text): string
