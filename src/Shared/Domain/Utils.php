@@ -6,21 +6,10 @@ namespace CodelyTv\Shared\Domain;
 
 use DateTimeImmutable;
 use DateTimeInterface;
-use RuntimeException;
 use function Lambdish\Phunctional\filter;
 
 final class Utils
 {
-	public static function endsWith(string $needle, string $haystack): bool
-	{
-		$length = strlen($needle);
-		if ($length === 0) {
-			return true;
-		}
-
-		return substr($haystack, -$length) === $needle;
-	}
-
 	public static function dateToString(DateTimeInterface $date): string
 	{
 		return $date->format(DateTimeInterface::ATOM);
@@ -38,13 +27,7 @@ final class Utils
 
 	public static function jsonDecode(string $json): array
 	{
-		$data = json_decode($json, true);
-
-		if (json_last_error() !== JSON_ERROR_NONE) {
-			throw new RuntimeException('Unable to parse response body into JSON: ' . json_last_error());
-		}
-
-		return $data;
+		return json_decode($json, true, flags: JSON_THROW_ON_ERROR);
 	}
 
 	public static function toSnakeCase(string $text): string

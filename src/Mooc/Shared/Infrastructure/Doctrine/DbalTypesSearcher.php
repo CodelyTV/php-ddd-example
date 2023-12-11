@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Shared\Infrastructure\Doctrine;
 
-use CodelyTv\Shared\Domain\Utils;
-
 use function Lambdish\Phunctional\filter;
 use function Lambdish\Phunctional\map;
 use function Lambdish\Phunctional\reduce;
@@ -51,7 +49,7 @@ final class DbalTypesSearcher
 	{
 		return static function (array $totalNamespaces, string $path) use ($contextName): array {
 			$possibleFiles = scandir($path);
-			$files = filter(static fn (string $file): bool => Utils::endsWith('Type.php', $file), $possibleFiles);
+			$files = filter(static fn (string $file): bool => str_ends_with($file, 'Type.php'), $possibleFiles);
 
 			$namespaces = map(
 				static function (string $file) use ($path, $contextName): string {
