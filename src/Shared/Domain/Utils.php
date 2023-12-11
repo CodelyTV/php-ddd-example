@@ -6,7 +6,6 @@ namespace CodelyTv\Shared\Domain;
 
 use DateTimeImmutable;
 use DateTimeInterface;
-use RuntimeException;
 use function Lambdish\Phunctional\filter;
 
 final class Utils
