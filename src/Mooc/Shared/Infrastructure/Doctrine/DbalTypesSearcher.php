@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace CodelyTv\Mooc\Shared\Infrastructure\Doctrine;
 
-use CodelyTv\Shared\Domain\Utils;
-
 use function Lambdish\Phunctional\filter;
 use function Lambdish\Phunctional\map;
 use function Lambdish\Phunctional\reduce;
