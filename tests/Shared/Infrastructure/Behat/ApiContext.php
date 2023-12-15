@@ -69,6 +69,18 @@ final class ApiContext extends RawMinkContext
 		}
 	}
 
+    /**
+     * @Then the response should not be empty
+     */
+    public function theResponseShouldNotBeEmpty(): void
+    {
+        $actual = trim($this->sessionHelper->getResponse());
+
+        if (empty($actual)) {
+            throw new RuntimeException(sprintf("The outputs is empty, Actual:\n%s", $actual));
+        }
+    }
+
 	/**
 	 * @Then print last api response
 	 */
