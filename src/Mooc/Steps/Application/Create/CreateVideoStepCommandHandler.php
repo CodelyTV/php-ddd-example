@@ -9,4 +9,6 @@ use CodelyTv\Shared\Domain\Bus\Command\CommandHandler;
 final readonly class CreateVideoStepCommandHandler implements CommandHandler
 {
 	public function __construct(private VideoStepCreator $creator) {}
+
+	public function __invoke(): void {}
 }

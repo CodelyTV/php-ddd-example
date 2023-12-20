@@ -32,6 +32,18 @@ final class MySqlStepRepositoryTest extends StepsModuleInfrastructureTestCase
 		$this->assertEquals($step, $this->repository()->search($step->id));
 	}
 
+	/**
+	 * @test
+	 * @dataProvider steps
+	 */
+	public function it_should_delete_an_existing_step(Step $step): void
+	{
+		$this->repository()->save($step);
+		$this->repository()->delete($step);
+
+		$this->assertNull($this->repository()->search($step->id));
+	}
+
 	public function steps(): array
 	{
 		return [

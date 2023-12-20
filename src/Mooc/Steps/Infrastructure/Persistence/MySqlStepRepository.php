@@ -20,4 +20,9 @@ final class MySqlStepRepository extends DoctrineRepository implements StepReposi
 	{
 		return $this->repository(Step::class)->find($id);
 	}
+
+	public function delete(Step $step): void
+	{
+		$this->remove($step);
+	}
 }
