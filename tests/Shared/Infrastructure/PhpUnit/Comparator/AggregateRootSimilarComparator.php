@@ -22,7 +22,6 @@ final class AggregateRootSimilarComparator extends Comparator
 	public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void
 	{
 		$actualEntity = clone $actual;
-		$actualEntity->pullDomainEvents();
 
 		if (!$this->aggregateRootsAreSimilar($expected, $actualEntity)) {
 			throw new ComparisonFailure(

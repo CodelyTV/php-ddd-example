@@ -26,6 +26,6 @@ final readonly class CourseRenamer
 		$course->rename($newName);
 
 		$this->repository->save($course);
-		$this->bus->publish(...$course->pullDomainEvents());
+		$this->bus->publish(...$course->pullDomainEventsToIterator());
 	}
 }
