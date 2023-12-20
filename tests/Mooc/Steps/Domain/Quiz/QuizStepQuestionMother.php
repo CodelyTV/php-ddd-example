@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace CodelyTv\Tests\Mooc\Steps\Domain\Quiz;
 
 use CodelyTv\Mooc\Steps\Domain\Quiz\QuizStepQuestion;
-use CodelyTv\Mooc\Steps\Domain\Video\VideoStepUrl;
 use CodelyTv\Tests\Shared\Domain\Repeater;
 use CodelyTv\Tests\Shared\Domain\WordMother;
 
 final class QuizStepQuestionMother
 {
-	public static function create(?string $question = null, array $answers = []): VideoStepUrl
+	public static function create(?string $question = null, array $answers = []): QuizStepQuestion
 	{
 		return new QuizStepQuestion(
 			$question ?? WordMother::create(),

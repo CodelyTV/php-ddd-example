@@ -13,7 +13,6 @@ use CodelyTv\Tests\Mooc\Steps\Domain\StepDurationMother;
 use CodelyTv\Tests\Mooc\Steps\Domain\StepIdMother;
 use CodelyTv\Tests\Mooc\Steps\Domain\StepTitleMother;
 use CodelyTv\Tests\Shared\Domain\Repeater;
-use CodelyTv\Tests\Shared\Domain\WordMother;
 
 final class QuizStepMother
 {
@@ -23,7 +22,9 @@ final class QuizStepMother
 		?StepDuration $duration = null,
 		QuizStepQuestion ...$questions
 	): QuizStep {
-		$stepQuestions = $questions ?? Repeater::random(fn (): string => WordMother::create());
+		$stepQuestions = count($questions) === 0 ? Repeater::random(
+			fn (): QuizStepQuestion => QuizStepQuestionMother::create()
+		) : $questions;
 
 		return new QuizStep(
 			$id ?? StepIdMother::create(),
