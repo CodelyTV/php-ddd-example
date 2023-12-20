@@ -1,0 +1,4 @@
+courses_list:
+  path: /courses/
+  controller: CodelyTv\Apps\Mooc\Backend\Controller\ListCourses\ListCoursesGetController
+  methods:  [GET]
