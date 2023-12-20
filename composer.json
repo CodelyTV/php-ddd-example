@@ -19,6 +19,7 @@
     "symfony/twig-bundle": "^6",
     "symfony/validator": "^6",
     "symfony/cache": "^6",
+    "symfony/http-client": "^6",
 
     "lambdish/phunctional": "^2",
 
