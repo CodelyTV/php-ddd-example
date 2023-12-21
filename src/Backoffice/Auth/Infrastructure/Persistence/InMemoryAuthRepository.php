@@ -13,7 +13,7 @@ use function Lambdish\Phunctional\get;
 
 final class InMemoryAuthRepository implements AuthRepository
 {
-	private const USERS = [
+	private const array USERS = [
 		'javi' => 'barbitas',
 		'rafa' => 'pelazo',
 	];

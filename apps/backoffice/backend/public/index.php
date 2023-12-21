@@ -16,7 +16,7 @@ if ($_SERVER['APP_DEBUG']) {
 
 if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? $_ENV['TRUSTED_PROXIES'] ?? false) {
 	Request::setTrustedProxies(
-		explode(',', $trustedProxies),
+		explode(',', (string) $trustedProxies),
 		Request::HEADER_X_FORWARDED_FOR | Request::HEADER_X_FORWARDED_PORT | Request::HEADER_X_FORWARDED_PROTO
 	);
 }

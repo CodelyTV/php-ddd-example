@@ -4,20 +4,22 @@ declare(strict_types=1);
 
 namespace CodelyTv\Apps\Mooc\Backend;
 
+use Override;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Kernel;
 
+use Symfony\Component\HttpKernel\Kernel;
 use function dirname;
 
 class MoocBackendKernel extends Kernel
 {
 	use MicroKernelTrait;
 
-	private const CONFIG_EXTS = '.{xml,yaml}';
+	private const string CONFIG_EXTS = '.{xml,yaml}';
 
+	#[Override]
 	public function registerBundles(): iterable
 	{
 		$contents = require $this->getProjectDir() . '/config/bundles.php';
@@ -28,6 +30,7 @@ class MoocBackendKernel extends Kernel
 		}
 	}
 
+	#[Override]
 	public function getProjectDir(): string
 	{
 		return dirname(__DIR__);

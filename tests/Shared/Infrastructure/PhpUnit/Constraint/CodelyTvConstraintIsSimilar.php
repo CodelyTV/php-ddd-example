@@ -10,11 +10,12 @@ use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator\DateTimeSimilarCompa
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator\DateTimeStringSimilarComparator;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator\DomainEventArraySimilarComparator;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator\DomainEventSimilarComparator;
+use Override;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\ExpectationFailedException;
 use SebastianBergmann\Comparator\ComparisonFailure;
-use SebastianBergmann\Comparator\Factory;
 
+use SebastianBergmann\Comparator\Factory;
 use function is_string;
 use function sprintf;
 
@@ -23,6 +24,7 @@ final class CodelyTvConstraintIsSimilar extends Constraint
 {
 	public function __construct(private $value, private readonly float $delta = 0.0) {}
 
+	#[Override]
 	public function evaluate($other, $description = '', $returnResult = false): bool
 	{
 		if ($this->value === $other) {
@@ -54,6 +56,7 @@ final class CodelyTvConstraintIsSimilar extends Constraint
 		return $isValid;
 	}
 
+	#[Override]
 	public function toString(): string
 	{
 		$delta = '';

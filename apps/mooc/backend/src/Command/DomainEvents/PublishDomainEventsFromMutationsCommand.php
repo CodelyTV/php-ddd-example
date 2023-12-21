@@ -9,6 +9,7 @@ use CodelyTv\Shared\Domain\Bus\Event\EventBus;
 use CodelyTv\Shared\Infrastructure\Cdc\DatabaseMutationAction;
 use CodelyTv\Shared\Infrastructure\Cdc\DatabaseMutationToDomainEvent;
 use Doctrine\ORM\EntityManager;
+use Override;
 use RuntimeException;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -39,16 +40,18 @@ final class PublishDomainEventsFromMutationsCommand extends Command
 		];
 	}
 
+	#[Override]
 	protected function configure(): void
 	{
 		$this->addArgument('quantity', InputArgument::REQUIRED, 'Quantity of mutations to process');
 	}
 
+	#[Override]
 	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		$totalMutations = (int) $input->getArgument('quantity');
 
-		$this->entityManager->wrapInTransaction(function (EntityManager $entityManager) use ($totalMutations) {
+		$this->entityManager->wrapInTransaction(function (EntityManager $entityManager) use ($totalMutations): void {
 			$mutations = $entityManager->getConnection()
 				->executeQuery("SELECT * FROM mutations ORDER BY id ASC LIMIT $totalMutations FOR UPDATE")
 				->fetchAllAssociative();

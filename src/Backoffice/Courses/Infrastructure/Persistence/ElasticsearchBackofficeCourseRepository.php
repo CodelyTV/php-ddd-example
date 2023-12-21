@@ -9,6 +9,7 @@ use CodelyTv\Backoffice\Courses\Domain\BackofficeCourseRepository;
 use CodelyTv\Shared\Domain\Criteria\Criteria;
 use CodelyTv\Shared\Infrastructure\Persistence\Elasticsearch\ElasticsearchRepository;
 
+use Override;
 use function Lambdish\Phunctional\map;
 
 final class ElasticsearchBackofficeCourseRepository extends ElasticsearchRepository implements BackofficeCourseRepository
@@ -28,6 +29,7 @@ final class ElasticsearchBackofficeCourseRepository extends ElasticsearchReposit
 		return map($this->toCourse(), $this->searchByCriteria($criteria));
 	}
 
+	#[Override]
 	protected function aggregateName(): string
 	{
 		return 'courses';

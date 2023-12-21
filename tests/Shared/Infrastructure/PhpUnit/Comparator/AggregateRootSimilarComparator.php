@@ -6,12 +6,14 @@ namespace CodelyTv\Tests\Shared\Infrastructure\PhpUnit\Comparator;
 
 use CodelyTv\Shared\Domain\Aggregate\AggregateRoot;
 use CodelyTv\Tests\Shared\Domain\TestUtils;
+use Override;
 use ReflectionObject;
 use SebastianBergmann\Comparator\Comparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
 
 final class AggregateRootSimilarComparator extends Comparator
 {
+	#[Override]
 	public function accepts($expected, $actual): bool
 	{
 		$aggregateRootClass = AggregateRoot::class;
@@ -19,6 +21,7 @@ final class AggregateRootSimilarComparator extends Comparator
 		return $expected instanceof $aggregateRootClass && $actual instanceof $aggregateRootClass;
 	}
 
+	#[Override]
 	public function assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase = false): void
 	{
 		$actualEntity = clone $actual;

@@ -6,6 +6,7 @@ namespace CodelyTv\Shared\Domain\Criteria;
 
 use CodelyTv\Shared\Domain\Collection;
 
+use Override;
 use function Lambdish\Phunctional\reduce;
 
 final class Filters extends Collection
@@ -39,6 +40,7 @@ final class Filters extends Collection
 		);
 	}
 
+	#[Override]
 	protected function type(): string
 	{
 		return Filter::class;

@@ -7,9 +7,11 @@ namespace CodelyTv\Tests\Mooc\Shared\Infrastructure\PhpUnit;
 use CodelyTv\Apps\Mooc\Backend\MoocBackendKernel;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\InfrastructureTestCase;
 use Doctrine\ORM\EntityManager;
+use Override;
 
 abstract class MoocContextInfrastructureTestCase extends InfrastructureTestCase
 {
+	#[Override]
 	protected function setUp(): void
 	{
 		parent::setUp();
@@ -19,6 +21,7 @@ abstract class MoocContextInfrastructureTestCase extends InfrastructureTestCase
 		$arranger->arrange();
 	}
 
+	#[Override]
 	protected function tearDown(): void
 	{
 		$arranger = new MoocEnvironmentArranger($this->service(EntityManager::class));
@@ -28,6 +31,7 @@ abstract class MoocContextInfrastructureTestCase extends InfrastructureTestCase
 		parent::tearDown();
 	}
 
+	#[Override]
 	protected function kernelClass(): string
 	{
 		return MoocBackendKernel::class;

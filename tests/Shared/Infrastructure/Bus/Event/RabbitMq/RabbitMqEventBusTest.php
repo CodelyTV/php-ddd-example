@@ -16,6 +16,7 @@ use CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqQueueNameFormatter
 use CodelyTv\Tests\Mooc\Courses\Domain\CourseCreatedDomainEventMother;
 use CodelyTv\Tests\Mooc\CoursesCounter\Domain\CoursesCounterIncrementedDomainEventMother;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\InfrastructureTestCase;
+use Override;
 use RuntimeException;
 use Throwable;
 
@@ -29,6 +30,7 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
 	private TestAllWorksOnRabbitMqEventsPublished $fakeSubscriber;
 	private bool $consumerHasBeenExecuted;
 
+	#[Override]
 	protected function setUp(): void
 	{
 		parent::setUp();
@@ -129,6 +131,7 @@ final class RabbitMqEventBusTest extends InfrastructureTestCase
 		$this->assertDeadLetterContainsEvent(1);
 	}
 
+	#[Override]
 	protected function kernelClass(): string
 	{
 		return MoocBackendKernel::class;

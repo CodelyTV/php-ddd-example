@@ -6,6 +6,7 @@ namespace CodelyTv\Apps\Mooc\Backend\Controller\Courses;
 
 use CodelyTv\Mooc\Courses\Application\Create\CreateCourseCommand;
 use CodelyTv\Shared\Infrastructure\Symfony\ApiController;
+use Override;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -24,6 +25,7 @@ final class CoursesPutController extends ApiController
 		return new Response('', Response::HTTP_CREATED);
 	}
 
+	#[Override]
 	protected function exceptions(): array
 	{
 		return [];

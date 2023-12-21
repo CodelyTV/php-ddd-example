@@ -9,12 +9,14 @@ use CodelyTv\Shared\Infrastructure\Bus\Command\CommandNotRegisteredError;
 use CodelyTv\Shared\Infrastructure\Bus\Command\InMemorySymfonyCommandBus;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\UnitTestCase;
 use Mockery\MockInterface;
+use Override;
 use RuntimeException;
 
 final class InMemorySymfonyCommandBusTest extends UnitTestCase
 {
 	private InMemorySymfonyCommandBus|null $commandBus;
 
+	#[Override]
 	protected function setUp(): void
 	{
 		parent::setUp();

@@ -8,9 +8,11 @@ use CodelyTv\Apps\Backoffice\Backend\BackofficeBackendKernel;
 use CodelyTv\Shared\Infrastructure\Elasticsearch\ElasticsearchClient;
 use CodelyTv\Tests\Shared\Infrastructure\PhpUnit\InfrastructureTestCase;
 use Doctrine\ORM\EntityManager;
+use Override;
 
 abstract class BackofficeContextInfrastructureTestCase extends InfrastructureTestCase
 {
+	#[Override]
 	protected function setUp(): void
 	{
 		parent::setUp();
@@ -23,6 +25,7 @@ abstract class BackofficeContextInfrastructureTestCase extends InfrastructureTes
 		$arranger->arrange();
 	}
 
+	#[Override]
 	protected function kernelClass(): string
 	{
 		return BackofficeBackendKernel::class;
