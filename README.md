@@ -7,6 +7,9 @@
 <h1 align="center">
   🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP
 </h1>
+<h2 align="center">
+  🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP
+</h2>
 
 <p align="center">
     <a href="https://github.com/CodelyTV"><img src="https://img.shields.io/badge/CodelyTV-OS-green.svg?style=flat-square" alt="codely.tv"/></a>
