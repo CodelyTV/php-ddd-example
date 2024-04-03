@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center">
-  🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP
+  🐘👌 Hexagonal Architecture, DDD & CQRS in PHP
 </h1>
 
 <p align="center">
@@ -62,7 +62,7 @@
 This project tries to be a MOOC (Massive Open Online Course) platform. It's decoupled from any framework, but it has
 some Symfony and Laravel implementations.
 
-### ⛱️ Bounded Contexts
+### ⛱ Bounded Contexts
 
 - [Mooc](src/Mooc): Place to look in if you wanna see some code 🙂. Massive Open Online Courses public platform with users, videos, notifications, and so on.
 - [Backoffice](src/Backoffice): Here you'll find the use cases needed by the Customer Support department in order to manage users, courses, videos, and so on.
