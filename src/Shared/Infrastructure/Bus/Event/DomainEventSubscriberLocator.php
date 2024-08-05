@@ -28,7 +28,7 @@ final class DomainEventSubscriberLocator
 		return $formatted[$eventClass];
 	}
 
-	public function withRabbitMqQueueNamed(string $queueName): callable|DomainEventSubscriber
+	public function withRabbitMqQueueNamed(string $queueName): callable | DomainEventSubscriber
 	{
 		$subscriber = search(
 			static fn (DomainEventSubscriber $subscriber): bool => RabbitMqQueueNameFormatter::format($subscriber) ===

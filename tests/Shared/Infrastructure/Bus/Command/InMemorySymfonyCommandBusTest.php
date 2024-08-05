@@ -13,7 +13,7 @@ use RuntimeException;
 
 final class InMemorySymfonyCommandBusTest extends UnitTestCase
 {
-	private InMemorySymfonyCommandBus|null $commandBus;
+	private InMemorySymfonyCommandBus | null $commandBus;
 
 	protected function setUp(): void
 	{
@@ -48,7 +48,7 @@ final class InMemorySymfonyCommandBusTest extends UnitTestCase
 		};
 	}
 
-	private function command(): Command|MockInterface
+	private function command(): Command | MockInterface
 	{
 		return $this->mock(Command::class);
 	}

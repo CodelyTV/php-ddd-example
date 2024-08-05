@@ -13,7 +13,7 @@ use RuntimeException;
 
 final class InMemorySymfonyQueryBusTest extends UnitTestCase
 {
-	private InMemorySymfonyQueryBus|null $queryBus;
+	private InMemorySymfonyQueryBus | null $queryBus;
 
 	protected function setUp(): void
 	{
@@ -48,7 +48,7 @@ final class InMemorySymfonyQueryBusTest extends UnitTestCase
 		};
 	}
 
-	private function query(): MockInterface|Query
+	private function query(): MockInterface | Query
 	{
 		return $this->mock(Query::class);
 	}

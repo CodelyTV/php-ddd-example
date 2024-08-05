@@ -42,6 +42,7 @@ final class SharedArchitectureTest
 				// This need to be refactored
 				Selector::classname(MySqlDatabaseCleaner::class),
 				Selector::classname(AuthenticateUserCommand::class),
+				Selector::inNamespace('CodelyTv\Backoffice\Auth'),
 			);
 	}
 

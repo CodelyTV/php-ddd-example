@@ -35,8 +35,6 @@ final readonly class MinkHelper
 			$optionalParams['changeHistory']
 		);
 
-		$this->resetRequestStuff();
-
 		return $crawler;
 	}
 
@@ -78,11 +76,5 @@ final readonly class MinkHelper
 	private function normalizeHeaders(array $headers): array
 	{
 		return array_map('implode', array_filter($headers));
-	}
-
-	private function resetRequestStuff(): void
-	{
-		$this->getSession()->reset();
-		$this->resetServerParameters();
 	}
 }

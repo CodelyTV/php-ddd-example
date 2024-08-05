@@ -11,16 +11,16 @@ use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Shared\Domain\Bus\Query\Response;
 use CodelyTv\Shared\Domain\UuidGenerator;
 use CodelyTv\Tests\Shared\Domain\TestUtils;
+use CodelyTv\Tests\Shared\Infrastructure\Mockery\CodelyTvMatcherIsSimilar;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
-use Mockery\Matcher\MatcherAbstract;
 use Mockery\MockInterface;
 use Throwable;
 
 abstract class UnitTestCase extends MockeryTestCase
 {
-	private EventBus|MockInterface|null $eventBus = null;
-	private MockInterface|UuidGenerator|null $uuidGenerator = null;
+	private EventBus | MockInterface | null $eventBus = null;
+	private MockInterface | UuidGenerator | null $uuidGenerator = null;
 
 	protected function mock(string $className): MockInterface
 	{
@@ -43,7 +43,7 @@ abstract class UnitTestCase extends MockeryTestCase
 			->andReturnNull();
 	}
 
-	protected function eventBus(): EventBus|MockInterface
+	protected function eventBus(): EventBus | MockInterface
 	{
 		return $this->eventBus ??= $this->mock(EventBus::class);
 	}
@@ -57,7 +57,7 @@ abstract class UnitTestCase extends MockeryTestCase
 			->andReturn($uuid);
 	}
 
-	protected function uuidGenerator(): MockInterface|UuidGenerator
+	protected function uuidGenerator(): MockInterface | UuidGenerator
 	{
 		return $this->uuidGenerator ??= $this->mock(UuidGenerator::class);
 	}
@@ -97,7 +97,7 @@ abstract class UnitTestCase extends MockeryTestCase
 		TestUtils::assertSimilar($expected, $actual);
 	}
 
-	protected function similarTo(mixed $value, float $delta = 0.0): MatcherAbstract
+	protected function similarTo(mixed $value, float $delta = 0.0): CodelyTvMatcherIsSimilar
 	{
 		return TestUtils::similarTo($value, $delta);
 	}

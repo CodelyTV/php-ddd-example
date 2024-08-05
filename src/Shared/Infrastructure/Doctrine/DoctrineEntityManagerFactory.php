@@ -67,7 +67,7 @@ final class DoctrineEntityManagerFactory
 		$connection->close();
 	}
 
-	private static function databaseExists(string $databaseName, MySqlSchemaManager $schemaManager): bool
+	private static function databaseExists(string $databaseName, MySQLSchemaManager $schemaManager): bool
 	{
 		return in_array($databaseName, $schemaManager->listDatabases(), true);
 	}
