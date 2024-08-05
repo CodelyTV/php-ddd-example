@@ -23,7 +23,7 @@ final readonly class RabbitMqDomainEventsConsumer
 		private int $maxRetries
 	) {}
 
-	public function consume(callable|DomainEventSubscriber $subscriber, string $queueName): void
+	public function consume(callable | DomainEventSubscriber $subscriber, string $queueName): void
 	{
 		try {
 			$this->connection->queue($queueName)->consume($this->consumer($subscriber));

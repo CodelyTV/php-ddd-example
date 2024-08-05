@@ -41,7 +41,7 @@ final readonly class BasicHttpAuthMiddleware
 			$this->bus->dispatch(new AuthenticateUserCommand($user, $pass));
 
 			$this->addUserDataToRequest($user, $event);
-		} catch (InvalidAuthCredentials|InvalidAuthUsername) {
+		} catch (InvalidAuthCredentials | InvalidAuthUsername) {
 			$event->setResponse(new JsonResponse(['error' => 'Invalid credentials'], Response::HTTP_FORBIDDEN));
 		}
 	}

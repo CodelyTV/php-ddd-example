@@ -57,7 +57,7 @@ final class Utils
 	public static function filesIn(string $path, string $fileType): array
 	{
 		return filter(
-			static fn (string $possibleModule): false|string => strstr($possibleModule, $fileType),
+			static fn (string $possibleModule): false | string => strstr($possibleModule, $fileType),
 			scandir($path)
 		);
 	}

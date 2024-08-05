@@ -14,7 +14,7 @@ use CodelyTv\Tests\Mooc\CoursesCounter\Domain\CoursesCounterMother;
 
 final class IncrementCoursesCounterOnCourseCreatedTest extends CoursesCounterModuleUnitTestCase
 {
-	private IncrementCoursesCounterOnCourseCreated|null $subscriber;
+	private IncrementCoursesCounterOnCourseCreated | null $subscriber;
 
 	protected function setUp(): void
 	{

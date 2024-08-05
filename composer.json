@@ -12,13 +12,13 @@
     "ext-zend-opcache": "*",
     "ext-pdo": "*",
 
-    "symfony/framework-bundle": "^6",
-    "symfony/messenger": "^6",
-    "symfony/dotenv": "^6",
-    "symfony/yaml": "^6",
-    "symfony/twig-bundle": "^6",
-    "symfony/validator": "^6",
-    "symfony/cache": "^6",
+    "symfony/framework-bundle": "^7",
+    "symfony/messenger": "^7",
+    "symfony/dotenv": "^7",
+    "symfony/yaml": "^7",
+    "symfony/twig-bundle": "^7",
+    "symfony/validator": "^7",
+    "symfony/cache": "^7",
 
     "lambdish/phunctional": "^2",
 
@@ -41,16 +41,16 @@
     "roave/security-advisories": "dev-master",
 
     "behat/behat": "^3.13",
-    "friends-of-behat/mink-extension": "2.6.1",
-    "friends-of-behat/symfony-extension": "2.3.1",
-    "behat/mink-browserkit-driver": "2.1.0",
+    "friends-of-behat/mink-extension": "2.7.5",
+    "friends-of-behat/symfony-extension": "2.6.0",
+    "behat/mink-browserkit-driver": "2.2.0",
 
     "phpunit/phpunit": "^9",
     "mockery/mockery": "^1",
 
     "fakerphp/faker": "^1",
 
-    "symfony/error-handler": "^6",
+    "symfony/error-handler": "^7",
 
     "symplify/easy-coding-standard": "^12.0",
     "vimeo/psalm": "^5.15",

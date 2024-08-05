@@ -16,7 +16,7 @@ class MoocBackendKernel extends Kernel
 {
 	use MicroKernelTrait;
 
-	private const CONFIG_EXTS = '.{xml,yaml}';
+	private const string CONFIG_EXTS = '.{xml,yaml}';
 
 	public function registerBundles(): iterable
 	{
