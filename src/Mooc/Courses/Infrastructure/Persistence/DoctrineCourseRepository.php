@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CodelyTv\Mooc\Courses\Infrastructure\Persistence;
 
 use CodelyTv\Mooc\Courses\Domain\Course;
+use CodelyTv\Mooc\Courses\Domain\CourseCollection;
 use CodelyTv\Mooc\Courses\Domain\CourseRepository;
 use CodelyTv\Mooc\Shared\Domain\Courses\CourseId;
 use CodelyTv\Shared\Infrastructure\Persistence\Doctrine\DoctrineRepository;
@@ -20,4 +21,10 @@ final class DoctrineCourseRepository extends DoctrineRepository implements Cours
 	{
 		return $this->repository(Course::class)->find($id);
 	}
+
+    public function list(): CourseCollection
+    {
+        $courses = $this->repository(Course::class)->findAll();
+        return new CourseCollection(...$courses);
+    }
 }

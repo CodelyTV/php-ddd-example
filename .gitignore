@@ -13,3 +13,5 @@
 /build
 
 .php-cs-fixer.cache
+.idea/workspace.xml
+.idea
