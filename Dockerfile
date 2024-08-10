@@ -19,7 +19,7 @@ RUN curl -sS https://get.symfony.com/cli/installer | bash -s - --install-dir /us
 
 COPY etc/infrastructure/php/ /usr/local/etc/php/
 
-# allow non-root users have home
+# allow non-root users to have home
 RUN mkdir -p /opt/home
 RUN chmod 777 /opt/home
 ENV HOME /opt/home
