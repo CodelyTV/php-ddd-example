@@ -8,6 +8,7 @@ use CodelyTv\Shared\Domain\Bus\Query\Query;
 use CodelyTv\Shared\Domain\Bus\Query\QueryBus;
 use CodelyTv\Shared\Domain\Bus\Query\Response;
 use CodelyTv\Shared\Infrastructure\Bus\CallableFirstParameterExtractor;
+use Symfony\Component\Messenger\Exception\HandlerFailedException;
 use Symfony\Component\Messenger\Exception\NoHandlerForMessageException;
 use Symfony\Component\Messenger\Handler\HandlersLocator;
 use Symfony\Component\Messenger\MessageBus;
@@ -36,6 +37,8 @@ final readonly class InMemorySymfonyQueryBus implements QueryBus
 			return $stamp->getResult();
 		} catch (NoHandlerForMessageException) {
 			throw new QueryNotRegisteredError($query);
-		}
+		} catch (HandlerFailedException $error) {
+            throw $error->getPrevious() ?? $error;
+        }
 	}
 }
