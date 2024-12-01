@@ -12,6 +12,10 @@
   🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP
 </h1>
 
+<h1 align="center">
+  🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP
+</h1>
+
 <p align="center">
     <a href="https://github.com/CodelyTV"><img src="https://img.shields.io/badge/Codely-OS-green.svg?style=flat-square" alt="Codely Open Source projects"/></a>
     <a href="http://pro.codely.tv"><img src="https://img.shields.io/badge/CodelyTV-PRO-black.svg?style=flat-square" alt="CodelyTV Courses"/></a>
