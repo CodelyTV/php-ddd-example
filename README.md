@@ -1,4 +1,4 @@
-<p align="center">
+<p align="left">
   <a href="https://codely.com">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://codely.com/logo/codely_logo-dark.svg">
@@ -8,7 +8,7 @@
   </a>
 </p>
 
-<h1 align="center">
+<h1 align="left">
   🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP
 </h1>
 
@@ -20,7 +20,7 @@
     <a href="https://github.com/CodelyTV/php-ddd-example/actions"><img src="https://github.com/CodelyTV/php-ddd-example/workflows/CI/badge.svg?branch=master" alt="CI pipeline status" /></a>
 </p>
 
-<p align="center">
+<p align="left">
   Example of a <strong>PHP application using Domain-Driven Design (DDD) and Command Query Responsibility Segregation
   (CQRS) principles</strong> keeping the code as simple as possible.
   <br />
