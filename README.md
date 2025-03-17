@@ -9,7 +9,7 @@
 </p>
 
 <h1 align="center">
-  🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP
+  🐘🎯 Hexagonal Architecture, DDD & CQRS in PHP - con un pequeño cambio del README
 </h1>
 
 <p align="center">
