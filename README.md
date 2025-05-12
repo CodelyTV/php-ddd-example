@@ -124,7 +124,7 @@ and its implementation [here](src/Mooc/Courses/Infrastructure/Persistence/Doctri
 You can see an example of an aggregate [here](src/Mooc/Courses/Domain/Course.php). All aggregates should
 extend the [AggregateRoot](src/Shared/Domain/Aggregate/AggregateRoot.php).
 
-### Command Bus
+### 🚍🧑🏽‍💻 Command Bus
 
 There is 1 implementations of the [command bus](src/Shared/Domain/Bus/Command/CommandBus.php).
 1. [Sync](src/Shared/Infrastructure/Bus/Command/InMemorySymfonyCommandBus.php) using the Symfony Message Bus.
@@ -134,7 +134,7 @@ There is 1 implementations of the [command bus](src/Shared/Domain/Bus/Command/Co
 
 The [Query Bus](src/Shared/Infrastructure/Bus/Query/InMemorySymfonyQueryBus.php) uses the Symfony Message Bus.
 
-### Event Bus
+###  Event Bus
 
 The [Event Bus](src/Shared/Infrastructure/Bus/Event/InMemory/InMemorySymfonyEventBus.php) uses the Symfony Message Bus.
 The [MySql Bus](src/Shared/Infrastructure/Bus/Event/MySql/MySqlDoctrineEventBus.php) uses a MySql+Pulling as a bus.
