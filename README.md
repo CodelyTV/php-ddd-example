@@ -140,16 +140,16 @@ The [Event Bus](src/Shared/Infrastructure/Bus/Event/InMemory/InMemorySymfonyEven
 The [MySql Bus](src/Shared/Infrastructure/Bus/Event/MySql/MySqlDoctrineEventBus.php) uses a MySql+Pulling as a bus.
 The [RabbitMQ Bus](src/Shared/Infrastructure/Bus/Event/RabbitMq/RabbitMqEventBus.php) uses RabbitMQ C extension.
 
-## 📱 Monitoring
+## 📱 Monitoring 
 
 Every time a domain event is published it's exported to Prometheus. You can access to the Prometheus panel [here](http://localhost:9999/).
 
-## 🤔 Contributing
+## 🤔 Contributing 
 
 There are some things missing (add swagger, improve documentation...), feel free to add this if you want! If you want
 some guidelines feel free to contact us :)
 
-## 🤩 Extra
+## 🤩 Extra 
 
 This code was shown in the [From framework coupled code to #microservices through #DDD](http://codely.tv/blog/screencasts/codigo-acoplado-framework-microservicios-ddd) talk and doubts where answered in the [DDD y CQRS: Preguntas Frecuentes](https://codely.com/blog/ddd-cqrs-preguntas-frecuentes) video.
 
@@ -161,6 +161,6 @@ This code was shown in the [From framework coupled code to #microservices throug
 - [🇪🇸 CQRS: Command Query Responsibility Segregation](https://pro.codely.tv/library/cqrs-command-query-responsibility-segregation-3719e4aa/62554/about/)
 - [🇪🇸 Comunicación entre microservicios: Event-Driven Architecture](https://pro.codely.tv/library/comunicacion-entre-microservicios-event-driven-architecture/74823/about/)
 
-## 🌐 remember to visit our courses
+## 🌐 Remember to visit our courses 
 
 - [Courses codely](https://codely.com/cursos)
