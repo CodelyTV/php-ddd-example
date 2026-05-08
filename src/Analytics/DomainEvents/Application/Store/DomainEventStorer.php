@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+//ejercicio git Codely
 namespace CodelyTv\Analytics\DomainEvents\Application\Store;
 
 use CodelyTv\Analytics\DomainEvents\Domain\AnalyticsDomainEvent;
