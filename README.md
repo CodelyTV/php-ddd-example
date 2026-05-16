@@ -48,6 +48,10 @@
 
 1. Create a local environment file (`cp .env .env.local`) if you want to modify any parameter
 
+### 🗄️ Database (Docker)
+
+The `mooc_mysql` service in `docker-compose.yml` runs MariaDB (`mariadb:10.7.4`). Application settings use the MySQL protocol (`pdo_mysql`); service and host names keep the `mysql` naming for compatibility.
+
 ### 🔥 Application execution
 
 1. Install all the dependencies and bring up the project with Docker executing: `make build`
