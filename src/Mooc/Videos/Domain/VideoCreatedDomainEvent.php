@@ -51,4 +51,14 @@ final class VideoCreatedDomainEvent extends DomainEvent
 			'course_id' => $this->courseId,
 		];
 	}
+
+	public function title(): string
+	{
+		return $this->title;
+	}
+
+	public function url(): string
+	{
+		return $this->url;
+	}
 }

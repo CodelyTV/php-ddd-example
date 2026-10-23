@@ -94,5 +94,10 @@ services:
   CodelyTv\Shared\Infrastructure\Bus\Event\WithMonitoring\WithPrometheusMonitoringEventBus:
     arguments: ['@CodelyTv\Shared\Infrastructure\Monitoring\PrometheusMonitor', 'mooc_backend', '@CodelyTv\Shared\Infrastructure\Bus\Event\RabbitMq\RabbitMqEventBus']
 
+  # Discord
+  CodelyTv\Mooc\Videos\Infrastructure\Notification\DiscordVideoPublishedNotifier:
+    arguments:
+      $webhookUrl: '%env(DISCORD_WEBHOOK_URL)%'
+
   # -- IMPLEMENTATIONS SELECTOR --
   CodelyTv\Shared\Domain\Bus\Event\EventBus: '@CodelyTv\Shared\Infrastructure\Bus\Event\WithMonitoring\WithPrometheusMonitoringEventBus'

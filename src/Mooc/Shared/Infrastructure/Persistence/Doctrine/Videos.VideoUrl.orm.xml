@@ -4,8 +4,8 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <embeddable name="CodelyTv\Mooc\Videos\Domain\VideoType">
-        <field name="value" type="string" column="type" />
+    <embeddable name="CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl">
+        <field name="value" type="string" column="url" />
     </embeddable>
 
 </doctrine-mapping>

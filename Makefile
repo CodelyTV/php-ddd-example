@@ -50,5 +50,5 @@ ping-rabbitmq:
 	@docker exec codely-php_ddd_skeleton-rabbitmq rabbitmqctl ping --silent
 
 clean-cache:
-	@rm -rf apps/*/*/var
+	@rm -rf apps/*/*/var/*
 	@docker exec codely-php_ddd_skeleton-mooc_backend-php ./apps/mooc/backend/bin/console cache:warmup

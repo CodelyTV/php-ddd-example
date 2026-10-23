@@ -9,7 +9,7 @@
 
         <field name="courseId" column="course_id" type="course_id" />
 
-        <embedded name="type" class="CodelyTv\Mooc\Videos\Domain\VideoType" use-column-prefix="false" />
+        <field name="type" column="type" type="string" enum-type="CodelyTv\Mooc\Videos\Domain\VideoType" />
         <embedded name="title" class="CodelyTv\Mooc\Videos\Domain\VideoTitle" use-column-prefix="false" />
         <embedded name="url" class="CodelyTv\Mooc\Shared\Domain\Videos\VideoUrl" use-column-prefix="false" />
     </entity>
