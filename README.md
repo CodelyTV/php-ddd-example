@@ -50,16 +50,18 @@
 
 ### 🔥 Application execution
 
-1. Install all the dependencies and bring up the project with Docker executing: `make build`
-2. Then you'll have 3 apps available (2 APIs and 1 Frontend):
+1. Install all the dependencies (runs Composer inside Docker, no local PHP needed): `make composer-install`
+2. Bring up the project with Docker: `make start`
+3. Then you'll have 3 apps available (2 APIs and 1 Frontend):
    1. [Mooc Backend](apps/mooc/backend): http://localhost:8030/health-check
    2. [Backoffice Backend](apps/backoffice/backend): http://localhost:8040/health-check
    3. [Backoffice Frontend](apps/backoffice/frontend): http://localhost:8041/health-check
 
 ### ✅ Tests execution
 
-1. Install the dependencies if you haven't done it previously: `make deps`
+1. Install the dependencies and start the containers if you haven't done it previously: `make composer-install && make start`
 2. Execute PHPUnit and Behat tests: `make test`
+3. Stop the containers when you're done: `make stop`
 
 ## 👩‍💻 Project explanation
 
